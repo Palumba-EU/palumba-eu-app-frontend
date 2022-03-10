@@ -3,6 +3,7 @@ import 'package:firebase_analytics/observer.dart';
 import 'package:flutter_boilerplate/modules/splash/splash_screen_page.dart';
 import 'package:flutter_boilerplate/routes/app_pages.dart';
 import 'package:flutter_boilerplate/styles/app_theme.dart';
+import 'package:flutter_boilerplate/utils/dependency_injection.dart';
 import 'package:flutter_boilerplate/utils/managers/dark_theme_manager.dart';
 import 'package:flutter_boilerplate/utils/managers/get_manager.dart';
 import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -17,12 +18,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'modules/splash/splash_screen_binding.dart';
 
 class EnvironmentConfig {
-  static const environment = String.fromEnvironment('ENV');
+  static const environment =
+      String.fromEnvironment('ENV', defaultValue: 'prod');
 }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  bool isInDebugMode = EnvironmentConfig.environment == "dev";
+  DependencyInjection.init();
 
   await Firebase.initializeApp();
 
@@ -31,6 +33,7 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
+  bool isInDebugMode = EnvironmentConfig.environment == "dev";
   if (isInDebugMode) {
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   } else {
@@ -87,11 +90,10 @@ class _MyApp extends State<MyApp> {
           Styles.darkMode = !Styles.darkMode;
           return GetMaterialApp(
             navigatorKey: navigatorKey,
-            debugShowCheckedModeBanner:
-            EnvironmentConfig.environment == "dev",
-            title: S.of(context).appName,
+            debugShowCheckedModeBanner: EnvironmentConfig.environment == "dev",
+            title: 'FlutterBoilerplate',
             theme: Styles.themeData(themeChangeProvider.darkTheme, context),
-            home: SplashPage(),
+            home: const SplashPage(),
             initialBinding: SplashBinding(),
             getPages: AppPages.pages,
             navigatorObservers: [
@@ -108,6 +110,5 @@ class _MyApp extends State<MyApp> {
         },
       ),
     );
-
   }
 }

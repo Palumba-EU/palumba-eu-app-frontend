@@ -13,7 +13,7 @@ class LocalAuth {
     await _storage.delete(key: KEY);
   }
 
-  Future<String> getSession() async {
+  Future<String?> getSession() async {
     return await _storage.read(key: KEY);
   }
 }

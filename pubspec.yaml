@@ -38,14 +38,14 @@ dependencies:
   provider: ^6.0.1
   jwt_decoder: ^2.0.1
   dart_jsonwebtoken: ^2.3.2
-  flutter_secure_storage: ^3.3.3
+  flutter_secure_storage: ^5.0.2
 
   # Native Specific Modules
   app_tracking_transparency: ^2.0.2+1
   package_info: ^2.0.2
   app_review: ^2.1.1+1
-  flutter_webview_plugin: ^0.4.0
-  flutter_html: ^2.1.5
+  webview_flutter: ^2.0.4
+  flutter_html: ^2.2.1
 
   # UI Modules
   lottie: ^1.2.1
@@ -75,12 +75,12 @@ dependencies:
   gql_websocket_link: ^0.3.1
 
   # Firebase Modules
-  firebase_messaging: ^10.0.8
-  firebase_analytics: ^8.3.3
+  firebase_messaging: any
+  firebase_analytics: ^9.1.2
   firebase_dynamic_links: ^2.0.10
-  firebase_in_app_messaging: ^0.5.0+10
-  firebase_crashlytics: ^2.2.3
-  firebase_performance: ^0.7.1+1
+  firebase_in_app_messaging: any
+  firebase_crashlytics: any
+  firebase_remote_config: ^2.0.0
 
 dev_dependencies:
   change_app_package_name: ^1.0.0 #flutter pub run change_app_package_name:main com.new.package.name
@@ -88,6 +88,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+
+dependency_overrides:
+  platform: ^3.1.0
 
 flutter_icons: #flutter pub run flutter_launcher_icons:main
   android: "launcher_icon"

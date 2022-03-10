@@ -24,7 +24,7 @@ class SplashController extends GetxController {
       _initData();
     } else {
       Get.offNamed(
-        AppRoutes.LOG_IN,
+        AppRoutes.logIn,
       );
     }
   }
@@ -38,7 +38,7 @@ class SplashController extends GetxController {
             : AppRoutes.TERMS_PRIVACY_POLICIES,
       );*/
     } else {
-      Get.offNamed(AppRoutes.LOG_IN,);
+      Get.offNamed(AppRoutes.logIn,);
     }
   }
 }

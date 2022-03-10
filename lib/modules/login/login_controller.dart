@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/data/repositories/remote/authentication_repository.dart';
 import 'package:flutter_boilerplate/data/repositories/remote/user_repository.dart';
-import 'package:flutter_boilerplate/global_widgets/alert.dart';
 import 'package:flutter_boilerplate/routes/app_routes.dart';
-import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:get/get.dart';
 
 class LogInController extends GetxController {
@@ -11,10 +9,10 @@ class LogInController extends GetxController {
   Get.find<AuthenticationRepository>();
   final UserRepository _userRepository = Get.find<UserRepository>();
 
-  TextEditingController _emailController = TextEditingController();
-  FocusNode _emailFocusNode = FocusNode();
-  TextEditingController _passwordController = TextEditingController();
-  FocusNode _passwordFocusNode = FocusNode();
+  final _emailController = TextEditingController();
+  final _emailFocusNode = FocusNode();
+  final _passwordController = TextEditingController();
+  final _passwordFocusNode = FocusNode();
   bool _isPasswordVisible = false;
   bool _isLoading = false;
 
@@ -65,6 +63,6 @@ class LogInController extends GetxController {
   }
 
   void forgotPassword() {
-    Get.toNamed(AppRoutes.RECOVER_PASSWORD);
+    Get.toNamed(AppRoutes.recoverPassword);
   }
 }

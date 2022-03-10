@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "779046204541",
+    "project_id": "boilerplate-afec6",
+    "storage_bucket": "boilerplate-afec6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779046204541:android:7aaf2ef88500f9d1a6ed14",
+        "android_client_info": {
+          "package_name": "com.example.flutter_boilerplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779046204541-41246h2ajrl925972l7aqbrfnr0qtvkv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKJqZ2YDYFumHGAmJDA4ZAWUcaV1xrYgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779046204541-41246h2ajrl925972l7aqbrfnr0qtvkv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

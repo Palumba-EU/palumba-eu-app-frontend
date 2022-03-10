@@ -8,13 +8,13 @@ import 'app_routes.dart';
 class AppPages {
   static final List<GetPage> pages = [
     GetPage(
-      name: AppRoutes.SPLASH,
-      page: () => SplashPage(),
+      name: AppRoutes.splash,
+      page: () => const SplashPage(),
       binding: SplashBinding(),
     ),
     GetPage(
-      name: AppRoutes.LOG_IN,
-      page: () => LogInPage(),
+      name: AppRoutes.logIn,
+      page: () => const LogInPage(),
       binding: LogInBinding(),
     ),
   ];

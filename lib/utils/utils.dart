@@ -184,8 +184,8 @@ class Utils {
   /*
   * Analytics and Statistics Usage Management
   * */
-  static FirebaseAnalytics analytics = FirebaseAnalytics();
-  static FirebaseInAppMessaging fiam = FirebaseInAppMessaging();
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseInAppMessaging fiam = FirebaseInAppMessaging.instance;
 
   static FirebaseAnalytics getAnalytics() {
     return analytics;
