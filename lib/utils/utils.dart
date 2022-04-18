@@ -1,10 +1,20 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/main.dart';
-import 'package:flutter_vibrate/flutter_vibrate.dart';
+import 'package:flutter_boilerplate/styles/app_theme.dart';
+import 'package:flutter_boilerplate/utils/managers/credentials_manager.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
+import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'managers/i18n_manager/translations/generated/l10n.dart';
 import 'managers/language_manager.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -16,6 +26,7 @@ class Utils {
       DateFormat('yyyy-MM-ddTHH:mm:ss.SSS', LanguageManager.getApiLanguage());
   static DateFormat dateFormatScheduleGet =
       DateFormat('yyyy-MM-ddTHH:mm:ssZ', LanguageManager.getApiLanguage());
+  static LatLng? currentLocation;
 
   /*
   * Loading Management
@@ -151,37 +162,44 @@ class Utils {
   }
 
   /*
-  * Vibrate Helpers
+  * Launcher
   * */
-  static vibrateOnTap() async {
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate) {
-      var _type = FeedbackType.light;
-      Vibrate.feedback(_type);
+  static launchMaps(List<double> geolocation, String? name) async {
+    LatLng location = LatLng(geolocation[0], geolocation[1]);
+    final availableMaps = await MapLauncher.installedMaps;
+    await availableMaps.first.showDirections(
+        destination: Coords(location.longitude, location.latitude),
+        destinationTitle: name ?? "",
+        directionsMode: DirectionsMode.walking);
+  }
+
+  static launchUrl(url) async {
+    if (await canLaunch(url)) {
+      await launch(url, forceSafariVC: false);
+    } else {
+      throw 'Could not launch';
     }
   }
 
-  static vibrateOnImpact() async {
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate) {
-      var _type = FeedbackType.impact;
-      Vibrate.feedback(_type);
-    }
+  /*
+  * Analytics and Statistics Usage Management
+  * */
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseInAppMessaging fiam = FirebaseInAppMessaging.instance;
+
+  static FirebaseAnalytics getAnalytics() {
+    return analytics;
   }
 
-  static vibrateOnHeavyTap() async {
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate) {
-      var _type = FeedbackType.heavy;
-      Vibrate.feedback(_type);
-    }
+  static FirebaseInAppMessaging getFIAM() {
+    return fiam;
   }
 
-  static vibrateOnErrorTap() async {
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate) {
-      var _type = FeedbackType.error;
-      Vibrate.feedback(_type);
+  static logEvent(String eventName, Map<String, dynamic> params) async {
+    try {
+      await Utils.getAnalytics().logEvent(name: eventName, parameters: params);
+    } catch (e) {
+      logger("Analytics error: $e");
     }
   }
 

@@ -11,27 +11,27 @@ class Styles {
   static const double smallBorderRadius = 2.0;
   static const double borderRadius = 12.0;
   static const double largeBorderRadius = 24.0;
-  static const double paddingValue = 20.0;
+  static const double paddingValue = 12.0;
 
   static const double fontSizeSmall = 12;
-  static const double fontSizeRegularText = 16;
+  static const double fontSizeRegularText = 14;
   static const double fontSizeMediumText = 16;
 
-  static const double fontSizeH1Title = 28;
-  static const double fontSizeH2Title = 24;
-  static const double fontSizeH3Title = 20;
+  static const double fontSizeH1Title = 18;
+  static const double fontSizeH2Title = 26;
+  static const double fontSizeH3Title = 32;
 
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
       brightness: isDarkTheme ? Brightness.dark : Brightness.light,
       platform:
           Platform.isAndroid ? TargetPlatform.android : TargetPlatform.iOS,
-      fontFamily: 'Means',
+      fontFamily: '',
       textTheme: TextTheme(
           bodyText1: TextStyle(
               color: isDarkTheme
                   ? const Color(0XFFF8F8F8)
-                  : const Color(0xffffffff))),
+                  : const Color(0xff222222))),
       backgroundColor: isDarkTheme ? const Color(0xff1F262E) : Colors.white,
       scaffoldBackgroundColor:
           isDarkTheme ? const Color(0xff323A43) : const Color(0XFFF8F8F8),
@@ -151,7 +151,6 @@ class Styles {
       overflow: maxLines != null ? TextOverflow.ellipsis : overflow,
       softWrap: softWrap,
       style: TextStyle(
-        fontFamily: '',
           fontSize: fontSizeSmall,
           color: color ?? Theme.of(context).textTheme.bodyText1!.color!,
           height: 1.2,
