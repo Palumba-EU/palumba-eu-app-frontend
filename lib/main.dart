@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:firebase_analytics/observer.dart';
 import 'package:flutter_boilerplate/modules/splash/splash_screen_page.dart';
 import 'package:flutter_boilerplate/routes/app_pages.dart';
 import 'package:flutter_boilerplate/styles/app_theme.dart';
@@ -10,11 +9,9 @@ import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/gen
 import 'package:flutter_boilerplate/utils/utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'modules/splash/splash_screen_binding.dart';
 
 class EnvironmentConfig {
@@ -25,21 +22,12 @@ class EnvironmentConfig {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DependencyInjection.init();
-
-  await Firebase.initializeApp();
-
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
   bool isInDebugMode = EnvironmentConfig.environment == "dev";
-  if (isInDebugMode) {
-    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-  } else {
-    await FirebaseCrashlytics.instance
-        .setCrashlyticsCollectionEnabled(!isInDebugMode);
-  }
 
   FlutterError.onError = (FlutterErrorDetails details) {
     if (isInDebugMode) {
@@ -49,10 +37,8 @@ void main() async {
     }
   };
 
-  runZonedGuarded(() {
-    setup();
-    runApp(MyApp());
-  }, FirebaseCrashlytics.instance.recordError);
+  setup();
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -91,14 +77,12 @@ class _MyApp extends State<MyApp> {
           return GetMaterialApp(
             navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: EnvironmentConfig.environment == "dev",
-            title: 'FlutterBoilerplate',
+            title: 'Noizz',
             theme: Styles.themeData(themeChangeProvider.darkTheme, context),
             home: const SplashPage(),
             initialBinding: SplashBinding(),
             getPages: AppPages.pages,
-            navigatorObservers: [
-              FirebaseAnalyticsObserver(analytics: Utils.getAnalytics()),
-            ],
+            navigatorObservers: [],
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
