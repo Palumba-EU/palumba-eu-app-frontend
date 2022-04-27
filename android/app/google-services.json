@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "352863072176",
-    "project_id": "bondy-95260",
-    "storage_bucket": "bondy-95260.appspot.com"
+    "project_number": "779046204541",
+    "project_id": "boilerplate-afec6",
+    "storage_bucket": "boilerplate-afec6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:352863072176:android:23da22ccb7bb9c1b813075",
+        "mobilesdk_app_id": "1:779046204541:android:7aaf2ef88500f9d1a6ed14",
         "android_client_info": {
-          "package_name": "com.bondy.app"
+          "package_name": "com.example.flutter_boilerplate"
         }
       },
       "oauth_client": [
         {
-          "client_id": "352863072176-24i4m1l5a4kahl02pvgj13dqquf4nppj.apps.googleusercontent.com",
+          "client_id": "779046204541-41246h2ajrl925972l7aqbrfnr0qtvkv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDBlE9NlXW4zSzID_EV3xT9BIgRU_o6CSY"
+          "current_key": "AIzaSyCKJqZ2YDYFumHGAmJDA4ZAWUcaV1xrYgI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "352863072176-24i4m1l5a4kahl02pvgj13dqquf4nppj.apps.googleusercontent.com",
+              "client_id": "779046204541-41246h2ajrl925972l7aqbrfnr0qtvkv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

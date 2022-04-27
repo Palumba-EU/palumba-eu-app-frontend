@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
             "Something is wrong on our side, please try it again later."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Oops!"),
-        "appName": MessageLookupByLibrary.simpleMessage("Bondy"),
+        "appName": MessageLookupByLibrary.simpleMessage("FlutterBoilerplate"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "no": MessageLookupByLibrary.simpleMessage("No"),

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>352863072176-pdn0ad6s2dk3isvq422mms4h2q68gijv.apps.googleusercontent.com</string>
+	<string>779046204541-7tb3llksa7nn7k5a31o6l5os4g2csi38.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.352863072176-pdn0ad6s2dk3isvq422mms4h2q68gijv</string>
+	<string>com.googleusercontent.apps.779046204541-7tb3llksa7nn7k5a31o6l5os4g2csi38</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB5sGeS9xeJe5ypjkwVruqEAC9doNiqwiU</string>
+	<string>AIzaSyBz3UnLZb8k54El7Bp_QtnPL5IpTH5BbRs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>352863072176</string>
+	<string>779046204541</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.bondy.app</string>
+	<string>com.example.flutterBoilerplate</string>
 	<key>PROJECT_ID</key>
-	<string>bondy-95260</string>
+	<string>boilerplate-afec6</string>
 	<key>STORAGE_BUCKET</key>
-	<string>bondy-95260.appspot.com</string>
+	<string>boilerplate-afec6.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:352863072176:ios:107277f8d3a21f12813075</string>
+	<string>1:779046204541:ios:052004105dd3bf14a6ed14</string>
 </dict>
 </plist>

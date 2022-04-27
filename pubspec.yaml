@@ -1,5 +1,5 @@
-name: bondy
-description: Bondy app with GetX and Provider
+name: flutter_boilerplate
+description: A new Flutter project boilerplate with GetX and Provider
 
 version: 1.0.0+1
 

@@ -1,4 +1,4 @@
-import 'package:bondy/data/provider/local/local_auth.dart';
+import 'package:flutter_boilerplate/data/provider/local/local_auth.dart';
 import 'package:get/get.dart';
 
 class LocalAuthRepository {

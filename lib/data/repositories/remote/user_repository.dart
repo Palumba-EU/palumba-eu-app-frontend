@@ -1,5 +1,5 @@
-import 'package:bondy/data/model/user.dart';
-import 'package:bondy/data/provider/remote/user_api.dart';
+import 'package:flutter_boilerplate/data/model/user.dart';
+import 'package:flutter_boilerplate/data/provider/remote/user_api.dart';
 import 'package:get/get.dart';
 
 class UserRepository {

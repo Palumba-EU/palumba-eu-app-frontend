@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:bondy/utils/managers/credentials_manager.dart';
+import 'package:flutter_boilerplate/utils/managers/credentials_manager.dart';
 
 class Styles {
   static bool darkMode = false;

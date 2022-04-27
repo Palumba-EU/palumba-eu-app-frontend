@@ -1,4 +1,4 @@
-import 'package:bondy/data/model/user.dart';
+import 'package:flutter_boilerplate/data/model/user.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {

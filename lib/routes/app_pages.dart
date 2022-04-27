@@ -1,7 +1,7 @@
-import 'package:bondy/modules/login/login_binding.dart';
-import 'package:bondy/modules/login/login_page.dart';
-import 'package:bondy/modules/splash/splash_screen_binding.dart';
-import 'package:bondy/modules/splash/splash_screen_page.dart';
+import 'package:flutter_boilerplate/modules/login/login_binding.dart';
+import 'package:flutter_boilerplate/modules/login/login_page.dart';
+import 'package:flutter_boilerplate/modules/splash/splash_screen_binding.dart';
+import 'package:flutter_boilerplate/modules/splash/splash_screen_page.dart';
 import 'package:get/route_manager.dart';
 import 'app_routes.dart';
 

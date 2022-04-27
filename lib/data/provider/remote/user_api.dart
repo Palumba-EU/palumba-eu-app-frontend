@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:bondy/data/model/user.dart';
-import 'package:bondy/data/repositories/local/config_data_repository.dart';
-import 'package:bondy/global_controllers/user_controller.dart';
-import 'package:bondy/utils/managers/credentials_manager.dart';
-import 'package:bondy/utils/utils.dart';
+import 'package:flutter_boilerplate/data/model/user.dart';
+import 'package:flutter_boilerplate/data/repositories/local/config_data_repository.dart';
+import 'package:flutter_boilerplate/global_controllers/user_controller.dart';
+import 'package:flutter_boilerplate/utils/managers/credentials_manager.dart';
+import 'package:flutter_boilerplate/utils/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 
