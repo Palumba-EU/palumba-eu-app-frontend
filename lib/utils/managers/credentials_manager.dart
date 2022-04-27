@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:flutter_boilerplate/main.dart';
+import 'package:bondy/main.dart';
 
 class CredentialsManager {
   static final bool useLocal = false;

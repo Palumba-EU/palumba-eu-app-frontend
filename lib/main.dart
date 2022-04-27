@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'package:firebase_analytics/observer.dart';
-import 'package:flutter_boilerplate/modules/splash/splash_screen_page.dart';
-import 'package:flutter_boilerplate/routes/app_pages.dart';
-import 'package:flutter_boilerplate/styles/app_theme.dart';
-import 'package:flutter_boilerplate/utils/dependency_injection.dart';
-import 'package:flutter_boilerplate/utils/managers/dark_theme_manager.dart';
-import 'package:flutter_boilerplate/utils/managers/get_manager.dart';
-import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:flutter_boilerplate/utils/utils.dart';
+import 'package:bondy/modules/splash/splash_screen_page.dart';
+import 'package:bondy/routes/app_pages.dart';
+import 'package:bondy/styles/app_theme.dart';
+import 'package:bondy/utils/dependency_injection.dart';
+import 'package:bondy/utils/managers/dark_theme_manager.dart';
+import 'package:bondy/utils/managers/get_manager.dart';
+import 'package:bondy/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:bondy/utils/utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -91,7 +91,7 @@ class _MyApp extends State<MyApp> {
           return GetMaterialApp(
             navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: EnvironmentConfig.environment == "dev",
-            title: 'FlutterBoilerplate',
+            title: 'Bondy',
             theme: Styles.themeData(themeChangeProvider.darkTheme, context),
             home: const SplashPage(),
             initialBinding: SplashBinding(),

@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `FlutterBoilerplate`
+  /// `Bondy`
   String get appName {
     return Intl.message(
-      'FlutterBoilerplate',
+      'Bondy',
       name: 'appName',
       desc: '',
       args: [],

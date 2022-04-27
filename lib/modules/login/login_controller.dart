@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/data/repositories/remote/authentication_repository.dart';
-import 'package:flutter_boilerplate/data/repositories/remote/user_repository.dart';
-import 'package:flutter_boilerplate/routes/app_routes.dart';
+import 'package:bondy/data/repositories/remote/authentication_repository.dart';
+import 'package:bondy/data/repositories/remote/user_repository.dart';
+import 'package:bondy/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class LogInController extends GetxController {

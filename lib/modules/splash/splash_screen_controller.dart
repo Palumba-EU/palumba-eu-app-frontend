@@ -1,7 +1,7 @@
-import 'package:flutter_boilerplate/data/repositories/local/config_data_repository.dart';
-import 'package:flutter_boilerplate/data/repositories/remote/user_repository.dart';
-import 'package:flutter_boilerplate/global_controllers/user_controller.dart';
-import 'package:flutter_boilerplate/routes/app_routes.dart';
+import 'package:bondy/data/repositories/local/config_data_repository.dart';
+import 'package:bondy/data/repositories/remote/user_repository.dart';
+import 'package:bondy/global_controllers/user_controller.dart';
+import 'package:bondy/routes/app_routes.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/get.dart';

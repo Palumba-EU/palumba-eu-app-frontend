@@ -1,4 +1,4 @@
-import 'package:flutter_boilerplate/data/provider/remote/authentication_api.dart';
+import 'package:bondy/data/provider/remote/authentication_api.dart';
 import 'package:get/get.dart';
 import 'package:meta/meta.dart' show required;
 
