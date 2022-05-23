@@ -56,13 +56,8 @@ dependencies:
   dotted_line: ^3.0.1
 
   # Geolocation Modules
-  google_maps_flutter: ^2.0.9
-  flutter_google_places: ^0.3.0
-  geocoder:
-    git:
-      https://github.com/nguyenxdat/flutter_geocoder.git
-  geolocator: ^7.7.0
-  map_launcher: ^2.0.0
+  google_maps_flutter: ^2.1.5
+  geolocator: ^8.2.1
 
   # GraphQL Modules
   json_annotation: ^4.0.1

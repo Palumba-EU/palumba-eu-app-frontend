@@ -1,20 +1,13 @@
-import 'dart:async';
-import 'dart:io';
-
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/main.dart';
-import 'package:flutter_boilerplate/styles/app_theme.dart';
-import 'package:flutter_boilerplate/utils/managers/credentials_manager.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
-import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
-import 'managers/i18n_manager/translations/generated/l10n.dart';
 import 'managers/language_manager.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -164,18 +157,17 @@ class Utils {
   /*
   * Launcher
   * */
-  static launchMaps(List<double> geolocation, String? name) async {
-    LatLng location = LatLng(geolocation[0], geolocation[1]);
-    final availableMaps = await MapLauncher.installedMaps;
-    await availableMaps.first.showDirections(
-        destination: Coords(location.longitude, location.latitude),
-        destinationTitle: name ?? "",
-        directionsMode: DirectionsMode.walking);
+  static launchUrl(Uri url) async {
+    if (await canLaunchUrl(url)) {
+      await canLaunchUrl(url);
+    } else {
+      throw 'Could not launch';
+    }
   }
 
-  static launchUrl(url) async {
-    if (await canLaunch(url)) {
-      await launch(url, forceSafariVC: false);
+  static launchUrlString(String url) async {
+    if (await canLaunchUrlString(url)) {
+      await canLaunchUrlString(url);
     } else {
       throw 'Could not launch';
     }
