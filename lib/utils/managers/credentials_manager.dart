@@ -1,66 +1,27 @@
 import 'dart:core';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-import 'package:flutter_boilerplate/main.dart';
 
 class CredentialsManager {
-  static final bool useLocal = false;
-  static final bool useDev = false;
-  static final String kGoogleApiKey = "";
-  static final String packageVersionApiKey = "";
-
-  static var gqlServerKeyURL = "";
-  static var _gqlServerDevUrl = "";
-  static var _gqlServerProdUrl = "";
-  static var _gqlServerLocalUrl = "";
-
-  static var _gqlSocketDevUrl = "";
-  static var _gqlSocketProdUrl = "";
-  static var _gqlSocketLocalUrl = "";
-
-  static var _devXApiKey = "";
-  static var _prodXApiKey = "";
-  static var _localXApiKey = "";
-
   static String getKeysURL() {
-    return gqlServerKeyURL;
+    return dotenv.get("AUTHENTICATION_KEY_URL");
   }
 
   static bool isDev() {
-    if (EnvironmentConfig.environment == "dev" || useDev) {
-      return true;
-    }
-    return false;
+    return dotenv.get("ENV") == "dev";
   }
+
   static String getServerURL() {
-    if (useLocal) {
-      return _gqlServerLocalUrl;
-    }
-    if (EnvironmentConfig.environment == "dev" || useDev) {
-      return _gqlServerDevUrl;
-    }
-    return _gqlServerProdUrl;
+    return dotenv.get("SERVER");
+
   }
+
   static String getSocketServerURL() {
-    if (useLocal) {
-      return _gqlSocketLocalUrl;
-    }
-    if (EnvironmentConfig.environment == "dev" || useDev) {
-      return _gqlSocketDevUrl;
-    }
-    return _gqlSocketProdUrl;
+    return dotenv.get("SOCKET_SERVER");
+
   }
 
   static String getAPIKey() {
-    if (useLocal) {
-      return _localXApiKey;
-    }
-    if (EnvironmentConfig.environment == "dev" || useDev) {
-      return _devXApiKey;
-    }
-    return _prodXApiKey;
-  }
-
-  static Map<String, String>? getHeaders() {
-    return {};
+    return dotenv.get("API_KEY");
   }
 }

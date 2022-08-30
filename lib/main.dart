@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:firebase_analytics/observer.dart';
 import 'package:flutter_boilerplate/modules/splash/splash_screen_page.dart';
 import 'package:flutter_boilerplate/routes/app_pages.dart';
 import 'package:flutter_boilerplate/styles/app_theme.dart';
@@ -10,11 +9,9 @@ import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/gen
 import 'package:flutter_boilerplate/utils/utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'modules/splash/splash_screen_binding.dart';
 
 class EnvironmentConfig {
@@ -26,7 +23,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DependencyInjection.init();
 
-  await Firebase.initializeApp();
+  //await Firebase.initializeApp();
 
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -35,10 +32,10 @@ void main() async {
 
   bool isInDebugMode = EnvironmentConfig.environment == "dev";
   if (isInDebugMode) {
-    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    //await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   } else {
-    await FirebaseCrashlytics.instance
-        .setCrashlyticsCollectionEnabled(!isInDebugMode);
+    // await FirebaseCrashlytics.instance
+    //     .setCrashlyticsCollectionEnabled(!isInDebugMode);
   }
 
   FlutterError.onError = (FlutterErrorDetails details) {
@@ -49,10 +46,14 @@ void main() async {
     }
   };
 
-  runZonedGuarded(() {
-    setup();
+
+  setup();
     runApp(MyApp());
-  }, FirebaseCrashlytics.instance.recordError);
+
+  // runZonedGuarded(() {
+  //   setup();
+  //   runApp(MyApp());
+  // }, FirebaseCrashlytics.instance.recordError);
 }
 
 class MyApp extends StatefulWidget {
@@ -97,7 +98,7 @@ class _MyApp extends State<MyApp> {
             initialBinding: SplashBinding(),
             getPages: AppPages.pages,
             navigatorObservers: [
-              FirebaseAnalyticsObserver(analytics: Utils.getAnalytics()),
+              //FirebaseAnalyticsObserver(analytics: Utils.getAnalytics()),
             ],
             localizationsDelegates: const [
               S.delegate,

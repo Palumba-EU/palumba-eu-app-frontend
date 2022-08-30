@@ -14,6 +14,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   intl: ^0.17.0
+  flutter_dotenv: ^5.0.2
 
   # Common Modules
   shared_preferences: ^2.0.7
@@ -25,9 +26,9 @@ dependencies:
   uuid: ^3.0.5
 
   # SSO Modules
-  sign_in_with_apple: ^3.2.0
-  google_sign_in: ^5.1.0
-  flutter_facebook_auth: ^3.5.2
+#  sign_in_with_apple: ^3.2.0
+#  google_sign_in: ^5.1.0
+#  flutter_facebook_auth: ^3.5.2
 
   # Core Modules
   get_it: ^7.2.0
@@ -41,23 +42,24 @@ dependencies:
   flutter_secure_storage: ^5.0.2
 
   # Native Specific Modules
-  app_tracking_transparency: ^2.0.2+1
-  package_info: ^2.0.2
-  app_review: ^2.1.1+1
-  webview_flutter: ^2.0.4
-  flutter_html: ^2.2.1
+  package_info_plus: ^1.4.3+1
+  #  app_tracking_transparency: ^2.0.2+1
+#  package_info: ^2.0.2
+#  app_review: ^2.1.1+1
+#  webview_flutter: ^2.0.4
+#  flutter_html: ^2.2.1
 
   # UI Modules
-  lottie: ^1.2.1
-  shimmer: ^2.0.0
-  dotted_border: ^2.0.0+1
-  flutter_sfsymbols: ^2.0.0
-  auto_size_text: ^3.0.0-nullsafety.0
-  dotted_line: ^3.0.1
+#  lottie: ^1.2.1
+#  shimmer: ^2.0.0
+#  dotted_border: ^2.0.0+1
+#  flutter_sfsymbols: ^2.0.0
+#  auto_size_text: ^3.0.0-nullsafety.0
+#  dotted_line: ^3.0.1
 
   # Geolocation Modules
-  google_maps_flutter: ^2.1.5
-  geolocator: ^8.2.1
+#  google_maps_flutter: ^2.1.5
+#  geolocator: ^8.2.1
 
   # GraphQL Modules
   json_annotation: ^4.0.1
@@ -70,12 +72,12 @@ dependencies:
   gql_websocket_link: ^0.3.1
 
   # Firebase Modules
-  firebase_messaging: any
-  firebase_analytics: ^9.1.2
-  firebase_dynamic_links: ^2.0.10
-  firebase_in_app_messaging: any
-  firebase_crashlytics: any
-  firebase_remote_config: ^2.0.0
+#  firebase_messaging: any
+#  firebase_analytics: ^9.1.2
+#  firebase_dynamic_links: ^2.0.10
+#  firebase_in_app_messaging: any
+#  firebase_crashlytics: any
+#  firebase_remote_config: ^2.0.0
 
 dev_dependencies:
   change_app_package_name: ^1.0.0 #flutter pub run change_app_package_name:main com.new.package.name

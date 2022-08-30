@@ -1,10 +1,6 @@
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/main.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
-import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -19,55 +15,7 @@ class Utils {
       DateFormat('yyyy-MM-ddTHH:mm:ss.SSS', LanguageManager.getApiLanguage());
   static DateFormat dateFormatScheduleGet =
       DateFormat('yyyy-MM-ddTHH:mm:ssZ', LanguageManager.getApiLanguage());
-  static LatLng? currentLocation;
 
-  /*
-  * Loading Management
-  * */
-  static Widget loading(_isLoading, context) {
-    return _isLoading == true
-        ? Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.black.withOpacity(0.3),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          blurRadius: 5,
-                          offset: const Offset(0.0, 0.0),
-                        )
-                      ],
-                      border: Border.all(
-                          color: Colors.black.withOpacity(0.5), width: 0.5),
-                      color: Colors.white.withOpacity(0.92),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(20))),
-                  child: Center(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(
-                          width: 70,
-                          height: 70,
-                          child: Lottie.asset(
-                              'assets/animations/ax_loading.json',
-                              repeat: true))
-                    ],
-                  )),
-                ),
-              ],
-            ))
-        : Container();
-  }
 
   /*
   * Date Utilities
@@ -176,15 +124,15 @@ class Utils {
   /*
   * Analytics and Statistics Usage Management
   * */
-  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  static FirebaseInAppMessaging fiam = FirebaseInAppMessaging.instance;
+  //static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  //static FirebaseInAppMessaging fiam = FirebaseInAppMessaging.instance;
 
-  static FirebaseAnalytics getAnalytics() {
-    return analytics;
+  static dynamic getAnalytics() {
+    return null;
   }
 
-  static FirebaseInAppMessaging getFIAM() {
-    return fiam;
+  static dynamic getFIAM() {
+    return null;
   }
 
   static logEvent(String eventName, Map<String, dynamic> params) async {
