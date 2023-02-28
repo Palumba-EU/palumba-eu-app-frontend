@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_boilerplate/modules/splash/splash_screen_page.dart';
 import 'package:flutter_boilerplate/routes/app_pages.dart';
 import 'package:flutter_boilerplate/styles/app_theme.dart';
@@ -7,6 +9,7 @@ import 'package:flutter_boilerplate/utils/managers/dark_theme_manager.dart';
 import 'package:flutter_boilerplate/utils/managers/get_manager.dart';
 import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:flutter_boilerplate/utils/utils.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +20,20 @@ import 'modules/splash/splash_screen_binding.dart';
 class EnvironmentConfig {
   static const environment =
       String.fromEnvironment('ENV', defaultValue: 'prod');
+
+  static bool get isDevelopmentMode => environment == 'dev';
 }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   DependencyInjection.init();
 
-  //await Firebase.initializeApp();
+  await Firebase.initializeApp();
+
+  await dotenv.load(
+    fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
+  );
 
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -32,10 +42,10 @@ void main() async {
 
   bool isInDebugMode = EnvironmentConfig.environment == "dev";
   if (isInDebugMode) {
-    //await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   } else {
-    // await FirebaseCrashlytics.instance
-    //     .setCrashlyticsCollectionEnabled(!isInDebugMode);
+    await FirebaseCrashlytics.instance
+        .setCrashlyticsCollectionEnabled(!isInDebugMode);
   }
 
   FlutterError.onError = (FlutterErrorDetails details) {
@@ -46,14 +56,10 @@ void main() async {
     }
   };
 
-
-  setup();
+  runZonedGuarded(() {
+    setup();
     runApp(MyApp());
-
-  // runZonedGuarded(() {
-  //   setup();
-  //   runApp(MyApp());
-  // }, FirebaseCrashlytics.instance.recordError);
+  }, FirebaseCrashlytics.instance.recordError);
 }
 
 class MyApp extends StatefulWidget {
