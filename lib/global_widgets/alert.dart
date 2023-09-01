@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/styles/app_theme.dart';
 import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -17,7 +16,7 @@ class Alert {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Styles.regularText(context, title),
-          content: Styles.regularText(context, text, color: Theme.of(context).textTheme.bodyText1!.color),
+          content: Styles.regularText(context, text,),
           actions: <Widget>[
             TextButton(
               child: Text(
@@ -45,7 +44,7 @@ class Alert {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Styles.regularText(context, title),
-          content: Styles.regularText(context, text, color: Theme.of(context).textTheme.bodyText1!.color),
+          content: Styles.regularText(context, text,),
           actions: <Widget>[
             TextButton(
               child: Text(
@@ -82,7 +81,7 @@ class Alert {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Styles.regularText(context, S.of(context).alertServerErrorTitle),
-          content: Styles.regularText(context, S.of(context).alertServerErrorText, color: Theme.of(context).textTheme.bodyText1!.color),
+          content: Styles.regularText(context, S.of(context).alertServerErrorText,),
           actions: <Widget>[
             TextButton(
               child: Text(

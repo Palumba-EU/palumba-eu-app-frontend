@@ -9,13 +9,6 @@ class AuthenticationAPI {
   final LocalAuthRepository _localAuthRepository =
       Get.find<LocalAuthRepository>();
 
-  final logInEndpoint = '';
-  final signUpEndpoint = '';
-  final pwdRecoveryEndpoint = '';
-  final validateJWTEndpoint = '';
-  final signOutEndpoint = '';
-  final refreshTokenEndpoint = '';
-
   Future<String?> signIn(String email, String password) async {
     try {
       logger("");

@@ -6,7 +6,6 @@ import 'package:flutter_boilerplate/routes/app_pages.dart';
 import 'package:flutter_boilerplate/styles/app_theme.dart';
 import 'package:flutter_boilerplate/utils/dependency_injection.dart';
 import 'package:flutter_boilerplate/utils/managers/dark_theme_manager.dart';
-import 'package:flutter_boilerplate/utils/managers/get_manager.dart';
 import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:flutter_boilerplate/utils/utils.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -57,7 +56,6 @@ void main() async {
   };
 
   runZonedGuarded(() {
-    setup();
     runApp(MyApp());
   }, FirebaseCrashlytics.instance.recordError);
 }

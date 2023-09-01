@@ -1,13 +1,15 @@
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_boilerplate/utils/managers/credentials_manager.dart';
 
 class Styles {
   static bool darkMode = false;
+
+  static const Color colorText = Color(0xFF323232);
   static const Color inputFillColorLight = Color(0XFFf1f1f1);
   static const Color inputFillColorDark = Color(0XFF444E5E);
+
   static const double smallBorderRadius = 2.0;
   static const double borderRadius = 12.0;
   static const double largeBorderRadius = 24.0;
@@ -27,27 +29,16 @@ class Styles {
       platform:
           Platform.isAndroid ? TargetPlatform.android : TargetPlatform.iOS,
       fontFamily: '',
-      textTheme: TextTheme(
-          bodyText1: TextStyle(
-              color: isDarkTheme
-                  ? const Color(0XFFF8F8F8)
-                  : const Color(0xff222222))),
-      backgroundColor: isDarkTheme ? const Color(0xff1F262E) : Colors.white,
+      textTheme: Theme.of(context).textTheme.apply(
+        bodyColor: colorText,
+      ),
       scaffoldBackgroundColor:
           isDarkTheme ? const Color(0xff323A43) : const Color(0XFFF8F8F8),
       colorScheme: ColorScheme(
         primary: CredentialsManager.isDev()
             ? const Color(0xFFF15657)
             : const Color(0xFFF15657),
-        primaryVariant: CredentialsManager.isDev()
-            ? const Color(0xFFF15657)
-            : const Color(0xFFF15657),
         secondary: isDarkTheme
-            ? Colors.white
-            : CredentialsManager.isDev()
-                ? const Color(0xFFF15657)
-                : const Color(0xFFF15657),
-        secondaryVariant: isDarkTheme
             ? Colors.white
             : CredentialsManager.isDev()
                 ? const Color(0xFFF15657)
@@ -97,7 +88,7 @@ class Styles {
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
           fontSize: fontSizeH1Title,
-          color: color ?? Theme.of(context).textTheme.bodyText1!.color!,
+          color: color ?? Styles.colorText,
           fontWeight: FontWeight.w600,
           decoration: decoration),
     );
@@ -112,7 +103,7 @@ class Styles {
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
           fontSize: fontSizeH2Title,
-          color: color ?? Theme.of(context).textTheme.bodyText1!.color!,
+          color: color ?? Styles.colorText,
           fontWeight: FontWeight.w600,
           decoration: decoration),
     );
@@ -127,7 +118,7 @@ class Styles {
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
           fontSize: fontSizeH3Title,
-          color: color ?? Theme.of(context).textTheme.bodyText1!.color!,
+          color: color ?? Styles.colorText,
           fontWeight: FontWeight.w600,
           decoration: decoration),
     );
@@ -152,7 +143,7 @@ class Styles {
       softWrap: softWrap,
       style: TextStyle(
           fontSize: fontSizeSmall,
-          color: color ?? Theme.of(context).textTheme.bodyText1!.color!,
+          color: color ?? Styles.colorText,
           height: 1.2,
           fontWeight: FontWeight.w300,
           decoration: decoration),
@@ -168,7 +159,7 @@ class Styles {
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
           fontSize: fontSizeRegularText,
-          color: color ?? Theme.of(context).textTheme.bodyText1!.color!,
+          color: color ?? Styles.colorText,
           height: 1.2,
           fontWeight: FontWeight.w400,
           decoration: decoration),
@@ -184,7 +175,7 @@ class Styles {
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
           fontSize: fontSizeRegularText,
-          color: color ?? Theme.of(context).textTheme.bodyText1!.color!,
+          color: color ?? Styles.colorText,
           height: 1.2,
           fontWeight: FontWeight.w600,
           decoration: decoration),
@@ -200,7 +191,7 @@ class Styles {
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
           fontSize: fontSizeRegularText,
-          color: color ?? Theme.of(context).textTheme.bodyText1!.color!,
+          color: color ?? Styles.colorText,
           fontWeight: FontWeight.bold,
           decoration: decoration),
     );

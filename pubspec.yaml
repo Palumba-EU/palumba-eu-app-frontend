@@ -13,7 +13,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
-  intl: ^0.17.0
+  intl: ^0.18.1
+  intl_utils: ^2.8.4
   flutter_dotenv: ^5.0.2
 
   # Common Modules
@@ -31,10 +32,10 @@ dependencies:
   get_it: ^7.2.0
   get: ^4.6.5
   provider: ^6.0.5
-  flutter_secure_storage: ^8.0.0
+  flutter_secure_storage: ^9.0.0
 
   # Native Specific Modules
-  package_info_plus: ^3.0.3
+  package_info_plus: ^4.1.0
   #  app_tracking_transparency: ^2.0.2+1
   #  package_info: ^2.0.2
   #  app_review: ^2.1.1+1
@@ -42,7 +43,7 @@ dependencies:
   #  flutter_html: ^2.2.1
 
   # UI Modules
-  shimmer: ^2.0.0
+  shimmer: ^3.0.0
   #  lottie: ^1.2.1
   #  dotted_border: ^2.0.0+1
   #  flutter_sfsymbols: ^2.0.0
@@ -63,9 +64,8 @@ dependencies:
   graphql_flutter: ^5.1.2
 
   # Firebase Modules
-  firebase_core: ^2.7.0
-  firebase_messaging: 14.2.5
-  firebase_crashlytics: 3.0.15
+  firebase_messaging: ^14.6.7
+  firebase_crashlytics: ^3.3.5
   #  firebase_analytics: ^9.1.2
   #  firebase_dynamic_links: ^2.0.10
   #  firebase_in_app_messaging: any

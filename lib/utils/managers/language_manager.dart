@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:ui' as ui;
+import 'dart:ui';
 
 class LanguageManager {
   static String? currentLanguage = 'en';
@@ -26,7 +25,7 @@ class LanguageManager {
     currentLanguage = sharedPreferences.getString("language");
     if (currentLanguage == null) {
       currentLanguage = 'en';
-      currentLanguage = ui.window.locale.languageCode;
+      currentLanguage = PlatformDispatcher.instance.locale.languageCode;
     }
   }
 
@@ -60,7 +59,7 @@ class LanguageManager {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     currentLanguage = prefs.getString("language");
     if (currentLanguage == null) {
-      var lg = ui.window.locale.languageCode;
+      var lg = PlatformDispatcher.instance.locale.languageCode;
       return Locale(lg, getLocaleCountry(lg));
     }
     return Locale(currentLanguage!, getLocaleCountry(currentLanguage));
