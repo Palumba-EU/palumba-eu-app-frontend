@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `Yes`
+  /// `Sí`
   String get yes {
     return Intl.message(
-      'Yes',
+      'Sí',
       name: 'yes',
       desc: '',
       args: [],
@@ -90,50 +90,50 @@ class S {
     );
   }
 
-  /// `Cancel`
+  /// `Cancelar`
   String get cancel {
     return Intl.message(
-      'Cancel',
+      'Cancelar',
       name: 'cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `Select`
+  /// `Seleccionar`
   String get select {
     return Intl.message(
-      'Select',
+      'Seleccionar',
       name: 'select',
       desc: '',
       args: [],
     );
   }
 
-  /// `Oops!`
+  /// `Ups!`
   String get alertServerErrorTitle {
     return Intl.message(
-      'Oops!',
+      'Ups!',
       name: 'alertServerErrorTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Something is wrong on our side, please try it again later.`
+  /// `Algo ha salido mal por nuestra parte, por favor, prueba de nuevo más tarde.`
   String get alertServerErrorText {
     return Intl.message(
-      'Something is wrong on our side, please try it again later.',
+      'Algo ha salido mal por nuestra parte, por favor, prueba de nuevo más tarde.',
       name: 'alertServerErrorText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Confirm`
+  /// `Confirmar`
   String get confirm {
     return Intl.message(
-      'Confirm',
+      'Confirmar',
       name: 'confirm',
       desc: '',
       args: [],
@@ -146,7 +146,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'es'),
     ];
   }
 

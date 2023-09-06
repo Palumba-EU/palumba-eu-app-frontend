@@ -4,7 +4,7 @@ description: A new Flutter project boilerplate with GetX and Provider
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -29,7 +29,6 @@ dependencies:
   #  flutter_facebook_auth: ^3.5.2
 
   # Core Modules
-  get_it: ^7.2.0
   get: ^4.6.5
   provider: ^6.0.5
   flutter_secure_storage: ^9.0.0
@@ -54,14 +53,11 @@ dependencies:
   #  google_maps_flutter: ^2.1.5
   #  geolocator: ^8.2.1
 
-  # GraphQL Modules
-  json_annotation: ^4.7.0
-  equatable: ^2.0.5
-  meta: ^1.8.0
-  gql: ^0.14.0
-  artemis: ^7.11.0-beta.1
-  jose: ^0.3.3
+  # API Modules
   graphql_flutter: ^5.1.2
+  graphql_codegen: ^0.13.5
+  http: ^0.13.0
+  jose: ^0.3.3
 
   # Firebase Modules
   firebase_messaging: ^14.6.7
@@ -88,7 +84,7 @@ flutter_icons: #flutter pub run flutter_launcher_icons:main
 flutter_intl:
   enabled: true
   class_name: S
-  main_locale: en
+  main_locale: es
   arb_dir: lib/utils/managers/i18n_manager/translations/l10n
   output_dir: lib/utils/managers/i18n_manager/translations/generated
 

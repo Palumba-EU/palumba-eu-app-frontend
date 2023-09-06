@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:ui';
 
 class LanguageManager {
-  static String? currentLanguage = 'en';
+  static String? currentLanguage = 'es';
   static late SharedPreferences sharedPreferences;
   static Locale? language;
 
@@ -24,21 +24,21 @@ class LanguageManager {
     sharedPreferences = await SharedPreferences.getInstance();
     currentLanguage = sharedPreferences.getString("language");
     if (currentLanguage == null) {
-      currentLanguage = 'en';
+      currentLanguage = 'es';
       currentLanguage = PlatformDispatcher.instance.locale.languageCode;
     }
   }
 
   static String? getCurrentLanguage() {
     if (currentLanguage == null) {
-      return 'en';
+      return 'es';
     }
     return currentLanguage;
   }
 
   static String getApiLanguage() {
     String? language = LanguageManager.getCurrentLanguage();
-    return 'en-us';
+    return 'es-es';
   }
 
   static setLanguage(String newLocale) async {
@@ -66,6 +66,6 @@ class LanguageManager {
   }
 
   static String getLocaleCountry(String? language) {
-    return 'US';
+    return 'ES';
   }
 }

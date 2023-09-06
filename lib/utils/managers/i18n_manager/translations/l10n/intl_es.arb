@@ -1,0 +1,12 @@
+{
+  "@@locale": "es",
+  "appName": "FlutterBoilerplate",
+  "ok": "Ok",
+  "yes": "Sí",
+  "no": "No",
+  "cancel": "Cancelar",
+  "select": "Seleccionar",
+  "alertServerErrorTitle": "Ups!",
+  "alertServerErrorText": "Algo ha salido mal por nuestra parte, por favor, prueba de nuevo más tarde.",
+  "confirm": "Confirmar"
+}

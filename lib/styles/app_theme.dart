@@ -89,7 +89,7 @@ class Styles {
       style: TextStyle(
           fontSize: fontSizeH1Title,
           color: color ?? Styles.colorText,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.bold,
           decoration: decoration),
     );
   }
@@ -104,7 +104,7 @@ class Styles {
       style: TextStyle(
           fontSize: fontSizeH2Title,
           color: color ?? Styles.colorText,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.bold,
           decoration: decoration),
     );
   }
@@ -119,7 +119,7 @@ class Styles {
       style: TextStyle(
           fontSize: fontSizeH3Title,
           color: color ?? Styles.colorText,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.bold,
           decoration: decoration),
     );
   }
@@ -132,7 +132,6 @@ class Styles {
       decoration = TextDecoration.none,
       textAlign,
       maxLines,
-      fontSize,
       softWrap,
       overflow}) {
     return Text(
@@ -151,47 +150,48 @@ class Styles {
   }
 
   static Widget regularText(context, text,
-      {color, decoration = TextDecoration.none, textAlign, maxLines}) {
+      {fontSize, color, height, decoration = TextDecoration.none, textAlign, maxLines}) {
     return Text(
       text,
       textAlign: textAlign,
       maxLines: maxLines,
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
-          fontSize: fontSizeRegularText,
+          fontSize: fontSize ?? fontSizeRegularText,
           color: color ?? Styles.colorText,
-          height: 1.2,
+          height: height ?? 1.2,
           fontWeight: FontWeight.w400,
           decoration: decoration),
     );
   }
 
   static Widget demiBoldText(context, text,
-      {color, decoration = TextDecoration.none, textAlign, maxLines}) {
+      {fontSize, color, height, decoration = TextDecoration.none, textAlign, maxLines}) {
     return Text(
       text,
       textAlign: textAlign,
       maxLines: maxLines,
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
-          fontSize: fontSizeRegularText,
+          fontSize: fontSize ?? fontSizeRegularText,
           color: color ?? Styles.colorText,
-          height: 1.2,
+          height: height ?? 1.2,
           fontWeight: FontWeight.w600,
           decoration: decoration),
     );
   }
 
   static Widget boldText(context, text,
-      {color, decoration = TextDecoration.none, textAlign, maxLines}) {
+      {fontSize, color, height, decoration = TextDecoration.none, textAlign, maxLines}) {
     return Text(
       text,
       textAlign: textAlign,
       maxLines: maxLines,
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
-          fontSize: fontSizeRegularText,
+          fontSize: fontSize ?? fontSizeRegularText,
           color: color ?? Styles.colorText,
+          height: height ?? 1.2,
           fontWeight: FontWeight.bold,
           decoration: decoration),
     );
