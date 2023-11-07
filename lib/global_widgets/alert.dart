@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/styles/app_theme.dart';
 import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:get/get.dart';
 
@@ -15,8 +15,8 @@ class Alert {
       barrierDismissible: barrierDismissible ?? true,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Styles.regularText(context, title),
-          content: Styles.regularText(context, text,),
+          title: DUI.text.regular(context, title),
+          content: DUI.text.regular(context, text),
           actions: <Widget>[
             TextButton(
               child: Text(
@@ -43,8 +43,8 @@ class Alert {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Styles.regularText(context, title),
-          content: Styles.regularText(context, text,),
+          title: DUI.text.regular(context, title),
+          content: DUI.text.regular(context, text,),
           actions: <Widget>[
             TextButton(
               child: Text(
@@ -80,8 +80,8 @@ class Alert {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Styles.regularText(context, S.of(context).alertServerErrorTitle),
-          content: Styles.regularText(context, S.of(context).alertServerErrorText,),
+          title: DUI.text.regular(context, S.of(context).alertServerErrorTitle),
+          content: DUI.text.regular(context, S.of(context).alertServerErrorText,),
           actions: <Widget>[
             TextButton(
               child: Text(

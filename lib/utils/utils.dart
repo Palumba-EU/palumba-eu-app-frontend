@@ -4,58 +4,21 @@ import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import 'managers/language_manager.dart';
-
 final navigatorKey = GlobalKey<NavigatorState>();
 
 class Utils {
   static final RegExp mailRegExp = RegExp(
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-  static DateFormat dateFormatScheduleSet =
-      DateFormat('yyyy-MM-ddTHH:mm:ss.SSS', LanguageManager.getApiLanguage());
-  static DateFormat dateFormatScheduleGet =
-      DateFormat('yyyy-MM-ddTHH:mm:ssZ', LanguageManager.getApiLanguage());
-
 
   /*
   * Date Utilities
   * */
-
   static String getDate(date, format) {
     return DateFormat('dd/MM/yyyy').format(format.parse(date));
   }
 
-  static String getNiceDateMinus10(date, format) {
-    try {
-      return '${DateFormat('EE, dd/MM/yy, HH:mm', LanguageManager.getApiLanguage()).format(format.parseUTC(date).toLocal())}h';
-    } catch (e) {
-      return '';
-    }
-  }
-
-  static String getNiceDate(date, format) {
-    try {
-      return '${DateFormat('dd MMMM yyyy, HH:mm', LanguageManager.getApiLanguage()).format(format.parseUTC(date).toLocal())}h';
-    } catch (e) {
-      return '';
-    }
-  }
-
-  static String getNiceSmallDate(date, format) {
-    try {
-      return '${DateFormat('dd MMM, HH:mm', LanguageManager.getApiLanguage()).format(format.parseUTC(date).toLocal())}h';
-    } catch (e) {
-      return '';
-    }
-  }
-
-  static String getNiceSmallDateNoHour(date, format) {
-    try {
-      return DateFormat('dd MMM', LanguageManager.getApiLanguage())
-          .format(format.parseUTC(date).toLocal());
-    } catch (e) {
-      return '';
-    }
+  static String getTime(date, format) {
+    return DateFormat('HH:mm').format(format.parseUTC(date).toLocal());
   }
 
   static String formatMinutes(int minutes, {bool removeTrailing = false}) {
@@ -65,10 +28,6 @@ class Utils {
       return '${parts[0].padLeft(1, '0')} ${removeTrailing ? '' : 'h'}';
     }
     return "$minutes${removeTrailing ? '' : '\''}";
-  }
-
-  static String getTime(date, format) {
-    return DateFormat('HH:mm').format(format.parseUTC(date).toLocal());
   }
 
   static bool timeOfDayIsBefore(TimeOfDay a, TimeOfDay b) {
@@ -124,15 +83,15 @@ class Utils {
   /*
   * Analytics and Statistics Usage Management
   * */
-  //static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  //static FirebaseInAppMessaging fiam = FirebaseInAppMessaging.instance;
+  /*static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseInAppMessaging fiam = FirebaseInAppMessaging.instance;
 
   static dynamic getAnalytics() {
-    return null;
+    return analytics;
   }
 
   static dynamic getFIAM() {
-    return null;
+    return fiam;
   }
 
   static logEvent(String eventName, Map<String, dynamic> params) async {
@@ -141,18 +100,12 @@ class Utils {
     } catch (e) {
       logger("Analytics error: $e");
     }
-  }
+  }*/
 
   /*
   * Sign Out
   * */
   static resetData() {}
-}
-
-logger(dynamic log) {
-  if (EnvironmentConfig.environment == "dev") {
-    print(log);
-  }
 }
 
 extension StringExtension on String {

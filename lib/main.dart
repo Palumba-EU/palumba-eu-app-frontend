@@ -1,9 +1,9 @@
 import 'dart:ui';
+import 'package:dui/dui.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_boilerplate/modules/splash/splash_screen_page.dart';
 import 'package:flutter_boilerplate/routes/app_pages.dart';
-import 'package:flutter_boilerplate/styles/app_theme.dart';
 import 'package:flutter_boilerplate/utils/dependency_injection.dart';
 import 'package:flutter_boilerplate/utils/managers/dark_theme_manager.dart';
 import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -88,7 +88,6 @@ class _MyApp extends State<MyApp> {
   void getCurrentAppTheme() async {
     themeChangeProvider.darkTheme =
         await themeChangeProvider.darkThemePreference.getTheme(context);
-    Styles.darkMode = themeChangeProvider.darkTheme;
   }
 
   @override
@@ -99,12 +98,11 @@ class _MyApp extends State<MyApp> {
       },
       child: Consumer<DarkThemeProvider>(
         builder: (BuildContext context, value, Widget? child) {
-          Styles.darkMode = !Styles.darkMode;
           return GetMaterialApp(
             navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: EnvironmentConfig.environment == "dev",
             title: 'FlutterBoilerplate',
-            theme: Styles.themeData(themeChangeProvider.darkTheme, context),
+            theme: DUI.theme.themeData(false),
             home: const SplashPage(),
             initialBinding: SplashBinding(),
             getPages: AppPages.pages,

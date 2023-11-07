@@ -1,6 +1,5 @@
-import 'dart:convert';
 import 'package:flutter_boilerplate/data/repositories/local/config_data_repository.dart';
-import 'package:flutter_boilerplate/utils/managers/credentials_manager.dart';
+
 import 'package:flutter_boilerplate/utils/utils.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -11,55 +10,60 @@ class AuthenticationAPI {
 
   Future<String?> signIn(String email, String password) async {
     try {
-      logger("");
+      Logger.log("");
       return null;
     } catch (c) {
-      logger("$c");
+      Logger.log("$c");
       return null;
     }
   }
+
   Future<String?> signUp(String email, String password) async {
     try {
-      logger("");
+      Logger.log("");
       return null;
     } catch (c) {
-      logger("$c");
+      Logger.log("$c");
       return null;
     }
   }
+
   Future<String?> passwordRecovery(String email) async {
     try {
-      logger("");
+      Logger.log("");
       return null;
     } catch (c) {
-      logger("$c");
+      Logger.log("$c");
       return null;
     }
   }
+
   Future<bool> refreshToken() async {
     try {
-      logger("");
+      Logger.log("");
       return false;
     } catch (c) {
-      logger("$c");
+      Logger.log("$c");
       return false;
     }
   }
+
   Future<bool> signOut() async {
     try {
-      logger("");
+      Logger.log("");
       return false;
     } catch (c) {
-      logger("$c");
+      Logger.log("$c");
       return false;
     }
   }
+
   Future<bool> validateJWT() async {
     try {
-      logger("");
+      Logger.log("");
       return false;
     } catch (c) {
-      logger("$c");
+      Logger.log("$c");
       return false;
     }
   }
