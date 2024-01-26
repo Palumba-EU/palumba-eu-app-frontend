@@ -1,5 +1,5 @@
 import 'package:flutter_boilerplate/data/model/user.dart';
-import 'package:flutter_boilerplate/data/repositories/local/config_data_repository.dart';
+import 'package:flutter_boilerplate/data/repositories/local/local_auth_repository.dart';
 import 'package:flutter_boilerplate/global_controllers/user_controller.dart';
 
 import 'package:flutter_boilerplate/utils/utils.dart';

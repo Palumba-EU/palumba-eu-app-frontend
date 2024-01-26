@@ -1,5 +1,5 @@
+import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/global_widgets/loading.dart';
 import 'package:get/get.dart';
 import 'login_controller.dart';
 
@@ -18,9 +18,7 @@ class LogInPage extends StatelessWidget {
                 id: 'loading',
                 builder: (_) {
                   return _.isLoading
-                      ? const Loading(
-                    indicatorColor: Colors.white,
-                  )
+                      ? DUI.misc.loadingAnimation(context)
                       : SizedBox.shrink();
                 },
               ),

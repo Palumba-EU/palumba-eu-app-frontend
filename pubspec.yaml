@@ -34,9 +34,8 @@ dependencies:
   flutter_secure_storage: ^9.0.0
 
   # Native Specific Modules
-  package_info_plus: ^4.1.0
-  #  app_tracking_transparency: ^2.0.2+1
-  #  package_info: ^2.0.2
+  package_info_plus: ^5.0.1
+  app_tracking_transparency: ^2.0.2+1
   #  app_review: ^2.1.1+1
   #  webview_flutter: ^2.0.4
   #  flutter_html: ^2.2.1

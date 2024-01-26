@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 import 'package:dui/dui.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,47 +25,33 @@ class EnvironmentConfig {
 }
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  DependencyInjection.init();
+    DependencyInjection.init();
 
-  await Firebase.initializeApp();
+    await Firebase.initializeApp();
 
-  await dotenv.load(
-    fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
-  );
+    await dotenv.load(
+      fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
+    );
 
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
-  const fatalError = true;
-  FlutterError.onError = (errorDetails) {
-    if (fatalError) {
-      // If you want to record a "fatal" exception
-      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-      // ignore: dead_code
-    } else {
-      // If you want to record a "non-fatal" exception
-      FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
-    }
-  };
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
-  // Async exceptions
-  PlatformDispatcher.instance.onError = (error, stack) {
-    if (fatalError) {
-      // If you want to record a "fatal" exception
-      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-      // ignore: dead_code
-    } else {
-      // If you want to record a "non-fatal" exception
-      FirebaseCrashlytics.instance.recordError(error, stack);
-    }
-    return true;
-  };
-
-  runApp(MyApp());
+    runApp(MyApp());
+  }, (Object error, StackTrace stack) {
+    FirebaseCrashlytics.instance.recordError(
+      error,
+      StackTrace.current,
+      reason: error.toString(),
+      fatal: false,
+    );
+  });
 }
 
 class MyApp extends StatefulWidget {
@@ -102,13 +89,15 @@ class _MyApp extends State<MyApp> {
             navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: EnvironmentConfig.environment == "dev",
             title: 'FlutterBoilerplate',
+            themeMode: ThemeMode.system,
             theme: DUI.theme.themeData(false),
+            darkTheme: DUI.theme.themeData(true),
             home: const SplashPage(),
             initialBinding: SplashBinding(),
             getPages: AppPages.pages,
-            navigatorObservers: [
-              //FirebaseAnalyticsObserver(analytics: Utils.getAnalytics()),
-            ],
+            /*navigatorObservers: [
+              FirebaseAnalyticsObserver(analytics: Utils.getAnalytics()),
+            ],*/
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,

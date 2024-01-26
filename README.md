@@ -1,6 +1,6 @@
 # Flutter Boilerplate (Dribba layout)
 
-📲 Flutter version: 3.13.2
+📲 Flutter version: 3.16.8
 
 ⭐️Flutter 3.0 (with sound null safety)⭐️
 

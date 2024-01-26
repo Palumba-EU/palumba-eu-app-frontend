@@ -1,4 +1,4 @@
-import 'package:flutter_boilerplate/data/repositories/local/config_data_repository.dart';
+import 'package:flutter_boilerplate/data/repositories/local/local_auth_repository.dart';
 
 import 'package:flutter_boilerplate/utils/utils.dart';
 import 'package:get/get.dart';
