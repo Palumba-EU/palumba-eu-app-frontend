@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "779046204541",
-    "project_id": "boilerplate-afec6",
-    "storage_bucket": "boilerplate-afec6.appspot.com"
+    "project_number": "1080153158864",
+    "project_id": "palumba-14fae",
+    "storage_bucket": "palumba-14fae.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:779046204541:android:7aaf2ef88500f9d1a6ed14",
+        "mobilesdk_app_id": "1:1080153158864:android:f993acbb31a49325c39ad5",
         "android_client_info": {
-          "package_name": "com.example.flutter_boilerplate"
+          "package_name": "com.palumba.app"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "779046204541-41246h2ajrl925972l7aqbrfnr0qtvkv.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCKJqZ2YDYFumHGAmJDA4ZAWUcaV1xrYgI"
+          "current_key": "AIzaSyC6gB4a2LVS84fhX06E6TL3-q0_HAkGaFs"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "779046204541-41246h2ajrl925972l7aqbrfnr0qtvkv.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

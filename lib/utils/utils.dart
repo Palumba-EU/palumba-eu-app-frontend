@@ -1,7 +1,7 @@
 import 'package:dui/common_utils/alert.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/main.dart';
-import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/main.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:get/get.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();

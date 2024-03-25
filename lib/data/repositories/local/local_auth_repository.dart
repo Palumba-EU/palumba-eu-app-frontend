@@ -1,4 +1,4 @@
-import 'package:flutter_boilerplate/data/provider/local/local_auth.dart';
+import 'package:palumba_eu/data/provider/local/local_auth.dart';
 import 'package:get/get.dart';
 
 class LocalAuthRepository {

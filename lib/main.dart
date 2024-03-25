@@ -3,12 +3,12 @@ import 'dart:ui';
 import 'package:dui/dui.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter_boilerplate/modules/splash/splash_screen_page.dart';
-import 'package:flutter_boilerplate/routes/app_pages.dart';
-import 'package:flutter_boilerplate/utils/dependency_injection.dart';
-import 'package:flutter_boilerplate/utils/managers/dark_theme_manager.dart';
-import 'package:flutter_boilerplate/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:flutter_boilerplate/utils/utils.dart';
+import 'package:palumba_eu/modules/splash/splash_screen_page.dart';
+import 'package:palumba_eu/routes/app_pages.dart';
+import 'package:palumba_eu/utils/dependency_injection.dart';
+import 'package:palumba_eu/utils/managers/dark_theme_manager.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/utils.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'modules/splash/splash_screen_binding.dart';
+import 'utils/app_theme_data.dart';
 
 class EnvironmentConfig {
   static const environment =
@@ -88,10 +89,10 @@ class _MyApp extends State<MyApp> {
           return GetMaterialApp(
             navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: EnvironmentConfig.environment == "dev",
-            title: 'FlutterBoilerplate',
+            title: 'Palumba',
             themeMode: ThemeMode.system,
-            theme: DUI.theme.themeData(false),
-            darkTheme: DUI.theme.themeData(true),
+            theme: AppThemeData.themeData(false),
+            darkTheme: AppThemeData.themeData(true),
             home: const SplashPage(),
             initialBinding: SplashBinding(),
             getPages: AppPages.pages,

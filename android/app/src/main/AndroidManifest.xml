@@ -1,12 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_boilerplate">
+    package="com.palumba.app">
 
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
    <application
-        android:label="flutter_boilerplate"
+        android:label="Palumba EU"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,13 +1,9 @@
-import 'package:flutter_boilerplate/data/provider/remote/authentication_api.dart';
+import 'package:palumba_eu/data/provider/remote/authentication_api.dart';
 import 'package:get/get.dart';
 
 class AuthenticationRepository {
   final AuthenticationAPI _api = Get.find<AuthenticationAPI>();
 
-  Future<String?>? signIn({required String email, required String password}) => _api.signIn(email, password);
-  Future<String?>? signUp({required String email, required String password}) => _api.signUp(email, password);
-  Future<String?>? passwordRecovery({required String email}) => _api.passwordRecovery(email);
-  Future<bool> signOut() => _api.signOut();
-  Future<bool> refreshToken() => _api.refreshToken();
-  Future<bool> validateJWT() => _api.validateJWT();
+  Future<String?>? signUp() =>
+      _api.signUp();
 }

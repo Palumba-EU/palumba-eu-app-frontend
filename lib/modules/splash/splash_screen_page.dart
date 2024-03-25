@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/modules/splash/splash_screen_controller.dart';
+import 'package:palumba_eu/modules/splash/splash_screen_controller.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends StatelessWidget {
