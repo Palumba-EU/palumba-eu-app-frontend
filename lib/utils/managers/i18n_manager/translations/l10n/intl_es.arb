@@ -8,5 +8,12 @@
   "select": "Seleccionar",
   "alertServerErrorTitle": "Ups!",
   "alertServerErrorText": "Algo ha salido mal por nuestra parte, por favor, prueba de nuevo más tarde.",
-  "confirm": "Confirmar"
+  "name": "Nombre",
+  "alertInvalidName": "Tu nombre deber tener almenos 3 caracteres.",
+  "email": "Correo electrónico",
+  "alertInvalidEmail": "El correo electrónico no es válido.",
+  "password": "Contraseña",
+  "repeatPassword": "Repetir contraseña",
+  "alertInvalidPassword": "La contraseña debe tener almenos 10 caracteres y ha de contener caracters alfanuméricos.",
+  "alertNotEqualsPassword": "Las contraseñas no coinciden."
 }

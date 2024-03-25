@@ -1,50 +1,58 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalAuth {
-  final FlutterSecureStorage _storage = Get.find<FlutterSecureStorage>();
-
   static const keyToken = "token";
   static const keyTokenType = "token_type";
   static const keyRefreshToken = "refresh_token";
 
   Future<void> setSession(String token) async {
-    await _storage.write(key: keyToken, value: token);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString(keyToken, token);
   }
 
   Future<void> clearSession() async {
-    await _storage.delete(key: keyToken);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove(keyToken);
   }
 
   Future<String?> getSession() async {
-    return await _storage.read(key: keyToken);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(keyToken);
   }
 
-  Future<void> setTokenType(String? type) async {
-    await _storage.write(key: keyTokenType, value: type);
+  Future<void> setTokenType(String type) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString(keyTokenType, type);
   }
 
   Future<void> clearTokenType() async {
-    await _storage.delete(key: keyTokenType);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove(keyTokenType);
   }
 
   Future<String?> getTokenType() async {
-    return await _storage.read(key: keyTokenType);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(keyTokenType);
   }
 
-  Future<void> setRefreshToken(String? token) async {
-    await _storage.write(key: keyRefreshToken, value: token);
+  Future<void> setRefreshToken(String token) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString(keyRefreshToken, token);
   }
 
   Future<void> clearRefreshToken() async {
-    await _storage.delete(key: keyRefreshToken);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove(keyRefreshToken);
   }
 
   Future<String?> getRefreshToken() async {
-    return await _storage.read(key: keyRefreshToken);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(keyRefreshToken);
   }
 
-  Future<void> clear() async {
+  //////////////////////////////////////////////////////////////////////////
+
+  Future<void> signOutCleanProcess() async {
     await clearSession();
     await clearRefreshToken();
     await clearTokenType();

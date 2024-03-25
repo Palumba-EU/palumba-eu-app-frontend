@@ -1,4 +1,3 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
 import '../data/provider/local/local_auth.dart';
@@ -11,10 +10,6 @@ import '../global_controllers/user_controller.dart';
 
 class DependencyInjection {
   static void init() {
-
-    // packages
-    Get.put<FlutterSecureStorage>(const FlutterSecureStorage());
-
     //Controllers
     Get.put<UserController>(UserController());
 

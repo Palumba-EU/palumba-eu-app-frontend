@@ -22,14 +22,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alertInvalidEmail": MessageLookupByLibrary.simpleMessage(
+            "El correo electrónico no es válido."),
+        "alertInvalidName": MessageLookupByLibrary.simpleMessage(
+            "Tu nombre deber tener almenos 3 caracteres."),
+        "alertInvalidPassword": MessageLookupByLibrary.simpleMessage(
+            "La contraseña debe tener almenos 10 caracteres y ha de contener caracters alfanuméricos."),
+        "alertNotEqualsPassword": MessageLookupByLibrary.simpleMessage(
+            "Las contraseñas no coinciden."),
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
             "Algo ha salido mal por nuestra parte, por favor, prueba de nuevo más tarde."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ups!"),
         "appName": MessageLookupByLibrary.simpleMessage("FlutterBoilerplate"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
-        "confirm": MessageLookupByLibrary.simpleMessage("Confirmar"),
+        "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+        "name": MessageLookupByLibrary.simpleMessage("Nombre"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+        "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
+        "repeatPassword":
+            MessageLookupByLibrary.simpleMessage("Repetir contraseña"),
         "select": MessageLookupByLibrary.simpleMessage("Seleccionar"),
         "yes": MessageLookupByLibrary.simpleMessage("Sí")
       };

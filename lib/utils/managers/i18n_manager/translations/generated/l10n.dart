@@ -130,11 +130,81 @@ class S {
     );
   }
 
-  /// `Confirmar`
-  String get confirm {
+  /// `Nombre`
+  String get name {
     return Intl.message(
-      'Confirmar',
-      name: 'confirm',
+      'Nombre',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tu nombre deber tener almenos 3 caracteres.`
+  String get alertInvalidName {
+    return Intl.message(
+      'Tu nombre deber tener almenos 3 caracteres.',
+      name: 'alertInvalidName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Correo electrónico`
+  String get email {
+    return Intl.message(
+      'Correo electrónico',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `El correo electrónico no es válido.`
+  String get alertInvalidEmail {
+    return Intl.message(
+      'El correo electrónico no es válido.',
+      name: 'alertInvalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contraseña`
+  String get password {
+    return Intl.message(
+      'Contraseña',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Repetir contraseña`
+  String get repeatPassword {
+    return Intl.message(
+      'Repetir contraseña',
+      name: 'repeatPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `La contraseña debe tener almenos 10 caracteres y ha de contener caracters alfanuméricos.`
+  String get alertInvalidPassword {
+    return Intl.message(
+      'La contraseña debe tener almenos 10 caracteres y ha de contener caracters alfanuméricos.',
+      name: 'alertInvalidPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Las contraseñas no coinciden.`
+  String get alertNotEqualsPassword {
+    return Intl.message(
+      'Las contraseñas no coinciden.',
+      name: 'alertNotEqualsPassword',
       desc: '',
       args: [],
     );

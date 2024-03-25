@@ -4,7 +4,7 @@ description: A new Flutter project boilerplate with GetX and Provider
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0 <4.0.0"
+  sdk: '>=3.3.1 <4.0.0'
 
 dependencies:
   flutter:
@@ -12,72 +12,58 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
-  intl: ^0.18.1
-  intl_utils: ^2.8.4
-  flutter_dotenv: ^5.0.2
-
   # Common Modules
-  shared_preferences: ^2.0.18
-  flutter_svg: ^2.0.2
-  url_launcher: ^6.1.10
-  cached_network_image: ^3.2.3
-
-  # SSO Modules
-  #  sign_in_with_apple: ^3.2.0
-  #  google_sign_in: ^5.1.0
-  #  flutter_facebook_auth: ^3.5.2
+  flutter_dotenv: ^5.1.0
+  shared_preferences: ^2.2.2
 
   # Core Modules
-  get: ^4.6.5
-  provider: ^6.0.5
-  flutter_secure_storage: ^9.0.0
+  get: ^4.6.6
+  provider: ^6.1.2
 
   # Native Specific Modules
-  package_info_plus: ^5.0.1
-  app_tracking_transparency: ^2.0.2+1
-  #  app_review: ^2.1.1+1
-  #  webview_flutter: ^2.0.4
-  #  flutter_html: ^2.2.1
+  package_info_plus: ^6.0.0
+  app_tracking_transparency: ^2.0.4
+  # webview_flutter: ^4.7.0
 
   # UI Modules
+  dui: 0.0.4
+  cached_network_image: ^3.3.1
+  flutter_svg: ^2.0.10+1
   shimmer: ^3.0.0
-  #  lottie: ^1.2.1
-  #  dotted_border: ^2.0.0+1
-  #  flutter_sfsymbols: ^2.0.0
-  #  auto_size_text: ^3.0.0-nullsafety.0
-  #  dotted_line: ^3.0.1
+  # auto_size_text: ^3.0.0
 
-  # Geolocation Modules
-  #  google_maps_flutter: ^2.1.5
-  #  geolocator: ^8.2.1
+  # Localization Modules
+  intl: ^0.18.1
+  intl_utils: ^2.8.7
 
   # API Modules
   graphql_flutter: ^5.1.2
-  graphql_codegen: ^0.13.5
-  http: ^1.1.0
-  jose: ^0.3.3
+  graphql_codegen: ^0.13.11
+  http: ^1.2.1
+  jose: ^0.3.4
 
   # Firebase Modules
-  firebase_messaging: ^14.6.7
-  firebase_crashlytics: ^3.3.5
-  #  firebase_analytics: ^9.1.2
-  #  firebase_dynamic_links: ^2.0.10
-  #  firebase_in_app_messaging: any
-  #  firebase_remote_config: ^2.0.0
+  firebase_messaging: ^14.7.20
+  firebase_crashlytics: ^3.4.19
+  #  firebase_analytics: ^10.8.10
+  #  firebase_dynamic_links: ^5.4.18
+  #  firebase_in_app_messaging: ^0.7.4+18
 
-  dui:
-    git:
-      url: git@gitlab.com:dribba-labs/dribba-ui-flutter.git
-      ref: master
+  # SSO Modules
+  #  sign_in_with_apple: ^6.0.0
+  #  google_sign_in: ^6.2.1
+  #  flutter_facebook_auth: ^6.1.1
+
+  # Geolocation Modules
+  #  google_maps_flutter: ^2.6.0
+  #  geolocator: ^11.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 dependency_overrides:
-  platform: ^3.1.0
-  file: ^6.1.4
+  dui: 0.0.4
 
 flutter_icons: #flutter pub run flutter_launcher_icons:main
   android: "launcher_icon"
