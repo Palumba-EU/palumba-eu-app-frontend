@@ -1,12 +1,15 @@
 import 'package:palumba_eu/data/repositories/local/local_auth_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/user_repository.dart';
-import 'package:palumba_eu/global_controllers/user_controller.dart';
-import 'package:palumba_eu/routes/app_routes.dart';
+
+import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
+
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
+  static const route = '/splash';
+
   final LocalAuthRepository _localAuthRepository =
-  Get.find<LocalAuthRepository>();
+      Get.find<LocalAuthRepository>();
 
   final UserRepository _userRepository = Get.find<UserRepository>();
 
@@ -22,7 +25,7 @@ class SplashController extends GetxController {
       _initData();
     } else {
       Get.offNamed(
-        AppRoutes.signUp,
+        LanguageController.route,
       );
     }
   }
@@ -30,9 +33,13 @@ class SplashController extends GetxController {
   _initData() async {
     var user = await _userRepository.fetchUser();
     if (user != null) {
-      //TODO: Go To Home.
+      /*Get.offNamed(
+        AppRoutes.home,
+      );*/
     } else {
-      Get.offNamed(AppRoutes.signUp,);
+      /*Get.offNamed(
+        AppRoutes.signUp,
+      );*/
     }
   }
 }

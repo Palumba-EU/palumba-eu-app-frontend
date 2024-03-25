@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "appName": "Palumba EU",
+  "ok": "Ok",
+  "yes": "Yes",
+  "no": "No",
+  "cancel": "Cancel",
+  "textContinue": "Continue",
+  "alertServerErrorTitle": "Ops!",
+  "alertServerErrorText": "Something has gone wrong on our side. Please try again later.",
+
+  "@@LanguagePage": "LanguagePage",
+  "languagePageTitle": "Let’s continue in English? :)",
+  "languagePageSubtitle": "This can be changed later in settings."
+}

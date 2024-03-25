@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'dart:ui';
-import 'package:dui/dui.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:palumba_eu/modules/splash/splash_screen_page.dart';
+import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
 import 'package:palumba_eu/utils/managers/dark_theme_manager.dart';
@@ -15,8 +14,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'modules/splash/splash_screen_binding.dart';
-import 'utils/app_theme_data.dart';
+import 'modules/splash/splash_binding.dart';
+import 'utils/common_ui/app_theme_data.dart';
 
 class EnvironmentConfig {
   static const environment =
@@ -26,33 +25,30 @@ class EnvironmentConfig {
 }
 
 void main() async {
-  runZonedGuarded(() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
-    DependencyInjection.init();
+  DependencyInjection.init();
 
-    await Firebase.initializeApp();
+  await Firebase.initializeApp();
 
-    await dotenv.load(
-      fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
-    );
+  await dotenv.load(
+    fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
+  );
 
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  FlutterError.onError = (FlutterErrorDetails details) async {
+    if (EnvironmentConfig.isDevelopmentMode) {
+      FlutterError.dumpErrorToConsole(details);
+    } else {
+      FirebaseCrashlytics.instance.recordFlutterError(details);
+    }
+  };
 
-    runApp(MyApp());
-  }, (Object error, StackTrace stack) {
-    FirebaseCrashlytics.instance.recordError(
-      error,
-      StackTrace.current,
-      reason: error.toString(),
-      fatal: false,
-    );
-  });
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {

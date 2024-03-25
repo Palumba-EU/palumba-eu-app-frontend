@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `FlutterBoilerplate`
+  /// `Palumba EU`
   String get appName {
     return Intl.message(
-      'FlutterBoilerplate',
+      'Palumba EU',
       name: 'appName',
       desc: '',
       args: [],
@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `Sí`
+  /// `Yes`
   String get yes {
     return Intl.message(
-      'Sí',
+      'Yes',
       name: 'yes',
       desc: '',
       args: [],
@@ -90,121 +90,61 @@ class S {
     );
   }
 
-  /// `Cancelar`
+  /// `Cancel`
   String get cancel {
     return Intl.message(
-      'Cancelar',
+      'Cancel',
       name: 'cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `Seleccionar`
-  String get select {
+  /// `Continue`
+  String get textContinue {
     return Intl.message(
-      'Seleccionar',
-      name: 'select',
+      'Continue',
+      name: 'textContinue',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ups!`
+  /// `Ops!`
   String get alertServerErrorTitle {
     return Intl.message(
-      'Ups!',
+      'Ops!',
       name: 'alertServerErrorTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Algo ha salido mal por nuestra parte, por favor, prueba de nuevo más tarde.`
+  /// `Something has gone wrong on our side. Please try again later.`
   String get alertServerErrorText {
     return Intl.message(
-      'Algo ha salido mal por nuestra parte, por favor, prueba de nuevo más tarde.',
+      'Something has gone wrong on our side. Please try again later.',
       name: 'alertServerErrorText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Nombre`
-  String get name {
+  /// `Let’s continue in English? :)`
+  String get languagePageTitle {
     return Intl.message(
-      'Nombre',
-      name: 'name',
+      'Let’s continue in English? :)',
+      name: 'languagePageTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tu nombre deber tener almenos 3 caracteres.`
-  String get alertInvalidName {
+  /// `This can be changed later in settings.`
+  String get languagePageSubtitle {
     return Intl.message(
-      'Tu nombre deber tener almenos 3 caracteres.',
-      name: 'alertInvalidName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Correo electrónico`
-  String get email {
-    return Intl.message(
-      'Correo electrónico',
-      name: 'email',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `El correo electrónico no es válido.`
-  String get alertInvalidEmail {
-    return Intl.message(
-      'El correo electrónico no es válido.',
-      name: 'alertInvalidEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Contraseña`
-  String get password {
-    return Intl.message(
-      'Contraseña',
-      name: 'password',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Repetir contraseña`
-  String get repeatPassword {
-    return Intl.message(
-      'Repetir contraseña',
-      name: 'repeatPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `La contraseña debe tener almenos 10 caracteres y ha de contener caracters alfanuméricos.`
-  String get alertInvalidPassword {
-    return Intl.message(
-      'La contraseña debe tener almenos 10 caracteres y ha de contener caracters alfanuméricos.',
-      name: 'alertInvalidPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Las contraseñas no coinciden.`
-  String get alertNotEqualsPassword {
-    return Intl.message(
-      'Las contraseñas no coinciden.',
-      name: 'alertNotEqualsPassword',
+      'This can be changed later in settings.',
+      name: 'languagePageSubtitle',
       desc: '',
       args: [],
     );
@@ -216,7 +156,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'es'),
+      Locale.fromSubtags(languageCode: 'en'),
     ];
   }
 
