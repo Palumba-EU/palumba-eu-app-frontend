@@ -11,5 +11,25 @@
 
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Let’s continue in English? :)",
-  "languagePageSubtitle": "This can be changed later in settings."
+  "languagePageSubtitle": "This can be changed later in settings.",
+
+  "@@OnBoardingPage": "OnBoardingPage",
+  "hungary": "Hungary",
+  "denmark": "Denmark",
+  "germany": "Germany",
+  "spain": "Spain",
+  "france": "France",
+  "poland": "Poland",
+  "romania": "Romania",
+  "sweden": "Sweden",
+  "onBoardingStep1Title": "Where will you vote?",
+  "onBoardingStep1Subtitle": "I don't know",
+  "onBoardingStep2Title": "My age",
+  "onBoardingStep3Title": "I identify as",
+  "onBoardingStep3Option1": "Woman",
+  "onBoardingStep3Option2": "Man",
+  "onBoardingStep3Option3": "Non-binary",
+  "onBoardingStep3Option4": "Intersex",
+  "onBoardingStep3Option5": "Else",
+  "onBoardingNotAnswerButton": "Prefer not to say"
 }

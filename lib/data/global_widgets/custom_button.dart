@@ -17,24 +17,31 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
-        onPressed: onPressed,
-        style: OutlinedButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 17.5, vertical: 15),
-          backgroundColor: AppColors.beigeWithOpacity,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppDimens.borderRadius),
+    return IgnorePointer(
+      ignoring: onPressed == null,
+      child: OutlinedButton(
+          onPressed: onPressed,
+          style: OutlinedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 17.5, vertical: 15),
+            backgroundColor: AppColors.beigeWithOpacity,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppDimens.borderRadius),
+            ),
+            side: BorderSide(
+                width: AppDimens.borderWidth,
+                color: AppColors.beigeWithOpacity),
           ),
-          side: BorderSide(
-              width: AppDimens.borderWidth, color: AppColors.beigeWithOpacity),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AppTexts.regular(text, bold: true),
-            CustomHorizontalSpacer(),
-            SvgPicture.asset('assets/images/ic_arrow_forward.svg')
-          ],
-        ));
+          child: Opacity(
+            opacity: onPressed == null ? 0.25 : 1,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AppTexts.regular(text, bold: true),
+                CustomHorizontalSpacer(),
+                SvgPicture.asset('assets/images/ic_arrow_forward.svg')
+              ],
+            ),
+          )),
+    );
   }
 }

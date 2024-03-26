@@ -149,6 +149,186 @@ class S {
       args: [],
     );
   }
+
+  /// `Hungary`
+  String get hungary {
+    return Intl.message(
+      'Hungary',
+      name: 'hungary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Denmark`
+  String get denmark {
+    return Intl.message(
+      'Denmark',
+      name: 'denmark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Germany`
+  String get germany {
+    return Intl.message(
+      'Germany',
+      name: 'germany',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Spain`
+  String get spain {
+    return Intl.message(
+      'Spain',
+      name: 'spain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `France`
+  String get france {
+    return Intl.message(
+      'France',
+      name: 'france',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Poland`
+  String get poland {
+    return Intl.message(
+      'Poland',
+      name: 'poland',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Romania`
+  String get romania {
+    return Intl.message(
+      'Romania',
+      name: 'romania',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sweden`
+  String get sweden {
+    return Intl.message(
+      'Sweden',
+      name: 'sweden',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Where will you vote?`
+  String get onBoardingStep1Title {
+    return Intl.message(
+      'Where will you vote?',
+      name: 'onBoardingStep1Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I don't know`
+  String get onBoardingStep1Subtitle {
+    return Intl.message(
+      'I don\'t know',
+      name: 'onBoardingStep1Subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My age`
+  String get onBoardingStep2Title {
+    return Intl.message(
+      'My age',
+      name: 'onBoardingStep2Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I identify as`
+  String get onBoardingStep3Title {
+    return Intl.message(
+      'I identify as',
+      name: 'onBoardingStep3Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Woman`
+  String get onBoardingStep3Option1 {
+    return Intl.message(
+      'Woman',
+      name: 'onBoardingStep3Option1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Man`
+  String get onBoardingStep3Option2 {
+    return Intl.message(
+      'Man',
+      name: 'onBoardingStep3Option2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Non-binary`
+  String get onBoardingStep3Option3 {
+    return Intl.message(
+      'Non-binary',
+      name: 'onBoardingStep3Option3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Intersex`
+  String get onBoardingStep3Option4 {
+    return Intl.message(
+      'Intersex',
+      name: 'onBoardingStep3Option4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Else`
+  String get onBoardingStep3Option5 {
+    return Intl.message(
+      'Else',
+      name: 'onBoardingStep3Option5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prefer not to say`
+  String get onBoardingNotAnswerButton {
+    return Intl.message(
+      'Prefer not to say',
+      name: 'onBoardingNotAnswerButton',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

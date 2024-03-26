@@ -1,12 +1,11 @@
 import 'package:palumba_eu/data/repositories/remote/user_repository.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/models/language_data.dart';
 
 class LanguageController extends GetxController {
   static const route = '/language';
-
-  final UserRepository _userRepository = Get.find<UserRepository>();
 
   final List<LanguageData> _languages = [
     LanguageData(asset: 'assets/images/flags/hungary.svg', text: 'Hrvatski'),
@@ -28,7 +27,11 @@ class LanguageController extends GetxController {
   /**
    * On Click Actions
    */
-  void onLanguageTap(int index) {
+  void onLanguagePressed(int index) {
     indexSelected.value = index;
+  }
+
+  void onContinueTap() {
+    Get.offNamed(EntranceController.route);
   }
 }
