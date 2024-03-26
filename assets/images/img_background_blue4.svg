@@ -1,0 +1,14 @@
+<svg width="393" height="478" viewBox="0 0 393 478" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.15" clip-path="url(#clip0_172_558)">
+<ellipse cx="436.653" cy="444.476" rx="273.598" ry="357.755" transform="rotate(152.926 436.653 444.476)" fill="#FCFBF2"/>
+<circle cx="305.482" cy="221.473" r="63.675" transform="rotate(-12.0735 305.482 221.473)" fill="#A5CBD9"/>
+<circle cx="273.535" cy="233.893" r="22.9362" transform="rotate(-12.0735 273.535 233.893)" fill="#FCFBF2"/>
+<path d="M168.728 347.925L103.507 275.734" stroke="#FCFBF2" stroke-width="60.4167" stroke-linecap="round"/>
+<path d="M200.293 265.822L103.509 275.728" stroke="#FCFBF2" stroke-width="60.4167" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_172_558">
+<rect width="479.867" height="478.075" fill="white" transform="translate(443.917 502.5) rotate(-177.074)"/>
+</clipPath>
+</defs>
+</svg>

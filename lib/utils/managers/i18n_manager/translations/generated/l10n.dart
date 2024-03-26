@@ -329,6 +329,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Finding matches with candidate lists in France...`
+  String get loadingResultsPageTitle1 {
+    return Intl.message(
+      'Finding matches with candidate lists in France...',
+      name: 'loadingResultsPageTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finding matches with candidate lists in France...`
+  String get loadingResultsPageTitle2 {
+    return Intl.message(
+      'Finding matches with candidate lists in France...',
+      name: 'loadingResultsPageTitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can you believe 70% of 18-25 voters didn’t vote in 2019?`
+  String get loadingResultsPageTitle3 {
+    return Intl.message(
+      'Can you believe 70% of 18-25 voters didn’t vote in 2019?',
+      name: 'loadingResultsPageTitle3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We promise this will be quicker than waiting for Taylor Swift tickets...`
+  String get loadingResultsPageTitle4 {
+    return Intl.message(
+      'We promise this will be quicker than waiting for Taylor Swift tickets...',
+      name: 'loadingResultsPageTitle4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Almost\nready :)`
+  String get loadingResultsPageTitle5 {
+    return Intl.message(
+      'Almost\nready :)',
+      name: 'loadingResultsPageTitle5',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

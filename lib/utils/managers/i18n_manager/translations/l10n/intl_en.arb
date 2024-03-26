@@ -31,5 +31,12 @@
   "onBoardingStep3Option3": "Non-binary",
   "onBoardingStep3Option4": "Intersex",
   "onBoardingStep3Option5": "Else",
-  "onBoardingNotAnswerButton": "Prefer not to say"
+  "onBoardingNotAnswerButton": "Prefer not to say",
+
+  "@@LoadingResultsPage": "LoadingResultsPage",
+  "loadingResultsPageTitle1": "Finding matches with candidate lists in France...",
+  "loadingResultsPageTitle2": "Finding matches with candidate lists in France...",
+  "loadingResultsPageTitle3": "Can you believe 70% of 18-25 voters didn’t vote in 2019?",
+  "loadingResultsPageTitle4": "We promise this will be quicker than waiting for Taylor Swift tickets...",
+  "loadingResultsPageTitle5": "Almost\nready :)"
 }

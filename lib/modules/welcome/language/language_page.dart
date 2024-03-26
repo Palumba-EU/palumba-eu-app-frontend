@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/global_widgets/custom_button.dart';
-import 'package:palumba_eu/data/global_widgets/custom_selector.dart';
+import 'package:palumba_eu/global_widgets/custom_button.dart';
+import 'package:palumba_eu/global_widgets/custom_selector.dart';
 
-import 'package:palumba_eu/data/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';

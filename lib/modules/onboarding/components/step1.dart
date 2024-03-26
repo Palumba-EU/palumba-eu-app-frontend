@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/global_widgets/custom_selector.dart';
-import 'package:palumba_eu/data/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/global_widgets/custom_selector.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/welcome/language/models/language_data.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';

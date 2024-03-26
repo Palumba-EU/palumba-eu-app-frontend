@@ -1,7 +1,7 @@
-import 'dart:async';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:palumba_eu/modules/results/loading/loading_results_binding.dart';
+import 'package:palumba_eu/modules/results/loading/loading_results_page.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';

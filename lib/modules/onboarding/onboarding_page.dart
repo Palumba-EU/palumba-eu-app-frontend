@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/global_widgets/custom_button.dart';
-import 'package:palumba_eu/data/global_widgets/custom_horizontal_spacer.dart';
 
-import 'package:palumba_eu/data/global_widgets/custom_spacer.dart';
-import 'package:palumba_eu/modules/onboarding/components/custom_progress_bar.dart';
+import 'package:palumba_eu/global_widgets/custom_button.dart';
+import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
+
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
@@ -162,6 +163,7 @@ class OnboardingPage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: Obx(() => CustomProgressBar(
+                        width: Get.width * 0.35,
                         step: _.currentStep.value,
                         totalSteps: _.totalSteps,
                       )),
