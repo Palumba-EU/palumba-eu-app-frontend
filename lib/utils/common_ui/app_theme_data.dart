@@ -14,8 +14,10 @@ class AppThemeData {
         bodySmall: TextStyle(color: Colors.white),
       ).apply(bodyColor: Colors.white, displayColor: Colors.white),
       colorScheme: ColorScheme.fromSeed(
+          primary: AppColors.primary,
           seedColor: AppColors.primary,
-          background: AppColors.background),
+          background: AppColors.background,
+          ),
     );
   }
 }

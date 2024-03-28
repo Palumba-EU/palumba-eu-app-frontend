@@ -31,6 +31,7 @@ dependencies:
   shimmer: ^3.0.0
   google_fonts: ^6.2.1
   lottie: ^3.1.0
+  dui: ^0.0.6
   # auto_size_text: ^3.0.0
 
   # Localization Modules
@@ -46,6 +47,7 @@ dependencies:
   # Firebase Modules
   firebase_messaging: ^14.7.20
   firebase_crashlytics: ^3.4.19
+  path_drawing: ^1.0.1
   #  firebase_analytics: ^10.8.10
   #  firebase_dynamic_links: ^5.4.18
   #  firebase_in_app_messaging: ^0.7.4+18
