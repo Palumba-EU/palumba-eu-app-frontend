@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/global_widgets/card/custom_card.dart';
 
 import 'package:palumba_eu/global_widgets/custom_button.dart';
+import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -10,6 +13,7 @@ import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
+import 'package:palumba_eu/modules/statments/components/buttons/decision_buttons.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,6 +22,7 @@ import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
+import 'components/onboarding_decision_buttons.dart';
 import 'components/step1.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -31,13 +36,15 @@ class OnboardingPage extends StatelessWidget {
           body: Stack(
             children: [
               //Background
-              Align(
-                alignment: Alignment.bottomRight,
-                child: SvgPicture.asset(
-                  'assets/images/img_background_lilac.svg',
-                  fit: BoxFit.fitWidth,
+              if (_.currentStep != 4)
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: SvgPicture.asset(
+                    'assets/images/img_background_lilac.svg',
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
-              ),
+
               //Content
               SafeArea(
                 child: Column(
@@ -129,33 +136,29 @@ class OnboardingPage extends StatelessWidget {
                   ],
                 ),
               ),
+              Obx(
+                () => _.showFinalView
+                    ? Container(
+                        margin: EdgeInsets.only(top: 100),
+                        height: double.infinity,
+                        width: double.infinity,
+                        color: Colors.white,
+                      )
+                    : SizedBox.shrink(),
+              ),
               //Over Background
-              Obx(() {
-                var height = Get.height;
-                var margin = EdgeInsets.zero;
-                var radius = Radius.circular(250);
-                if (_.currentStep.value == 1) {
-                  height = height * 0.065;
-                  margin = EdgeInsets.symmetric(horizontal: Get.width * 0.2);
-                  radius = Radius.elliptical(500, 250);
-                } else if (_.currentStep.value == 2) {
-                  height = height * 0.37;
-                } else if (_.currentStep.value == 3) {
-                  height = height * 0.4725;
-                } else {
-                  radius = Radius.zero;
-                }
-
-                return AnimatedContainer(
+              Obx(
+                () => AnimatedContainer(
                   duration: const Duration(milliseconds: 500),
-                  height: height,
-                  margin: margin,
+                  height: _.height.value,
+                  margin: _.margin.value,
                   decoration: BoxDecoration(
                       color: AppColors.background,
                       borderRadius: BorderRadius.only(
-                          bottomLeft: radius, bottomRight: radius)),
-                );
-              }),
+                          bottomLeft: _.radius.value,
+                          bottomRight: _.radius.value)),
+                ),
+              ),
               //Progress
               SafeArea(
                   child: Padding(
@@ -169,6 +172,72 @@ class OnboardingPage extends StatelessWidget {
                       )),
                 ),
               )),
+              Obx(
+                () => _.showFinalView
+                    ? Stack(
+                        children: [
+                          DecisionButtonsOnBoarding(
+                            onTapDisagrementButton: _.onTapDisagrementButton,
+                            onTapHalfDisagrementButton:
+                                _.onTapHalfDisagrementButton,
+                            onTapHalfAgrementButton: _.onTapHalfAgrementButton,
+                            onTapAgrementButton: _.onTapAgrementButton,
+                          ),
+                          Obx(
+                            () => AnimatedContainer(
+                              duration: const Duration(milliseconds: 650),
+                              height: _.heighClippedContainer.value,
+                              padding: EdgeInsets.only(top: 100),
+                              child: CustomContainerCurve(
+                                height: Get.height * .82,
+                                curveRadius: 200,
+                                color: AppColors.background,
+                              ),
+                            ),
+                          ),
+                          Obx(
+                            () => _.finalAnimationFinished.value
+                                ? CustomCard(
+                                    card: _.firstCard ?? _.exampleCard,
+                                    isFirstCard: true,
+                                    angleCard: _.angle,
+                                    bgPosition: _.bgPosition,
+                                    positionCard: _.position,
+                                    cardOpacity: _.cardOpacity,
+                                    isPanStarted: _.isPanStarted,
+                                    currentCardIndex: _.currentCardIndex,
+                                    onPanStart: _.onPanStart,
+                                    onPanUpdate: _.onPanUpdate,
+                                    onPanEnd: _.onPanEnd,
+                                    onTapDown: _.onTapDown,
+                                    cardAnimationDuration:
+                                        _.cardAnimationDuration,
+                                  )
+                                : AnimatedContainer(
+                                    duration: const Duration(milliseconds: 650),
+                                    height: _.heighClippedContainer.value,
+                                    child: CustomCard(
+                                      card: _.firstCard ?? _.exampleCard,
+                                      isFirstCard: true,
+                                      angleCard: _.angle,
+                                      bgPosition: _.bgPosition,
+                                      positionCard: _.position,
+                                      cardOpacity: _.cardOpacity,
+                                      isPanStarted: _.isPanStarted,
+                                      currentCardIndex: _.currentCardIndex,
+                                      onPanStart: _.onPanStart,
+                                      onPanUpdate: _.onPanUpdate,
+                                      onPanEnd: _.onPanEnd,
+                                      onTapDown: _.onTapDown,
+                                      cardAnimationDuration:
+                                          _.cardAnimationDuration,
+                                    ),
+                                  ),
+                          ),
+                        ],
+                      )
+                    : SizedBox.shrink(),
+              ),
             ],
           )),
     );
