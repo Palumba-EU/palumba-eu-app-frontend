@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/models/language_data.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
@@ -157,9 +158,22 @@ class OnboardingController extends GetxController {
         _cardAnimationDuration.value = 650;
         _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
       }).then((value) async {
-        await Future.delayed(Duration(milliseconds: 2000));
+        await Future.delayed(Duration(milliseconds: 350));
+        _bigButtonsPosition.value = Offset(0, 0);
+        await Future.delayed(Duration(milliseconds: 450));
+        _smallButtonsPosition.value = Offset(0, 0);
+        await Future.delayed(Duration(milliseconds: 1500));
         _cardAnimationDuration.value = 0;
         finalAnimationFinished.value = true;
+        onTapDisagrementButton();
+        await Future.delayed(Durations.long3);
+        onTapHalfDisagrementButton();
+        await Future.delayed(Durations.long3);
+        onTapHalfAgrementButton();
+        await Future.delayed(Durations.long3);
+        onTapAgrementButton();
+        await Future.delayed(Durations.long3);
+        Get.toNamed(StatementsController.route);
       });
       //TODO: init bubble buttons animation
     }
@@ -170,43 +184,7 @@ class OnboardingController extends GetxController {
   /// CARD ANIMATION
   ///
   ////////////////////////
-  List<CardModel> cards = [
-    CardModel(
-        id: 'Card01',
-        main: 'Whistleblowers* should be protected no matter what they reveal.',
-        whistleblowe:
-            '️‍An individual who exposes wrongdoing, corruption, or unethical behavior within an organization or institution to the public or authorities, often at great personal risk. (Oxford Dictionary)',
-        context:
-            'Since a few years, several individuals have revealed key internal information about the wrongdoings of their organisations. This led to massive scandals about the safety of those whistleblowers and their responsibility before the law. Therefore, the EU passed the Whistleblower Directive to regulate this practice in our democracies.',
-        favorArgs: 'Cooming soon',
-        againstArgs: 'Cooming soon'),
-    CardModel(
-        id: 'Card02',
-        main:
-            'Card 2 Whistleblowers* should be protected no matter what they reveal.',
-        whistleblowe:
-            '️‍An individual who exposes wrongdoing, corruption, or unethical behavior within an organization or institution to the public or authorities, often at great personal risk. (Oxford Dictionary)',
-        context:
-            'Since a few years, several individuals have revealed key internal information about the wrongdoings of their organisations. This led to massive scandals about the safety of those whistleblowers and their responsibility before the law. Therefore, the EU passed the Whistleblower Directive to regulate this practice in our democracies.',
-        favorArgs: 'Cooming soon',
-        againstArgs: 'Cooming soon'),
-    CardModel(
-        id: 'Card03',
-        main:
-            'Card 3 Whistleblowers* should be protected no matter what they reveal.',
-        whistleblowe:
-            '️‍An individual who exposes wrongdoing, corruption, or unethical behavior within an organization or institution to the public or authorities, often at great personal risk. (Oxford Dictionary)',
-        context:
-            'Since a few years, several individuals have revealed key internal information about the wrongdoings of their organisations. This led to massive scandals about the safety of those whistleblowers and their responsibility before the law. Therefore, the EU passed the Whistleblower Directive to regulate this practice in our democracies.',
-        favorArgs: 'Cooming soon',
-        againstArgs: 'Cooming soon')
-  ];
-  List<CardModel> _currentCards = [];
-  //List<CardModel> get currentCards => _currentCards;
-  CardModel? get firstCard =>
-      _currentCards.length > 0 ? _currentCards[0] : null;
-  CardModel? get secondCard =>
-      _currentCards.length > 1 ? _currentCards[1] : null;
+
   RxInt _cardAnimationDuration = 0.obs;
   RxInt get cardAnimationDuration => _cardAnimationDuration;
 
@@ -237,15 +215,19 @@ class OnboardingController extends GetxController {
   RxBool _halfAgrementButtonSelected = false.obs;
   bool get halfAgrementButtonSelected => _halfAgrementButtonSelected.value;
 
-  double _cardOpacity = 1;
-  double get cardOpacity => _cardOpacity;
+  RxDouble _cardOpacity = 1.0.obs;
+  RxDouble get cardOpacity => _cardOpacity;
 
   RxInt _currentCardIndex = 0.obs;
   RxInt get currentCardIndex => _currentCardIndex;
 
+  Rx<Offset> _smallButtonsPosition = Offset(0, Get.height * .3).obs;
+  Offset get smallButtonsPosition => _smallButtonsPosition.value;
+  Rx<Offset> _bigButtonsPosition = Offset(0, Get.height * .3).obs;
+  Offset get bigButtonsPosition => _bigButtonsPosition.value;
+
   @override
   void onInit() {
-    _currentCards = List.from(cards);
     _nothingHappen(true);
     super.onInit();
   }
@@ -258,10 +240,9 @@ class OnboardingController extends GetxController {
     // _checkActionSelected();
     _setAngle(details);
     _position.value += Offset(details.delta.dx * .65, details.delta.dy * .65);
-    _setBackgroundCardPosition();
 
     final opacity = 1 - _position.value.dy.abs() / (Get.height * .9) * .28;
-    _cardOpacity = opacity.clamp(0, .8);
+    _cardOpacity.value = opacity.clamp(0, .8);
   }
 
   void _setAngle(DragUpdateDetails details) {
@@ -271,45 +252,9 @@ class OnboardingController extends GetxController {
     _angle = -difference / centerX * 8;
   }
 
-  void _setBackgroundCardPosition() {
-    final y = _position.value.dy;
-    // Calculate the distance from the center of the screen
-    final distanceFromCenter = (y - Get.height * .25).abs();
-    // Map the distance to the range [(Get.height * .9) * .5, (Get.height * .9) * .25]
-    final mappedY = lerpDouble((Get.height * .9) * .55, (Get.height * .9) * .25,
-        distanceFromCenter / (Get.height * .25));
-    final bgY = (mappedY ?? y) < (Get.height * .9) * .28
-        ? (Get.height * .9) * .28
-        : mappedY;
-    _bgPosition.value = Offset(Get.width * .25, bgY!);
-  }
-
   void onPanEnd(DragEndDetails details) {
     _isPanStarted.value = false;
-    // final decision = _checkActionSelected();
-    /* switch (decision) {
-      case _Decision.agree:
-        onTapAgrementButton();
 
-        break;
-      case _Decision.halfAgree:
-        onTapHalfAgrementButton();
-        break;
-      case _Decision.halfDisagree:
-        onTapHalfDisagrementButton();
-        break;
-      case _Decision.disagree:
-        onTapDisagrementButton();
-        break;
-      case _Decision.neutral:
-        onTapNeutralButton();
-        break;
-      default:
-        _nothingHappen();
-      // resetAnimation();
-    }*/
-
-    // resetAnimation();
     _nothingHappen();
   }
 
@@ -339,102 +284,35 @@ class OnboardingController extends GetxController {
         ? _position.value = Offset(Get.width * .25, ((Get.height)))
         : _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
-    _cardOpacity = 1;
+    _cardOpacity.value = 1;
     _angle = 0;
     await Future.delayed(Duration(milliseconds: 250));
     _cardAnimationDuration.value = 0;
     _buttonsBlocked.value = false;
   }
 
-  nextCard() async {
-    _currentCards.removeAt(0);
-    if (_currentCards.length < 3) {
-      await Future.delayed(const Duration(milliseconds: 250));
-      //TODO: fecth new cards
-      _currentCards += cards;
-    }
-    //update([cardStackKey]);
-    // resetAnimation();
-  }
-
-  Future<void> disagreeAnimation() async {
-    _buttonsBlocked.value = true;
-    _isPanStarted.value = true;
-    _cardAnimationDuration.value = 600;
-    final x = _position.value.dx - (Get.width * .5);
-    final centerX = Get.width * .25;
-    final difference = x - centerX;
-    _angle = -difference / centerX * 8;
-    _position.value = Offset(-((Get.width * .5) + 50), Get.height * .4);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    await Future.delayed(const Duration(milliseconds: 650));
-    _cardAnimationDuration.value = 0;
-    _isPanStarted.value = false;
-  }
-
-  Future<void> agreeAnimation() async {
-    _buttonsBlocked.value = true;
-    _isPanStarted.value = true;
-    _cardAnimationDuration.value = 600;
-    final x = _position.value.dx + (Get.width * .5);
-    final centerX = Get.width * .25;
-    final difference = x - centerX;
-    _angle = -difference / centerX * 8;
-    _position.value = Offset(((Get.width) + 50), Get.height * .4);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    await Future.delayed(const Duration(milliseconds: 650));
-    _cardAnimationDuration.value = 0;
-    _isPanStarted.value = false;
-  }
-
-  Future<void> neutralAnimation() async {
-    _buttonsBlocked.value = true;
-    _isPanStarted.value = true;
-    _cardAnimationDuration.value = 600;
-
-    _position.value = Offset(_position.value.dx, -Get.height * .3);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    await Future.delayed(const Duration(milliseconds: 650));
-    _cardAnimationDuration.value = 0;
-    _isPanStarted.value = false;
-  }
-
-  void onTapNeutralButton() async {
-    await neutralAnimation();
-    //TODO: send to api
-    nextCard();
-  }
-
   void onTapDisagrementButton() async {
     _disagrementButtonSelected.value = true;
-    await disagreeAnimation();
-    //TODO: send to api
-    _disagrementButtonSelected.value = true;
-    nextCard();
+    await Future.delayed(Durations.long3);
+    _disagrementButtonSelected.value = false;
   }
 
   void onTapHalfDisagrementButton() async {
     _halfDisagrementButtonSelected.value = true;
-    await disagreeAnimation();
-    //TODO: send to api
+    await Future.delayed(Durations.long3);
     _halfDisagrementButtonSelected.value = false;
-    nextCard();
   }
 
   void onTapHalfAgrementButton() async {
     _halfAgrementButtonSelected.value = true;
-    await agreeAnimation();
-    //TODO: send to api
+    await Future.delayed(Durations.long3);
     _halfAgrementButtonSelected.value = false;
-    nextCard();
   }
 
   void onTapAgrementButton() async {
     _agrementButtonSelected.value = true;
-    await agreeAnimation();
-    //TODO: send to api
+    await Future.delayed(Durations.long3);
     _agrementButtonSelected.value = false;
-    nextCard();
   }
 }
 

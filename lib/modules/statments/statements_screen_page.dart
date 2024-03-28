@@ -25,6 +25,7 @@ class StatementsPage extends GetView<StatementsController> {
                 CustomContainerCurve(
                   height: Get.height * .82,
                   curveRadius: 200,
+                  color: Theme.of(context).colorScheme.background,
                 ),
 
                 //Buttons
@@ -49,7 +50,7 @@ class StatementsPage extends GetView<StatementsController> {
                                     'Neutral',
                                     controller.onTapNeutralButton,
                                     color:
-                                        Theme.of(context).colorScheme.secondary,
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
                               ),
@@ -76,7 +77,7 @@ class StatementsPage extends GetView<StatementsController> {
             child: Obx(
               () => Container(
                 height: 160,
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.background,
                 child: SafeArea(
                   child: AnimatedOpacity(
                       opacity: controller.isPanStarted.value ? 0.2 : 1,

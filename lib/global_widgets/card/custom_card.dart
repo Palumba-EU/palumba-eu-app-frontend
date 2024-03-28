@@ -25,6 +25,7 @@ class CustomCard extends StatelessWidget {
     required this.bgPosition,
     required this.currentCardIndex,
     required this.cardOpacity,
+    this.hasProgressBar = true,
   });
   final bool isFirstCard;
   final CardModel card;
@@ -38,7 +39,8 @@ class CustomCard extends StatelessWidget {
   final Rx<Offset> positionCard;
   final Rx<Offset> bgPosition;
   final Rx<int> currentCardIndex;
-  final double cardOpacity;
+  final RxDouble cardOpacity;
+  final bool hasProgressBar;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +91,7 @@ class CustomCard extends StatelessWidget {
                             heightFactor: null,
                             child: AnimatedOpacity(
                               duration: duration,
-                              opacity: cardOpacity,
+                              opacity: cardOpacity.value,
                               child: AnimatedContainer(
                                 duration: duration,
                                 transform: rotatedMatrix
@@ -125,10 +127,11 @@ class CustomCard extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      CardProgressBar(
-                                        step: currentCardIndex.value,
-                                        totalSteps: 4,
-                                      ),
+                                      if (hasProgressBar)
+                                        CardProgressBar(
+                                          step: currentCardIndex.value,
+                                          totalSteps: 4,
+                                        ),
                                       pages[currentCardIndex.value],
                                     ],
                                   ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -176,12 +177,22 @@ class OnboardingPage extends StatelessWidget {
                 () => _.showFinalView
                     ? Stack(
                         children: [
-                          DecisionButtonsOnBoarding(
-                            onTapDisagrementButton: _.onTapDisagrementButton,
-                            onTapHalfDisagrementButton:
-                                _.onTapHalfDisagrementButton,
-                            onTapHalfAgrementButton: _.onTapHalfAgrementButton,
-                            onTapAgrementButton: _.onTapAgrementButton,
+                          IgnorePointer(
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: SizedBox(
+                                height: Get.height * .3,
+                                child: DecisionButtonsOnBoarding(
+                                  onTapDisagrementButton:
+                                      _.onTapDisagrementButton,
+                                  onTapHalfDisagrementButton:
+                                      _.onTapHalfDisagrementButton,
+                                  onTapHalfAgrementButton:
+                                      _.onTapHalfAgrementButton,
+                                  onTapAgrementButton: _.onTapAgrementButton,
+                                ),
+                              ),
+                            ),
                           ),
                           Obx(
                             () => AnimatedContainer(
@@ -198,7 +209,7 @@ class OnboardingPage extends StatelessWidget {
                           Obx(
                             () => _.finalAnimationFinished.value
                                 ? CustomCard(
-                                    card: _.firstCard ?? _.exampleCard,
+                                    card: _.exampleCard,
                                     isFirstCard: true,
                                     angleCard: _.angle,
                                     bgPosition: _.bgPosition,
@@ -212,12 +223,13 @@ class OnboardingPage extends StatelessWidget {
                                     onTapDown: _.onTapDown,
                                     cardAnimationDuration:
                                         _.cardAnimationDuration,
+                                    hasProgressBar: false,
                                   )
                                 : AnimatedContainer(
                                     duration: const Duration(milliseconds: 650),
                                     height: _.heighClippedContainer.value,
                                     child: CustomCard(
-                                      card: _.firstCard ?? _.exampleCard,
+                                      card: _.exampleCard,
                                       isFirstCard: true,
                                       angleCard: _.angle,
                                       bgPosition: _.bgPosition,
@@ -231,6 +243,7 @@ class OnboardingPage extends StatelessWidget {
                                       onTapDown: _.onTapDown,
                                       cardAnimationDuration:
                                           _.cardAnimationDuration,
+                                      hasProgressBar: false,
                                     ),
                                   ),
                           ),

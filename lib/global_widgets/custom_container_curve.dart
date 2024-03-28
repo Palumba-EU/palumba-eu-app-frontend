@@ -37,7 +37,7 @@ class _CustomContainerPainter extends CustomPainter {
     final paint = Paint();
 
     //Properties
-    paint.color = color ?? Theme.of(Get.context!).colorScheme.primary;
+    paint.color = color ?? Theme.of(Get.context!).colorScheme.background;
     paint.style = PaintingStyle.fill;
 
     final path = Path();

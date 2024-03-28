@@ -1,10 +1,8 @@
 import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
-import '../../modules/statments/statements_screen_controller.dart';
 
 class FirstCardPage extends StatelessWidget {
   const FirstCardPage(

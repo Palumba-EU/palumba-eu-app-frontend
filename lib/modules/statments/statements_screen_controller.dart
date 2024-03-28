@@ -12,6 +12,7 @@ enum _HeightScreenPart { top, middle, bottom }
 enum _Decision { agree, halfAgree, halfDisagree, disagree, neutral, skip }
 
 class StatementsController extends GetxController {
+  static const route = '/statements';
   final String cardStackKey = "cardStackKey";
 
   List<CardModel> cards = [
@@ -91,8 +92,8 @@ class StatementsController extends GetxController {
   RxBool _halfAgrementButtonSelected = false.obs;
   bool get halfAgrementButtonSelected => _halfAgrementButtonSelected.value;
 
-  double _cardOpacity = 1;
-  double get cardOpacity => _cardOpacity;
+  RxDouble _cardOpacity = 1.0.obs;
+  RxDouble get cardOpacity => _cardOpacity;
 
   RxInt _currentCardIndex = 0.obs;
   RxInt get currentCardIndex => _currentCardIndex;
@@ -115,7 +116,7 @@ class StatementsController extends GetxController {
     _setBackgroundCardPosition();
 
     final opacity = 1 - _position.value.dy.abs() / (Get.height * .9) * .28;
-    _cardOpacity = opacity.clamp(0, .8);
+    _cardOpacity.value = opacity.clamp(0, .8);
   }
 
   void _setAngle(DragUpdateDetails details) {
@@ -171,7 +172,7 @@ class StatementsController extends GetxController {
     _cardAnimationDuration.value = 250;
     _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
-    _cardOpacity = 1;
+    _cardOpacity.value = 1;
     _angle = 0;
     await Future.delayed(Duration(milliseconds: 250));
     _cardAnimationDuration.value = 0;
@@ -189,7 +190,7 @@ class StatementsController extends GetxController {
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
     _angle = 0;
     _cardAnimationDuration.value = 0;
-    _cardOpacity = 1;
+    _cardOpacity.value = 1;
     _disagrementButtonSelected.value = false;
     _halfDisagrementButtonSelected.value = false;
     _halfAgrementButtonSelected.value = false;
@@ -358,7 +359,7 @@ class StatementsController extends GetxController {
     _disagrementButtonSelected.value = true;
     await disagreeAnimation();
     //TODO: send to api
-    _disagrementButtonSelected.value = true;
+    _disagrementButtonSelected.value = false;
     nextCard();
   }
 

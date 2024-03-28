@@ -5,6 +5,9 @@ import 'package:palumba_eu/modules/splash/splash_binding.dart';
 import 'package:palumba_eu/modules/splash/splash_controller.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:get/route_manager.dart';
+import 'package:palumba_eu/modules/statments/statements_screen_binding.dart';
+import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
+import 'package:palumba_eu/modules/statments/statements_screen_page.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_binding.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_page.dart';
@@ -34,5 +37,11 @@ class AppPages {
       page: () => const OnboardingPage(),
       binding: OnboardingBinding(),
     ),
+    GetPage(
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 650),
+        name: StatementsController.route,
+        page: () => StatementsPage(),
+        binding: StatementsBinding())
   ];
 }

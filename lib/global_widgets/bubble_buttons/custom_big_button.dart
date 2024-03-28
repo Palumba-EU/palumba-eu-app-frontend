@@ -20,11 +20,10 @@ class CustomBigButtonCurve extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = isSelected
-        ? Theme.of(context).colorScheme.primary
-        : Theme.of(context).colorScheme.secondary;
-    final borderColor = isSelected
-        ? Theme.of(context).colorScheme.secondary
-        : Theme.of(context).colorScheme.background;
+        ? Theme.of(context).colorScheme.background
+        : Theme.of(context).colorScheme.primary;
+    final borderColor =
+        isSelected ? Theme.of(context).colorScheme.primary : Colors.white;
     return Stack(
       children: [
         Transform.flip(
@@ -77,7 +76,7 @@ class _CustomButtonPainter extends CustomPainter {
     final paint = Paint();
 
     // Draw filled shape
-    paint.color = color ?? Theme.of(Get.context!).colorScheme.primary;
+    paint.color = color ?? Colors.white;
     paint.style = PaintingStyle.fill;
     _drawShape(canvas, size, paint);
 
@@ -97,27 +96,15 @@ class _CustomButtonPainter extends CustomPainter {
 
     path.quadraticBezierTo(-curveRadius * 1.2, curveRadius * 3, size.width, 0);
 
-    //path.lineTo(size.width, 0);
-
-    //path.close();
-
     canvas.drawPath(path, paint);
   }
 
   void _drawBorderShape(Canvas canvas, Size size, Paint paint) {
     final path = Path();
 
-    //path.moveTo(size.width, size.height);
-
     path.moveTo(0 + curveRadius * 1.8, size.height);
 
     path.quadraticBezierTo(-curveRadius * 1.2, curveRadius * 3, size.width, 0);
-
-    //path.lineTo(size.width, size.height);
-
-    // path.lineTo(curveRadius * .1, size.height);
-
-    // path.close();
 
     canvas.drawPath(path, paint);
   }

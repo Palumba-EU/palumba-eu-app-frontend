@@ -26,19 +26,19 @@ class CustomHeader extends StatelessWidget {
               height: 40,
               width: 32,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background.withOpacity(.3),
+                color: Colors.white.withOpacity(.3),
                 borderRadius:
                     BorderRadius.circular(DUI.spacing.largeBorderRadius),
               ),
               child: Icon(Icons.arrow_back),
             ),
             DUI.text.title1(context, 'Palumba',
-                color: Theme.of(context).colorScheme.secondary),
+                color: Theme.of(context).colorScheme.primary),
             Container(
               height: 40,
               width: 32,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background.withOpacity(.3),
+                color: Colors.white.withOpacity(.3),
                 borderRadius:
                     BorderRadius.circular(DUI.spacing.largeBorderRadius),
               ),
@@ -63,7 +63,7 @@ class _CustomHeaderPainter extends CustomPainter {
     final paint = Paint();
 
     // Draw filled shape
-    paint.color = Theme.of(Get.context!).colorScheme.secondary;
+    paint.color = Theme.of(Get.context!).colorScheme.primary;
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = .8;
     _drawShape(canvas, size, paint);
