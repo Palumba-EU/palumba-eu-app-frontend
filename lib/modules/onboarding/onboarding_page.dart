@@ -14,7 +14,6 @@ import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
-import 'package:palumba_eu/modules/statments/components/buttons/decision_buttons.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';

@@ -131,10 +131,10 @@ class OnboardingController extends GetxController {
 
   void updateBackgroundShape() {
     var heightSize = Get.height;
-    if (currentStep.value == 1) {
-      height.value = heightSize * 0.065;
-      radius.value = Radius.elliptical(500, 250);
-      margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.2);
+    if (currentStep.value <= 1) {
+      height.value = heightSize * .0615;
+      radius.value = Radius.elliptical(400, 150);
+      margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.15);
     } else if (currentStep.value == 2) {
       height.value = heightSize * 0.37;
       radius.value = Radius.circular(250);
@@ -173,7 +173,7 @@ class OnboardingController extends GetxController {
         await Future.delayed(Durations.long3);
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
-        Get.toNamed(StatementsController.route);
+        //Get.toNamed(StatementsController.route);
       });
       //TODO: init bubble buttons animation
     }
@@ -228,6 +228,7 @@ class OnboardingController extends GetxController {
 
   @override
   void onInit() {
+    updateBackgroundShape();
     _nothingHappen(true);
     super.onInit();
   }
