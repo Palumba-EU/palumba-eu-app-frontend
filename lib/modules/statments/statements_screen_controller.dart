@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 enum _WidthScreenPart { maxLeft, middleLeft, center, middleRight, maxRight }
@@ -16,43 +17,15 @@ class StatementsController extends GetxController {
   static const route = '/statements';
   final String cardStackKey = "cardStackKey";
 
-  List<CardModel> cards = [
-    CardModel(
-        id: 'Card01',
-        main: 'Whistleblowers* should be protected no matter what they reveal.',
-        whistleblowe:
-            '️‍An individual who exposes wrongdoing, corruption, or unethical behavior within an organization or institution to the public or authorities, often at great personal risk. (Oxford Dictionary)',
-        context:
-            'Since a few years, several individuals have revealed key internal information about the wrongdoings of their organisations. This led to massive scandals about the safety of those whistleblowers and their responsibility before the law. Therefore, the EU passed the Whistleblower Directive to regulate this practice in our democracies.',
-        favorArgs: 'Cooming soon',
-        againstArgs: 'Cooming soon'),
-    CardModel(
-        id: 'Card02',
-        main:
-            'Card 2 Whistleblowers* should be protected no matter what they reveal.',
-        whistleblowe:
-            '️‍An individual who exposes wrongdoing, corruption, or unethical behavior within an organization or institution to the public or authorities, often at great personal risk. (Oxford Dictionary)',
-        context:
-            'Since a few years, several individuals have revealed key internal information about the wrongdoings of their organisations. This led to massive scandals about the safety of those whistleblowers and their responsibility before the law. Therefore, the EU passed the Whistleblower Directive to regulate this practice in our democracies.',
-        favorArgs: 'Cooming soon',
-        againstArgs: 'Cooming soon'),
-    CardModel(
-        id: 'Card03',
-        main:
-            'Card 3 Whistleblowers* should be protected no matter what they reveal.',
-        whistleblowe:
-            '️‍An individual who exposes wrongdoing, corruption, or unethical behavior within an organization or institution to the public or authorities, often at great personal risk. (Oxford Dictionary)',
-        context:
-            'Since a few years, several individuals have revealed key internal information about the wrongdoings of their organisations. This led to massive scandals about the safety of those whistleblowers and their responsibility before the law. Therefore, the EU passed the Whistleblower Directive to regulate this practice in our democracies.',
-        favorArgs: 'Cooming soon',
-        againstArgs: 'Cooming soon')
-  ];
+  List<CardModel> cards = CardModel.mockCards;
   List<CardModel> _currentCards = [];
   //List<CardModel> get currentCards => _currentCards;
   CardModel? get firstCard =>
       _currentCards.length > 0 ? _currentCards[0] : null;
   CardModel? get secondCard =>
       _currentCards.length > 1 ? _currentCards[1] : null;
+
+  int _count = 0;
 ///////////////////////////////////
 ///////////////////////////////////
 /////ANIMATIONS
@@ -307,16 +280,20 @@ class StatementsController extends GetxController {
   }
 
   nextCard() async {
+    _count++;
     _currentCards.removeAt(0);
     if (_currentCards.length < 3) {
       await Future.delayed(const Duration(milliseconds: 250));
       //TODO: fecth new cards
-      _currentCards += cards;
+      // _currentCards += cards;
     }
     update([cardStackKey]);
     resetAnimation();
     if (_fromOnboarding.value) {
       _fromOnboarding.value = false;
+    }
+    if (_count >= 4) {
+      Get.offAllNamed(LoadingResultsController.route);
     }
   }
 

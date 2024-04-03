@@ -1,6 +1,9 @@
 import 'package:palumba_eu/modules/onboarding/onboarding_binding.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_page.dart';
+import 'package:palumba_eu/modules/results/loading/loading_results_binding.dart';
+import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
+import 'package:palumba_eu/modules/results/loading/loading_results_page.dart';
 import 'package:palumba_eu/modules/splash/splash_binding.dart';
 import 'package:palumba_eu/modules/splash/splash_controller.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
@@ -36,6 +39,11 @@ class AppPages {
       name: OnboardingController.route,
       page: () => const OnboardingPage(),
       binding: OnboardingBinding(),
+    ),
+    GetPage(
+      name: LoadingResultsController.route,
+      page: () => const LoadingResultsPage(),
+      binding: LoadingResultsBinding(),
     ),
     GetPage(
         transition: Transition.noTransition,
