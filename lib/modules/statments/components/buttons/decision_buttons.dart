@@ -150,7 +150,7 @@ class DecisionButtons extends GetView<StatementsController> {
           child: CustomSmallButtonSelectedCurve(
             curveRadius: 120,
             isSelected: true,
-            icon: Icons.check,
+            icon: isAgree ? Icons.check : Icons.close,
             flip: isAgree ? true : false,
             onTap: () {},
           ),

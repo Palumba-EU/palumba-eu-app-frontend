@@ -174,7 +174,7 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
           child: CustomSmallButtonSelectedCurve(
             curveRadius: 120,
             isSelected: true,
-            icon: Icons.check,
+            icon: isAgree ? Icons.check : Icons.close,
             flip: isAgree ? true : false,
             onTap: () {},
           ),
