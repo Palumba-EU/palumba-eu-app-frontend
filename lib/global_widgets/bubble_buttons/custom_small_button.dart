@@ -205,7 +205,7 @@ class _CustomSmallButtonSelectedPainter extends CustomPainter {
     final path = Path();
 
     path.moveTo(0, 0);
-    path.quadraticBezierTo(size.width * .8, 0, size.width, size.height);
+    path.quadraticBezierTo(size.width * .84, 0, size.width, size.height);
 
     path.lineTo(size.width, curveRadius);
     path.lineTo(size.width, size.height);
@@ -219,7 +219,7 @@ class _CustomSmallButtonSelectedPainter extends CustomPainter {
     final path = Path();
 
     path.moveTo(0, 0);
-    path.quadraticBezierTo(size.width * .8, 0, size.width, size.height);
+    path.quadraticBezierTo(size.width * .84, 0, size.width, size.height);
 
     path.lineTo(size.width, curveRadius);
     //path.lineTo(size.width, size.height);
