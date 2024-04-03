@@ -68,7 +68,7 @@ class CustomCard extends StatelessWidget {
               onPanStart: onPanStart,
               onPanUpdate: onPanUpdate,
               onPanEnd: onPanEnd,
-              onTapDown: onTapDown,
+              onTapDown: isOnboardingCard ? null : onTapDown,
               child: LayoutBuilder(
                   builder: (context, constraints) => Obx(
                         () {
