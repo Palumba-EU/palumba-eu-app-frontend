@@ -1,5 +1,6 @@
 import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -24,10 +25,14 @@ class StatementsPage extends GetView<StatementsController> {
             child: Stack(
               children: [
                 //Card container
-                CustomContainerCurve(
-                  height: Get.height * .82,
-                  curveRadius: 200,
-                  color: Theme.of(context).colorScheme.background,
+                Stack(
+                  children: [
+                    CustomContainerCurve(
+                      height: Get.height * .82,
+                      curveRadius: 200,
+                      color: Theme.of(context).colorScheme.background,
+                    ),
+                  ],
                 ),
 
                 //Buttons
@@ -114,6 +119,19 @@ class StatementsPage extends GetView<StatementsController> {
                     ),
                   ),
           ),
+          ClipPath(
+            clipper: CustomContainerClipper(curveRadius: 200),
+            child: SizedBox(
+              height: Get.height * .82,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: SvgPicture.asset(
+                  'assets/images/img_background_blue.svg',
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
+          ),
           //Card
           GetBuilder<StatementsController>(
             id: controller.cardStackKey,
@@ -136,7 +154,8 @@ class StatementsPage extends GetView<StatementsController> {
                           onPanUpdate: controller.onPanUpdate,
                           onPanEnd: controller.onPanEnd,
                           onTapDown: controller.onTapDown,
-                          currentCardIndex: controller.currentCardIndex,
+                          currentCardIndex:
+                              0.obs, //controller.currentCardIndex,
                         ),
                       Obx(
                         () => CustomCard(

@@ -25,7 +25,7 @@ class Step3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.topCenter,
       child: Padding(
         padding: AppDimens.lateralPadding,
         child: Column(
@@ -48,9 +48,9 @@ class Step3 extends StatelessWidget {
                         onGenderPressed(index);
                       }))),
             ),
-            SizedBox(
+            /*SizedBox(
               height: Get.height * 0.05,
-            ),
+            ),*/
           ],
         ),
       ),

@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../statements_screen_controller.dart';
@@ -114,9 +111,11 @@ class DecisionButtons extends GetView<StatementsController> {
                   ),
           ),
         ),
-        SizedBox(
-          width: 2,
-        ),
+        if (!controller.halfDisagrementButtonSelected &&
+            !controller.halfAgrementButtonSelected)
+          SizedBox(
+            width: 2,
+          ),
         Expanded(
           flex: 2,
           child: Obx(

@@ -60,6 +60,16 @@ class S {
     );
   }
 
+  /// `Palumba`
+  String get shortAppName {
+    return Intl.message(
+      'Palumba',
+      name: 'shortAppName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ok`
   String get ok {
     return Intl.message(

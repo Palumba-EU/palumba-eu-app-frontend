@@ -28,7 +28,7 @@ class Step2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.topCenter,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -58,9 +58,9 @@ class Step2 extends StatelessWidget {
                       ));
                 },
               )),
-          SizedBox(
+          /*SizedBox(
             height: Get.height * 0.325,
-          ),
+          ),*/
         ],
       ),
     );

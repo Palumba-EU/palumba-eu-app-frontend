@@ -135,9 +135,11 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                   ),
           ),
         ),
-        SizedBox(
-          width: 2,
-        ),
+        if (!controller.halfDisagrementButtonSelected &&
+            !controller.halfAgrementButtonSelected)
+          SizedBox(
+            width: 2,
+          ),
         Expanded(
           flex: 2,
           child: Obx(

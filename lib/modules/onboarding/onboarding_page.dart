@@ -66,22 +66,30 @@ class OnboardingPage extends StatelessWidget {
                               }
 
                               if (index == 1) {
-                                return Step2(
-                                    minAge: _.minAge,
-                                    maxAge: _.maxAge,
-                                    indexSelected: _.indexAgeSelected,
-                                    onAgePressed: (int index) {
-                                      _.onAgePressed(index);
-                                    });
+                                return Padding(
+                                  padding:
+                                      EdgeInsets.only(top: _.height.value - 40),
+                                  child: Step2(
+                                      minAge: _.minAge,
+                                      maxAge: _.maxAge,
+                                      indexSelected: _.indexAgeSelected,
+                                      onAgePressed: (int index) {
+                                        _.onAgePressed(index);
+                                      }),
+                                );
                               }
 
                               if (index == 2) {
-                                return Step3(
-                                    genders: _.genders,
-                                    indexSelected: _.indexGenderSelected,
-                                    onGenderPressed: (int index) {
-                                      _.onGenderPressed(index);
-                                    });
+                                return Padding(
+                                  padding:
+                                      EdgeInsets.only(top: _.height.value - 30),
+                                  child: Step3(
+                                      genders: _.genders,
+                                      indexSelected: _.indexGenderSelected,
+                                      onGenderPressed: (int index) {
+                                        _.onGenderPressed(index);
+                                      }),
+                                );
                               }
 
                               //TODO: Step4
@@ -112,7 +120,7 @@ class OnboardingPage extends StatelessWidget {
                               );
                             }),
                             CustomHorizontalSpacer(
-                              multiplier: 2,
+                              multiplier: Get.width < 400 ? 1 : 2,
                             ),
                             Obx(() {
                               if (_.currentStep.value == _.totalSteps) {
@@ -172,6 +180,7 @@ class OnboardingPage extends StatelessWidget {
                       )),
                 ),
               )),
+
               Obx(
                 () => _.showFinalView
                     ? Stack(
