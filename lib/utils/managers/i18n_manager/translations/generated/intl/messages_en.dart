@@ -67,7 +67,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("I identify as"),
         "poland": MessageLookupByLibrary.simpleMessage("Poland"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
-        "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "spain": MessageLookupByLibrary.simpleMessage("Spain"),
         "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),
         "textContinue": MessageLookupByLibrary.simpleMessage("Continue"),

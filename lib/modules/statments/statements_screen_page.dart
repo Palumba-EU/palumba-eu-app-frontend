@@ -1,4 +1,3 @@
-import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -53,14 +52,15 @@ class StatementsPage extends GetView<StatementsController> {
                                 child: IgnorePointer(
                                   ignoring: controller.buttonsBlocked,
                                   child: SizedBox(
-                                    width: 90,
-                                    height: 28,
-                                    child: DUI.button.button(
-                                      context,
-                                      'Neutral',
-                                      controller.onTapNeutralButton,
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
+                                    height: 27,
+                                    child: TextButton(
+                                      onPressed: controller.onTapNeutralButton,
+                                      style: ElevatedButton.styleFrom(
+                                          shape: StadiumBorder()),
+                                      child: Text(
+                                        'Neutral',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -154,9 +154,9 @@ class StatementsPage extends GetView<StatementsController> {
                           onPanUpdate: controller.onPanUpdate,
                           onPanEnd: controller.onPanEnd,
                           onTapDown: controller.onTapDown,
-                          currentCardIndex:
-                              0.obs, //controller.currentCardIndex,
-                              isOnboardingCard: false,
+                          currentCardIndex: 0.obs,
+                          //controller.currentCardIndex,
+                          isOnboardingCard: false,
                         ),
                       Obx(
                         () => CustomCard(

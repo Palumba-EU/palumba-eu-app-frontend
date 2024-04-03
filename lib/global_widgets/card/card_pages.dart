@@ -1,7 +1,8 @@
-import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class FirstCardPage extends StatelessWidget {
@@ -10,6 +11,7 @@ class FirstCardPage extends StatelessWidget {
     this.isOnboardingCard, {
     super.key,
   });
+
   final CardModel card;
   final bool isOnboardingCard;
 
@@ -19,23 +21,23 @@ class FirstCardPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DUI.spacing.spacer(multiplier: 3),
+        CustomSpacer(multiplier: 3),
         if (!isOnboardingCard)
           Container(
             padding: EdgeInsets.symmetric(
-                horizontal: DUI.spacing.lateralPaddingValue,
-                vertical: DUI.spacing.smallPaddingValue),
+                horizontal: AppDimens.smallLateralPaddingValue,
+                vertical: 7),
             decoration: BoxDecoration(
-              color: AppColors.text.withOpacity(.5),
-              borderRadius: BorderRadius.circular(DUI.spacing.borderRadius),
+              color: AppColors.beigeWithOpacity,
+              borderRadius: BorderRadius.circular(100),
             ),
-            child:
-                DUI.text.regular(context, '️‍🕵️‍♀📣⚖️', color: AppColors.text),
+            child: Text('️‍🕵️‍♀📣⚖️',
+                style: Theme.of(context).textTheme.bodyMedium),
           ),
-        DUI.spacing.spacer(multiplier: 2),
-        DUI.text.title1(context,
+        CustomSpacer(multiplier: 3),
+        Text(
             isOnboardingCard ? S.of(context).onBoardingCardQuestion : card.main,
-            color: AppColors.text),
+            style: Theme.of(context).textTheme.titleLarge),
       ],
     );
   }
@@ -46,6 +48,7 @@ class SecondCardPage extends StatelessWidget {
     this.card, {
     super.key,
   });
+
   final CardModel card;
 
   @override
@@ -56,15 +59,26 @@ class SecondCardPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DUI.spacing.spacer(multiplier: 2),
-            DUI.text.regular(context, '[whistleblowe]',
-                color: AppColors.text, bold: true),
-            DUI.text.regular(context, card.whistleblowe, color: AppColors.text),
-            DUI.spacing.spacer(multiplier: 2),
-            DUI.text.title3(context, 'Context', color: AppColors.text),
-            DUI.spacing.spacer(multiplier: 2),
-            DUI.text.regular(context, card.context, color: AppColors.text),
-            DUI.spacing.spacer(multiplier: 8),
+            CustomSpacer(multiplier: 2),
+            Text(
+              '[whistleblowe]',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            Text(
+              card.whistleblowe,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            CustomSpacer(multiplier: 2),
+            Text(
+              'Context',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            CustomSpacer(multiplier: 2),
+            Text(
+              card.context,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            CustomSpacer(multiplier: 8),
           ],
         ),
       ),
@@ -77,6 +91,7 @@ class ThirdCardPage extends StatelessWidget {
     this.card, {
     super.key,
   });
+
   final CardModel card;
 
   @override
@@ -85,14 +100,16 @@ class ThirdCardPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DUI.spacing.spacer(multiplier: 2),
-        DUI.text.title3(
-          context,
+        CustomSpacer(multiplier: 2),
+        Text(
           'Arguments in favor',
-          color: AppColors.text,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
-        DUI.spacing.spacer(multiplier: 2),
-        DUI.text.title3(context, card.favorArgs, color: AppColors.text),
+        CustomSpacer(multiplier: 2),
+        Text(
+          card.favorArgs,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
       ],
     );
   }
@@ -103,6 +120,7 @@ class FourthCardPage extends StatelessWidget {
     this.card, {
     super.key,
   });
+
   final CardModel card;
 
   @override
@@ -111,14 +129,16 @@ class FourthCardPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DUI.spacing.spacer(multiplier: 2),
-        DUI.text.title3(
-          context,
+        CustomSpacer(multiplier: 2),
+        Text(
           'Arguments against',
-          color: AppColors.text,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
-        DUI.spacing.spacer(multiplier: 2),
-        DUI.text.title3(context, card.againstArgs, color: AppColors.text),
+        CustomSpacer(multiplier: 2),
+        Text(
+          card.againstArgs,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
       ],
     );
   }

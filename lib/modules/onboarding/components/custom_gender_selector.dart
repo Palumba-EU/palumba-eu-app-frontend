@@ -22,7 +22,7 @@ class CustomGenderSelector extends StatelessWidget {
     return OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 17.5, vertical: 15),
+          padding: EdgeInsets.symmetric(horizontal: AppDimens.regularLateralPaddingValue, vertical: 15),
           backgroundColor: selected ? AppColors.beigeWithOpacity : null,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimens.borderRadius),

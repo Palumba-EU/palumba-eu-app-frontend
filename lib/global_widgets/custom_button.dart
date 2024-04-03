@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
       child: OutlinedButton(
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.symmetric(horizontal: 17.5, vertical: 15),
+            padding: EdgeInsets.symmetric(horizontal: AppDimens.regularLateralPaddingValue, vertical: 15),
             backgroundColor: AppColors.beigeWithOpacity,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppDimens.borderRadius),

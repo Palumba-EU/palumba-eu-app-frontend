@@ -1,7 +1,7 @@
 name: palumba_eu
 description: A new Flutter project boilerplate with GetX and Provider
 
-version: 1.0.0+1
+version: 0.3.0+198
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
@@ -23,7 +23,6 @@ dependencies:
   # Native Specific Modules
   package_info_plus: ^6.0.0
   app_tracking_transparency: ^2.0.4
-  # webview_flutter: ^4.7.0
 
   # UI Modules
   cached_network_image: ^3.3.1
@@ -31,35 +30,17 @@ dependencies:
   shimmer: ^3.0.0
   google_fonts: ^6.2.1
   lottie: ^3.1.0
-  dui: ^0.0.6
-  # auto_size_text: ^3.0.0
+  path_drawing: ^1.0.1
 
   # Localization Modules
   intl: ^0.18.1
   intl_utils: ^2.8.7
 
   # API Modules
-  graphql_flutter: ^5.1.2
-  graphql_codegen: ^0.13.11
   http: ^1.2.1
-  jose: ^0.3.4
 
   # Firebase Modules
   firebase_messaging: ^14.7.20
-  firebase_crashlytics: ^3.4.19
-  path_drawing: ^1.0.1
-  #  firebase_analytics: ^10.8.10
-  #  firebase_dynamic_links: ^5.4.18
-  #  firebase_in_app_messaging: ^0.7.4+18
-
-  # SSO Modules
-  #  sign_in_with_apple: ^6.0.0
-  #  google_sign_in: ^6.2.1
-  #  flutter_facebook_auth: ^6.1.1
-
-  # Geolocation Modules
-  #  google_maps_flutter: ^2.6.0
-  #  geolocator: ^11.0.0
 
 dev_dependencies:
   flutter_test:

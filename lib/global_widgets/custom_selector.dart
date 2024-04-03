@@ -24,7 +24,8 @@ class CustomSelector extends StatelessWidget {
     return OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 17.5, vertical: 19),
+          padding: EdgeInsets.symmetric(
+              horizontal: AppDimens.regularLateralPaddingValue, vertical: 19),
           backgroundColor: selected ? AppColors.beigeWithOpacity : null,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
@@ -39,7 +40,8 @@ class CustomSelector extends StatelessWidget {
           children: [
             leading != null
                 ? Padding(
-                    padding: EdgeInsets.only(right: 17.5),
+                    padding: EdgeInsets.only(
+                        right: AppDimens.regularLateralPaddingValue),
                     child: leading,
                   )
                 : const SizedBox.shrink(),

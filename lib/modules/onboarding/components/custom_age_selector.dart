@@ -23,7 +23,7 @@ class CustomAgeSelector extends StatelessWidget {
       return OutlinedButton(
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.symmetric(horizontal: 17.5),
+            padding: EdgeInsets.symmetric(horizontal: AppDimens.regularLateralPaddingValue),
             backgroundColor: selected ? AppColors.beigeWithOpacity : null,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppDimens.borderRadius),

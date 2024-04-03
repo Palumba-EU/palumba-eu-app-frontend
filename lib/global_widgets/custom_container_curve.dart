@@ -1,6 +1,6 @@
-import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomContainerCurve extends StatelessWidget {
   const CustomContainerCurve(
@@ -19,7 +19,7 @@ class CustomContainerCurve extends StatelessWidget {
         painter:
             _CustomContainerPainter(curveRadius: curveRadius, color: color),
         child: Padding(
-          padding: EdgeInsets.only(bottom: DUI.spacing.lateralPaddingValue * 3),
+          padding: EdgeInsets.only(bottom: AppDimens.lateralPaddingValue * 3),
           child: child,
         ),
       ),

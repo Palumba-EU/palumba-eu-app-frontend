@@ -1,6 +1,7 @@
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class AppThemeData {
   static ThemeData themeData(isDarkTheme) {
@@ -8,16 +9,31 @@ class AppThemeData {
       fontFamily: GoogleFonts.merriweatherSans().fontFamily,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.background,
-      textTheme: const TextTheme(
-        bodyLarge: TextStyle(color: Colors.white),
-        bodyMedium: TextStyle(color: Colors.white),
-        bodySmall: TextStyle(color: Colors.white),
+      textTheme: TextTheme(
+        titleLarge: GoogleFonts.merriweather(
+            fontSize: AppDimens.fontSizeTitle,
+            fontWeight: FontWeight.bold),
+        titleMedium: GoogleFonts.merriweather(
+            fontSize: AppDimens.fontSizeRegular,
+            fontWeight: FontWeight.bold),
+        titleSmall: GoogleFonts.merriweather(
+            fontSize: AppDimens.fontSizeSmall,
+            fontWeight: FontWeight.bold),
+        bodyLarge: GoogleFonts.merriweatherSans(
+            fontSize: AppDimens.fontSizeTitle,
+            fontWeight: FontWeight.w300),
+        bodyMedium: GoogleFonts.merriweatherSans(
+            fontSize: AppDimens.fontSizeRegular,
+            fontWeight: FontWeight.w300),
+        bodySmall: GoogleFonts.merriweatherSans(
+            fontSize: AppDimens.fontSizeSmall,
+            fontWeight: FontWeight.w300),
       ).apply(bodyColor: Colors.white, displayColor: Colors.white),
       colorScheme: ColorScheme.fromSeed(
-          primary: AppColors.primary,
-          seedColor: AppColors.primary,
-          background: AppColors.background,
-          ),
+        primary: AppColors.primary,
+        seedColor: AppColors.primary,
+        background: AppColors.background,
+      ),
     );
   }
 }

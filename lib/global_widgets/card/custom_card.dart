@@ -1,11 +1,11 @@
 import 'dart:math';
 
-import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/global_widgets/card/card_pages.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 import 'card_progressbar.dart';
 
@@ -96,8 +96,8 @@ class CustomCard extends StatelessWidget {
                                 duration: duration,
                                 transform: rotatedMatrix
                                   ..translate(position.dx, position.dy, 0),
-                                height: Get.height * .6,
-                                width: Get.width * .85,
+                                height: Get.height * .575,
+                                width: Get.width * .77,
                                 decoration: BoxDecoration(
                                   color: !isFirstCard
                                       ? Theme.of(context).colorScheme.primary
@@ -121,8 +121,7 @@ class CustomCard extends StatelessWidget {
                                   ],
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(
-                                      DUI.spacing.largeLateralPaddingValue),
+                                  padding: EdgeInsets.all(AppDimens.bigLateralPaddingValue),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,

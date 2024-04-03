@@ -1,8 +1,6 @@
-import 'dart:math';
-
-import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomSmallButtonCurve extends StatelessWidget {
   const CustomSmallButtonCurve(
@@ -31,7 +29,7 @@ class CustomSmallButtonCurve extends StatelessWidget {
         Transform.flip(
           flipX: flip,
           child: Container(
-            margin: EdgeInsets.only(top: DUI.spacing.largeLateralPaddingValue),
+            margin: EdgeInsets.only(top: AppDimens.largeLateralPaddingValue),
             width: double.infinity,
             height: double.infinity,
             child: GestureDetector(
@@ -46,7 +44,7 @@ class CustomSmallButtonCurve extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: DUI.spacing.largeLateralPaddingValue * 2,
+            top: AppDimens.largeLateralPaddingValue * 2,
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
@@ -146,7 +144,7 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
         Transform.flip(
           flipX: flip,
           child: Container(
-            margin: EdgeInsets.only(top: DUI.spacing.largeLateralPaddingValue),
+            margin: EdgeInsets.only(top: AppDimens.largeLateralPaddingValue),
             width: double.infinity,
             height: double.infinity,
             child: GestureDetector(
@@ -162,7 +160,7 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: DUI.spacing.largeLateralPaddingValue * 2,
+            top: AppDimens.largeLateralPaddingValue * 2,
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,

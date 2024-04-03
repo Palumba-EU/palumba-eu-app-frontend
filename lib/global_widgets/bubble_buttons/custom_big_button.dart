@@ -1,6 +1,6 @@
-import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomBigButtonCurve extends StatelessWidget {
   const CustomBigButtonCurve(
@@ -47,7 +47,7 @@ class CustomBigButtonCurve extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: DUI.spacing.largeLateralPaddingValue * 2,
+            top: AppDimens.largeLateralPaddingValue * 2,
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
