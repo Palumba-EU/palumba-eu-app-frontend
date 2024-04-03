@@ -1,7 +1,8 @@
 import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 import 'components/buttons/decision_buttons.dart';
 import '../../global_widgets/card/custom_card.dart';
@@ -41,17 +42,21 @@ class StatementsPage extends GetView<StatementsController> {
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Obx(
-                              () => IgnorePointer(
-                                ignoring: controller.buttonsBlocked,
-                                child: SizedBox(
-                                  width: 90,
-                                  height: 28,
-                                  child: DUI.button.button(
-                                    context,
-                                    'Neutral',
-                                    controller.onTapNeutralButton,
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
+                              () => AnimatedOpacity(
+                                duration: Durations.long4,
+                                opacity: controller.fromOnboarding ? 0 : 1,
+                                child: IgnorePointer(
+                                  ignoring: controller.buttonsBlocked,
+                                  child: SizedBox(
+                                    width: 90,
+                                    height: 28,
+                                    child: DUI.button.button(
+                                      context,
+                                      'Neutral',
+                                      controller.onTapNeutralButton,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -78,19 +83,36 @@ class StatementsPage extends GetView<StatementsController> {
               ],
             ),
           ),
-          IgnorePointer(
-            child: Obx(
-              () => Container(
-                height: 160,
-                color: Theme.of(context).colorScheme.background,
-                child: SafeArea(
-                  child: AnimatedOpacity(
-                      opacity: controller.isPanStarted.value ? 0.2 : 1,
-                      duration: Durations.medium4,
-                      child: CustomHeader()),
-                ),
-              ),
-            ),
+          Obx(
+            () => controller.fromOnboarding
+                ? SafeArea(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(top: AppDimens.lateralPaddingValue),
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: CustomProgressBar(
+                          width: Get.width * 0.35,
+                          step: 4,
+                          totalSteps: 4,
+                        ),
+                      ),
+                    ),
+                  )
+                : IgnorePointer(
+                    ignoring: controller.isPanStarted.value,
+                    child: Container(
+                      color: Theme.of(context).colorScheme.background,
+                      child: SafeArea(
+                        child: IntrinsicHeight(
+                          child: AnimatedOpacity(
+                              opacity: controller.isPanStarted.value ? 0.2 : 1,
+                              duration: Durations.medium4,
+                              child: CustomHeader()),
+                        ),
+                      ),
+                    ),
+                  ),
           ),
           //Card
           GetBuilder<StatementsController>(
@@ -116,20 +138,24 @@ class StatementsPage extends GetView<StatementsController> {
                           onTapDown: controller.onTapDown,
                           currentCardIndex: controller.currentCardIndex,
                         ),
-                      CustomCard(
-                        isFirstCard: true,
-                        card: controller.firstCard!,
-                        onPanStart: controller.onPanStart,
-                        onPanUpdate: controller.onPanUpdate,
-                        onPanEnd: controller.onPanEnd,
-                        onTapDown: controller.onTapDown,
-                        currentCardIndex: controller.currentCardIndex,
-                        angleCard: controller.angle,
-                        positionCard: controller.position,
-                        bgPosition: controller.bgPosition,
-                        isPanStarted: controller.isPanStarted,
-                        cardAnimationDuration: controller.cardAnimationDuration,
-                        cardOpacity: controller.cardOpacity,
+                      Obx(
+                        () => CustomCard(
+                          isFirstCard: true,
+                          card: controller.firstCard!,
+                          onPanStart: controller.onPanStart,
+                          onPanUpdate: controller.onPanUpdate,
+                          onPanEnd: controller.onPanEnd,
+                          onTapDown: controller.onTapDown,
+                          currentCardIndex: controller.currentCardIndex,
+                          angleCard: controller.angle,
+                          positionCard: controller.position,
+                          bgPosition: controller.bgPosition,
+                          isPanStarted: controller.isPanStarted,
+                          cardAnimationDuration:
+                              controller.cardAnimationDuration,
+                          cardOpacity: controller.cardOpacity,
+                          hasProgressBar: !controller.fromOnboarding,
+                        ),
                       )
                     ],
                   )

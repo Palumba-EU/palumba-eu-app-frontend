@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/utils/string_utils.dart';
 
 enum _WidthScreenPart { maxLeft, middleLeft, center, middleRight, maxRight }
 
@@ -98,8 +99,17 @@ class StatementsController extends GetxController {
   RxInt _currentCardIndex = 0.obs;
   RxInt get currentCardIndex => _currentCardIndex;
 
+  RxBool _fromOnboarding = false.obs;
+  bool get fromOnboarding => _fromOnboarding.value;
+
   @override
   void onInit() {
+    final args = Get.arguments;
+    if (args != null) {
+      try {
+        _fromOnboarding.value = args[StringUtils.fromOnboardingKey] as bool;
+      } catch (e) {}
+    }
     _currentCards = List.from(cards);
     resetAnimation();
     super.onInit();
@@ -305,6 +315,9 @@ class StatementsController extends GetxController {
     }
     update([cardStackKey]);
     resetAnimation();
+    if (_fromOnboarding.value) {
+      _fromOnboarding.value = false;
+    }
   }
 
   Future<void> disagreeAnimation() async {

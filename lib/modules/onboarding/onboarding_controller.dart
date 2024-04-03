@@ -6,6 +6,7 @@ import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/models/language_data.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/string_utils.dart';
 
 class OnboardingController extends GetxController {
   static const route = '/onboarding';
@@ -173,7 +174,8 @@ class OnboardingController extends GetxController {
         await Future.delayed(Durations.long3);
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
-        Get.toNamed(StatementsController.route);
+        Get.toNamed(StatementsController.route,
+            arguments: {StringUtils.fromOnboardingKey: true});
       });
       //TODO: init bubble buttons animation
     }
