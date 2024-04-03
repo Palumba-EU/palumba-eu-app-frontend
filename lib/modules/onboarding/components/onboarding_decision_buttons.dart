@@ -35,45 +35,15 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
               ),
             child: Padding(
               padding: EdgeInsets.only(top: Get.height * .1),
-              child: Row(
-                children: [
-                  Expanded(child: SizedBox.shrink()),
-                  Expanded(
-                    flex: 2,
-                    child: Obx(
-                      () => IgnorePointer(
-                        ignoring: controller.buttonsBlocked,
-                        child: CustomSmallButtonCurve(
-                          curveRadius: 50,
-                          isSelected: controller.halfDisagrementButtonSelected,
-                          icon: Icons.close,
-                          flip: false,
-                          onTap: onTapHalfDisagrementButton,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 2,
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Obx(
-                      () => IgnorePointer(
-                        ignoring: controller.buttonsBlocked,
-                        child: CustomSmallButtonCurve(
-                          curveRadius: 50,
-                          isSelected: controller.halfAgrementButtonSelected,
-                          icon: Icons.check,
-                          flip: true,
-                          onTap: onTapHalfAgrementButton,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(child: SizedBox.shrink()),
-                ],
-              ),
+              child: Obx(() => Stack(
+                    children: [
+                      _nonSelectedButtons(),
+                      if (controller.halfAgrementButtonSelected)
+                        _selectedButtons(true),
+                      if (controller.halfDisagrementButtonSelected)
+                        _selectedButtons(false),
+                    ],
+                  )), //_nonSelectedButtons(),
             ),
           ),
         ),
@@ -86,32 +56,52 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                 controller.bigButtonsPosition.dy,
                 0,
               ),
-            child: Row(
+            child: Stack(
               children: [
-                Expanded(
+                Positioned(
+                  left: 0,
+                  bottom: 0,
                   child: Obx(
-                    () => IgnorePointer(
-                      ignoring: controller.buttonsBlocked,
-                      child: CustomBigButtonCurve(
-                        curveRadius: 25,
-                        isSelected: controller.disagrementButtonSelected,
-                        icon: Icons.close,
-                        flip: true,
-                        onTap: onTapDisagrementButton,
+                    () => SizedBox(
+                      height: Get.height * .3 -
+                          (controller.disagrementButtonSelected ? 0 : 15),
+                      width: Get.width * .35 +
+                          (controller.disagrementButtonSelected
+                              ? Get.width * .07
+                              : 0),
+                      child: IgnorePointer(
+                        ignoring: controller.buttonsBlocked,
+                        child: CustomBigButtonCurve(
+                          curveRadius: 25,
+                          isSelected: controller.disagrementButtonSelected,
+                          icon: Icons.close,
+                          flip: true,
+                          onTap: onTapDisagrementButton,
+                        ),
                       ),
                     ),
                   ),
                 ),
-                Spacer(),
-                Expanded(
+                //  Spacer(),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
                   child: Obx(
-                    () => IgnorePointer(
-                      ignoring: controller.buttonsBlocked,
-                      child: CustomBigButtonCurve(
-                        curveRadius: 25,
-                        isSelected: controller.agrementButtonSelected,
-                        icon: Icons.check,
-                        onTap: onTapAgrementButton,
+                    () => SizedBox(
+                      height: Get.height * .3 -
+                          (controller.agrementButtonSelected ? 0 : 15),
+                      width: Get.width * .35 +
+                          (controller.agrementButtonSelected
+                              ? Get.width * .07
+                              : 0),
+                      child: IgnorePointer(
+                        ignoring: controller.buttonsBlocked,
+                        child: CustomBigButtonCurve(
+                          curveRadius: 25,
+                          isSelected: controller.agrementButtonSelected,
+                          icon: Icons.check,
+                          onTap: onTapAgrementButton,
+                        ),
                       ),
                     ),
                   ),
@@ -121,6 +111,73 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _nonSelectedButtons() {
+    return Row(
+      children: [
+        Expanded(child: SizedBox.shrink()),
+        Expanded(
+          flex: 2,
+          child: Obx(
+            () => controller.halfDisagrementButtonSelected
+                ? SizedBox.shrink()
+                : IgnorePointer(
+                    ignoring: controller.buttonsBlocked,
+                    child: CustomSmallButtonCurve(
+                      curveRadius: 50,
+                      isSelected: controller.halfDisagrementButtonSelected,
+                      icon: Icons.close,
+                      flip: false,
+                      onTap: onTapHalfDisagrementButton,
+                    ),
+                  ),
+          ),
+        ),
+        SizedBox(
+          width: 2,
+        ),
+        Expanded(
+          flex: 2,
+          child: Obx(
+            () => controller.halfAgrementButtonSelected
+                ? SizedBox.shrink()
+                : IgnorePointer(
+                    ignoring: controller.buttonsBlocked,
+                    child: CustomSmallButtonCurve(
+                      curveRadius: 50,
+                      isSelected: controller.halfAgrementButtonSelected,
+                      icon: Icons.check,
+                      flip: true,
+                      onTap: onTapHalfAgrementButton,
+                    ),
+                  ),
+          ),
+        ),
+        Expanded(child: SizedBox.shrink()),
+      ],
+    );
+  }
+
+  Widget _selectedButtons(bool isAgree) {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: isAgree ? Get.width * .3 : 0,
+          right: isAgree ? 0 : Get.width * .3),
+      // bottom: 0,
+      child: Obx(
+        () => IgnorePointer(
+          ignoring: controller.buttonsBlocked,
+          child: CustomSmallButtonSelectedCurve(
+            curveRadius: 120,
+            isSelected: true,
+            icon: Icons.check,
+            flip: isAgree ? true : false,
+            onTap: () {},
+          ),
+        ),
+      ),
     );
   }
 }

@@ -38,8 +38,8 @@ class AppPages {
       binding: OnboardingBinding(),
     ),
     GetPage(
-        transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 650),
+        transition: Transition.noTransition,
+        transitionDuration: Duration.zero,
         name: StatementsController.route,
         page: () => StatementsPage(),
         binding: StatementsBinding())

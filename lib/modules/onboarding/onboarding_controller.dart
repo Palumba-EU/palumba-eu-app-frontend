@@ -173,7 +173,7 @@ class OnboardingController extends GetxController {
         await Future.delayed(Durations.long3);
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
-        //Get.toNamed(StatementsController.route);
+        Get.toNamed(StatementsController.route);
       });
       //TODO: init bubble buttons animation
     }

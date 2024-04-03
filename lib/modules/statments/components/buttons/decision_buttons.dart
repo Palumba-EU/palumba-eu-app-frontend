@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../statements_screen_controller.dart';
@@ -65,32 +67,50 @@ class DecisionButtons extends GetView<StatementsController> {
             ],
           ),
         ),
-        Row(
+        Stack(
           children: [
-            Expanded(
+            Positioned(
+              left: 0,
+              bottom: 0,
               child: Obx(
-                () => IgnorePointer(
-                  ignoring: controller.buttonsBlocked,
-                  child: CustomBigButtonCurve(
-                    curveRadius: 25,
-                    isSelected: controller.disagrementButtonSelected,
-                    icon: Icons.close,
-                    flip: true,
-                    onTap: onTapDisagrementButton,
+                () => SizedBox(
+                  height: Get.height * .3 -
+                      (controller.disagrementButtonSelected ? 0 : 15),
+                  width: Get.width * .35 +
+                      (controller.disagrementButtonSelected
+                          ? Get.width * .07
+                          : 0),
+                  child: IgnorePointer(
+                    ignoring: controller.buttonsBlocked,
+                    child: CustomBigButtonCurve(
+                      curveRadius: 25,
+                      isSelected: controller.disagrementButtonSelected,
+                      icon: Icons.close,
+                      flip: true,
+                      onTap: onTapDisagrementButton,
+                    ),
                   ),
                 ),
               ),
             ),
-            Spacer(),
-            Expanded(
+            //Spacer(),
+            Positioned(
+              right: 0,
+              bottom: 0,
               child: Obx(
-                () => IgnorePointer(
-                  ignoring: controller.buttonsBlocked,
-                  child: CustomBigButtonCurve(
-                    curveRadius: 25,
-                    isSelected: controller.agrementButtonSelected,
-                    icon: Icons.check,
-                    onTap: onTapAgrementButton,
+                () => SizedBox(
+                  height: Get.height * .3 -
+                      (controller.agrementButtonSelected ? 0 : 15),
+                  width: Get.width * .35 +
+                      (controller.agrementButtonSelected ? Get.width * .07 : 0),
+                  child: IgnorePointer(
+                    ignoring: controller.buttonsBlocked,
+                    child: CustomBigButtonCurve(
+                      curveRadius: 25,
+                      isSelected: controller.agrementButtonSelected,
+                      icon: Icons.check,
+                      onTap: onTapAgrementButton,
+                    ),
                   ),
                 ),
               ),

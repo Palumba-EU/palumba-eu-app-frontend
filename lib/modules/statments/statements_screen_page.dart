@@ -1,5 +1,6 @@
 import 'package:dui/dui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import 'components/buttons/decision_buttons.dart';
@@ -57,14 +58,18 @@ class StatementsPage extends GetView<StatementsController> {
                             ),
                           ),
                         ),
-                        DecisionButtons(
-                          onTapDisagrementButton:
-                              controller.onTapDisagrementButton,
-                          onTapHalfDisagrementButton:
-                              controller.onTapHalfDisagrementButton,
-                          onTapHalfAgrementButton:
-                              controller.onTapHalfAgrementButton,
-                          onTapAgrementButton: controller.onTapAgrementButton,
+                        SizedBox(
+                          width: double.infinity,
+                          height: Get.height * .3,
+                          child: DecisionButtons(
+                            onTapDisagrementButton:
+                                controller.onTapDisagrementButton,
+                            onTapHalfDisagrementButton:
+                                controller.onTapHalfDisagrementButton,
+                            onTapHalfAgrementButton:
+                                controller.onTapHalfAgrementButton,
+                            onTapAgrementButton: controller.onTapAgrementButton,
+                          ),
                         ),
                       ],
                     ),

@@ -74,6 +74,7 @@ class _CustomButtonPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
+    size = Size(size.width, size.height);
 
     // Draw filled shape
     paint.color = color ?? Colors.white;
