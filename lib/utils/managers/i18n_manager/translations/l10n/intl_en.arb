@@ -33,6 +33,7 @@
   "onBoardingStep3Option4": "Intersex",
   "onBoardingStep3Option5": "Else",
   "onBoardingNotAnswerButton": "Prefer not to say",
+  "onBoardingCardQuestion": "I have no clue who to vote for at the 2024 European Elections",
 
   "@@LoadingResultsPage": "LoadingResultsPage",
   "loadingResultsPageTitle1": "Finding matches with candidate lists in France...",

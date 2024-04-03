@@ -231,7 +231,7 @@ class OnboardingPage extends StatelessWidget {
                                     onTapDown: _.onTapDown,
                                     cardAnimationDuration:
                                         _.cardAnimationDuration,
-                                    hasProgressBar: false,
+                                    isOnboardingCard: true,
                                   )
                                 : AnimatedContainer(
                                     duration: const Duration(milliseconds: 650),
@@ -251,7 +251,7 @@ class OnboardingPage extends StatelessWidget {
                                       onTapDown: _.onTapDown,
                                       cardAnimationDuration:
                                           _.cardAnimationDuration,
-                                      hasProgressBar: false,
+                                      isOnboardingCard: true,
                                     ),
                                   ),
                           ),

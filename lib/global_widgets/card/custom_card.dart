@@ -25,7 +25,7 @@ class CustomCard extends StatelessWidget {
     required this.bgPosition,
     required this.currentCardIndex,
     required this.cardOpacity,
-    this.hasProgressBar = true,
+    this.isOnboardingCard = false,
   });
   final bool isFirstCard;
   final CardModel card;
@@ -40,12 +40,12 @@ class CustomCard extends StatelessWidget {
   final Rx<Offset> bgPosition;
   final Rx<int> currentCardIndex;
   final RxDouble cardOpacity;
-  final bool hasProgressBar;
+  final bool isOnboardingCard;
 
   @override
   Widget build(BuildContext context) {
     final pages = [
-      FirstCardPage(card),
+      FirstCardPage(card, isOnboardingCard),
       SecondCardPage(card),
       ThirdCardPage(card),
       FourthCardPage(card),
@@ -127,7 +127,7 @@ class CustomCard extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      if (hasProgressBar)
+                                      if (!isOnboardingCard)
                                         CardProgressBar(
                                           step: currentCardIndex.value,
                                           totalSteps: 4,

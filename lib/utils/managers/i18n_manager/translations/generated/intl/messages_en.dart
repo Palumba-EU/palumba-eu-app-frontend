@@ -47,6 +47,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Almost\nready :)"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+        "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
+            "I have no clue who to vote for at the 2024 European Elections"),
         "onBoardingNotAnswerButton":
             MessageLookupByLibrary.simpleMessage("Prefer not to say"),
         "onBoardingStep1Subtitle":

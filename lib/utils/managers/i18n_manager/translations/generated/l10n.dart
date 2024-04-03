@@ -340,6 +340,16 @@ class S {
     );
   }
 
+  /// `I have no clue who to vote for at the 2024 European Elections`
+  String get onBoardingCardQuestion {
+    return Intl.message(
+      'I have no clue who to vote for at the 2024 European Elections',
+      name: 'onBoardingCardQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Finding matches with candidate lists in France...`
   String get loadingResultsPageTitle1 {
     return Intl.message(
