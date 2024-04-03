@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/card/custom_card.dart';
@@ -51,6 +49,9 @@ class OnboardingPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomSpacer(),
+                    PageView(
+                      
+                    ),
                     Expanded(
                         child: PageView.builder(
                             controller: _.pageController,

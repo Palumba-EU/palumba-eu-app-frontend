@@ -1,5 +1,7 @@
 import 'package:palumba_eu/data/repositories/local/local_auth_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/user_repository.dart';
+import 'package:palumba_eu/modules/results/results_controller.dart';
+import 'package:palumba_eu/modules/results/results_page.dart';
 
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 
@@ -24,9 +26,9 @@ class SplashController extends GetxController {
     if (authToken != null) {
       _initData();
     } else {
-      Get.offNamed(
-        LanguageController.route,
-      );
+      Get.offNamed(ResultsController.route
+          // LanguageController.route,
+          );
     }
   }
 

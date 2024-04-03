@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class AppDimens {
   /// Margins
   ///
+  static const double smallPaddingValue = 4;
   static const double extraSmallLateralPaddingValue = 8;
   static const double smallLateralPaddingValue = 12;
   static const double regularLateralPaddingValue = 16;
@@ -13,7 +14,8 @@ class AppDimens {
   static const double largeLateralPaddingValue = 40;
   static const double extraLargeLateralPaddingValue = 48;
 
-  static EdgeInsets lateralPadding = EdgeInsets.symmetric(horizontal: lateralPaddingValue);
+  static EdgeInsets lateralPadding =
+      EdgeInsets.symmetric(horizontal: lateralPaddingValue);
 
   /// Border Radius
   ///

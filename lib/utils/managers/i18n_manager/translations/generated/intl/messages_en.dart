@@ -66,6 +66,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("I identify as"),
         "poland": MessageLookupByLibrary.simpleMessage("Poland"),
+        "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
+        "resultsPage1Title":
+            MessageLookupByLibrary.simpleMessage("We found you a match!"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "spain": MessageLookupByLibrary.simpleMessage("Spain"),
         "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),

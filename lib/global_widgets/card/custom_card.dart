@@ -130,6 +130,7 @@ class CustomCard extends StatelessWidget {
                                         CardProgressBar(
                                           step: currentCardIndex.value,
                                           totalSteps: 4,
+                                          hasSkip: true,
                                         ),
                                       pages[currentCardIndex.value],
                                     ],

@@ -43,6 +43,8 @@ class FirstCardPage extends StatelessWidget {
   }
 }
 
+
+
 class SecondCardPage extends StatelessWidget {
   const SecondCardPage(
     this.card, {
