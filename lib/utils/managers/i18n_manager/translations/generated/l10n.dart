@@ -409,6 +409,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Palumba`
+  String get resultsShortAppName {
+    return Intl.message(
+      'Palumba',
+      name: 'resultsShortAppName',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

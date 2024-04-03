@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
 import 'package:palumba_eu/modules/results/pages/page_1/results_page_1.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -47,7 +48,7 @@ class ResultsPage extends GetView<ResultsController> {
                       ),
                     ),
                     Spacer(),
-                    AppTexts.regular('#${S.of(context).shortAppName}'),
+                    AppTexts.regular('#${S.of(context).resultsShortAppName}'),
                   ],
                 ),
               ),

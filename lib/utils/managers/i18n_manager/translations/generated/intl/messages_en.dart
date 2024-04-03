@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("We found you a match!"),
+        "resultsShortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "spain": MessageLookupByLibrary.simpleMessage("Spain"),
         "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),
