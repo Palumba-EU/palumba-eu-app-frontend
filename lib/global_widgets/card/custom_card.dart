@@ -5,16 +5,15 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/global_widgets/card/card_pages.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
+import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
-
-import 'card_progressbar.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
     this.isFirstCard = false,
     required this.card,
-    required this.isPanStarted,
+    this.isPanStarted,
     this.onPanStart,
     this.onPanUpdate,
     this.onPanEnd,
@@ -23,24 +22,26 @@ class CustomCard extends StatelessWidget {
     required this.angleCard,
     required this.positionCard,
     required this.bgPosition,
-    required this.currentCardIndex,
+    this.currentCardIndex,
     required this.cardOpacity,
     this.isOnboardingCard = false,
+    this.onSkipTap,
   });
   final bool isFirstCard;
   final CardModel card;
-  final RxBool isPanStarted;
+  final RxBool? isPanStarted;
   final Function(DragStartDetails)? onPanStart;
   final Function(DragUpdateDetails)? onPanUpdate;
   final Function(DragEndDetails)? onPanEnd;
   final Function(TapDownDetails)? onTapDown;
-  final Rx<int> cardAnimationDuration;
+  final Rx<int>? cardAnimationDuration;
   final double angleCard;
   final Rx<Offset> positionCard;
   final Rx<Offset> bgPosition;
-  final Rx<int> currentCardIndex;
+  final Rx<int>? currentCardIndex;
   final RxDouble cardOpacity;
   final bool isOnboardingCard;
+  final Function()? onSkipTap;
 
   @override
   Widget build(BuildContext context) {
@@ -56,11 +57,11 @@ class CustomCard extends StatelessWidget {
         () => ClipPath(
           clipper: !isFirstCard
               ? CustomContainerClipper(curveRadius: 200)
-              : (isPanStarted.value
+              : (isPanStarted?.value ?? false
                   ? null
                   : CustomContainerClipper(curveRadius: 200)),
           child: SizedBox(
-            height: isPanStarted.value
+            height: isPanStarted?.value ?? false
                 ? (isFirstCard ? Get.height : Get.height * .82)
                 : Get.height * .82,
             width: double.infinity,
@@ -73,7 +74,7 @@ class CustomCard extends StatelessWidget {
                   builder: (context, constraints) => Obx(
                         () {
                           final duration = Duration(
-                              milliseconds: cardAnimationDuration.value);
+                              milliseconds: cardAnimationDuration?.value ?? 0);
                           final position = isFirstCard
                               ? positionCard.value
                               : bgPosition.value;
@@ -101,7 +102,7 @@ class CustomCard extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: !isFirstCard
                                       ? Theme.of(context).colorScheme.primary
-                                      : isPanStarted.value
+                                      : isPanStarted?.value ?? false
                                           ? Theme.of(context)
                                               .colorScheme
                                               .background
@@ -121,18 +122,20 @@ class CustomCard extends StatelessWidget {
                                   ],
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(AppDimens.bigLateralPaddingValue),
+                                  padding: EdgeInsets.all(
+                                      AppDimens.bigLateralPaddingValue),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
                                       if (!isOnboardingCard)
-                                        CardProgressBar(
-                                          step: currentCardIndex.value,
-                                          totalSteps: 4,
-                                          hasSkip: true,
+                                        CustomProgressBar(
+                                          step: currentCardIndex?.value ?? 0,
+                                          totalSteps: pages.length,
+                                          width: double.infinity,
+                                          onSkipTap: onSkipTap,
                                         ),
-                                      pages[currentCardIndex.value],
+                                      pages[currentCardIndex?.value ?? 0],
                                     ],
                                   ),
                                 ),
