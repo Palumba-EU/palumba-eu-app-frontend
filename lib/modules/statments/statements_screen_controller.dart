@@ -376,4 +376,6 @@ class StatementsController extends GetxController {
     _agrementButtonSelected.value = false;
     nextCard();
   }
+
+  void onSkipTap() {}
 }

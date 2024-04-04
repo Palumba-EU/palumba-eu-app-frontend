@@ -8,6 +8,7 @@
   "textContinue": "Continue",
   "alertServerErrorTitle": "Ops!",
   "alertServerErrorText": "Something has gone wrong on our side. Please try again later.",
+  "skip": "Skip",
 
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Let’s continue in English? :)",
@@ -43,5 +44,6 @@
 
   "resultsPage1Title": "We found you a match!",
   "resultsPage1Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
-  "resultsShortAppName": "Palumba"
+  "resultsShortAppName": "Palumba",
+  "resultsLabelEmoji":"😍❤️‍🔥💘"
 }

@@ -221,8 +221,6 @@ class OnboardingController extends GetxController {
   RxDouble _cardOpacity = 1.0.obs;
   RxDouble get cardOpacity => _cardOpacity;
 
-  RxInt _currentCardIndex = 0.obs;
-  RxInt get currentCardIndex => _currentCardIndex;
 
   Rx<Offset> _smallButtonsPosition = Offset(0, Get.height * .3).obs;
   Offset get smallButtonsPosition => _smallButtonsPosition.value;
@@ -232,56 +230,13 @@ class OnboardingController extends GetxController {
   @override
   void onInit() {
     updateBackgroundShape();
-    _nothingHappen(true);
+    _initialCardPosition(true);
     super.onInit();
   }
 
-  void onPanStart(DragStartDetails details) {
-    _isPanStarted.value = true;
-  }
+ 
 
-  void onPanUpdate(DragUpdateDetails details) {
-    // _checkActionSelected();
-    _setAngle(details);
-    _position.value += Offset(details.delta.dx * .65, details.delta.dy * .65);
-
-    final opacity = 1 - _position.value.dy.abs() / (Get.height * .9) * .28;
-    _cardOpacity.value = opacity.clamp(0, .8);
-  }
-
-  void _setAngle(DragUpdateDetails details) {
-    final x = _position.value.dx + details.delta.dx;
-    final centerX = Get.width * .25;
-    final difference = x - centerX;
-    _angle = -difference / centerX * 8;
-  }
-
-  void onPanEnd(DragEndDetails details) {
-    _isPanStarted.value = false;
-
-    _nothingHappen();
-  }
-
-  void onTapDown(TapDownDetails details) async {
-    changePage(details);
-  }
-
-  void changePage(TapDownDetails event) async {
-    await Future.delayed(Duration(milliseconds: 100));
-    if (_isPanStarted.value) return;
-    final isNext = event.localPosition.dx > Get.width / 2;
-    if (isNext) {
-      if (_currentCardIndex < 3) {
-        _currentCardIndex.value++;
-      }
-    } else {
-      if (_currentCardIndex > 0) {
-        _currentCardIndex.value--;
-      }
-    }
-  }
-
-  void _nothingHappen([bool initial = false]) async {
+  void _initialCardPosition([bool initial = false]) async {
     _buttonsBlocked.value = true;
     _cardAnimationDuration.value = 250;
     initial

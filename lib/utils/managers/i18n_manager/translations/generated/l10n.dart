@@ -130,6 +130,16 @@ class S {
     );
   }
 
+  /// `Skip`
+  String get skip {
+    return Intl.message(
+      'Skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Let’s continue in English? :)`
   String get languagePageTitle {
     return Intl.message(
@@ -415,6 +425,16 @@ class S {
     return Intl.message(
       'Palumba',
       name: 'resultsShortAppName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `😍❤️‍🔥💘`
+  String get resultsLabelEmoji {
+    return Intl.message(
+      '😍❤️‍🔥💘',
+      name: 'resultsLabelEmoji',
       desc: '',
       args: [],
     );

@@ -157,6 +157,7 @@ class StatementsPage extends GetView<StatementsController> {
                           currentCardIndex: 0.obs,
                           //controller.currentCardIndex,
                           isOnboardingCard: false,
+                          onSkipTap: controller.onSkipTap,
                         ),
                       Obx(
                         () => CustomCard(
@@ -175,6 +176,7 @@ class StatementsPage extends GetView<StatementsController> {
                               controller.cardAnimationDuration,
                           cardOpacity: controller.cardOpacity,
                           isOnboardingCard: controller.fromOnboarding,
+                          onSkipTap: controller.onSkipTap,
                         ),
                       )
                     ],
