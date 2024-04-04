@@ -1,0 +1,78 @@
+name: palumba_eu
+description: A new Flutter project boilerplate with GetX and Provider
+
+version: 0.3.0+198
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Common Modules
+  flutter_dotenv: ^5.1.0
+  shared_preferences: ^2.2.2
+
+  # Core Modules
+  get: ^4.6.6
+  provider: ^6.1.2
+
+  # Native Specific Modules
+  package_info_plus: ^6.0.0
+  app_tracking_transparency: ^2.0.4
+
+  # UI Modules
+  cached_network_image: ^3.3.1
+  flutter_svg: ^2.0.10+1
+  shimmer: ^3.0.0
+  google_fonts: ^6.2.1
+  lottie: ^3.1.0
+  path_drawing: ^1.0.1
+
+  # Localization Modules
+  intl: ^0.18.1
+  intl_utils: ^2.8.7
+
+  # API Modules
+  http: ^1.2.1
+
+  # Firebase Modules
+  firebase_messaging: ^14.7.20
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_icons: #flutter pub run flutter_launcher_icons:main
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/appIcons/launcher_icon.png"
+
+
+flutter_intl:
+  enabled: true
+  class_name: S
+  main_locale: en
+  arb_dir: lib/utils/managers/i18n_manager/translations/l10n
+  output_dir: lib/utils/managers/i18n_manager/translations/generated
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/appIcons/
+    - assets/fonts/
+    - assets/images/
+    - assets/images/flags/
+    - assets/anims/
+    - .env.dev
+    - .env.prod
+
+    #fonts:
+    #- family: fontFamily
+    #  fonts:
+    #    - asset: fonts/means/light.ttf
+    #    - asset: fonts/means/medium.ttf
+    #      weight: 700

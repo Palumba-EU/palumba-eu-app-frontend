@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1080153158864",
+    "project_id": "palumba-14fae",
+    "storage_bucket": "palumba-14fae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080153158864:android:f993acbb31a49325c39ad5",
+        "android_client_info": {
+          "package_name": "com.palumba.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6gB4a2LVS84fhX06E6TL3-q0_HAkGaFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
