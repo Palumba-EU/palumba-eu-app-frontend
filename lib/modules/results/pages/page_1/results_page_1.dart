@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -20,19 +21,18 @@ class ResultsPage1 extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //TODO: Add image
-                Container(
+                CustomNetworkImage(
                   height: Get.width * .7,
                   width: Get.width,
-                  color: Colors.red,
+                  imageUrl: 'https://picsum.photos/seed/picsum/600/300',
+                  placeholder: 'assets/images/image_placeholder.svg',
                 ),
                 CustomSpacer(
                   multiplier: 2,
                 ),
                 EmojiLabelContainer(
-                  emoji: '️‍😍❤️‍🔥💘',
+                  emoji: S.of(context).resultsLabelEmoji,
                 ),
-
                 CustomSpacer(),
                 AppTexts.title(S.of(context).resultsPage1Title),
                 CustomSpacer(),
@@ -43,11 +43,11 @@ class ResultsPage1 extends StatelessWidget {
           CustomSpacer(
             multiplier: 2,
           ),
-          //TODO: Add image
-          Container(
-            height: 200,
+          CustomNetworkImage(
+            height: Get.width * .4,
             width: Get.width,
-            color: Colors.red,
+            imageUrl: 'https://picsum.photos/seed/picsum/800/300',
+            placeholder: 'assets/images/image_placeholder.svg',
           ),
           CustomSpacer(
             multiplier: 2,

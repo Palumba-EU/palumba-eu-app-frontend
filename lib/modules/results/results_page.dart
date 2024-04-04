@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:palumba_eu/global_widgets/custom_network_image.dart';
+import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
-import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
-import 'package:palumba_eu/modules/results/pages/page_1/results_page_1.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
-import '../../global_widgets/card/card_progressbar.dart';
 import 'results_controller.dart';
 
 class ResultsPage extends GetView<ResultsController> {
@@ -26,9 +25,12 @@ class ResultsPage extends GetView<ResultsController> {
               ),
               Padding(
                 padding: AppDimens.lateralPadding,
-                child: Obx(() => CardProgressBar(
-                    step: controller.currentPage,
-                    totalSteps: controller.pages.length)),
+                child: Obx(() => CustomProgressBar(
+                      step: controller.currentPage,
+                      totalSteps: controller.pages.length,
+                      width: double.infinity,
+                      isDotted: true,
+                    )),
               ),
               CustomSpacer(
                 multiplier: 3,
@@ -38,14 +40,12 @@ class ResultsPage extends GetView<ResultsController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    //TODO: Remove container add image
-                    Container(
-                      width: 24,
+                    CustomNetworkImage(
                       height: 24,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        shape: BoxShape.circle,
-                      ),
+                      width: 24,
+                      imageUrl: 'https://picsum.photos/200/300',
+                      placeholder: 'assets/images/image_placeholder.svg',
+                      isAvatar: true,
                     ),
                     Spacer(),
                     AppTexts.regular('#${S.of(context).resultsShortAppName}'),
