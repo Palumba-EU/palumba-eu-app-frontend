@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
+import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class CustomProgressBar extends StatelessWidget {
@@ -26,7 +28,7 @@ class CustomProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
-      height: isDotted ? 4 : 8,
+      height: isDotted ? null : 8,
       child: isDotted
           ? Row(children: [
               for (int i = 0; i < totalSteps; i++)
@@ -36,6 +38,7 @@ class CustomProgressBar extends StatelessWidget {
                     child: Stack(
                       children: [
                         Container(
+                          height: 4,
                           decoration: BoxDecoration(
                               color: Colors.white.withOpacity(.5),
                               borderRadius: BorderRadius.circular(100)),
@@ -43,6 +46,7 @@ class CustomProgressBar extends StatelessWidget {
                         if (i == step)
                           AnimatedContainer(
                             duration: const Duration(milliseconds: 500),
+                            height: 4,
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(100)),
@@ -55,10 +59,12 @@ class CustomProgressBar extends StatelessWidget {
                 InkWell(
                   onTap: onSkipTap,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 25),
-                    child: Text(
+                    padding:
+                        EdgeInsets.only(left: AppDimens.bigLateralPaddingValue),
+                    child: AppTexts.regular(
                       S.of(context).skip.toUpperCase(),
-                      style: Theme.of(context).textTheme.bodyMedium,
+
+                      // style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                 )
@@ -72,7 +78,7 @@ class CustomProgressBar extends StatelessWidget {
                 ),
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 500),
-                  width: (width ?? Get.width) * (step / totalSteps),
+                  width: (width) * (step / totalSteps),
                   decoration: BoxDecoration(
                       color: progressColor ?? Colors.white,
                       borderRadius: BorderRadius.circular(10)),

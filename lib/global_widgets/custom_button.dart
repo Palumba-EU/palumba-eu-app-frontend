@@ -8,11 +8,25 @@ import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
+  final IconButtonParameters? suffixIcon;
+  final IconButtonParameters? prefixIcon;
+  final double? radius;
+  final Color? color;
+  final Color? textColor;
+  final bool bold;
+  final ButtonBorderParameters? border;
 
   const CustomButton({
     Key? key,
     required this.text,
     required this.onPressed,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.radius,
+    this.color,
+    this.textColor,
+    this.bold = true,
+    this.border,
   }) : super(key: key);
 
   @override
@@ -22,13 +36,19 @@ class CustomButton extends StatelessWidget {
       child: OutlinedButton(
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.symmetric(horizontal: AppDimens.regularLateralPaddingValue, vertical: 15),
-            backgroundColor: AppColors.beigeWithOpacity,
+            padding: EdgeInsets.symmetric(
+                horizontal: AppDimens.regularLateralPaddingValue, vertical: 15),
+            backgroundColor: color ?? AppColors.beigeWithOpacity,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(AppDimens.borderRadius),
+              borderRadius:
+                  BorderRadius.circular(radius ?? AppDimens.borderRadius),
             ),
             side: BorderSide(
-                width: AppDimens.borderWidth,
+                width: border?.width ?? AppDimens.borderWidth,
+                style: border == null ? BorderStyle.none : BorderStyle.solid,
+                strokeAlign: border?.isOutside ?? false
+                    ? BorderSide.strokeAlignOutside
+                    : BorderSide.strokeAlignInside,
                 color: AppColors.beigeWithOpacity),
           ),
           child: Opacity(
@@ -36,12 +56,50 @@ class CustomButton extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                AppTexts.regular(text, bold: true),
-                CustomHorizontalSpacer(),
-                SvgPicture.asset('assets/images/ic_arrow_forward.svg')
+                CustomHorizontalSpacer(small: true),
+                if (prefixIcon != null)
+                  SvgPicture.asset(
+                    'assets/images/${prefixIcon!.asset}.svg',
+                    height: prefixIcon!.size,
+                    colorFilter: prefixIcon!.color == null
+                        ? null
+                        : ColorFilter.mode(prefixIcon!.color!, BlendMode.srcIn),
+                  ),
+                if (prefixIcon != null) CustomHorizontalSpacer(),
+                AppTexts.regular(text, bold: bold, color: textColor),
+                if (suffixIcon != null) CustomHorizontalSpacer(),
+                if (suffixIcon != null)
+                  SvgPicture.asset(
+                    'assets/images/${suffixIcon!.asset}.svg',
+                    height: suffixIcon!.size,
+                    colorFilter: suffixIcon!.color == null
+                        ? null
+                        : ColorFilter.mode(suffixIcon!.color!, BlendMode.srcIn),
+                  ),
+                CustomHorizontalSpacer(small: true),
               ],
             ),
           )),
     );
   }
+}
+
+class IconButtonParameters {
+  final String asset;
+  final double? size;
+  final Color? color;
+
+  IconButtonParameters(
+    this.asset, {
+    this.size,
+    this.color,
+  });
+}
+
+class ButtonBorderParameters {
+  final Color? color;
+  final double? width;
+  final bool? isOutside;
+
+  ButtonBorderParameters({this.color, this.width, this.isOutside});
 }

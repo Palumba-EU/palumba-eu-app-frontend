@@ -439,6 +439,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Share`
+  String get resultsShare {
+    return Intl.message(
+      'Share',
+      name: 'resultsShare',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -221,7 +221,6 @@ class OnboardingController extends GetxController {
   RxDouble _cardOpacity = 1.0.obs;
   RxDouble get cardOpacity => _cardOpacity;
 
-
   Rx<Offset> _smallButtonsPosition = Offset(0, Get.height * .3).obs;
   Offset get smallButtonsPosition => _smallButtonsPosition.value;
   Rx<Offset> _bigButtonsPosition = Offset(0, Get.height * .3).obs;
@@ -233,8 +232,6 @@ class OnboardingController extends GetxController {
     _initialCardPosition(true);
     super.onInit();
   }
-
- 
 
   void _initialCardPosition([bool initial = false]) async {
     _buttonsBlocked.value = true;

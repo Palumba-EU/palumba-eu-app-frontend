@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class AppDimens {
   /// Margins
   ///
-  static const double smallPaddingValue = 4;
-  static const double extraSmallLateralPaddingValue = 8;
+  static const double smallPaddingValue = 8;
+  static const double extraSmallLateralPaddingValue = 4;
   static const double smallLateralPaddingValue = 12;
   static const double regularLateralPaddingValue = 16;
   static const double mediumLateralPaddingValue = 20;
-  static const double bigLateralPaddingValue = 24;
-  static const double lateralPaddingValue = 32;
+  static const double bigLateralPaddingValue = 32;
+  static const double lateralPaddingValue = 24;
   static const double largeLateralPaddingValue = 40;
   static const double extraLargeLateralPaddingValue = 48;
 

@@ -32,6 +32,6 @@ class LanguageController extends GetxController {
   }
 
   void onContinueTap() {
-    Get.offNamed(EntranceController.route);
+    Get.offAllNamed(EntranceController.route);
   }
 }

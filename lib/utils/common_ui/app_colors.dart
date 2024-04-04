@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -10,6 +9,8 @@ class AppColors {
 
   static const Color beige = Color(0xFFFCFBF2);
   static Color beigeWithOpacity = background.withOpacity(0.25);
+
+  static const Color whiteButton = Colors.white;
 
   static const Color text = Colors.white;
 }

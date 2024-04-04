@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:palumba_eu/modules/results/pages/page_1/results_page_1.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/page_2/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/page_3/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/page_4/results_page_4.dart';
@@ -20,6 +20,8 @@ class ResultsController extends GetxController {
     ResultsPage5(),
     ResultsPage6(),
   ];
+
+  List<int> showButtonSharePages = [1, 2, 5];
 
   RxInt _currentPage = 0.obs;
   int get currentPage => _currentPage.value;

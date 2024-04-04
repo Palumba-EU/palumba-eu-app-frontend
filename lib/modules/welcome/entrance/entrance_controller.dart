@@ -12,6 +12,6 @@ class EntranceController extends GetxController {
    * On Click Actions
    */
   void onContinueTap() {
-    Get.offNamed(OnboardingController.route);
+    Get.offAllNamed(OnboardingController.route);
   }
 }

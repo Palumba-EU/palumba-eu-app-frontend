@@ -50,4 +50,40 @@ class AppTexts {
           fontWeight: FontWeight.bold,
         ));
   }
+
+  static customTextStyle(AppTextType appTexType,
+      {Color? color,
+      bool bold = false,
+      TextDecoration? decoration,
+      double? fontSize}) {
+    switch (appTexType) {
+      case AppTextType.title:
+        return TextStyle(
+          fontFamily: GoogleFonts.merriweather().fontFamily,
+          fontSize: fontSize ?? AppDimens.fontSizeTitle,
+          color: color ?? AppColors.text,
+          fontWeight: FontWeight.bold,
+        );
+      case AppTextType.regular:
+        return TextStyle(
+            fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+            fontSize: fontSize ?? AppDimens.fontSizeRegular,
+            color: color ?? AppColors.text,
+            decorationColor: AppColors.text,
+            fontWeight: bold ? FontWeight.bold : FontWeight.w300,
+            decoration: decoration);
+
+      case AppTextType.small:
+        return TextStyle(
+            fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+            fontSize: fontSize ?? AppDimens.fontSizeSmall,
+            color: color ?? AppColors.text,
+            decorationColor: AppColors.text,
+            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+            decoration: TextDecoration.underline);
+      default:
+    }
+  }
 }
+
+enum AppTextType { small, regular, title }

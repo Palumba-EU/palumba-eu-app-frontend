@@ -49,9 +49,6 @@ class OnboardingPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomSpacer(),
-                    PageView(
-                      
-                    ),
                     Expanded(
                         child: PageView.builder(
                             controller: _.pageController,
@@ -129,12 +126,16 @@ class OnboardingPage extends StatelessWidget {
                               }
 
                               return CustomButton(
+                                suffixIcon:
+                                    IconButtonParameters('ic_arrow_forward'),
                                 onPressed: _.isButtonEnabled.value
                                     ? () {
                                         _.onContinueTap();
                                       }
                                     : null,
                                 text: S.of(context).textContinue,
+                                //Default parameters
+                                border: ButtonBorderParameters(),
                               );
                             })
                           ],

@@ -132,8 +132,9 @@ class CustomCard extends StatelessWidget {
                                         CustomProgressBar(
                                           step: currentCardIndex?.value ?? 0,
                                           totalSteps: pages.length,
-                                          width: double.infinity,
+                                          width: Get.width,
                                           onSkipTap: onSkipTap,
+                                          isDotted: true,
                                         ),
                                       pages[currentCardIndex?.value ?? 0],
                                     ],

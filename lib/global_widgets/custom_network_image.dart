@@ -22,6 +22,7 @@ class CustomNetworkImage extends StatelessWidget {
   final void Function(dynamic error)? onError;
   final bool showPlaceholder;
   final Widget? errorWidget;
+  final BoxBorder? border;
 
   const CustomNetworkImage({
     Key? key,
@@ -39,28 +40,39 @@ class CustomNetworkImage extends StatelessWidget {
     this.showPlaceholder = true,
     this.errorWidget,
     this.placeholder,
+    this.border,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final avatarBorderRadius = ((height ?? width ?? _kDefaultSize) * 1.15);
-    return ClipRRect(
-      borderRadius:
-          BorderRadius.circular(radius ?? (isAvatar ? avatarBorderRadius : 0)),
-      child: Container(
-        height: height ?? _kDefaultSize,
-        width: constrainedSize ? (width ?? _kDefaultSize) : null,
-        color: color ?? AppColors.beige,
-        child: CachedNetworkImage(
-          alignment: alignment ?? Alignment.center,
-          imageUrl: imageUrl,
-          fit: fit ?? BoxFit.cover,
-          placeholder: (_, __) =>
-              showPlaceholder ? _placeholder : const SizedBox.shrink(),
-          errorWidget: (_, __, e) {
-            onError?.call(e);
-            return errorWidget ?? _placeholder;
-          },
+    return Container(
+      decoration: border == null
+          ? null
+          : BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                  (radius ?? (isAvatar ? avatarBorderRadius : 0)) +
+                      ((radius ?? 0) == 0 ? 0 : 10)),
+              border: border,
+            ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(
+            radius ?? (isAvatar ? avatarBorderRadius : 0)),
+        child: Container(
+          height: height ?? _kDefaultSize,
+          width: constrainedSize ? (width ?? _kDefaultSize) : null,
+          color: color ?? AppColors.beige,
+          child: CachedNetworkImage(
+            alignment: alignment ?? Alignment.center,
+            imageUrl: imageUrl,
+            fit: fit ?? BoxFit.cover,
+            placeholder: (_, __) =>
+                showPlaceholder ? _placeholder : const SizedBox.shrink(),
+            errorWidget: (_, __, e) {
+              onError?.call(e);
+              return errorWidget ?? _placeholder;
+            },
+          ),
         ),
       ),
     );
