@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 
@@ -15,6 +14,7 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
     required this.onTapHalfAgrementButton,
     required this.onTapAgrementButton,
   });
+
   final Function() onTapDisagrementButton;
   final Function() onTapHalfDisagrementButton;
   final Function() onTapHalfAgrementButton;

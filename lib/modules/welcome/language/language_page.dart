@@ -44,12 +44,12 @@ class LanguagePage extends StatelessWidget {
                     CustomSpacer(),
                     Expanded(
                         child: ListView.separated(
-                      itemCount: _.languages.length,
+                      itemCount: _.languages?.length ?? 0,
                       padding: EdgeInsets.only(top: AppDimens.lateralPaddingValue * 0.8),
                       itemBuilder: (context, index) {
                         return Obx(() => CustomSelector(
-                            leading: SvgPicture.asset(_.languages[index].asset),
-                            title: _.languages[index].text,
+                            leading: const SizedBox.shrink(),
+                            title: _.languages![index].name ?? '',
                             selected: _.indexSelected.value == index,
                             onPressed: () {
                               _.onLanguagePressed(index);

@@ -1,17 +1,14 @@
-import 'package:palumba_eu/data/repositories/local/local_auth_repository.dart';
-import 'package:palumba_eu/data/repositories/remote/user_repository.dart';
-
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/utils/common_ui/alert.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class SplashController extends GetxController {
   static const route = '/splash';
 
-  final LocalAuthRepository _localAuthRepository =
-      Get.find<LocalAuthRepository>();
-
-  final UserRepository _userRepository = Get.find<UserRepository>();
+  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   @override
   void onReady() {
@@ -20,26 +17,19 @@ class SplashController extends GetxController {
   }
 
   _init() async {
-    var authToken = await _localAuthRepository.session;
-    if (authToken != null) {
-      _initData();
-    } else {
-      Get.offNamed(
-        LanguageController.route,
-      );
+    var response = await _dataRepository.fetchLocalizations();
+    if (response == null) {
+      //TODO: Strings
+      Alert.showAlert(
+          'Palumba', 'Sembla que no tens connexió a Internet', Get.context!);
+      return;
     }
-  }
 
-  _initData() async {
-    var user = await _userRepository.fetchUser();
-    if (user != null) {
-      /*Get.offNamed(
-        AppRoutes.home,
-      );*/
-    } else {
-      /*Get.offNamed(
-        AppRoutes.signUp,
-      );*/
-    }
+    Utils.languages = response.languages;
+    Utils.countries = response.countries;
+
+    Get.offNamed(
+      LanguageController.route,
+    );
   }
 }

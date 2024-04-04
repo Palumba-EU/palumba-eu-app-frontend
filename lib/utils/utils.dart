@@ -1,33 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:palumba_eu/data/model/localization.dart';
 
 import 'package:palumba_eu/main.dart';
-
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
 class Utils {
-
-/*
-  * Analytics and Statistics Usage Management
-  * */
-/*static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  static FirebaseInAppMessaging fiam = FirebaseInAppMessaging.instance;
-
-  static dynamic getAnalytics() {
-    return analytics;
-  }
-
-  static dynamic getFIAM() {
-    return fiam;
-  }
-
-  static logEvent(String eventName, Map<String, dynamic> params) async {
-    try {
-      await Utils.getAnalytics().logEvent(name: eventName, parameters: params);
-    } catch (e) {
-      logger("Analytics error: $e");
-    }
-  }*/
+  /**
+   * App Data
+   */
+  static List<Language>? languages;
+  static List<Country>? countries;
 }
 
 class Logger {

@@ -3,10 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:path_drawing/path_drawing.dart';
 
 class CustomHeader extends StatelessWidget {

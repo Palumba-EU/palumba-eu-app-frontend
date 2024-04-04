@@ -1,12 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/data/model/localization.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
-import 'package:palumba_eu/modules/welcome/language/models/language_data.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class OnboardingController extends GetxController {
   static const route = '/onboarding';
@@ -25,6 +24,7 @@ class OnboardingController extends GetxController {
   RxBool finalAnimationFinished = false.obs;
 
   RxBool _startAnimation = false.obs;
+
   get startAnimation => _startAnimation.value;
 
   CardModel get exampleCard => CardModel(
@@ -38,37 +38,14 @@ class OnboardingController extends GetxController {
       againstArgs: 'Cooming soon');
 
   ///Step1
-  final List<LanguageData> _countries = [
-    LanguageData(
-        asset: 'assets/images/flags/hungary.svg',
-        text: S.of(Get.context!).hungary),
-    LanguageData(
-        asset: 'assets/images/flags/denmark.svg',
-        text: S.of(Get.context!).denmark),
-    LanguageData(
-        asset: 'assets/images/flags/germany.svg',
-        text: S.of(Get.context!).germany),
-    LanguageData(
-        asset: 'assets/images/flags/spain.svg', text: S.of(Get.context!).spain),
-    LanguageData(
-        asset: 'assets/images/flags/france.svg',
-        text: S.of(Get.context!).france),
-    LanguageData(
-        asset: 'assets/images/flags/poland.svg',
-        text: S.of(Get.context!).poland),
-    LanguageData(
-        asset: 'assets/images/flags/romania.svg',
-        text: S.of(Get.context!).romania),
-    LanguageData(
-        asset: 'assets/images/flags/sweden.svg',
-        text: S.of(Get.context!).sweden),
-  ];
+  List<Country>? _countries = Utils.countries;
 
-  List<LanguageData> get countries => _countries;
+  List<Country>? get countries => _countries;
 
   RxInt indexCountrySelected = (-1).obs;
 
   RxBool _showFinalView = false.obs;
+
   bool get showFinalView => _showFinalView.value;
 
   ///Step2
@@ -189,44 +166,58 @@ class OnboardingController extends GetxController {
   ////////////////////////
 
   RxInt _cardAnimationDuration = 0.obs;
+
   RxInt get cardAnimationDuration => _cardAnimationDuration;
 
   final RxBool _buttonsBlocked = false.obs;
+
   bool get buttonsBlocked => _buttonsBlocked.value;
 
   final Rx<Offset> _position = Offset(0, 0).obs;
+
   Rx<Offset> get position => _position;
 
   final Rx<Offset> _bgPosition = Offset(0, 0).obs;
+
   Rx<Offset> get bgPosition => _bgPosition;
 
   double _angle = 0;
+
   double get angle => _angle;
   RxBool _isPanStarted = false.obs;
+
   RxBool get isPanStarted => _isPanStarted;
 
   RxBool _disagrementButtonSelected = false.obs;
+
   bool get disagrementButtonSelected => _disagrementButtonSelected.value;
 
   RxBool _halfDisagrementButtonSelected = false.obs;
+
   bool get halfDisagrementButtonSelected =>
       _halfDisagrementButtonSelected.value;
 
   RxBool _agrementButtonSelected = false.obs;
+
   bool get agrementButtonSelected => _agrementButtonSelected.value;
 
   RxBool _halfAgrementButtonSelected = false.obs;
+
   bool get halfAgrementButtonSelected => _halfAgrementButtonSelected.value;
 
   RxDouble _cardOpacity = 1.0.obs;
+
   RxDouble get cardOpacity => _cardOpacity;
 
   RxInt _currentCardIndex = 0.obs;
+
   RxInt get currentCardIndex => _currentCardIndex;
 
   Rx<Offset> _smallButtonsPosition = Offset(0, Get.height * .3).obs;
+
   Offset get smallButtonsPosition => _smallButtonsPosition.value;
   Rx<Offset> _bigButtonsPosition = Offset(0, Get.height * .3).obs;
+
   Offset get bigButtonsPosition => _bigButtonsPosition.value;
 
   @override
