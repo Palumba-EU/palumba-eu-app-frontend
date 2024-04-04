@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
@@ -14,9 +15,10 @@ class CustomSmallButtonCurve extends StatelessWidget {
 
   final bool isSelected;
   final double curveRadius;
-  final IconData? icon;
+  final String? icon;
   final bool flip;
   final Function() onTap;
+
   @override
   Widget build(BuildContext context) {
     final color = isSelected
@@ -48,8 +50,12 @@ class CustomSmallButtonCurve extends StatelessWidget {
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
-            child:
-                IgnorePointer(child: Icon(icon, size: 35, color: borderColor))),
+            child: Center(
+                child: SvgPicture.asset(
+              'assets/images/$icon.svg',
+              height: 16,
+              fit: BoxFit.fitHeight,
+            ))),
       ],
     );
   }
@@ -129,9 +135,10 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
 
   final bool isSelected;
   final double curveRadius;
-  final IconData? icon;
+  final String? icon;
   final bool flip;
   final Function() onTap;
+
   @override
   Widget build(BuildContext context) {
     final color = isSelected
@@ -164,8 +171,11 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
-            child:
-                IgnorePointer(child: Icon(icon, size: 35, color: borderColor))),
+            child: Center(
+                child: SvgPicture.asset(
+              'assets/images/$icon.svg',
+              width: 16,
+            ))),
       ],
     );
   }

@@ -54,7 +54,7 @@ class DecisionButtons extends GetView<StatementsController> {
                     child: CustomBigButtonCurve(
                       curveRadius: 25,
                       isSelected: controller.disagrementButtonSelected,
-                      icon: Icons.close,
+                      icon: 'ic_cross',
                       flip: true,
                       onTap: onTapDisagrementButton,
                     ),
@@ -77,7 +77,7 @@ class DecisionButtons extends GetView<StatementsController> {
                     child: CustomBigButtonCurve(
                       curveRadius: 25,
                       isSelected: controller.agrementButtonSelected,
-                      icon: Icons.check,
+                      icon: 'ic_check',
                       onTap: onTapAgrementButton,
                     ),
                   ),
@@ -104,7 +104,7 @@ class DecisionButtons extends GetView<StatementsController> {
                     child: CustomSmallButtonCurve(
                       curveRadius: 50,
                       isSelected: false,
-                      icon: Icons.close,
+                      icon: 'ic_cross',
                       flip: false,
                       onTap: onTapHalfDisagrementButton,
                     ),
@@ -126,7 +126,7 @@ class DecisionButtons extends GetView<StatementsController> {
                     child: CustomSmallButtonCurve(
                       curveRadius: 50,
                       isSelected: false,
-                      icon: Icons.check,
+                      icon: 'ic_check',
                       flip: true,
                       onTap: onTapHalfAgrementButton,
                     ),
@@ -150,7 +150,7 @@ class DecisionButtons extends GetView<StatementsController> {
           child: CustomSmallButtonSelectedCurve(
             curveRadius: 120,
             isSelected: true,
-            icon: isAgree ? Icons.check : Icons.close,
+            icon: isAgree ? 'ic_check' : 'ic_cross',
             flip: isAgree ? true : false,
             onTap: () {},
           ),
