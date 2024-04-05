@@ -13,7 +13,7 @@ class CustomCard extends StatelessWidget {
     super.key,
     this.isFirstCard = false,
     this.card,
-    this.isPanStarted,
+    required this.isPanStarted,
     this.onPanStart,
     this.onPanUpdate,
     this.onPanEnd,
@@ -29,7 +29,7 @@ class CustomCard extends StatelessWidget {
   });
   final bool isFirstCard;
   final CardModel? card;
-  final RxBool? isPanStarted;
+  final RxBool isPanStarted;
   final Function(DragStartDetails)? onPanStart;
   final Function(DragUpdateDetails)? onPanUpdate;
   final Function(DragEndDetails)? onPanEnd;
@@ -53,14 +53,12 @@ class CustomCard extends StatelessWidget {
         FirstCardPage(card!, isOnboardingCard),
         SecondCardPage(card!),
         ThirdCardPage(card!),
-        FourthCardPage(card!),
+        // FourthCardPage(card!),
       ];
     }
     return IgnorePointer(
       ignoring: !isFirstCard,
-      child: isOnboardingCard
-          ? _cardContent(pages)
-          : Obx(() => _cardContent(pages)),
+      child: Obx(() => _cardContent(pages)),
     );
   }
 
@@ -68,7 +66,7 @@ class CustomCard extends StatelessWidget {
     return ClipPath(
       clipper: !isFirstCard
           ? CustomContainerClipper(curveRadius: 200)
-          : (isPanStarted?.value ?? false
+          : (isPanStarted.value
               ? null
               : CustomContainerClipper(curveRadius: 200)),
       child: SizedBox(

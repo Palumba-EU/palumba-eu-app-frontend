@@ -66,7 +66,6 @@ class OnboardingController extends GetxController {
   void onInit() {
     updateBackgroundShape();
     _initialCardPosition(true);
-    _fetchStatements();
     super.onInit();
   }
 
@@ -109,6 +108,10 @@ class OnboardingController extends GetxController {
     final result = await _dataRepository.fetchStatements();
     if (result != null) {
       _statements = result;
+      print(_statements!.data!.first.details);
+      print(_statements!.data!.first.statement);
+      print(_statements!.data!.first.footnote);
+      print(_statements!.data!.first.vector);
     }
   }
 
@@ -128,6 +131,8 @@ class OnboardingController extends GetxController {
       radius.value = Radius.elliptical(900, 300);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
+      //Call fetch statments here (when we reach step 2 and know the country selected)
+      _fetchStatements();
       height.value = isSmallScreen ? heightSize * 0.27 : heightSize * 0.37;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;

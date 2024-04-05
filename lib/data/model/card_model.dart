@@ -1,19 +1,21 @@
 class CardModel {
-  final String id;
-  final String main;
-
-  final String whistleblowe;
+  final int? id;
+  final String mainQuestion;
+  final String definition;
   final String context;
-  final String favorArgs;
-  final String againstArgs;
+  // final String favorArgs;
+  //final String againstArgs;
 
-  CardModel(
-      {required this.id,
-      required this.main,
-      required this.whistleblowe,
-      required this.context,
-      required this.favorArgs,
-      required this.againstArgs});
+  CardModel({
+    required this.id,
+    required this.mainQuestion,
+    required this.definition,
+    required this.context,
+    //required this.favorArgs,
+    //required this.againstArgs,
+  });
+
+  /*
 
   static final List<CardModel> mockCards = [
     CardModel(
@@ -55,4 +57,5 @@ class CardModel {
         favorArgs: 'Cooming soon',
         againstArgs: 'Cooming soon')
   ];
+  */
 }

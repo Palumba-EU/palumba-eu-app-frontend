@@ -4,7 +4,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
+import 'package:palumba_eu/modules/statments/helpers/html_parser_helper.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 enum _WidthScreenPart { maxLeft, middleLeft, center, middleRight, maxRight }
@@ -17,15 +20,16 @@ class StatementsController extends GetxController {
   static const route = '/statements';
   final String cardStackKey = "cardStackKey";
 
-  List<CardModel> cards = CardModel.mockCards;
-  List<CardModel> _currentCards = [];
+  final DataRepository _dataRepository = Get.find<DataRepository>();
+
+  //List<CardModel> cards = []; //CardModel.mockCards;
+  List<CardModel?> _currentCards = [];
   //List<CardModel> get currentCards => _currentCards;
   CardModel? get firstCard =>
       _currentCards.length > 0 ? _currentCards[0] : null;
   CardModel? get secondCard =>
       _currentCards.length > 1 ? _currentCards[1] : null;
 
-  int _count = 0;
 ///////////////////////////////////
 ///////////////////////////////////
 /////ANIMATIONS
@@ -75,17 +79,45 @@ class StatementsController extends GetxController {
   RxBool _fromOnboarding = false.obs;
   bool get fromOnboarding => _fromOnboarding.value;
 
+  RxBool _loadingQuestions = true.obs;
+  bool get loadingQuestions => _loadingQuestions.value;
+
+  StatementsData? _statementsData;
+  List<Statement> get statements => _statementsData?.data ?? [];
+
   @override
   void onInit() {
-    final args = Get.arguments;
-    if (args != null) {
-      try {
-        _fromOnboarding.value = args[StringUtils.fromOnboardingKey] as bool;
-      } catch (e) {}
-    }
-    _currentCards = List.from(cards);
+    _getArgumentsAndFetch();
     resetAnimation();
     super.onInit();
+  }
+
+  Future<void> _getArgumentsAndFetch() async {
+    final args = Get.arguments;
+
+    try {
+      _fromOnboarding.value = args[StringUtils.fromOnboardingKey] as bool;
+      _currentCards.add(null);
+    } catch (e) {}
+    try {
+      final argStatments =
+          args[StringUtils.statementsDataKey] as Map<String, dynamic>;
+      _statementsData = StatementsData.fromJson(argStatments);
+    } catch (e) {}
+    if (_statementsData == null) {
+      await _fetchStatements();
+    }
+
+    _currentCards.addAll(HtmlStatementsParser.getCardModelList(statements));
+    update([cardStackKey]);
+    _loadingQuestions.value = false;
+  }
+
+  Future<void> _fetchStatements() async {
+    final result = await _dataRepository.fetchStatements();
+    if (result != null) {
+      _statementsData = result;
+    }
   }
 
   void onPanStart(DragStartDetails details) {
@@ -280,7 +312,6 @@ class StatementsController extends GetxController {
   }
 
   nextCard() async {
-    _count++;
     _currentCards.removeAt(0);
     if (_currentCards.length < 3) {
       await Future.delayed(const Duration(milliseconds: 250));
@@ -292,7 +323,7 @@ class StatementsController extends GetxController {
     if (_fromOnboarding.value) {
       _fromOnboarding.value = false;
     }
-    if (_count >= 4) {
+    if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);
     }
   }
