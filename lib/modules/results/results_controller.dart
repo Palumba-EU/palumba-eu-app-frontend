@@ -25,61 +25,9 @@ class ResultsController extends GetxController {
     ResultsPage6(),
   ];
 
-//TODO: Make sure to order list by value, from mayor to minor, before user it
-  final List<CustomChartData> chartData = [
-    CustomChartData(
-        group: 'Greens/EFA',
-        value: 100,
-        percentage: '100%',
-        image: 'https://picsum.photos/200'),
-    CustomChartData(
-        group: 'Renew',
-        value: 90,
-        percentage: '90%',
-        image: 'https://picsum.photos/200'),
-    CustomChartData(
-        group: 'The Left',
-        value: 75,
-        percentage: '75%',
-        image: 'https://picsum.photos/200'),
-    CustomChartData(
-        group: 'ID',
-        value: 50,
-        percentage: '50%',
-        image: 'https://picsum.photos/200'),
-    CustomChartData(
-        group: 'ECR',
-        value: 30,
-        percentage: '30%',
-        image: 'https://picsum.photos/200'),
-    CustomChartData(
-        group: 'S&D',
-        value: 10,
-        percentage: '10%',
-        image: 'https://picsum.photos/200'),
-    CustomChartData(
-        group: 'EPP',
-        value: 5,
-        percentage: '5%',
-        image: 'https://picsum.photos/200'),
-  ];
+  final List<CustomChartData> chartData = CustomChartData.mockData;
 
-  final List<CandidatesData> candidates = [
-    CandidatesData(
-        name: 'Candidate 1', party: 'ABC', image: 'https://picsum.photos/200'),
-    CandidatesData(
-        name: 'Candidate 2', party: 'ABC', image: 'https://picsum.photos/200'),
-    CandidatesData(
-        name: 'Candidate 3', party: 'ABC', image: 'https://picsum.photos/200'),
-    CandidatesData(
-        name: 'Candidate 4', party: 'ABC', image: 'https://picsum.photos/200'),
-    CandidatesData(
-        name: 'Candidate 5', party: 'ABC', image: 'https://picsum.photos/200'),
-    CandidatesData(
-        name: 'Candidate 6', party: 'ABC', image: 'https://picsum.photos/200'),
-    CandidatesData(
-        name: 'Candidate 7', party: 'ABC', image: 'https://picsum.photos/200'),
-  ];
+  final List<CandidatesData> candidates = CandidatesData.mockData;
 
   List<int> showButtonSharePages = [1, 2, 5];
 
@@ -88,10 +36,19 @@ class ResultsController extends GetxController {
 
   @override
   void onInit() {
+    _getArguments();
+    // Make sure to order list by value, from mayor to minor, before user it
     chartData.sort((b, a) => a.value.compareTo(b.value));
     pageController.addListener(() {
       _currentPage.value = pageController.page!.round();
     });
     super.onInit();
+  }
+
+  void _getArguments() {
+    final args = Get.arguments;
+    if (args != null) {
+      //TODO: get arguments from previous page (chartdata, candidates & results)
+    }
   }
 }

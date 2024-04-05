@@ -450,6 +450,36 @@ class S {
     );
   }
 
+  /// `and you, it’s really a Love Story (EU’s Version)`
+  String get resultsPage2Title {
+    return Intl.message(
+      'and you, it’s really a Love Story (EU’s Version)',
+      name: 'resultsPage2Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You both agreed on `
+  String get resultsPage2FirstText {
+    return Intl.message(
+      'You both agreed on ',
+      name: 'resultsPage2FirstText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `of all the statements you swiped on.`
+  String get resultsPage2LastText {
+    return Intl.message(
+      'of all the statements you swiped on.',
+      name: 'resultsPage2LastText',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Your compatibility with the European Parliament Groups`
   String get resultsPage3Title {
     return Intl.message(

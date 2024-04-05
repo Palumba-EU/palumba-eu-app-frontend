@@ -71,6 +71,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("We found you a match!"),
+        "resultsPage2FirstText":
+            MessageLookupByLibrary.simpleMessage("You both agreed on "),
+        "resultsPage2LastText": MessageLookupByLibrary.simpleMessage(
+            "of all the statements you swiped on."),
+        "resultsPage2Title": MessageLookupByLibrary.simpleMessage(
+            "and you, it’s really a Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Your compatibility with the European Parliament Groups"),
         "resultsPage4Text": MessageLookupByLibrary.simpleMessage(

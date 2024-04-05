@@ -39,8 +39,7 @@ class ResultsPage2 extends StatelessWidget {
                       color: Colors.green),
                   children: [
                     TextSpan(
-                      text:
-                          'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                      text: S.of(context).resultsPage2Title,
                       style: AppTexts.customTextStyle(AppTextType.title),
                     ),
                   ],
@@ -53,7 +52,7 @@ class ResultsPage2 extends StatelessWidget {
             child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: 'You both agreed on',
+                  text: S.of(context).resultsPage2FirstText,
                   style: AppTexts.customTextStyle(
                     AppTextType.regular,
                   ),
@@ -64,7 +63,7 @@ class ResultsPage2 extends StatelessWidget {
                           color: Colors.green, bold: true),
                     ),
                     TextSpan(
-                      text: '\n of all the statements you swiped on. ',
+                      text: '\n  ${S.of(context).resultsPage2LastText}',
                       style: AppTexts.customTextStyle(AppTextType.regular),
                     ),
                   ],
