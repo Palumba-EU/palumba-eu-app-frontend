@@ -34,7 +34,6 @@ dependencies:
   path_drawing: ^1.0.1
   flutter_launcher_icons: ^0.13.1
   flutter_widget_from_html_core: ^0.14.11
-  html: ^0.15.4
 
   # Localization Modules
   intl: ^0.18.1
