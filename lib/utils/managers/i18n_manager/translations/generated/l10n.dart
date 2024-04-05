@@ -449,6 +449,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Your compatibility with the European Parliament Groups`
+  String get resultsPage3Title {
+    return Intl.message(
+      'Your compatibility with the European Parliament Groups',
+      name: 'resultsPage3Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Okay, it’s cool knowing which group gets you...`
+  String get resultsPage4Title {
+    return Intl.message(
+      'Okay, it’s cool knowing which group gets you...',
+      name: 'resultsPage4Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
+  String get resultsPage4Text {
+    return Intl.message(
+      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
+      name: 'resultsPage4Text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `But at the EU Elections, you vote for a local list`
+  String get resultsPage5Title {
+    return Intl.message(
+      'But at the EU Elections, you vote for a local list',
+      name: 'resultsPage5Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
+  String get resultsPage5Text {
+    return Intl.message(
+      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
+      name: 'resultsPage5Text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `These are the Local Candidate lists in your country most compatible with XXX`
+  String get resultsPage6Title {
+    return Intl.message(
+      'These are the Local Candidate lists in your country most compatible with XXX',
+      name: 'resultsPage6Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Disclaimer about the order of the lists`
+  String get resultsPage6Disclaimer {
+    return Intl.message(
+      'Disclaimer about the order of the lists',
+      name: 'resultsPage6Disclaimer',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

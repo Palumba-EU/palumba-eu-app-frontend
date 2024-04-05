@@ -71,6 +71,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("We found you a match!"),
+        "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
+            "Your compatibility with the European Parliament Groups"),
+        "resultsPage4Text": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
+        "resultsPage4Title": MessageLookupByLibrary.simpleMessage(
+            "Okay, it’s cool knowing which group gets you..."),
+        "resultsPage5Text": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
+        "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
+            "But at the EU Elections, you vote for a local list"),
+        "resultsPage6Disclaimer": MessageLookupByLibrary.simpleMessage(
+            "Disclaimer about the order of the lists"),
+        "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
+            "These are the Local Candidate lists in your country most compatible with XXX"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
         "resultsShortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),

@@ -40,12 +40,14 @@ class LanguagePage extends StatelessWidget {
                       S.of(context).languagePageTitle,
                     ),
                     CustomSpacer(small: true),
-                    AppTexts.small(S.of(context).languagePageSubtitle),
+                    AppTexts.small(S.of(context).languagePageSubtitle,
+                        decoration: TextDecoration.underline),
                     CustomSpacer(),
                     Expanded(
                         child: ListView.separated(
                       itemCount: _.languages.length,
-                      padding: EdgeInsets.only(top: AppDimens.lateralPaddingValue * 0.8),
+                      padding: EdgeInsets.only(
+                          top: AppDimens.lateralPaddingValue * 0.8),
                       itemBuilder: (context, index) {
                         return Obx(() => CustomSelector(
                             leading: SvgPicture.asset(_.languages[index].asset),

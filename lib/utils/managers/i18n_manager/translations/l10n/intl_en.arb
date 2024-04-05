@@ -46,5 +46,12 @@
   "resultsPage1Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
   "resultsShortAppName": "Palumba",
   "resultsLabelEmoji": "😍❤️‍🔥💘",
-  "resultsShare": "Share"
+  "resultsShare": "Share",
+  "resultsPage3Title": "Your compatibility with the European Parliament Groups",
+  "resultsPage4Title": "Okay, it’s cool knowing which group gets you...",
+  "resultsPage4Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
+  "resultsPage5Title": "But at the EU Elections, you vote for a local list",
+  "resultsPage5Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
+  "resultsPage6Title": "These are the Local Candidate lists in your country most compatible with XXX",
+  "resultsPage6Disclaimer": "Disclaimer about the order of the lists"
 }

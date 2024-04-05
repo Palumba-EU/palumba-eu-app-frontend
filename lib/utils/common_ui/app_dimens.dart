@@ -28,8 +28,13 @@ class AppDimens {
 
   /// Font Sizes
   ///
+  static const double fontSizeExtraSmall = 8.0;
   static const double fontSizeSmall = 12.0;
+  static const double fontSizeMedium = 14.0;
   static const double fontSizeRegular = 16.0;
   static const double fontSizeTitle = 22.0;
   static const double fontSizeBig = 32.0;
+
+  /// Widget Sizes
+  static const avatarImageSize = 48.0;
 }

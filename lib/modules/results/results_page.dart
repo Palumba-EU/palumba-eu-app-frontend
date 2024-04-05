@@ -20,10 +20,22 @@ class ResultsPage extends GetView<ResultsController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        body: SafeArea(
-          child: Stack(
-            children: [
-              Column(
+        body: Stack(
+          children: [
+            Obx(
+              () => AnimatedOpacity(
+                duration: Durations.long1,
+                opacity:
+                    controller.currentPage == 3 || controller.currentPage == 4
+                        ? 1
+                        : 0,
+                child: Container(
+                  color: Color(0xFF261930),
+                ),
+              ),
+            ),
+            SafeArea(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CustomSpacer(
@@ -71,32 +83,33 @@ class ResultsPage extends GetView<ResultsController> {
                   ),
                 ],
               ),
-              Obx(
-                () => controller.showButtonSharePages
-                        .contains(controller.currentPage)
-                    ? Padding(
-                        padding: EdgeInsets.only(
-                            bottom: AppDimens.bigLateralPaddingValue),
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: CustomButton(
-                            text: S.of(context).resultsShare,
-                            onPressed: () {},
-                            prefixIcon:
-                                IconButtonParameters('ic_share', size: 18),
-                            radius: 50,
-                            color: AppColors.whiteButton,
-                            textColor: AppColors.primary,
-                            bold: false,
-                            border: ButtonBorderParameters(
-                                isOutside: true, width: 4),
-                          ),
+            ),
+            Obx(
+              () => controller.showButtonSharePages
+                      .contains(controller.currentPage)
+                  ? Padding(
+                      padding: EdgeInsets.only(
+                          bottom: AppDimens.bigLateralPaddingValue),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: CustomButton(
+                          text: S.of(context).resultsShare,
+                          onPressed: () {},
+                          prefixIcon:
+                              IconButtonParameters('ic_share', size: 18),
+                          radius: 50,
+                          color: AppColors.whiteButton,
+                          textColor: AppColors.primary,
+                          bold: false,
+                          border:
+                              ButtonBorderParameters(isOutside: true, width: 4),
                         ),
-                      )
-                    : SizedBox.shrink(),
-              ),
-            ],
-          ),
+                      ),
+                    )
+                  : SizedBox.shrink(),
+            ),
+            // Container(color: Color(0xFF261930).withOpacity(.9)),
+          ],
         ));
   }
 }
