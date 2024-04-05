@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
-import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class FirstCardPage extends StatelessWidget {
@@ -13,7 +11,7 @@ class FirstCardPage extends StatelessWidget {
     super.key,
   });
 
-  final CardModel card;
+  final CardModel? card;
   final bool isOnboardingCard;
 
   @override
@@ -23,13 +21,15 @@ class FirstCardPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomSpacer(multiplier: 3),
-        if (!isOnboardingCard)
+        if (!isOnboardingCard && card != null)
           EmojiLabelContainer(
             emoji: '️‍🕵️‍♀📣⚖️',
           ),
         CustomSpacer(multiplier: 3),
         Text(
-            isOnboardingCard ? S.of(context).onBoardingCardQuestion : card.main,
+            (isOnboardingCard && card == null)
+                ? S.of(context).onBoardingCardQuestion
+                : card!.main,
             style: Theme.of(context).textTheme.titleLarge),
       ],
     );

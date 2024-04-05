@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
+import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -40,6 +41,8 @@ class OnboardingController extends GetxController {
 
   bool get showFinalView => _showFinalView.value;
 
+  StatementsData? _statements;
+
   ///Step2
   final int minAge = 16;
   final int maxAge = 115;
@@ -63,6 +66,7 @@ class OnboardingController extends GetxController {
   void onInit() {
     updateBackgroundShape();
     _initialCardPosition(true);
+    _fetchStatements();
     super.onInit();
   }
 
@@ -99,6 +103,15 @@ class OnboardingController extends GetxController {
   /**
    * Functions
    */
+
+  void _fetchStatements() async {
+    //Fetch statements data here to send to the next screen
+    final result = await _dataRepository.fetchStatements();
+    if (result != null) {
+      _statements = result;
+    }
+  }
+
   void updateButtonState() {
     isButtonEnabled.value =
         currentStep.value == 1 && indexCountrySelected.value != -1 ||
@@ -153,8 +166,10 @@ class OnboardingController extends GetxController {
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
         //Finally when animation finish we navigate to statments screen
-        Get.toNamed(StatementsController.route,
-            arguments: {StringUtils.fromOnboardingKey: true});
+        Get.toNamed(StatementsController.route, arguments: {
+          StringUtils.fromOnboardingKey: true,
+          StringUtils.statementsDataKey: _statements?.toJson()
+        });
       });
     }
   }
