@@ -130,6 +130,26 @@ class S {
     );
   }
 
+  /// `Skip`
+  String get skip {
+    return Intl.message(
+      'Skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Neutral`
+  String get neutral {
+    return Intl.message(
+      'Neutral',
+      name: 'neutral',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Let’s continue in English? :)`
   String get languagePageTitle {
     return Intl.message(
@@ -385,6 +405,156 @@ class S {
     return Intl.message(
       'Almost\nready :)',
       name: 'loadingResultsPageTitle5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We found you a match!`
+  String get resultsPage1Title {
+    return Intl.message(
+      'We found you a match!',
+      name: 'resultsPage1Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
+  String get resultsPage1Text {
+    return Intl.message(
+      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
+      name: 'resultsPage1Text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Palumba`
+  String get resultsShortAppName {
+    return Intl.message(
+      'Palumba',
+      name: 'resultsShortAppName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `😍❤️‍🔥💘`
+  String get resultsLabelEmoji {
+    return Intl.message(
+      '😍❤️‍🔥💘',
+      name: 'resultsLabelEmoji',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share`
+  String get resultsShare {
+    return Intl.message(
+      'Share',
+      name: 'resultsShare',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `and you, it’s really a Love Story (EU’s Version)`
+  String get resultsPage2Title {
+    return Intl.message(
+      'and you, it’s really a Love Story (EU’s Version)',
+      name: 'resultsPage2Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You both agreed on `
+  String get resultsPage2FirstText {
+    return Intl.message(
+      'You both agreed on ',
+      name: 'resultsPage2FirstText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `of all the statements you swiped on.`
+  String get resultsPage2LastText {
+    return Intl.message(
+      'of all the statements you swiped on.',
+      name: 'resultsPage2LastText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your compatibility with the European Parliament Groups`
+  String get resultsPage3Title {
+    return Intl.message(
+      'Your compatibility with the European Parliament Groups',
+      name: 'resultsPage3Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Okay, it’s cool knowing which group gets you...`
+  String get resultsPage4Title {
+    return Intl.message(
+      'Okay, it’s cool knowing which group gets you...',
+      name: 'resultsPage4Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
+  String get resultsPage4Text {
+    return Intl.message(
+      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
+      name: 'resultsPage4Text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `But at the EU Elections, you vote for a local list`
+  String get resultsPage5Title {
+    return Intl.message(
+      'But at the EU Elections, you vote for a local list',
+      name: 'resultsPage5Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
+  String get resultsPage5Text {
+    return Intl.message(
+      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
+      name: 'resultsPage5Text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `These are the Local Candidate lists in your country most compatible with XXX`
+  String get resultsPage6Title {
+    return Intl.message(
+      'These are the Local Candidate lists in your country most compatible with XXX',
+      name: 'resultsPage6Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Disclaimer about the order of the lists`
+  String get resultsPage6Disclaimer {
+    return Intl.message(
+      'Disclaimer about the order of the lists',
+      name: 'resultsPage6Disclaimer',
       desc: '',
       args: [],
     );

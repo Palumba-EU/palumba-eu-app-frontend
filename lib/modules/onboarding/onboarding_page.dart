@@ -126,12 +126,16 @@ class OnboardingPage extends StatelessWidget {
                               }
 
                               return CustomButton(
+                                suffixIcon:
+                                    IconButtonParameters('ic_arrow_forward'),
                                 onPressed: _.isButtonEnabled.value
                                     ? () {
                                         _.onContinueTap();
                                       }
                                     : null,
                                 text: S.of(context).textContinue,
+                                //Default parameters
+                                border: ButtonBorderParameters(),
                               );
                             })
                           ],
@@ -222,11 +226,6 @@ class OnboardingPage extends StatelessWidget {
                                     positionCard: _.position,
                                     cardOpacity: _.cardOpacity,
                                     isPanStarted: _.isPanStarted,
-                                    currentCardIndex: _.currentCardIndex,
-                                    onPanStart: _.onPanStart,
-                                    onPanUpdate: _.onPanUpdate,
-                                    onPanEnd: _.onPanEnd,
-                                    onTapDown: _.onTapDown,
                                     cardAnimationDuration:
                                         _.cardAnimationDuration,
                                     isOnboardingCard: true,
@@ -242,11 +241,6 @@ class OnboardingPage extends StatelessWidget {
                                       positionCard: _.position,
                                       cardOpacity: _.cardOpacity,
                                       isPanStarted: _.isPanStarted,
-                                      currentCardIndex: _.currentCardIndex,
-                                      onPanStart: _.onPanStart,
-                                      onPanUpdate: _.onPanUpdate,
-                                      onPanEnd: _.onPanEnd,
-                                      onTapDown: _.onTapDown,
                                       cardAnimationDuration:
                                           _.cardAnimationDuration,
                                       isOnboardingCard: true,

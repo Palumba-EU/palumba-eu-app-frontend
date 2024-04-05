@@ -40,7 +40,8 @@ class LanguagePage extends StatelessWidget {
                       S.of(context).languagePageTitle,
                     ),
                     CustomSpacer(small: true),
-                    AppTexts.small(S.of(context).languagePageSubtitle),
+                    AppTexts.small(S.of(context).languagePageSubtitle,
+                        decoration: TextDecoration.underline),
                     CustomSpacer(),
                     Expanded(
                         child: ListView.separated(

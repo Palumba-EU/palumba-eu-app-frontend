@@ -8,6 +8,8 @@
   "textContinue": "Continue",
   "alertServerErrorTitle": "Ops!",
   "alertServerErrorText": "Something has gone wrong on our side. Please try again later.",
+  "skip": "Skip",
+  "neutral": "Neutral",
 
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Let’s continue in English? :)",
@@ -39,5 +41,21 @@
   "loadingResultsPageTitle2": "Finding matches with candidate lists in France...",
   "loadingResultsPageTitle3": "Can you believe 70% of 18-25 voters didn’t vote in 2019?",
   "loadingResultsPageTitle4": "We promise this will be quicker than waiting for Taylor Swift tickets...",
-  "loadingResultsPageTitle5": "Almost\nready :)"
+  "loadingResultsPageTitle5": "Almost\nready :)",
+
+  "resultsPage1Title": "We found you a match!",
+  "resultsPage1Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
+  "resultsShortAppName": "Palumba",
+  "resultsLabelEmoji": "😍❤️‍🔥💘",
+  "resultsShare": "Share",
+  "resultsPage2Title": "and you, it’s really a Love Story (EU’s Version)",
+  "resultsPage2FirstText": "You both agreed on ",
+  "resultsPage2LastText": "of all the statements you swiped on.",
+  "resultsPage3Title": "Your compatibility with the European Parliament Groups",
+  "resultsPage4Title": "Okay, it’s cool knowing which group gets you...",
+  "resultsPage4Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
+  "resultsPage5Title": "But at the EU Elections, you vote for a local list",
+  "resultsPage5Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
+  "resultsPage6Title": "These are the Local Candidate lists in your country most compatible with XXX",
+  "resultsPage6Disclaimer": "Disclaimer about the order of the lists"
 }

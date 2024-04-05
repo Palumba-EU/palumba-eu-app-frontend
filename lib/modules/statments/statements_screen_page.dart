@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
+import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 import 'components/buttons/decision_buttons.dart';
 import '../../global_widgets/card/custom_card.dart';
@@ -51,16 +54,13 @@ class StatementsPage extends GetView<StatementsController> {
                                 opacity: controller.fromOnboarding ? 0 : 1,
                                 child: IgnorePointer(
                                   ignoring: controller.buttonsBlocked,
-                                  child: SizedBox(
-                                    height: 27,
-                                    child: TextButton(
-                                      onPressed: controller.onTapNeutralButton,
-                                      style: ElevatedButton.styleFrom(
-                                          shape: StadiumBorder()),
-                                      child: Text(
-                                        'Neutral',
-                                        style: TextStyle(color: Colors.white),
-                                      ),
+                                  child: TextButton(
+                                    onPressed: controller.onTapNeutralButton,
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: AppColors.primary,
+                                        shape: StadiumBorder()),
+                                    child: AppTexts.regular(
+                                      S.of(context).neutral,
                                     ),
                                   ),
                                 ),
@@ -157,6 +157,7 @@ class StatementsPage extends GetView<StatementsController> {
                           currentCardIndex: 0.obs,
                           //controller.currentCardIndex,
                           isOnboardingCard: false,
+                          onSkipTap: controller.onSkipTap,
                         ),
                       Obx(
                         () => CustomCard(
@@ -175,6 +176,7 @@ class StatementsPage extends GetView<StatementsController> {
                               controller.cardAnimationDuration,
                           cardOpacity: controller.cardOpacity,
                           isOnboardingCard: controller.fromOnboarding,
+                          onSkipTap: controller.onSkipTap,
                         ),
                       )
                     ],
