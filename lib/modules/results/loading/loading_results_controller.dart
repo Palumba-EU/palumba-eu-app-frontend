@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 
 class LoadingResultsController extends GetxController {
   static const route = '/loading_results';
+
+  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   final totalSteps = 6;
 
@@ -13,6 +16,7 @@ class LoadingResultsController extends GetxController {
   void onReady() {
     super.onReady();
     _init();
+    _initData();
   }
 
   void _init() {
@@ -21,5 +25,12 @@ class LoadingResultsController extends GetxController {
         currentStep.value = currentStep.value + 1;
       }
     });
+  }
+
+  void _initData() async {
+    var response = await _dataRepository.fetchResultsInfo();
+    if (response == null) {
+
+    }
   }
 }

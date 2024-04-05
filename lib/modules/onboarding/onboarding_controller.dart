@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
-import 'package:palumba_eu/data/model/localization.dart';
+import 'package:palumba_eu/data/model/localization_data.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
-import 'package:palumba_eu/utils/utils.dart';
 
 class OnboardingController extends GetxController {
   static const route = '/onboarding';
+
+  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   final totalSteps = 4;
   RxInt currentStep = 1.obs;
@@ -38,7 +41,7 @@ class OnboardingController extends GetxController {
       againstArgs: 'Cooming soon');
 
   ///Step1
-  List<Country>? _countries = Utils.countries;
+  List<Country>? _countries = DataManager().getCountries();
 
   List<Country>? get countries => _countries;
 
@@ -66,6 +69,13 @@ class OnboardingController extends GetxController {
   List<String> get genders => _genders;
 
   RxInt indexGenderSelected = (-1).obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    updateBackgroundShape();
+    _nothingHappen(true);
+  }
 
   /**
    * On Click Actions
@@ -219,13 +229,6 @@ class OnboardingController extends GetxController {
   Rx<Offset> _bigButtonsPosition = Offset(0, Get.height * .3).obs;
 
   Offset get bigButtonsPosition => _bigButtonsPosition.value;
-
-  @override
-  void onInit() {
-    updateBackgroundShape();
-    _nothingHappen(true);
-    super.onInit();
-  }
 
   void onPanStart(DragStartDetails details) {
     _isPanStarted.value = true;

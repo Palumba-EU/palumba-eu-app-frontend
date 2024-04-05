@@ -3,7 +3,6 @@ import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/alert.dart';
-import 'package:palumba_eu/utils/utils.dart';
 
 class SplashController extends GetxController {
   static const route = '/splash';
@@ -21,12 +20,11 @@ class SplashController extends GetxController {
     if (response == null) {
       //TODO: Strings
       Alert.showAlert(
-          'Palumba', 'Sembla que no tens connexió a Internet', Get.context!);
+          'Palumba', 'It looks like you don\'t have internet connection', Get.context!);
       return;
     }
 
-    Utils.languages = response.languages;
-    Utils.countries = response.countries;
+    _dataRepository.fetchStatements();
 
     Get.offNamed(
       LanguageController.route,

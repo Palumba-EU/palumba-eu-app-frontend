@@ -1,10 +1,10 @@
-class Localization {
+class LocalizationData {
   List<Country>? countries;
   List<Language>? languages;
 
-  Localization({this.countries, this.languages});
+  LocalizationData({this.countries, this.languages});
 
-  Localization.fromJson(Map<String, dynamic> json) {
+  LocalizationData.fromJson(Map<String, dynamic> json) {
     if (json['countries'] != null) {
       countries = <Country>[];
       json['countries'].forEach((v) {
