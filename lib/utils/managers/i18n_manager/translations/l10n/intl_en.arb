@@ -9,6 +9,7 @@
   "alertServerErrorTitle": "Ops!",
   "alertServerErrorText": "Something has gone wrong on our side. Please try again later.",
   "skip": "Skip",
+  "neutral": "Neutral",
 
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Let’s continue in English? :)",

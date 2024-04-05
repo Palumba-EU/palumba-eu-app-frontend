@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "We promise this will be quicker than waiting for Taylor Swift tickets..."),
         "loadingResultsPageTitle5":
             MessageLookupByLibrary.simpleMessage("Almost\nready :)"),
+        "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(

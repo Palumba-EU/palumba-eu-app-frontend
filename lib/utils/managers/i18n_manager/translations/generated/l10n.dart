@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Neutral`
+  String get neutral {
+    return Intl.message(
+      'Neutral',
+      name: 'neutral',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Let’s continue in English? :)`
   String get languagePageTitle {
     return Intl.message(
