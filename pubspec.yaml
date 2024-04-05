@@ -31,6 +31,7 @@ dependencies:
   google_fonts: ^6.2.1
   lottie: ^3.1.0
   path_drawing: ^1.0.1
+  flutter_launcher_icons: ^0.13.1
 
   # Localization Modules
   intl: ^0.18.1
@@ -46,10 +47,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-flutter_icons: #flutter pub run flutter_launcher_icons:main
+flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/appIcons/launcher_icon.png"
+  image_path: "assets/images/app_icons/img_ios.png"
+  adaptive_icon_background: "#FFFBF0"
+  adaptive_icon_foreground: "assets/images/app_icons/img_fg.png"
 
 
 flutter_intl:
@@ -62,10 +65,9 @@ flutter_intl:
 flutter:
   uses-material-design: true
   assets:
-    - assets/appIcons/
-    - assets/fonts/
     - assets/images/
     - assets/images/flags/
+    - assets/images/app_icons/
     - assets/anims/
     - .env.dev
     - .env.prod
