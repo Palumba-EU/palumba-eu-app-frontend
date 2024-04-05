@@ -12,7 +12,7 @@ class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
     this.isFirstCard = false,
-    required this.card,
+    this.card,
     this.isPanStarted,
     this.onPanStart,
     this.onPanUpdate,
@@ -28,7 +28,7 @@ class CustomCard extends StatelessWidget {
     this.onSkipTap,
   });
   final bool isFirstCard;
-  final CardModel card;
+  final CardModel? card;
   final RxBool? isPanStarted;
   final Function(DragStartDetails)? onPanStart;
   final Function(DragUpdateDetails)? onPanUpdate;
@@ -45,12 +45,15 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pages = [
-      FirstCardPage(card, isOnboardingCard),
-      SecondCardPage(card),
-      ThirdCardPage(card),
-      FourthCardPage(card),
-    ];
+    List<StatelessWidget> pages = [];
+    if (!isOnboardingCard && card != null) {
+      pages = [
+        FirstCardPage(card!, isOnboardingCard),
+        SecondCardPage(card!),
+        ThirdCardPage(card!),
+        FourthCardPage(card!),
+      ];
+    }
     return IgnorePointer(
       ignoring: !isFirstCard,
       child: Obx(

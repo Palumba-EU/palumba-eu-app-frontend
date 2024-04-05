@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
-import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
@@ -29,16 +28,6 @@ class OnboardingController extends GetxController {
   RxBool _startAnimation = false.obs;
 
   get startAnimation => _startAnimation.value;
-
-  CardModel get exampleCard => CardModel(
-      id: 'Card01',
-      main: 'Whistleblowers* should be protected no matter what they reveal.',
-      whistleblowe:
-          '️‍An individual who exposes wrongdoing, corruption, or unethical behavior within an organization or institution to the public or authorities, often at great personal risk. (Oxford Dictionary)',
-      context:
-          'Since a few years, several individuals have revealed key internal information about the wrongdoings of their organisations. This led to massive scandals about the safety of those whistleblowers and their responsibility before the law. Therefore, the EU passed the Whistleblower Directive to regulate this practice in our democracies.',
-      favorArgs: 'Cooming soon',
-      againstArgs: 'Cooming soon');
 
   ///Step1
   List<Country>? _countries = DataManager().getCountries();
@@ -118,6 +107,7 @@ class OnboardingController extends GetxController {
   }
 
   void updateBackgroundShape() {
+    //Update the background shape
     bool isSmallScreen = Get.height < 800;
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
@@ -136,7 +126,7 @@ class OnboardingController extends GetxController {
       height.value = Get.height;
       radius.value = Radius.circular(250);
       radius.value = Radius.zero;
-
+      //When shape reach bottom of the screen we activate the rise card and buttons animation
       Future.delayed(Duration(milliseconds: 750), () async {
         _showFinalView.value = true;
         await Future.delayed(Duration(milliseconds: 250));
@@ -162,6 +152,7 @@ class OnboardingController extends GetxController {
         await Future.delayed(Durations.long3);
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
+        //Finally when animation finish we navigate to statments screen
         Get.toNamed(StatementsController.route,
             arguments: {StringUtils.fromOnboardingKey: true});
       });
@@ -175,47 +166,34 @@ class OnboardingController extends GetxController {
   ////////////////////////
 
   RxInt _cardAnimationDuration = 0.obs;
-
   RxInt get cardAnimationDuration => _cardAnimationDuration;
 
   final RxBool _buttonsBlocked = false.obs;
-
   bool get buttonsBlocked => _buttonsBlocked.value;
 
   final Rx<Offset> _position = Offset(0, 0).obs;
-
   Rx<Offset> get position => _position;
 
   final Rx<Offset> _bgPosition = Offset(0, 0).obs;
-
   Rx<Offset> get bgPosition => _bgPosition;
 
   double _angle = 0;
-
   double get angle => _angle;
-  RxBool _isPanStarted = false.obs;
-
-  RxBool get isPanStarted => _isPanStarted;
 
   RxBool _disagrementButtonSelected = false.obs;
-
   bool get disagrementButtonSelected => _disagrementButtonSelected.value;
 
   RxBool _halfDisagrementButtonSelected = false.obs;
-
   bool get halfDisagrementButtonSelected =>
       _halfDisagrementButtonSelected.value;
 
   RxBool _agrementButtonSelected = false.obs;
-
   bool get agrementButtonSelected => _agrementButtonSelected.value;
 
   RxBool _halfAgrementButtonSelected = false.obs;
-
   bool get halfAgrementButtonSelected => _halfAgrementButtonSelected.value;
 
   RxDouble _cardOpacity = 1.0.obs;
-
   RxDouble get cardOpacity => _cardOpacity;
 
   Rx<Offset> _smallButtonsPosition = Offset(0, Get.height * .3).obs;
@@ -238,24 +216,28 @@ class OnboardingController extends GetxController {
   }
 
   void onTapDisagrementButton() async {
+    //Fake button is tapped
     _disagrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _disagrementButtonSelected.value = false;
   }
 
   void onTapHalfDisagrementButton() async {
+    //Fake button is tapped
     _halfDisagrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _halfDisagrementButtonSelected.value = false;
   }
 
   void onTapHalfAgrementButton() async {
+    //Fake button is tapped
     _halfAgrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _halfAgrementButtonSelected.value = false;
   }
 
   void onTapAgrementButton() async {
+    //Fake button is tapped
     _agrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _agrementButtonSelected.value = false;

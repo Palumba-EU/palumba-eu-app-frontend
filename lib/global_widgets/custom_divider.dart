@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({

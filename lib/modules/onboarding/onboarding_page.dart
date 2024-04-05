@@ -219,13 +219,11 @@ class OnboardingPage extends StatelessWidget {
                           Obx(
                             () => _.finalAnimationFinished.value
                                 ? CustomCard(
-                                    card: _.exampleCard,
                                     isFirstCard: true,
                                     angleCard: _.angle,
                                     bgPosition: _.bgPosition,
                                     positionCard: _.position,
                                     cardOpacity: _.cardOpacity,
-                                    isPanStarted: _.isPanStarted,
                                     cardAnimationDuration:
                                         _.cardAnimationDuration,
                                     isOnboardingCard: true,
@@ -234,13 +232,11 @@ class OnboardingPage extends StatelessWidget {
                                     duration: const Duration(milliseconds: 650),
                                     height: _.heighClippedContainer.value,
                                     child: CustomCard(
-                                      card: _.exampleCard,
                                       isFirstCard: true,
                                       angleCard: _.angle,
                                       bgPosition: _.bgPosition,
                                       positionCard: _.position,
                                       cardOpacity: _.cardOpacity,
-                                      isPanStarted: _.isPanStarted,
                                       cardAnimationDuration:
                                           _.cardAnimationDuration,
                                       isOnboardingCard: true,

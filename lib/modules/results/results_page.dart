@@ -22,6 +22,7 @@ class ResultsPage extends GetView<ResultsController> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         body: Stack(
           children: [
+            //Animate background color for pages 4, 5
             Obx(
               () => AnimatedOpacity(
                 duration: Durations.long1,
@@ -41,6 +42,7 @@ class ResultsPage extends GetView<ResultsController> {
                   CustomSpacer(
                     multiplier: 3,
                   ),
+                  //Progressbar
                   Padding(
                     padding: AppDimens.lateralPadding,
                     child: Obx(() => CustomProgressBar(
@@ -53,6 +55,7 @@ class ResultsPage extends GetView<ResultsController> {
                   CustomSpacer(
                     multiplier: 3,
                   ),
+                  //Rounded image and #appname
                   Padding(
                     padding: AppDimens.lateralPadding,
                     child: Row(
@@ -74,6 +77,7 @@ class ResultsPage extends GetView<ResultsController> {
                   CustomSpacer(
                     multiplier: 3,
                   ),
+                  //Pages
                   Expanded(
                     child: PageView.builder(
                         controller: controller.pageController,
@@ -84,6 +88,7 @@ class ResultsPage extends GetView<ResultsController> {
                 ],
               ),
             ),
+            //Share button only showed in pages 2, 3, 6
             Obx(
               () => controller.showButtonSharePages
                       .contains(controller.currentPage)
