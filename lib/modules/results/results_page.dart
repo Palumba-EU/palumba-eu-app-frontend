@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
@@ -65,7 +64,7 @@ class ResultsPage extends GetView<ResultsController> {
                           height: 24,
                           width: 24,
                           imageUrl: 'https://picsum.photos/200/300',
-                          placeholder: 'assets/images/image_placeholder.svg',
+                          //placeholder: 'assets/images/image_placeholder.svg',
                           isAvatar: true,
                         ),
                         Spacer(),

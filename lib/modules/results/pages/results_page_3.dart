@@ -43,7 +43,7 @@ class ResultsPage3 extends GetView<ResultsController> {
                   padding:
                       EdgeInsets.only(left: AppDimens.bigLateralPaddingValue),
                   child: CustomSemicircleChart(
-                    arcDiameter: Get.height * .45,
+                    arcDiameter: Get.height * .42,
                     charts: controller.chartData,
                   ),
                 ),

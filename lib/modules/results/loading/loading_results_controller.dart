@@ -1,8 +1,11 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
+import 'package:palumba_eu/modules/splash/splash_controller.dart';
+import 'package:palumba_eu/utils/string_utils.dart';
 
 class LoadingResultsController extends GetxController {
   static const route = '/loading_results';
@@ -12,6 +15,8 @@ class LoadingResultsController extends GetxController {
   final totalSteps = 6;
 
   RxInt currentStep = 1.obs;
+
+  ResultsData? response;
 
   @override
   void onReady() {
@@ -26,7 +31,12 @@ class LoadingResultsController extends GetxController {
         currentStep.value = currentStep.value + 1;
       } else {
         timer.cancel();
-        Get.offAllNamed(ResultsController.route);
+        if (response != null) {
+          Get.offAllNamed(ResultsController.route,
+              arguments: {StringUtils.resultsDataKey: response!.toJson()});
+        } else {
+          Get.offAllNamed(ResultsController.route);
+        }
       }
     });
   }

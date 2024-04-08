@@ -31,7 +31,7 @@ class CustomSemicircleChart extends StatelessWidget {
         lineWidth: arcDiameter * .04 - (i + 1) * 4.5,
         maxValue: maxValue,
         value: charts?[i].value ?? 0,
-        text: charts?[i].group ?? '',
+        text: charts?[i].party ?? '',
         percentage: charts?[i].percentage ?? '',
         index: i,
         imageUrl: charts?[i].image ?? '',
@@ -70,7 +70,7 @@ class CustomSemicircleChart extends StatelessWidget {
                       top: (i == 0 || i == 1 || i == 2) ? 0 : 8,
                     ),
                     child: AppTexts.small(
-                      charts![i].group,
+                      charts![i].party,
                       fontSize: (i == 0 || i == 1 || i == 2)
                           ? initialFontSizeBig
                           : initialFontSizeSmall,
