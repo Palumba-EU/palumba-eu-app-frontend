@@ -36,9 +36,10 @@ class ResultsPage2 extends GetView<ResultsController> {
             child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: '${controller.getFisrtParty()?.name ?? 'No data'} ',
+                  text: '${controller.getFisrtParty()?.name ?? 'Greens/EFA'} ',
                   style: AppTexts.customTextStyle(AppTextType.title,
-                      color: controller.getFirstPartyColor()),
+                      color: Colors
+                          .green /* TODO:put api color controller.getFirstPartyColor()*/),
                   children: [
                     TextSpan(
                       text: S.of(context).resultsPage2Title,
@@ -60,9 +61,12 @@ class ResultsPage2 extends GetView<ResultsController> {
                   ),
                   children: [
                     TextSpan(
-                      text: ' ${controller.getFirstPartyColor().value} ',
+                      text:
+                          ' 68% ', //TODO: put api data controller.getFirstParty().value,
                       style: AppTexts.customTextStyle(AppTextType.regular,
-                          color: controller.getFirstPartyColor(), bold: true),
+                          color: Colors
+                              .green /* TODO:put api color controller.getFirstPartyColor()*/,
+                          bold: true),
                     ),
                     TextSpan(
                       text: '\n  ${S.of(context).resultsPage2LastText}',
