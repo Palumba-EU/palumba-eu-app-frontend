@@ -22,7 +22,8 @@ class ResultsPage2 extends GetView<ResultsController> {
           CustomNetworkImage(
             width: Get.width * .5,
             height: Get.width * .5,
-            imageUrl: 'https://picsum.photos/800/800',
+            isSvg: true,
+            imageUrl: controller.getFisrtParty()?.logo ?? '',
             radius: Get.width,
             border: Border.all(
               color: AppColors.beigeWithOpacity,
@@ -36,10 +37,9 @@ class ResultsPage2 extends GetView<ResultsController> {
             child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: '${controller.getFisrtParty()?.name ?? 'Greens/EFA'} ',
+                  text: '${controller.getFisrtParty()?.name ?? 'No data '} ',
                   style: AppTexts.customTextStyle(AppTextType.title,
-                      color: Colors
-                          .green /* TODO:put api color controller.getFirstPartyColor()*/),
+                      color: controller.getFirstPartyColor()),
                   children: [
                     TextSpan(
                       text: S.of(context).resultsPage2Title,
@@ -61,12 +61,10 @@ class ResultsPage2 extends GetView<ResultsController> {
                   ),
                   children: [
                     TextSpan(
-                      text:
-                          ' 68% ', //TODO: put api data controller.getFirstParty().value,
+                      text: ' 68% ',
+                      //' ${controller.getFisrtParty()?.value}', //TODO: put api data ,
                       style: AppTexts.customTextStyle(AppTextType.regular,
-                          color: Colors
-                              .green /* TODO:put api color controller.getFirstPartyColor()*/,
-                          bold: true),
+                          color: controller.getFirstPartyColor(), bold: true),
                     ),
                     TextSpan(
                       text: '\n  ${S.of(context).resultsPage2LastText}',

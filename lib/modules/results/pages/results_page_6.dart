@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/global_widgets/custom_divider.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -69,9 +70,10 @@ class ResultsPage6 extends GetView<ResultsController> {
         separatorBuilder: (context, index) => CustomDivider(
           paddingValue: AppDimens.bigLateralPaddingValue,
         ),
-        itemCount: controller.candidates.length,
+        itemCount: controller.getFisrtParty()?.localParties?.length ?? 0,
         itemBuilder: (context, i) => _CandidatesTile(
-          candidate: controller.candidates[i],
+          candidate: controller.getFisrtParty()!.localParties![i],
+          party: controller.getFisrtParty()!.name ?? '',
         ),
       ),
     );
@@ -81,15 +83,17 @@ class ResultsPage6 extends GetView<ResultsController> {
 class _CandidatesTile extends StatelessWidget {
   const _CandidatesTile({
     required this.candidate,
+    required this.party,
   });
-  final CandidatesData candidate;
+  final LocalParties candidate;
+  final String party;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       minVerticalPadding: AppDimens.bigLateralPaddingValue,
       leading: CustomNetworkImage(
-        imageUrl: candidate.image,
+        imageUrl: candidate.logo ?? '',
         height: AppDimens.avatarImageSize,
         isAvatar: true,
       ),
@@ -97,8 +101,8 @@ class _CandidatesTile extends StatelessWidget {
       contentPadding: EdgeInsets.symmetric(
         horizontal: AppDimens.bigLateralPaddingValue,
       ),
-      title: AppTexts.small(candidate.party, color: AppColors.primary),
-      subtitle: AppTexts.regular(candidate.name,
+      title: AppTexts.small(party, color: AppColors.primary),
+      subtitle: AppTexts.regular(candidate.name ?? '',
           bold: true, color: AppColors.primary),
     );
   }

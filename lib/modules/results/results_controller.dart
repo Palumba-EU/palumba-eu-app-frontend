@@ -71,11 +71,10 @@ class ResultsController extends GetxController {
   }
 
   PoliticParty? getFisrtParty() {
-    var partyWithSmallestPosition =
-        _resultsData?.parties?.reduce((party1, party2) {
-      return party1.position![0] < party2.position![0] ? party1 : party2;
-    });
-    return partyWithSmallestPosition;
+    print(_resultsData?.parties);
+    var firstParty = _resultsData?.parties?[0] ??
+        PoliticParty(name: 'No data', color: '#000');
+    return firstParty;
   }
 
   Color getFirstPartyColor() {
@@ -85,6 +84,24 @@ class ResultsController extends GetxController {
           int.parse(party!.color!.substring(1, 7), radix: 16) + 0xFF000000);
     } else {
       return AppColors.text;
+    }
+  }
+
+  void changePage(TapDownDetails details) {
+    if (details.localPosition.dx < Get.width / 2) {
+      if (currentPage > 0) {
+        pageController.previousPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+    } else {
+      if (currentPage < pages.length - 1) {
+        pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
     }
   }
 }

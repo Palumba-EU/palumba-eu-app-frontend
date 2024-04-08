@@ -23,6 +23,7 @@ class CustomNetworkImage extends StatelessWidget {
   final bool showPlaceholder;
   final Widget? errorWidget;
   final BoxBorder? border;
+  final bool isSvg;
 
   const CustomNetworkImage({
     Key? key,
@@ -41,6 +42,7 @@ class CustomNetworkImage extends StatelessWidget {
     this.errorWidget,
     this.placeholder,
     this.border,
+    this.isSvg = false,
   }) : super(key: key);
 
   @override
@@ -59,21 +61,27 @@ class CustomNetworkImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(
             radius ?? (isAvatar ? avatarBorderRadius : 0)),
         child: Container(
-          height: height ?? _kDefaultSize,
-          width: constrainedSize ? (width ?? _kDefaultSize) : null,
-          color: color ?? AppColors.beige,
-          child: CachedNetworkImage(
-            alignment: alignment ?? Alignment.center,
-            imageUrl: imageUrl,
-            fit: fit ?? BoxFit.cover,
-            placeholder: (_, __) =>
-                showPlaceholder ? _placeholder : const SizedBox.shrink(),
-            errorWidget: (_, __, e) {
-              onError?.call(e);
-              return errorWidget ?? _placeholder;
-            },
-          ),
-        ),
+            height: height ?? _kDefaultSize,
+            width: constrainedSize ? (width ?? _kDefaultSize) : null,
+            color: color ?? AppColors.beige,
+            child: isSvg
+                ? SvgPicture.network(
+                    alignment: alignment ?? Alignment.center,
+                    imageUrl,
+                    fit: fit ?? BoxFit.cover,
+                  )
+                : CachedNetworkImage(
+                    alignment: alignment ?? Alignment.center,
+                    imageUrl: imageUrl,
+                    fit: fit ?? BoxFit.cover,
+                    placeholder: (_, __) => showPlaceholder
+                        ? _placeholder
+                        : const SizedBox.shrink(),
+                    errorWidget: (_, __, e) {
+                      onError?.call(e);
+                      return errorWidget ?? _placeholder;
+                    },
+                  )),
       ),
     );
   }

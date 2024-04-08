@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
@@ -78,11 +77,16 @@ class ResultsPage extends GetView<ResultsController> {
                   ),
                   //Pages
                   Expanded(
-                    child: PageView.builder(
-                        controller: controller.pageController,
-                        itemCount: controller.pages.length,
-                        itemBuilder: (context, index) =>
-                            controller.pages[index]),
+                    child: GestureDetector(
+                      onTapDown:controller.changePage,
+                      child: PageView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          allowImplicitScrolling: true,
+                          controller: controller.pageController,
+                          itemCount: controller.pages.length,
+                          itemBuilder: (context, index) =>
+                              controller.pages[index]),
+                    ),
                   ),
                 ],
               ),

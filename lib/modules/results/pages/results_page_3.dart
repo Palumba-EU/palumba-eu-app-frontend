@@ -16,16 +16,6 @@ class ResultsPage3 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    final List<ChartData> chartData = [
-      ChartData(1922, 15, '100%', Colors.blue),
-      ChartData(1925, 20, '100%', Colors.green),
-      ChartData(1926, 30, '100%', Colors.red),
-      ChartData(1922, 35, '100%', Colors.amber),
-      ChartData(1925, 40, '100%', Colors.pink),
-      ChartData(1926, 45, '100%', Colors.orange),
-      ChartData(1922, 50, '100%', Colors.yellowAccent),
-    ];
-
     return Stack(
       children: [
         SingleChildScrollView(

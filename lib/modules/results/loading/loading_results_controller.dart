@@ -16,7 +16,7 @@ class LoadingResultsController extends GetxController {
 
   RxInt currentStep = 1.obs;
 
-  ResultsData? response;
+  ResultsData? _response;
 
   @override
   void onReady() {
@@ -31,9 +31,9 @@ class LoadingResultsController extends GetxController {
         currentStep.value = currentStep.value + 1;
       } else {
         timer.cancel();
-        if (response != null) {
+        if (_response != null) {
           Get.offAllNamed(ResultsController.route,
-              arguments: {StringUtils.resultsDataKey: response!.toJson()});
+              arguments: {StringUtils.resultsDataKey: _response!.toJson()});
         } else {
           Get.offAllNamed(ResultsController.route);
         }
@@ -42,7 +42,7 @@ class LoadingResultsController extends GetxController {
   }
 
   void _initData() async {
-    var response = await _dataRepository.fetchResultsInfo();
-    if (response == null) {}
+    _response = await _dataRepository.fetchResultsInfo();
+    if (_response == null) {}
   }
 }
