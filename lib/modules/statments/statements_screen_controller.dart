@@ -313,11 +313,11 @@ class StatementsController extends GetxController {
 
   nextCard() async {
     _currentCards.removeAt(0);
-    if (_currentCards.length < 3) {
+  /*  if (_currentCards.length < 3) {
       await Future.delayed(const Duration(milliseconds: 250));
       //TODO: fecth new cards
       // _currentCards += cards;
-    }
+    }*/
     update([cardStackKey]);
     resetAnimation();
     if (_fromOnboarding.value) {
