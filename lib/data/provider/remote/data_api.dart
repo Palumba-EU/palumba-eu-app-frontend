@@ -78,7 +78,7 @@ class DataAPI {
   }
 
   //TODO: Implement
-  Future<dynamic> fetchResponse() async {
+  Future<bool> setResponse() async {
     try {
       final url = Uri.parse('${baseUrl}${responseEndpoint}');
       var body = {
@@ -99,9 +99,9 @@ class DataAPI {
         throw Exception(response.reasonPhrase);
       }
 
-      return null;
+      return true;
     } catch (e) {
-      return null;
+      return false;
     }
   }
 }
