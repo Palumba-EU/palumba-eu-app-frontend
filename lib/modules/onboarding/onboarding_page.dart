@@ -110,7 +110,7 @@ class OnboardingPage extends StatelessWidget {
 
                               return TextButton(
                                 onPressed: () {
-                                  _.onContinueTap();
+                                  _.notAnsweredContinue();
                                 },
                                 child: AppTexts.regular(
                                     S.of(context).onBoardingNotAnswerButton,

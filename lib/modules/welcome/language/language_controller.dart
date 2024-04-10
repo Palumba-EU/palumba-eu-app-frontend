@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class LanguageController extends GetxController {
   static const route = '/language';
@@ -20,6 +21,7 @@ class LanguageController extends GetxController {
   }
 
   void onContinueTap() {
+    UserManager.setLanguageId(languages![indexSelected.value].id!);
     Get.offAllNamed(EntranceController.route);
   }
 }

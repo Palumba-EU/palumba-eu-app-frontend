@@ -6,6 +6,7 @@ import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 class OnboardingController extends GetxController {
@@ -77,19 +78,30 @@ class OnboardingController extends GetxController {
       onContinueTap();
       return;
     }
-
+    UserManager.setCountryId(_countries![index].id!);
     indexCountrySelected.value = index;
     updateButtonState();
   }
 
   void onAgePressed(int index) {
     indexAgeSelected.value = index;
+    UserManager.setAge(index + minAge);
     updateButtonState();
   }
 
   void onGenderPressed(int index) {
     indexGenderSelected.value = index;
+    UserManager.setGender(genders[index]);
     updateButtonState();
+  }
+
+  void notAnsweredContinue() {
+    if (currentStep.value == 2) {
+      UserManager.setAge(null);
+    } else if (currentStep.value == 3) {
+      UserManager.setGender(null);
+    }
+    onContinueTap();
   }
 
   void onContinueTap() {
@@ -127,6 +139,7 @@ class OnboardingController extends GetxController {
     bool isSmallScreen = Get.height < 800;
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
+      //
       height.value = heightSize * .0415;
       radius.value = Radius.elliptical(900, 300);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
