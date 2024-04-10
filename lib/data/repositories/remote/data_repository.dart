@@ -1,5 +1,4 @@
 import 'package:palumba_eu/data/model/localization_data.dart';
-import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/provider/remote/data_api.dart';
 import 'package:get/get.dart';
@@ -11,5 +10,5 @@ class DataRepository {
 
   Future<StatementsData?> fetchStatements() => _api.fetchStatements();
 
-  Future<ResultsData?> fetchResultsInfo() => _api.fetchResultsInfo();
+  Future<bool> setResponse() => _api.setResponse();
 }

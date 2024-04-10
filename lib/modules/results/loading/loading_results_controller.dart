@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
-import 'package:palumba_eu/modules/splash/splash_controller.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 class LoadingResultsController extends GetxController {
@@ -41,8 +40,7 @@ class LoadingResultsController extends GetxController {
     });
   }
 
-  void _initData() async {
-    _response = await _dataRepository.fetchResultsInfo();
-    if (_response == null) {}
+  void _initData() {
+    _dataRepository.setResponse();
   }
 }
