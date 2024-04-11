@@ -1,4 +1,3 @@
-import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 
 class UserManager {
@@ -13,11 +12,11 @@ class UserManager {
   static UserData userData = UserData(answers: []);
 
   static setCountryId(int countryId) async {
-    userData.countryId = countryId;
+    userData.countryId = countryId.toString();
   }
 
   static setLanguageId(int langId) async {
-    userData.languageId = langId;
+    userData.languageId = langId.toString();
   }
 
   static setGender(String? gender) async {
@@ -28,7 +27,7 @@ class UserManager {
     userData.age = age;
   }
 
-  static addStatment(Statement statement, int answer) {
-    userData.answers.add(Answer(statementId: statement.id!, answer: answer));
+  static addStatment(int statmentId, StatementResponse answer) {
+    userData.answers.add(Answer(statementId: statmentId, answer: answer));
   }
 }

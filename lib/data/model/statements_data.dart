@@ -28,7 +28,8 @@ class Statement {
   String? footnote;
   List<int>? vector;
 
-  Statement({this.id, this.statement, this.details, this.footnote, this.vector});
+  Statement(
+      {this.id, this.statement, this.details, this.footnote, this.vector});
 
   Statement.fromJson(Map<String, dynamic> json) {
     id = json['id'];

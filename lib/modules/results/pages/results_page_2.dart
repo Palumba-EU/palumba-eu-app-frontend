@@ -23,7 +23,7 @@ class ResultsPage2 extends GetView<ResultsController> {
             width: Get.width * .5,
             height: Get.width * .5,
             isSvg: true,
-            imageUrl: controller.getFisrtParty()?.logo ?? '',
+            imageUrl: controller.maxPercentagePoliticParty?.party.logo ?? '',
             radius: Get.width,
             border: Border.all(
               color: AppColors.beigeWithOpacity,
@@ -37,7 +37,8 @@ class ResultsPage2 extends GetView<ResultsController> {
             child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: '${controller.getFisrtParty()?.name ?? 'No data '} ',
+                  text:
+                      '${controller.maxPercentagePoliticParty?.party.name ?? 'No data '} ',
                   style: AppTexts.customTextStyle(AppTextType.title,
                       color: controller.getFirstPartyColor()),
                   children: [
@@ -61,7 +62,8 @@ class ResultsPage2 extends GetView<ResultsController> {
                   ),
                   children: [
                     TextSpan(
-                      text: ' 68% ',
+                      text:
+                          ' ${controller.maxPercentagePoliticParty?.percentage}% ',
                       //' ${controller.getFisrtParty()?.value}', //TODO: put api data ,
                       style: AppTexts.customTextStyle(AppTextType.regular,
                           color: controller.getFirstPartyColor(), bold: true),
@@ -74,6 +76,7 @@ class ResultsPage2 extends GetView<ResultsController> {
                 )),
           ),
           CustomSpacer(multiplier: 4),
+          //TODO: fix this quote
           AppTexts.regular('In June, bla bla bla'),
           CustomSpacer(multiplier: 12),
         ],

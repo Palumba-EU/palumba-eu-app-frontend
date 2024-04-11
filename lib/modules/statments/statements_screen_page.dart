@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -66,7 +67,10 @@ class StatementsPage extends GetView<StatementsController> {
                                           child: TextButton(
                                             onPressed: controller.fromOnboarding
                                                 ? null
-                                                : controller.onTapNeutralButton,
+                                                : () =>
+                                                    controller.activateButton(
+                                                        StatementResponse
+                                                            .neutral),
                                             style: ElevatedButton.styleFrom(
                                                 backgroundColor:
                                                     AppColors.primary,
@@ -84,14 +88,18 @@ class StatementsPage extends GetView<StatementsController> {
                                   width: double.infinity,
                                   height: Get.height * .3,
                                   child: DecisionButtons(
-                                    onTapDisagrementButton:
-                                        controller.onTapDisagrementButton,
-                                    onTapHalfDisagrementButton:
-                                        controller.onTapHalfDisagrementButton,
-                                    onTapHalfAgrementButton:
-                                        controller.onTapHalfAgrementButton,
-                                    onTapAgrementButton:
-                                        controller.onTapAgrementButton,
+                                    onTapStronglyDisagrementButton: () =>
+                                        controller.activateButton(
+                                            StatementResponse.stronglyDisagree),
+                                    onTapDisagrementButton: () =>
+                                        controller.activateButton(
+                                            StatementResponse.disagree),
+                                    onTapAgrementButton: () =>
+                                        controller.activateButton(
+                                            StatementResponse.agree),
+                                    onTapStronglyAgrementButton: () =>
+                                        controller.activateButton(
+                                            StatementResponse.stronglyAgree),
                                   ),
                                 ),
                               ],

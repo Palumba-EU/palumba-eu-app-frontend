@@ -6,9 +6,12 @@ import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:http/http.dart' as http;
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 
 class DataAPI {
-  var baseUrl = 'https://palumba.bitperfect-software.com/api';
+  var baseUrlOld = 'https://palumba.bitperfect-software.com/api';
+  var baseUrl = 'https://api.palumba-app.palumba.eu';
+
   var headers = {'Accept': 'application/json'};
 
   final localizationsEndpoint = '/localization';
@@ -78,10 +81,11 @@ class DataAPI {
   }
 
   //TODO: Implement
-  Future<bool> setResponse() async {
+  Future<bool> setResponse(UserData userData) async {
     try {
       final url = Uri.parse('${baseUrl}${responseEndpoint}');
-      var body = {
+      var body = userData.toJson();
+      /*{
         "age": "<integer>",
         "country": "<string>",
         "language": "<string>",
@@ -90,7 +94,7 @@ class DataAPI {
           {"statement_id": "<number>", "answer": "<number>"},
           {"statement_id": "<number>", "answer": "<number>"}
         ]
-      };
+      };*/
 
       final response =
           await http.post(url, headers: headers, body: json.encode(body));
@@ -105,3 +109,5 @@ class DataAPI {
     }
   }
 }
+
+//{"message":"The age field must be present. (and 4 more errors)","errors":{"age":["The age field must be present."],"country_id":["The country id field is required."],"language_id":["The language id field is required."],"gender":["The gender field must be present."],"answers":["The answers field must be present."]}}

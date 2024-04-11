@@ -1,3 +1,5 @@
+import 'package:palumba_eu/data/model/user_model.dart';
+
 class ResultsData {
   List<PoliticParty>? parties;
 
@@ -29,6 +31,8 @@ class PoliticParty {
   List<LocalParties>? localParties;
   List<Null>? policies;
   List<int>? position;
+  String? acronym;
+  List<Answer>? answers;
 
   PoliticParty(
       {this.id,
@@ -37,7 +41,9 @@ class PoliticParty {
       this.logo,
       this.localParties,
       this.policies,
-      this.position});
+      this.position,
+      this.acronym,
+      this.answers});
 
   PoliticParty.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -51,6 +57,12 @@ class PoliticParty {
       });
     }
     position = json['position'].cast<int>();
+    acronym = json['acronym'];
+    if (json["answers"] != null) {
+      answers = <Answer>[];
+      List<Answer>.from(
+          json["answers"].foEach((x) => answers!.add(Answer.fromJson(x))));
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -64,6 +76,8 @@ class PoliticParty {
           this.localParties!.map((v) => v.toJson()).toList();
     }
     data['position'] = this.position;
+    data['acronym'] = this.acronym;
+    data['answers'] = this.answers?.map((v) => v.toJson()).toList();
     return data;
   }
 }
@@ -73,6 +87,8 @@ class LocalParties {
   String? name;
   String? logo;
   String? link;
+  String? acronym;
+  int? countryId;
 
   LocalParties({this.id, this.name, this.logo, this.link});
 
@@ -81,6 +97,8 @@ class LocalParties {
     name = json['name'];
     logo = json['logo'];
     link = json['link'];
+    acronym = json['acronym'];
+    countryId = json['country_id'];
   }
 
   Map<String, dynamic> toJson() {
@@ -89,6 +107,8 @@ class LocalParties {
     data['name'] = this.name;
     data['logo'] = this.logo;
     data['link'] = this.link;
+    data['acronym'] = this.acronym;
+    data['country_id'] = this.countryId;
     return data;
   }
 }

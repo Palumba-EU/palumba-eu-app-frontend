@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/statments/helpers/html_parser_helper.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 enum _WidthScreenPart { maxLeft, middleLeft, center, middleRight, maxRight }
 
 enum _HeightScreenPart { top, middle, bottom }
-
-enum _Decision { agree, halfAgree, halfDisagree, disagree, neutral, skip }
 
 class StatementsController extends GetxController {
   static const route = '/statements';
@@ -22,9 +22,7 @@ class StatementsController extends GetxController {
 
   final DataRepository _dataRepository = Get.find<DataRepository>();
 
-  //List<CardModel> cards = []; //CardModel.mockCards;
   List<CardModel?> _currentCards = [];
-  //List<CardModel> get currentCards => _currentCards;
   CardModel? get firstCard =>
       _currentCards.length > 0 ? _currentCards[0] : null;
   CardModel? get secondCard =>
@@ -41,34 +39,36 @@ class StatementsController extends GetxController {
   final RxBool _buttonsBlocked = false.obs;
   bool get buttonsBlocked => _buttonsBlocked.value;
 
+//This is front card position
   final Rx<Offset> _position = Offset(0, 0).obs;
   Rx<Offset> get position => _position;
 
+//This is back card position
   final Rx<Offset> _bgPosition = Offset(0, 0).obs;
   Rx<Offset> get bgPosition => _bgPosition;
 
+//This is front card angle
   double _angle = 0;
   double get angle => _angle;
 
-  double scrollMaxWidthToDecideInside = Get.width * .25;
-
-  double scrollMaxWidthToDecideOutside = Get.width * .5;
-
+//This defines if the pan gesture has started
   RxBool _isPanStarted = false.obs;
   RxBool get isPanStarted => _isPanStarted;
+
+//The next 4 variables define
+  RxBool _stronglyDisagrementButtonSelected = false.obs;
+  bool get StronglyDisagrementButtonSelected =>
+      _stronglyDisagrementButtonSelected.value;
 
   RxBool _disagrementButtonSelected = false.obs;
   bool get disagrementButtonSelected => _disagrementButtonSelected.value;
 
-  RxBool _halfDisagrementButtonSelected = false.obs;
-  bool get halfDisagrementButtonSelected =>
-      _halfDisagrementButtonSelected.value;
+  RxBool _StronglyAgrementButtonSelected = false.obs;
+  bool get StronglyAgrementButtonSelected =>
+      _StronglyAgrementButtonSelected.value;
 
   RxBool _agrementButtonSelected = false.obs;
   bool get agrementButtonSelected => _agrementButtonSelected.value;
-
-  RxBool _halfAgrementButtonSelected = false.obs;
-  bool get halfAgrementButtonSelected => _halfAgrementButtonSelected.value;
 
   RxDouble _cardOpacity = 1.0.obs;
   RxDouble get cardOpacity => _cardOpacity;
@@ -157,29 +157,33 @@ class StatementsController extends GetxController {
   void onPanEnd(DragEndDetails details) {
     _isPanStarted.value = false;
     final decision = _checkActionSelected();
-    switch (decision) {
-      case _Decision.agree:
-        onTapAgrementButton();
+    activateButton(decision);
+  }
 
+  void activateButton(StatementResponse? decision) {
+    switch (decision) {
+      case StatementResponse.stronglyAgree:
+        onTapStronglyAgrementButton();
         break;
-      case _Decision.halfAgree:
-        onTapHalfAgrementButton();
+      case StatementResponse.agree:
+        onTapAgrementButton();
         break;
-      case _Decision.halfDisagree:
-        onTapHalfDisagrementButton();
-        break;
-      case _Decision.disagree:
+      case StatementResponse.disagree:
         onTapDisagrementButton();
         break;
-      case _Decision.neutral:
+      case StatementResponse.stronglyDisagree:
+        onTapStronglyDisagrementButton();
+        break;
+      case StatementResponse.neutral:
         onTapNeutralButton();
         break;
       default:
         _nothingHappen();
       // resetAnimation();
     }
-
-    // resetAnimation();
+    if (decision != null) {
+      storeAnswerData(decision);
+    }
   }
 
   void _nothingHappen() async {
@@ -206,15 +210,15 @@ class StatementsController extends GetxController {
     _angle = 0;
     _cardAnimationDuration.value = 0;
     _cardOpacity.value = 1;
+    _stronglyDisagrementButtonSelected.value = false;
     _disagrementButtonSelected.value = false;
-    _halfDisagrementButtonSelected.value = false;
-    _halfAgrementButtonSelected.value = false;
     _agrementButtonSelected.value = false;
+    _StronglyAgrementButtonSelected.value = false;
     _buttonsBlocked.value = false;
     _currentCardIndex.value = 0;
   }
 
-  _Decision? _checkActionSelected() {
+  StatementResponse? _checkActionSelected() {
     final widthPart = currentWidthScreeenPart(_position.value.dx);
     final heightPart = currentHeightScreeenPart();
 
@@ -222,51 +226,51 @@ class StatementsController extends GetxController {
       case _HeightScreenPart.bottom:
         switch (widthPart) {
           case _WidthScreenPart.maxLeft:
-            _disagrementButtonSelected.value = true;
-            _halfDisagrementButtonSelected.value = false;
-            _halfAgrementButtonSelected.value = false;
+            _stronglyDisagrementButtonSelected.value = true;
+            _disagrementButtonSelected.value = false;
             _agrementButtonSelected.value = false;
-            return _Decision.disagree;
+            _StronglyAgrementButtonSelected.value = false;
+            return StatementResponse.stronglyDisagree;
 
           case _WidthScreenPart.middleLeft:
-            _disagrementButtonSelected.value = false;
-            _halfDisagrementButtonSelected.value =
+            _stronglyDisagrementButtonSelected.value = false;
+            _disagrementButtonSelected.value =
                 (_position.value.dy < Get.height * .35) ? false : true;
-            _halfAgrementButtonSelected.value = false;
             _agrementButtonSelected.value = false;
+            _StronglyAgrementButtonSelected.value = false;
             return (_position.value.dy < Get.height * .35)
                 ? null
-                : _Decision.halfDisagree;
+                : StatementResponse.disagree;
           case _WidthScreenPart.center:
             return null;
           case _WidthScreenPart.middleRight:
+            _stronglyDisagrementButtonSelected.value = false;
             _disagrementButtonSelected.value = false;
-            _halfDisagrementButtonSelected.value = false;
-            _halfAgrementButtonSelected.value =
+            _agrementButtonSelected.value =
                 (_position.value.dy < Get.height * .35) ? false : true;
-            _agrementButtonSelected.value = false;
+            _StronglyAgrementButtonSelected.value = false;
             return (_position.value.dy < Get.height * .35)
                 ? null
-                : _Decision.halfAgree;
+                : StatementResponse.agree;
           case _WidthScreenPart.maxRight:
+            _stronglyDisagrementButtonSelected.value = false;
             _disagrementButtonSelected.value = false;
-            _halfDisagrementButtonSelected.value = false;
-            _halfAgrementButtonSelected.value = false;
-            _agrementButtonSelected.value = true;
-            return _Decision.agree;
+            _agrementButtonSelected.value = false;
+            _StronglyAgrementButtonSelected.value = true;
+            return StatementResponse.stronglyAgree;
         }
       case _HeightScreenPart.top:
+        _stronglyDisagrementButtonSelected.value = false;
         _disagrementButtonSelected.value = false;
-        _halfDisagrementButtonSelected.value = false;
-        _halfAgrementButtonSelected.value = false;
         _agrementButtonSelected.value = false;
-        return _Decision.neutral;
+        _StronglyAgrementButtonSelected.value = false;
+        return StatementResponse.neutral;
 
       default:
+        _stronglyDisagrementButtonSelected.value = false;
         _disagrementButtonSelected.value = false;
-        _halfDisagrementButtonSelected.value = false;
-        _halfAgrementButtonSelected.value = false;
         _agrementButtonSelected.value = false;
+        _StronglyAgrementButtonSelected.value = false;
         return null;
     }
   }
@@ -372,40 +376,44 @@ class StatementsController extends GetxController {
 
   void onTapNeutralButton() async {
     await neutralAnimation();
-    //TODO: send to api
+    nextCard();
+  }
+
+  void onTapStronglyDisagrementButton() async {
+    _stronglyDisagrementButtonSelected.value = true;
+    await disagreeAnimation();
+    _stronglyDisagrementButtonSelected.value = false;
     nextCard();
   }
 
   void onTapDisagrementButton() async {
     _disagrementButtonSelected.value = true;
     await disagreeAnimation();
-    //TODO: send to api
     _disagrementButtonSelected.value = false;
-    nextCard();
-  }
-
-  void onTapHalfDisagrementButton() async {
-    _halfDisagrementButtonSelected.value = true;
-    await disagreeAnimation();
-    //TODO: send to api
-    _halfDisagrementButtonSelected.value = false;
-    nextCard();
-  }
-
-  void onTapHalfAgrementButton() async {
-    _halfAgrementButtonSelected.value = true;
-    await agreeAnimation();
-    //TODO: send to api
-    _halfAgrementButtonSelected.value = false;
     nextCard();
   }
 
   void onTapAgrementButton() async {
     _agrementButtonSelected.value = true;
     await agreeAnimation();
-    //TODO: send to api
     _agrementButtonSelected.value = false;
     nextCard();
+  }
+
+  void onTapStronglyAgrementButton() async {
+    _StronglyAgrementButtonSelected.value = true;
+    await agreeAnimation();
+    _StronglyAgrementButtonSelected.value = false;
+    nextCard();
+  }
+
+  storeAnswerData(StatementResponse answer) {
+    if (fromOnboarding) return;
+    try {
+      UserManager.addStatment(firstCard!.id!, answer);
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
   void onSkipTap() {}

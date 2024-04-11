@@ -70,10 +70,13 @@ class ResultsPage6 extends GetView<ResultsController> {
         separatorBuilder: (context, index) => CustomDivider(
           paddingValue: AppDimens.bigLateralPaddingValue,
         ),
-        itemCount: controller.getFisrtParty()?.localParties?.length ?? 0,
+        itemCount:
+            controller.maxPercentagePoliticParty?.party.localParties?.length ??
+                0,
         itemBuilder: (context, i) => _CandidatesTile(
-          candidate: controller.getFisrtParty()!.localParties![i],
-          party: controller.getFisrtParty()!.name ?? '',
+          candidate:
+              controller.maxPercentagePoliticParty?.party.localParties![i] ??
+                  LocalParties(),
         ),
       ),
     );
@@ -83,10 +86,8 @@ class ResultsPage6 extends GetView<ResultsController> {
 class _CandidatesTile extends StatelessWidget {
   const _CandidatesTile({
     required this.candidate,
-    required this.party,
   });
   final LocalParties candidate;
-  final String party;
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +102,7 @@ class _CandidatesTile extends StatelessWidget {
       contentPadding: EdgeInsets.symmetric(
         horizontal: AppDimens.bigLateralPaddingValue,
       ),
-      title: AppTexts.small(party, color: AppColors.primary),
+      title: AppTexts.small(candidate.acronym ?? '', color: AppColors.primary),
       subtitle: AppTexts.regular(candidate.name ?? '',
           bold: true, color: AppColors.primary),
     );
