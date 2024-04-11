@@ -1,6 +1,9 @@
+import 'dart:async';
 import 'dart:math';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'dart:ui' as ui;
 import 'package:http/http.dart' as http;
@@ -55,7 +58,20 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
     final bytes = Uint8List.fromList(response.bodyBytes);
     final codec = await ui.instantiateImageCodec(bytes);
     final frame = await codec.getNextFrame();
+
     return frame.image;
+  }
+
+  Future<ui.Image> loadSvg(String url) async {
+    final response = await http.get(Uri.parse(url));
+    final String rawSvg = response.body.toString();
+
+    final pictureInfo = await vg.loadPicture(SvgStringLoader(rawSvg), null);
+    final ui.Image image = await pictureInfo.picture.toImage(65, 65);
+
+    pictureInfo.picture.dispose();
+
+    return image;
   }
 
   @override
@@ -77,7 +93,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ui.Image>(
-        future: loadImage(widget.imageUrl),
+        future: loadSvg(widget.imageUrl), //loadImage(widget.imageUrl),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (!_isAnimationCompleted) {
@@ -155,6 +171,7 @@ class ArcPainter extends CustomPainter {
     canvas.save();
     canvas.clipPath(clipPath);
     canvas.drawImageRect(image, imageRect, circleRect, Paint());
+
     canvas.restore();
   }
 
