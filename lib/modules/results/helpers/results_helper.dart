@@ -65,4 +65,6 @@ class ResultsHelper {
 
     return distanceMatrix[aIndex][bIndex];
   }
+
+  
 }

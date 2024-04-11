@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -86,14 +88,20 @@ class ResultsController extends GetxController {
   PartyUserDistance? getFisrtParty() {
     //Get the party with mayor percentage (minor distance)
     PartyUserDistance? maxPercentageParty;
+    List<PartyUserDistance> topPercentageParties = [];
     double maxPercentageValue = double.negativeInfinity;
 
     for (PartyUserDistance data in _resultsData) {
       if (data.percentage > maxPercentageValue) {
         maxPercentageValue = data.percentage.toDouble();
-        maxPercentageParty = data;
+        topPercentageParties = [data];
+      } else if (data.percentage == maxPercentageValue) {
+        topPercentageParties.add(data);
       }
     }
+    Random random = Random();
+    maxPercentageParty =
+        topPercentageParties[random.nextInt(topPercentageParties.length)];
 
     return maxPercentageParty;
   }

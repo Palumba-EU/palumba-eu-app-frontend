@@ -60,8 +60,7 @@ class PoliticParty {
     acronym = json['acronym'];
     if (json["answers"] != null) {
       answers = <Answer>[];
-      List<Answer>.from(
-          json["answers"].foEach((x) => answers!.add(Answer.fromJson(x))));
+      json["answers"].forEach((x) => answers!.add(Answer.fromJson(x)));
     }
   }
 
