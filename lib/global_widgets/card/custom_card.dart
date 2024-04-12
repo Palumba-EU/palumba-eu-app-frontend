@@ -26,6 +26,7 @@ class CustomCard extends StatelessWidget {
     required this.cardOpacity,
     this.isOnboardingCard = false,
     this.onSkipTap,
+    this.scale,
   });
   final bool isFirstCard;
   final CardModel? card;
@@ -42,6 +43,7 @@ class CustomCard extends StatelessWidget {
   final RxDouble cardOpacity;
   final bool isOnboardingCard;
   final Function()? onSkipTap;
+  final double? scale;
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +91,7 @@ class CustomCard extends StatelessWidget {
                       final center = constraints.smallest.center(Offset.zero);
                       final double angle =
                           isFirstCard ? angleCard * pi / 180 : 0;
+                      final double scaleValue = isFirstCard ? scale ?? 1 : 1;
                       final rotatedMatrix = Matrix4.identity()
                         ..translate(position.dx, position.dy, 0)
                         ..rotateZ(angle)
@@ -103,13 +106,14 @@ class CustomCard extends StatelessWidget {
                           child: AnimatedContainer(
                             duration: duration,
                             transform: rotatedMatrix
-                              ..translate(position.dx, position.dy, 0),
+                              ..translate(position.dx, position.dy, 0)
+                              ..scale(scaleValue, scaleValue, 1.0),
                             height: Get.height * .575,
                             width: Get.width * .77,
                             decoration: BoxDecoration(
                               color: !isFirstCard
                                   ? Theme.of(context).colorScheme.primary
-                                  : isPanStarted?.value ?? false
+                                  : isPanStarted.value ?? false
                                       ? Theme.of(context).colorScheme.background
                                       : Theme.of(context).colorScheme.primary,
                               borderRadius: BorderRadius.circular(20),
