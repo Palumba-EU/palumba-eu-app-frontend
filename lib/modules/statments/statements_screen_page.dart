@@ -163,53 +163,55 @@ class StatementsPage extends GetView<StatementsController> {
           GetBuilder<StatementsController>(
             id: controller.cardStackKey,
             init: controller,
-            builder: (controller) =>
-                (controller.firstCard != null || controller.fromOnboarding)
-                    ? Stack(
-                        children: [
-                          if (controller.secondCard != null)
-                            CustomCard(
-                              card: controller.secondCard,
-                              angleCard: controller.angle,
-                              positionCard: controller.position,
-                              bgPosition: controller.bgPosition,
-                              isPanStarted: controller.isPanStarted,
-                              cardAnimationDuration:
-                                  controller.cardAnimationDuration,
-                              cardOpacity: controller.cardOpacity,
-                              isFirstCard: false,
-                              onPanStart: controller.onPanStart,
-                              onPanUpdate: controller.onPanUpdate,
-                              onPanEnd: controller.onPanEnd,
-                              onTapDown: controller.onTapDown,
-                              currentCardIndex: 0.obs,
-                              //controller.currentCardIndex,
-                              isOnboardingCard: false,
-                              onSkipTap: controller.onSkipTap,
-                            ),
-                          Obx(
-                            () => CustomCard(
-                              isFirstCard: true,
-                              card: controller.firstCard,
-                              onPanStart: controller.onPanStart,
-                              onPanUpdate: controller.onPanUpdate,
-                              onPanEnd: controller.onPanEnd,
-                              onTapDown: controller.onTapDown,
-                              currentCardIndex: controller.currentCardIndex,
-                              angleCard: controller.angle,
-                              positionCard: controller.position,
-                              bgPosition: controller.bgPosition,
-                              isPanStarted: controller.isPanStarted,
-                              cardAnimationDuration:
-                                  controller.cardAnimationDuration,
-                              cardOpacity: controller.cardOpacity,
-                              isOnboardingCard: controller.fromOnboarding,
-                              onSkipTap: controller.onSkipTap,
-                            ),
-                          )
-                        ],
+            builder: (controller) => (controller.firstCard != null ||
+                    controller.fromOnboarding)
+                ? Stack(
+                    children: [
+                      if (controller.secondCard != null)
+                        CustomCard(
+                          card: controller.secondCard,
+                          angleCard: controller.angle,
+                          positionCard: controller.position,
+                          bgPosition: controller.bgPosition,
+                          isPanStarted: controller.isPanStarted,
+                          cardAnimationDuration:
+                              controller.cardAnimationDuration,
+                          cardOpacity: controller.cardOpacity,
+                          isFirstCard: false,
+                          onPanStart: controller.onPanStart,
+                          onPanUpdate: controller.onPanUpdate,
+                          onPanEnd: controller.onPanEnd,
+                          onTapDown: controller.onTapDown,
+                          currentCardIndex: 0.obs,
+                          //controller.currentCardIndex,
+                          isOnboardingCard: false,
+                          //onSkipTap: controller.onSkipTap,
+                        ),
+                      Obx(
+                        () => CustomCard(
+                          isFirstCard: true,
+                          card: controller.firstCard,
+                          onPanStart: controller.onPanStart,
+                          onPanUpdate: controller.onPanUpdate,
+                          onPanEnd: controller.onPanEnd,
+                          onTapDown: controller.onTapDown,
+                          currentCardIndex: controller.currentCardIndex,
+                          angleCard: controller.angle,
+                          positionCard: controller.position,
+                          bgPosition: controller.bgPosition,
+                          isPanStarted: controller.isPanStarted,
+                          cardAnimationDuration:
+                              controller.cardAnimationDuration,
+                          cardOpacity: controller.cardOpacity,
+                          isOnboardingCard: controller.fromOnboarding,
+                          scale: controller.scale.value,
+                          onSkipTap: () =>
+                              controller.activateButton(StatementResponse.skip),
+                        ),
                       )
-                    : SizedBox.shrink(),
+                    ],
+                  )
+                : SizedBox.shrink(),
           ),
         ],
       ),

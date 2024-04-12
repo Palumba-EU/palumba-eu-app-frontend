@@ -85,6 +85,9 @@ class StatementsController extends GetxController {
   StatementsData? _statementsData;
   List<Statement> get statements => _statementsData?.data ?? [];
 
+  RxDouble _scale = 1.0.obs;
+  RxDouble get scale => _scale;
+
   @override
   void onInit() {
     _getArgumentsAndFetch();
@@ -176,6 +179,9 @@ class StatementsController extends GetxController {
         break;
       case StatementResponse.neutral:
         onTapNeutralButton();
+        break;
+      case StatementResponse.skip:
+        onSkipTap();
         break;
       default:
         _nothingHappen();
@@ -416,5 +422,12 @@ class StatementsController extends GetxController {
     }
   }
 
-  void onSkipTap() {}
+  void onSkipTap() async {
+    _scale.value = 0.0;
+    await Future.delayed(Durations.medium1);
+    await neutralAnimation();
+    _scale.value = 1.0;
+
+    nextCard();
+  }
 }
