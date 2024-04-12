@@ -68,18 +68,22 @@ class CustomSemicircleChart extends StatelessWidget {
                 children: [
                   for (int i = 0; i < (charts?.length ?? 0); i++)
                     SizedBox(
-                        width: Get.width * .33,
+                        width: Get.width * .3,
                         child: Padding(
                           padding: EdgeInsets.only(
                             top: (i == 0 || i == 1 || i == 2) ? 0 : 8,
                           ),
-                          child: Expanded(
-                            child: AppTexts.small(
-                              charts![i].party,
-                              fontSize: (i == 0 || i == 1 || i == 2)
-                                  ? initialFontSizeBig
-                                  : initialFontSizeSmall,
-                              maxLines: 1,
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: AppTexts.small(
+                                charts![i].party,
+                                fontSize: (i == 0 || i == 1 || i == 2)
+                                    ? initialFontSizeBig
+                                    : initialFontSizeSmall,
+                                maxLines: 1,
+                              ),
                             ),
                           ),
                         )),

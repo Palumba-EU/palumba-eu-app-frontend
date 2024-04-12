@@ -29,12 +29,9 @@ class ResultsPage3 extends GetView<ResultsController> {
                   CustomSpacer(
                     multiplier: 5,
                   ),
-                Padding(
-                  padding: EdgeInsets.only(left: 0),
-                  child: CustomSemicircleChart(
-                    arcDiameter: Get.height * .42,
-                    charts: controller.chartData,
-                  ),
+                CustomSemicircleChart(
+                  arcDiameter: Get.width * .85,
+                  charts: controller.chartData,
                 ),
                 CustomSpacer(
                   multiplier: 12,
