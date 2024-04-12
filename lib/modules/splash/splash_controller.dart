@@ -28,8 +28,7 @@ class SplashController extends GetxController {
     _dataRepository.fetchStatements();
 
     Get.offNamed(
-      StatementsController.route,
-      // LanguageController.route,
+      LanguageController.route,
     );
   }
 }

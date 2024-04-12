@@ -64,21 +64,25 @@ class ResultsPage6 extends GetView<ResultsController> {
           ),
         ],
       ),
-      child: ListView.separated(
-        shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
-        separatorBuilder: (context, index) => CustomDivider(
-          paddingValue: AppDimens.bigLateralPaddingValue,
-        ),
-        itemCount:
-            controller.maxPercentagePoliticParty?.party.localParties?.length ??
-                0,
-        itemBuilder: (context, i) => _CandidatesTile(
-          candidate:
-              controller.maxPercentagePoliticParty?.party.localParties![i] ??
-                  LocalParties(),
-        ),
-      ),
+      child: (controller.localParties?.length ?? 0) == 0
+          ? Center(
+              child: Padding(
+                  padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
+                  child: AppTexts.regular(
+                      'No local parties found in your country',
+                      color: AppColors.primary)),
+            )
+          : ListView.separated(
+              shrinkWrap: true,
+              physics: BouncingScrollPhysics(),
+              separatorBuilder: (context, index) => CustomDivider(
+                paddingValue: AppDimens.bigLateralPaddingValue,
+              ),
+              itemCount: controller.localParties?.length ?? 0,
+              itemBuilder: (context, i) => _CandidatesTile(
+                candidate: controller.localParties?[i] ?? LocalParties(),
+              ),
+            ),
     );
   }
 }

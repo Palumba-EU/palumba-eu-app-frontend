@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/results_data.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
-import 'package:palumba_eu/modules/results/models/canadidates_model.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
@@ -12,6 +13,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_5.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 import 'models/custom_chart_data.dart';
@@ -35,12 +37,16 @@ class ResultsController extends GetxController {
 
   List<CustomChartData> chartData = [];
 
+  UserData get userData => UserManager.userData;
+
   List<int> showButtonSharePages = [1, 2, 5];
 
   RxInt _currentPage = 0.obs;
   int get currentPage => _currentPage.value;
 
   List<PartyUserDistance> _resultsData = [];
+
+  List<LocalParties>? get localParties => filterLocalPartiesByCountry();
 
   PartyUserDistance? _maxPercentagePoliticParty;
   PartyUserDistance? get maxPercentagePoliticParty =>
@@ -81,11 +87,11 @@ class ResultsController extends GetxController {
       });
       //ATTENTION! Make sure to order list by value, from mayor to minor, before user it. If not chart will not work
       chartData.sort((b, a) => a.value.compareTo(b.value));
-      getFisrtParty();
+      _maxPercentagePoliticParty = getMajorPercentageParty();
     }
   }
 
-  PartyUserDistance? getFisrtParty() {
+  PartyUserDistance? getMajorPercentageParty() {
     //Get the party with mayor percentage (minor distance)
     PartyUserDistance? maxPercentageParty;
     List<PartyUserDistance> topPercentageParties = [];
@@ -99,6 +105,7 @@ class ResultsController extends GetxController {
         topPercentageParties.add(data);
       }
     }
+    //If there is more than one party with the same percentage, get a random one
     Random random = Random();
     maxPercentageParty =
         topPercentageParties[random.nextInt(topPercentageParties.length)];
@@ -133,5 +140,16 @@ class ResultsController extends GetxController {
         );
       }
     }
+  }
+
+  List<LocalParties> filterLocalPartiesByCountry() {
+    List<LocalParties> localParties = [];
+    for (LocalParties localParty
+        in maxPercentagePoliticParty?.party.localParties ?? []) {
+      if (localParty.countryId == userData.countryId) {
+        localParties.add(localParty);
+      }
+    }
+    return localParties;
   }
 }
