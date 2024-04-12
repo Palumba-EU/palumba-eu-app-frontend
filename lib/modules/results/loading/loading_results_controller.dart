@@ -45,7 +45,7 @@ class LoadingResultsController extends GetxController {
   }
 
   void _initData() async {
-    final result = await _dataRepository.setResponse(UserManager.userData);
+    final result = await _dataRepository.setResponse();
     if (!result) {
       //TODO: Handle error
     }
@@ -69,15 +69,13 @@ class LoadingResultsController extends GetxController {
               statementId: index, answer: StatementResponse.stronglyAgree));
       int maxDistance = calculateDistance(maxAgreeAnswers, maxDisagreeAnswers);
 
-      //Distance between user and party
+      //Calculate distance between user and party
       final userAnswers = UserManager.userData.answers;
       final partyAnswers = party.answers ?? [];
       final distance = calculateDistance(
         userAnswers,
         partyAnswers,
       );
-      /*  ResultsHelper.parseResultPartyStatementResponses(
-              party.position ?? []));*/
 
       //Calculate percentage and add to List
       int percentage = 0;
@@ -97,7 +95,7 @@ class LoadingResultsController extends GetxController {
       if (userAnswers[i] == StatementResponse.skip) {
         continue;
       }
-
+      //Check if user statment is in the party answers
       if (!epGroupAnswers
           .any((answer) => answer.statementId == userAnswers[i].statementId)) {
         continue;
@@ -112,7 +110,6 @@ class LoadingResultsController extends GetxController {
       );
       totalDistance += statementDistance;
     }
-
     return answersCount == 0 ? -1 : totalDistance;
   }
 }

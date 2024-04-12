@@ -51,15 +51,25 @@ class OnboardingController extends GetxController {
   RxInt indexAgeSelected = (-1).obs;
 
   ///Step3
-  final List<String> _genders = [
-    S.of(Get.context!).onBoardingStep3Option1,
-    S.of(Get.context!).onBoardingStep3Option2,
-    S.of(Get.context!).onBoardingStep3Option3,
-    S.of(Get.context!).onBoardingStep3Option4,
-    S.of(Get.context!).onBoardingStep3Option5,
+  final List<GenderModel> _genders = [
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option1,
+        genderEnum: gender.woman),
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option2,
+        genderEnum: gender.man),
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option3,
+        genderEnum: gender.nonBinary),
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option4,
+        genderEnum: gender.intersex),
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option5,
+        genderEnum: gender.other),
   ];
 
-  List<String> get genders => _genders;
+  List<String> get genders => _genders.map((gender) => gender.name).toList();
 
   RxInt indexGenderSelected = (-1).obs;
 
@@ -91,7 +101,7 @@ class OnboardingController extends GetxController {
 
   void onGenderPressed(int index) {
     indexGenderSelected.value = index;
-    UserManager.setGender(genders[index]);
+    UserManager.setGender(_genders[index].genderEnum);
     updateButtonState();
   }
 
@@ -278,3 +288,10 @@ class OnboardingController extends GetxController {
 }
 
 enum gender { woman, man, nonBinary, intersex, other, none }
+
+class GenderModel {
+  final String name;
+  final gender genderEnum;
+
+  GenderModel({required this.name, required this.genderEnum});
+}

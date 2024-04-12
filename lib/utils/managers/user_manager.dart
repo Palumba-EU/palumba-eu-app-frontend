@@ -1,4 +1,5 @@
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 
 class UserManager {
   static final UserManager _singleton = new UserManager._internal();
@@ -12,15 +13,27 @@ class UserManager {
   static UserData userData = UserData(answers: []);
 
   static setCountryId(int countryId) async {
-    userData.countryId = countryId.toString();
+    userData.countryId = countryId;
   }
 
   static setLanguageId(int langId) async {
-    userData.languageId = langId.toString();
+    userData.languageId = langId;
   }
 
-  static setGender(String? gender) async {
-    userData.gender = gender;
+  static setGender(gender? genderEnum) async {
+    String? value;
+    //TODO: add other gender values
+    switch (genderEnum) {
+      case gender.woman:
+        value = 'female';
+        break;
+      case gender.man:
+        value = 'male';
+        break;
+      default:
+        break;
+    }
+    userData.gender = value;
   }
 
   static setAge(int? age) async {

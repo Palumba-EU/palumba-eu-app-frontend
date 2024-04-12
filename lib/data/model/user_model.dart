@@ -15,8 +15,8 @@ String userDataToJson(UserData data) => json.encode(data.toJson());
 
 class UserData {
   int? age;
-  String? countryId;
-  String? languageId;
+  int? countryId;
+  int? languageId;
   String? gender;
   List<Answer> answers;
 

@@ -12,7 +12,7 @@ class DataRepository {
 
   Future<StatementsData?> fetchStatements() => _api.fetchStatements();
 
-  Future<bool> setResponse(UserData userData) => _api.setResponse(userData);
+  Future<bool> setResponse() => _api.setResponse();
 
   Future<ResultsData?> fetchResultsInfo() => _api.fetchResultsInfo();
 }
