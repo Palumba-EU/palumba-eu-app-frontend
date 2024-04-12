@@ -13,7 +13,7 @@ class ResultsPage4 extends StatefulWidget {
 class _ResultsPage4State extends State<ResultsPage4> {
   @override
   Widget build(BuildContext context) {
-    return FakeDialogPage(
+    return DialogApparencePage(
       title: S.of(context).resultsPage4Title,
       text: S.of(context).resultsPage4Text,
       urlImageBack: 'https://picsum.photos/800/600',

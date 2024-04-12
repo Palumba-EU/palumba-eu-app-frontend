@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,7 +38,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
 
   double calculatePercentage(double value, double maxValue) {
     if (maxValue <= 0) {
-      throw ArgumentError('maxValue should be bnigger then 0.');
+      throw ArgumentError('maxValue should be bigger then 0.');
     }
     double percentage = value / maxValue;
 
@@ -72,11 +71,6 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
     pictureInfo.picture.dispose();
 
     return image;
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   void _initAnimation() {

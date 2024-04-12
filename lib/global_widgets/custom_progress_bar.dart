@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';

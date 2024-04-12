@@ -23,26 +23,6 @@ class PartyUserDistance {
 }
 
 class ResultsHelper {
-  static List<StatementResponse> parseResultPartyStatementResponses(
-      List<int> responses) {
-    return responses.map((int response) {
-      switch (response) {
-        case 1:
-          return StatementResponse.stronglyAgree;
-        case 2:
-          return StatementResponse.agree;
-        case 3:
-          return StatementResponse.neutral;
-        case 4:
-          return StatementResponse.disagree;
-        case 5:
-          return StatementResponse.stronglyDisagree;
-        default:
-          throw Exception('Invalid response value: $response');
-      }
-    }).toList();
-  }
-
   //This function calculates the distance between two responses
   static int likertDistance(StatementResponse a, StatementResponse b) {
     List<StatementResponse> options = [
@@ -65,6 +45,4 @@ class ResultsHelper {
 
     return distanceMatrix[aIndex][bIndex];
   }
-
-  
 }

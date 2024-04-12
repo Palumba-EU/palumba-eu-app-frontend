@@ -4,7 +4,6 @@ import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/global_widgets/custom_divider.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
-import 'package:palumba_eu/modules/results/models/canadidates_model.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -69,6 +68,7 @@ class ResultsPage6 extends GetView<ResultsController> {
               child: Padding(
                   padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
                   child: AppTexts.regular(
+                      //TODO: change quote
                       'No local parties found in your country',
                       color: AppColors.primary)),
             )

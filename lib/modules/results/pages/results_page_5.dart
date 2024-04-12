@@ -8,7 +8,7 @@ class ResultsPage5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FakeDialogPage(
+    return DialogApparencePage(
       title: S.of(context).resultsPage5Title,
       text: S.of(context).resultsPage5Text,
       urlImageBack: 'https://picsum.photos/800/600',

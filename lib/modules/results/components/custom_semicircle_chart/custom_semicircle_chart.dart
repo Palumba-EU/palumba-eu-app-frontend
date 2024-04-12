@@ -45,10 +45,12 @@ class CustomSemicircleChart extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
+                //Add base
                 SemicircleBase(
                   arcDiameter: arcDiameter,
                   color: AppColors.darkPurple,
                 ),
+                //Add parties arcs
                 ...arcLines.reversed.toList(),
               ],
             ),
@@ -58,7 +60,6 @@ class CustomSemicircleChart extends StatelessWidget {
           top: AppDimens.smallPaddingValue,
           bottom: AppDimens.smallPaddingValue,
           left: Get.width * .5,
-          //right: 0,
           child: SizedBox(
             child: FittedBox(
               fit: Get.height < 750 ? BoxFit.scaleDown : BoxFit.contain,
@@ -66,6 +67,7 @@ class CustomSemicircleChart extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //Add party names
                   for (int i = 0; i < (charts?.length ?? 0); i++)
                     SizedBox(
                         width: Get.width * .3,
@@ -92,6 +94,7 @@ class CustomSemicircleChart extends StatelessWidget {
                       height: arcDiameter -
                           7 * (arcDiameter / 7) +
                           arcDiameter * .15),
+                  //Add percentages
                   for (int i = 0; i < reversedCharts.length; i++)
                     Padding(
                       padding: EdgeInsets.only(

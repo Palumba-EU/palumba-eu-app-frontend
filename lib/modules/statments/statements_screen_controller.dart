@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';

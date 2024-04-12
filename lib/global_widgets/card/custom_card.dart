@@ -72,7 +72,7 @@ class CustomCard extends StatelessWidget {
               ? null
               : CustomContainerClipper(curveRadius: 200)),
       child: SizedBox(
-        height: isPanStarted.value ?? false
+        height: isPanStarted.value
             ? (isFirstCard ? Get.height : Get.height * .82)
             : Get.height * .82,
         width: double.infinity,
@@ -113,7 +113,7 @@ class CustomCard extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: !isFirstCard
                                   ? Theme.of(context).colorScheme.primary
-                                  : isPanStarted.value ?? false
+                                  : isPanStarted.value
                                       ? Theme.of(context).colorScheme.background
                                       : Theme.of(context).colorScheme.primary,
                               borderRadius: BorderRadius.circular(20),

@@ -32,10 +32,6 @@ class ResultsController extends GetxController {
     ResultsPage6(),
   ];
 
-  //final List<CustomChartData> chartData = CustomChartData.mockData;
-
-  //final List<CandidatesData> candidates = CandidatesData.mockData;
-
   List<CustomChartData> chartData = [];
 
   UserData get userData => UserManager.userData;

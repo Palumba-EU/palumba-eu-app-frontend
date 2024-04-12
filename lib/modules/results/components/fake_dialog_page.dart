@@ -5,8 +5,8 @@ import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
-class FakeDialogPage extends StatelessWidget {
-  const FakeDialogPage({
+class DialogApparencePage extends StatelessWidget {
+  const DialogApparencePage({
     required this.title,
     required this.text,
     required this.urlImageBack,
