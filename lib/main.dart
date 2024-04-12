@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'modules/splash/splash_binding.dart';
 import 'utils/common_ui/app_theme_data.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 class EnvironmentConfig {
   static const environment =
@@ -38,11 +39,21 @@ void main() async {
     if (EnvironmentConfig.isDevelopmentMode) {
       FlutterError.dumpErrorToConsole(details);
     } else {
-      //TODO
+      await Sentry.captureException(
+        details.exception,
+        stackTrace: details.stack,
+      );
     }
   };
 
-  runApp(MyApp());
+  await SentryFlutter.init((options) {
+    options.dsn =
+        'https://f9be67a04b24e1ee4c1dd9c1b2a13f19@o1288946.ingest.sentry.io/4506773258371072';
+
+    options.tracesSampleRate = 1.0;
+  }, appRunner: () {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatefulWidget {

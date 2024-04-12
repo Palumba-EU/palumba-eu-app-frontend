@@ -22,7 +22,6 @@ class UserManager {
 
   static setGender(gender? genderEnum) async {
     String? value;
-    //TODO: add other gender values
     switch (genderEnum) {
       case gender.woman:
         value = 'female';
@@ -31,6 +30,7 @@ class UserManager {
         value = 'male';
         break;
       default:
+        value = 'diverse';
         break;
     }
     userData.gender = value;
