@@ -11,16 +11,20 @@ class AppTexts {
     Color? color,
     TextDecoration? decoration,
     double? fontSize,
+    int? maxLines,
   }) {
     return Text(text,
         textAlign: textAlign,
+        maxLines: maxLines,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(
-            fontFamily: GoogleFonts.merriweatherSans().fontFamily,
-            fontSize: fontSize ?? AppDimens.fontSizeSmall,
-            color: color ?? AppColors.text,
-            decorationColor: color ?? AppColors.text,
-            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-            decoration: decoration));
+          fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+          fontSize: fontSize ?? AppDimens.fontSizeSmall,
+          color: color ?? AppColors.text,
+          decorationColor: color ?? AppColors.text,
+          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+          decoration: decoration,
+        ));
   }
 
   static medium(String text,

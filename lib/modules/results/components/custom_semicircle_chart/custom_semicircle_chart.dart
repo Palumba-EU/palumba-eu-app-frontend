@@ -58,42 +58,50 @@ class CustomSemicircleChart extends StatelessWidget {
           top: AppDimens.smallPaddingValue,
           bottom: AppDimens.smallPaddingValue,
           left: Get.width * .5,
-          child: FittedBox(
-            fit: Get.height < 750 ? BoxFit.scaleDown : BoxFit.contain,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                for (int i = 0; i < (charts?.length ?? 0); i++)
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: (i == 0 || i == 1 || i == 2) ? 0 : 8,
+          //right: 0,
+          child: SizedBox(
+            child: FittedBox(
+              fit: Get.height < 750 ? BoxFit.scaleDown : BoxFit.contain,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  for (int i = 0; i < (charts?.length ?? 0); i++)
+                    SizedBox(
+                        width: Get.width * .33,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: (i == 0 || i == 1 || i == 2) ? 0 : 8,
+                          ),
+                          child: Expanded(
+                            child: AppTexts.small(
+                              charts![i].party,
+                              fontSize: (i == 0 || i == 1 || i == 2)
+                                  ? initialFontSizeBig
+                                  : initialFontSizeSmall,
+                              maxLines: 1,
+                            ),
+                          ),
+                        )),
+                  // Add smallest arc diameter as space
+                  SizedBox(
+                      height: arcDiameter -
+                          7 * (arcDiameter / 7) +
+                          arcDiameter * .15),
+                  for (int i = 0; i < reversedCharts.length; i++)
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: (i == 4 || i == 5 || i == 6) ? 0 : 6,
+                      ),
+                      child: AppTexts.small(
+                        reversedCharts[i].percentage,
+                        fontSize: (i == 4 || i == 5 || i == 6)
+                            ? initialFontSizeBig
+                            : initialFontSizeSmall,
+                      ),
                     ),
-                    child: AppTexts.small(
-                      charts![i].party,
-                      fontSize: (i == 0 || i == 1 || i == 2)
-                          ? initialFontSizeBig
-                          : initialFontSizeSmall,
-                    ),
-                  ),
-                // Add smallest arc diameter as space
-                SizedBox(
-                    height: arcDiameter -
-                        7 * (arcDiameter / 7) +
-                        arcDiameter * .15),
-                for (int i = 0; i < reversedCharts.length; i++)
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: (i == 4 || i == 5 || i == 6) ? 0 : 6,
-                    ),
-                    child: AppTexts.small(
-                      reversedCharts[i].percentage,
-                      fontSize: (i == 4 || i == 5 || i == 6)
-                          ? initialFontSizeBig
-                          : initialFontSizeSmall,
-                    ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
         )

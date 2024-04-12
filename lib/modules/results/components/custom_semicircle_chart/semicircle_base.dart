@@ -16,7 +16,7 @@ class SemicircleBase extends StatelessWidget {
     return CustomPaint(
       painter: ArcPainter(
         arcDiameter: arcDiameter,
-        lineWidth: arcDiameter * .066,
+        lineWidth: arcDiameter * .065,
         color: color,
       ),
     );

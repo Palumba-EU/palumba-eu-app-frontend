@@ -13,6 +13,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_5.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
+import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
@@ -79,7 +80,9 @@ class ResultsController extends GetxController {
       //Convert the data to the format that the chart needs
       _resultsData.forEach((result) {
         chartData.add(CustomChartData(
-          party: result.party.acronym ?? (result.party.name ?? ''),
+          party: result.party.acronym.isNullOrEmpty
+              ? (result.party.name ?? '')
+              : result.party.acronym ?? '',
           value: result.percentage.toDouble(),
           image: result.party.logo ?? '',
           percentage: '${result.percentage}%',
