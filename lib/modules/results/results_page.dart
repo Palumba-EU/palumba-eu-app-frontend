@@ -68,7 +68,7 @@ class ResultsPage extends GetView<ResultsController> {
                         ),
                         Spacer(),
                         AppTexts.regular(
-                            '#${S.of(context).resultsShortAppName}'),
+                            '#${S.of(context).shortAppName}'),
                       ],
                     ),
                   ),

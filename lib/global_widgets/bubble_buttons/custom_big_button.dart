@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomBigButtonCurve extends StatelessWidget {
@@ -24,8 +25,7 @@ class CustomBigButtonCurve extends StatelessWidget {
     final color = isSelected
         ? Theme.of(context).colorScheme.background
         : Theme.of(context).colorScheme.primary;
-    final borderColor =
-        isSelected ? Theme.of(context).colorScheme.primary : Colors.white;
+    final borderColor = isSelected ? AppColors.primary : AppColors.lightPrimary;
     return Stack(
       children: [
         Transform.flip(
@@ -74,7 +74,7 @@ class _CustomButtonPainter extends CustomPainter {
     required this.curveRadius,
     required this.color,
     this.borderColor = Colors.white,
-    this.borderWidth = 4.0,
+    this.borderWidth = 8.0,
   });
 
   @override

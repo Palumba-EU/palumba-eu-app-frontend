@@ -60,6 +60,16 @@ class S {
     );
   }
 
+  /// `Palumba`
+  String get shortAppName {
+    return Intl.message(
+      'Palumba',
+      name: 'shortAppName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ok`
   String get ok {
     return Intl.message(
@@ -165,6 +175,36 @@ class S {
     return Intl.message(
       'This can be changed later in settings.',
       name: 'languagePageSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If this cute pigeon can’t help you vote in June, nothing will.`
+  String get entranceTitle {
+    return Intl.message(
+      'If this cute pigeon can’t help you vote in June, nothing will.',
+      name: 'entranceTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count} matches found in the last {time}h`
+  String entranceMatchesFoundQuote(Object count, Object time) {
+    return Intl.message(
+      '$count matches found in the last ${time}h',
+      name: 'entranceMatchesFoundQuote',
+      desc: '',
+      args: [count, time],
+    );
+  }
+
+  /// `Start Palumba`
+  String get entranceStartButton {
+    return Intl.message(
+      'Start Palumba',
+      name: 'entranceStartButton',
       desc: '',
       args: [],
     );
@@ -425,16 +465,6 @@ class S {
     return Intl.message(
       'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
       name: 'resultsPage1Text',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Palumba`
-  String get resultsShortAppName {
-    return Intl.message(
-      'Palumba',
-      name: 'resultsShortAppName',
       desc: '',
       args: [],
     );

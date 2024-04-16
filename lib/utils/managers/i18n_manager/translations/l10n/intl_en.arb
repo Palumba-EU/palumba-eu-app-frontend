@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   "appName": "Palumba EU",
+  "shortAppName": "Palumba",
   "ok": "Ok",
   "yes": "Yes",
   "no": "No",
@@ -14,6 +15,11 @@
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Let’s continue in English? :)",
   "languagePageSubtitle": "This can be changed later in settings.",
+
+  "@@Entrance": "EntrancePage",
+  "entranceTitle": "If this cute pigeon can’t help you vote in June, nothing will.",
+  "entranceMatchesFoundQuote": "{count} matches found in the last {time}h",
+  "entranceStartButton": "Start Palumba",
 
   "@@OnBoardingPage": "OnBoardingPage",
   "hungary": "Hungary",
@@ -43,9 +49,9 @@
   "loadingResultsPageTitle4": "We promise this will be quicker than waiting for Taylor Swift tickets...",
   "loadingResultsPageTitle5": "Almost\nready :)",
 
+  "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "We found you a match!",
   "resultsPage1Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
-  "resultsShortAppName": "Palumba",
   "resultsLabelEmoji": "😍❤️‍🔥💘",
   "resultsShare": "Share",
   "resultsPage2Title": "and you, it’s really a Love Story (EU’s Version)",

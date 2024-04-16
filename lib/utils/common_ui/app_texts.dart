@@ -60,14 +60,17 @@ class AppTexts {
   }
 
   static title(String text,
-      {TextAlign? textAlign, Color? color, bool hasSerif = true}) {
+      {TextAlign? textAlign,
+      Color? color,
+      bool hasSerif = true,
+      double? fontSize}) {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
           fontFamily: hasSerif
               ? GoogleFonts.merriweather().fontFamily
               : GoogleFonts.merriweatherSans().fontFamily,
-          fontSize: AppDimens.fontSizeTitle,
+          fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           fontWeight: FontWeight.bold,
         ));

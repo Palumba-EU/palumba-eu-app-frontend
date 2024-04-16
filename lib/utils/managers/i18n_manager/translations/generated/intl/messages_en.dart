@@ -20,6 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(count, time) =>
+      "${count} matches found in the last ${time}h";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
@@ -28,6 +31,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "denmark": MessageLookupByLibrary.simpleMessage("Denmark"),
+        "entranceMatchesFoundQuote": m0,
+        "entranceStartButton":
+            MessageLookupByLibrary.simpleMessage("Start Palumba"),
+        "entranceTitle": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can’t help you vote in June, nothing will."),
         "france": MessageLookupByLibrary.simpleMessage("France"),
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
         "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
@@ -93,8 +101,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
             "These are the Local Candidate lists in your country most compatible with XXX"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
-        "resultsShortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "spain": MessageLookupByLibrary.simpleMessage("Spain"),
         "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),

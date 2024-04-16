@@ -26,14 +26,11 @@ class CustomSelector extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.symmetric(
               horizontal: AppDimens.regularLateralPaddingValue, vertical: 19),
-          backgroundColor: selected ? AppColors.beigeWithOpacity : null,
+          backgroundColor: selected ? AppColors.yellow : null,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
           ),
-          side: BorderSide(
-              width: AppDimens.borderWidth,
-              color:
-                  selected ? AppColors.beigeWithOpacity : Colors.transparent),
+          side: BorderSide.none,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -45,7 +42,9 @@ class CustomSelector extends StatelessWidget {
                     child: leading,
                   )
                 : const SizedBox.shrink(),
-            Expanded(child: AppTexts.regular(title, bold: selected)),
+            Expanded(
+                child: AppTexts.regular(title,
+                    bold: selected, color: AppColors.primary)),
             CustomHorizontalSpacer(),
             Container(
               height: 16,
@@ -53,9 +52,8 @@ class CustomSelector extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                      color: AppColors.beigeWithOpacity,
-                      width: AppDimens.borderWidth),
-                  color: selected ? AppColors.beige : Colors.transparent),
+                      color: AppColors.primary, width: AppDimens.borderWidth),
+                  color: selected ? AppColors.primary : Colors.transparent),
             ),
           ],
         ));

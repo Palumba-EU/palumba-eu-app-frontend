@@ -15,6 +15,7 @@ class CustomButton extends StatelessWidget {
   final Color? textColor;
   final bool bold;
   final ButtonBorderParameters? border;
+  final bool expanded;
 
   const CustomButton({
     Key? key,
@@ -27,59 +28,67 @@ class CustomButton extends StatelessWidget {
     this.textColor,
     this.bold = true,
     this.border,
+    this.expanded = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return IgnorePointer(
-      ignoring: onPressed == null,
-      child: OutlinedButton(
-          onPressed: onPressed,
-          style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppDimens.regularLateralPaddingValue, vertical: 15),
-            backgroundColor: color ?? AppColors.beigeWithOpacity,
-            shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(radius ?? AppDimens.borderRadius),
+    return SizedBox(
+      width: expanded ? double.infinity : null,
+      child: IgnorePointer(
+        ignoring: onPressed == null,
+        child: OutlinedButton(
+            onPressed: onPressed,
+            style: OutlinedButton.styleFrom(
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppDimens.regularLateralPaddingValue,
+                  vertical: 15),
+              backgroundColor: color ?? AppColors.yellow,
+              shape: RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.circular(radius ?? AppDimens.borderRadius),
+              ),
+              side: BorderSide(
+                  width: border?.width ?? AppDimens.borderWidth,
+                  style: border == null ? BorderStyle.none : BorderStyle.solid,
+                  strokeAlign: border?.isOutside ?? false
+                      ? BorderSide.strokeAlignOutside
+                      : BorderSide.strokeAlignInside,
+                  color: AppColors.lightYellow),
             ),
-            side: BorderSide(
-                width: border?.width ?? AppDimens.borderWidth,
-                style: border == null ? BorderStyle.none : BorderStyle.solid,
-                strokeAlign: border?.isOutside ?? false
-                    ? BorderSide.strokeAlignOutside
-                    : BorderSide.strokeAlignInside,
-                color: AppColors.beigeWithOpacity),
-          ),
-          child: Opacity(
-            opacity: onPressed == null ? 0.25 : 1,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                CustomHorizontalSpacer(small: true),
-                if (prefixIcon != null)
-                  SvgPicture.asset(
-                    'assets/images/${prefixIcon!.asset}.svg',
-                    height: prefixIcon!.size,
-                    colorFilter: prefixIcon!.color == null
-                        ? null
-                        : ColorFilter.mode(prefixIcon!.color!, BlendMode.srcIn),
-                  ),
-                if (prefixIcon != null) CustomHorizontalSpacer(),
-                AppTexts.regular(text, bold: bold, color: textColor),
-                if (suffixIcon != null) CustomHorizontalSpacer(),
-                if (suffixIcon != null)
-                  SvgPicture.asset(
-                    'assets/images/${suffixIcon!.asset}.svg',
-                    height: suffixIcon!.size,
-                    colorFilter: suffixIcon!.color == null
-                        ? null
-                        : ColorFilter.mode(suffixIcon!.color!, BlendMode.srcIn),
-                  ),
-                CustomHorizontalSpacer(small: true),
-              ],
-            ),
-          )),
+            child: Opacity(
+              opacity: onPressed == null ? 0.25 : 1,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CustomHorizontalSpacer(small: true),
+                  if (prefixIcon != null)
+                    SvgPicture.asset(
+                      'assets/images/${prefixIcon!.asset}.svg',
+                      height: prefixIcon!.size,
+                      colorFilter: prefixIcon!.color == null
+                          ? null
+                          : ColorFilter.mode(
+                              prefixIcon!.color!, BlendMode.srcIn),
+                    ),
+                  if (prefixIcon != null) CustomHorizontalSpacer(),
+                  AppTexts.regular(text,
+                      bold: bold, color: textColor ?? AppColors.primary),
+                  if (suffixIcon != null) CustomHorizontalSpacer(),
+                  if (suffixIcon != null)
+                    SvgPicture.asset(
+                      'assets/images/${suffixIcon!.asset}.svg',
+                      height: suffixIcon!.size,
+                      colorFilter: suffixIcon!.color == null
+                          ? null
+                          : ColorFilter.mode(
+                              suffixIcon!.color!, BlendMode.srcIn),
+                    ),
+                  CustomHorizontalSpacer(small: true),
+                ],
+              ),
+            )),
+      ),
     );
   }
 }
