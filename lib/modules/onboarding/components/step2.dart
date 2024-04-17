@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
@@ -35,9 +36,8 @@ class Step2 extends StatelessWidget {
         children: [
           Padding(
             padding: AppDimens.lateralPadding,
-            child: AppTexts.title(
-              S.of(context).onBoardingStep2Title,
-            ),
+            child: AppTexts.title(S.of(context).onBoardingStep2Title,
+                color: AppColors.primary),
           ),
           CustomSpacer(
             multiplier: 3,

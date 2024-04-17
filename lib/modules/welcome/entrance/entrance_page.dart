@@ -70,14 +70,26 @@ class EntrancePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            height: Get.height * .4,
+          Expanded(
             child: PageView.builder(
               scrollDirection: Axis.horizontal,
               controller: _.pageController,
               itemCount: 3, //TODO: Get the real number of pages
-              itemBuilder: (context, index) => Image.asset(
-                'assets/images/entrance_pigeon.png',
+              itemBuilder: (context, index) => Column(
+                children: [
+                  Padding(
+                    padding: AppDimens.lateralPadding,
+                    child: AppTexts.title(S.of(context).entranceTitle,
+                        textAlign: TextAlign.center,
+                        color: AppColors.primary,
+                        fontSize: AppDimens.fontSizeBig),
+                  ),
+                  Expanded(
+                    child: Image.asset(
+                      'assets/images/pigeon.png',
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -91,6 +103,9 @@ class EntrancePage extends StatelessWidget {
               activeDotColor: AppColors.primary,
               dotColor: AppColors.lightPrimary,
             ),
+          ),
+          CustomSpacer(
+            multiplier: 6,
           ),
         ],
       ),
@@ -116,10 +131,6 @@ class EntrancePage extends StatelessWidget {
             ],
           ),
           CustomSpacer(multiplier: 3),
-          AppTexts.title(S.of(context).entranceTitle,
-              textAlign: TextAlign.center,
-              color: AppColors.primary,
-              fontSize: AppDimens.fontSizeBig),
         ],
       ),
     );

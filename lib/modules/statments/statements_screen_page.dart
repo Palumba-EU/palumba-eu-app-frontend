@@ -33,7 +33,7 @@ class StatementsPage extends GetView<StatementsController> {
                     CustomContainerCurve(
                       height: Get.height * .82,
                       curveRadius: 200,
-                      color: Theme.of(context).colorScheme.background,
+                      color: AppColors.secondary,
                     ),
                   ],
                 ),
@@ -124,6 +124,8 @@ class StatementsPage extends GetView<StatementsController> {
                           width: Get.width * 0.35,
                           step: 4,
                           totalSteps: 4,
+                          progressColor: AppColors.primary,
+                          backgroundColor: AppColors.lightPrimary,
                         ),
                       ),
                     ),
@@ -133,7 +135,7 @@ class StatementsPage extends GetView<StatementsController> {
                 IgnorePointer(
                     ignoring: controller.isPanStarted.value,
                     child: Container(
-                      color: Theme.of(context).colorScheme.background,
+                      color: AppColors.secondary,
                       child: SafeArea(
                         child: IntrinsicHeight(
                           child: AnimatedOpacity(

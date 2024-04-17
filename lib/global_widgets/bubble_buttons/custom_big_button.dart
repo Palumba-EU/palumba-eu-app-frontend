@@ -22,9 +22,7 @@ class CustomBigButtonCurve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected
-        ? Theme.of(context).colorScheme.background
-        : Theme.of(context).colorScheme.primary;
+    final color = isSelected ? AppColors.secondary : AppColors.primary;
     final borderColor = isSelected ? AppColors.primary : AppColors.lightPrimary;
     return Stack(
       children: [

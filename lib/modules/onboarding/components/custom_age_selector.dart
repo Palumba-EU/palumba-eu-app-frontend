@@ -23,30 +23,27 @@ class CustomAgeSelector extends StatelessWidget {
       return OutlinedButton(
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.symmetric(horizontal: AppDimens.regularLateralPaddingValue),
-            backgroundColor: selected ? AppColors.beigeWithOpacity : null,
+            padding: EdgeInsets.symmetric(
+                horizontal: AppDimens.regularLateralPaddingValue),
+            backgroundColor: selected ? AppColors.yellow : null,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppDimens.borderRadius),
             ),
             side: BorderSide(
                 width: AppDimens.borderWidth,
-                color:
-                    selected ? AppColors.beigeWithOpacity : Colors.transparent),
+                color: selected ? AppColors.lightYellow : Colors.transparent),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AppTexts.regular(title, bold: selected),
+              AppTexts.regular(title, bold: selected, color: AppColors.primary),
               CustomHorizontalSpacer(),
               Container(
                 height: 16,
                 width: 16,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(
-                        color: AppColors.beigeWithOpacity,
-                        width: AppDimens.borderWidth),
-                    color: selected ? AppColors.beige : Colors.transparent),
+                    color: selected ? AppColors.primary : Colors.transparent),
               ),
             ],
           ));
@@ -58,9 +55,7 @@ class CustomAgeSelector extends StatelessWidget {
         minimumSize: Size.zero,
         padding: EdgeInsets.all(10),
       ),
-      child: AppTexts.regular(
-        title,
-      ),
+      child: AppTexts.regular(title, color: AppColors.primary),
     );
   }
 }

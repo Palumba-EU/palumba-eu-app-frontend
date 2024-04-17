@@ -6,6 +6,7 @@ import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/global_widgets/card/card_pages.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomCard extends StatelessWidget {
@@ -114,19 +115,21 @@ class CustomCard extends StatelessWidget {
                               color: !isFirstCard
                                   ? Theme.of(context).colorScheme.primary
                                   : isPanStarted.value
-                                      ? Theme.of(context).colorScheme.background
-                                      : Theme.of(context).colorScheme.primary,
+                                      ? AppColors.secondary
+                                      : AppColors.primary,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .shadow
-                                      .withOpacity(.5),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 5),
-                                )
-                              ],
+                              boxShadow: isPanStarted.value
+                                  ? [
+                                      BoxShadow(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .shadow
+                                            .withOpacity(.5),
+                                        blurRadius: 10,
+                                        offset: const Offset(0, 5),
+                                      )
+                                    ]
+                                  : null,
                             ),
                             child: Padding(
                               padding: EdgeInsets.all(
@@ -139,7 +142,6 @@ class CustomCard extends StatelessWidget {
                                       step: currentCardIndex?.value ?? 0,
                                       totalSteps: pages.length,
                                       width: Get.width,
-                                      onSkipTap: onSkipTap,
                                       isDotted: true,
                                     ),
                                   pages[currentCardIndex?.value ?? 0],

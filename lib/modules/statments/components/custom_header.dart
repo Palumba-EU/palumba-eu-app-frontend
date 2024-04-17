@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:path_drawing/path_drawing.dart';
 
@@ -16,12 +17,7 @@ class CustomHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomSpacer(multiplier: 2),
-        SizedBox(
-          width: double.infinity,
-          child: CustomPaint(painter: _CustomHeaderPainter()),
-        ),
-        CustomSpacer(),
+        CustomSpacer(multiplier: 3),
         Padding(
           padding: AppDimens.lateralPadding,
           child: Row(
@@ -35,7 +31,7 @@ class CustomHeader extends StatelessWidget {
                   margin: EdgeInsets.only(
                       top: AppDimens.smallLateralPaddingValue * 1.5),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(.3),
+                    color: AppColors.lightPrimary,
                     borderRadius:
                         BorderRadius.circular(AppDimens.largeBorderRadius),
                   ),
@@ -61,7 +57,7 @@ class CustomHeader extends StatelessWidget {
                   height: 32,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(.3),
+                    color: AppColors.lightPrimary,
                     borderRadius:
                         BorderRadius.circular(AppDimens.largeBorderRadius),
                   ),
@@ -76,12 +72,6 @@ class CustomHeader extends StatelessWidget {
             ],
           ),
         ),
-        CustomSpacer(),
-        CustomSpacer(small: true),
-        SizedBox(
-          width: double.infinity,
-          child: CustomPaint(painter: _CustomHeaderPainter()),
-        ),
         CustomSpacer(multiplier: 2),
       ],
     );
@@ -94,7 +84,7 @@ class _CustomHeaderPainter extends CustomPainter {
     final paint = Paint();
 
     // Draw filled shape
-    paint.color = Theme.of(Get.context!).colorScheme.primary;
+    paint.color = AppColors.primary;
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = .8;
     _drawShape(canvas, size, paint);

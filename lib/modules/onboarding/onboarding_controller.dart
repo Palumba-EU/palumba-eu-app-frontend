@@ -138,6 +138,7 @@ class OnboardingController extends GetxController {
   }
 
   void updateButtonState() {
+    updateBackgroundShape();
     isButtonEnabled.value =
         currentStep.value == 1 && indexCountrySelected.value != -1 ||
             currentStep.value == 2 && indexAgeSelected.value != -1 ||
@@ -150,8 +151,8 @@ class OnboardingController extends GetxController {
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
       //
-      height.value = heightSize * .0415;
-      radius.value = Radius.elliptical(900, 300);
+      height.value = 50; //heightSize * .0415;
+      radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
       //Call fetch statments here (when we reach step 2 and know the country selected)
