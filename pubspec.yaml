@@ -1,7 +1,7 @@
 name: palumba_eu
 description: Palumba project with GetX and Provider
 
-version: 0.6.0+296
+version: 0.8.0+406
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
@@ -55,9 +55,10 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/app_icons/img_ios.png"
   adaptive_icon_background: "#FFFBF0"
   adaptive_icon_foreground: "assets/images/app_icons/img_fg.png"
+  image_path: "assets/images/app_icons/img_ios.png"
+  remove_alpha_ios: true
 
 
 flutter_intl:
