@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
@@ -12,10 +13,13 @@ import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_5.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
+import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 import 'models/custom_chart_data.dart';
 
@@ -30,6 +34,7 @@ class ResultsController extends GetxController {
     ResultsPage4(),
     ResultsPage5(),
     ResultsPage6(),
+    ResultsPage7(),
   ];
 
   List<CustomChartData> chartData = [];
@@ -47,7 +52,13 @@ class ResultsController extends GetxController {
 
   PartyUserDistance? _maxPercentagePoliticParty;
   PartyUserDistance? get maxPercentagePoliticParty =>
-      _maxPercentagePoliticParty ?? _resultsData.first;
+      _maxPercentagePoliticParty ??
+      (_resultsData.isEmpty ? null : _resultsData.first);
+
+  bool get isSpecialPage => _currentPage.value == 3 || _currentPage.value == 4;
+
+  //TODO: add your country translation
+  String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
   @override
   void onInit() {
@@ -72,7 +83,7 @@ class ResultsController extends GetxController {
           args[StringUtils.resultsDataKey] as List<Map<String, dynamic>>;
 
       _resultsData = data.map((e) => PartyUserDistance.fromJson(e)).toList();
-      ;
+
       //Convert the data to the format that the chart needs
       _resultsData.forEach((result) {
         chartData.add(CustomChartData(
@@ -91,6 +102,7 @@ class ResultsController extends GetxController {
   }
 
   PartyUserDistance? getMajorPercentageParty() {
+    if (_resultsData.isEmpty) return null;
     //Get the party with mayor percentage (minor distance)
     PartyUserDistance? maxPercentageParty;
     List<PartyUserDistance> topPercentageParties = [];
@@ -150,5 +162,10 @@ class ResultsController extends GetxController {
       }
     }
     return localParties;
+  }
+
+  void launchUrl() {
+    Utils.launch(StringUtils.electionsUrl(LanguageManager.currentLanguage));
+    Get.toNamed(HomePageController.route);
   }
 }

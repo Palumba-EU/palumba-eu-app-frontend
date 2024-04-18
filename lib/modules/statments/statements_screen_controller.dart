@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
@@ -81,17 +82,22 @@ class StatementsController extends GetxController {
   RxBool _loadingQuestions = true.obs;
   bool get loadingQuestions => _loadingQuestions.value;
 
-  StatementsData? _statementsData;
-  List<Statement> get statements => _statementsData?.data ?? [];
+  List<Statement>? _statementsData;
+  List<Statement> get statements => _statementsData ?? [];
 
   RxDouble _scale = 1.0.obs;
   RxDouble get scale => _scale;
 
   @override
   void onInit() {
+    clearUserStoredStatements();
     _getArgumentsAndFetch();
     resetAnimation();
     super.onInit();
+  }
+
+  void clearUserStoredStatements() {
+    UserManager.clearAllStatements();
   }
 
   Future<void> _getArgumentsAndFetch() async {
@@ -100,11 +106,10 @@ class StatementsController extends GetxController {
     try {
       _fromOnboarding.value = args[StringUtils.fromOnboardingKey] as bool;
       _currentCards.add(null);
+      _loadingQuestions.value = false;
     } catch (e) {}
     try {
-      final argStatments =
-          args[StringUtils.statementsDataKey] as Map<String, dynamic>;
-      _statementsData = StatementsData.fromJson(argStatments);
+      _statementsData = DataManager().getStatements();
     } catch (e) {}
     if (_statementsData == null) {
       await _fetchStatements();
@@ -118,7 +123,7 @@ class StatementsController extends GetxController {
   Future<void> _fetchStatements() async {
     final result = await _dataRepository.fetchStatements();
     if (result != null) {
-      _statementsData = result;
+      _statementsData = result.data ?? [];
     }
   }
 

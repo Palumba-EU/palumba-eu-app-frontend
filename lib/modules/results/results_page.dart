@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
-import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:get/get.dart';
@@ -17,19 +16,16 @@ class ResultsPage extends GetView<ResultsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: AppColors.background,
         body: Stack(
           children: [
             //Animate background color for pages 4, 5
             Obx(
               () => AnimatedOpacity(
-                duration: Durations.long1,
-                opacity:
-                    controller.currentPage == 3 || controller.currentPage == 4
-                        ? 1
-                        : 0,
+                duration: Durations.medium2,
+                opacity: controller.isSpecialPage ? 1 : 0,
                 child: Container(
-                  color: Color(0xFF261930),
+                  color: AppColors.secondary,
                 ),
               ),
             ),
@@ -48,6 +44,10 @@ class ResultsPage extends GetView<ResultsController> {
                           totalSteps: controller.pages.length,
                           width: double.infinity,
                           isDotted: true,
+                          progressColor: AppColors.primary,
+                          backgroundColor: controller.isSpecialPage
+                              ? Colors.white
+                              : AppColors.lightPrimary,
                         )),
                   ),
                   CustomSpacer(
@@ -59,16 +59,21 @@ class ResultsPage extends GetView<ResultsController> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomNetworkImage(
-                          height: 24,
+                        SizedBox(
+                          height: 40,
                           width: 24,
-                          imageUrl: 'https://picsum.photos/200/300',
-                          //placeholder: 'assets/images/image_placeholder.svg',
-                          isAvatar: true,
+                          child: Image.asset(
+                            'assets/images/pigeon.png',
+                            height: 24,
+                            width: 24,
+                          ),
                         ),
                         Spacer(),
-                        AppTexts.regular(
-                            '#${S.of(context).resultsShortAppName}'),
+                        Obx(() => AppTexts.regular(
+                            '#${S.of(context).shortAppName}',
+                            color: controller.isSpecialPage
+                                ? Colors.white
+                                : AppColors.primary)),
                       ],
                     ),
                   ),
@@ -78,7 +83,7 @@ class ResultsPage extends GetView<ResultsController> {
                   //Pages
                   Expanded(
                     child: GestureDetector(
-                      onTapDown:controller.changePage,
+                      onTapDown: controller.changePage,
                       child: PageView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           allowImplicitScrolling: true,
@@ -96,19 +101,21 @@ class ResultsPage extends GetView<ResultsController> {
               () => controller.showButtonSharePages
                       .contains(controller.currentPage)
                   ? Padding(
-                      padding: EdgeInsets.only(
-                          bottom: AppDimens.bigLateralPaddingValue),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: AppDimens.bigLateralPaddingValue * 2,
+                          vertical: AppDimens.bigLateralPaddingValue),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: CustomButton(
                           text: S.of(context).resultsShare,
+                          expanded: true,
                           onPressed: () {},
                           prefixIcon:
                               IconButtonParameters('ic_share', size: 18),
-                          radius: 50,
-                          color: AppColors.whiteButton,
+                          radius: AppDimens.borderRadius,
+                          color: AppColors.yellow,
                           textColor: AppColors.primary,
-                          bold: false,
+                          bold: true,
                           border:
                               ButtonBorderParameters(isOutside: true, width: 4),
                         ),

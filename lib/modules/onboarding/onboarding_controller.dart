@@ -42,8 +42,6 @@ class OnboardingController extends GetxController {
 
   bool get showFinalView => _showFinalView.value;
 
-  StatementsData? _statements;
-
   ///Step2
   final int minAge = 16;
   final int maxAge = 115;
@@ -60,10 +58,10 @@ class OnboardingController extends GetxController {
         genderEnum: gender.man),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option3,
-        genderEnum: gender.nonBinary),
+        genderEnum: gender.genderFluid),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option4,
-        genderEnum: gender.intersex),
+        genderEnum: gender.nonBinary),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option5,
         genderEnum: gender.other),
@@ -88,7 +86,7 @@ class OnboardingController extends GetxController {
       onContinueTap();
       return;
     }
-    UserManager.setCountryId(_countries![index].id!);
+    UserManager.setCountryId(_countries![index]);
     indexCountrySelected.value = index;
     updateButtonState();
   }
@@ -129,15 +127,15 @@ class OnboardingController extends GetxController {
     //Fetch statements data here to send to the next screen
     final result = await _dataRepository.fetchStatements();
     if (result != null) {
-      _statements = result;
-      print(_statements!.data!.first.details);
+      /*  print(_statements!.data!.first.details);
       print(_statements!.data!.first.statement);
       print(_statements!.data!.first.footnote);
-      print(_statements!.data!.first.vector);
+      print(_statements!.data!.first.vector);*/
     }
   }
 
   void updateButtonState() {
+    updateBackgroundShape();
     isButtonEnabled.value =
         currentStep.value == 1 && indexCountrySelected.value != -1 ||
             currentStep.value == 2 && indexAgeSelected.value != -1 ||
@@ -150,8 +148,8 @@ class OnboardingController extends GetxController {
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
       //
-      height.value = heightSize * .0415;
-      radius.value = Radius.elliptical(900, 300);
+      height.value = 50; //heightSize * .0415;
+      radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
       //Call fetch statments here (when we reach step 2 and know the country selected)
@@ -194,9 +192,8 @@ class OnboardingController extends GetxController {
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
         //Finally when animation finish we navigate to statments screen
-        Get.toNamed(StatementsController.route, arguments: {
+        Get.offAllNamed(StatementsController.route, arguments: {
           StringUtils.fromOnboardingKey: true,
-          StringUtils.statementsDataKey: _statements?.toJson()
         });
       });
     }
@@ -287,7 +284,7 @@ class OnboardingController extends GetxController {
   }
 }
 
-enum gender { woman, man, nonBinary, intersex, other, none }
+enum gender { woman, man, nonBinary, genderFluid, other, none }
 
 class GenderModel {
   final String name;

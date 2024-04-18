@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'localization_data.dart';
+
 enum StatementResponse {
   stronglyDisagree, // -1
   disagree, // -0.5
@@ -89,7 +91,7 @@ double _statementResponseValues(StatementResponse response) {
   }
 }
 
-StatementResponse _valuesToStatementResponse(double value) {
+StatementResponse _valuesToStatementResponse(num value) {
   switch (value) {
     case -1:
       return StatementResponse.stronglyDisagree;

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
@@ -16,11 +17,14 @@ class LoadingResultsController extends GetxController {
 
   final totalSteps = 6;
 
-  RxInt currentStep = 1.obs;
+  RxInt currentStep = 0.obs;
 
   ResultsData? _resultsData;
 
   List<PartyUserDistance> _partyUserDistanceList = [];
+
+  //TODO: add your country translation
+  String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
   @override
   void onReady() {
@@ -30,12 +34,12 @@ class LoadingResultsController extends GetxController {
   }
 
   void _init() {
+    currentStep.value = 1;
     Timer.periodic(const Duration(seconds: 2), (timer) {
       if (currentStep.value < 5) {
         currentStep.value = currentStep.value + 1;
       } else {
         timer.cancel();
-
         Get.offAllNamed(ResultsController.route, arguments: {
           StringUtils.resultsDataKey:
               _partyUserDistanceList.map((e) => e.toJson()).toList(),

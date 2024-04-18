@@ -44,6 +44,8 @@ dependencies:
 
   # Firebase Modules
   firebase_messaging: ^14.7.20
+  smooth_page_indicator: ^1.1.0
+  matrix4_transform: ^3.0.1
 
   # Reporting Modules
   sentry_flutter: ^7.19.0

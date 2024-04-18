@@ -1,3 +1,6 @@
+import 'package:palumba_eu/modules/home/home_page.dart';
+import 'package:palumba_eu/modules/home/home_page_binding.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_binding.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_page.dart';
@@ -27,6 +30,11 @@ class AppPages {
       name: SplashController.route,
       page: () => const SplashPage(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: HomePageController.route,
+      page: () => const HomePage(),
+      binding: HomePageBinding(),
     ),
     GetPage(
       name: LanguageController.route,

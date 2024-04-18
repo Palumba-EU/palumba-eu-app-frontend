@@ -100,7 +100,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
                   animation: _controller,
                   arcDiameter: widget.arcDiameter,
                   lineWidth: widget.lineWidth,
-                  color: AppColors.text,
+                  color: AppColors.primary,
                   image: snapshot.data!,
                 ),
               ),
