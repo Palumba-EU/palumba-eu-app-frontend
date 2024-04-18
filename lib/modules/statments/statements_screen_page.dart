@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -63,23 +64,29 @@ class StatementsPage extends GetView<StatementsController> {
                                         opacity:
                                             controller.fromOnboarding ? 0 : 1,
                                         child: IgnorePointer(
-                                          ignoring: controller.buttonsBlocked,
-                                          child: TextButton(
-                                            onPressed: controller.fromOnboarding
-                                                ? null
-                                                : () =>
-                                                    controller.activateButton(
-                                                        StatementResponse
-                                                            .neutral),
-                                            style: ElevatedButton.styleFrom(
-                                                backgroundColor:
-                                                    AppColors.primary,
-                                                shape: StadiumBorder()),
-                                            child: AppTexts.regular(
-                                              S.of(context).neutral,
-                                            ),
-                                          ),
-                                        ),
+                                            ignoring: controller.buttonsBlocked,
+                                            child: CustomButton(
+                                              text: S.of(context).neutral,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: AppDimens
+                                                          .lateralPaddingValue *
+                                                      .5),
+                                              onPressed: controller
+                                                      .fromOnboarding
+                                                  ? null
+                                                  : () =>
+                                                      controller.activateButton(
+                                                          StatementResponse
+                                                              .neutral),
+                                              color: AppColors.primary,
+                                              textColor: AppColors.text,
+                                              radius:
+                                                  AppDimens.largeBorderRadius,
+                                              border: ButtonBorderParameters(
+                                                  color: AppColors.lightPrimary,
+                                                  width: 2,
+                                                  isOutside: true),
+                                            )),
                                       ),
                                     ),
                                   ),

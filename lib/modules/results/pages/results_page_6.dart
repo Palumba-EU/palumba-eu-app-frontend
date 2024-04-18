@@ -29,20 +29,16 @@ class ResultsPage6 extends GetView<ResultsController> {
   Column _pageContent(BuildContext context, bool smallScreen) {
     return Column(
       children: [
-        AppTexts.title(S.of(context).resultsPage6Title),
-        CustomSpacer(
-          multiplier: 5,
-        ),
+        AppTexts.title(S.of(context).resultsPage6Title,
+            color: AppColors.primary),
+        CustomSpacer(multiplier: 2),
+        AppTexts.small(S.of(context).resultsPage6Disclaimer,
+            color: AppColors.primary),
+        CustomSpacer(),
         smallScreen
             ? _candidatesContainer()
             : Expanded(child: _candidatesContainer()),
-        CustomSpacer(
-          multiplier: 2,
-        ),
-        AppTexts.regular(S.of(context).resultsPage6Disclaimer),
-        CustomSpacer(
-          multiplier: 11,
-        ),
+        CustomSpacer(multiplier: 11),
       ],
     );
   }
@@ -52,16 +48,8 @@ class ResultsPage6 extends GetView<ResultsController> {
       height: 250,
       margin: AppDimens.lateralPadding,
       decoration: BoxDecoration(
-        color: AppColors.background,
+        color: AppColors.yellow,
         borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.boxShadowColor.withOpacity(.5),
-            spreadRadius: 0,
-            blurRadius: 32,
-            offset: Offset(0, 0), // changes position of shadow
-          ),
-        ],
       ),
       child: (controller.localParties?.length ?? 0) == 0
           ? Center(

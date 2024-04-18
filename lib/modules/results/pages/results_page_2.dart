@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -17,65 +20,82 @@ class ResultsPage2 extends GetView<ResultsController> {
       child: Column(
         children: [
           CustomSpacer(multiplier: 3),
-          CustomNetworkImage(
-            width: Get.width * .5,
-            height: Get.width * .5,
-            isSvg: true,
-            imageUrl: controller.maxPercentagePoliticParty?.party.logo ?? '',
-            radius: Get.width,
-            border: Border.all(
-              color: AppColors.beigeWithOpacity,
-              width: 8,
+          SizedBox(
+            height: Get.width * .82,
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: CustomNetworkImage(
+                    width: Get.width * .65,
+                    height: Get.width * .65,
+                    isSvg: true,
+                    imageUrl:
+                        controller.maxPercentagePoliticParty?.party.logo ?? '',
+                    radius: Get.width,
+                    color: AppColors.secondary,
+                  ),
+                ),
+                Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Image.asset('assets/images/palumba_badge_heart.png'))
+              ],
             ),
           ),
-          CustomSpacer(multiplier: 3),
+          CustomSpacer(multiplier: 2),
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: AppDimens.bigLateralPaddingValue * 2),
-            child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  text:
-                      '${controller.maxPercentagePoliticParty?.party.name ?? 'No data '} ',
-                  style: AppTexts.customTextStyle(AppTextType.title,
-                      color: controller.getFirstPartyColor()),
-                  children: [
-                    TextSpan(
-                      text: S.of(context).resultsPage2Title,
-                      style: AppTexts.customTextStyle(AppTextType.title),
-                    ),
-                  ],
-                )),
+            child: controller.maxPercentagePoliticParty == null
+                ? AppTexts.title('No results found', color: AppColors.primary)
+                : RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      text:
+                          '${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
+                      style: AppTexts.customTextStyle(AppTextType.title,
+                          color: controller.getFirstPartyColor()),
+                      children: [
+                        TextSpan(
+                          text: S.of(context).resultsPage2Title,
+                          style: AppTexts.customTextStyle(AppTextType.title,
+                              color: AppColors.primary),
+                        ),
+                      ],
+                    )),
           ),
           CustomSpacer(multiplier: 3),
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: AppDimens.bigLateralPaddingValue * 2),
-            child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  text: S.of(context).resultsPage2FirstText,
-                  style: AppTexts.customTextStyle(
-                    AppTextType.regular,
-                  ),
-                  children: [
-                    TextSpan(
-                      text:
-                          ' ${controller.maxPercentagePoliticParty?.percentage}% ',
-                      //' ${controller.getFisrtParty()?.value}', //TODO: put api data ,
+            child: controller.maxPercentagePoliticParty == null
+                ? AppTexts.regular('No data', color: AppColors.primary)
+                : RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      text: S.of(context).resultsPage2FirstText,
                       style: AppTexts.customTextStyle(AppTextType.regular,
-                          color: controller.getFirstPartyColor(), bold: true),
-                    ),
-                    TextSpan(
-                      text: '\n  ${S.of(context).resultsPage2LastText}',
-                      style: AppTexts.customTextStyle(AppTextType.regular),
-                    ),
-                  ],
-                )),
+                          color: AppColors.primary),
+                      children: [
+                        TextSpan(
+                          text:
+                              ' ${controller.maxPercentagePoliticParty?.percentage}% ',
+                          //' ${controller.getFisrtParty()?.value}', //TODO: put api data ,
+                          style: AppTexts.customTextStyle(AppTextType.regular,
+                              color: controller.getFirstPartyColor(),
+                              bold: true),
+                        ),
+                        TextSpan(
+                          text: '\n  ${S.of(context).resultsPage2LastText}',
+                          style: AppTexts.customTextStyle(AppTextType.regular,
+                              color: AppColors.primary),
+                        ),
+                      ],
+                    )),
           ),
           CustomSpacer(multiplier: 4),
           //TODO: fix this quote
-          AppTexts.regular('In June, bla bla bla'),
+          AppTexts.regular('In June, bla bla bla', color: AppColors.primary),
           CustomSpacer(multiplier: 12),
         ],
       ),

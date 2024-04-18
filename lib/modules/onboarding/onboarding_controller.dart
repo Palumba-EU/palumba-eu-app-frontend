@@ -60,10 +60,10 @@ class OnboardingController extends GetxController {
         genderEnum: gender.man),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option3,
-        genderEnum: gender.nonBinary),
+        genderEnum: gender.genderFluid),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option4,
-        genderEnum: gender.intersex),
+        genderEnum: gender.nonBinary),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option5,
         genderEnum: gender.other),
@@ -130,10 +130,10 @@ class OnboardingController extends GetxController {
     final result = await _dataRepository.fetchStatements();
     if (result != null) {
       _statements = result;
-      print(_statements!.data!.first.details);
+      /*  print(_statements!.data!.first.details);
       print(_statements!.data!.first.statement);
       print(_statements!.data!.first.footnote);
-      print(_statements!.data!.first.vector);
+      print(_statements!.data!.first.vector);*/
     }
   }
 
@@ -195,7 +195,7 @@ class OnboardingController extends GetxController {
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
         //Finally when animation finish we navigate to statments screen
-        Get.toNamed(StatementsController.route, arguments: {
+        Get.offAllNamed(StatementsController.route, arguments: {
           StringUtils.fromOnboardingKey: true,
           StringUtils.statementsDataKey: _statements?.toJson()
         });
@@ -288,7 +288,7 @@ class OnboardingController extends GetxController {
   }
 }
 
-enum gender { woman, man, nonBinary, intersex, other, none }
+enum gender { woman, man, nonBinary, genderFluid, other, none }
 
 class GenderModel {
   final String name;

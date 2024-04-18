@@ -1,4 +1,6 @@
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
+import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 
 import 'package:get/get.dart';
@@ -26,8 +28,8 @@ class SplashController extends GetxController {
 
     _dataRepository.fetchStatements();
 
-    Get.offNamed(
-      LanguageController.route,
-    );
+    Get.offNamed(HomePageController.route
+        //LanguageController.route,
+        );
   }
 }

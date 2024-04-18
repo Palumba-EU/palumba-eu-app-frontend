@@ -16,7 +16,7 @@ class LoadingResultsController extends GetxController {
 
   final totalSteps = 6;
 
-  RxInt currentStep = 1.obs;
+  RxInt currentStep = 0.obs;
 
   ResultsData? _resultsData;
 
@@ -30,12 +30,12 @@ class LoadingResultsController extends GetxController {
   }
 
   void _init() {
+    currentStep.value = 1;
     Timer.periodic(const Duration(seconds: 2), (timer) {
       if (currentStep.value < 5) {
         currentStep.value = currentStep.value + 1;
       } else {
         timer.cancel();
-
         Get.offAllNamed(ResultsController.route, arguments: {
           StringUtils.resultsDataKey:
               _partyUserDistanceList.map((e) => e.toJson()).toList(),

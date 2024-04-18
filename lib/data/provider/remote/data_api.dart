@@ -6,6 +6,7 @@ import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:http/http.dart' as http;
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class DataAPI {
@@ -13,7 +14,8 @@ class DataAPI {
 
   var headers = {
     //'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Accept-Language': LanguageManager.currentLanguage,
   };
 
   final localizationsEndpoint = '/localization';

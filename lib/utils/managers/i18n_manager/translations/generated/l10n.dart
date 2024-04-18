@@ -350,20 +350,20 @@ class S {
     );
   }
 
-  /// `Non-binary`
+  /// `Gender-fluid`
   String get onBoardingStep3Option3 {
     return Intl.message(
-      'Non-binary',
+      'Gender-fluid',
       name: 'onBoardingStep3Option3',
       desc: '',
       args: [],
     );
   }
 
-  /// `Intersex`
+  /// `Non-binary`
   String get onBoardingStep3Option4 {
     return Intl.message(
-      'Intersex',
+      'Non-binary',
       name: 'onBoardingStep3Option4',
       desc: '',
       args: [],
@@ -400,50 +400,50 @@ class S {
     );
   }
 
-  /// `Finding matches with candidate lists in France...`
+  /// `Your personalised results are on their way :)`
   String get loadingResultsPageTitle1 {
     return Intl.message(
-      'Finding matches with candidate lists in France...',
+      'Your personalised results are on their way :)',
       name: 'loadingResultsPageTitle1',
       desc: '',
       args: [],
     );
   }
 
-  /// `Finding matches with candidate lists in France...`
+  /// `This shall be quicker than getting Taylor Swift tickets 👀 `
   String get loadingResultsPageTitle2 {
     return Intl.message(
-      'Finding matches with candidate lists in France...',
+      'This shall be quicker than getting Taylor Swift tickets 👀 ',
       name: 'loadingResultsPageTitle2',
       desc: '',
       args: [],
     );
   }
 
-  /// `Can you believe 70% of 18-25 voters didn’t vote in 2019?`
+  /// `Finding matches with candidates lists in %Country%  🔍`
   String get loadingResultsPageTitle3 {
     return Intl.message(
-      'Can you believe 70% of 18-25 voters didn’t vote in 2019?',
+      'Finding matches with candidates lists in %Country%  🔍',
       name: 'loadingResultsPageTitle3',
       desc: '',
       args: [],
     );
   }
 
-  /// `We promise this will be quicker than waiting for Taylor Swift tickets...`
+  /// `Almost ready,\none last check...`
   String get loadingResultsPageTitle4 {
     return Intl.message(
-      'We promise this will be quicker than waiting for Taylor Swift tickets...',
+      'Almost ready,\none last check...',
       name: 'loadingResultsPageTitle4',
       desc: '',
       args: [],
     );
   }
 
-  /// `Almost\nready :)`
+  /// `Almost ready,\none last check...`
   String get loadingResultsPageTitle5 {
     return Intl.message(
-      'Almost\nready :)',
+      'Almost ready,\none last check...',
       name: 'loadingResultsPageTitle5',
       desc: '',
       args: [],
@@ -585,6 +585,66 @@ class S {
     return Intl.message(
       'Disclaimer about the order of the lists',
       name: 'resultsPage6Disclaimer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to receive a notification when it’s time to vote?`
+  String get resultsPage7Title {
+    return Intl.message(
+      'Would you like to receive a notification when it’s time to vote?',
+      name: 'resultsPage7Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I'm all good!`
+  String get resultsPage7NopButton {
+    return Intl.message(
+      'I\'m all good!',
+      name: 'resultsPage7NopButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yesssss`
+  String get resultsPage7YesButton {
+    return Intl.message(
+      'Yesssss',
+      name: 'resultsPage7YesButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If this cute pigeon can’t helpyou vote in June, nothing will.`
+  String get homePageTitle {
+    return Intl.message(
+      'If this cute pigeon can’t helpyou vote in June, nothing will.',
+      name: 'homePageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My results · Back to the test`
+  String get homePageBackToResults {
+    return Intl.message(
+      'My results · Back to the test',
+      name: 'homePageBackToResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start a new test`
+  String get homePageStartButton {
+    return Intl.message(
+      'Start a new test',
+      name: 'homePageStartButton',
       desc: '',
       args: [],
     );

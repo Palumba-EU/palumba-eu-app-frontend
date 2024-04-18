@@ -16,6 +16,8 @@ class CustomButton extends StatelessWidget {
   final bool bold;
   final ButtonBorderParameters? border;
   final bool expanded;
+  final double? height;
+  final EdgeInsets? padding;
 
   const CustomButton({
     Key? key,
@@ -29,20 +31,24 @@ class CustomButton extends StatelessWidget {
     this.bold = true,
     this.border,
     this.expanded = false,
+    this.height,
+    this.padding,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: height ?? null,
       width: expanded ? double.infinity : null,
       child: IgnorePointer(
         ignoring: onPressed == null,
         child: OutlinedButton(
             onPressed: onPressed,
             style: OutlinedButton.styleFrom(
-              padding: EdgeInsets.symmetric(
-                  horizontal: AppDimens.regularLateralPaddingValue,
-                  vertical: 15),
+              padding: padding ??
+                  EdgeInsets.symmetric(
+                      horizontal: AppDimens.regularLateralPaddingValue,
+                      vertical: 15),
               backgroundColor: color ?? AppColors.yellow,
               shape: RoundedRectangleBorder(
                 borderRadius:
@@ -54,7 +60,7 @@ class CustomButton extends StatelessWidget {
                   strokeAlign: border?.isOutside ?? false
                       ? BorderSide.strokeAlignOutside
                       : BorderSide.strokeAlignInside,
-                  color: AppColors.lightYellow),
+                  color: border?.color ?? AppColors.lightYellow),
             ),
             child: Opacity(
               opacity: onPressed == null ? 0.25 : 1,

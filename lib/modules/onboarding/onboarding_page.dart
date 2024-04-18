@@ -159,8 +159,7 @@ class OnboardingPage extends StatelessWidget {
               //Progress
               SafeArea(
                   child: Padding(
-                padding:
-                    EdgeInsets.only(top: AppDimens.largeLateralPaddingValue),
+                padding: EdgeInsets.only(top: AppDimens.lateralPaddingValue),
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: Obx(() => CustomProgressBar(

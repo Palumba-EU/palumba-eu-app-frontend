@@ -11,8 +11,8 @@ class ResultsPage5 extends StatelessWidget {
     return DialogApparencePage(
       title: S.of(context).resultsPage5Title,
       text: S.of(context).resultsPage5Text,
-      urlImageBack: 'https://picsum.photos/800/600',
-      urlImageFront: 'https://picsum.photos/seed/picsum/800/300',
+      assetFront: 'img_ballot_box',
+      assetBack: 'img_ballot_box_bg',
     );
   }
 }

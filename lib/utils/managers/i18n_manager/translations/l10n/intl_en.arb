@@ -36,18 +36,18 @@
   "onBoardingStep3Title": "I identify as",
   "onBoardingStep3Option1": "Woman",
   "onBoardingStep3Option2": "Man",
-  "onBoardingStep3Option3": "Non-binary",
-  "onBoardingStep3Option4": "Intersex",
+  "onBoardingStep3Option3": "Gender-fluid",
+  "onBoardingStep3Option4": "Non-binary",
   "onBoardingStep3Option5": "Else",
   "onBoardingNotAnswerButton": "Prefer not to say",
   "onBoardingCardQuestion": "I have no clue who to vote for at the 2024 European Elections",
 
   "@@LoadingResultsPage": "LoadingResultsPage",
-  "loadingResultsPageTitle1": "Finding matches with candidate lists in France...",
-  "loadingResultsPageTitle2": "Finding matches with candidate lists in France...",
-  "loadingResultsPageTitle3": "Can you believe 70% of 18-25 voters didn’t vote in 2019?",
-  "loadingResultsPageTitle4": "We promise this will be quicker than waiting for Taylor Swift tickets...",
-  "loadingResultsPageTitle5": "Almost\nready :)",
+  "loadingResultsPageTitle1": "Your personalised results are on their way :)",
+  "loadingResultsPageTitle2": "This shall be quicker than getting Taylor Swift tickets 👀 ",
+  "loadingResultsPageTitle3": "Finding matches with candidates lists in %Country%  🔍",
+  "loadingResultsPageTitle4": "Almost ready,\none last check...",
+  "loadingResultsPageTitle5": "Almost ready,\none last check...",
 
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "We found you a match!",
@@ -63,5 +63,13 @@
   "resultsPage5Title": "But at the EU Elections, you vote for a local list",
   "resultsPage5Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
   "resultsPage6Title": "These are the Local Candidate lists in your country most compatible with XXX",
-  "resultsPage6Disclaimer": "Disclaimer about the order of the lists"
+  "resultsPage6Disclaimer": "Disclaimer about the order of the lists",
+  "resultsPage7Title": "Would you like to receive a notification when it’s time to vote?",
+  "resultsPage7NopButton": "I'm all good!",
+  "resultsPage7YesButton": "Yesssss",
+
+  "@HomePage": "HomePage",
+  "homePageTitle": "If this cute pigeon can’t helpyou vote in June, nothing will.",
+  "homePageBackToResults": "My results · Back to the test",
+  "homePageStartButton": "Start a new test"
 }

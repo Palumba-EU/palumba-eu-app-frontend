@@ -7,6 +7,7 @@ class CustomProgressBar extends StatelessWidget {
   final Color? progressColor;
   final Color? backgroundColor;
   final bool isDotted;
+  final Duration? duration;
 
   const CustomProgressBar({
     super.key,
@@ -16,6 +17,7 @@ class CustomProgressBar extends StatelessWidget {
     this.progressColor,
     this.backgroundColor,
     this.isDotted = false,
+    this.duration,
   });
 
   @override
@@ -59,7 +61,7 @@ class CustomProgressBar extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10)),
                 ),
                 AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
+                  duration: duration ?? const Duration(milliseconds: 500),
                   width: (width) * (step / totalSteps),
                   decoration: BoxDecoration(
                       color: progressColor ?? Colors.white,

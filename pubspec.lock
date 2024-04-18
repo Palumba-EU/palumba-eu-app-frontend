@@ -445,6 +445,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.8.0"
+  matrix4_transform:
+    dependency: "direct main"
+    description:
+      name: matrix4_transform
+      sha256: "42c42610deecc382be2653f4a21358537401bd5b027c168a174c7c6a64959908"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
   meta:
     dependency: transitive
     description:

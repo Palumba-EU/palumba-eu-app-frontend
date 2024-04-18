@@ -100,6 +100,7 @@ class StatementsController extends GetxController {
     try {
       _fromOnboarding.value = args[StringUtils.fromOnboardingKey] as bool;
       _currentCards.add(null);
+      _loadingQuestions.value = false;
     } catch (e) {}
     try {
       final argStatments =

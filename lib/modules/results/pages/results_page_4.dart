@@ -16,8 +16,8 @@ class _ResultsPage4State extends State<ResultsPage4> {
     return DialogApparencePage(
       title: S.of(context).resultsPage4Title,
       text: S.of(context).resultsPage4Text,
-      urlImageBack: 'https://picsum.photos/800/600',
-      urlImageFront: 'https://picsum.photos/seed/picsum/800/300',
+      assetFront: 'img_hemicycle',
+      assetBack: 'img_hemicycle_bg',
     );
   }
 }
