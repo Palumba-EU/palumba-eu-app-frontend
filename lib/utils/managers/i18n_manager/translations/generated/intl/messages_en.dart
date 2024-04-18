@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(count, time) =>
       "${count} matches found in the last ${time}h";
 
+  static String m1(country) =>
+      "Finding matches with candidates lists in ${country}  🔍";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
@@ -53,8 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your personalised results are on their way :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
             "This shall be quicker than getting Taylor Swift tickets 👀 "),
-        "loadingResultsPageTitle3": MessageLookupByLibrary.simpleMessage(
-            "Finding matches with candidates lists in %Country%  🔍"),
+        "loadingResultsPageTitle3": m1,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Almost ready,\none last check..."),
         "loadingResultsPageTitle5": MessageLookupByLibrary.simpleMessage(

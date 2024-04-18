@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'localization_data.dart';
+
 enum StatementResponse {
   stronglyDisagree, // -1
   disagree, // -0.5

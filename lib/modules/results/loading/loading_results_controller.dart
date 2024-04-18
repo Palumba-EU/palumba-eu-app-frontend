@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
@@ -21,6 +22,8 @@ class LoadingResultsController extends GetxController {
   ResultsData? _resultsData;
 
   List<PartyUserDistance> _partyUserDistanceList = [];
+
+  String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
   @override
   void onReady() {

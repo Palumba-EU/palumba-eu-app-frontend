@@ -420,13 +420,13 @@ class S {
     );
   }
 
-  /// `Finding matches with candidates lists in %Country%  🔍`
-  String get loadingResultsPageTitle3 {
+  /// `Finding matches with candidates lists in {country}  🔍`
+  String loadingResultsPageTitle3(Object country) {
     return Intl.message(
-      'Finding matches with candidates lists in %Country%  🔍',
+      'Finding matches with candidates lists in $country  🔍',
       name: 'loadingResultsPageTitle3',
       desc: '',
-      args: [],
+      args: [country],
     );
   }
 

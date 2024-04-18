@@ -42,8 +42,6 @@ class OnboardingController extends GetxController {
 
   bool get showFinalView => _showFinalView.value;
 
-  StatementsData? _statements;
-
   ///Step2
   final int minAge = 16;
   final int maxAge = 115;
@@ -88,7 +86,7 @@ class OnboardingController extends GetxController {
       onContinueTap();
       return;
     }
-    UserManager.setCountryId(_countries![index].id!);
+    UserManager.setCountryId(_countries![index]);
     indexCountrySelected.value = index;
     updateButtonState();
   }
@@ -129,7 +127,6 @@ class OnboardingController extends GetxController {
     //Fetch statements data here to send to the next screen
     final result = await _dataRepository.fetchStatements();
     if (result != null) {
-      _statements = result;
       /*  print(_statements!.data!.first.details);
       print(_statements!.data!.first.statement);
       print(_statements!.data!.first.footnote);
@@ -197,7 +194,6 @@ class OnboardingController extends GetxController {
         //Finally when animation finish we navigate to statments screen
         Get.offAllNamed(StatementsController.route, arguments: {
           StringUtils.fromOnboardingKey: true,
-          StringUtils.statementsDataKey: _statements?.toJson()
         });
       });
     }
