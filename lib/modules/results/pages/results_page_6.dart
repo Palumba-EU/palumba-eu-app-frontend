@@ -57,7 +57,8 @@ class ResultsPage6 extends GetView<ResultsController> {
                   padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
                   child: AppTexts.regular(
                       //TODO: change quote
-                      'No local parties found in your country',
+                      S.of(Get.context!).resultsPage6NoLocalCandidates(
+                          controller.countryName),
                       color: AppColors.primary)),
             )
           : ListView.separated(

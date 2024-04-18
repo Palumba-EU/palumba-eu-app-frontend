@@ -57,6 +57,9 @@ class ResultsController extends GetxController {
 
   bool get isSpecialPage => _currentPage.value == 3 || _currentPage.value == 4;
 
+  //TODO: add your country translation
+  String get countryName => UserManager.userCountry?.name ?? 'Your country';
+
   @override
   void onInit() {
     _getArguments();

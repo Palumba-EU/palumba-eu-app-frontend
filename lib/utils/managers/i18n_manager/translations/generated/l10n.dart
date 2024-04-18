@@ -570,23 +570,33 @@ class S {
     );
   }
 
-  /// `These are the Local Candidate lists in your country most compatible with XXX`
+  /// `These are the matching Local Candidate lists in your country `
   String get resultsPage6Title {
     return Intl.message(
-      'These are the Local Candidate lists in your country most compatible with XXX',
+      'These are the matching Local Candidate lists in your country ',
       name: 'resultsPage6Title',
       desc: '',
       args: [],
     );
   }
 
-  /// `Disclaimer about the order of the lists`
+  /// `Disclaimer about the order of the lists / temp. localization`
   String get resultsPage6Disclaimer {
     return Intl.message(
-      'Disclaimer about the order of the lists',
+      'Disclaimer about the order of the lists / temp. localization',
       name: 'resultsPage6Disclaimer',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `No local parties found in {country}`
+  String resultsPage6NoLocalCandidates(Object country) {
+    return Intl.message(
+      'No local parties found in $country',
+      name: 'resultsPage6NoLocalCandidates',
+      desc: '',
+      args: [country],
     );
   }
 

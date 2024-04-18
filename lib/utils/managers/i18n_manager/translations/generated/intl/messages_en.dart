@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(country) =>
       "Finding matches with candidates lists in ${country}  🔍";
 
+  static String m2(country) => "No local parties found in ${country}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
@@ -105,9 +107,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
             "But at the EU Elections, you vote for a local list"),
         "resultsPage6Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "Disclaimer about the order of the lists"),
+            "Disclaimer about the order of the lists / temp. localization"),
+        "resultsPage6NoLocalCandidates": m2,
         "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
-            "These are the Local Candidate lists in your country most compatible with XXX"),
+            "These are the matching Local Candidate lists in your country "),
         "resultsPage7NopButton":
             MessageLookupByLibrary.simpleMessage("I\'m all good!"),
         "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
