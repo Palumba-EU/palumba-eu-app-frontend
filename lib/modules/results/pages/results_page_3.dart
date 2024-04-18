@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -59,7 +58,7 @@ class ResultsPage3 extends GetView<ResultsController> {
             ],
           ),
           SizedBox(
-            height: 180,
+            height: Get.height < 750 ? 180 : 150,
             child: Stack(
               children: [
                 Align(

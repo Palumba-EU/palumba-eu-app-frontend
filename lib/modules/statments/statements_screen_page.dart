@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
-import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 import 'components/buttons/decision_buttons.dart';
@@ -148,7 +148,13 @@ class StatementsPage extends GetView<StatementsController> {
                           child: AnimatedOpacity(
                               opacity: controller.isPanStarted.value ? 0.2 : 1,
                               duration: Durations.medium4,
-                              child: CustomHeader()),
+                              child: CustomHeader(
+                                //TODO: Fix me (fix: add correct routes)
+                                homeTap: () =>
+                                    Get.toNamed(HomePageController.route),
+                                backTap: () =>
+                                    Get.toNamed(HomePageController.route),
+                              )),
                         ),
                       ),
                     ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
@@ -162,5 +163,6 @@ class ResultsController extends GetxController {
 
   void launchUrl() {
     Utils.launch(StringUtils.electionsUrl(LanguageManager.currentLanguage));
+    Get.toNamed(HomePageController.route);
   }
 }

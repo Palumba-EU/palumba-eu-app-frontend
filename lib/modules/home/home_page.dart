@@ -69,7 +69,10 @@ class HomePage extends StatelessWidget {
         CustomButton(
           text: S.of(context).homePageBackToResults,
           expanded: true,
-          onPressed: () {},
+          onPressed: () {
+            //TODO: Implement
+            Get.back();
+          },
           suffixIcon: IconButtonParameters('ic_arrow_right', size: 18),
           radius: AppDimens.borderRadius,
           color: AppColors.yellow,
@@ -101,7 +104,7 @@ class HomePage extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: Get.height * 0.6,
+          height: Get.height < 750 ? Get.height * 0.5 : Get.height * 0.6,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -117,6 +120,8 @@ class HomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Image.asset(
+                              height:
+                                  Get.height < 750 ? Get.height * .35 : null,
                               'assets/images/pigeon.png',
                             ),
                             CustomSpacer(multiplier: 3),
