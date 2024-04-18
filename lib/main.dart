@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
@@ -23,8 +22,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   DependencyInjection.init();
-
-  await Firebase.initializeApp();
 
   await dotenv.load(
     fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
