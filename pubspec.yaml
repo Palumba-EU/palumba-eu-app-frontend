@@ -1,7 +1,7 @@
 name: palumba_eu
 description: A new Flutter project boilerplate with GetX and Provider
 
-version: 0.5.0+205
+version: 0.6.0+299
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
