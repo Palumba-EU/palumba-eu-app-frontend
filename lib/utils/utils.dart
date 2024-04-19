@@ -1,39 +1,19 @@
-import 'package:flutter/material.dart';
-
-import 'package:palumba_eu/main.dart';
-
-
-final navigatorKey = GlobalKey<NavigatorState>();
+import 'package:palumba_eu/utils/logger.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
+  // /*
+  // * Launcher
+  // * */
 
-/*
-  * Analytics and Statistics Usage Management
-  * */
-/*static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  static FirebaseInAppMessaging fiam = FirebaseInAppMessaging.instance;
-
-  static dynamic getAnalytics() {
-    return analytics;
-  }
-
-  static dynamic getFIAM() {
-    return fiam;
-  }
-
-  static logEvent(String eventName, Map<String, dynamic> params) async {
+  static Future<bool> launch(String url, [LaunchMode? mode]) async {
     try {
-      await Utils.getAnalytics().logEvent(name: eventName, parameters: params);
+      final uri = Uri.parse(url);
+      await launchUrl(uri, mode: mode ?? LaunchMode.platformDefault);
+      return true;
     } catch (e) {
-      logger("Analytics error: $e");
+      Logger.w(' Could not launch $url: $e');
     }
-  }*/
-}
-
-class Logger {
-  static void log(dynamic content) {
-    if (EnvironmentConfig.environment == "dev") {
-      print(content.toString());
-    }
+    return false;
   }
 }

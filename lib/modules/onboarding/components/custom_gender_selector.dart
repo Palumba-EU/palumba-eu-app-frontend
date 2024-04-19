@@ -22,20 +22,19 @@ class CustomGenderSelector extends StatelessWidget {
     return OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: AppDimens.regularLateralPaddingValue, vertical: 15),
-          backgroundColor: selected ? AppColors.beigeWithOpacity : null,
+          padding: EdgeInsets.symmetric(
+              horizontal: AppDimens.regularLateralPaddingValue, vertical: 15),
+          backgroundColor: selected ? AppColors.yellow : null,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimens.borderRadius),
           ),
           side: BorderSide(
-              width: AppDimens.borderWidth,
-              color:
-                  selected ? AppColors.beigeWithOpacity : Colors.transparent),
+              width: AppDimens.borderWidth, color: Colors.transparent),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            AppTexts.regular(title, bold: true),
+            AppTexts.regular(title, bold: true, color: AppColors.primary),
             CustomHorizontalSpacer(),
             Container(
               height: 16,
@@ -43,9 +42,9 @@ class CustomGenderSelector extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                      color: AppColors.beigeWithOpacity,
+                      color: selected ? Colors.transparent : AppColors.yellow,
                       width: AppDimens.borderWidth),
-                  color: selected ? AppColors.beige : Colors.transparent),
+                  color: selected ? AppColors.primary : Colors.transparent),
             ),
           ],
         ));

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/card/custom_card.dart';
@@ -16,7 +14,6 @@ import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
@@ -32,19 +29,9 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<OnboardingController>(
       builder: (_) => Scaffold(
-          backgroundColor: AppColors.primary,
+          backgroundColor: AppColors.background,
           body: Stack(
             children: [
-              //Background
-              if (_.currentStep != 4)
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: SvgPicture.asset(
-                    'assets/images/img_background_lilac.svg',
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-
               //Content
               SafeArea(
                 child: Column(
@@ -64,7 +51,6 @@ class OnboardingPage extends StatelessWidget {
                                       _.onCountryPressed(index);
                                     });
                               }
-
                               if (index == 1) {
                                 return Padding(
                                   padding:
@@ -112,11 +98,12 @@ class OnboardingPage extends StatelessWidget {
 
                               return TextButton(
                                 onPressed: () {
-                                  _.onContinueTap();
+                                  _.notAnsweredContinue();
                                 },
                                 child: AppTexts.regular(
                                     S.of(context).onBoardingNotAnswerButton,
-                                    bold: true),
+                                    bold: true,
+                                    color: AppColors.primary),
                               );
                             }),
                             CustomHorizontalSpacer(
@@ -134,6 +121,8 @@ class OnboardingPage extends StatelessWidget {
                                       }
                                     : null,
                                 text: S.of(context).textContinue,
+                                //Default parameters
+                                border: ButtonBorderParameters(),
                               );
                             })
                           ],
@@ -161,7 +150,7 @@ class OnboardingPage extends StatelessWidget {
                   height: _.height.value,
                   margin: _.margin.value,
                   decoration: BoxDecoration(
-                      color: AppColors.background,
+                      color: AppColors.secondary,
                       borderRadius: BorderRadius.only(
                           bottomLeft: _.radius.value,
                           bottomRight: _.radius.value)),
@@ -177,6 +166,8 @@ class OnboardingPage extends StatelessWidget {
                         width: Get.width * 0.35,
                         step: _.currentStep.value,
                         totalSteps: _.totalSteps,
+                        progressColor: AppColors.primary,
+                        backgroundColor: AppColors.lightPrimary,
                       )),
                 ),
               )),
@@ -210,48 +201,36 @@ class OnboardingPage extends StatelessWidget {
                               child: CustomContainerCurve(
                                 height: Get.height * .82,
                                 curveRadius: 200,
-                                color: AppColors.background,
+                                color: AppColors.secondary,
                               ),
                             ),
                           ),
                           Obx(
                             () => _.finalAnimationFinished.value
                                 ? CustomCard(
-                                    card: _.exampleCard,
                                     isFirstCard: true,
                                     angleCard: _.angle,
                                     bgPosition: _.bgPosition,
                                     positionCard: _.position,
                                     cardOpacity: _.cardOpacity,
-                                    isPanStarted: _.isPanStarted,
-                                    currentCardIndex: _.currentCardIndex,
-                                    onPanStart: _.onPanStart,
-                                    onPanUpdate: _.onPanUpdate,
-                                    onPanEnd: _.onPanEnd,
-                                    onTapDown: _.onTapDown,
                                     cardAnimationDuration:
                                         _.cardAnimationDuration,
                                     isOnboardingCard: true,
+                                    isPanStarted: false.obs,
                                   )
                                 : AnimatedContainer(
                                     duration: const Duration(milliseconds: 650),
                                     height: _.heighClippedContainer.value,
                                     child: CustomCard(
-                                      card: _.exampleCard,
                                       isFirstCard: true,
                                       angleCard: _.angle,
                                       bgPosition: _.bgPosition,
                                       positionCard: _.position,
                                       cardOpacity: _.cardOpacity,
-                                      isPanStarted: _.isPanStarted,
-                                      currentCardIndex: _.currentCardIndex,
-                                      onPanStart: _.onPanStart,
-                                      onPanUpdate: _.onPanUpdate,
-                                      onPanEnd: _.onPanEnd,
-                                      onTapDown: _.onTapDown,
                                       cardAnimationDuration:
                                           _.cardAnimationDuration,
                                       isOnboardingCard: true,
+                                      isPanStarted: false.obs,
                                     ),
                                   ),
                           ),

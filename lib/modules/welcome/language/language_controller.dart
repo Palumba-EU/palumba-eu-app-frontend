@@ -1,28 +1,18 @@
-import 'package:palumba_eu/data/repositories/remote/user_repository.dart';
-
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
-import 'package:palumba_eu/modules/welcome/language/models/language_data.dart';
+import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class LanguageController extends GetxController {
   static const route = '/language';
 
-  final List<LanguageData> _languages = [
-    LanguageData(asset: 'assets/images/flags/hungary.svg', text: 'Hrvatski'),
-    LanguageData(asset: 'assets/images/flags/denmark.svg', text: 'Dansk'),
-    LanguageData(asset: 'assets/images/flags/germany.svg', text: 'Deutsch'),
-    LanguageData(asset: 'assets/images/flags/spain.svg', text: 'Castellano'),
-    LanguageData(
-        asset: 'assets/images/flags/united_kingdom.svg', text: 'English'),
-    LanguageData(asset: 'assets/images/flags/france.svg', text: 'Français'),
-    LanguageData(asset: 'assets/images/flags/poland.svg', text: 'Polski'),
-    LanguageData(asset: 'assets/images/flags/romania.svg', text: 'Romana'),
-    LanguageData(asset: 'assets/images/flags/sweden.svg', text: 'Svenska'),
-  ];
+  List<Language>? _languages = DataManager().getLanguages();
 
-  List<LanguageData> get languages => _languages;
+  List<Language>? get languages => _languages;
 
-  RxInt indexSelected = 4.obs;
+  RxInt indexSelected = 0.obs;
 
   /**
    * On Click Actions
@@ -32,6 +22,8 @@ class LanguageController extends GetxController {
   }
 
   void onContinueTap() {
-    Get.offNamed(EntranceController.route);
+    UserManager.setLanguageId(languages![indexSelected.value].id!);
+    LanguageManager.setLanguage(languages![indexSelected.value].languagecode!);
+    Get.offAllNamed(EntranceController.route);
   }
 }

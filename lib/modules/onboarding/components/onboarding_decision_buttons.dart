@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 
@@ -15,6 +14,7 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
     required this.onTapHalfAgrementButton,
     required this.onTapAgrementButton,
   });
+
   final Function() onTapDisagrementButton;
   final Function() onTapHalfDisagrementButton;
   final Function() onTapHalfAgrementButton;
@@ -74,7 +74,7 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                         child: CustomBigButtonCurve(
                           curveRadius: 25,
                           isSelected: controller.disagrementButtonSelected,
-                          icon: Icons.close,
+                          icon: 'ic_cross',
                           flip: true,
                           onTap: onTapDisagrementButton,
                         ),
@@ -99,7 +99,7 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                         child: CustomBigButtonCurve(
                           curveRadius: 25,
                           isSelected: controller.agrementButtonSelected,
-                          icon: Icons.check,
+                          icon: 'ic_check',
                           onTap: onTapAgrementButton,
                         ),
                       ),
@@ -128,7 +128,7 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                     child: CustomSmallButtonCurve(
                       curveRadius: 50,
                       isSelected: controller.halfDisagrementButtonSelected,
-                      icon: Icons.close,
+                      icon: 'ic_cross',
                       flip: false,
                       onTap: onTapHalfDisagrementButton,
                     ),
@@ -150,7 +150,7 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                     child: CustomSmallButtonCurve(
                       curveRadius: 50,
                       isSelected: controller.halfAgrementButtonSelected,
-                      icon: Icons.check,
+                      icon: 'ic_check',
                       flip: true,
                       onTap: onTapHalfAgrementButton,
                     ),
@@ -174,7 +174,7 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
           child: CustomSmallButtonSelectedCurve(
             curveRadius: 120,
             isSelected: true,
-            icon: isAgree ? Icons.check : Icons.close,
+            icon: isAgree ? 'ic_check' : 'ic_cross',
             flip: isAgree ? true : false,
             onTap: () {},
           ),

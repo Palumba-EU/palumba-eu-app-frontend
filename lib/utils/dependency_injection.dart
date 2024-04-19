@@ -1,26 +1,12 @@
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/provider/remote/data_api.dart';
 
-import '../data/provider/local/local_auth.dart';
-import '../data/provider/remote/authentication_api.dart';
-import '../data/provider/remote/user_api.dart';
-import '../data/repositories/local/local_auth_repository.dart';
-import '../data/repositories/remote/authentication_repository.dart';
-import '../data/repositories/remote/user_repository.dart';
-import '../global_controllers/user_controller.dart';
+import '../data/repositories/remote/data_repository.dart';
 
 class DependencyInjection {
   static void init() {
-    //Controllers
-    Get.put<UserController>(UserController());
-
-    //Auth
-    Get.put<LocalAuth>(LocalAuth());
-    Get.put<LocalAuthRepository>(LocalAuthRepository());
-    Get.put<AuthenticationAPI>(AuthenticationAPI());
-    Get.put<AuthenticationRepository>(AuthenticationRepository());
-
-    //User
-    Get.put<UserAPI>(UserAPI());
-    Get.put<UserRepository>(UserRepository());
+    //Data
+    Get.put<DataAPI>(DataAPI());
+    Get.put<DataRepository>(DataRepository());
   }
 }

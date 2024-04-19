@@ -1,15 +1,18 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/localization_data.dart';
+import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
-import 'package:palumba_eu/modules/welcome/language/models/language_data.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 class OnboardingController extends GetxController {
   static const route = '/onboarding';
+
+  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   final totalSteps = 4;
   RxInt currentStep = 1.obs;
@@ -25,50 +28,18 @@ class OnboardingController extends GetxController {
   RxBool finalAnimationFinished = false.obs;
 
   RxBool _startAnimation = false.obs;
+
   get startAnimation => _startAnimation.value;
 
-  CardModel get exampleCard => CardModel(
-      id: 'Card01',
-      main: 'Whistleblowers* should be protected no matter what they reveal.',
-      whistleblowe:
-          '️‍An individual who exposes wrongdoing, corruption, or unethical behavior within an organization or institution to the public or authorities, often at great personal risk. (Oxford Dictionary)',
-      context:
-          'Since a few years, several individuals have revealed key internal information about the wrongdoings of their organisations. This led to massive scandals about the safety of those whistleblowers and their responsibility before the law. Therefore, the EU passed the Whistleblower Directive to regulate this practice in our democracies.',
-      favorArgs: 'Cooming soon',
-      againstArgs: 'Cooming soon');
-
   ///Step1
-  final List<LanguageData> _countries = [
-    LanguageData(
-        asset: 'assets/images/flags/hungary.svg',
-        text: S.of(Get.context!).hungary),
-    LanguageData(
-        asset: 'assets/images/flags/denmark.svg',
-        text: S.of(Get.context!).denmark),
-    LanguageData(
-        asset: 'assets/images/flags/germany.svg',
-        text: S.of(Get.context!).germany),
-    LanguageData(
-        asset: 'assets/images/flags/spain.svg', text: S.of(Get.context!).spain),
-    LanguageData(
-        asset: 'assets/images/flags/france.svg',
-        text: S.of(Get.context!).france),
-    LanguageData(
-        asset: 'assets/images/flags/poland.svg',
-        text: S.of(Get.context!).poland),
-    LanguageData(
-        asset: 'assets/images/flags/romania.svg',
-        text: S.of(Get.context!).romania),
-    LanguageData(
-        asset: 'assets/images/flags/sweden.svg',
-        text: S.of(Get.context!).sweden),
-  ];
+  List<Country>? _countries = DataManager().getCountries();
 
-  List<LanguageData> get countries => _countries;
+  List<Country>? get countries => _countries;
 
   RxInt indexCountrySelected = (-1).obs;
 
   RxBool _showFinalView = false.obs;
+
   bool get showFinalView => _showFinalView.value;
 
   ///Step2
@@ -78,17 +49,34 @@ class OnboardingController extends GetxController {
   RxInt indexAgeSelected = (-1).obs;
 
   ///Step3
-  final List<String> _genders = [
-    S.of(Get.context!).onBoardingStep3Option1,
-    S.of(Get.context!).onBoardingStep3Option2,
-    S.of(Get.context!).onBoardingStep3Option3,
-    S.of(Get.context!).onBoardingStep3Option4,
-    S.of(Get.context!).onBoardingStep3Option5,
+  final List<GenderModel> _genders = [
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option1,
+        genderEnum: gender.woman),
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option2,
+        genderEnum: gender.man),
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option3,
+        genderEnum: gender.genderFluid),
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option4,
+        genderEnum: gender.nonBinary),
+    GenderModel(
+        name: S.of(Get.context!).onBoardingStep3Option5,
+        genderEnum: gender.other),
   ];
 
-  List<String> get genders => _genders;
+  List<String> get genders => _genders.map((gender) => gender.name).toList();
 
   RxInt indexGenderSelected = (-1).obs;
+
+  @override
+  void onInit() {
+    updateBackgroundShape();
+    _initialCardPosition(true);
+    super.onInit();
+  }
 
   /**
    * On Click Actions
@@ -98,19 +86,30 @@ class OnboardingController extends GetxController {
       onContinueTap();
       return;
     }
-
+    UserManager.setCountryId(_countries![index]);
     indexCountrySelected.value = index;
     updateButtonState();
   }
 
   void onAgePressed(int index) {
     indexAgeSelected.value = index;
+    UserManager.setAge(index + minAge);
     updateButtonState();
   }
 
   void onGenderPressed(int index) {
     indexGenderSelected.value = index;
+    UserManager.setGender(_genders[index].genderEnum);
     updateButtonState();
+  }
+
+  void notAnsweredContinue() {
+    if (currentStep.value == 2) {
+      UserManager.setAge(null);
+    } else if (currentStep.value == 3) {
+      UserManager.setGender(null);
+    }
+    onContinueTap();
   }
 
   void onContinueTap() {
@@ -123,7 +122,20 @@ class OnboardingController extends GetxController {
   /**
    * Functions
    */
+
+  void _fetchStatements() async {
+    //Fetch statements data here to send to the next screen
+    final result = await _dataRepository.fetchStatements();
+    if (result != null) {
+      /*  print(_statements!.data!.first.details);
+      print(_statements!.data!.first.statement);
+      print(_statements!.data!.first.footnote);
+      print(_statements!.data!.first.vector);*/
+    }
+  }
+
   void updateButtonState() {
+    updateBackgroundShape();
     isButtonEnabled.value =
         currentStep.value == 1 && indexCountrySelected.value != -1 ||
             currentStep.value == 2 && indexAgeSelected.value != -1 ||
@@ -131,13 +143,17 @@ class OnboardingController extends GetxController {
   }
 
   void updateBackgroundShape() {
+    //Update the background shape
     bool isSmallScreen = Get.height < 800;
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
-      height.value = heightSize * .0415;
-      radius.value = Radius.elliptical(900, 300);
+      //
+      height.value = 50; //heightSize * .0415;
+      radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
+      //Call fetch statments here (when we reach step 2 and know the country selected)
+      _fetchStatements();
       height.value = isSmallScreen ? heightSize * 0.27 : heightSize * 0.37;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
@@ -149,7 +165,7 @@ class OnboardingController extends GetxController {
       height.value = Get.height;
       radius.value = Radius.circular(250);
       radius.value = Radius.zero;
-
+      //When shape reach bottom of the screen we activate the rise card and buttons animation
       Future.delayed(Duration(milliseconds: 750), () async {
         _showFinalView.value = true;
         await Future.delayed(Duration(milliseconds: 250));
@@ -175,10 +191,11 @@ class OnboardingController extends GetxController {
         await Future.delayed(Durations.long3);
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
-        Get.toNamed(StatementsController.route,
-            arguments: {StringUtils.fromOnboardingKey: true});
+        //Finally when animation finish we navigate to statments screen
+        Get.offAllNamed(StatementsController.route, arguments: {
+          StringUtils.fromOnboardingKey: true,
+        });
       });
-      //TODO: init bubble buttons animation
     }
   }
 
@@ -202,8 +219,6 @@ class OnboardingController extends GetxController {
 
   double _angle = 0;
   double get angle => _angle;
-  RxBool _isPanStarted = false.obs;
-  RxBool get isPanStarted => _isPanStarted;
 
   RxBool _disagrementButtonSelected = false.obs;
   bool get disagrementButtonSelected => _disagrementButtonSelected.value;
@@ -221,67 +236,12 @@ class OnboardingController extends GetxController {
   RxDouble _cardOpacity = 1.0.obs;
   RxDouble get cardOpacity => _cardOpacity;
 
-  RxInt _currentCardIndex = 0.obs;
-  RxInt get currentCardIndex => _currentCardIndex;
-
   Rx<Offset> _smallButtonsPosition = Offset(0, Get.height * .3).obs;
   Offset get smallButtonsPosition => _smallButtonsPosition.value;
   Rx<Offset> _bigButtonsPosition = Offset(0, Get.height * .3).obs;
   Offset get bigButtonsPosition => _bigButtonsPosition.value;
 
-  @override
-  void onInit() {
-    updateBackgroundShape();
-    _nothingHappen(true);
-    super.onInit();
-  }
-
-  void onPanStart(DragStartDetails details) {
-    _isPanStarted.value = true;
-  }
-
-  void onPanUpdate(DragUpdateDetails details) {
-    // _checkActionSelected();
-    _setAngle(details);
-    _position.value += Offset(details.delta.dx * .65, details.delta.dy * .65);
-
-    final opacity = 1 - _position.value.dy.abs() / (Get.height * .9) * .28;
-    _cardOpacity.value = opacity.clamp(0, .8);
-  }
-
-  void _setAngle(DragUpdateDetails details) {
-    final x = _position.value.dx + details.delta.dx;
-    final centerX = Get.width * .25;
-    final difference = x - centerX;
-    _angle = -difference / centerX * 8;
-  }
-
-  void onPanEnd(DragEndDetails details) {
-    _isPanStarted.value = false;
-
-    _nothingHappen();
-  }
-
-  void onTapDown(TapDownDetails details) async {
-    changePage(details);
-  }
-
-  void changePage(TapDownDetails event) async {
-    await Future.delayed(Duration(milliseconds: 100));
-    if (_isPanStarted.value) return;
-    final isNext = event.localPosition.dx > Get.width / 2;
-    if (isNext) {
-      if (_currentCardIndex < 3) {
-        _currentCardIndex.value++;
-      }
-    } else {
-      if (_currentCardIndex > 0) {
-        _currentCardIndex.value--;
-      }
-    }
-  }
-
-  void _nothingHappen([bool initial = false]) async {
+  void _initialCardPosition([bool initial = false]) async {
     _buttonsBlocked.value = true;
     _cardAnimationDuration.value = 250;
     initial
@@ -296,28 +256,39 @@ class OnboardingController extends GetxController {
   }
 
   void onTapDisagrementButton() async {
+    //Fake button is tapped
     _disagrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _disagrementButtonSelected.value = false;
   }
 
   void onTapHalfDisagrementButton() async {
+    //Fake button is tapped
     _halfDisagrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _halfDisagrementButtonSelected.value = false;
   }
 
   void onTapHalfAgrementButton() async {
+    //Fake button is tapped
     _halfAgrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _halfAgrementButtonSelected.value = false;
   }
 
   void onTapAgrementButton() async {
+    //Fake button is tapped
     _agrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _agrementButtonSelected.value = false;
   }
 }
 
-enum gender { woman, man, nonBinary, intersex, other, none }
+enum gender { woman, man, nonBinary, genderFluid, other, none }
+
+class GenderModel {
+  final String name;
+  final gender genderEnum;
+
+  GenderModel({required this.name, required this.genderEnum});
+}

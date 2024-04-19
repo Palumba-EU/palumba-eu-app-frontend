@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomSmallButtonCurve extends StatelessWidget {
@@ -14,16 +16,14 @@ class CustomSmallButtonCurve extends StatelessWidget {
 
   final bool isSelected;
   final double curveRadius;
-  final IconData? icon;
+  final String? icon;
   final bool flip;
   final Function() onTap;
+
   @override
   Widget build(BuildContext context) {
-    final color = isSelected
-        ? Theme.of(context).colorScheme.background
-        : Theme.of(context).colorScheme.primary;
-    final borderColor =
-        isSelected ? Theme.of(context).colorScheme.primary : Colors.white;
+    final color = isSelected ? AppColors.secondary : AppColors.primary;
+    final borderColor = isSelected ? AppColors.primary : AppColors.lightPrimary;
     return Stack(
       children: [
         Transform.flip(
@@ -48,8 +48,12 @@ class CustomSmallButtonCurve extends StatelessWidget {
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
-            child:
-                IgnorePointer(child: Icon(icon, size: 35, color: borderColor))),
+            child: Center(
+                child: SvgPicture.asset(
+              'assets/images/$icon.svg',
+              height: 16,
+              fit: BoxFit.fitHeight,
+            ))),
       ],
     );
   }
@@ -65,7 +69,7 @@ class _CustomSmallButtonPainter extends CustomPainter {
       {required this.curveRadius,
       required this.color,
       this.borderColor = Colors.white,
-      this.borderWidth = 2.0});
+      this.borderWidth = 4.0});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -104,7 +108,7 @@ class _CustomSmallButtonPainter extends CustomPainter {
     path.quadraticBezierTo(size.width * .5, 0, size.width, curveRadius);
 
     path.lineTo(size.width, curveRadius);
-    //path.lineTo(size.width, size.height);
+    path.lineTo(size.width, size.height);
     //path.lineTo(0, size.height);
     //path.lineTo(0, 0);
 
@@ -129,14 +133,13 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
 
   final bool isSelected;
   final double curveRadius;
-  final IconData? icon;
+  final String? icon;
   final bool flip;
   final Function() onTap;
+
   @override
   Widget build(BuildContext context) {
-    final color = isSelected
-        ? Theme.of(context).colorScheme.background
-        : Theme.of(context).colorScheme.primary;
+    final color = isSelected ? AppColors.secondary : AppColors.primary;
     final borderColor =
         isSelected ? Theme.of(context).colorScheme.primary : Colors.white;
     return Stack(
@@ -164,8 +167,11 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
-            child:
-                IgnorePointer(child: Icon(icon, size: 35, color: borderColor))),
+            child: Center(
+                child: SvgPicture.asset(
+              'assets/images/$icon.svg',
+              width: 16,
+            ))),
       ],
     );
   }

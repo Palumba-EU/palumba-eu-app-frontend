@@ -1,17 +1,16 @@
-import 'package:palumba_eu/data/repositories/remote/user_repository.dart';
-
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 
 class EntranceController extends GetxController {
   static const route = '/entrance';
 
-  final UserRepository _userRepository = Get.find<UserRepository>();
+  PageController pageController = PageController();
 
   /**
    * On Click Actions
    */
   void onContinueTap() {
-    Get.offNamed(OnboardingController.route);
+    Get.offAllNamed(OnboardingController.route);
   }
 }

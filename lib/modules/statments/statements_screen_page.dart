@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 import 'components/buttons/decision_buttons.dart';
 import '../../global_widgets/card/custom_card.dart';
@@ -29,68 +34,94 @@ class StatementsPage extends GetView<StatementsController> {
                     CustomContainerCurve(
                       height: Get.height * .82,
                       curveRadius: 200,
-                      color: Theme.of(context).colorScheme.background,
+                      color: AppColors.secondary,
                     ),
                   ],
                 ),
 
                 //Buttons
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: SizedBox(
-                    height: Get.height * .3,
-                    child: Stack(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: Get.height * .08),
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Obx(
-                              () => AnimatedOpacity(
-                                duration: Durations.long4,
-                                opacity: controller.fromOnboarding ? 0 : 1,
-                                child: IgnorePointer(
-                                  ignoring: controller.buttonsBlocked,
-                                  child: SizedBox(
-                                    height: 27,
-                                    child: TextButton(
-                                      onPressed: controller.onTapNeutralButton,
-                                      style: ElevatedButton.styleFrom(
-                                          shape: StadiumBorder()),
-                                      child: Text(
-                                        'Neutral',
-                                        style: TextStyle(color: Colors.white),
+                Obx(
+                  () => controller.loadingQuestions
+                      ? Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.primary,
+                          ),
+                        )
+                      : Align(
+                          alignment: Alignment.bottomCenter,
+                          child: SizedBox(
+                            height: Get.height * .3,
+                            child: Stack(
+                              children: [
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(top: Get.height * .08),
+                                  child: Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Obx(
+                                      () => AnimatedOpacity(
+                                        duration: Durations.long4,
+                                        opacity:
+                                            controller.fromOnboarding ? 0 : 1,
+                                        child: IgnorePointer(
+                                            ignoring: controller.buttonsBlocked,
+                                            child: CustomButton(
+                                              text: S.of(context).neutral,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: AppDimens
+                                                          .lateralPaddingValue *
+                                                      .5),
+                                              onPressed: controller
+                                                      .fromOnboarding
+                                                  ? null
+                                                  : () =>
+                                                      controller.activateButton(
+                                                          StatementResponse
+                                                              .neutral),
+                                              color: AppColors.primary,
+                                              textColor: AppColors.text,
+                                              radius:
+                                                  AppDimens.largeBorderRadius,
+                                              border: ButtonBorderParameters(
+                                                  color: AppColors.lightPrimary,
+                                                  width: 2,
+                                                  isOutside: true),
+                                            )),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: Get.height * .3,
+                                  child: DecisionButtons(
+                                    onTapStronglyDisagrementButton: () =>
+                                        controller.activateButton(
+                                            StatementResponse.stronglyDisagree),
+                                    onTapDisagrementButton: () =>
+                                        controller.activateButton(
+                                            StatementResponse.disagree),
+                                    onTapAgrementButton: () =>
+                                        controller.activateButton(
+                                            StatementResponse.agree),
+                                    onTapStronglyAgrementButton: () =>
+                                        controller.activateButton(
+                                            StatementResponse.stronglyAgree),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: double.infinity,
-                          height: Get.height * .3,
-                          child: DecisionButtons(
-                            onTapDisagrementButton:
-                                controller.onTapDisagrementButton,
-                            onTapHalfDisagrementButton:
-                                controller.onTapHalfDisagrementButton,
-                            onTapHalfAgrementButton:
-                                controller.onTapHalfAgrementButton,
-                            onTapAgrementButton: controller.onTapAgrementButton,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ],
             ),
           ),
           Obx(
             () => controller.fromOnboarding
-                ? SafeArea(
+                ?
+                //Onboarding header
+                SafeArea(
                     child: Padding(
                       padding:
                           EdgeInsets.only(top: AppDimens.lateralPaddingValue),
@@ -100,25 +131,36 @@ class StatementsPage extends GetView<StatementsController> {
                           width: Get.width * 0.35,
                           step: 4,
                           totalSteps: 4,
+                          progressColor: AppColors.primary,
+                          backgroundColor: AppColors.lightPrimary,
                         ),
                       ),
                     ),
                   )
-                : IgnorePointer(
+                :
+                //Custom Plaumba header
+                IgnorePointer(
                     ignoring: controller.isPanStarted.value,
                     child: Container(
-                      color: Theme.of(context).colorScheme.background,
+                      color: AppColors.secondary,
                       child: SafeArea(
                         child: IntrinsicHeight(
                           child: AnimatedOpacity(
                               opacity: controller.isPanStarted.value ? 0.2 : 1,
                               duration: Durations.medium4,
-                              child: CustomHeader()),
+                              child: CustomHeader(
+                                //TODO: Fix me (fix: add correct routes)
+                                homeTap: () =>
+                                    Get.toNamed(HomePageController.route),
+                                backTap: () =>
+                                    Get.toNamed(HomePageController.route),
+                              )),
                         ),
                       ),
                     ),
                   ),
           ),
+          //Bird background image
           ClipPath(
             clipper: CustomContainerClipper(curveRadius: 200),
             child: SizedBox(
@@ -136,12 +178,13 @@ class StatementsPage extends GetView<StatementsController> {
           GetBuilder<StatementsController>(
             id: controller.cardStackKey,
             init: controller,
-            builder: (controller) => controller.firstCard != null
+            builder: (controller) => (controller.firstCard != null ||
+                    controller.fromOnboarding)
                 ? Stack(
                     children: [
                       if (controller.secondCard != null)
                         CustomCard(
-                          card: controller.secondCard!,
+                          card: controller.secondCard,
                           angleCard: controller.angle,
                           positionCard: controller.position,
                           bgPosition: controller.bgPosition,
@@ -157,11 +200,12 @@ class StatementsPage extends GetView<StatementsController> {
                           currentCardIndex: 0.obs,
                           //controller.currentCardIndex,
                           isOnboardingCard: false,
+                          //onSkipTap: controller.onSkipTap,
                         ),
                       Obx(
                         () => CustomCard(
                           isFirstCard: true,
-                          card: controller.firstCard!,
+                          card: controller.firstCard,
                           onPanStart: controller.onPanStart,
                           onPanUpdate: controller.onPanUpdate,
                           onPanEnd: controller.onPanEnd,
@@ -175,6 +219,9 @@ class StatementsPage extends GetView<StatementsController> {
                               controller.cardAnimationDuration,
                           cardOpacity: controller.cardOpacity,
                           isOnboardingCard: controller.fromOnboarding,
+                          scale: controller.scale.value,
+                          onSkipTap: () =>
+                              controller.activateButton(StatementResponse.skip),
                         ),
                       )
                     ],

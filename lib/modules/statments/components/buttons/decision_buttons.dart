@@ -8,15 +8,15 @@ import '../../../../global_widgets/bubble_buttons/custom_small_button.dart';
 class DecisionButtons extends GetView<StatementsController> {
   const DecisionButtons({
     super.key,
+    required this.onTapStronglyDisagrementButton,
     required this.onTapDisagrementButton,
-    required this.onTapHalfDisagrementButton,
-    required this.onTapHalfAgrementButton,
     required this.onTapAgrementButton,
+    required this.onTapStronglyAgrementButton,
   });
+  final Function() onTapStronglyDisagrementButton;
   final Function() onTapDisagrementButton;
-  final Function() onTapHalfDisagrementButton;
-  final Function() onTapHalfAgrementButton;
   final Function() onTapAgrementButton;
+  final Function() onTapStronglyAgrementButton;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,8 @@ class DecisionButtons extends GetView<StatementsController> {
             () => Stack(
               children: [
                 _nonSelectedButtons(),
-                if (controller.halfAgrementButtonSelected)
-                  _selectedButtons(true),
-                if (controller.halfDisagrementButtonSelected)
+                if (controller.agrementButtonSelected) _selectedButtons(true),
+                if (controller.disagrementButtonSelected)
                   _selectedButtons(false),
               ],
             ),
@@ -44,19 +43,19 @@ class DecisionButtons extends GetView<StatementsController> {
               child: Obx(
                 () => SizedBox(
                   height: Get.height * .3 -
-                      (controller.disagrementButtonSelected ? 0 : 15),
+                      (controller.StronglyDisagrementButtonSelected ? 0 : 15),
                   width: Get.width * .35 +
-                      (controller.disagrementButtonSelected
+                      (controller.StronglyDisagrementButtonSelected
                           ? Get.width * .07
                           : 0),
                   child: IgnorePointer(
                     ignoring: controller.buttonsBlocked,
                     child: CustomBigButtonCurve(
                       curveRadius: 25,
-                      isSelected: controller.disagrementButtonSelected,
-                      icon: Icons.close,
+                      isSelected: controller.StronglyDisagrementButtonSelected,
+                      icon: 'ic_cross',
                       flip: true,
-                      onTap: onTapDisagrementButton,
+                      onTap: onTapStronglyDisagrementButton,
                     ),
                   ),
                 ),
@@ -69,16 +68,18 @@ class DecisionButtons extends GetView<StatementsController> {
               child: Obx(
                 () => SizedBox(
                   height: Get.height * .3 -
-                      (controller.agrementButtonSelected ? 0 : 15),
+                      (controller.StronglyAgrementButtonSelected ? 0 : 15),
                   width: Get.width * .35 +
-                      (controller.agrementButtonSelected ? Get.width * .07 : 0),
+                      (controller.StronglyAgrementButtonSelected
+                          ? Get.width * .07
+                          : 0),
                   child: IgnorePointer(
                     ignoring: controller.buttonsBlocked,
                     child: CustomBigButtonCurve(
                       curveRadius: 25,
-                      isSelected: controller.agrementButtonSelected,
-                      icon: Icons.check,
-                      onTap: onTapAgrementButton,
+                      isSelected: controller.StronglyAgrementButtonSelected,
+                      icon: 'ic_check',
+                      onTap: onTapStronglyAgrementButton,
                     ),
                   ),
                 ),
@@ -97,38 +98,38 @@ class DecisionButtons extends GetView<StatementsController> {
         Expanded(
           flex: 2,
           child: Obx(
-            () => controller.halfDisagrementButtonSelected
+            () => controller.disagrementButtonSelected
                 ? SizedBox.shrink()
                 : IgnorePointer(
                     ignoring: controller.buttonsBlocked,
                     child: CustomSmallButtonCurve(
                       curveRadius: 50,
                       isSelected: false,
-                      icon: Icons.close,
+                      icon: 'ic_cross',
                       flip: false,
-                      onTap: onTapHalfDisagrementButton,
+                      onTap: onTapDisagrementButton,
                     ),
                   ),
           ),
         ),
-        if (!controller.halfDisagrementButtonSelected &&
-            !controller.halfAgrementButtonSelected)
+        if (!controller.disagrementButtonSelected &&
+            !controller.agrementButtonSelected)
           SizedBox(
             width: 2,
           ),
         Expanded(
           flex: 2,
           child: Obx(
-            () => controller.halfAgrementButtonSelected
+            () => controller.agrementButtonSelected
                 ? SizedBox.shrink()
                 : IgnorePointer(
                     ignoring: controller.buttonsBlocked,
                     child: CustomSmallButtonCurve(
                       curveRadius: 50,
                       isSelected: false,
-                      icon: Icons.check,
+                      icon: 'ic_check',
                       flip: true,
-                      onTap: onTapHalfAgrementButton,
+                      onTap: onTapAgrementButton,
                     ),
                   ),
           ),
@@ -150,7 +151,7 @@ class DecisionButtons extends GetView<StatementsController> {
           child: CustomSmallButtonSelectedCurve(
             curveRadius: 120,
             isSelected: true,
-            icon: isAgree ? Icons.check : Icons.close,
+            icon: isAgree ? 'ic_check' : 'ic_cross',
             flip: isAgree ? true : false,
             onTap: () {},
           ),
