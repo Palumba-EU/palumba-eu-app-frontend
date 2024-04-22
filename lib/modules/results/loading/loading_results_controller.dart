@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
@@ -13,6 +14,9 @@ class LoadingResultsController extends GetxController {
   static const route = '/loading_results';
 
   final DataRepository _dataRepository = Get.find<DataRepository>();
+
+  final LocalDataRepository _localDataRepository =
+      Get.find<LocalDataRepository>();
 
   final totalSteps = 6;
 
@@ -39,9 +43,14 @@ class LoadingResultsController extends GetxController {
         currentStep.value = currentStep.value + 1;
       } else {
         timer.cancel();
+        final jsonListResults =
+            _partyUserDistanceList.map((e) => e.toJson()).toList();
+        //Store results as local data
+       final suceedStore = _localDataRepository.results = jsonListResults;
+
+        //Navigate to results screen
         Get.offAllNamed(ResultsController.route, arguments: {
-          StringUtils.resultsDataKey:
-              _partyUserDistanceList.map((e) => e.toJson()).toList(),
+          StringUtils.resultsDataKey: jsonListResults,
         });
       }
     });

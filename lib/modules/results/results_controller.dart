@@ -169,7 +169,7 @@ class ResultsController extends GetxController {
 
   void launchUrl() {
     Utils.launch(StringUtils.electionsUrl(LanguageManager.currentLanguage));
-    Get.toNamed(HomePageController.route);
+    Get.offAllNamed(HomePageController.route);
   }
 
   void shareContent() async {
