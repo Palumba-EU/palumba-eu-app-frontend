@@ -43,7 +43,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
     double percentage = value / maxValue;
 
     // Make sure value is in range [0, 1]
-    if (percentage < 0) {
+    if (percentage < 0.0) {
       return 0.0;
     } else if (percentage > 1) {
       return 1.0;
@@ -132,15 +132,16 @@ class ArcPainter extends CustomPainter {
     final paint = Paint()
       ..color = color
       ..strokeWidth = lineWidth
-      ..style = PaintingStyle.stroke;
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
 
     final path = Path();
     final rect = Rect.fromCenter(
       center: Offset(size.width / 2, size.height / 2),
       width: arcDiameter,
-      height: arcDiameter,
+      height: arcDiameter * 1.08,
     );
-    path.arcTo(rect, pi / 2, pi * animation.value, false);
+    path.arcTo(rect, pi / 4, pi * animation.value + pi / 4, false);
     canvas.drawPath(path, paint);
 
     final circlePaint = Paint()
@@ -151,9 +152,11 @@ class ArcPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0;
     final circleRadius = 15.0;
+    final adjustedWidth = (rect.width / 2);
+    final adjustedHeight = (rect.height / 2);
     final offset = Offset(
-      rect.center.dx + cos(pi * animation.value + pi / 2) * rect.width / 2,
-      rect.center.dy + sin(pi * animation.value + pi / 2) * rect.height / 2,
+      (rect.center.dx + cos(pi * animation.value + pi / 2) * adjustedWidth),
+      (rect.center.dy + sin(pi * animation.value + pi / 2) * adjustedHeight),
     );
     final circleRect = Rect.fromCircle(center: offset, radius: 15);
     final imageRect =
