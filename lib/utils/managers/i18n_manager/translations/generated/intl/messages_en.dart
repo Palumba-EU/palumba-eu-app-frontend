@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(country) => "No local parties found in ${country}";
 
+  static String m3(party, percentage) =>
+      "Me and ${party} agreed on ${percentage}% of all the statements you swiped on. Find out your match at palumba.eu";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
@@ -118,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage7YesButton":
             MessageLookupByLibrary.simpleMessage("Yesssss"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
+        "resultsSocialShareData": m3,
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),

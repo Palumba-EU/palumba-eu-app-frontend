@@ -109,7 +109,7 @@ class ResultsPage extends GetView<ResultsController> {
                         child: CustomButton(
                           text: S.of(context).resultsShare,
                           expanded: true,
-                          onPressed: () {},
+                          onPressed: controller.shareContent,
                           prefixIcon:
                               IconButtonParameters('ic_share', size: 18),
                           radius: AppDimens.borderRadius,

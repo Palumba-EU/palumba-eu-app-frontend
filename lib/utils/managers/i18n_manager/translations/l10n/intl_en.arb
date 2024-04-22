@@ -68,6 +68,7 @@
   "resultsPage7Title": "Would you like to receive a notification when it’s time to vote?",
   "resultsPage7NopButton": "I'm all good!",
   "resultsPage7YesButton": "Yesssss",
+  "resultsSocialShareData": "Me and {party} agreed on {percentage}% of all the statements you swiped on. Find out your match at palumba.eu",
 
   "@HomePage": "HomePage",
   "homePageTitle": "If this cute pigeon can’t helpyou vote in June, nothing will.",

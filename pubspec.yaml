@@ -24,6 +24,7 @@ dependencies:
   # Native Specific Modules
   package_info_plus: ^6.0.0
   app_tracking_transparency: ^2.0.4
+  share_plus: ^8.0.3
 
   # UI Modules
   cached_network_image: ^3.3.1

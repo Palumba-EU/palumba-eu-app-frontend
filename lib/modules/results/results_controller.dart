@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
@@ -16,10 +17,12 @@ import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'models/custom_chart_data.dart';
 
@@ -136,17 +139,17 @@ class ResultsController extends GetxController {
   }
 
   void changePage(TapDownDetails details) {
-    if (details.localPosition.dx < Get.width / 2) {
+    if (details.localPosition.dx < Get.width * .25) {
       if (currentPage > 0) {
         pageController.previousPage(
-          duration: const Duration(milliseconds: 300),
+          duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,
         );
       }
-    } else {
+    } else if (details.localPosition.dx > Get.width * .75) {
       if (currentPage < pages.length - 1) {
         pageController.nextPage(
-          duration: const Duration(milliseconds: 300),
+          duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,
         );
       }
@@ -167,5 +170,12 @@ class ResultsController extends GetxController {
   void launchUrl() {
     Utils.launch(StringUtils.electionsUrl(LanguageManager.currentLanguage));
     Get.toNamed(HomePageController.route);
+  }
+
+  void shareContent() async {
+    final sharedText = S.of(Get.context!).resultsSocialShareData(
+        "*${maxPercentagePoliticParty?.party.name ?? '-'}*",
+        "*${maxPercentagePoliticParty?.percentage ?? '-'}*");
+    Share.share(sharedText);
   }
 }

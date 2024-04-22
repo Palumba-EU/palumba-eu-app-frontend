@@ -630,6 +630,16 @@ class S {
     );
   }
 
+  /// `Me and {party} agreed on {percentage}% of all the statements you swiped on. Find out your match at palumba.eu`
+  String resultsSocialShareData(Object party, Object percentage) {
+    return Intl.message(
+      'Me and $party agreed on $percentage% of all the statements you swiped on. Find out your match at palumba.eu',
+      name: 'resultsSocialShareData',
+      desc: '',
+      args: [party, percentage],
+    );
+  }
+
   /// `If this cute pigeon can’t helpyou vote in June, nothing will.`
   String get homePageTitle {
     return Intl.message(
