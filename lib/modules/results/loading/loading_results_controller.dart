@@ -46,7 +46,7 @@ class LoadingResultsController extends GetxController {
         final jsonListResults =
             _partyUserDistanceList.map((e) => e.toJson()).toList();
         //Store results as local data
-       final suceedStore = _localDataRepository.results = jsonListResults;
+        _localDataRepository.results = jsonListResults;
 
         //Navigate to results screen
         Get.offAllNamed(ResultsController.route, arguments: {

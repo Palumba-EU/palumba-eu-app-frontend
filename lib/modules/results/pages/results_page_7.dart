@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/global_widgets/custom_button.dart';
+import 'package:palumba_eu/data/model/results_data.dart';
+import 'package:palumba_eu/global_widgets/custom_divider.dart';
+import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
-import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -15,58 +15,89 @@ class ResultsPage7 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    final smallScreen = Get.height < 750;
+    return Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: AppDimens.bigLateralPaddingValue),
+        child: smallScreen
+            ? SingleChildScrollView(
+                child: _pageContent(context, smallScreen),
+              )
+            : _pageContent(context, smallScreen));
+  }
+
+  Column _pageContent(BuildContext context, bool smallScreen) {
+    return Column(
       children: [
-        Positioned(
-          bottom: 0,
-          child: SizedBox(
-              width: Get.width,
-              height: Get.height * .5,
-              child: FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Image.asset('assets/images/img_ballot_box_big.png'))),
-        ),
-        Get.height < 850
-            ? Container(
-                color: AppColors.background.withOpacity(.7),
-                child: IntrinsicHeight(child: _body(context)))
-            : _body(context),
+        AppTexts.title(S.of(context).resultsPage7Title,
+            color: AppColors.primary),
+        CustomSpacer(multiplier: 2),
+        AppTexts.small(S.of(context).resultsPage7Disclaimer,
+            color: AppColors.primary),
+        CustomSpacer(),
+        smallScreen
+            ? _candidatesContainer()
+            : Expanded(child: _candidatesContainer()),
+        CustomSpacer(multiplier: 11),
       ],
     );
   }
 
-  Column _body(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        SvgPicture.asset('assets/images/ic_europe_vote_logos.svg'),
-        CustomSpacer(multiplier: 2),
-        Padding(
-            padding: AppDimens.lateralPadding,
-            child: AppTexts.title(S.of(context).resultsPage7Title,
-                color: AppColors.primary, textAlign: TextAlign.center)),
-        CustomSpacer(multiplier: 2),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(
-              onPressed: () {
-                Get.toNamed(HomePageController.route);
-              },
-              child: AppTexts.regular(S.of(context).resultsPage7NopButton,
-                  bold: true, color: AppColors.primary),
+  Container _candidatesContainer() {
+    return Container(
+      height: 250,
+      margin: AppDimens.lateralPadding,
+      decoration: BoxDecoration(
+        color: AppColors.yellow,
+        borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
+      ),
+      child: (controller.localParties?.length ?? 0) == 0
+          ? Center(
+              child: Padding(
+                  padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
+                  child: AppTexts.regular(
+                      //TODO: change quote
+                      S.of(Get.context!).resultsPage7NoLocalCandidates(
+                          controller.countryName),
+                      color: AppColors.primary)),
+            )
+          : ListView.separated(
+              shrinkWrap: true,
+              physics: BouncingScrollPhysics(),
+              separatorBuilder: (context, index) => CustomDivider(
+                paddingValue: AppDimens.bigLateralPaddingValue,
+              ),
+              itemCount: controller.localParties?.length ?? 0,
+              itemBuilder: (context, i) => _CandidatesTile(
+                candidate: controller.localParties?[i] ?? LocalParties(),
+              ),
             ),
-            CustomButton(
-              onPressed: controller.launchUrl,
-              text: S.of(context).resultsPage7YesButton,
-              //Default parameters
-              border: ButtonBorderParameters(),
-            ),
-          ],
-        ),
-        CustomSpacer(multiplier: 2),
-      ],
+    );
+  }
+}
+
+class _CandidatesTile extends StatelessWidget {
+  const _CandidatesTile({
+    required this.candidate,
+  });
+  final LocalParties candidate;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      minVerticalPadding: AppDimens.bigLateralPaddingValue,
+      leading: CustomNetworkImage(
+        imageUrl: candidate.logo ?? '',
+        height: AppDimens.avatarImageSize,
+        isAvatar: true,
+      ),
+      minLeadingWidth: AppDimens.avatarImageSize * 1.2,
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: AppDimens.bigLateralPaddingValue,
+      ),
+      title: AppTexts.small(candidate.acronym ?? '', color: AppColors.primary),
+      subtitle: AppTexts.regular(candidate.name ?? '',
+          bold: true, color: AppColors.primary),
     );
   }
 }

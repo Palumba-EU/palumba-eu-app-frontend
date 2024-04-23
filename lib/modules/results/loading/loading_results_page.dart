@@ -97,8 +97,8 @@ class LoadingResultsPage extends StatelessWidget {
                           .matrix4,
                       child: FittedBox(
                           fit: BoxFit.fitWidth,
-                          child:
-                              SvgPicture.asset('assets/images/ic_compass.svg')),
+                          child: SvgPicture.asset(
+                              'assets/images/ic_compass_big.svg')),
                     ),
                   ),
                 )

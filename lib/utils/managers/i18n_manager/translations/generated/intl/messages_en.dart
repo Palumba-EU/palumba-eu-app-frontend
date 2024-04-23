@@ -101,24 +101,30 @@ class MessageLookup extends MessageLookupByLibrary {
             "and you, it’s really a Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Your compatibility with the European Parliament Groups"),
-        "resultsPage4Text": MessageLookupByLibrary.simpleMessage(
-            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
-        "resultsPage4Title": MessageLookupByLibrary.simpleMessage(
-            "Okay, it’s cool knowing which group gets you..."),
+        "resultsPage4TitleBottom":
+            MessageLookupByLibrary.simpleMessage("Anti-EU Integration"),
+        "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
+        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
+        "resultsPage4TitleTop":
+            MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
         "resultsPage5Text": MessageLookupByLibrary.simpleMessage(
             "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "But at the EU Elections, you vote for a local list"),
-        "resultsPage6Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "Disclaimer about the order of the lists / temp. localization"),
-        "resultsPage6NoLocalCandidates": m2,
+            "Okay, it’s cool knowing which group gets you..."),
+        "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
-            "These are the matching Local Candidate lists in your country "),
-        "resultsPage7NopButton":
-            MessageLookupByLibrary.simpleMessage("I\'m all good!"),
+            "But at the EU Elections, you vote for a local list"),
+        "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
+            "Disclaimer about the order of the lists / temp. localization"),
+        "resultsPage7NoLocalCandidates": m2,
         "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
+            "These are the matching Local Candidate lists in your country "),
+        "resultsPage8NopButton":
+            MessageLookupByLibrary.simpleMessage("I\'m all good!"),
+        "resultsPage8Title": MessageLookupByLibrary.simpleMessage(
             "Would you like to receive a notification when it’s time to vote?"),
-        "resultsPage7YesButton":
+        "resultsPage8YesButton":
             MessageLookupByLibrary.simpleMessage("Yesssss"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
         "resultsSocialShareData": m3,

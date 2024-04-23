@@ -15,6 +15,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_5.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -38,13 +39,14 @@ class ResultsController extends GetxController {
     ResultsPage5(),
     ResultsPage6(),
     ResultsPage7(),
+    ResultsPage8(),
   ];
 
   List<CustomChartData> chartData = [];
 
   UserData get userData => UserManager.userData;
 
-  List<int> showButtonSharePages = [1, 2, 5];
+  List<int> showButtonSharePages = [1, 2, 3, 5];
 
   RxInt _currentPage = 0.obs;
   int get currentPage => _currentPage.value;
@@ -58,7 +60,7 @@ class ResultsController extends GetxController {
       _maxPercentagePoliticParty ??
       (_resultsData.isEmpty ? null : _resultsData.first);
 
-  bool get isSpecialPage => _currentPage.value == 3 || _currentPage.value == 4;
+  bool get isSpecialPage => _currentPage.value == 4 || _currentPage.value == 5;
 
   //TODO: add your country translation
   String get countryName => UserManager.userCountry?.name ?? 'Your country';

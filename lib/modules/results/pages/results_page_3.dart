@@ -45,18 +45,22 @@ class ResultsPage3 extends GetView<ResultsController> {
                       }),
                 ),
               ),
-              SizedBox(
-                width: Get.width * .5,
-                child: Padding(
-                  padding: EdgeInsets.only(right: 18),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: CustomHemicycleChart(
-                      arcDiameter: Get.width * .85,
-                      charts: controller.chartData,
-                    ),
-                  ),
-                ),
+              Obx(
+                () => controller.currentPage != 2
+                    ? SizedBox.shrink()
+                    : SizedBox(
+                        width: Get.width * .5,
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 18),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: CustomHemicycleChart(
+                              arcDiameter: Get.width * .85,
+                              charts: controller.chartData,
+                            ),
+                          ),
+                        ),
+                      ),
               ),
             ],
           ),
