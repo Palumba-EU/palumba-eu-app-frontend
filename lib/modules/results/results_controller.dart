@@ -1,4 +1,7 @@
 import 'dart:math';
+import 'dart:ui' as ui;
+import 'package:fl_chart/fl_chart.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
+import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
@@ -65,6 +69,8 @@ class ResultsController extends GetxController {
   //TODO: add your country translation
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
+  List<ScatterSpot> scatterSpots = [];
+
   @override
   void onInit() {
     _getArguments();
@@ -103,6 +109,7 @@ class ResultsController extends GetxController {
       //ATTENTION! Make sure to order list by value, from mayor to minor, before user it. If not chart will not work
       chartData.sort((b, a) => a.value.compareTo(b.value));
       _maxPercentagePoliticParty = getMajorPercentageParty();
+      getScatterPoints();
     }
   }
 
@@ -179,5 +186,33 @@ class ResultsController extends GetxController {
         "*${maxPercentagePoliticParty?.party.name ?? '-'}*",
         "*${maxPercentagePoliticParty?.percentage ?? '-'}*");
     Share.share(sharedText);
+  }
+
+  //Convert svg to image
+  Future<ui.Image> loadSvg(String url) async {
+    final response = await http.get(Uri.parse(url));
+    final String rawSvg = response.body.toString();
+
+    final pictureInfo = await vg.loadPicture(SvgStringLoader(rawSvg), null);
+    final ui.Image image = await pictureInfo.picture.toImage(65, 65);
+
+    pictureInfo.picture.dispose();
+
+    return image;
+  }
+
+  void getScatterPoints() async {
+    double count = -1;
+    for (var data in _resultsData) {
+      //TODO: add real data
+      count = count + .2;
+      final ui.Image image = await loadSvg(data.party.logo ?? '');
+      scatterSpots.add(ScatterSpot(count, -1,
+          dotPainter: FlDotCirclePainterCustom(
+            image: image,
+            color: Colors.transparent,
+            radius: 15,
+          )));
+    }
   }
 }

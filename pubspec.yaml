@@ -35,6 +35,8 @@ dependencies:
   path_drawing: ^1.0.1
   flutter_launcher_icons: ^0.13.1
   flutter_widget_from_html_core: ^0.14.11
+  fl_chart: ^0.67.0
+  syncfusion_flutter_charts: ^25.1.41
 
   # Localization Modules
   intl: ^0.18.1
