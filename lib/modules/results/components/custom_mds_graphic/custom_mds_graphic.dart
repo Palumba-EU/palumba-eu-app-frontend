@@ -35,7 +35,9 @@ class CustomMDSGraphic extends StatelessWidget {
             Padding(
               padding: padding,
               child: DottedContainer(
-                  width: width, height: height, pointColor: pointColor),
+                  width: double.infinity,
+                  height: double.infinity,
+                  pointColor: pointColor),
             ),
             Padding(
               padding: padding,
