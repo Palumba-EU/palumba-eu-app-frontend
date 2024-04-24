@@ -50,7 +50,7 @@ class CustomHemicycleChart extends StatelessWidget {
           imageUrl: charts?[i].image ?? '',
         ),
       ));
-    return SizedBox(
+    return Container(
       height: arcDiameter,
       child: Stack(
         alignment: Alignment.center,

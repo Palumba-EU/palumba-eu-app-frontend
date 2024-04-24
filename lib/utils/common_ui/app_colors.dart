@@ -25,4 +25,6 @@ class AppColors {
   static const Color whiteButton = Colors.white;
 
   static const Color text = Colors.white;
+
+  static const Color lightBlue = Color(0xFFB2D1DE);
 }

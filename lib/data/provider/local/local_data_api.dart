@@ -13,7 +13,7 @@ class LocalDataAPI {
   setLanguage(value) async => await setString(_sk.language, value);
   Future<String?> get getLanguage async => await getString(_sk.language);
 
-  setResults(value) async => await setString(_sk.results, value);
+  setResults(value) async => await setString(_sk.results, jsonEncode(value));
   Future<String?> get getResults async => await (await getString(_sk.results));
 
   //Methods store and obtain

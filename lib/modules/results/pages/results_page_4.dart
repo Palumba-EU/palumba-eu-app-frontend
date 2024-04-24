@@ -1,4 +1,3 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -18,11 +17,13 @@ class ResultsPage4 extends GetView<ResultsController> {
         children: [
           CustomSpacer(multiplier: 3),
           //TODO: add mds graphic
-          IgnorePointer(
-            child: CustomMDSGraphic(
-              height: Get.height * .6,
-              width: Get.width * .9,
-              scatterSpots: controller.scatterSpots,
+          Obx(
+            () => IgnorePointer(
+              child: CustomMDSGraphic(
+                height: Get.height * .6,
+                width: Get.width * .9,
+                scatterSpots: controller.scatterSpots.value,
+              ),
             ),
           ),
           CustomSpacer(

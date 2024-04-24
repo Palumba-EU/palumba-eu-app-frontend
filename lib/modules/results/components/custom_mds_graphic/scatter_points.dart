@@ -2,6 +2,9 @@ import 'dart:ui' as ui;
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class MyScatterChart extends StatelessWidget {
   final List<ScatterSpot> scatterSpots;
@@ -58,6 +61,7 @@ class FlDotCirclePainterCustom extends FlDotPainter {
     this.strokeColor = const Color.fromRGBO(76, 175, 80, 1),
     this.strokeWidth = 0.0,
     this.image,
+    this.imageRounded = true,
   }) : radius = radius ?? 4.0;
 
   /// The fill color to use for the circle
@@ -74,6 +78,8 @@ class FlDotCirclePainterCustom extends FlDotPainter {
 
   /// The image to use for the circle
   ui.Image? image;
+
+  bool imageRounded;
 
   /// Implementation of the parent class to draw the circle
   @override
@@ -95,8 +101,32 @@ class FlDotCirclePainterCustom extends FlDotPainter {
           0, 0, image!.width.toDouble(), image!.height.toDouble());
       final clipOval = Path()..addOval(rect);
       canvas.save();
-      canvas.clipPath(clipOval);
-      canvas.drawImageRect(image!, imageRect, rect, paint);
+      if (imageRounded) {
+        canvas.clipPath(clipOval);
+        canvas.drawImageRect(image!, imageRect, rect, paint);
+      } else {
+        canvas.drawImage(image!, offsetInCanvas, paint);
+        // Add text below the image
+        final paragraphStyle = ui.ParagraphStyle(
+          textDirection: TextDirection.ltr,
+        );
+        final paragraphBuilder = ui.ParagraphBuilder(paragraphStyle)
+          ..pushStyle(ui.TextStyle(
+              color: AppColors.lightBlue,
+              fontWeight:
+                  FontWeight.bold)) // Change color to red and make it bold
+          ..addText(S.of(Get.context!).resultsPage4TitleUserHere);
+        final constraints = ui.ParagraphConstraints(width: 300);
+        final paragraph = paragraphBuilder.build();
+        paragraph.layout(constraints);
+        final offset = Offset(
+            offsetInCanvas.dx - 10,
+            offsetInCanvas.dy +
+                radius +
+                30); // Increase the padding from 10 to 20
+        canvas.drawParagraph(paragraph, offset);
+      }
+
       canvas.restore();
     } else {
       canvas.drawCircle(

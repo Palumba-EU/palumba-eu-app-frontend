@@ -12,8 +12,7 @@ import 'modules/splash/splash_binding.dart';
 import 'utils/common_ui/app_theme_data.dart';
 
 class EnvironmentConfig {
-  static const environment =
-      String.fromEnvironment('ENV', defaultValue: 'prod');
+  static const environment = String.fromEnvironment('ENV', defaultValue: 'dev');
 
   static bool get isDevelopmentMode => environment == 'dev';
 }

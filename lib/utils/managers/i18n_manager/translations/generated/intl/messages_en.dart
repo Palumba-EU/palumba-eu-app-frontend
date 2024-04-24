@@ -107,6 +107,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
         "resultsPage4TitleTop":
             MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
+        "resultsPage4TitleUserHere":
+            MessageLookupByLibrary.simpleMessage("It’s you, hi!"),
         "resultsPage5Text": MessageLookupByLibrary.simpleMessage(
             "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(

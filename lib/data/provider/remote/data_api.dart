@@ -23,7 +23,7 @@ class DataAPI {
   final resultsEndpoint = '/results';
   final responseEndpoint = '/responses';
 
-  final langCode = '';//'/api/${LanguageManager.currentLanguage}';
+  final langCode = ''; //'/api/${LanguageManager.currentLanguage}';
 
   Future<LocalizationData?> fetchLocalizations() async {
     try {

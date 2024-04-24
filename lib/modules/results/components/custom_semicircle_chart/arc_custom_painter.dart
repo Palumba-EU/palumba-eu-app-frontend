@@ -106,7 +106,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
               ),
             );
           } else {
-            return SizedBox.expand();
+            return SizedBox.shrink();
           }
         });
   }

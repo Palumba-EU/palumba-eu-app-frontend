@@ -1,6 +1,8 @@
 import 'dart:math';
+import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
@@ -69,7 +71,7 @@ class ResultsController extends GetxController {
   //TODO: add your country translation
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
-  List<ScatterSpot> scatterSpots = [];
+  RxList<ScatterSpot> scatterSpots = <ScatterSpot>[].obs;
 
   @override
   void onInit() {
@@ -203,16 +205,33 @@ class ResultsController extends GetxController {
 
   void getScatterPoints() async {
     double count = -1;
+    //This is user scatter point
+    scatterSpots.add(ScatterSpot(.4, -.5,
+        dotPainter: FlDotCirclePainterCustom(
+            image: await loadAssetImage('palumba_badge_heart_small'),
+            radius: 2,
+            imageRounded: false)));
+
+    //This are parties Scatter points
     for (var data in _resultsData) {
       //TODO: add real data
       count = count + .2;
       final ui.Image image = await loadSvg(data.party.logo ?? '');
-      scatterSpots.add(ScatterSpot(count, -1,
+      scatterSpots.add(ScatterSpot(count, count,
           dotPainter: FlDotCirclePainterCustom(
             image: image,
             color: Colors.transparent,
             radius: 15,
           )));
     }
+  }
+
+  Future<ui.Image> loadAssetImage(String asset) async {
+    final bytes = await rootBundle.load('assets/images/${asset}.png');
+
+    final codec = await ui.instantiateImageCodec(bytes.buffer.asUint8List());
+    final frame = await codec.getNextFrame();
+
+    return frame.image;
   }
 }

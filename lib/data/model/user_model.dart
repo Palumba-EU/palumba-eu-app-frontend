@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 enum StatementResponse {
   stronglyDisagree, // -1
   disagree, // -0.5
@@ -17,7 +16,7 @@ String userDataToJson(UserData data) => json.encode(data.toJson());
 class UserData {
   int? age;
   int? countryId;
-  int? languageId;
+  String? languageId;
   String? gender;
   List<Answer> answers;
 

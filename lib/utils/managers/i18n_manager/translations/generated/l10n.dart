@@ -590,6 +590,16 @@ class S {
     );
   }
 
+  /// `It’s you, hi!`
+  String get resultsPage4TitleUserHere {
+    return Intl.message(
+      'It’s you, hi!',
+      name: 'resultsPage4TitleUserHere',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `But at the EU Elections, you vote for a local list`
   String get resultsPage6Title {
     return Intl.message(
