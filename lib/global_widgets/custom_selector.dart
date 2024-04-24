@@ -30,7 +30,9 @@ class CustomSelector extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
           ),
-          side: BorderSide.none,
+          side: BorderSide(
+              width: AppDimens.borderWidth,
+              color: selected ? AppColors.lightYellow : Colors.transparent),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -44,7 +46,7 @@ class CustomSelector extends StatelessWidget {
                 : const SizedBox.shrink(),
             Expanded(
                 child: AppTexts.regular(title,
-                    bold: selected, color: AppColors.primary)),
+                    black:selected, color: AppColors.primary)),
             CustomHorizontalSpacer(),
             Container(
               height: 16,
@@ -52,7 +54,10 @@ class CustomSelector extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                      color: AppColors.primary, width: AppDimens.borderWidth),
+                      color: selected
+                          ? AppColors.primary
+                          : AppColors.lightPrimary,
+                      width: AppDimens.borderWidth),
                   color: selected ? AppColors.primary : Colors.transparent),
             ),
           ],

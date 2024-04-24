@@ -20,27 +20,27 @@ class ResultsPage2 extends GetView<ResultsController> {
       child: Column(
         children: [
           CustomSpacer(multiplier: 3),
-          SizedBox(
-            height: Get.width * .82,
-            child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: CustomNetworkImage(
-                    width: Get.width * .65,
-                    height: Get.width * .65,
-                    isSvg: true,
-                    imageUrl:
-                        controller.maxPercentagePoliticParty?.party.logo ?? '',
-                    radius: Get.width,
-                    color: AppColors.secondary,
-                  ),
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(bottom: 50),
+                child: CustomNetworkImage(
+                  width: Get.width * .65,
+                  height: Get.width * .65,
+                  isSvg: true,
+                  imageUrl:
+                      controller.maxPercentagePoliticParty?.party.logo ?? '',
+                  radius: Get.width,
+                  color: AppColors.blue,
                 ),
-                Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Image.asset('assets/images/palumba_badge_heart.png'))
-              ],
-            ),
+              ),
+              Image.asset(
+                'assets/images/palumba_badge_heart.png',
+                height: 100,
+                fit: BoxFit.fitWidth,
+              )
+            ],
           ),
           CustomSpacer(multiplier: 2),
           Padding(
@@ -80,7 +80,6 @@ class ResultsPage2 extends GetView<ResultsController> {
                         TextSpan(
                           text:
                               ' ${controller.maxPercentagePoliticParty?.percentage}% ',
-                          //' ${controller.getFisrtParty()?.value}', //TODO: put api data ,
                           style: AppTexts.customTextStyle(AppTextType.regular,
                               color: controller.getFirstPartyColor(),
                               bold: true),

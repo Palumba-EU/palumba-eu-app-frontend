@@ -34,7 +34,7 @@ class CustomGenderSelector extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            AppTexts.regular(title, bold: true, color: AppColors.primary),
+            AppTexts.regular(title, black:true, color: AppColors.primary),
             CustomHorizontalSpacer(),
             Container(
               height: 16,

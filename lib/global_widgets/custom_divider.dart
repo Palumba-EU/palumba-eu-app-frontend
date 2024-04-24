@@ -19,7 +19,7 @@ class CustomDivider extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: AppColors.whiteButton.withOpacity(.5),
+            color: Colors.white.withOpacity(.5),
             width: width ?? 3,
           ),
         ),

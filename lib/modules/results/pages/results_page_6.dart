@@ -97,7 +97,7 @@ class _CandidatesTile extends StatelessWidget {
       ),
       title: AppTexts.small(candidate.acronym ?? '', color: AppColors.primary),
       subtitle: AppTexts.regular(candidate.name ?? '',
-          bold: true, color: AppColors.primary),
+          black:true, color: AppColors.primary),
     );
   }
 }

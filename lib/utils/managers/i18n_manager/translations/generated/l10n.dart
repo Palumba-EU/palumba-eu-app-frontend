@@ -190,13 +190,13 @@ class S {
     );
   }
 
-  /// `{count} matches found in the last {time}h`
-  String entranceMatchesFoundQuote(Object count, Object time) {
+  /// `{count} matches found in the last 24h`
+  String entranceMatchesFoundQuote(Object count) {
     return Intl.message(
-      '$count matches found in the last ${time}h',
+      '$count matches found in the last 24h',
       name: 'entranceMatchesFoundQuote',
       desc: '',
-      args: [count, time],
+      args: [count],
     );
   }
 
@@ -440,16 +440,6 @@ class S {
     );
   }
 
-  /// `Almost ready,\none last check...`
-  String get loadingResultsPageTitle5 {
-    return Intl.message(
-      'Almost ready,\none last check...',
-      name: 'loadingResultsPageTitle5',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `We found you a match!`
   String get resultsPage1Title {
     return Intl.message(
@@ -480,10 +470,10 @@ class S {
     );
   }
 
-  /// `Share`
+  /// `Share (coming soon ⏳)`
   String get resultsShare {
     return Intl.message(
-      'Share',
+      'Share (coming soon ⏳)',
       name: 'resultsShare',
       desc: '',
       args: [],
@@ -630,13 +620,23 @@ class S {
     );
   }
 
-  /// `If this cute pigeon can’t helpyou vote in June, nothing will.`
-  String get homePageTitle {
+  /// `If this cute pigeon can’t help you vote in June, nothing will.`
+  String get homePageText {
     return Intl.message(
-      'If this cute pigeon can’t helpyou vote in June, nothing will.',
-      name: 'homePageTitle',
+      'If this cute pigeon can’t help you vote in June, nothing will.',
+      name: 'homePageText',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `{count} matches found in the last 24h`
+  String homePageMatchesFoundQuote(Object count) {
+    return Intl.message(
+      '$count matches found in the last 24h',
+      name: 'homePageMatchesFoundQuote',
+      desc: '',
+      args: [count],
     );
   }
 

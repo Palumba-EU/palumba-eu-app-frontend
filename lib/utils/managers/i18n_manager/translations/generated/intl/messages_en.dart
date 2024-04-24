@@ -20,13 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(count, time) =>
-      "${count} matches found in the last ${time}h";
+  static String m0(count) => "${count} matches found in the last 24h";
 
-  static String m1(country) =>
+  static String m1(count) => "${count} matches found in the last 24h";
+
+  static String m2(country) =>
       "Finding matches with candidates lists in ${country}  🔍";
 
-  static String m2(country) => "No local parties found in ${country}";
+  static String m3(country) => "No local parties found in ${country}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -45,10 +46,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
         "homePageBackToResults": MessageLookupByLibrary.simpleMessage(
             "My results · Back to the test"),
+        "homePageMatchesFoundQuote": m1,
         "homePageStartButton":
             MessageLookupByLibrary.simpleMessage("Start a new test"),
-        "homePageTitle": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t helpyou vote in June, nothing will."),
+        "homePageText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can’t help you vote in June, nothing will."),
         "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "This can be changed later in settings."),
@@ -58,10 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your personalised results are on their way :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
             "This shall be quicker than getting Taylor Swift tickets 👀 "),
-        "loadingResultsPageTitle3": m1,
+        "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Almost ready,\none last check..."),
-        "loadingResultsPageTitle5": MessageLookupByLibrary.simpleMessage(
             "Almost ready,\none last check..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
@@ -108,7 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "But at the EU Elections, you vote for a local list"),
         "resultsPage6Disclaimer": MessageLookupByLibrary.simpleMessage(
             "Disclaimer about the order of the lists / temp. localization"),
-        "resultsPage6NoLocalCandidates": m2,
+        "resultsPage6NoLocalCandidates": m3,
         "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
             "These are the matching Local Candidate lists in your country "),
         "resultsPage7NopButton":
@@ -117,7 +117,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Would you like to receive a notification when it’s time to vote?"),
         "resultsPage7YesButton":
             MessageLookupByLibrary.simpleMessage("Yesssss"),
-        "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
+        "resultsShare":
+            MessageLookupByLibrary.simpleMessage("Share (coming soon ⏳)"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),

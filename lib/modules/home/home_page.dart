@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                           //TODO: Implement
                         },
                         child: AppTexts.regular('FAQ',
-                            bold: true, color: AppColors.primary),
+                            black: true, color: AppColors.primary),
                       ),
                       TextButton(
                         onPressed: () {
@@ -63,7 +63,8 @@ class HomePage extends StatelessWidget {
   Column _buttons(BuildContext context) {
     return Column(
       children: [
-        AppTexts.small(S.of(context).entranceMatchesFoundQuote('10,365', '24'),
+        //TODO: Get the real number of matches from api
+        AppTexts.small(S.of(context).homePageMatchesFoundQuote('X'),
             textAlign: TextAlign.center, color: AppColors.primary),
         CustomSpacer(),
         CustomButton(
@@ -112,7 +113,7 @@ class HomePage extends StatelessWidget {
                 child: PageView.builder(
                   scrollDirection: Axis.horizontal,
                   controller: _.pageController,
-                  itemCount: 3, //TODO: Get the real number of pages
+                  itemCount: 3,
                   itemBuilder: (context, index) => Column(
                     children: [
                       Expanded(
@@ -128,7 +129,7 @@ class HomePage extends StatelessWidget {
                             Padding(
                               padding: AppDimens.lateralPadding,
                               child: AppTexts.small(
-                                S.of(context).entranceTitle,
+                                S.of(context).homePageText,
                                 textAlign: TextAlign.center,
                                 bold: true,
                                 color: AppColors.primary,
@@ -144,7 +145,7 @@ class HomePage extends StatelessWidget {
               ),
               SmoothPageIndicator(
                 controller: _.pageController,
-                count: 3, //TODO: Get the real number of pages
+                count: 3,
                 effect: WormEffect(
                   dotWidth: 10,
                   dotHeight: 10,

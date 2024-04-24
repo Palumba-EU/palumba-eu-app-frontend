@@ -28,7 +28,7 @@ class EntrancePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _buildHeader(context),
+              _buildHeader(context, _),
               _buildBody(_),
               _buildFooter(context, _)
             ],
@@ -43,10 +43,8 @@ class EntrancePage extends StatelessWidget {
         children: [
           CustomSpacer(),
           //TODO: Get the real number of matches from api
-          AppTexts.small(
-              S.of(context).entranceMatchesFoundQuote('10,365', '24'),
-              textAlign: TextAlign.center,
-              color: AppColors.primary),
+          AppTexts.small(S.of(context).entranceMatchesFoundQuote('X'),
+              textAlign: TextAlign.center, color: AppColors.primary),
           CustomSpacer(),
           CustomButton(
             onPressed: () {
@@ -72,7 +70,7 @@ class EntrancePage extends StatelessWidget {
             child: PageView.builder(
               scrollDirection: Axis.horizontal,
               controller: _.pageController,
-              itemCount: 3, //TODO: Get the real number of pages
+              itemCount: 3,
               itemBuilder: (context, index) => Column(
                 children: [
                   Padding(
@@ -94,7 +92,7 @@ class EntrancePage extends StatelessWidget {
           CustomSpacer(),
           SmoothPageIndicator(
             controller: _.pageController,
-            count: 3, //TODO: Get the real number of pages
+            count: 3,
             effect: WormEffect(
               dotWidth: 10,
               dotHeight: 10,
@@ -110,7 +108,7 @@ class EntrancePage extends StatelessWidget {
     );
   }
 
-  Padding _buildHeader(BuildContext context) {
+  Padding _buildHeader(BuildContext context, EntranceController _) {
     return Padding(
       padding: AppDimens.lateralPadding,
       child: Column(
@@ -121,11 +119,33 @@ class EntrancePage extends StatelessWidget {
               AppTexts.small("#" + S.of(context).shortAppName,
                   color: AppColors.primary),
               const Spacer(),
-              SvgPicture.asset('assets/images/ic_tiktok.svg'),
-              CustomHorizontalSpacer(),
-              SvgPicture.asset('assets/images/ic_instagram.svg'),
-              CustomHorizontalSpacer(),
-              SvgPicture.asset('assets/images/ic_twitter.svg'),
+              GestureDetector(
+                onTap: () {
+                  _.onTikTokTap();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: SvgPicture.asset('assets/images/ic_tiktok.svg'),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  _.onInstagramTap();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: SvgPicture.asset('assets/images/ic_instagram.svg'),
+                ),
+              ),
+              /*GestureDetector(
+                onTap: () {
+                  _.onTwitter();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: SvgPicture.asset('assets/images/ic_twitter.svg'),
+                ),
+              ),*/
             ],
           ),
           CustomSpacer(multiplier: 3),

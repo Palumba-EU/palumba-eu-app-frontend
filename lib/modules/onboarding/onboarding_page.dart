@@ -102,7 +102,7 @@ class OnboardingPage extends StatelessWidget {
                                 },
                                 child: AppTexts.regular(
                                     S.of(context).onBoardingNotAnswerButton,
-                                    bold: true,
+                                    black:true,
                                     color: AppColors.primary),
                               );
                             }),
@@ -150,7 +150,7 @@ class OnboardingPage extends StatelessWidget {
                   height: _.height.value,
                   margin: _.margin.value,
                   decoration: BoxDecoration(
-                      color: AppColors.secondary,
+                      color: AppColors.blue,
                       borderRadius: BorderRadius.only(
                           bottomLeft: _.radius.value,
                           bottomRight: _.radius.value)),
@@ -201,7 +201,7 @@ class OnboardingPage extends StatelessWidget {
                               child: CustomContainerCurve(
                                 height: Get.height * .82,
                                 curveRadius: 200,
-                                color: AppColors.secondary,
+                                color: AppColors.blue,
                               ),
                             ),
                           ),

@@ -25,7 +25,7 @@ class ResultsPage extends GetView<ResultsController> {
                 duration: Durations.medium2,
                 opacity: controller.isSpecialPage ? 1 : 0,
                 child: Container(
-                  color: AppColors.secondary,
+                  color: AppColors.blue,
                 ),
               ),
             ),
@@ -110,14 +110,16 @@ class ResultsPage extends GetView<ResultsController> {
                           text: S.of(context).resultsShare,
                           expanded: true,
                           onPressed: () {},
-                          prefixIcon:
-                              IconButtonParameters('ic_share', size: 18),
+                          prefixIcon: IconButtonParameters('ic_share',
+                              size: 18, color: Color(0XFFAEAEAE)),
                           radius: AppDimens.borderRadius,
-                          color: AppColors.yellow,
-                          textColor: AppColors.primary,
+                          color: Color(0XFF1F1F1F),
+                          textColor: Color(0XFFAEAEAE),
                           bold: true,
-                          border:
-                              ButtonBorderParameters(isOutside: true, width: 4),
+                          border: ButtonBorderParameters(
+                              isOutside: true,
+                              width: 3,
+                              color: Color(0XFFAEAEAE)),
                         ),
                       ),
                     )

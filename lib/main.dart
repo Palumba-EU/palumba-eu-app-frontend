@@ -1,4 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:palumba_eu/modules/results/loading/loading_results_binding.dart';
+import 'package:palumba_eu/modules/results/loading/loading_results_page.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
@@ -73,7 +75,7 @@ class _MyApp extends State<MyApp> {
       title: 'Palumba',
       themeMode: ThemeMode.system,
       theme: AppThemeData.themeData(false),
-      darkTheme: AppThemeData.themeData(true),
+      darkTheme: AppThemeData.themeData(false),
       home: const SplashPage(),
       initialBinding: SplashBinding(),
       getPages: AppPages.pages,

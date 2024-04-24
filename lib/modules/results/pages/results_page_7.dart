@@ -55,7 +55,7 @@ class ResultsPage7 extends GetView<ResultsController> {
                 Get.toNamed(HomePageController.route);
               },
               child: AppTexts.regular(S.of(context).resultsPage7NopButton,
-                  bold: true, color: AppColors.primary),
+                  black:true, color: AppColors.primary),
             ),
             CustomButton(
               onPressed: controller.launchUrl,
