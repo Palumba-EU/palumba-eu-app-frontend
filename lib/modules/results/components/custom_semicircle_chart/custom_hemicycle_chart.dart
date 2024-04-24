@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:palumba_eu/modules/results/components/custom_semicircle_chart/hemicycle_base.dart';
 import 'package:palumba_eu/modules/results/models/custom_chart_data.dart';
@@ -18,16 +17,17 @@ class CustomHemicycleChart extends StatelessWidget {
   final double maxValue;
   final List<CustomChartData>? charts;
   double _customArcSizes(int index) {
+    final size = arcDiameter * .03;
     switch (index) {
       case 0:
-        return arcDiameter * .03;
+        return size;
       case 1:
-        return arcDiameter * .03 - 4;
+        return size - 4;
       case 2:
-        return arcDiameter * .03 - 6;
+        return size - 6;
 
       default:
-        return arcDiameter * .03 - 7;
+        return size - 7;
     }
   }
 

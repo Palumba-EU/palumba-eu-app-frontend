@@ -73,6 +73,8 @@ class ResultsController extends GetxController {
 
   RxList<ScatterSpot> scatterSpots = <ScatterSpot>[].obs;
 
+  bool get isTablet => Get.width >= 600;
+
   @override
   void onInit() {
     _getArguments();

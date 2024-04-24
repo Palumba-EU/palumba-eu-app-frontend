@@ -70,13 +70,15 @@ class HomePage extends StatelessWidget {
         CustomSpacer(),
         GetBuilder<HomePageController>(
           id: _.resultsExistsKey,
-          builder: (controller) => _.resultsData.isEmpty
+          builder: (controller) => _.resultsData.isEmpty && _.isTestRunning
               ? SizedBox.shrink()
               : CustomButton(
-                  text: S.of(context).homePageBackToResults,
+                  text: _.isTestRunning
+                      ? S.of(context).homePageBackToTest
+                      : S.of(context).homePageMyResults,
                   expanded: true,
                   onPressed: () {
-                    _.backToresults();
+                    _.backToresultsOrTest();
                   },
                   suffixIcon: IconButtonParameters('ic_arrow_right', size: 18),
                   radius: AppDimens.borderRadius,
@@ -90,9 +92,7 @@ class HomePage extends StatelessWidget {
         CustomButton(
           text: S.of(context).homePageStartButton,
           expanded: true,
-          onPressed: () {
-            Get.offAllNamed(StatementsController.route);
-          },
+          onPressed: _.goToFirstPage,
           suffixIcon: IconButtonParameters('ic_arrow_right',
               size: 18, color: AppColors.text),
           radius: AppDimens.borderRadius,

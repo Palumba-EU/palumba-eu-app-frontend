@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
@@ -16,19 +15,20 @@ class ResultsPage2 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = controller.isTablet;
     return SingleChildScrollView(
       child: Column(
         children: [
           CustomSpacer(multiplier: 3),
           SizedBox(
-            height: Get.width * .82,
+            height: Get.width * (isTablet ? .62 : .82),
             child: Stack(
               children: [
                 Align(
                   alignment: Alignment.topCenter,
                   child: CustomNetworkImage(
-                    width: Get.width * .65,
-                    height: Get.width * .65,
+                    width: Get.width * (isTablet ? .55 : .65),
+                    height: Get.width * (isTablet ? .55 : .65),
                     isSvg: true,
                     imageUrl:
                         controller.maxPercentagePoliticParty?.party.logo ?? '',

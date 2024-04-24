@@ -46,8 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "If this cute pigeon can’t help you vote in June, nothing will."),
         "france": MessageLookupByLibrary.simpleMessage("France"),
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
-        "homePageBackToResults": MessageLookupByLibrary.simpleMessage(
-            "My results · Back to the test"),
+        "homePageBackToTest":
+            MessageLookupByLibrary.simpleMessage("Back to the test"),
+        "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
         "homePageStartButton":
             MessageLookupByLibrary.simpleMessage("Start a new test"),
         "homePageTitle": MessageLookupByLibrary.simpleMessage(

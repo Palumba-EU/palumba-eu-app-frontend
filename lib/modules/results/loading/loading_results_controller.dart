@@ -30,6 +30,13 @@ class LoadingResultsController extends GetxController {
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
   @override
+  void onInit() {
+    //Set test finished
+    UserManager.setTestRuning(false);
+    super.onInit();
+  }
+
+  @override
   void onReady() {
     super.onReady();
     _init();

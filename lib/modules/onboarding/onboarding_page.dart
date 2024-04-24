@@ -215,8 +215,9 @@ class OnboardingPage extends StatelessWidget {
                                     cardOpacity: _.cardOpacity,
                                     cardAnimationDuration:
                                         _.cardAnimationDuration,
-                                    isOnboardingCard: true,
+                                    isOnboardingCard: _.isOnBoardingCard,
                                     isPanStarted: false.obs,
+                                    card: _.cardData,
                                   )
                                 : AnimatedContainer(
                                     duration: const Duration(milliseconds: 650),
@@ -229,8 +230,9 @@ class OnboardingPage extends StatelessWidget {
                                       cardOpacity: _.cardOpacity,
                                       cardAnimationDuration:
                                           _.cardAnimationDuration,
-                                      isOnboardingCard: true,
+                                      isOnboardingCard: _.isOnBoardingCard,
                                       isPanStarted: false.obs,
+                                      card: _.cardData,
                                     ),
                                   ),
                           ),

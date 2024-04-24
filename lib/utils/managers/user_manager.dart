@@ -13,6 +13,11 @@ class UserManager {
 
   static UserData userData = UserData(answers: []);
   static Country? userCountry;
+  static bool isTestRunning = false;
+
+  static setTestRuning(bool value) {
+    isTestRunning = value;
+  }
 
   static setCountryId(Country country) async {
     userCountry = country;

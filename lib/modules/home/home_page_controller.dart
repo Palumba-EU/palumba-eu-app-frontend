@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
+import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 class HomePageController extends GetxController {
@@ -17,6 +19,8 @@ class HomePageController extends GetxController {
   LocalDataRepository _localDataRepository = Get.find<LocalDataRepository>();
 
   List<Map> resultsData = [];
+
+  bool get isTestRunning => UserManager.isTestRunning;
 
   @override
   void onInit() {
@@ -41,7 +45,11 @@ class HomePageController extends GetxController {
     update([resultsExistsKey]);
   }
 
-  void backToresults() {
+  void backToresultsOrTest() {
+    if (isTestRunning) {
+      Get.back();
+      return;
+    }
     Get.toNamed(ResultsController.route, arguments: {
       StringUtils.resultsDataKey: resultsData,
     });
@@ -49,5 +57,9 @@ class HomePageController extends GetxController {
 
   void goToSettings() {
     Get.toNamed(OnboardingController.route);
+  }
+
+  void goToFirstPage() {
+    Get.offAllNamed(EntranceController.route);
   }
 }

@@ -93,7 +93,14 @@ class StatementsController extends GetxController {
     clearUserStoredStatements();
     _getArgumentsAndFetch();
     resetAnimation();
+    //Set test is started
+    UserManager.setTestRuning(true);
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 
   void clearUserStoredStatements() {

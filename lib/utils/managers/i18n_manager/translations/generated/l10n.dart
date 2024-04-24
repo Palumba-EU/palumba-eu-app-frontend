@@ -700,11 +700,21 @@ class S {
     );
   }
 
-  /// `My results · Back to the test`
-  String get homePageBackToResults {
+  /// `My results`
+  String get homePageMyResults {
     return Intl.message(
-      'My results · Back to the test',
-      name: 'homePageBackToResults',
+      'My results',
+      name: 'homePageMyResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to the test`
+  String get homePageBackToTest {
+    return Intl.message(
+      'Back to the test',
+      name: 'homePageBackToTest',
       desc: '',
       args: [],
     );
