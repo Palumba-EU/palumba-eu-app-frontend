@@ -1,0 +1,3 @@
+files:
+  - source: /lib/utils/managers/i18n_manager/translations/l10n
+    translation: intl_%two_letters_code%.arb
