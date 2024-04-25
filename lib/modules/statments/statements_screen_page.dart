@@ -5,6 +5,7 @@ import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
+import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -85,8 +86,17 @@ class StatementsPage extends GetView<StatementsController> {
                     ),
                   ),
           ),
+
+          Positioned(
+            top: Get.height * .14,
+            child: SizedBox(
+              height: Get.height * .5,
+              width: Get.width,
+              child: Stickers(),
+            ),
+          ),
           //Bird background image
-          ClipPath(
+          /*ClipPath(
             clipper: CustomContainerClipper(curveRadius: 200),
             child: SizedBox(
               height: Get.height * .82,
@@ -98,7 +108,7 @@ class StatementsPage extends GetView<StatementsController> {
                 ),
               ),
             ),
-          ),
+          ),*/
           //Card
           GetBuilder<StatementsController>(
             id: controller.cardStackKey,
