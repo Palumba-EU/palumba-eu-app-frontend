@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:palumba_eu/modules/results/components/custom_semicircle_chart/semicircle_base.dart';
+import 'package:palumba_eu/modules/results/components/custom_semicircle_chart/hemicycle_base.dart';
 import 'package:palumba_eu/modules/results/models/custom_chart_data.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
 import 'arc_custom_painter.dart';
 
-class CustomSemicircleChart extends StatelessWidget {
-  const CustomSemicircleChart(
+class CustomHemicycleChart extends StatelessWidget {
+  const CustomHemicycleChart(
       {super.key,
       required this.arcDiameter,
       this.maxValue = 100.0,
@@ -32,10 +33,7 @@ class CustomSemicircleChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //double initialFontSizeBig = AppDimens.fontSizeSmall * 1.5;
-    //double initialFontSizeSmall = AppDimens.fontSizeExtraSmall;
-
-    List<CustomChartData> reversedCharts = (charts ?? []).reversed.toList();
+    (charts ?? []).reversed.toList();
     List<Widget> arcLines = [];
     for (int i = 0; i < (charts?.length ?? 0); i++)
       arcLines.add(Positioned(
@@ -43,7 +41,7 @@ class CustomSemicircleChart extends StatelessWidget {
         bottom: 0,
         child: ArcLine(
           arcDiameter: arcDiameter - i * (arcDiameter / 7) + arcDiameter * .066,
-          lineWidth: _customArcSizes(i), //arcDiameter * .04 - (i + 1) * 4.5,
+          lineWidth: _customArcSizes(i),
           maxValue: maxValue,
           value: charts?[i].value ?? 0,
           text: charts?[i].party ?? '',
@@ -52,13 +50,13 @@ class CustomSemicircleChart extends StatelessWidget {
           imageUrl: charts?[i].image ?? '',
         ),
       ));
-    return SizedBox(
+    return Container(
       height: arcDiameter,
       child: Stack(
         alignment: Alignment.center,
         children: [
           //Add base
-          SemicircleBase(
+          HemicycleBase(
             arcDiameter: arcDiameter,
             color: AppColors.lightPrimary,
           ),

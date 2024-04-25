@@ -13,8 +13,7 @@ import 'utils/common_ui/app_theme_data.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 class EnvironmentConfig {
-  static const environment =
-      String.fromEnvironment('ENV', defaultValue: 'prod');
+  static const environment = String.fromEnvironment('ENV', defaultValue: 'dev');
 
   static bool get isDevelopmentMode => environment == 'dev';
 }

@@ -1,23 +1,36 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/modules/results/components/custom_mds_graphic/custom_mds_graphic.dart';
 
-import '../components/fake_dialog_page.dart';
+import '../results_controller.dart';
 
-class ResultsPage4 extends StatefulWidget {
+class ResultsPage4 extends GetView<ResultsController> {
   const ResultsPage4({super.key});
 
   @override
-  State<ResultsPage4> createState() => _ResultsPage4State();
-}
-
-class _ResultsPage4State extends State<ResultsPage4> {
-  @override
   Widget build(BuildContext context) {
-    return DialogApparencePage(
-      title: S.of(context).resultsPage4Title,
-      text: S.of(context).resultsPage4Text,
-      assetFront: 'img_hemicycle',
-      assetBack: 'img_hemicycle_bg',
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          CustomSpacer(multiplier: 3),
+          //TODO: add mds graphic
+          Obx(
+            () => IgnorePointer(
+              child: CustomMDSGraphic(
+                height: Get.height * .6,
+                width: Get.width * .9,
+                scatterSpots: controller.scatterSpots.value,
+              ),
+            ),
+          ),
+          CustomSpacer(
+            multiplier: 12,
+          ),
+        ],
+      ),
     );
   }
 }

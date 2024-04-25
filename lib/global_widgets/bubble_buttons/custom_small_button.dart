@@ -187,7 +187,7 @@ class _CustomSmallButtonSelectedPainter extends CustomPainter {
       {required this.curveRadius,
       required this.color,
       this.borderColor = Colors.white,
-      this.borderWidth = 2.0});
+      this.borderWidth = 4.0});
 
   @override
   void paint(Canvas canvas, Size size) {

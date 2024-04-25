@@ -8,7 +8,7 @@ import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
-import '../components/custom_semicircle_chart/custom_semicircle_chart.dart';
+import '../components/custom_semicircle_chart/custom_hemicycle_chart.dart';
 import '../results_controller.dart';
 
 class ResultsPage3 extends GetView<ResultsController> {
@@ -45,15 +45,22 @@ class ResultsPage3 extends GetView<ResultsController> {
                       }),
                 ),
               ),
-              SizedBox(
-                width: Get.width * .5,
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: CustomSemicircleChart(
-                    arcDiameter: Get.width * .85,
-                    charts: controller.chartData,
-                  ),
-                ),
+              Obx(
+                () => controller.currentPage != 2
+                    ? SizedBox.shrink()
+                    : SizedBox(
+                        width: Get.width * .5,
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 18),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: CustomHemicycleChart(
+                              arcDiameter: Get.width * .85,
+                              charts: controller.chartData,
+                            ),
+                          ),
+                        ),
+                      ),
               ),
             ],
           ),

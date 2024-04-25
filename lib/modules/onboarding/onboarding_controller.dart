@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
-import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -12,7 +13,10 @@ import 'package:palumba_eu/utils/string_utils.dart';
 class OnboardingController extends GetxController {
   static const route = '/onboarding';
 
-  final DataRepository _dataRepository = Get.find<DataRepository>();
+  //final DataRepository _dataRepository = Get.find<DataRepository>();
+
+  final LocalDataRepository _localDataRepository =
+      Get.find<LocalDataRepository>();
 
   final totalSteps = 4;
   RxInt currentStep = 1.obs;
@@ -125,6 +129,7 @@ class OnboardingController extends GetxController {
 
   void _fetchStatements() async {
     //Fetch statements data here to send to the next screen
+    /*
     final result = await _dataRepository.fetchStatements();
     if (result != null) {
       /*  print(_statements!.data!.first.details);
@@ -132,6 +137,7 @@ class OnboardingController extends GetxController {
       print(_statements!.data!.first.footnote);
       print(_statements!.data!.first.vector);*/
     }
+    */
   }
 
   void updateButtonState() {
@@ -142,7 +148,7 @@ class OnboardingController extends GetxController {
             currentStep.value == 3 && indexGenderSelected.value != -1;
   }
 
-  void updateBackgroundShape() {
+  void updateBackgroundShape() async {
     //Update the background shape
     bool isSmallScreen = Get.height < 800;
     var heightSize = Get.height;
@@ -165,6 +171,12 @@ class OnboardingController extends GetxController {
       height.value = Get.height;
       radius.value = Radius.circular(250);
       radius.value = Radius.zero;
+      final onBoarded = await _localDataRepository.onBoarded;
+      if (onBoarded == true) {
+        //If is already on boarded return to home page
+        Get.offAllNamed(HomePageController.route);
+        return;
+      }
       //When shape reach bottom of the screen we activate the rise card and buttons animation
       Future.delayed(Duration(milliseconds: 750), () async {
         _showFinalView.value = true;
@@ -191,6 +203,9 @@ class OnboardingController extends GetxController {
         await Future.delayed(Durations.long3);
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
+        //Set onBoarding as showed
+        _localDataRepository.onBoarded = true;
+
         //Finally when animation finish we navigate to statments screen
         Get.offAllNamed(StatementsController.route, arguments: {
           StringUtils.fromOnboardingKey: true,

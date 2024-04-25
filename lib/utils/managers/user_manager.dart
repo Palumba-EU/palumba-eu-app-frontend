@@ -19,7 +19,7 @@ class UserManager {
     userData.countryId = country.id;
   }
 
-  static setLanguageId(int langId) async {
+  static setLanguageId(String langId) async {
     userData.languageId = langId;
   }
 

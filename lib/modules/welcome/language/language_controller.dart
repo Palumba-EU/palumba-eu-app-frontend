@@ -22,7 +22,7 @@ class LanguageController extends GetxController {
   }
 
   void onContinueTap() {
-    UserManager.setLanguageId(languages![indexSelected.value].id!);
+    UserManager.setLanguageId(languages![indexSelected.value].id!.toString());
     LanguageManager.setLanguage(languages![indexSelected.value].languagecode!);
     Get.offAllNamed(EntranceController.route);
   }

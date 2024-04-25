@@ -531,29 +531,9 @@ class S {
   }
 
   /// `Okay, it’s cool knowing which group gets you...`
-  String get resultsPage4Title {
-    return Intl.message(
-      'Okay, it’s cool knowing which group gets you...',
-      name: 'resultsPage4Title',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
-  String get resultsPage4Text {
-    return Intl.message(
-      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
-      name: 'resultsPage4Text',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `But at the EU Elections, you vote for a local list`
   String get resultsPage5Title {
     return Intl.message(
-      'But at the EU Elections, you vote for a local list',
+      'Okay, it’s cool knowing which group gets you...',
       name: 'resultsPage5Title',
       desc: '',
       args: [],
@@ -570,63 +550,143 @@ class S {
     );
   }
 
-  /// `These are the matching Local Candidate lists in your country `
+  /// `Pro-EU Integration`
+  String get resultsPage4TitleTop {
+    return Intl.message(
+      'Pro-EU Integration',
+      name: 'resultsPage4TitleTop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Anti-EU Integration`
+  String get resultsPage4TitleBottom {
+    return Intl.message(
+      'Anti-EU Integration',
+      name: 'resultsPage4TitleBottom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Left`
+  String get resultsPage4TitleLeft {
+    return Intl.message(
+      'Left',
+      name: 'resultsPage4TitleLeft',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Right`
+  String get resultsPage4TitleRight {
+    return Intl.message(
+      'Right',
+      name: 'resultsPage4TitleRight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It’s you, hi!`
+  String get resultsPage4TitleUserHere {
+    return Intl.message(
+      'It’s you, hi!',
+      name: 'resultsPage4TitleUserHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `But at the EU Elections, you vote for a local list`
   String get resultsPage6Title {
     return Intl.message(
-      'These are the matching Local Candidate lists in your country ',
+      'But at the EU Elections, you vote for a local list',
       name: 'resultsPage6Title',
       desc: '',
       args: [],
     );
   }
 
-  /// `Disclaimer about the order of the lists / temp. localization`
-  String get resultsPage6Disclaimer {
+  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
+  String get resultsPage6Text {
     return Intl.message(
-      'Disclaimer about the order of the lists / temp. localization',
-      name: 'resultsPage6Disclaimer',
+      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
+      name: 'resultsPage6Text',
       desc: '',
       args: [],
     );
   }
 
-  /// `No local parties found in {country}`
-  String resultsPage6NoLocalCandidates(Object country) {
-    return Intl.message(
-      'No local parties found in $country',
-      name: 'resultsPage6NoLocalCandidates',
-      desc: '',
-      args: [country],
-    );
-  }
-
-  /// `Would you like to receive a notification when it’s time to vote?`
+  /// `These are the matching Local Candidate lists in your country `
   String get resultsPage7Title {
     return Intl.message(
-      'Would you like to receive a notification when it’s time to vote?',
+      'These are the matching Local Candidate lists in your country ',
       name: 'resultsPage7Title',
       desc: '',
       args: [],
     );
   }
 
+  /// `Disclaimer about the order of the lists / temp. localization`
+  String get resultsPage7Disclaimer {
+    return Intl.message(
+      'Disclaimer about the order of the lists / temp. localization',
+      name: 'resultsPage7Disclaimer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No local parties found in {country}`
+  String resultsPage7NoLocalCandidates(Object country) {
+    return Intl.message(
+      'No local parties found in $country',
+      name: 'resultsPage7NoLocalCandidates',
+      desc: '',
+      args: [country],
+    );
+  }
+
+  /// `Would you like to receive a notification when it’s time to vote?`
+  String get resultsPage8Title {
+    return Intl.message(
+      'Would you like to receive a notification when it’s time to vote?',
+      name: 'resultsPage8Title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `I'm all good!`
-  String get resultsPage7NopButton {
+  String get resultsPage8NopButton {
     return Intl.message(
       'I\'m all good!',
-      name: 'resultsPage7NopButton',
+      name: 'resultsPage8NopButton',
       desc: '',
       args: [],
     );
   }
 
   /// `Yesssss`
-  String get resultsPage7YesButton {
+  String get resultsPage8YesButton {
     return Intl.message(
       'Yesssss',
-      name: 'resultsPage7YesButton',
+      name: 'resultsPage8YesButton',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Me and {party} agreed on {percentage}% of all the statements you swiped on. Find out your match at palumba.eu`
+  String resultsSocialShareData(Object party, Object percentage) {
+    return Intl.message(
+      'Me and $party agreed on $percentage% of all the statements you swiped on. Find out your match at palumba.eu',
+      name: 'resultsSocialShareData',
+      desc: '',
+      args: [party, percentage],
     );
   }
 

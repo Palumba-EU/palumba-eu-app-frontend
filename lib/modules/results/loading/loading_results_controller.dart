@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
@@ -14,6 +14,9 @@ class LoadingResultsController extends GetxController {
   static const route = '/loading_results';
 
   final DataRepository _dataRepository = Get.find<DataRepository>();
+
+  final LocalDataRepository _localDataRepository =
+      Get.find<LocalDataRepository>();
 
   final totalSteps = 6;
 
@@ -40,9 +43,14 @@ class LoadingResultsController extends GetxController {
         currentStep.value = currentStep.value + 1;
       } else {
         timer.cancel();
+        final jsonListResults =
+            _partyUserDistanceList.map((e) => e.toJson()).toList();
+        //Store results as local data
+        _localDataRepository.results = jsonListResults;
+
+        //Navigate to results screen
         Get.offAllNamed(ResultsController.route, arguments: {
-          StringUtils.resultsDataKey:
-              _partyUserDistanceList.map((e) => e.toJson()).toList(),
+          StringUtils.resultsDataKey: jsonListResults,
         });
       }
     });
@@ -61,8 +69,14 @@ class LoadingResultsController extends GetxController {
 
     //Calculate distances percentage
     for (final PoliticParty party in _resultsData?.parties ?? []) {
+      final userAnswers = UserManager.userData.answers;
+      final partyAnswers = party.answers ?? [];
       //Calculate max distance
-      int numStatements = party.position?.length ?? 0;
+      final userAnswersNotSkipped = userAnswers
+          .where((element) => element.answer != StatementResponse.skip)
+          .toList();
+      int numStatements =
+          userAnswersNotSkipped.length; // party.answers?.length ?? 0;
       List<Answer> maxDisagreeAnswers = List<Answer>.generate(
           numStatements,
           (index) => Answer(
@@ -74,8 +88,7 @@ class LoadingResultsController extends GetxController {
       int maxDistance = calculateDistance(maxAgreeAnswers, maxDisagreeAnswers);
 
       //Calculate distance between user and party
-      final userAnswers = UserManager.userData.answers;
-      final partyAnswers = party.answers ?? [];
+
       final distance = calculateDistance(
         userAnswers,
         partyAnswers,
