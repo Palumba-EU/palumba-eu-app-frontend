@@ -314,6 +314,15 @@ class StatementsController extends GetxController {
         _disagrementButtonSelected.value = false;
         _agrementButtonSelected.value = false;
         _stronglyAgrementButtonSelected.value = false;
+        if (widthPart == _WidthScreenPart.maxRight) {
+          _neutralButtonSelected.value = false;
+          _stronglyAgrementButtonSelected.value = true;
+          return StatementResponse.stronglyAgree;
+        } else if (widthPart == _WidthScreenPart.maxLeft) {
+          _neutralButtonSelected.value = false;
+          _stronglyDisagrementButtonSelected.value = true;
+          return StatementResponse.stronglyDisagree;
+        }
         _neutralButtonSelected.value = true;
         return StatementResponse.neutral;
 
@@ -326,7 +335,6 @@ class StatementsController extends GetxController {
         return null;
     }
   }
-
 
 //Define wich part of the screen the user is dragging the card
   _WidthScreenPart currentWidthScreeenPart(double x) {
