@@ -52,7 +52,7 @@ class ResultsPage8 extends GetView<ResultsController> {
           children: [
             TextButton(
               onPressed: () {
-                Get.offAllNamed(HomePageController.route);
+               controller.launchHome();
               },
               child: AppTexts.regular(S.of(context).resultsPage8NopButton,
                   bold: true, color: AppColors.primary),

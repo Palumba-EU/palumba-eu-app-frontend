@@ -4,6 +4,8 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/string_utils.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class SettingsPageController extends GetxController {
   static const route = '/settings';
@@ -40,5 +42,13 @@ class SettingsPageController extends GetxController {
     if (result == true) {
       update([rebuildLanguageKey]);
     }
+  }
+
+  void launchPrivacyPoliciesUrl() {
+    Utils.launch(StringUtils.privacyStatementUrl);
+  }
+
+  void launchFaqUrl() {
+    Utils.launch(StringUtils.faqUrl);
   }
 }

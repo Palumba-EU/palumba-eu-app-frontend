@@ -182,6 +182,10 @@ class ResultsController extends GetxController {
 
   void launchUrl() {
     Utils.launch(StringUtils.electionsUrl(LanguageManager.currentLanguage));
+    launchHome();
+  }
+
+  void launchHome() {
     Get.offAllNamed(HomePageController.route);
   }
 

@@ -35,24 +35,51 @@ class EntrancePage extends StatelessWidget {
     );
   }
 
-  Padding _buildFooter(BuildContext context, EntranceController _) {
+  Padding _buildHeader(BuildContext context, EntranceController _) {
     return Padding(
       padding: AppDimens.lateralPadding,
       child: Column(
         children: [
-          CustomSpacer(),
-          //TODO: Get the real number of matches from api
-          AppTexts.small(S.of(context).entranceMatchesFoundQuote('X'),
-              textAlign: TextAlign.center, color: AppColors.primary),
-          CustomSpacer(),
-          CustomButton(
-            onPressed: () {
-              _.onContinueTap();
-            },
-            text: S.of(context).entranceStartButton,
-            expanded: true,
-            suffixIcon: IconButtonParameters('ic_arrow_right',
-                color: AppColors.primary),
+          Row(
+            children: [
+              CustomSpacer(multiplier: 6),
+              AppTexts.small("#" + S.of(context).shortAppName,
+                  color: AppColors.primary),
+              const Spacer(),
+              GestureDetector(
+                onTap: () {
+                  _.onTikTokTap();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: SvgPicture.asset(
+                    'assets/images/ic_tiktok.svg',
+                    height: 12,
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  _.onInstagramTap();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: SvgPicture.asset(
+                    'assets/images/ic_instagram.svg',
+                    height: 12,
+                  ),
+                ),
+              ),
+              /*GestureDetector(
+                onTap: () {
+                  _.onTwitter();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: SvgPicture.asset('assets/images/ic_twitter.svg'),
+                ),
+              ),*/
+            ],
           ),
           CustomSpacer(multiplier: 3),
         ],
@@ -115,51 +142,23 @@ class EntrancePage extends StatelessWidget {
     );
   }
 
-  Padding _buildHeader(BuildContext context, EntranceController _) {
+  Padding _buildFooter(BuildContext context, EntranceController _) {
     return Padding(
       padding: AppDimens.lateralPadding,
       child: Column(
         children: [
-          Row(
-            children: [
-              CustomSpacer(multiplier: 6),
-              AppTexts.small("#" + S.of(context).shortAppName,
-                  color: AppColors.primary),
-              const Spacer(),
-              GestureDetector(
-                onTap: () {
-                  _.onTikTokTap();
-                },
-                child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: SvgPicture.asset(
-                    'assets/images/ic_tiktok.svg',
-                    height: 12,
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  _.onInstagramTap();
-                },
-                child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: SvgPicture.asset(
-                    'assets/images/ic_instagram.svg',
-                    height: 12,
-                  ),
-                ),
-              ),
-              /*GestureDetector(
-                onTap: () {
-                  _.onTwitter();
-                },
-                child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: SvgPicture.asset('assets/images/ic_twitter.svg'),
-                ),
-              ),*/
-            ],
+          //TODO: Get the real number of matches from api
+          AppTexts.small(S.of(context).entranceMatchesFoundQuote('X'),
+              textAlign: TextAlign.center, color: AppColors.primary),
+          CustomSpacer(),
+          CustomButton(
+            onPressed: () {
+              _.onContinueTap();
+            },
+            text: S.of(context).entranceStartButton,
+            expanded: true,
+            suffixIcon: IconButtonParameters('ic_arrow_right',
+                color: AppColors.primary),
           ),
           CustomSpacer(multiplier: 3),
         ],

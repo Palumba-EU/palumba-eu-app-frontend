@@ -44,7 +44,7 @@ class SettingsPage extends StatelessWidget {
                       ),
                       Spacer(),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: _.launchPrivacyPoliciesUrl,
                         child: AppTexts.small(
                             S.of(context).settingsPagePrivacyPolicy,
                             color: AppColors.primary,
@@ -52,7 +52,7 @@ class SettingsPage extends StatelessWidget {
                       ),
                       CustomHorizontalSpacer(),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: _.launchFaqUrl,
                         child: AppTexts.regular(S.of(context).faq,
                             color: AppColors.primary, bold: true),
                       )

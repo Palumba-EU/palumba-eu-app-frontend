@@ -29,11 +29,6 @@ class HomePageController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
   Future<void> obtainLocalStoredLastResults() async {
     try {
       final jsonEncoded = await _localDataRepository.results;
@@ -46,7 +41,16 @@ class HomePageController extends GetxController {
     update([resultsExistsKey]);
   }
 
-  void backToresultsOrTest() {
+
+  void launchFaqUrl() {
+    Utils.launch(StringUtils.faqUrl);
+  }
+
+  void goToSettings() {
+    Get.toNamed(SettingsPageController.route);
+  }
+
+  void backToResultsOrTest() {
     if (isTestRunning) {
       Get.back();
       return;
@@ -56,15 +60,8 @@ class HomePageController extends GetxController {
     });
   }
 
-  void goToSettings() {
-    Get.toNamed(SettingsPageController.route);
-  }
-
   void startNewTest() {
     Get.offAllNamed(OnboardingController.route);
   }
 
-  void launchFaqUrl() {
-    Utils.launch(StringUtils.faqUrl);
-  }
 }
