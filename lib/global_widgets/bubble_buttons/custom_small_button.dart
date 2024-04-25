@@ -5,20 +5,24 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomSmallButtonCurve extends StatelessWidget {
-  const CustomSmallButtonCurve(
-      {Key? key,
-      required this.isSelected,
-      this.curveRadius = 200,
-      required this.icon,
-      required this.onTap,
-      this.flip = false})
-      : super(key: key);
+  const CustomSmallButtonCurve({
+    Key? key,
+    required this.isSelected,
+    this.curveRadius = 200,
+    required this.icon,
+    required this.onTap,
+    this.flip = false,
+    this.onLongPressEnd,
+    this.onLongPress,
+  }) : super(key: key);
 
   final bool isSelected;
   final double curveRadius;
   final String? icon;
   final bool flip;
   final Function() onTap;
+  final Function()? onLongPress;
+  final Function(LongPressEndDetails)? onLongPressEnd;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +38,8 @@ class CustomSmallButtonCurve extends StatelessWidget {
             height: double.infinity,
             child: GestureDetector(
               onTap: onTap,
+              onLongPress: onLongPress,
+              onLongPressEnd: onLongPressEnd,
               child: CustomPaint(
                 painter: _CustomSmallButtonPainter._CustomBigButtonPainter(
                     curveRadius: curveRadius,

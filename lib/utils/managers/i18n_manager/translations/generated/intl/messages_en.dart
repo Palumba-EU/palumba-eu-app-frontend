@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Start Palumba"),
         "entranceTitle": MessageLookupByLibrary.simpleMessage(
             "If this cute pigeon can’t help you vote in June, nothing will."),
+        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("France"),
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
         "homePageBackToTest":
@@ -72,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "I have no clue who to vote for at the 2024 European Elections"),
+        "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
+            "Swipe according to your agreement"),
         "onBoardingNotAnswerButton":
             MessageLookupByLibrary.simpleMessage("Prefer not to say"),
         "onBoardingStep1Subtitle":
@@ -132,6 +135,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
         "resultsSocialShareData": m3,
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "settingsPagePrivacyPolicy":
+            MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "settingsPageShareButtonText":
+            MessageLookupByLibrary.simpleMessage("Share the app with a friend"),
+        "settingsPageSubtitle1":
+            MessageLookupByLibrary.simpleMessage("Main Sponsors"),
+        "settingsPageSubtitle2":
+            MessageLookupByLibrary.simpleMessage("European Partners"),
+        "settingsPageSubtitle3":
+            MessageLookupByLibrary.simpleMessage("Academic Partner"),
+        "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
+            "National Institutional Partners"),
+        "settingsPageSubtitle5":
+            MessageLookupByLibrary.simpleMessage("Service Providers"),
+        "settingsPageSubtitleLanguage":
+            MessageLookupByLibrary.simpleMessage("I prefer to use this app in"),
+        "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
+            "Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved"),
+        "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
+            "To change the language, click on the current one"),
+        "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
+            "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels."),
+        "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("About"),
+        "settingsPageTitleAssociation":
+            MessageLookupByLibrary.simpleMessage("The association"),
+        "settingsPageTitleLanguage":
+            MessageLookupByLibrary.simpleMessage("Language"),
+        "settingsPageTitlePartners":
+            MessageLookupByLibrary.simpleMessage("Partners"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "spain": MessageLookupByLibrary.simpleMessage("Spain"),

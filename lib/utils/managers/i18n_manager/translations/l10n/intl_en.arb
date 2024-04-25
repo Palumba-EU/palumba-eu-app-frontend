@@ -11,6 +11,7 @@
   "alertServerErrorText": "Something has gone wrong on our side. Please try again later.",
   "skip": "Skip",
   "neutral": "Neutral",
+  "faq": "FAQ",
 
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Let’s continue in English? :)",
@@ -41,6 +42,7 @@
   "onBoardingStep3Option5": "Else",
   "onBoardingNotAnswerButton": "Prefer not to say",
   "onBoardingCardQuestion": "I have no clue who to vote for at the 2024 European Elections",
+  "onBoardingLastStepTitle": "Swipe according to your agreement",
 
   "@@LoadingResultsPage": "LoadingResultsPage",
   "loadingResultsPageTitle1": "Your personalised results are on their way :)",
@@ -79,5 +81,24 @@
   "homePageTitle": "If this cute pigeon can’t helpyou vote in June, nothing will.",
   "homePageMyResults": "My results",
   "homePageBackToTest": "Back to the test",
-  "homePageStartButton": "Start a new test"
+  "homePageStartButton": "Start a new test",
+
+  "@@SettingsPage": "SettingsPage",
+  "settingsPageTitleLanguage": "Language",
+  "settingsPageSubtitleLanguage": "I prefer to use this app in",
+  "settingsPageTextLanguage": "To change the language, click on the current one",
+  "settingsPageTitleAbout": "About",
+  "settingsPageTextAbout": "Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved",
+  "settingsPageTitleAssociation": "The association",
+  "settingsPageTitlePartners": "Partners",
+  "settingsPageTextPartners": "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+  "settingsPageSubtitle1": "Main Sponsors",
+  "settingsPageSubtitle2": "European Partners",
+  "settingsPageSubtitle3": "Academic Partner",
+  "settingsPageSubtitle4": "National Institutional Partners",
+  "settingsPageSubtitle5": "Service Providers",
+  "settingsPageShareButtonText": "Share the app with a friend",
+  "settingsPagePrivacyPolicy": "Privacy Policy"
+  
+
 }

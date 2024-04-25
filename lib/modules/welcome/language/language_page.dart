@@ -36,6 +36,7 @@ class LanguagePage extends StatelessWidget {
                   CustomSpacer(),
                   Expanded(
                       child: ListView.separated(
+                    controller: _.scrollController,
                     itemCount: _.languages?.length ?? 0,
                     padding: EdgeInsets.only(
                         top: AppDimens.lateralPaddingValue * 0.8),

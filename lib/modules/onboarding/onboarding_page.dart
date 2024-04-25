@@ -9,6 +9,7 @@ import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
@@ -162,13 +163,15 @@ class OnboardingPage extends StatelessWidget {
                 padding: EdgeInsets.only(top: AppDimens.lateralPaddingValue),
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: Obx(() => CustomProgressBar(
-                        width: Get.width * 0.35,
-                        step: _.currentStep.value,
-                        totalSteps: _.totalSteps,
-                        progressColor: AppColors.primary,
-                        backgroundColor: AppColors.lightPrimary,
-                      )),
+                  child: Obx(() => _.showLastStepTitle
+                      ? LastStepTitle()
+                      : CustomProgressBar(
+                          width: Get.width * 0.35,
+                          step: _.currentStep.value,
+                          totalSteps: _.totalSteps,
+                          progressColor: AppColors.primary,
+                          backgroundColor: AppColors.lightPrimary,
+                        )),
                 ),
               )),
 
@@ -182,13 +185,10 @@ class OnboardingPage extends StatelessWidget {
                               child: SizedBox(
                                 height: Get.height * .3,
                                 child: DecisionButtonsOnBoarding(
-                                  onTapDisagrementButton:
-                                      _.onTapDisagrementButton,
-                                  onTapHalfDisagrementButton:
-                                      _.onTapHalfDisagrementButton,
-                                  onTapHalfAgrementButton:
-                                      _.onTapHalfAgrementButton,
-                                  onTapAgrementButton: _.onTapAgrementButton,
+                                  onTapDisagrementButton: () {},
+                                  onTapHalfDisagrementButton: () {},
+                                  onTapHalfAgrementButton: () {},
+                                  onTapAgrementButton: () {},
                                 ),
                               ),
                             ),

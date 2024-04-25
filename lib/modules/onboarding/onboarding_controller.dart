@@ -4,8 +4,6 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
-import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/statments/helpers/html_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -82,6 +80,10 @@ class OnboardingController extends GetxController {
   List<String> get genders => _genders.map((gender) => gender.name).toList();
 
   RxInt indexGenderSelected = (-1).obs;
+
+  //Step 4
+  RxBool _showLastStepTitle = false.obs;
+  bool get showLastStepTitle => _showLastStepTitle.value;
 
   @override
   void onInit() {
@@ -187,6 +189,7 @@ class OnboardingController extends GetxController {
         _cardAnimationDuration.value = 650;
         _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
       }).then((value) async {
+        _showLastStepTitle.value = true;
         await Future.delayed(Duration(milliseconds: 350));
         _bigButtonsPosition.value = Offset(0, 0);
         await Future.delayed(Duration(milliseconds: 450));
@@ -194,7 +197,7 @@ class OnboardingController extends GetxController {
         await Future.delayed(Duration(milliseconds: 1500));
         _cardAnimationDuration.value = 0;
         finalAnimationFinished.value = true;
-        if (onBoarded == true) {
+        if (onBoarded != true) {
           //If is already on boarded return to home page
           Get.offAllNamed(StatementsController.route);
           return;
@@ -207,6 +210,7 @@ class OnboardingController extends GetxController {
         await Future.delayed(Durations.long3);
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
+
         //Set onBoarding as showed
         _localDataRepository.onBoarded = true;
 

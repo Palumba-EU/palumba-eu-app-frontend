@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -55,7 +56,7 @@ class StatementsController extends GetxController {
   RxBool _isPanStarted = false.obs;
   RxBool get isPanStarted => _isPanStarted;
 
-//The next 4 variables define
+//The next 5 variables define wich button is Selected
   RxBool _stronglyDisagrementButtonSelected = false.obs;
   bool get StronglyDisagrementButtonSelected =>
       _stronglyDisagrementButtonSelected.value;
@@ -63,12 +64,15 @@ class StatementsController extends GetxController {
   RxBool _disagrementButtonSelected = false.obs;
   bool get disagrementButtonSelected => _disagrementButtonSelected.value;
 
-  RxBool _StronglyAgrementButtonSelected = false.obs;
+  RxBool _stronglyAgrementButtonSelected = false.obs;
   bool get StronglyAgrementButtonSelected =>
-      _StronglyAgrementButtonSelected.value;
+      _stronglyAgrementButtonSelected.value;
 
   RxBool _agrementButtonSelected = false.obs;
   bool get agrementButtonSelected => _agrementButtonSelected.value;
+
+  RxBool _neutralButtonSelected = false.obs;
+  bool get neutralButtonSelected => _neutralButtonSelected.value;
 
   RxDouble _cardOpacity = 1.0.obs;
   RxDouble get cardOpacity => _cardOpacity;
@@ -174,7 +178,10 @@ class StatementsController extends GetxController {
     activateButton(decision);
   }
 
-  void activateButton(StatementResponse? decision) {
+//Decide wich button to activate
+  void activateButton(
+    StatementResponse? decision,
+  ) {
     switch (decision) {
       case StatementResponse.stronglyAgree:
         onTapStronglyAgrementButton();
@@ -203,6 +210,32 @@ class StatementsController extends GetxController {
     }
   }
 
+//Handle user LongPress, activate button color but not card animation
+  void onLongPressButton(
+    StatementResponse? decision,
+  ) {
+    switch (decision) {
+      case StatementResponse.stronglyAgree:
+        _stronglyAgrementButtonSelected.value = true;
+
+        break;
+      case StatementResponse.agree:
+        _agrementButtonSelected.value = true;
+        break;
+      case StatementResponse.disagree:
+        _disagrementButtonSelected.value = true;
+        break;
+      case StatementResponse.stronglyDisagree:
+        _stronglyDisagrementButtonSelected.value = true;
+        break;
+      case StatementResponse.neutral:
+        break;
+      default:
+        break;
+    }
+  }
+
+//Handle animation after a user drag a card without selecting a button
   void _nothingHappen() async {
     _buttonsBlocked.value = true;
     _cardAnimationDuration.value = 250;
@@ -215,12 +248,11 @@ class StatementsController extends GetxController {
     _buttonsBlocked.value = false;
   }
 
-  void onVerticalDragUpdate(DragUpdateDetails details) {}
-
   void onTapDown(TapDownDetails details) async {
     changePage(details);
   }
 
+//Reset all animations and set cards in the initial position
   void resetAnimation() {
     _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
@@ -230,11 +262,12 @@ class StatementsController extends GetxController {
     _stronglyDisagrementButtonSelected.value = false;
     _disagrementButtonSelected.value = false;
     _agrementButtonSelected.value = false;
-    _StronglyAgrementButtonSelected.value = false;
+    _stronglyAgrementButtonSelected.value = false;
     _buttonsBlocked.value = false;
     _currentCardIndex.value = 0;
   }
 
+//When card is dragged handle wich button is selected depending on the part of the screen user drops the card
   StatementResponse? _checkActionSelected() {
     final widthPart = currentWidthScreeenPart(_position.value.dx);
     final heightPart = currentHeightScreeenPart();
@@ -246,7 +279,7 @@ class StatementsController extends GetxController {
             _stronglyDisagrementButtonSelected.value = true;
             _disagrementButtonSelected.value = false;
             _agrementButtonSelected.value = false;
-            _StronglyAgrementButtonSelected.value = false;
+            _stronglyAgrementButtonSelected.value = false;
             return StatementResponse.stronglyDisagree;
 
           case _WidthScreenPart.middleLeft:
@@ -254,7 +287,7 @@ class StatementsController extends GetxController {
             _disagrementButtonSelected.value =
                 (_position.value.dy < Get.height * .35) ? false : true;
             _agrementButtonSelected.value = false;
-            _StronglyAgrementButtonSelected.value = false;
+            _stronglyAgrementButtonSelected.value = false;
             return (_position.value.dy < Get.height * .35)
                 ? null
                 : StatementResponse.disagree;
@@ -265,7 +298,7 @@ class StatementsController extends GetxController {
             _disagrementButtonSelected.value = false;
             _agrementButtonSelected.value =
                 (_position.value.dy < Get.height * .35) ? false : true;
-            _StronglyAgrementButtonSelected.value = false;
+            _stronglyAgrementButtonSelected.value = false;
             return (_position.value.dy < Get.height * .35)
                 ? null
                 : StatementResponse.agree;
@@ -273,25 +306,29 @@ class StatementsController extends GetxController {
             _stronglyDisagrementButtonSelected.value = false;
             _disagrementButtonSelected.value = false;
             _agrementButtonSelected.value = false;
-            _StronglyAgrementButtonSelected.value = true;
+            _stronglyAgrementButtonSelected.value = true;
             return StatementResponse.stronglyAgree;
         }
       case _HeightScreenPart.top:
         _stronglyDisagrementButtonSelected.value = false;
         _disagrementButtonSelected.value = false;
         _agrementButtonSelected.value = false;
-        _StronglyAgrementButtonSelected.value = false;
+        _stronglyAgrementButtonSelected.value = false;
+        _neutralButtonSelected.value = true;
         return StatementResponse.neutral;
 
       default:
         _stronglyDisagrementButtonSelected.value = false;
         _disagrementButtonSelected.value = false;
         _agrementButtonSelected.value = false;
-        _StronglyAgrementButtonSelected.value = false;
+        _stronglyAgrementButtonSelected.value = false;
+        _neutralButtonSelected.value = false;
         return null;
     }
   }
 
+
+//Define wich part of the screen the user is dragging the card
   _WidthScreenPart currentWidthScreeenPart(double x) {
     if (x < Get.width * .15) {
       return _WidthScreenPart.maxLeft;
@@ -392,7 +429,9 @@ class StatementsController extends GetxController {
   }
 
   void onTapNeutralButton() async {
+    _neutralButtonSelected.value = true;
     await neutralAnimation();
+    _neutralButtonSelected.value = false;
     nextCard();
   }
 
@@ -418,9 +457,9 @@ class StatementsController extends GetxController {
   }
 
   void onTapStronglyAgrementButton() async {
-    _StronglyAgrementButtonSelected.value = true;
+    _stronglyAgrementButtonSelected.value = true;
     await agreeAnimation();
-    _StronglyAgrementButtonSelected.value = false;
+    _stronglyAgrementButtonSelected.value = false;
     nextCard();
   }
 

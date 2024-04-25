@@ -9,14 +9,30 @@ class DecisionButtons extends GetView<StatementsController> {
   const DecisionButtons({
     super.key,
     required this.onTapStronglyDisagrementButton,
+    required this.onLongPressStronglyDisagrementButton,
+    required this.onLongPressEndStronglyDisagrementButton,
     required this.onTapDisagrementButton,
+    required this.onLongPressDisgrementButton,
+    required this.onLongPressEndDisgrementButton,
     required this.onTapAgrementButton,
+    required this.onLongPressAgrementButton,
+    required this.onLongPressEndAgrementButton,
     required this.onTapStronglyAgrementButton,
+    required this.onLongPressStronglyAgrementButton,
+    required this.onLongPressEndStronglyAgrementButton,
   });
   final Function() onTapStronglyDisagrementButton;
+  final Function() onLongPressStronglyDisagrementButton;
+  final Function(LongPressEndDetails) onLongPressEndStronglyDisagrementButton;
   final Function() onTapDisagrementButton;
+  final Function() onLongPressDisgrementButton;
+  final Function(LongPressEndDetails) onLongPressEndDisgrementButton;
   final Function() onTapAgrementButton;
+  final Function() onLongPressAgrementButton;
+  final Function(LongPressEndDetails) onLongPressEndAgrementButton;
   final Function() onTapStronglyAgrementButton;
+  final Function() onLongPressStronglyAgrementButton;
+  final Function(LongPressEndDetails) onLongPressEndStronglyAgrementButton;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +72,8 @@ class DecisionButtons extends GetView<StatementsController> {
                       icon: 'ic_cross',
                       flip: true,
                       onTap: onTapStronglyDisagrementButton,
+                      onLongPress: onLongPressStronglyDisagrementButton,
+                      onLongPressEnd: onLongPressEndStronglyDisagrementButton,
                     ),
                   ),
                 ),
@@ -80,6 +98,8 @@ class DecisionButtons extends GetView<StatementsController> {
                       isSelected: controller.StronglyAgrementButtonSelected,
                       icon: 'ic_check',
                       onTap: onTapStronglyAgrementButton,
+                      onLongPress: onLongPressStronglyAgrementButton,
+                      onLongPressEnd: onLongPressEndStronglyAgrementButton,
                     ),
                   ),
                 ),
@@ -98,18 +118,21 @@ class DecisionButtons extends GetView<StatementsController> {
         Expanded(
           flex: 2,
           child: Obx(
-            () => controller.disagrementButtonSelected
-                ? SizedBox.shrink()
-                : IgnorePointer(
-                    ignoring: controller.buttonsBlocked,
-                    child: CustomSmallButtonCurve(
-                      curveRadius: 50,
-                      isSelected: false,
-                      icon: 'ic_cross',
-                      flip: false,
-                      onTap: onTapDisagrementButton,
-                    ),
-                  ),
+            () => Opacity(
+              opacity: controller.disagrementButtonSelected ? 0 : 1,
+              child: IgnorePointer(
+                ignoring: controller.buttonsBlocked,
+                child: CustomSmallButtonCurve(
+                  curveRadius: 50,
+                  isSelected: false,
+                  icon: 'ic_cross',
+                  flip: false,
+                  onTap: onTapDisagrementButton,
+                  onLongPress: onLongPressDisgrementButton,
+                  onLongPressEnd: onLongPressEndDisgrementButton,
+                ),
+              ),
+            ),
           ),
         ),
         if (!controller.disagrementButtonSelected &&
@@ -120,18 +143,21 @@ class DecisionButtons extends GetView<StatementsController> {
         Expanded(
           flex: 2,
           child: Obx(
-            () => controller.agrementButtonSelected
-                ? SizedBox.shrink()
-                : IgnorePointer(
-                    ignoring: controller.buttonsBlocked,
-                    child: CustomSmallButtonCurve(
-                      curveRadius: 50,
-                      isSelected: false,
-                      icon: 'ic_check',
-                      flip: true,
-                      onTap: onTapAgrementButton,
-                    ),
-                  ),
+            () => Opacity(
+              opacity: controller.agrementButtonSelected ? 0 : 1,
+              child: IgnorePointer(
+                ignoring: controller.buttonsBlocked,
+                child: CustomSmallButtonCurve(
+                  curveRadius: 50,
+                  isSelected: false,
+                  icon: 'ic_check',
+                  flip: true,
+                  onTap: onTapAgrementButton,
+                  onLongPress: onLongPressAgrementButton,
+                  onLongPressEnd: onLongPressEndAgrementButton,
+                ),
+              ),
+            ),
           ),
         ),
         Expanded(child: SizedBox.shrink()),

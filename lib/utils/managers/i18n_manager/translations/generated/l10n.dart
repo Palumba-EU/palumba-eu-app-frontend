@@ -160,6 +160,16 @@ class S {
     );
   }
 
+  /// `FAQ`
+  String get faq {
+    return Intl.message(
+      'FAQ',
+      name: 'faq',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Let’s continue in English? :)`
   String get languagePageTitle {
     return Intl.message(
@@ -395,6 +405,16 @@ class S {
     return Intl.message(
       'I have no clue who to vote for at the 2024 European Elections',
       name: 'onBoardingCardQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Swipe according to your agreement`
+  String get onBoardingLastStepTitle {
+    return Intl.message(
+      'Swipe according to your agreement',
+      name: 'onBoardingLastStepTitle',
       desc: '',
       args: [],
     );
@@ -725,6 +745,156 @@ class S {
     return Intl.message(
       'Start a new test',
       name: 'homePageStartButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get settingsPageTitleLanguage {
+    return Intl.message(
+      'Language',
+      name: 'settingsPageTitleLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I prefer to use this app in`
+  String get settingsPageSubtitleLanguage {
+    return Intl.message(
+      'I prefer to use this app in',
+      name: 'settingsPageSubtitleLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To change the language, click on the current one`
+  String get settingsPageTextLanguage {
+    return Intl.message(
+      'To change the language, click on the current one',
+      name: 'settingsPageTextLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get settingsPageTitleAbout {
+    return Intl.message(
+      'About',
+      name: 'settingsPageTitleAbout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved`
+  String get settingsPageTextAbout {
+    return Intl.message(
+      'Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved',
+      name: 'settingsPageTextAbout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The association`
+  String get settingsPageTitleAssociation {
+    return Intl.message(
+      'The association',
+      name: 'settingsPageTitleAssociation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Partners`
+  String get settingsPageTitlePartners {
+    return Intl.message(
+      'Partners',
+      name: 'settingsPageTitlePartners',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.`
+  String get settingsPageTextPartners {
+    return Intl.message(
+      'Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.',
+      name: 'settingsPageTextPartners',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Main Sponsors`
+  String get settingsPageSubtitle1 {
+    return Intl.message(
+      'Main Sponsors',
+      name: 'settingsPageSubtitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `European Partners`
+  String get settingsPageSubtitle2 {
+    return Intl.message(
+      'European Partners',
+      name: 'settingsPageSubtitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Academic Partner`
+  String get settingsPageSubtitle3 {
+    return Intl.message(
+      'Academic Partner',
+      name: 'settingsPageSubtitle3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `National Institutional Partners`
+  String get settingsPageSubtitle4 {
+    return Intl.message(
+      'National Institutional Partners',
+      name: 'settingsPageSubtitle4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Providers`
+  String get settingsPageSubtitle5 {
+    return Intl.message(
+      'Service Providers',
+      name: 'settingsPageSubtitle5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share the app with a friend`
+  String get settingsPageShareButtonText {
+    return Intl.message(
+      'Share the app with a friend',
+      name: 'settingsPageShareButtonText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get settingsPagePrivacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'settingsPagePrivacyPolicy',
       desc: '',
       args: [],
     );
