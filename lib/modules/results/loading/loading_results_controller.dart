@@ -67,12 +67,9 @@ class LoadingResultsController extends GetxController {
     });
   }
 
-  void _initData() async {
-    final result = await _dataRepository.setResponse();
-    if (!result) {
-      //TODO: Handle error
-    }
-    await _getResultsData();
+  void _initData() {
+    _dataRepository.setResponse();
+    _getResultsData();
   }
 
   Future<void> _getResultsData() async {
