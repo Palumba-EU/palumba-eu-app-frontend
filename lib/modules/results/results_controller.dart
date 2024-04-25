@@ -75,13 +75,12 @@ class ResultsController extends GetxController {
 
   bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 6;
 
-  bool get bloquedPages =>
+  bool get blockedPages =>
       _currentPage.value == 3 ||
       _currentPage.value == 4 ||
       _currentPage.value == 8 ||
       _currentPage.value == 9;
 
-  //TODO: add your country translation
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
   RxList<ScatterSpot> scatterSpots = <ScatterSpot>[].obs;

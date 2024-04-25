@@ -35,7 +35,7 @@ class ResultsPage extends GetView<ResultsController> {
               Positioned(
                 bottom: 0,
                 child: Obx(
-                  () => !controller.bloquedPages
+                  () => !controller.blockedPages
                       ? SizedBox.shrink()
                       : SizedBox(
                           width: Get.width,
