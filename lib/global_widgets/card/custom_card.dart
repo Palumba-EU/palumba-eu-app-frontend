@@ -115,7 +115,7 @@ class CustomCard extends StatelessWidget {
                               color: !isFirstCard
                                   ? Theme.of(context).colorScheme.primary
                                   : isPanStarted.value
-                                      ? AppColors.secondary
+                                      ? AppColors.blue
                                       : AppColors.primary,
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: isPanStarted.value

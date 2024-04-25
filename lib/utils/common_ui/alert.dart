@@ -3,8 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
@@ -19,11 +17,11 @@ class Alert {
         // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
-            title: AppTexts.title(title, color: AppColors.primary),
+            title: Text(title, style: TextStyle(color: Colors.black),)),
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
-                  AppTexts.regular(text, color: AppColors.primary),
+                  Text(text, style: TextStyle(color: Colors.black),),
                 ],
               ),
             ),

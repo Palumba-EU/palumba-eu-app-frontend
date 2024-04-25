@@ -154,7 +154,7 @@ class OnboardingController extends GetxController {
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
       //
-      height.value = 50; //heightSize * .0415;
+      height.value = 34; //heightSize * .0415;
       radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {

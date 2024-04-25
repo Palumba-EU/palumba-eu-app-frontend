@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
@@ -13,20 +14,22 @@ class ResultsPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: AppDimens.lateralPadding,
+      padding: AppDimens.lateralPadding,
+      child: SafeArea(
         child: SizedBox(
           height: Get.height * .78,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              CustomSpacer(multiplier: 2,),
               Expanded(
                 child: Center(
-                  child: Image.asset(
-                    'assets/images/pigeon.png',
+                  child: SvgPicture.asset(
+                    'assets/images/img_pigeon.svg',
                   ),
                 ),
               ),
+              CustomSpacer(multiplier: 2,),
               EmojiLabelContainer(
                 emoji: S.of(context).resultsLabelEmoji,
                 backgroundColor: AppColors.yellow,
@@ -35,7 +38,7 @@ class ResultsPage1 extends StatelessWidget {
               AppTexts.title(S.of(context).resultsPage1Title,
                   color: AppColors.primary),
               CustomSpacer(),
-              AppTexts.regular(S.of(context).resultsPage1Text,
+              AppTexts.small(S.of(context).resultsPage1Text,
                   color: AppColors.primary),
             ],
           ),

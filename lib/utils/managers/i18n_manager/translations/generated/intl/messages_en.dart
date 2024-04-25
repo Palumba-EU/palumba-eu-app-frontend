@@ -20,16 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(count, time) =>
-      "${count} matches found in the last ${time}h";
+  static String m0(count) => "${count} matches found in the last 24h";
 
-  static String m1(country) =>
+  static String m1(count) => "${count} matches found in the last 24h";
+
+  static String m2(country) =>
       "Finding matches with candidates lists in ${country}  🔍";
 
-  static String m2(country) => "No local parties found in ${country}";
-
-  static String m3(party, percentage) =>
-      "Me and ${party} agreed on ${percentage}% of all the statements you swiped on. Find out your match at palumba.eu";
+  static String m3(country) => "No local parties found in ${country}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -48,10 +46,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
         "homePageBackToResults": MessageLookupByLibrary.simpleMessage(
             "My results · Back to the test"),
+        "homePageMatchesFoundQuote": m1,
         "homePageStartButton":
             MessageLookupByLibrary.simpleMessage("Start a new test"),
-        "homePageTitle": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t helpyou vote in June, nothing will."),
+        "homePageText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can’t help you vote in June, nothing will."),
         "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "This can be changed later in settings."),
@@ -61,10 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your personalised results are on their way :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
             "This shall be quicker than getting Taylor Swift tickets 👀 "),
-        "loadingResultsPageTitle3": m1,
+        "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Almost ready,\none last check..."),
-        "loadingResultsPageTitle5": MessageLookupByLibrary.simpleMessage(
             "Almost ready,\none last check..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
@@ -101,35 +98,27 @@ class MessageLookup extends MessageLookupByLibrary {
             "and you, it’s really a Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Your compatibility with the European Parliament Groups"),
-        "resultsPage4TitleBottom":
-            MessageLookupByLibrary.simpleMessage("Anti-EU Integration"),
-        "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
-        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
-        "resultsPage4TitleTop":
-            MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
-        "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("It’s you, hi!"),
+        "resultsPage4Text": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
+        "resultsPage4Title": MessageLookupByLibrary.simpleMessage(
+            "Okay, it’s cool knowing which group gets you..."),
         "resultsPage5Text": MessageLookupByLibrary.simpleMessage(
             "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "Okay, it’s cool knowing which group gets you..."),
-        "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
-        "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
             "But at the EU Elections, you vote for a local list"),
-        "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
+        "resultsPage6Disclaimer": MessageLookupByLibrary.simpleMessage(
             "Disclaimer about the order of the lists / temp. localization"),
-        "resultsPage7NoLocalCandidates": m2,
-        "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
+        "resultsPage6NoLocalCandidates": m3,
+        "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
             "These are the matching Local Candidate lists in your country "),
-        "resultsPage8NopButton":
+        "resultsPage7NopButton":
             MessageLookupByLibrary.simpleMessage("I\'m all good!"),
-        "resultsPage8Title": MessageLookupByLibrary.simpleMessage(
+        "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
             "Would you like to receive a notification when it’s time to vote?"),
-        "resultsPage8YesButton":
+        "resultsPage7YesButton":
             MessageLookupByLibrary.simpleMessage("Yesssss"),
-        "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
-        "resultsSocialShareData": m3,
+        "resultsShare":
+            MessageLookupByLibrary.simpleMessage("Share (coming soon ⏳)"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),

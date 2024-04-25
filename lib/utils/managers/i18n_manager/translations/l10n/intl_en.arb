@@ -18,7 +18,7 @@
 
   "@@Entrance": "EntrancePage",
   "entranceTitle": "If this cute pigeon can’t help you vote in June, nothing will.",
-  "entranceMatchesFoundQuote": "{count} matches found in the last {time}h",
+  "entranceMatchesFoundQuote": "{count} matches found in the last 24h",
   "entranceStartButton": "Start Palumba",
 
   "@@OnBoardingPage": "OnBoardingPage",
@@ -47,13 +47,12 @@
   "loadingResultsPageTitle2": "This shall be quicker than getting Taylor Swift tickets 👀 ",
   "loadingResultsPageTitle3": "Finding matches with candidates lists in {country}  🔍",
   "loadingResultsPageTitle4": "Almost ready,\none last check...",
-  "loadingResultsPageTitle5": "Almost ready,\none last check...",
 
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "We found you a match!",
   "resultsPage1Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
   "resultsLabelEmoji": "😍❤️‍🔥💘",
-  "resultsShare": "Share",
+  "resultsShare": "Share (coming soon ⏳)",
   "resultsPage2Title": "and you, it’s really a Love Story (EU’s Version)",
   "resultsPage2FirstText": "You both agreed on ",
   "resultsPage2LastText": "of all the statements you swiped on.",
@@ -76,7 +75,8 @@
   "resultsSocialShareData": "Me and {party} agreed on {percentage}% of all the statements you swiped on. Find out your match at palumba.eu",
 
   "@HomePage": "HomePage",
-  "homePageTitle": "If this cute pigeon can’t helpyou vote in June, nothing will.",
+  "homePageText": "If this cute pigeon can’t help you vote in June, nothing will.",
+  "homePageMatchesFoundQuote": "{count} matches found in the last 24h",
   "homePageBackToResults": "My results · Back to the test",
   "homePageStartButton": "Start a new test"
 }

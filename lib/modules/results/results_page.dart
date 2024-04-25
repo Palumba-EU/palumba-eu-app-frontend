@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -26,11 +27,12 @@ class ResultsPage extends GetView<ResultsController> {
                   duration: Durations.medium2,
                   opacity: controller.isSpecialPage ? 1 : 0,
                   child: Container(
-                    color: AppColors.secondary,
+                    color: AppColors.blue,
                   ),
                 ),
               ),
               SafeArea(
+                bottom: false,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -60,17 +62,12 @@ class ResultsPage extends GetView<ResultsController> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(
+                          SvgPicture.asset(
+                            'assets/images/img_pigeon.svg',
                             height: 40,
-                            width: 24,
-                            child: Image.asset(
-                              'assets/images/pigeon.png',
-                              height: 24,
-                              width: 24,
-                            ),
                           ),
                           Spacer(),
-                          Obx(() => AppTexts.regular(
+                          Obx(() => AppTexts.medium(
                               '#${S.of(context).shortAppName}',
                               color: controller.isSpecialPage
                                   ? Colors.white
@@ -78,9 +75,7 @@ class ResultsPage extends GetView<ResultsController> {
                         ],
                       ),
                     ),
-                    CustomSpacer(
-                      multiplier: 3,
-                    ),
+
                     //Pages
                     Expanded(
                       child: GestureDetector(
@@ -111,20 +106,21 @@ class ResultsPage extends GetView<ResultsController> {
                             text: S.of(context).resultsShare,
                             expanded: true,
                             onPressed: controller.shareContent,
-                            prefixIcon:
-                                IconButtonParameters('ic_share', size: 18),
+                            prefixIcon: IconButtonParameters('ic_share',
+                                size: 18, color: Color(0XFFAEAEAE)),
                             radius: AppDimens.borderRadius,
-                            color: AppColors.yellow,
-                            textColor: AppColors.primary,
+                            color: Color(0XFF1F1F1F),
+                            textColor: Color(0XFFAEAEAE),
                             bold: true,
                             border: ButtonBorderParameters(
-                                isOutside: true, width: 4),
+                                isOutside: true,
+                                width: 3,
+                                color: Color(0XFFAEAEAE)),
                           ),
                         ),
                       )
                     : SizedBox.shrink(),
               ),
-              // Container(color: Color(0xFF261930).withOpacity(.9)),
             ],
           )),
     );

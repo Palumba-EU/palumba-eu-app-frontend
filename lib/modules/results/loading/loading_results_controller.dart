@@ -18,7 +18,9 @@ class LoadingResultsController extends GetxController {
   final LocalDataRepository _localDataRepository =
       Get.find<LocalDataRepository>();
 
-  final totalSteps = 6;
+  final totalSteps = 4;
+
+  final int secondsStep = 3;
 
   RxInt currentStep = 0.obs;
 
@@ -38,11 +40,13 @@ class LoadingResultsController extends GetxController {
 
   void _init() {
     currentStep.value = 1;
-    Timer.periodic(const Duration(seconds: 2), (timer) {
-      if (currentStep.value < 5) {
+
+    Timer.periodic(Duration(seconds: secondsStep), (timer) {
+      if (currentStep.value < 4) {
         currentStep.value = currentStep.value + 1;
       } else {
         timer.cancel();
+
         final jsonListResults =
             _partyUserDistanceList.map((e) => e.toJson()).toList();
         //Store results as local data

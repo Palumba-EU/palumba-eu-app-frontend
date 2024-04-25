@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -65,7 +66,8 @@ class HomePage extends StatelessWidget {
   Column _buttons(BuildContext context, HomePageController _) {
     return Column(
       children: [
-        AppTexts.small(S.of(context).entranceMatchesFoundQuote('10,365', '24'),
+        //TODO: Get the real number of matches from api
+        AppTexts.small(S.of(context).homePageMatchesFoundQuote('X'),
             textAlign: TextAlign.center, color: AppColors.primary),
         CustomSpacer(),
         GetBuilder<HomePageController>(
@@ -91,7 +93,7 @@ class HomePage extends StatelessWidget {
           text: S.of(context).homePageStartButton,
           expanded: true,
           onPressed: () {
-            Get.offAllNamed(StatementsController.route);
+            Get.offAllNamed(LanguageController.route);
           },
           suffixIcon: IconButtonParameters('ic_arrow_right',
               size: 18, color: AppColors.text),
@@ -118,23 +120,22 @@ class HomePage extends StatelessWidget {
                 child: PageView.builder(
                   scrollDirection: Axis.horizontal,
                   controller: _.pageController,
-                  itemCount: 3, //TODO: Get the real number of pages
+                  itemCount: 3,
                   itemBuilder: (context, index) => Column(
                     children: [
                       Expanded(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Image.asset(
-                              height:
-                                  Get.height < 750 ? Get.height * .35 : null,
-                              'assets/images/pigeon.png',
+                            SvgPicture.asset(
+                              'assets/images/img_pigeon.svg',
+                              height: Get.height * .35,
                             ),
                             CustomSpacer(multiplier: 3),
                             Padding(
                               padding: AppDimens.lateralPadding,
                               child: AppTexts.small(
-                                S.of(context).entranceTitle,
+                                S.of(context).homePageText,
                                 textAlign: TextAlign.center,
                                 bold: true,
                                 color: AppColors.primary,
@@ -150,7 +151,7 @@ class HomePage extends StatelessWidget {
               ),
               SmoothPageIndicator(
                 controller: _.pageController,
-                count: 3, //TODO: Get the real number of pages
+                count: 3,
                 effect: WormEffect(
                   dotWidth: 10,
                   dotHeight: 10,

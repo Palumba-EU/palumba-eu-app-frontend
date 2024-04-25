@@ -63,7 +63,7 @@ class CustomNetworkImage extends StatelessWidget {
         child: Container(
             height: height ?? _kDefaultSize,
             width: constrainedSize ? (width ?? _kDefaultSize) : null,
-            color: color ?? AppColors.beige,
+            color: color ?? Color(0XFFDBDBDB),
             child: isSvg
                 ? SvgPicture.network(
                     alignment: alignment ?? Alignment.center,
@@ -89,7 +89,7 @@ class CustomNetworkImage extends StatelessWidget {
   Widget get _placeholder => Container(
       height: (height ?? _kDefaultPlaceholderSize) * (percent ?? .65),
       width: (width ?? _kDefaultPlaceholderSize) * (percent ?? .65),
-      color: color ?? AppColors.beige,
+      color: color ?? Color(0XFFDBDBDB),
       child: Center(
         child: isAvatar
             ? SvgPicture.asset(

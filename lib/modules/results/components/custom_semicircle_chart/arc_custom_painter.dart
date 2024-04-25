@@ -148,7 +148,7 @@ class ArcPainter extends CustomPainter {
       ..color = Colors.green
       ..style = PaintingStyle.fill;
     final circleStroke = Paint()
-      ..color = AppColors.whiteButton
+      ..color = Colors.white
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0;
     final circleRadius = 15.0;

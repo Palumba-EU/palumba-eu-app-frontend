@@ -38,7 +38,7 @@ class LoadingResultsPage extends StatelessWidget {
                             multiplier: 7,
                           ),
                           Obx(() => CustomProgressBar(
-                                duration: Duration(seconds: 2),
+                                duration: Duration(seconds: _.secondsStep),
                                 width: Get.width * 0.675,
                                 step: _.currentStep.value,
                                 totalSteps: _.totalSteps,
@@ -60,8 +60,6 @@ class LoadingResultsPage extends StatelessWidget {
                                     .loadingResultsPageTitle3(_.countryName);
                               } else if (_.currentStep.value == 4) {
                                 text = S.of(context).loadingResultsPageTitle4;
-                              } else if (_.currentStep.value == 5) {
-                                text = S.of(context).loadingResultsPageTitle5;
                               }
 
                               return AppTexts.title(
@@ -97,8 +95,8 @@ class LoadingResultsPage extends StatelessWidget {
                           .matrix4,
                       child: FittedBox(
                           fit: BoxFit.fitWidth,
-                          child: SvgPicture.asset(
-                              'assets/images/ic_compass_big.svg')),
+                          child:
+                              SvgPicture.asset('assets/images/img_compass.svg')),
                     ),
                   ),
                 )
