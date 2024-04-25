@@ -12,13 +12,13 @@ class AppThemeData {
       textTheme: TextTheme(
         titleLarge: GoogleFonts.merriweather(
             fontSize: AppDimens.fontSizeTitle,
-            fontWeight: FontWeight.bold),
+            fontWeight: FontWeight.w900),
         titleMedium: GoogleFonts.merriweather(
             fontSize: AppDimens.fontSizeRegular,
-            fontWeight: FontWeight.bold),
+            fontWeight: FontWeight.w900),
         titleSmall: GoogleFonts.merriweather(
             fontSize: AppDimens.fontSizeSmall,
-            fontWeight: FontWeight.bold),
+            fontWeight: FontWeight.w900),
         bodyLarge: GoogleFonts.merriweatherSans(
             fontSize: AppDimens.fontSizeTitle,
             fontWeight: FontWeight.w300),

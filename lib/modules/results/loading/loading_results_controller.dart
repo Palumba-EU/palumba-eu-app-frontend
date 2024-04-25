@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
@@ -15,7 +15,12 @@ class LoadingResultsController extends GetxController {
 
   final DataRepository _dataRepository = Get.find<DataRepository>();
 
-  final totalSteps = 6;
+  final LocalDataRepository _localDataRepository =
+      Get.find<LocalDataRepository>();
+
+  final totalSteps = 4;
+
+  final int secondsStep = 3;
 
   RxInt currentStep = 0.obs;
 
@@ -27,6 +32,13 @@ class LoadingResultsController extends GetxController {
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
   @override
+  void onInit() {
+    //Set test finished
+    UserManager.setTestRuning(false);
+    super.onInit();
+  }
+
+  @override
   void onReady() {
     super.onReady();
     _init();
@@ -35,25 +47,29 @@ class LoadingResultsController extends GetxController {
 
   void _init() {
     currentStep.value = 1;
-    Timer.periodic(const Duration(seconds: 2), (timer) {
-      if (currentStep.value < 5) {
+
+    Timer.periodic(Duration(seconds: secondsStep), (timer) {
+      if (currentStep.value < 4) {
         currentStep.value = currentStep.value + 1;
       } else {
         timer.cancel();
+
+        final jsonListResults =
+            _partyUserDistanceList.map((e) => e.toJson()).toList();
+        //Store results as local data
+        _localDataRepository.results = jsonListResults;
+
+        //Navigate to results screen
         Get.offAllNamed(ResultsController.route, arguments: {
-          StringUtils.resultsDataKey:
-              _partyUserDistanceList.map((e) => e.toJson()).toList(),
+          StringUtils.resultsDataKey: jsonListResults,
         });
       }
     });
   }
 
-  void _initData() async {
-    final result = await _dataRepository.setResponse();
-    if (!result) {
-      //TODO: Handle error
-    }
-    await _getResultsData();
+  void _initData() {
+    _dataRepository.setResponse();
+    _getResultsData();
   }
 
   Future<void> _getResultsData() async {
@@ -61,8 +77,14 @@ class LoadingResultsController extends GetxController {
 
     //Calculate distances percentage
     for (final PoliticParty party in _resultsData?.parties ?? []) {
+      final userAnswers = UserManager.userData.answers;
+      final partyAnswers = party.answers ?? [];
       //Calculate max distance
-      int numStatements = party.position?.length ?? 0;
+      final userAnswersNotSkipped = userAnswers
+          .where((element) => element.answer != StatementResponse.skip)
+          .toList();
+      int numStatements = party.answers?.length ??
+          0; //  userAnswersNotSkipped.length; //TODO: check if this is correct
       List<Answer> maxDisagreeAnswers = List<Answer>.generate(
           numStatements,
           (index) => Answer(
@@ -74,8 +96,7 @@ class LoadingResultsController extends GetxController {
       int maxDistance = calculateDistance(maxAgreeAnswers, maxDisagreeAnswers);
 
       //Calculate distance between user and party
-      final userAnswers = UserManager.userData.answers;
-      final partyAnswers = party.answers ?? [];
+
       final distance = calculateDistance(
         userAnswers,
         partyAnswers,

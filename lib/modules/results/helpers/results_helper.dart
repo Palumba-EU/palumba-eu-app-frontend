@@ -4,13 +4,21 @@ import 'package:palumba_eu/data/model/user_model.dart';
 class PartyUserDistance {
   final PoliticParty party;
   final int percentage;
+  final double? positionX;
+  final double? positionY;
 
-  PartyUserDistance({required this.party, required this.percentage});
+  PartyUserDistance(
+      {required this.party,
+      required this.percentage,
+      this.positionX,
+      this.positionY});
 
   factory PartyUserDistance.fromJson(Map<String, dynamic> json) {
     return PartyUserDistance(
       party: PoliticParty.fromJson(json['party']),
       percentage: json['percentage'],
+      positionX: json['positionX'],
+      positionY: json['positionY'],
     );
   }
 
@@ -18,6 +26,8 @@ class PartyUserDistance {
     return {
       'party': party.toJson(),
       'percentage': percentage,
+      'positionX': positionX,
+      'positionY': positionY,
     };
   }
 }

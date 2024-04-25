@@ -1,27 +1,39 @@
 import 'dart:math';
+import 'dart:ui' as ui;
+import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
+import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_5.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'models/custom_chart_data.dart';
+import 'pages/results_page_5.dart';
 
 class ResultsController extends GetxController {
   static const route = '/results';
@@ -35,15 +47,20 @@ class ResultsController extends GetxController {
     ResultsPage5(),
     ResultsPage6(),
     ResultsPage7(),
+    ResultsPage8(),
+    ResultsPage9(),
+    ResultsPage10(),
+    ResultsPage11(),
   ];
 
   List<CustomChartData> chartData = [];
 
   UserData get userData => UserManager.userData;
 
-  List<int> showButtonSharePages = [1, 2, 5];
+  List<int> showButtonSharePages = [1, 2, 3, 4, 7, 8, 9];
 
   RxInt _currentPage = 0.obs;
+
   int get currentPage => _currentPage.value;
 
   List<PartyUserDistance> _resultsData = [];
@@ -51,14 +68,24 @@ class ResultsController extends GetxController {
   List<LocalParties>? get localParties => filterLocalPartiesByCountry();
 
   PartyUserDistance? _maxPercentagePoliticParty;
+
   PartyUserDistance? get maxPercentagePoliticParty =>
       _maxPercentagePoliticParty ??
       (_resultsData.isEmpty ? null : _resultsData.first);
 
-  bool get isSpecialPage => _currentPage.value == 3 || _currentPage.value == 4;
+  bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 6;
 
-  //TODO: add your country translation
+  bool get blockedPages =>
+      _currentPage.value == 3 ||
+      _currentPage.value == 4 ||
+      _currentPage.value == 8 ||
+      _currentPage.value == 9;
+
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
+
+  RxList<ScatterSpot> scatterSpots = <ScatterSpot>[].obs;
+
+  bool get isTablet => Get.width >= 600;
 
   @override
   void onInit() {
@@ -87,9 +114,7 @@ class ResultsController extends GetxController {
       //Convert the data to the format that the chart needs
       _resultsData.forEach((result) {
         chartData.add(CustomChartData(
-          party: result.party.acronym.isNullOrEmpty
-              ? (result.party.name ?? '')
-              : result.party.acronym ?? '',
+          party: result.party.name ?? result.party.acronym ?? '',
           value: result.percentage.toDouble(),
           image: result.party.logo ?? '',
           percentage: '${result.percentage}%',
@@ -98,6 +123,7 @@ class ResultsController extends GetxController {
       //ATTENTION! Make sure to order list by value, from mayor to minor, before user it. If not chart will not work
       chartData.sort((b, a) => a.value.compareTo(b.value));
       _maxPercentagePoliticParty = getMajorPercentageParty();
+      getScatterPoints();
     }
   }
 
@@ -136,17 +162,17 @@ class ResultsController extends GetxController {
   }
 
   void changePage(TapDownDetails details) {
-    if (details.localPosition.dx < Get.width / 2) {
+    if (details.localPosition.dx < Get.width * .25) {
       if (currentPage > 0) {
         pageController.previousPage(
-          duration: const Duration(milliseconds: 300),
+          duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,
         );
       }
-    } else {
+    } else if (details.localPosition.dx > Get.width * .75) {
       if (currentPage < pages.length - 1) {
         pageController.nextPage(
-          duration: const Duration(milliseconds: 300),
+          duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,
         );
       }
@@ -166,6 +192,62 @@ class ResultsController extends GetxController {
 
   void launchUrl() {
     Utils.launch(StringUtils.electionsUrl(LanguageManager.currentLanguage));
-    Get.toNamed(HomePageController.route);
+    launchHome();
+  }
+
+  void launchHome() {
+    Get.offAllNamed(HomePageController.route);
+  }
+
+  void shareContent() async {
+    final sharedText = S.of(Get.context!).resultsSocialShareData(
+        "*${maxPercentagePoliticParty?.party.name ?? '-'}*",
+        "*${maxPercentagePoliticParty?.percentage ?? '-'}*");
+    Share.share(sharedText);
+  }
+
+  //Convert svg to image
+  Future<ui.Image> loadSvg(String url) async {
+    final response = await http.get(Uri.parse(url));
+    final String rawSvg = response.body.toString();
+
+    final pictureInfo = await vg.loadPicture(SvgStringLoader(rawSvg), null);
+    final ui.Image image = await pictureInfo.picture.toImage(65, 65);
+
+    pictureInfo.picture.dispose();
+
+    return image;
+  }
+
+  void getScatterPoints() async {
+    double count = -1;
+    //This is user scatter point
+    scatterSpots.add(ScatterSpot(.4, -.5,
+        dotPainter: FlDotCirclePainterCustom(
+            image: await loadAssetImage('palumba_badge_heart_small'),
+            radius: 2,
+            imageRounded: false)));
+
+    //This are parties Scatter points
+    for (var data in _resultsData) {
+      //TODO: add real data
+      count = count + .2;
+      final ui.Image image = await loadSvg(data.party.logo ?? '');
+      scatterSpots.add(ScatterSpot(count, count,
+          dotPainter: FlDotCirclePainterCustom(
+            image: image,
+            color: Colors.transparent,
+            radius: 15,
+          )));
+    }
+  }
+
+  Future<ui.Image> loadAssetImage(String asset) async {
+    final bytes = await rootBundle.load('assets/images/${asset}.png');
+
+    final codec = await ui.instantiateImageCodec(bytes.buffer.asUint8List());
+    final frame = await codec.getNextFrame();
+
+    return frame.image;
   }
 }

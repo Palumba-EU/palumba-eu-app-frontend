@@ -5,24 +5,28 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomSmallButtonCurve extends StatelessWidget {
-  const CustomSmallButtonCurve(
-      {Key? key,
-      required this.isSelected,
-      this.curveRadius = 200,
-      required this.icon,
-      required this.onTap,
-      this.flip = false})
-      : super(key: key);
+  const CustomSmallButtonCurve({
+    Key? key,
+    required this.isSelected,
+    this.curveRadius = 200,
+    required this.icon,
+    required this.onTap,
+    this.flip = false,
+    this.onLongPressEnd,
+    this.onLongPress,
+  }) : super(key: key);
 
   final bool isSelected;
   final double curveRadius;
   final String? icon;
   final bool flip;
   final Function() onTap;
+  final Function()? onLongPress;
+  final Function(LongPressEndDetails)? onLongPressEnd;
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? AppColors.secondary : AppColors.primary;
+    final color = isSelected ? AppColors.blue : AppColors.primary;
     final borderColor = isSelected ? AppColors.primary : AppColors.lightPrimary;
     return Stack(
       children: [
@@ -34,6 +38,8 @@ class CustomSmallButtonCurve extends StatelessWidget {
             height: double.infinity,
             child: GestureDetector(
               onTap: onTap,
+              onLongPress: onLongPress,
+              onLongPressEnd: onLongPressEnd,
               child: CustomPaint(
                 painter: _CustomSmallButtonPainter._CustomBigButtonPainter(
                     curveRadius: curveRadius,
@@ -139,7 +145,7 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? AppColors.secondary : AppColors.primary;
+    final color = isSelected ? AppColors.blue : AppColors.primary;
     final borderColor =
         isSelected ? Theme.of(context).colorScheme.primary : Colors.white;
     return Stack(
@@ -187,7 +193,7 @@ class _CustomSmallButtonSelectedPainter extends CustomPainter {
       {required this.curveRadius,
       required this.color,
       this.borderColor = Colors.white,
-      this.borderWidth = 2.0});
+      this.borderWidth = 4.0});
 
   @override
   void paint(Canvas canvas, Size size) {

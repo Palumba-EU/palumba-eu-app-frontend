@@ -21,8 +21,10 @@ class LocalizationData {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['countries'] =countries != null ? countries!.map((v) => v.toJson()).toList() : null;
-    data['languages'] =languages != null ? languages!.map((v) => v.toJson()).toList() : null;
+    data['countries'] =
+        countries != null ? countries!.map((v) => v.toJson()).toList() : null;
+    data['languages'] =
+        languages != null ? languages!.map((v) => v.toJson()).toList() : null;
     return data;
   }
 }
@@ -73,4 +75,3 @@ class Language {
     return data;
   }
 }
-

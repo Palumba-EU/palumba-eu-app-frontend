@@ -3,7 +3,8 @@ import 'package:html/dom.dart' as dom;
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 
-class HtmlStatementsParser {
+class StatementsParser {
+  /*
   String? context;
   static String? getDefinitionText(String? htmlContent) {
     dom.Document document = htmlParser.parse(htmlContent);
@@ -30,16 +31,16 @@ class HtmlStatementsParser {
     }
     return context;
   }
+  */
 
   static List<CardModel> getCardModelList(List<Statement> statements) {
     List<CardModel> cards = [];
     for (Statement statement in statements) {
       cards.add(CardModel(
         id: statement.id,
-        mainQuestion: statement.statement ?? 'No data',
-        definition:
-            getDefinitionText(statement.details ?? '') ?? 'No definition',
-        context: getContextText(statement.details ?? '') ?? 'No context',
+        emojis: statement.emojis ?? '',
+        mainQuestion: statement.statement ?? '<p>No data</p>',
+        details: statement.details ?? '<p>No definition</p>',
       ));
     }
     return cards;

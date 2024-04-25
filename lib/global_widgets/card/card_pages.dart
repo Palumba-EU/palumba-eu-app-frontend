@@ -23,13 +23,13 @@ class FirstCardPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomSpacer(multiplier: 3),
+        CustomSpacer(multiplier: 6),
         if (!isOnboardingCard && card != null)
           EmojiLabelContainer(
-            emoji: '️‍🕵️‍♀📣⚖️',
-            backgroundColor: AppColors.yellow,
+            emoji: card!.emojis,
+            backgroundColor: AppColors.lightPrimary,
           ),
-        CustomSpacer(multiplier: 3),
+        CustomSpacer(),
         Text(
             (isOnboardingCard && card == null)
                 ? S.of(context).onBoardingCardQuestion
@@ -58,71 +58,14 @@ class SecondCardPage extends StatelessWidget {
           children: [
             CustomSpacer(multiplier: 2),
             CustomHtmlWidget(
-              content: card.definition,
-              textStyle: AppTexts.customTextStyle(AppTextType.regular),
+              content: card.details,
+              textStyle: AppTexts.customTextStyle(AppTextType.regular,
+                  fontWeight: FontWeight.w300),
             ),
             CustomSpacer(multiplier: 8),
           ],
         ),
       ),
-    );
-  }
-}
-
-class ThirdCardPage extends StatelessWidget {
-  const ThirdCardPage(
-    this.card, {
-    super.key,
-  });
-
-  final CardModel card;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomSpacer(multiplier: 2),
-            CustomHtmlWidget(
-              content: card.context,
-              textStyle: AppTexts.customTextStyle(AppTextType.regular),
-            ),
-            CustomSpacer(multiplier: 8),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class FourthCardPage extends StatelessWidget {
-  const FourthCardPage(
-    this.card, {
-    super.key,
-  });
-
-  final CardModel card;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomSpacer(multiplier: 2),
-        Text(
-          'Arguments against',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        CustomSpacer(multiplier: 2),
-        Text(
-          'The arguments against this claim are:',
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
-      ],
     );
   }
 }

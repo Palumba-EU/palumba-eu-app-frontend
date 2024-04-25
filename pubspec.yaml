@@ -1,7 +1,7 @@
 name: palumba_eu
 description: Palumba project with GetX and Provider
 
-version: 0.8.0+493
+version: 0.9.0+875
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
@@ -24,6 +24,7 @@ dependencies:
   # Native Specific Modules
   package_info_plus: ^6.0.0
   app_tracking_transparency: ^2.0.4
+  share_plus: ^8.0.3
 
   # UI Modules
   cached_network_image: ^3.3.1
@@ -34,6 +35,9 @@ dependencies:
   path_drawing: ^1.0.1
   flutter_launcher_icons: ^0.13.1
   flutter_widget_from_html_core: ^0.14.11
+  flutter_html: ^3.0.0-beta.2
+  fl_chart: ^0.67.0
+  syncfusion_flutter_charts: ^25.1.41
   smooth_page_indicator: ^1.1.0
   matrix4_transform: ^3.0.1
 

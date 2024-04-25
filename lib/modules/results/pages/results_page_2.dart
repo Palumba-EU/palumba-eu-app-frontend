@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -16,29 +17,34 @@ class ResultsPage2 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = controller.isTablet;
     return SingleChildScrollView(
       child: Column(
         children: [
           CustomSpacer(multiplier: 3),
           SizedBox(
-            height: Get.width * .82,
+            height: Get.width * (isTablet ? .62 : .82),
             child: Stack(
               children: [
                 Align(
                   alignment: Alignment.topCenter,
                   child: CustomNetworkImage(
-                    width: Get.width * .65,
-                    height: Get.width * .65,
+                    width: Get.width * (isTablet ? .55 : .65),
+                    height: Get.width * (isTablet ? .55 : .65),
                     isSvg: true,
                     imageUrl:
                         controller.maxPercentagePoliticParty?.party.logo ?? '',
                     radius: Get.width,
-                    color: AppColors.secondary,
+                    color: AppColors.blue,
                   ),
                 ),
                 Align(
                     alignment: Alignment.bottomCenter,
-                    child: Image.asset('assets/images/palumba_badge_heart.png'))
+                    child: SvgPicture.asset(
+                      'assets/images/img_heart_arrow.svg',
+                      height: 100,
+                      fit: BoxFit.fitWidth,
+                    ))
               ],
             ),
           ),
@@ -69,33 +75,32 @@ class ResultsPage2 extends GetView<ResultsController> {
             padding: EdgeInsets.symmetric(
                 horizontal: AppDimens.bigLateralPaddingValue * 2),
             child: controller.maxPercentagePoliticParty == null
-                ? AppTexts.regular('No data', color: AppColors.primary)
+                ? AppTexts.small('No data', color: AppColors.primary)
                 : RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       text: S.of(context).resultsPage2FirstText,
-                      style: AppTexts.customTextStyle(AppTextType.regular,
+                      style: AppTexts.customTextStyle(AppTextType.small,
                           color: AppColors.primary),
                       children: [
                         TextSpan(
                           text:
                               ' ${controller.maxPercentagePoliticParty?.percentage}% ',
-                          //' ${controller.getFisrtParty()?.value}', //TODO: put api data ,
-                          style: AppTexts.customTextStyle(AppTextType.regular,
+                          style: AppTexts.customTextStyle(AppTextType.small,
                               color: controller.getFirstPartyColor(),
                               bold: true),
                         ),
                         TextSpan(
                           text: '\n  ${S.of(context).resultsPage2LastText}',
-                          style: AppTexts.customTextStyle(AppTextType.regular,
+                          style: AppTexts.customTextStyle(AppTextType.small,
                               color: AppColors.primary),
                         ),
                       ],
                     )),
           ),
-          CustomSpacer(multiplier: 4),
           //TODO: fix this quote
-          AppTexts.regular('In June, bla bla bla', color: AppColors.primary),
+          /*CustomSpacer(multiplier: 4),
+            AppTexts.small('In June, bla bla bla', color: AppColors.primary),*/
           CustomSpacer(multiplier: 12),
         ],
       ),

@@ -9,6 +9,7 @@ import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
@@ -102,7 +103,7 @@ class OnboardingPage extends StatelessWidget {
                                 },
                                 child: AppTexts.regular(
                                     S.of(context).onBoardingNotAnswerButton,
-                                    bold: true,
+                                    black:true,
                                     color: AppColors.primary),
                               );
                             }),
@@ -150,27 +151,12 @@ class OnboardingPage extends StatelessWidget {
                   height: _.height.value,
                   margin: _.margin.value,
                   decoration: BoxDecoration(
-                      color: AppColors.secondary,
+                      color: AppColors.blue,
                       borderRadius: BorderRadius.only(
                           bottomLeft: _.radius.value,
                           bottomRight: _.radius.value)),
                 ),
               ),
-              //Progress
-              SafeArea(
-                  child: Padding(
-                padding: EdgeInsets.only(top: AppDimens.lateralPaddingValue),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Obx(() => CustomProgressBar(
-                        width: Get.width * 0.35,
-                        step: _.currentStep.value,
-                        totalSteps: _.totalSteps,
-                        progressColor: AppColors.primary,
-                        backgroundColor: AppColors.lightPrimary,
-                      )),
-                ),
-              )),
 
               Obx(
                 () => _.showFinalView
@@ -182,13 +168,10 @@ class OnboardingPage extends StatelessWidget {
                               child: SizedBox(
                                 height: Get.height * .3,
                                 child: DecisionButtonsOnBoarding(
-                                  onTapDisagrementButton:
-                                      _.onTapDisagrementButton,
-                                  onTapHalfDisagrementButton:
-                                      _.onTapHalfDisagrementButton,
-                                  onTapHalfAgrementButton:
-                                      _.onTapHalfAgrementButton,
-                                  onTapAgrementButton: _.onTapAgrementButton,
+                                  onTapDisagrementButton: () {},
+                                  onTapHalfDisagrementButton: () {},
+                                  onTapHalfAgrementButton: () {},
+                                  onTapAgrementButton: () {},
                                 ),
                               ),
                             ),
@@ -201,7 +184,7 @@ class OnboardingPage extends StatelessWidget {
                               child: CustomContainerCurve(
                                 height: Get.height * .82,
                                 curveRadius: 200,
-                                color: AppColors.secondary,
+                                color: AppColors.blue,
                               ),
                             ),
                           ),
@@ -215,8 +198,9 @@ class OnboardingPage extends StatelessWidget {
                                     cardOpacity: _.cardOpacity,
                                     cardAnimationDuration:
                                         _.cardAnimationDuration,
-                                    isOnboardingCard: true,
+                                    isOnboardingCard: _.isOnBoardingCard,
                                     isPanStarted: false.obs,
+                                    card: _.cardData,
                                   )
                                 : AnimatedContainer(
                                     duration: const Duration(milliseconds: 650),
@@ -229,8 +213,9 @@ class OnboardingPage extends StatelessWidget {
                                       cardOpacity: _.cardOpacity,
                                       cardAnimationDuration:
                                           _.cardAnimationDuration,
-                                      isOnboardingCard: true,
+                                      isOnboardingCard: _.isOnBoardingCard,
                                       isPanStarted: false.obs,
+                                      card: _.cardData,
                                     ),
                                   ),
                           ),
@@ -238,6 +223,23 @@ class OnboardingPage extends StatelessWidget {
                       )
                     : SizedBox.shrink(),
               ),
+              //Progress
+              SafeArea(
+                  child: Padding(
+                padding: EdgeInsets.only(top: AppDimens.lateralPaddingValue),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Obx(() => _.showLastStepTitle
+                      ? LastStepTitle()
+                      : CustomProgressBar(
+                          width: Get.width * 0.35,
+                          step: _.currentStep.value,
+                          totalSteps: _.totalSteps,
+                          progressColor: AppColors.primary,
+                          backgroundColor: AppColors.lightPrimary,
+                        )),
+                ),
+              )),
             ],
           )),
     );

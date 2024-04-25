@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'localization_data.dart';
-
 enum StatementResponse {
   stronglyDisagree, // -1
   disagree, // -0.5
@@ -18,14 +16,14 @@ String userDataToJson(UserData data) => json.encode(data.toJson());
 class UserData {
   int? age;
   int? countryId;
-  int? languageId;
+  String? languageCode;
   String? gender;
   List<Answer> answers;
 
   UserData({
     this.age,
     this.countryId,
-    this.languageId,
+    this.languageCode,
     this.gender,
     required this.answers,
   });
@@ -33,7 +31,7 @@ class UserData {
   factory UserData.fromJson(Map<String, dynamic> json) => UserData(
         age: json["age"],
         countryId: json["country_id"],
-        languageId: json["language_id"],
+        languageCode: json["language_code"],
         gender: json["gender"],
         answers:
             List<Answer>.from(json["answers"].map((x) => Answer.fromJson(x))),
@@ -42,7 +40,7 @@ class UserData {
   Map<String, dynamic> toJson() => {
         "age": age,
         "country_id": countryId,
-        "language_id": languageId,
+        "language_code": languageCode,
         "gender": gender,
         "answers": List<Map<String, dynamic>>.from(answers.map((x) {
           //Make sure to parse only the answers that are not skipped

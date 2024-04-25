@@ -5,14 +5,12 @@ import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
-import 'package:lottie/lottie.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class LoadingResultsPage extends StatelessWidget {
   const LoadingResultsPage({Key? key}) : super(key: key);
@@ -40,7 +38,7 @@ class LoadingResultsPage extends StatelessWidget {
                             multiplier: 7,
                           ),
                           Obx(() => CustomProgressBar(
-                                duration: Duration(seconds: 2),
+                                duration: Duration(seconds: _.secondsStep),
                                 width: Get.width * 0.675,
                                 step: _.currentStep.value,
                                 totalSteps: _.totalSteps,
@@ -62,8 +60,6 @@ class LoadingResultsPage extends StatelessWidget {
                                     .loadingResultsPageTitle3(_.countryName);
                               } else if (_.currentStep.value == 4) {
                                 text = S.of(context).loadingResultsPageTitle4;
-                              } else if (_.currentStep.value == 5) {
-                                text = S.of(context).loadingResultsPageTitle5;
                               }
 
                               return AppTexts.title(
@@ -100,7 +96,7 @@ class LoadingResultsPage extends StatelessWidget {
                       child: FittedBox(
                           fit: BoxFit.fitWidth,
                           child:
-                              SvgPicture.asset('assets/images/ic_compass.svg')),
+                              SvgPicture.asset('assets/images/img_compass.svg')),
                     ),
                   ),
                 )

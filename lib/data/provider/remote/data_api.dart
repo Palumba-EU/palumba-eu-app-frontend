@@ -23,6 +23,8 @@ class DataAPI {
   final resultsEndpoint = '/results';
   final responseEndpoint = '/responses';
 
+  final langCode = ''; //'/api/${LanguageManager.currentLanguage}';
+
   Future<LocalizationData?> fetchLocalizations() async {
     try {
       final url = Uri.parse('${baseUrl}${localizationsEndpoint}');
@@ -66,7 +68,7 @@ class DataAPI {
 
   Future<ResultsData?> fetchResultsInfo() async {
     try {
-      final url = Uri.parse('${baseUrl}${resultsEndpoint}');
+      final url = Uri.parse('${baseUrl}${langCode}${resultsEndpoint}');
       final response = await http.get(
         url,
         headers: headers,
