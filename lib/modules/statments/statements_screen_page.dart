@@ -199,7 +199,7 @@ class StatementsPage extends GetView<StatementsController> {
                                             : () => controller.activateButton(
                                                 StatementResponse.neutral),
                                         color: controller.neutralButtonSelected
-                                            ? AppColors.secondary
+                                            ? AppColors.blue
                                             : AppColors.primary,
                                         textColor: AppColors.text,
                                         radius: AppDimens.largeBorderRadius,

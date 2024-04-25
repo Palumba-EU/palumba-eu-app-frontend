@@ -17,11 +17,17 @@ class Alert {
         // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(title, style: TextStyle(color: Colors.black),)),
+            title: Text(
+              title,
+              style: TextStyle(color: Colors.black),
+            ),
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
-                  Text(text, style: TextStyle(color: Colors.black),),
+                  Text(
+                    text,
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ],
               ),
             ),

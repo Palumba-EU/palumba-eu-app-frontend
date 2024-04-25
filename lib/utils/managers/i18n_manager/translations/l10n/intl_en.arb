@@ -80,6 +80,7 @@
   "homePageText": "If this cute pigeon can’t help you vote in June, nothing will.",
   "homePageMatchesFoundQuote": "{count} matches found in the last 24h",
   "homePageBackToTest": "Back to the test",
+  "homePageMyResults": "My results",
   "homePageStartButton": "Start a new test",
 
   "@@SettingsPage": "SettingsPage",
