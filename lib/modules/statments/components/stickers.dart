@@ -8,37 +8,40 @@ class Stickers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Row(
-          children: [
-            SvgPicture.asset(
-              'assets/images/ic_sticker_ballot_box.svg',
-            ),
-            Spacer(),
-            SvgPicture.asset(
-              'assets/images/ic_sticker_heart.svg',
-            ),
-          ],
-        ),
-        Spacer(),
-        Row(
-          children: [
-            SvgPicture.asset(
-              'assets/images/ic_sticker_target.svg',
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Spacer(),
-            SvgPicture.asset(
-              'assets/images/ic_sticker_sign.svg',
-            ),
-          ],
-        ),
-      ],
+    return IgnorePointer(
+      ignoring: true,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Row(
+            children: [
+              SvgPicture.asset(
+                'assets/images/ic_sticker_ballot_box.svg',
+              ),
+              Spacer(),
+              SvgPicture.asset(
+                'assets/images/ic_sticker_heart.svg',
+              ),
+            ],
+          ),
+          Spacer(),
+          Row(
+            children: [
+              SvgPicture.asset(
+                'assets/images/ic_sticker_target.svg',
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Spacer(),
+              SvgPicture.asset(
+                'assets/images/ic_sticker_sign.svg',
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
