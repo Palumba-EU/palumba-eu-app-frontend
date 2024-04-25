@@ -53,4 +53,8 @@ class UserManager {
   static addStatment(int statmentId, StatementResponse answer) {
     userData.answers.add(Answer(statementId: statmentId, answer: answer));
   }
+
+  static deleteLastStatement() {
+    userData.answers.removeLast();
+  }
 }

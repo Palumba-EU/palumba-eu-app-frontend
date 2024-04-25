@@ -6,6 +6,7 @@ import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/alert.dart';
+import 'package:palumba_eu/utils/managers/language_manager.dart';
 
 class SplashController extends GetxController {
   static const route = '/splash';
@@ -28,6 +29,11 @@ class SplashController extends GetxController {
           'It looks like you don\'t have internet connection', Get.context!);
       return;
     }
+    //Set language
+    final currentLanguage = (await _localDataRepository.language) ?? '';
+    LanguageManager.currentLanguage = currentLanguage.isEmpty
+        ? (Get.locale?.languageCode ?? 'en')
+        : currentLanguage;
 
     _dataRepository.fetchStatements();
 

@@ -157,23 +157,6 @@ class OnboardingPage extends StatelessWidget {
                           bottomRight: _.radius.value)),
                 ),
               ),
-              //Progress
-              SafeArea(
-                  child: Padding(
-                padding: EdgeInsets.only(top: AppDimens.lateralPaddingValue),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Obx(() => _.showLastStepTitle
-                      ? LastStepTitle()
-                      : CustomProgressBar(
-                          width: Get.width * 0.35,
-                          step: _.currentStep.value,
-                          totalSteps: _.totalSteps,
-                          progressColor: AppColors.primary,
-                          backgroundColor: AppColors.lightPrimary,
-                        )),
-                ),
-              )),
 
               Obx(
                 () => _.showFinalView
@@ -240,6 +223,23 @@ class OnboardingPage extends StatelessWidget {
                       )
                     : SizedBox.shrink(),
               ),
+              //Progress
+              SafeArea(
+                  child: Padding(
+                padding: EdgeInsets.only(top: AppDimens.lateralPaddingValue),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Obx(() => _.showLastStepTitle
+                      ? LastStepTitle()
+                      : CustomProgressBar(
+                          width: Get.width * 0.35,
+                          step: _.currentStep.value,
+                          totalSteps: _.totalSteps,
+                          progressColor: AppColors.primary,
+                          backgroundColor: AppColors.lightPrimary,
+                        )),
+                ),
+              )),
             ],
           )),
     );

@@ -36,16 +36,11 @@ class SettingsPage extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: Get.back,
-                        child: Container(
-                            width: 40,
-                            height: 40,
-                            color: Colors.transparent,
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: SvgPicture.asset(
-                                'assets/images/ic_arrow_back.svg',
-                              ),
-                            )),
+                        child: SizedBox(
+                          child: SvgPicture.asset(
+                            'assets/images/ic_arrow_back.svg',
+                          ),
+                        ),
                       ),
                       Spacer(),
                       TextButton(
@@ -76,7 +71,7 @@ class SettingsPage extends StatelessWidget {
                     id: _.rebuildLanguageKey,
                     builder: (cnt) => CustomSelector(
                         leading: const SizedBox.shrink(),
-                        title: _.SelectedLang?.name ?? '',
+                        title: _.selectedLang?.name ?? '',
                         selected: true,
                         onPressed: _.goToSelectLanguage),
                   ),

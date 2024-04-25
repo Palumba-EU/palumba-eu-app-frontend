@@ -4,7 +4,7 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
-import 'package:palumba_eu/modules/statments/helpers/html_parser_helper.dart';
+import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -171,7 +171,7 @@ class OnboardingController extends GetxController {
       if (onBoarded == true) {
         try {
           _cardData =
-              HtmlStatementsParser.getCardModelList(DataManager().statements!)
+              StatementsParser.getCardModelList(DataManager().statements!)
                   .first;
         } catch (e) {
           debugPrint(e.toString());
@@ -197,7 +197,7 @@ class OnboardingController extends GetxController {
         await Future.delayed(Duration(milliseconds: 1500));
         _cardAnimationDuration.value = 0;
         finalAnimationFinished.value = true;
-        if (onBoarded != true) {
+        if (onBoarded == true) {
           //If is already on boarded return to home page
           Get.offAllNamed(StatementsController.route);
           return;

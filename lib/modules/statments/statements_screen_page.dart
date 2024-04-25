@@ -3,12 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
-import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
-import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 import 'components/buttons/decision_buttons.dart';
@@ -194,7 +192,7 @@ class StatementsPage extends GetView<StatementsController> {
                                 homeTap: () =>
                                     Get.toNamed(HomePageController.route),
                                 backTap: () =>
-                                    Get.toNamed(HomePageController.route),
+                                    controller.returnToPreviousCard(),
                               )),
                         ),
                       ),
@@ -261,6 +259,7 @@ class StatementsPage extends GetView<StatementsController> {
                           cardOpacity: controller.cardOpacity,
                           isOnboardingCard: controller.fromOnboarding,
                           scale: controller.scale.value,
+                          isZoneButtonEntered: controller.isZoneButtonEntered,
                           onSkipTap: () =>
                               controller.activateButton(StatementResponse.skip),
                         ),

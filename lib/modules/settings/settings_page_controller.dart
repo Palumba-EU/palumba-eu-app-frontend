@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
@@ -13,8 +14,7 @@ class SettingsPageController extends GetxController {
 
   List<Language>? get languages => _languages;
 
-  Language? get SelectedLang => _languages?.firstWhere(
-      (lang) => lang.languagecode == (LanguageManager.currentLanguage));
+  Language? get selectedLang => getSelectedLanguage();
 
   @override
   void onInit() {
@@ -24,6 +24,15 @@ class SettingsPageController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+  }
+
+  Language? getSelectedLanguage() {
+    try {
+      return _languages?.firstWhere(
+          (lang) => lang.languagecode == (LanguageManager.currentLanguage));
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
   goToSelectLanguage() async {

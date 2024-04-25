@@ -9,7 +9,7 @@ import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
-import 'package:palumba_eu/modules/statments/helpers/html_parser_helper.dart';
+import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
@@ -55,6 +55,10 @@ class StatementsController extends GetxController {
 //This defines if the pan gesture has started
   RxBool _isPanStarted = false.obs;
   RxBool get isPanStarted => _isPanStarted;
+
+//This define if card is dragged in a buttone zone
+  RxBool _isZoneButtonEntered = false.obs;
+  RxBool get isZoneButtonEntered => _isZoneButtonEntered;
 
 //The next 5 variables define wich button is Selected
   RxBool _stronglyDisagrementButtonSelected = false.obs;
@@ -126,7 +130,7 @@ class StatementsController extends GetxController {
       await _fetchStatements();
     }
 
-    _currentCards.addAll(HtmlStatementsParser.getCardModelList(statements));
+    _currentCards.addAll(StatementsParser.getCardModelList(statements));
     update([cardStackKey]);
     _loadingQuestions.value = false;
   }
@@ -210,7 +214,7 @@ class StatementsController extends GetxController {
     }
   }
 
-//Handle user LongPress, activate button color but not card animation
+//Handle user LongPress, activate button color but not card animation, animation will be triggered when user release the button
   void onLongPressButton(
     StatementResponse? decision,
   ) {
@@ -280,6 +284,7 @@ class StatementsController extends GetxController {
             _disagrementButtonSelected.value = false;
             _agrementButtonSelected.value = false;
             _stronglyAgrementButtonSelected.value = false;
+            _isZoneButtonEntered.value = true;
             return StatementResponse.stronglyDisagree;
 
           case _WidthScreenPart.middleLeft:
@@ -288,6 +293,8 @@ class StatementsController extends GetxController {
                 (_position.value.dy < Get.height * .35) ? false : true;
             _agrementButtonSelected.value = false;
             _stronglyAgrementButtonSelected.value = false;
+            _isZoneButtonEntered.value =
+                (_position.value.dy < Get.height * .35) ? false : true;
             return (_position.value.dy < Get.height * .35)
                 ? null
                 : StatementResponse.disagree;
@@ -299,6 +306,8 @@ class StatementsController extends GetxController {
             _agrementButtonSelected.value =
                 (_position.value.dy < Get.height * .35) ? false : true;
             _stronglyAgrementButtonSelected.value = false;
+            _isZoneButtonEntered.value =
+                (_position.value.dy < Get.height * .35) ? false : true;
             return (_position.value.dy < Get.height * .35)
                 ? null
                 : StatementResponse.agree;
@@ -307,6 +316,7 @@ class StatementsController extends GetxController {
             _disagrementButtonSelected.value = false;
             _agrementButtonSelected.value = false;
             _stronglyAgrementButtonSelected.value = true;
+            _isZoneButtonEntered.value = true;
             return StatementResponse.stronglyAgree;
         }
       case _HeightScreenPart.top:
@@ -314,6 +324,7 @@ class StatementsController extends GetxController {
         _disagrementButtonSelected.value = false;
         _agrementButtonSelected.value = false;
         _stronglyAgrementButtonSelected.value = false;
+        _isZoneButtonEntered.value = true;
         if (widthPart == _WidthScreenPart.maxRight) {
           _neutralButtonSelected.value = false;
           _stronglyAgrementButtonSelected.value = true;
@@ -321,6 +332,7 @@ class StatementsController extends GetxController {
         } else if (widthPart == _WidthScreenPart.maxLeft) {
           _neutralButtonSelected.value = false;
           _stronglyDisagrementButtonSelected.value = true;
+
           return StatementResponse.stronglyDisagree;
         }
         _neutralButtonSelected.value = true;
@@ -332,6 +344,18 @@ class StatementsController extends GetxController {
         _agrementButtonSelected.value = false;
         _stronglyAgrementButtonSelected.value = false;
         _neutralButtonSelected.value = false;
+        _isZoneButtonEntered.value = false;
+        if (widthPart == _WidthScreenPart.maxRight) {
+          _neutralButtonSelected.value = false;
+          _stronglyAgrementButtonSelected.value = true;
+          _isZoneButtonEntered.value = true;
+          return StatementResponse.stronglyAgree;
+        } else if (widthPart == _WidthScreenPart.maxLeft) {
+          _neutralButtonSelected.value = false;
+          _stronglyDisagrementButtonSelected.value = true;
+          _isZoneButtonEntered.value = true;
+          return StatementResponse.stronglyDisagree;
+        }
         return null;
     }
   }
@@ -367,7 +391,7 @@ class StatementsController extends GetxController {
     if (_isPanStarted.value) return;
     final isNext = event.localPosition.dx > Get.width / 2;
     if (isNext) {
-      if (_currentCardIndex < 2) {
+      if (_currentCardIndex < 1) {
         _currentCardIndex.value++;
       }
     } else {
@@ -379,11 +403,6 @@ class StatementsController extends GetxController {
 
   nextCard() async {
     _currentCards.removeAt(0);
-    /*  if (_currentCards.length < 3) {
-      await Future.delayed(const Duration(milliseconds: 250));
-      //TODO: fecth new cards
-      // _currentCards += cards;
-    }*/
     update([cardStackKey]);
     resetAnimation();
     if (_fromOnboarding.value) {
@@ -487,5 +506,23 @@ class StatementsController extends GetxController {
     _scale.value = 1.0;
 
     nextCard();
+  }
+
+  returnToPreviousCard() {
+    try {
+      final allStatementsList = DataManager().getStatements();
+      final currentIndex =
+          allStatementsList.indexWhere((e) => e.id == firstCard!.id);
+      if (currentIndex > 1) {
+        // _currentCardIndex.value = currentIndex - 1;
+        _currentCards.insert(
+            0,
+            StatementsParser.getCardModelList(
+                allStatementsList)[currentIndex - 1]);
+        resetAnimation();
+        update([cardStackKey]);
+        UserManager.deleteLastStatement();
+      }
+    } catch (e) {}
   }
 }

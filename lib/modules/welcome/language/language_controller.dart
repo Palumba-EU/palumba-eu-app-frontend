@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
@@ -57,6 +56,8 @@ class LanguageController extends GetxController {
 
     UserManager.setLanguageId(languages![indexSelected.value].id!.toString());
     LanguageManager.setLanguage(languages![indexSelected.value].languagecode!);
+    _localDataRepository.language =
+        languages![indexSelected.value].languagecode!;
     if (isOnboarded == true) {
       Get.back(result: true);
       return;
