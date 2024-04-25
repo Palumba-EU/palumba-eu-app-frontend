@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
@@ -37,6 +40,12 @@ class SplashController extends GetxController {
         : currentLanguage;
     UserManager.setLanguageCode(LanguageManager.currentLanguage);
     _dataRepository.fetchStatements();
+
+    //Set country
+    final currentCountry = (await _localDataRepository.country) ?? '';
+    if (currentCountry.isNotEmpty) {
+      UserManager.setCountryId(Country.fromJson(jsonDecode(currentCountry)));
+    }
 
     final onBoarded = await _localDataRepository.onBoarded;
     if (onBoarded == true) {
