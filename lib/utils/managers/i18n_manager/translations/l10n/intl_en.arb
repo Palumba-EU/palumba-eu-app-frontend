@@ -18,7 +18,9 @@
   "languagePageSubtitle": "This can be changed later in settings.",
 
   "@@Entrance": "EntrancePage",
-  "entranceTitle": "If this cute pigeon can’t help you vote in June, nothing will.",
+  "entranceTitle1": "Welcome to the exclusive Beta of Palumba",
+  "entranceTitle2": "If this cute pigeon can't help you vote in June, nothing will",
+  "entranceTitle3": "Get ready to disseminate the app massively on May 9th",
   "entranceMatchesFoundQuote": "{count} matches found in the last 24h",
   "entranceStartButton": "Start Palumba",
 
@@ -77,7 +79,6 @@
   "resultsSocialShareData": "Me and {party} agreed on {percentage}% of all the statements you swiped on. Find out your match at palumba.eu",
 
   "@HomePage": "HomePage",
-  "homePageText": "If this cute pigeon can’t help you vote in June, nothing will.",
   "homePageMatchesFoundQuote": "{count} matches found in the last 24h",
   "homePageBackToTest": "Back to the test",
   "homePageMyResults": "My results",
@@ -88,7 +89,7 @@
   "settingsPageSubtitleLanguage": "I prefer to use this app in",
   "settingsPageTextLanguage": "To change the language, click on the current one",
   "settingsPageTitleAbout": "About",
-  "settingsPageTextAbout": "Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved",
+  "settingsPageTextAbout": "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people \uD83D\uDC26 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
   "settingsPageTitleAssociation": "The association",
   "settingsPageTitlePartners": "Partners",
   "settingsPageTextPartners": "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",

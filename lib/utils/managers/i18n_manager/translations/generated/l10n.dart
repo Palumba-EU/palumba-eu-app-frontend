@@ -190,11 +190,31 @@ class S {
     );
   }
 
-  /// `If this cute pigeon can’t help you vote in June, nothing will.`
-  String get entranceTitle {
+  /// `Welcome to the exclusive Beta of Palumba`
+  String get entranceTitle1 {
     return Intl.message(
-      'If this cute pigeon can’t help you vote in June, nothing will.',
-      name: 'entranceTitle',
+      'Welcome to the exclusive Beta of Palumba',
+      name: 'entranceTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If this cute pigeon can't help you vote in June, nothing will`
+  String get entranceTitle2 {
+    return Intl.message(
+      'If this cute pigeon can\'t help you vote in June, nothing will',
+      name: 'entranceTitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get ready to disseminate the app massively on May 9th`
+  String get entranceTitle3 {
+    return Intl.message(
+      'Get ready to disseminate the app massively on May 9th',
+      name: 'entranceTitle3',
       desc: '',
       args: [],
     );
@@ -700,16 +720,6 @@ class S {
     );
   }
 
-  /// `If this cute pigeon can’t help you vote in June, nothing will.`
-  String get homePageText {
-    return Intl.message(
-      'If this cute pigeon can’t help you vote in June, nothing will.',
-      name: 'homePageText',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `{count} matches found in the last 24h`
   String homePageMatchesFoundQuote(Object count) {
     return Intl.message(
@@ -790,10 +800,10 @@ class S {
     );
   }
 
-  /// `Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved`
+  /// `Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)`
   String get settingsPageTextAbout {
     return Intl.message(
-      'Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved',
+      'Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
       name: 'settingsPageTextAbout',
       desc: '',
       args: [],

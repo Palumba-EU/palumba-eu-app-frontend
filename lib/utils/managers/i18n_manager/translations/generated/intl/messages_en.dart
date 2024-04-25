@@ -43,8 +43,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Start Palumba"),
-        "entranceTitle": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t help you vote in June, nothing will."),
+        "entranceTitle1": MessageLookupByLibrary.simpleMessage(
+            "Welcome to the exclusive Beta of Palumba"),
+        "entranceTitle2": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will"),
+        "entranceTitle3": MessageLookupByLibrary.simpleMessage(
+            "Get ready to disseminate the app massively on May 9th"),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("France"),
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
@@ -54,8 +58,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
         "homePageStartButton":
             MessageLookupByLibrary.simpleMessage("Start a new test"),
-        "homePageText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t help you vote in June, nothing will."),
         "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "This can be changed later in settings."),
@@ -153,7 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageSubtitleLanguage":
             MessageLookupByLibrary.simpleMessage("I prefer to use this app in"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved Bla bla bla list of all people involved"),
+            "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
             "To change the language, click on the current one"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
