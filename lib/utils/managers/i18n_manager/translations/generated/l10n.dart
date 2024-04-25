@@ -890,10 +890,10 @@ class S {
     );
   }
 
-  /// `Share the app with a friend`
+  /// `Share (coming soon ⏳)`
   String get settingsPageShareButtonText {
     return Intl.message(
-      'Share the app with a friend',
+      'Share (coming soon ⏳)',
       name: 'settingsPageShareButtonText',
       desc: '',
       args: [],

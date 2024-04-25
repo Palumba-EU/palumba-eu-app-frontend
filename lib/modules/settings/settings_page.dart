@@ -105,7 +105,7 @@ class SettingsPage extends StatelessWidget {
                     ],
                   ),
                   CustomSpacer(multiplier: 4),
-
+                  /*
                   //PARTNERS
                   AppTexts.title(S.of(context).settingsPageTitlePartners,
                       color: AppColors.primary),
@@ -137,7 +137,7 @@ class SettingsPage extends StatelessWidget {
                   //Service providers
                   AppTexts.small(S.of(context).settingsPageSubtitle5,
                       color: AppColors.primary, bold: true),
-                  _wrapperIcons(),
+                  _wrapperIcons(),*/
 
                   CustomSpacer(multiplier: 8),
                 ],
@@ -151,15 +151,17 @@ class SettingsPage extends StatelessWidget {
           child: CustomButton(
             text: S.of(context).settingsPageShareButtonText,
             expanded: true,
-            onPressed: () {},
+            onPressed: _.shareApp,
             prefixIcon: IconButtonParameters('ic_share',
-                size: 18, color: AppColors.text),
+                size: 18, color: Color(0XFFAEAEAE)),
             radius: AppDimens.borderRadius,
-            color: AppColors.primary,
-            textColor: AppColors.text,
+            color: Color(0XFF1F1F1F),
+            textColor: Color(0XFFAEAEAE),
             bold: true,
             border: ButtonBorderParameters(
-                isOutside: true, width: 4, color: AppColors.lightPrimary),
+                isOutside: true,
+                width: 3,
+                color: Color(0XFFAEAEAE)),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

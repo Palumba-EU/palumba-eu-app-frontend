@@ -51,4 +51,8 @@ class SettingsPageController extends GetxController {
   void launchFaqUrl() {
     Utils.launch(StringUtils.faqUrl);
   }
+
+  void shareApp() {
+    //TODO
+  }
 }

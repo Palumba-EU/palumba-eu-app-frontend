@@ -141,7 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Share the app with a friend"),
+            MessageLookupByLibrary.simpleMessage("Share (coming soon ⏳)"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Main Sponsors"),
         "settingsPageSubtitle2":
