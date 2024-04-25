@@ -16,7 +16,7 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         maxLines: maxLines,
-        overflow: TextOverflow.ellipsis,
+        overflow: maxLines != null ? TextOverflow.ellipsis : null,
         style: TextStyle(
           fontFamily: GoogleFonts.merriweatherSans().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeSmall,

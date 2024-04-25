@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -120,10 +121,9 @@ class HomePage extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Image.asset(
-                              height:
-                                  Get.height < 750 ? Get.height * .35 : null,
-                              'assets/images/pigeon.png',
+                            SvgPicture.asset(
+                              'assets/images/img_pigeon.svg',
+                              height: Get.height * .35,
                             ),
                             CustomSpacer(multiplier: 3),
                             Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -30,6 +31,7 @@ class ResultsPage extends GetView<ResultsController> {
               ),
             ),
             SafeArea(
+              bottom: false,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -59,17 +61,12 @@ class ResultsPage extends GetView<ResultsController> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
+                        SvgPicture.asset(
+                          'assets/images/img_pigeon.svg',
                           height: 40,
-                          width: 24,
-                          child: Image.asset(
-                            'assets/images/pigeon.png',
-                            height: 24,
-                            width: 24,
-                          ),
                         ),
                         Spacer(),
-                        Obx(() => AppTexts.regular(
+                        Obx(() => AppTexts.medium(
                             '#${S.of(context).shortAppName}',
                             color: controller.isSpecialPage
                                 ? Colors.white
@@ -77,9 +74,7 @@ class ResultsPage extends GetView<ResultsController> {
                       ],
                     ),
                   ),
-                  CustomSpacer(
-                    multiplier: 3,
-                  ),
+
                   //Pages
                   Expanded(
                     child: GestureDetector(
@@ -103,7 +98,7 @@ class ResultsPage extends GetView<ResultsController> {
                   ? Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: AppDimens.bigLateralPaddingValue * 2,
-                          vertical: AppDimens.bigLateralPaddingValue),
+                          vertical: AppDimens.bigLateralPaddingValue * 1.5),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: CustomButton(

@@ -40,6 +40,7 @@ class ResultsPage7 extends GetView<ResultsController> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
+        CustomSpacer(multiplier: 4),
         SvgPicture.asset('assets/images/ic_europe_vote_logos.svg'),
         CustomSpacer(multiplier: 2),
         Padding(

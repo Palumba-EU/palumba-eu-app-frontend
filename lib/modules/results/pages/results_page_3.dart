@@ -17,6 +17,7 @@ class ResultsPage3 extends GetView<ResultsController> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+        child: SafeArea(
       child: Column(
         children: [
           CustomSpacer(multiplier: 3),
@@ -80,7 +81,7 @@ class ResultsPage3 extends GetView<ResultsController> {
           ),
         ],
       ),
-    );
+    ));
   }
 }
 

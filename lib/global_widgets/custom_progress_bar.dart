@@ -30,11 +30,11 @@ class CustomProgressBar extends StatelessWidget {
               for (int i = 0; i < totalSteps; i++)
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 2),
+                    padding: EdgeInsets.symmetric(horizontal: 0.5),
                     child: Stack(
                       children: [
                         Container(
-                          height: 4,
+                          height: 3,
                           decoration: BoxDecoration(
                               color: backgroundColor ??
                                   Colors.white.withOpacity(.5),
@@ -43,7 +43,7 @@ class CustomProgressBar extends StatelessWidget {
                         if (i == step)
                           AnimatedContainer(
                             duration: const Duration(milliseconds: 500),
-                            height: 4,
+                            height: 3,
                             decoration: BoxDecoration(
                                 color: progressColor ?? Colors.white,
                                 borderRadius: BorderRadius.circular(100)),

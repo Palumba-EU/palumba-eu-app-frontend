@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
-import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
@@ -80,22 +79,30 @@ class EntrancePage extends StatelessWidget {
                         color: AppColors.primary,
                         fontSize: AppDimens.fontSizeBig),
                   ),
+                  CustomSpacer(
+                    multiplier: 4,
+                  ),
                   Expanded(
-                    child: Image.asset(
-                      'assets/images/pigeon.png',
+                    child: Center(
+                      child: SvgPicture.asset(
+                        'assets/images/img_pigeon.svg',
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          CustomSpacer(),
+          CustomSpacer(
+            multiplier: 3,
+          ),
           SmoothPageIndicator(
             controller: _.pageController,
             count: 3,
             effect: WormEffect(
-              dotWidth: 10,
-              dotHeight: 10,
+              dotWidth: 8,
+              dotHeight: 8,
+              spacing: 4,
               activeDotColor: AppColors.primary,
               dotColor: AppColors.lightPrimary,
             ),
@@ -124,8 +131,11 @@ class EntrancePage extends StatelessWidget {
                   _.onTikTokTap();
                 },
                 child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: SvgPicture.asset('assets/images/ic_tiktok.svg'),
+                  padding: EdgeInsets.all(5),
+                  child: SvgPicture.asset(
+                    'assets/images/ic_tiktok.svg',
+                    height: 12,
+                  ),
                 ),
               ),
               GestureDetector(
@@ -133,8 +143,11 @@ class EntrancePage extends StatelessWidget {
                   _.onInstagramTap();
                 },
                 child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: SvgPicture.asset('assets/images/ic_instagram.svg'),
+                  padding: EdgeInsets.all(5),
+                  child: SvgPicture.asset(
+                    'assets/images/ic_instagram.svg',
+                    height: 12,
+                  ),
                 ),
               ),
               /*GestureDetector(
