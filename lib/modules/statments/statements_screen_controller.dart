@@ -29,6 +29,10 @@ class StatementsController extends GetxController {
   CardModel? get secondCard =>
       _currentCards.length > 1 ? _currentCards[1] : null;
 
+//Flag to decide if previous button is shown or not
+  RxBool _previousCardButtonActivated = false.obs;
+  RxBool get previousCardButtonActivated => _previousCardButtonActivated;
+
 ///////////////////////////////////
 ///////////////////////////////////
 /////ANIMATIONS
@@ -253,7 +257,7 @@ class StatementsController extends GetxController {
   }
 
   void onTapDown(TapDownDetails details) async {
-    changePage(details);
+    changeCardPage(details);
   }
 
 //Reset all animations and set cards in the initial position
@@ -386,15 +390,18 @@ class StatementsController extends GetxController {
     }
   }
 
-  void changePage(TapDownDetails event) async {
+  void changeCardPage(TapDownDetails event) async {
     await Future.delayed(Duration(milliseconds: 100));
     if (_isPanStarted.value) return;
-    final isNext = event.localPosition.dx > Get.width / 2;
+    final tapPos = event.localPosition.dx;
+    final isNext = tapPos > Get.width * .75;
+    final isPrevious = tapPos < Get.width * .25;
     if (isNext) {
       if (_currentCardIndex < 1) {
         _currentCardIndex.value++;
       }
-    } else {
+    }
+    if (isPrevious) {
       if (_currentCardIndex > 0) {
         _currentCardIndex.value--;
       }
@@ -411,6 +418,7 @@ class StatementsController extends GetxController {
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);
     }
+    _previousCardButtonActivated.value = true;
   }
 
   Future<void> disagreeAnimation() async {
@@ -513,8 +521,8 @@ class StatementsController extends GetxController {
       final allStatementsList = DataManager().getStatements();
       final currentIndex =
           allStatementsList.indexWhere((e) => e.id == firstCard!.id);
-      if (currentIndex > 1) {
-        // _currentCardIndex.value = currentIndex - 1;
+
+      if (currentIndex >= 1) {
         _currentCards.insert(
             0,
             StatementsParser.getCardModelList(
@@ -522,6 +530,10 @@ class StatementsController extends GetxController {
         resetAnimation();
         update([cardStackKey]);
         UserManager.deleteLastStatement();
+      }
+
+      if (currentIndex == 1) {
+        _previousCardButtonActivated.value = false;
       }
     } catch (e) {}
   }

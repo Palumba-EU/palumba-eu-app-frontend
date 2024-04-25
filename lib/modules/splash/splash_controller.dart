@@ -7,6 +7,7 @@ import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/alert.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class SplashController extends GetxController {
   static const route = '/splash';
@@ -34,7 +35,7 @@ class SplashController extends GetxController {
     LanguageManager.currentLanguage = currentLanguage.isEmpty
         ? (Get.locale?.languageCode ?? 'en')
         : currentLanguage;
-
+    UserManager.setLanguageCode(LanguageManager.currentLanguage);
     _dataRepository.fetchStatements();
 
     final onBoarded = await _localDataRepository.onBoarded;

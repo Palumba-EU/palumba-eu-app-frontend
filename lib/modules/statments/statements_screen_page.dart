@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
@@ -80,6 +79,8 @@ class StatementsPage extends GetView<StatementsController> {
                                     Get.toNamed(HomePageController.route),
                                 backTap: () =>
                                     controller.returnToPreviousCard(),
+                                isBackButtonActive:
+                                    controller.previousCardButtonActivated,
                               )),
                         ),
                       ),

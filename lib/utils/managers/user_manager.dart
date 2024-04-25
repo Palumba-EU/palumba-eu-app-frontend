@@ -24,8 +24,8 @@ class UserManager {
     userData.countryId = country.id;
   }
 
-  static setLanguageId(String langId) async {
-    userData.languageId = langId;
+  static setLanguageCode(String langCode) async {
+    userData.languageCode = langCode;
   }
 
   static setGender(gender? genderEnum) async {

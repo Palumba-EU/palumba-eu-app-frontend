@@ -29,7 +29,7 @@ class CustomHtmlWidget extends StatelessWidget {
       data: content,
       style: {
         'p': style,
-        'a': style.copyWith(color: AppColors.yellow),
+        'a': style.copyWith(color: AppColors.lightPrimary),
       },
       onLinkTap: (url, _, __) => Utils.launch(
         url!.replaceAll('"', '').trim(),

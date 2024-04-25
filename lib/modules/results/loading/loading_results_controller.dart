@@ -86,8 +86,8 @@ class LoadingResultsController extends GetxController {
       final userAnswersNotSkipped = userAnswers
           .where((element) => element.answer != StatementResponse.skip)
           .toList();
-      int numStatements =
-          userAnswersNotSkipped.length; // party.answers?.length ?? 0;
+      int numStatements = party.answers?.length ??
+          0; //  userAnswersNotSkipped.length; //TODO: check if this is correct
       List<Answer> maxDisagreeAnswers = List<Answer>.generate(
           numStatements,
           (index) => Answer(

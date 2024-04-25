@@ -12,11 +12,12 @@ class ResultsPage4 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return SizedBox.shrink();
+
+    /*SingleChildScrollView(
       child: Column(
         children: [
           CustomSpacer(multiplier: 3),
-          //TODO: add mds graphic
           Obx(
             () => IgnorePointer(
               child: CustomMDSGraphic(
@@ -31,6 +32,6 @@ class ResultsPage4 extends GetView<ResultsController> {
           ),
         ],
       ),
-    );
+    );*/
   }
 }

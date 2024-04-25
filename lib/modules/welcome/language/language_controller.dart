@@ -54,7 +54,7 @@ class LanguageController extends GetxController {
   void onContinueTap() async {
     final isOnboarded = await _localDataRepository.onBoarded;
 
-    UserManager.setLanguageId(languages![indexSelected.value].id!.toString());
+    UserManager.setLanguageCode(languages![indexSelected.value].id!.toString());
     LanguageManager.setLanguage(languages![indexSelected.value].languagecode!);
     _localDataRepository.language =
         languages![indexSelected.value].languagecode!;
