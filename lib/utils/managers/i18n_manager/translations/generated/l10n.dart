@@ -660,10 +660,10 @@ class S {
     );
   }
 
-  /// `Disclaimer about the order of the lists / temp. localization`
+  /// `They are in no particular order`
   String get resultsPage7Disclaimer {
     return Intl.message(
-      'Disclaimer about the order of the lists / temp. localization',
+      'They are in no particular order',
       name: 'resultsPage7Disclaimer',
       desc: '',
       args: [],

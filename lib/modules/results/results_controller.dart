@@ -57,7 +57,7 @@ class ResultsController extends GetxController {
 
   UserData get userData => UserManager.userData;
 
-  List<int> showButtonSharePages = [1, 2, 3, 7, 8, 9];
+  List<int> showButtonSharePages = [1, 2, 3, 4, 7, 8, 9];
 
   RxInt _currentPage = 0.obs;
 

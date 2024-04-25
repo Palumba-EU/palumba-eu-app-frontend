@@ -124,7 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
             "But at the EU Elections, you vote for a local list"),
         "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "Disclaimer about the order of the lists / temp. localization"),
+            "They are in no particular order"),
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
             "These are the matching Local Candidate lists in your country "),
