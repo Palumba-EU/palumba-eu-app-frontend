@@ -5,7 +5,10 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
+import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class HomePageController extends GetxController {
   static const route = '/home';
@@ -17,6 +20,8 @@ class HomePageController extends GetxController {
   LocalDataRepository _localDataRepository = Get.find<LocalDataRepository>();
 
   List<Map> resultsData = [];
+
+  bool get isTestRunning => UserManager.isTestRunning;
 
   @override
   void onInit() {
@@ -41,13 +46,25 @@ class HomePageController extends GetxController {
     update([resultsExistsKey]);
   }
 
-  void backToresults() {
+  void backToresultsOrTest() {
+    if (isTestRunning) {
+      Get.back();
+      return;
+    }
     Get.toNamed(ResultsController.route, arguments: {
       StringUtils.resultsDataKey: resultsData,
     });
   }
 
   void goToSettings() {
-    Get.toNamed(OnboardingController.route);
+    Get.toNamed(SettingsPageController.route);
+  }
+
+  void startNewTest() {
+    Get.offAllNamed(OnboardingController.route);
+  }
+
+  void launchFaqUrl() {
+    Utils.launch(StringUtils.faqUrl);
   }
 }

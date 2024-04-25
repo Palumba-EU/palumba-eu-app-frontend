@@ -28,7 +28,7 @@ class CustomHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: homeTap,
+                onTap: backTap,
                 child: Transform.rotate(
                   angle: -pi * .06,
                   child: Container(
@@ -57,7 +57,7 @@ class CustomHeader extends StatelessWidget {
                 fit: BoxFit.fitWidth,
               ),
               InkWell(
-                onTap: backTap,
+                onTap: homeTap,
                 child: Transform.rotate(
                   angle: pi * .06,
                   child: Container(

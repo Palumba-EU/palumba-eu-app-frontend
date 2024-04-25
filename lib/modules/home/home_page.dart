@@ -6,7 +6,6 @@ import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -72,13 +71,15 @@ class HomePage extends StatelessWidget {
         CustomSpacer(),
         GetBuilder<HomePageController>(
           id: _.resultsExistsKey,
-          builder: (controller) => _.resultsData.isEmpty
+          builder: (controller) => _.resultsData.isEmpty && !_.isTestRunning
               ? SizedBox.shrink()
               : CustomButton(
-                  text: S.of(context).homePageBackToResults,
+                  text: _.isTestRunning
+                      ? S.of(context).homePageBackToTest
+                      : S.of(context).homePageMyResults,
                   expanded: true,
                   onPressed: () {
-                    _.backToresults();
+                    _.backToresultsOrTest();
                   },
                   suffixIcon: IconButtonParameters('ic_arrow_right', size: 18),
                   radius: AppDimens.borderRadius,
@@ -92,9 +93,7 @@ class HomePage extends StatelessWidget {
         CustomButton(
           text: S.of(context).homePageStartButton,
           expanded: true,
-          onPressed: () {
-            Get.offAllNamed(LanguageController.route);
-          },
+          onPressed: _.startNewTest,
           suffixIcon: IconButtonParameters('ic_arrow_right',
               size: 18, color: AppColors.text),
           radius: AppDimens.borderRadius,

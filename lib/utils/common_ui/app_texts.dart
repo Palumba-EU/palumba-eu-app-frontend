@@ -100,7 +100,7 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
+            fontWeight: bold ? FontWeight.bold : FontWeight.w300,
             decoration: decoration);
 
       case AppTextType.small:
@@ -109,7 +109,7 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeSmall,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.w900 : FontWeight.normal,
+            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
             decoration: TextDecoration.underline);
       default:
     }

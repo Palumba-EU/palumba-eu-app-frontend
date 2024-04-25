@@ -16,6 +16,7 @@ class ResultsPage3 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = controller.isTablet;
     return SingleChildScrollView(
         child: SafeArea(
       child: Column(
@@ -52,7 +53,9 @@ class ResultsPage3 extends GetView<ResultsController> {
                     : SizedBox(
                         width: Get.width * .5,
                         child: Padding(
-                          padding: EdgeInsets.only(right: 18),
+                          padding: EdgeInsets.only(
+                              right: 18,
+                              top: AppDimens.smallLateralPaddingValue),
                           child: Align(
                             alignment: Alignment.centerRight,
                             child: CustomHemicycleChart(

@@ -28,6 +28,7 @@ class CustomCard extends StatelessWidget {
     this.isOnboardingCard = false,
     this.onSkipTap,
     this.scale,
+    this.isZoneButtonEntered,
   });
   final bool isFirstCard;
   final CardModel? card;
@@ -45,6 +46,7 @@ class CustomCard extends StatelessWidget {
   final bool isOnboardingCard;
   final Function()? onSkipTap;
   final double? scale;
+  final RxBool? isZoneButtonEntered;
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +57,6 @@ class CustomCard extends StatelessWidget {
       pages = [
         FirstCardPage(card!, isOnboardingCard),
         SecondCardPage(card!),
-        ThirdCardPage(card!),
-        // FourthCardPage(card!),
       ];
     }
     return IgnorePointer(
@@ -114,7 +114,10 @@ class CustomCard extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: !isFirstCard
                                   ? Theme.of(context).colorScheme.primary
-                                  : isPanStarted.value
+                                  : isPanStarted.value &&
+                                          !(isZoneButtonEntered == null
+                                              ? true
+                                              : !isZoneButtonEntered!.value)
                                       ? AppColors.blue
                                       : AppColors.primary,
                               borderRadius: BorderRadius.circular(20),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
-import 'package:palumba_eu/modules/home/home_page_controller.dart';
+import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -32,6 +32,12 @@ class OnboardingController extends GetxController {
   RxBool finalAnimationFinished = false.obs;
 
   RxBool _startAnimation = false.obs;
+
+  bool _isOnBoardingCard = false;
+  bool get isOnBoardingCard => _isOnBoardingCard;
+
+  CardModel? _cardData;
+  CardModel? get cardData => _cardData;
 
   get startAnimation => _startAnimation.value;
 
@@ -74,6 +80,10 @@ class OnboardingController extends GetxController {
   List<String> get genders => _genders.map((gender) => gender.name).toList();
 
   RxInt indexGenderSelected = (-1).obs;
+
+  //Step 4
+  RxBool _showLastStepTitle = false.obs;
+  bool get showLastStepTitle => _showLastStepTitle.value;
 
   @override
   void onInit() {
@@ -127,19 +137,6 @@ class OnboardingController extends GetxController {
    * Functions
    */
 
-  void _fetchStatements() async {
-    //Fetch statements data here to send to the next screen
-    /*
-    final result = await _dataRepository.fetchStatements();
-    if (result != null) {
-      /*  print(_statements!.data!.first.details);
-      print(_statements!.data!.first.statement);
-      print(_statements!.data!.first.footnote);
-      print(_statements!.data!.first.vector);*/
-    }
-    */
-  }
-
   void updateButtonState() {
     updateBackgroundShape();
     isButtonEnabled.value =
@@ -158,8 +155,6 @@ class OnboardingController extends GetxController {
       radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
-      //Call fetch statments here (when we reach step 2 and know the country selected)
-      _fetchStatements();
       height.value = isSmallScreen ? heightSize * 0.27 : heightSize * 0.37;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
@@ -172,11 +167,17 @@ class OnboardingController extends GetxController {
       radius.value = Radius.circular(250);
       radius.value = Radius.zero;
       final onBoarded = await _localDataRepository.onBoarded;
+      _isOnBoardingCard = onBoarded != true;
       if (onBoarded == true) {
-        //If is already on boarded return to home page
-        Get.offAllNamed(HomePageController.route);
-        return;
+        try {
+          _cardData =
+              StatementsParser.getCardModelList(DataManager().statements!)
+                  .first;
+        } catch (e) {
+          debugPrint(e.toString());
+        }
       }
+
       //When shape reach bottom of the screen we activate the rise card and buttons animation
       Future.delayed(Duration(milliseconds: 750), () async {
         _showFinalView.value = true;
@@ -188,6 +189,7 @@ class OnboardingController extends GetxController {
         _cardAnimationDuration.value = 650;
         _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
       }).then((value) async {
+        _showLastStepTitle.value = true;
         await Future.delayed(Duration(milliseconds: 350));
         _bigButtonsPosition.value = Offset(0, 0);
         await Future.delayed(Duration(milliseconds: 450));
@@ -195,6 +197,11 @@ class OnboardingController extends GetxController {
         await Future.delayed(Duration(milliseconds: 1500));
         _cardAnimationDuration.value = 0;
         finalAnimationFinished.value = true;
+        if (onBoarded == true) {
+          //If is already on boarded return to home page
+          Get.offAllNamed(StatementsController.route);
+          return;
+        }
         onTapDisagrementButton();
         await Future.delayed(Durations.long3);
         onTapHalfDisagrementButton();
@@ -203,6 +210,7 @@ class OnboardingController extends GetxController {
         await Future.delayed(Durations.long3);
         onTapAgrementButton();
         await Future.delayed(Durations.long3);
+
         //Set onBoarding as showed
         _localDataRepository.onBoarded = true;
 

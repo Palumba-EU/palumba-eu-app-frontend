@@ -17,19 +17,20 @@ class ResultsPage2 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = controller.isTablet;
     return SingleChildScrollView(
-      child: SafeArea(
-        child: Column(
-          children: [
-            CustomSpacer(multiplier: 2),
-            Stack(
-              alignment: Alignment.bottomCenter,
+      child: Column(
+        children: [
+          CustomSpacer(multiplier: 3),
+          SizedBox(
+            height: Get.width * (isTablet ? .62 : .82),
+            child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 50),
+                Align(
+                  alignment: Alignment.topCenter,
                   child: CustomNetworkImage(
-                    width: Get.width * .65,
-                    height: Get.width * .65,
+                    width: Get.width * (isTablet ? .55 : .65),
+                    height: Get.width * (isTablet ? .55 : .65),
                     isSvg: true,
                     imageUrl:
                         controller.maxPercentagePoliticParty?.party.logo ?? '',
@@ -37,11 +38,13 @@ class ResultsPage2 extends GetView<ResultsController> {
                     color: AppColors.blue,
                   ),
                 ),
-                SvgPicture.asset(
-                  'assets/images/img_heart_arrow.svg',
-                  height: 100,
-                  fit: BoxFit.fitWidth,
-                )
+                Align(
+                    alignment: Alignment.bottomCenter,
+                    child: SvgPicture.asset(
+                      'assets/images/img_heart_arrow.svg',
+                      height: 100,
+                      fit: BoxFit.fitWidth,
+                    ))
               ],
             ),
             CustomSpacer(multiplier: 2),
