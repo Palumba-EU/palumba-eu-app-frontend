@@ -61,6 +61,7 @@ class SecondCardPage extends StatelessWidget {
               content: card.details,
               textStyle: AppTexts.customTextStyle(
                 AppTextType.regular,
+                fontWeight: FontWeight.w300
               ),
             ),
             CustomSpacer(multiplier: 8),

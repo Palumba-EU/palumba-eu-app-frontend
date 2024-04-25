@@ -85,6 +85,7 @@ class AppTexts {
       {Color? color,
       bool bold = false,
       TextDecoration? decoration,
+      FontWeight? fontWeight,
       double? fontSize}) {
     switch (appTexType) {
       case AppTextType.title:
@@ -92,7 +93,7 @@ class AppTexts {
           fontFamily: GoogleFonts.merriweather().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
-          fontWeight: FontWeight.w900,
+          fontWeight: fontWeight ?? FontWeight.w900,
         );
       case AppTextType.regular:
         return TextStyle(
@@ -100,7 +101,8 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.bold : FontWeight.w300,
+            fontWeight:
+                bold ? FontWeight.bold : (fontWeight ?? FontWeight.normal),
             decoration: decoration);
 
       case AppTextType.small:
@@ -109,11 +111,11 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeSmall,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-            decoration: TextDecoration.underline);
+            fontWeight: bold ? FontWeight.bold : (fontWeight ?? FontWeight.normal),
+            decoration: decoration);
       default:
     }
   }
 }
 
-enum AppTextType { small, regular, title }
+enum AppTextType {small, regular, title }

@@ -52,9 +52,10 @@ class ResultsController extends GetxController {
 
   UserData get userData => UserManager.userData;
 
-  List<int> showButtonSharePages = [1, 2, 3, 5];
+  List<int> showButtonSharePages = [1, 2, 3, 7, 8, 9];
 
   RxInt _currentPage = 0.obs;
+
   int get currentPage => _currentPage.value;
 
   List<PartyUserDistance> _resultsData = [];
@@ -62,6 +63,7 @@ class ResultsController extends GetxController {
   List<LocalParties>? get localParties => filterLocalPartiesByCountry();
 
   PartyUserDistance? _maxPercentagePoliticParty;
+
   PartyUserDistance? get maxPercentagePoliticParty =>
       _maxPercentagePoliticParty ??
       (_resultsData.isEmpty ? null : _resultsData.first);
@@ -102,9 +104,7 @@ class ResultsController extends GetxController {
       //Convert the data to the format that the chart needs
       _resultsData.forEach((result) {
         chartData.add(CustomChartData(
-          party: result.party.acronym.isNullOrEmpty
-              ? (result.party.name ?? '')
-              : result.party.acronym ?? '',
+          party: result.party.name ?? result.party.acronym ?? '',
           value: result.percentage.toDouble(),
           image: result.party.logo ?? '',
           percentage: '${result.percentage}%',
