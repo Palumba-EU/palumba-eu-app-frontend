@@ -41,52 +41,6 @@ class StatementsPage extends GetView<StatementsController> {
               ],
             ),
           ),
-          Obx(
-            () => controller.fromOnboarding
-                ?
-                //Onboarding header
-                SafeArea(
-                    child: Padding(
-                      padding:
-                          EdgeInsets.only(top: AppDimens.lateralPaddingValue),
-                      child: Align(
-                          alignment: Alignment.topCenter, child: LastStepTitle()
-
-                          /*CustomProgressBar(
-                          width: Get.width * 0.35,
-                          step: 4,
-                          totalSteps: 4,
-                          progressColor: AppColors.primary,
-                          backgroundColor: AppColors.lightPrimary,
-                        ),*/
-                          ),
-                    ),
-                  )
-                :
-                //Custom Plaumba header
-                IgnorePointer(
-                    ignoring: controller.isPanStarted.value,
-                    child: Container(
-                      color: AppColors.blue,
-                      child: SafeArea(
-                        child: IntrinsicHeight(
-                          child: AnimatedOpacity(
-                              opacity: controller.isPanStarted.value ? 0.2 : 1,
-                              duration: Durations.medium4,
-                              child: CustomHeader(
-                                //TODO: Fix me (fix: add correct routes)
-                                homeTap: () =>
-                                    Get.toNamed(HomePageController.route),
-                                backTap: () =>
-                                    controller.returnToPreviousCard(),
-                                isBackButtonActive:
-                                    controller.previousCardButtonActivated,
-                              )),
-                        ),
-                      ),
-                    ),
-                  ),
-          ),
 
           Positioned(
             top: Get.height * .14,
@@ -96,20 +50,38 @@ class StatementsPage extends GetView<StatementsController> {
               child: Stickers(),
             ),
           ),
-          //Bird background image
-          /*ClipPath(
-            clipper: CustomContainerClipper(curveRadius: 200),
-            child: SizedBox(
-              height: Get.height * .82,
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: SvgPicture.asset(
-                  'assets/images/img_background_blue.svg',
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-          ),*/
+          
+          //Custom Plaumba header
+          Obx(
+            () => controller.fromOnboarding
+                ?
+                //Onboarding header
+                SafeArea(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(top: AppDimens.lateralPaddingValue),
+                      child: Align(
+                          alignment: Alignment.topCenter,
+                          child: LastStepTitle()),
+                    ),
+                  )
+                : SafeArea(
+                    child: IntrinsicHeight(
+                      child: AnimatedOpacity(
+                          opacity: controller.isPanStarted.value ? 0.2 : 1,
+                          duration: Durations.medium4,
+                          child: CustomHeader(
+                            //TODO: Fix me (fix: add correct routes)
+                            homeTap: () =>
+                                Get.toNamed(HomePageController.route),
+                            backTap: () => controller.returnToPreviousCard(),
+                            isBackButtonActive:
+                                controller.previousCardButtonActivated,
+                          )),
+                    ),
+                  ),
+          ),
+
           //Card
           GetBuilder<StatementsController>(
             id: controller.cardStackKey,

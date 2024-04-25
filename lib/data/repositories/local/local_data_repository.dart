@@ -10,6 +10,9 @@ class LocalDataRepository {
   set language(value) => _localApi.setLanguage(value);
   Future<String?> get language => _localApi.getLanguage;
 
+  set country(value) => _localApi.setCountry(value);
+  Future<String?> get country => _localApi.getCountry;
+
   set results(value) => _localApi.setResults(value);
   Future<String?> get results => _localApi.getResults;
 }

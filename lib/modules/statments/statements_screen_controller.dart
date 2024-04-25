@@ -394,8 +394,9 @@ class StatementsController extends GetxController {
     await Future.delayed(Duration(milliseconds: 100));
     if (_isPanStarted.value) return;
     final tapPos = event.localPosition.dx;
-    final isNext = tapPos > Get.width * .75;
-    final isPrevious = tapPos < Get.width * .25;
+    final isNext = tapPos > Get.width * .65;
+    final isPrevious = tapPos < Get.width * .35;
+    
     if (isNext) {
       if (_currentCardIndex < 1) {
         _currentCardIndex.value++;
