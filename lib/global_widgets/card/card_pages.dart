@@ -23,13 +23,13 @@ class FirstCardPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomSpacer(multiplier: 3),
+        CustomSpacer(multiplier: 6),
         if (!isOnboardingCard && card != null)
           EmojiLabelContainer(
             emoji: '️‍🕵️‍♀📣⚖️',
             backgroundColor: AppColors.lightPrimary,
           ),
-        CustomSpacer(multiplier: 3),
+        CustomSpacer(),
         Text(
             (isOnboardingCard && card == null)
                 ? S.of(context).onBoardingCardQuestion
