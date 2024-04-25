@@ -34,10 +34,10 @@ class CustomHeader extends StatelessWidget {
               Obx(
                 () => !isBackButtonActive.value
                     ? SizedBox.shrink()
-                    : InkWell(
-                        onTap: backTap,
-                        child: Transform.rotate(
-                          angle: -pi * .06,
+                    : Transform.rotate(
+                        angle: -pi * .06,
+                        child: InkWell(
+                          onTap: backTap,
                           child: Container(
                             height: 32,
                             width: 40,
