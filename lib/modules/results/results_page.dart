@@ -21,7 +21,7 @@ class ResultsPage extends GetView<ResultsController> {
           backgroundColor: AppColors.background,
           body: Stack(
             children: [
-              //Animate background color for pages 4, 5
+              //Animate background color for pages 5, 6
               Obx(
                 () => AnimatedOpacity(
                   duration: Durations.medium2,
@@ -29,6 +29,21 @@ class ResultsPage extends GetView<ResultsController> {
                   child: Container(
                     color: AppColors.blue,
                   ),
+                ),
+              ),
+
+              Positioned(
+                bottom: 0,
+                child: Obx(
+                  () => !controller.bloquedPages
+                      ? SizedBox.shrink()
+                      : SizedBox(
+                          width: Get.width,
+                          height: Get.height,
+                          child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Image.asset(
+                                  'assets/images/${controller.currentPage == 3 ? 'mds_graphic_blured' : controller.currentPage == 4 ? 'comparison_screen' : controller.currentPage == 8 ? 'political_explorer_screen' : 'TOP_X_Screen'}.png'))),
                 ),
               ),
               SafeArea(
@@ -92,6 +107,7 @@ class ResultsPage extends GetView<ResultsController> {
                   ],
                 ),
               ),
+
               //Share button only showed in pages 2, 3, 6
               Obx(
                 () => controller.showButtonSharePages

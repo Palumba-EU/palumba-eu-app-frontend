@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/services.dart';
@@ -15,13 +14,15 @@ import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_5.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -32,6 +33,7 @@ import 'package:palumba_eu/utils/utils.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'models/custom_chart_data.dart';
+import 'pages/results_page_5.dart';
 
 class ResultsController extends GetxController {
   static const route = '/results';
@@ -46,13 +48,16 @@ class ResultsController extends GetxController {
     ResultsPage6(),
     ResultsPage7(),
     ResultsPage8(),
+    ResultsPage9(),
+    ResultsPage10(),
+    ResultsPage11(),
   ];
 
   List<CustomChartData> chartData = [];
 
   UserData get userData => UserManager.userData;
 
-  List<int> showButtonSharePages = [1, 2, 3, 5];
+  List<int> showButtonSharePages = [1, 2, 3, 4, 5, 8, 9];
 
   RxInt _currentPage = 0.obs;
   int get currentPage => _currentPage.value;
@@ -66,7 +71,13 @@ class ResultsController extends GetxController {
       _maxPercentagePoliticParty ??
       (_resultsData.isEmpty ? null : _resultsData.first);
 
-  bool get isSpecialPage => _currentPage.value == 4 || _currentPage.value == 5;
+  bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 6;
+
+  bool get bloquedPages =>
+      _currentPage.value == 3 ||
+      _currentPage.value == 4 ||
+      _currentPage.value == 8 ||
+      _currentPage.value == 9;
 
   //TODO: add your country translation
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
