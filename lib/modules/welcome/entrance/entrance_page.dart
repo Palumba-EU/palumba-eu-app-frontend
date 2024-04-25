@@ -155,7 +155,7 @@ class EntrancePage extends StatelessWidget {
           //TODO: Get the real number of matches from api
           AppTexts.small(S.of(context).entranceMatchesFoundQuote('X'),
               textAlign: TextAlign.center, color: AppColors.primary),
-          CustomSpacer(),
+          CustomSpacer(multiplier: 2,),
           CustomButton(
             onPressed: () {
               _.onContinueTap();

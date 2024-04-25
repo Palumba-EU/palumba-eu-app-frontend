@@ -38,6 +38,7 @@ class StatementsParser {
     for (Statement statement in statements) {
       cards.add(CardModel(
         id: statement.id,
+        emojis: statement.emojis ?? '',
         mainQuestion: statement.statement ?? '<p>No data</p>',
         details: statement.details ?? '<p>No definition</p>',
       ));

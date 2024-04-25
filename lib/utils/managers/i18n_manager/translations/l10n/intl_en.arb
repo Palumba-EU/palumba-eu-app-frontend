@@ -12,18 +12,15 @@
   "skip": "Skip",
   "neutral": "Neutral",
   "faq": "FAQ",
-
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Let’s continue in English? :)",
   "languagePageSubtitle": "This can be changed later in settings.",
-
   "@@Entrance": "EntrancePage",
   "entranceTitle1": "Welcome to the exclusive Beta of Palumba",
   "entranceTitle2": "If this cute pigeon can't help you vote in June, nothing will",
   "entranceTitle3": "Get ready to disseminate the app massively on May 9th",
   "entranceMatchesFoundQuote": "{count} matches found in the last 24h",
   "entranceStartButton": "Start Palumba",
-
   "@@OnBoardingPage": "OnBoardingPage",
   "hungary": "Hungary",
   "denmark": "Denmark",
@@ -45,13 +42,11 @@
   "onBoardingNotAnswerButton": "Prefer not to say",
   "onBoardingCardQuestion": "I have no clue who to vote for at the 2024 European Elections",
   "onBoardingLastStepTitle": "Swipe according to your agreement",
-
   "@@LoadingResultsPage": "LoadingResultsPage",
   "loadingResultsPageTitle1": "Your personalised results are on their way :)",
   "loadingResultsPageTitle2": "This shall be quicker than getting Taylor Swift tickets 👀 ",
   "loadingResultsPageTitle3": "Finding matches with candidates lists in {country}  🔍",
   "loadingResultsPageTitle4": "Almost ready,\none last check...",
-
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "We found you a match!",
   "resultsPage1Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌",
@@ -77,13 +72,11 @@
   "resultsPage8NopButton": "I'm all good!",
   "resultsPage8YesButton": "Yesssss",
   "resultsSocialShareData": "Me and {party} agreed on {percentage}% of all the statements you swiped on. Find out your match at palumba.eu",
-
   "@HomePage": "HomePage",
   "homePageMatchesFoundQuote": "{count} matches found in the last 24h",
   "homePageBackToTest": "Back to the test",
   "homePageMyResults": "My results",
   "homePageStartButton": "Start a new test",
-
   "@@SettingsPage": "SettingsPage",
   "settingsPageTitleLanguage": "Language",
   "settingsPageSubtitleLanguage": "I prefer to use this app in",
@@ -100,6 +93,4 @@
   "settingsPageSubtitle5": "Service Providers",
   "settingsPageShareButtonText": "Share (coming soon ⏳)",
   "settingsPagePrivacyPolicy": "Privacy Policy"
-
-
 }

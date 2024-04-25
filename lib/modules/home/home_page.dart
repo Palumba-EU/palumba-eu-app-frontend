@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
           TextButton(
             onPressed: _.launchFaqUrl,
             child:
-                AppTexts.regular('FAQ', bold: true, color: AppColors.primary),
+                AppTexts.regular(S.of(context).faq, bold: true, color: AppColors.primary),
           ),
           TextButton(
             onPressed: _.goToSettings,
@@ -137,7 +137,7 @@ class HomePage extends StatelessWidget {
           //TODO: Get the real number of matches from api
           AppTexts.small(S.of(context).homePageMatchesFoundQuote('X'),
               textAlign: TextAlign.center, color: AppColors.primary),
-          CustomSpacer(),
+          CustomSpacer(multiplier: 2,),
           GetBuilder<HomePageController>(
             id: _.resultsExistsKey,
             builder: (controller) => _.resultsData.isEmpty && !_.isTestRunning

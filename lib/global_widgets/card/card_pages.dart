@@ -26,7 +26,7 @@ class FirstCardPage extends StatelessWidget {
         CustomSpacer(multiplier: 6),
         if (!isOnboardingCard && card != null)
           EmojiLabelContainer(
-            emoji: '️‍🕵️‍♀📣⚖️',
+            emoji: card!.emojis,
             backgroundColor: AppColors.lightPrimary,
           ),
         CustomSpacer(),
@@ -59,10 +59,8 @@ class SecondCardPage extends StatelessWidget {
             CustomSpacer(multiplier: 2),
             CustomHtmlWidget(
               content: card.details,
-              textStyle: AppTexts.customTextStyle(
-                AppTextType.regular,
-                fontWeight: FontWeight.w300
-              ),
+              textStyle: AppTexts.customTextStyle(AppTextType.regular,
+                  fontWeight: FontWeight.w300),
             ),
             CustomSpacer(multiplier: 8),
           ],
