@@ -17,6 +17,7 @@ class DialogAppearancePage extends StatelessWidget {
     required this.assetHeight,
     super.key,
   });
+
   final String title;
   final String text;
   final String assetBack;
@@ -27,17 +28,13 @@ class DialogAppearancePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned(
-          bottom: 0,
-          right: 0,
-          left: 0,
+        Align(
+          alignment: Alignment.bottomCenter,
           child: SizedBox(
-            width: Get.width,
-            child: FittedBox(
+            width: double.infinity,
+            child: Image.asset(
+              'assets/images/${assetBack}.png',
               fit: BoxFit.fitWidth,
-              child: Image.asset(
-                'assets/images/${assetBack}.png',
-              ),
             ),
           ),
         ),
@@ -59,7 +56,9 @@ class DialogAppearancePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   maxLines: 10,
                   color: AppColors.primary),
-              Spacer(flex: 3,),
+              Spacer(
+                flex: 3,
+              ),
             ],
           ),
         )

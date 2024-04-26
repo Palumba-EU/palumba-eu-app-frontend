@@ -38,9 +38,9 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
               child: Obx(() => Stack(
                     children: [
                       _nonSelectedButtons(),
-                      if (controller.halfAgrementButtonSelected)
+                      if (controller.agrementButtonSelected)
                         _selectedButtons(true),
-                      if (controller.halfDisagrementButtonSelected)
+                      if (controller.disagrementButtonSelected)
                         _selectedButtons(false),
                     ],
                   )), //_nonSelectedButtons(),
@@ -64,16 +64,19 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                   child: Obx(
                     () => SizedBox(
                       height: Get.height * .3 -
-                          (controller.disagrementButtonSelected ? 0 : 15),
+                          (controller.stronglyDisagrementButtonSelected
+                              ? 0
+                              : 15),
                       width: Get.width * .35 +
-                          (controller.disagrementButtonSelected
+                          (controller.stronglyDisagrementButtonSelected
                               ? Get.width * .07
                               : 0),
                       child: IgnorePointer(
                         ignoring: controller.buttonsBlocked,
                         child: CustomBigButtonCurve(
                           curveRadius: 25,
-                          isSelected: controller.disagrementButtonSelected,
+                          isSelected:
+                              controller.stronglyDisagrementButtonSelected,
                           icon: 'ic_cross',
                           flip: true,
                           onTap: onTapDisagrementButton,
@@ -89,16 +92,16 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                   child: Obx(
                     () => SizedBox(
                       height: Get.height * .3 -
-                          (controller.agrementButtonSelected ? 0 : 15),
+                          (controller.stronglyAgrementButtonSelected ? 0 : 15),
                       width: Get.width * .35 +
-                          (controller.agrementButtonSelected
+                          (controller.stronglyAgrementButtonSelected
                               ? Get.width * .07
                               : 0),
                       child: IgnorePointer(
                         ignoring: controller.buttonsBlocked,
                         child: CustomBigButtonCurve(
                           curveRadius: 25,
-                          isSelected: controller.agrementButtonSelected,
+                          isSelected: controller.stronglyAgrementButtonSelected,
                           icon: 'ic_check',
                           onTap: onTapAgrementButton,
                         ),
@@ -121,13 +124,13 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
         Expanded(
           flex: 2,
           child: Obx(
-            () => controller.halfDisagrementButtonSelected
+            () => controller.disagrementButtonSelected
                 ? SizedBox.shrink()
                 : IgnorePointer(
                     ignoring: controller.buttonsBlocked,
                     child: CustomSmallButtonCurve(
                       curveRadius: 50,
-                      isSelected: controller.halfDisagrementButtonSelected,
+                      isSelected: controller.disagrementButtonSelected,
                       icon: 'ic_cross',
                       flip: false,
                       onTap: onTapHalfDisagrementButton,
@@ -135,21 +138,21 @@ class DecisionButtonsOnBoarding extends GetView<OnboardingController> {
                   ),
           ),
         ),
-        if (!controller.halfDisagrementButtonSelected &&
-            !controller.halfAgrementButtonSelected)
+        if (!controller.disagrementButtonSelected &&
+            !controller.agrementButtonSelected)
           SizedBox(
             width: 2,
           ),
         Expanded(
           flex: 2,
           child: Obx(
-            () => controller.halfAgrementButtonSelected
+            () => controller.agrementButtonSelected
                 ? SizedBox.shrink()
                 : IgnorePointer(
                     ignoring: controller.buttonsBlocked,
                     child: CustomSmallButtonCurve(
                       curveRadius: 50,
-                      isSelected: controller.halfAgrementButtonSelected,
+                      isSelected: controller.agrementButtonSelected,
                       icon: 'ic_check',
                       flip: true,
                       onTap: onTapHalfAgrementButton,

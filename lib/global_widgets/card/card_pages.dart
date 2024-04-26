@@ -29,12 +29,15 @@ class FirstCardPage extends StatelessWidget {
             emoji: card!.emojis,
             backgroundColor: AppColors.lightPrimary,
           ),
-        CustomSpacer(),
-        Text(
-            (isOnboardingCard && card == null)
-                ? S.of(context).onBoardingCardQuestion
-                : card!.mainQuestion,
-            style: Theme.of(context).textTheme.titleLarge),
+        CustomSpacer(
+          multiplier: 2,
+        ),
+        CustomSpacer(small: true),
+        AppTexts.title(
+          (isOnboardingCard && card == null)
+              ? S.of(context).onBoardingCardQuestion
+              : card!.mainQuestion,
+        ),
       ],
     );
   }
@@ -59,8 +62,9 @@ class SecondCardPage extends StatelessWidget {
             CustomSpacer(multiplier: 2),
             CustomHtmlWidget(
               content: card.details,
-              textStyle: AppTexts.customTextStyle(AppTextType.regular,
-                  fontWeight: FontWeight.w300),
+              textStyle: AppTexts.customTextStyle(
+                AppTextType.small,
+              ),
             ),
             CustomSpacer(multiplier: 8),
           ],

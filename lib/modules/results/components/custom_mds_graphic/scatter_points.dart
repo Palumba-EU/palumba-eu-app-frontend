@@ -114,7 +114,7 @@ class FlDotCirclePainterCustom extends FlDotPainter {
           ..pushStyle(ui.TextStyle(
               color: AppColors.lightBlue,
               fontWeight:
-                  FontWeight.bold)) // Change color to red and make it bold
+                  FontWeight.w900)) // Change color to red and make it bold
           ..addText(S.of(Get.context!).resultsPage4TitleUserHere);
         final constraints = ui.ParagraphConstraints(width: 300);
         final paragraph = paragraphBuilder.build();

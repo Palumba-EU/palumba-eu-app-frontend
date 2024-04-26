@@ -145,9 +145,12 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? AppColors.blue : AppColors.primary;
-    final borderColor =
-        isSelected ? Theme.of(context).colorScheme.primary : Colors.white;
+    final color = isSelected
+        ? flip
+            ? AppColors.lightGreen
+            : AppColors.lightYellow
+        : AppColors.primary;
+    final borderColor = isSelected ? Colors.white : Colors.white;
     return Stack(
       children: [
         Transform.flip(

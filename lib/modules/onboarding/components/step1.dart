@@ -31,7 +31,7 @@ class Step1 extends StatelessWidget {
           CustomSpacer(multiplier: 7),
           AppTexts.title(S.of(context).onBoardingStep1Title,
               color: AppColors.primary),
-          GestureDetector(
+          /* GestureDetector(
             onTap: () {
               onCountryPressed(-1);
             },
@@ -43,7 +43,7 @@ class Step1 extends StatelessWidget {
                   decoration: TextDecoration.underline,
                   color: AppColors.primary),
             ),
-          ),
+          ),*/
           Expanded(
               child: ListView.separated(
             itemCount: countries?.length ?? 0,

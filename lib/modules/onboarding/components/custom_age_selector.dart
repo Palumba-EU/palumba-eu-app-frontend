@@ -36,7 +36,7 @@ class CustomAgeSelector extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AppTexts.regular(title, black:selected, color: AppColors.primary),
+              AppTexts.regular(title, bold: selected, color: AppColors.primary),
               CustomHorizontalSpacer(),
               Container(
                 height: 16,

@@ -32,29 +32,30 @@ class CustomHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Obx(
-                () => !isBackButtonActive.value
-                    ? SizedBox.shrink()
-                    : Transform.rotate(
-                        angle: -pi * .06,
-                        child: InkWell(
-                          onTap: backTap,
-                          child: Container(
-                            height: 32,
-                            width: 40,
-                            margin: EdgeInsets.only(
-                                top: AppDimens.smallLateralPaddingValue * 1.5),
-                            decoration: BoxDecoration(
-                              color: AppColors.lightPrimary,
-                              borderRadius: BorderRadius.circular(
-                                  AppDimens.largeBorderRadius),
-                            ),
-                            child: Padding(
-                                padding: EdgeInsets.all(8),
-                                child: SvgPicture.asset(
-                                    'assets/images/ic_arrow_back.svg')),
-                          ),
+                () => Opacity(
+                  opacity: isBackButtonActive.value ? 1 : 0,
+                  child: Transform.rotate(
+                    angle: -pi * .06,
+                    child: InkWell(
+                      onTap: backTap,
+                      child: Container(
+                        height: 32,
+                        width: 40,
+                        margin: EdgeInsets.only(
+                            top: AppDimens.smallLateralPaddingValue * 1.5),
+                        decoration: BoxDecoration(
+                          color: AppColors.lightPrimary,
+                          borderRadius: BorderRadius.circular(
+                              AppDimens.largeBorderRadius),
                         ),
+                        child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: SvgPicture.asset(
+                                'assets/images/ic_arrow_back.svg')),
                       ),
+                    ),
+                  ),
+                ),
               ),
               SvgPicture.asset(
                 'assets/images/logo.svg',

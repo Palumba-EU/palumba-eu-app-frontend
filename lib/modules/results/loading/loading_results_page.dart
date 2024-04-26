@@ -38,7 +38,7 @@ class LoadingResultsPage extends StatelessWidget {
                             multiplier: 7,
                           ),
                           Obx(() => CustomProgressBar(
-                                duration: Duration(seconds: _.secondsStep),
+                                duration: Duration(milliseconds: _.milliSecondsStep),
                                 width: Get.width * 0.675,
                                 step: _.currentStep.value,
                                 totalSteps: _.totalSteps,
@@ -87,7 +87,7 @@ class LoadingResultsPage extends StatelessWidget {
                   child: Obx(
                     () => AnimatedContainer(
                       width: compassWidth,
-                      duration: const Duration(seconds: 2),
+                      duration: Duration(milliseconds: _.milliSecondsStep),
                       transform: Matrix4Transform()
                           .rotateDegrees(_.currentStep.value % 2 == 0 ? -5 : 5,
                               origin:

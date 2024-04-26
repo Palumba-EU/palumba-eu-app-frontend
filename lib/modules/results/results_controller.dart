@@ -24,13 +24,10 @@ import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-import 'package:palumba_eu/utils/extensions.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
-import 'package:share_plus/share_plus.dart';
 
 import 'models/custom_chart_data.dart';
 import 'pages/results_page_5.dart';
@@ -199,11 +196,8 @@ class ResultsController extends GetxController {
     Get.offAllNamed(HomePageController.route);
   }
 
-  void shareContent() async {
-    final sharedText = S.of(Get.context!).resultsSocialShareData(
-        "*${maxPercentagePoliticParty?.party.name ?? '-'}*",
-        "*${maxPercentagePoliticParty?.percentage ?? '-'}*");
-    Share.share(sharedText);
+  void shareContent() {
+    //TODO: el botó de compartir ha d'enviar la imatge en pantalla.
   }
 
   //Convert svg to image

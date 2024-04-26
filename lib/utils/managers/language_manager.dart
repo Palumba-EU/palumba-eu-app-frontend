@@ -5,7 +5,7 @@ import 'dart:ui';
 class LanguageManager {
   static late SharedPreferences sharedPreferences;
 
-  static String currentLanguage = 'es';
+  static String currentLanguage = 'en';
   static const String keyLanguage = 'language';
   static Locale? language;
 
@@ -35,7 +35,7 @@ class LanguageManager {
 
   static setLanguage(String languageCode) async {
     currentLanguage = languageCode;
-    await setSavedLanguage(languageCode);
+    setSavedLanguage(languageCode);
     Get.updateLocale(Locale(languageCode));
   }
 
@@ -45,7 +45,7 @@ class LanguageManager {
 
   /// Manage Local Data
   static Future setSavedLanguage(String newLocale) async {
-    await sharedPreferences.setString(keyLanguage, newLocale);
+    return sharedPreferences.setString(keyLanguage, newLocale);
   }
 
   static Future<String?> getSavedLanguage() async {

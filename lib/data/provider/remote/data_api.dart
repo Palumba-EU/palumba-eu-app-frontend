@@ -5,6 +5,7 @@ import 'package:palumba_eu/data/model/localization_data.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:palumba_eu/data/model/results_data.dart';
+import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -21,6 +22,7 @@ class DataAPI {
   final localizationsEndpoint = '/localization';
   final statementsEndpoint = '/statements';
   final resultsEndpoint = '/results';
+  final sponsorsEndpoint = '/sponsors';
   final responseEndpoint = '/responses';
 
   final langCode = ''; //'/api/${LanguageManager.currentLanguage}';
@@ -83,6 +85,25 @@ class DataAPI {
       return results;
     } catch (e) {
       return null;
+    }
+  }
+
+  Future<List<Sponsor>> fetchSponsors() async {
+    try {
+      final url = Uri.parse('${baseUrl}${sponsorsEndpoint}');
+      final response = await http.get(
+        url,
+        headers: headers,
+      );
+
+      if (response.statusCode != 200) {
+        throw Exception(response.reasonPhrase);
+      }
+
+      var sponsors = SponsorsData.fromJson(json.decode(response.body));
+      return sponsors.data ?? [];
+    } catch (e) {
+      return [];
     }
   }
 

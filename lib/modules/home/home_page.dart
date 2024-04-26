@@ -172,7 +172,8 @@ class HomePage extends StatelessWidget {
             bold: true,
             border: ButtonBorderParameters(
                 isOutside: true, width: 4, color: AppColors.lightPrimary),
-          )
+          ),
+          CustomSpacer(multiplier: 2),
         ],
       ),
     );
