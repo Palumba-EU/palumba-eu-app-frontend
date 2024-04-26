@@ -199,7 +199,7 @@ class OnboardingController extends GetxController {
         await Future.delayed(Duration(milliseconds: 1500));
         _cardAnimationDuration.value = 0;
         finalAnimationFinished.value = true;
-        if (onBoarded != true) {
+        if (onBoarded == true) {
           //If is already on boarded return to home page
           Get.offAllNamed(StatementsController.route);
           return;
