@@ -14,6 +14,8 @@ import 'utils/common_ui/app_colors.dart';
 import 'utils/common_ui/app_theme_data.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
+import 'utils/managers/language_manager.dart';
+
 class EnvironmentConfig {
   static const environment = String.fromEnvironment('ENV', defaultValue: 'dev');
 
@@ -26,6 +28,8 @@ void main() async {
   DependencyInjection.init();
 
   await Firebase.initializeApp();
+
+  LanguageManager.init();
 
   await dotenv.load(
     fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
@@ -85,6 +89,7 @@ class _MyApp extends State<MyApp> {
         themeMode: ThemeMode.system,
         theme: AppThemeData.themeData(false),
         darkTheme: AppThemeData.themeData(false),
+        locale: Locale(LanguageManager.currentLanguage),
         home: const SplashPage(),
         initialBinding: SplashBinding(),
         getPages: AppPages.pages,
