@@ -46,7 +46,8 @@ class DataAPI {
 
   Future<StatementsData?> fetchStatements() async {
     try {
-      final url = Uri.parse('${baseUrl}${statementsEndpoint}');
+      final url = Uri.parse(
+          '${baseUrl}/${LanguageManager.currentLanguage}${statementsEndpoint}');
       final response = await http.get(
         url,
         headers: headers,
