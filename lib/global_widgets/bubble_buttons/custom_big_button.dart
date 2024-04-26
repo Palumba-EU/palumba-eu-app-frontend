@@ -64,7 +64,7 @@ class CustomBigButtonCurve extends StatelessWidget {
               child: Center(
                   child: SvgPicture.asset(
                 'assets/images/$icon.svg',
-                height: 32,
+                height: 55,
                 fit: BoxFit.fitHeight,
               )),
             )),

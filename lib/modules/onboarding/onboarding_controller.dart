@@ -153,7 +153,7 @@ class OnboardingController extends GetxController {
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
       //
-      height.value = 34; //heightSize * .0415;
+      height.value = Get.width * .2; //34; //heightSize * .0415;
       radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
@@ -318,6 +318,11 @@ class OnboardingController extends GetxController {
     } else {
       return AppColors.lightPrimary;
     }
+  }
+
+  Future<bool> delay(int milliseconds) async {
+    await Future.delayed(Duration(milliseconds: milliseconds));
+    return true;
   }
 }
 
