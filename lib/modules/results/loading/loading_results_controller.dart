@@ -20,7 +20,7 @@ class LoadingResultsController extends GetxController {
 
   final totalSteps = 4;
 
-  final int secondsStep = 3;
+  final int milliSecondsStep = 4500;
 
   RxInt currentStep = 0.obs;
 
@@ -48,7 +48,7 @@ class LoadingResultsController extends GetxController {
   void _init() {
     currentStep.value = 1;
 
-    Timer.periodic(Duration(seconds: secondsStep), (timer) {
+    Timer.periodic(Duration(milliseconds: milliSecondsStep), (timer) {
       if (currentStep.value < 4) {
         currentStep.value = currentStep.value + 1;
       } else {
