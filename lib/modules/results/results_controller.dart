@@ -199,11 +199,8 @@ class ResultsController extends GetxController {
     Get.offAllNamed(HomePageController.route);
   }
 
-  void shareContent() async {
-    final sharedText = S.of(Get.context!).resultsSocialShareData(
-        "*${maxPercentagePoliticParty?.party.name ?? '-'}*",
-        "*${maxPercentagePoliticParty?.percentage ?? '-'}*");
-    Share.share(sharedText);
+  void shareContent() {
+    //TODO: el botó de compartir ha d'enviar la imatge en pantalla.
   }
 
   //Convert svg to image

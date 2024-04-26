@@ -53,6 +53,6 @@ class SettingsPageController extends GetxController {
   }
 
   void shareApp() {
-    //TODO
+    //TODO: Share link to share the app.
   }
 }
