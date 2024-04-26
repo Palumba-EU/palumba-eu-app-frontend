@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
-import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
->>>>>>> dribba_develop
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
@@ -30,13 +26,8 @@ void main() async {
 
   DependencyInjection.init();
 
-<<<<<<< HEAD
-=======
-  await Firebase.initializeApp();
-
   LanguageManager.init();
 
->>>>>>> dribba_develop
   await dotenv.load(
     fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
   );
