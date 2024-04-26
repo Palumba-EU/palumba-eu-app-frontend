@@ -195,7 +195,6 @@ class OnboardingPage extends StatelessWidget {
                                     angleCard: _.angle,
                                     bgPosition: _.bgPosition,
                                     positionCard: _.position,
-                                    cardOpacity: _.cardOpacity,
                                     cardAnimationDuration:
                                         _.cardAnimationDuration,
                                     isOnboardingCard: _.isOnBoardingCard,
@@ -210,12 +209,13 @@ class OnboardingPage extends StatelessWidget {
                                       angleCard: _.angle,
                                       bgPosition: _.bgPosition,
                                       positionCard: _.position,
-                                      cardOpacity: _.cardOpacity,
                                       cardAnimationDuration:
                                           _.cardAnimationDuration,
                                       isOnboardingCard: _.isOnBoardingCard,
                                       isPanStarted: false.obs,
                                       card: _.cardData,
+                                      selectedBackgroundColor:
+                                          _.getBackgroundColor(),
                                     ),
                                   ),
                           ),

@@ -24,11 +24,11 @@ class CustomCard extends StatelessWidget {
     required this.positionCard,
     required this.bgPosition,
     this.currentCardIndex,
-    required this.cardOpacity,
     this.isOnboardingCard = false,
     this.onSkipTap,
     this.scale,
     this.isZoneButtonEntered,
+    this.selectedBackgroundColor,
   });
 
   final bool isFirstCard;
@@ -43,11 +43,11 @@ class CustomCard extends StatelessWidget {
   final Rx<Offset> positionCard;
   final Rx<Offset> bgPosition;
   final Rx<int>? currentCardIndex;
-  final RxDouble cardOpacity;
   final bool isOnboardingCard;
   final Function()? onSkipTap;
   final double? scale;
   final RxBool? isZoneButtonEntered;
+  final Color? selectedBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -102,55 +102,52 @@ class CustomCard extends StatelessWidget {
                         alignment: Alignment.center,
                         widthFactor: null,
                         heightFactor: null,
-                        child: AnimatedOpacity(
+                        child: AnimatedContainer(
                           duration: duration,
-                          opacity: cardOpacity.value,
-                          child: AnimatedContainer(
-                            duration: duration,
-                            transform: rotatedMatrix
-                              ..translate(position.dx, position.dy, 0)
-                              ..scale(scaleValue, scaleValue, 1.0),
-                            height: Get.height * .575,
-                            width: Get.width * .77,
-                            decoration: BoxDecoration(
-                              color: !isFirstCard
-                                  ? Theme.of(context).colorScheme.primary
-                                  : isPanStarted.value &&
-                                          !(isZoneButtonEntered == null
-                                              ? true
-                                              : !isZoneButtonEntered!.value)
-                                      ? AppColors.blue
-                                      : AppColors.primary,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: isPanStarted.value
-                                  ? [
-                                      BoxShadow(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .shadow
-                                            .withOpacity(.5),
-                                        blurRadius: 10,
-                                        offset: const Offset(0, 5),
-                                      )
-                                    ]
-                                  : null,
-                            ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.all(AppDimens.lateralPaddingValue),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  if (!isOnboardingCard)
-                                    CustomProgressBar(
-                                      step: currentCardIndex?.value ?? 0,
-                                      totalSteps: pages.length,
-                                      width: Get.width,
-                                      isDotted: true,
-                                    ),
-                                  pages[currentCardIndex?.value ?? 0],
-                                ],
-                              ),
+                          transform: rotatedMatrix
+                            ..translate(position.dx, position.dy, 0)
+                            ..scale(scaleValue, scaleValue, 1.0),
+                          height: Get.height * .575,
+                          width: Get.width * .77,
+                          decoration: BoxDecoration(
+                            color: !isFirstCard
+                                ? Theme.of(context).colorScheme.primary
+                                : isPanStarted.value &&
+                                        !(isZoneButtonEntered == null
+                                            ? true
+                                            : !isZoneButtonEntered!.value)
+                                    ? selectedBackgroundColor ??
+                                        AppColors.blue
+                                    : AppColors.primary,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: isPanStarted.value
+                                ? [
+                                    BoxShadow(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .shadow
+                                          .withOpacity(.5),
+                                      blurRadius: 10,
+                                      offset: const Offset(0, 5),
+                                    )
+                                  ]
+                                : null,
+                          ),
+                          child: Padding(
+                            padding:
+                                EdgeInsets.all(AppDimens.lateralPaddingValue),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if (!isOnboardingCard)
+                                  CustomProgressBar(
+                                    step: currentCardIndex?.value ?? 0,
+                                    totalSteps: pages.length,
+                                    width: Get.width,
+                                    isDotted: true,
+                                  ),
+                                pages[currentCardIndex?.value ?? 0],
+                              ],
                             ),
                           ),
                         ),

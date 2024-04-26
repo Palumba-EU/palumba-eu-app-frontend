@@ -10,6 +10,7 @@ import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
@@ -44,6 +45,10 @@ class StatementsController extends GetxController {
   final RxBool _buttonsBlocked = false.obs;
   bool get buttonsBlocked => _buttonsBlocked.value;
 
+//Selected button type
+  StatementResponse _statementResponse = StatementResponse.skip;
+  StatementResponse get selectedButton => _statementResponse;
+
 //This is front card position
   final Rx<Offset> _position = Offset(0, 0).obs;
   Rx<Offset> get position => _position;
@@ -53,8 +58,8 @@ class StatementsController extends GetxController {
   Rx<Offset> get bgPosition => _bgPosition;
 
 //This is front card angle
-  double _angle = 0;
-  double get angle => _angle;
+  RxDouble _angle = 0.0.obs;
+  double get angle => _angle.value;
 
 //This defines if the pan gesture has started
   RxBool _isPanStarted = false.obs;
@@ -66,14 +71,14 @@ class StatementsController extends GetxController {
 
 //The next 5 variables define wich button is Selected
   RxBool _stronglyDisagrementButtonSelected = false.obs;
-  bool get StronglyDisagrementButtonSelected =>
+  bool get stronglyDisagrementButtonSelected =>
       _stronglyDisagrementButtonSelected.value;
 
   RxBool _disagrementButtonSelected = false.obs;
   bool get disagrementButtonSelected => _disagrementButtonSelected.value;
 
   RxBool _stronglyAgrementButtonSelected = false.obs;
-  bool get StronglyAgrementButtonSelected =>
+  bool get stronglyAgrementButtonSelected =>
       _stronglyAgrementButtonSelected.value;
 
   RxBool _agrementButtonSelected = false.obs;
@@ -81,9 +86,6 @@ class StatementsController extends GetxController {
 
   RxBool _neutralButtonSelected = false.obs;
   bool get neutralButtonSelected => _neutralButtonSelected.value;
-
-  RxDouble _cardOpacity = 1.0.obs;
-  RxDouble get cardOpacity => _cardOpacity;
 
   RxInt _currentCardIndex = 0.obs;
   RxInt get currentCardIndex => _currentCardIndex;
@@ -155,16 +157,13 @@ class StatementsController extends GetxController {
     _setAngle(details);
     _position.value += Offset(details.delta.dx * .65, details.delta.dy * .65);
     _setBackgroundCardPosition();
-
-    final opacity = 1 - _position.value.dy.abs() / (Get.height * .9) * .28;
-    _cardOpacity.value = opacity.clamp(0, .8);
   }
 
   void _setAngle(DragUpdateDetails details) {
     final x = _position.value.dx + details.delta.dx;
     final centerX = Get.width * .25;
     final difference = x - centerX;
-    _angle = -difference / centerX * 8;
+    _angle.value = -difference / centerX * 8;
   }
 
   void _setBackgroundCardPosition() {
@@ -249,8 +248,7 @@ class StatementsController extends GetxController {
     _cardAnimationDuration.value = 250;
     _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
-    _cardOpacity.value = 1;
-    _angle = 0;
+    _angle.value = 0;
     await Future.delayed(Duration(milliseconds: 250));
     _cardAnimationDuration.value = 0;
     _buttonsBlocked.value = false;
@@ -264,9 +262,8 @@ class StatementsController extends GetxController {
   void resetAnimation() {
     _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
-    _angle = 0;
+    _angle.value = 0;
     _cardAnimationDuration.value = 0;
-    _cardOpacity.value = 1;
     _stronglyDisagrementButtonSelected.value = false;
     _disagrementButtonSelected.value = false;
     _agrementButtonSelected.value = false;
@@ -396,7 +393,7 @@ class StatementsController extends GetxController {
     final tapPos = event.localPosition.dx;
     final isNext = tapPos > Get.width * .65;
     final isPrevious = tapPos < Get.width * .35;
-    
+
     if (isNext) {
       if (_currentCardIndex < 1) {
         _currentCardIndex.value++;
@@ -429,7 +426,7 @@ class StatementsController extends GetxController {
     final x = _position.value.dx - (Get.width * .5);
     final centerX = Get.width * .25;
     final difference = x - centerX;
-    _angle = -difference / centerX * 8;
+    _angle.value = -difference / centerX * 8;
     _position.value = Offset(-((Get.width * .5) + 50), Get.height * .4);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     await Future.delayed(const Duration(milliseconds: 650));
@@ -444,7 +441,7 @@ class StatementsController extends GetxController {
     final x = _position.value.dx + (Get.width * .5);
     final centerX = Get.width * .25;
     final difference = x - centerX;
-    _angle = -difference / centerX * 8;
+    _angle.value = -difference / centerX * 8;
     _position.value = Offset(((Get.width) + 50), Get.height * .4);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     await Future.delayed(const Duration(milliseconds: 650));
@@ -537,5 +534,21 @@ class StatementsController extends GetxController {
         _previousCardButtonActivated.value = false;
       }
     } catch (e) {}
+  }
+
+  Color getBackgroundColor() {
+    if (neutralButtonSelected) {
+      return AppColors.lightPrimary;
+    } else if (stronglyAgrementButtonSelected) {
+      return AppColors.green;
+    } else if (agrementButtonSelected) {
+      return AppColors.lightGreen;
+    } else if (stronglyDisagrementButtonSelected) {
+      return AppColors.yellow;
+    } else if (disagrementButtonSelected) {
+      return AppColors.lightYellow;
+    } else {
+      return AppColors.lightPrimary;
+    }
   }
 }
