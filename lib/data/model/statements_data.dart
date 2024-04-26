@@ -26,6 +26,7 @@ class Statement {
   String? statement;
   String? details;
   String? footnote;
+  String? emojis;
   List<int>? vector;
 
   Statement(
@@ -36,6 +37,7 @@ class Statement {
     statement = json['statement'];
     details = json['details'];
     footnote = json['footnote'];
+    emojis = json['emojis'];
     vector = json['vector'].cast<int>();
   }
 
@@ -45,6 +47,7 @@ class Statement {
     data['statement'] = this.statement;
     data['details'] = this.details;
     data['footnote'] = this.footnote;
+    data['emojis'] = this.emojis;
     data['vector'] = this.vector;
     return data;
   }

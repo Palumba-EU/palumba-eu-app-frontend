@@ -2,10 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class SemicircleBase extends StatelessWidget {
+class HemicycleBase extends StatelessWidget {
   final double arcDiameter;
   final Color color;
-  const SemicircleBase({
+  const HemicycleBase({
     Key? key,
     required this.arcDiameter,
     this.color = Colors.white,
@@ -50,11 +50,11 @@ class ArcPainter extends CustomPainter {
       final rect = Rect.fromCenter(
         center: Offset(size.width / 2, size.height / 2),
         width: currentDiameter,
-        height: currentDiameter,
+        height: currentDiameter * 1.08,
       );
 
       final startAngle = -pi / 2;
-      final sweepAngle = pi;
+      final sweepAngle = pi * 2;
       if (i == 6) {
         canvas.drawArc(rect, -startAngle, sweepAngle, false, fillPaint);
       }

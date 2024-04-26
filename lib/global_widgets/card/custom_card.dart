@@ -28,7 +28,9 @@ class CustomCard extends StatelessWidget {
     this.isOnboardingCard = false,
     this.onSkipTap,
     this.scale,
+    this.isZoneButtonEntered,
   });
+
   final bool isFirstCard;
   final CardModel? card;
   final RxBool isPanStarted;
@@ -45,6 +47,7 @@ class CustomCard extends StatelessWidget {
   final bool isOnboardingCard;
   final Function()? onSkipTap;
   final double? scale;
+  final RxBool? isZoneButtonEntered;
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +58,6 @@ class CustomCard extends StatelessWidget {
       pages = [
         FirstCardPage(card!, isOnboardingCard),
         SecondCardPage(card!),
-        ThirdCardPage(card!),
-        // FourthCardPage(card!),
       ];
     }
     return IgnorePointer(
@@ -114,8 +115,11 @@ class CustomCard extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: !isFirstCard
                                   ? Theme.of(context).colorScheme.primary
-                                  : isPanStarted.value
-                                      ? AppColors.secondary
+                                  : isPanStarted.value &&
+                                          !(isZoneButtonEntered == null
+                                              ? true
+                                              : !isZoneButtonEntered!.value)
+                                      ? AppColors.blue
                                       : AppColors.primary,
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: isPanStarted.value
@@ -132,8 +136,8 @@ class CustomCard extends StatelessWidget {
                                   : null,
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(
-                                  AppDimens.bigLateralPaddingValue),
+                              padding:
+                                  EdgeInsets.all(AppDimens.lateralPaddingValue),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [

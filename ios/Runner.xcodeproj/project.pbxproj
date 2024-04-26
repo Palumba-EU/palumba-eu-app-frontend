@@ -375,7 +375,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				MARKETING_VERSION = 0.8.0;
+=======
+				MARKETING_VERSION = 0.9.0;
+>>>>>>> dribba_develop
 				PRODUCT_BUNDLE_IDENTIFIER = com.palumba.app.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -510,7 +514,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				MARKETING_VERSION = 0.8.0;
+=======
+				MARKETING_VERSION = 0.9.0;
+>>>>>>> dribba_develop
 				PRODUCT_BUNDLE_IDENTIFIER = com.palumba.app.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -539,7 +547,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				MARKETING_VERSION = 0.8.0;
+=======
+				MARKETING_VERSION = 0.9.0;
+>>>>>>> dribba_develop
 				PRODUCT_BUNDLE_IDENTIFIER = com.palumba.app.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";

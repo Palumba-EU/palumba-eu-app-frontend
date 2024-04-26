@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import 'package:firebase_core/firebase_core.dart';
+import 'package:google_fonts/google_fonts.dart';
+>>>>>>> dribba_develop
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
@@ -8,12 +13,14 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'modules/splash/splash_binding.dart';
+import 'utils/common_ui/app_colors.dart';
 import 'utils/common_ui/app_theme_data.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
+import 'utils/managers/language_manager.dart';
+
 class EnvironmentConfig {
-  static const environment =
-      String.fromEnvironment('ENV', defaultValue: 'prod');
+  static const environment = String.fromEnvironment('ENV', defaultValue: 'dev');
 
   static bool get isDevelopmentMode => environment == 'dev';
 }
@@ -23,6 +30,13 @@ void main() async {
 
   DependencyInjection.init();
 
+<<<<<<< HEAD
+=======
+  await Firebase.initializeApp();
+
+  LanguageManager.init();
+
+>>>>>>> dribba_develop
   await dotenv.load(
     fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
   );
@@ -65,22 +79,34 @@ class MyApp extends StatefulWidget {
 class _MyApp extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: EnvironmentConfig.environment == "dev",
-      title: 'Palumba',
-      themeMode: ThemeMode.system,
-      theme: AppThemeData.themeData(false),
-      darkTheme: AppThemeData.themeData(true),
-      home: const SplashPage(),
-      initialBinding: SplashBinding(),
-      getPages: AppPages.pages,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
+    return Banner(
+      message: 'BETA',
+      location: BannerLocation.topEnd,
+      color: AppColors.green,
+      textStyle: TextStyle(
+          fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+          fontSize: 10,
+          fontWeight: FontWeight.w900),
+      layoutDirection: TextDirection.ltr,
+      textDirection: TextDirection.ltr,
+      child: GetMaterialApp(
+        title: 'Palumba',
+        debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.system,
+        theme: AppThemeData.themeData(false),
+        darkTheme: AppThemeData.themeData(false),
+        locale: Locale(LanguageManager.currentLanguage),
+        home: const SplashPage(),
+        initialBinding: SplashBinding(),
+        getPages: AppPages.pages,
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+      ),
     );
   }
 }

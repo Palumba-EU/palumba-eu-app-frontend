@@ -16,13 +16,13 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         maxLines: maxLines,
-        overflow: TextOverflow.ellipsis,
+        overflow: maxLines != null ? TextOverflow.ellipsis : null,
         style: TextStyle(
           fontFamily: GoogleFonts.merriweatherSans().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: color ?? AppColors.text,
-          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+          fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
           decoration: decoration,
         ));
   }
@@ -39,7 +39,7 @@ class AppTexts {
             fontSize: AppDimens.fontSizeMedium,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.bold : FontWeight.w300,
+            fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
             decoration: decoration));
   }
 
@@ -55,7 +55,7 @@ class AppTexts {
             fontSize: AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.bold : FontWeight.w300,
+            fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
             decoration: decoration));
   }
 
@@ -72,7 +72,7 @@ class AppTexts {
               : GoogleFonts.merriweatherSans().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w900,
         ));
   }
 
@@ -80,6 +80,7 @@ class AppTexts {
       {Color? color,
       bool bold = false,
       TextDecoration? decoration,
+      FontWeight? fontWeight,
       double? fontSize}) {
     switch (appTexType) {
       case AppTextType.title:
@@ -87,7 +88,7 @@ class AppTexts {
           fontFamily: GoogleFonts.merriweather().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
-          fontWeight: FontWeight.bold,
+          fontWeight: fontWeight ?? FontWeight.w900,
         );
       case AppTextType.regular:
         return TextStyle(
@@ -95,7 +96,8 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.bold : FontWeight.w300,
+            fontWeight:
+                fontWeight ?? (bold ? FontWeight.w900 : FontWeight.w300),
             decoration: decoration);
 
       case AppTextType.small:
@@ -104,8 +106,9 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeSmall,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-            decoration: TextDecoration.underline);
+            fontWeight:
+                fontWeight ?? (bold ? FontWeight.w900 : FontWeight.w300),
+            decoration: decoration);
       default:
     }
   }

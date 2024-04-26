@@ -5,24 +5,27 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomBigButtonCurve extends StatelessWidget {
-  const CustomBigButtonCurve(
-      {Key? key,
-      required this.icon,
-      this.curveRadius = 25,
-      required this.isSelected,
-      required this.onTap,
-      this.flip = false})
-      : super(key: key);
+  const CustomBigButtonCurve({
+    Key? key,
+    required this.icon,
+    this.curveRadius = 25,
+    required this.isSelected,
+    required this.onTap,
+    this.flip = false,
+    this.onLongPress,
+    this.onLongPressEnd,
+  }) : super(key: key);
   final String icon;
-
   final double curveRadius;
   final bool isSelected;
   final bool flip;
   final Function() onTap;
+  final Function()? onLongPress;
+  final Function(LongPressEndDetails)? onLongPressEnd;
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? AppColors.secondary : AppColors.primary;
+    final color = isSelected ? AppColors.blue : AppColors.primary;
     final borderColor = isSelected ? AppColors.primary : AppColors.lightPrimary;
     return Stack(
       children: [
@@ -34,6 +37,8 @@ class CustomBigButtonCurve extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               child: GestureDetector(
+                onLongPress: onLongPress,
+                onLongPressEnd: onLongPressEnd,
                 onTap: onTap,
                 child: CustomPaint(
                   painter: _CustomButtonPainter._CustomBigButtonPainter(
@@ -51,12 +56,14 @@ class CustomBigButtonCurve extends StatelessWidget {
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
-            child: Center(
-                child: SvgPicture.asset(
-              'assets/images/$icon.svg',
-              height: 32,
-              fit: BoxFit.fitHeight,
-            ))),
+            child: IgnorePointer(
+              child: Center(
+                  child: SvgPicture.asset(
+                'assets/images/$icon.svg',
+                height: 32,
+                fit: BoxFit.fitHeight,
+              )),
+            )),
       ],
     );
   }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
-import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
@@ -28,7 +27,7 @@ class EntrancePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _buildHeader(context),
+              _buildHeader(context, _),
               _buildBody(_),
               _buildFooter(context, _)
             ],
@@ -36,26 +35,51 @@ class EntrancePage extends StatelessWidget {
     );
   }
 
-  Padding _buildFooter(BuildContext context, EntranceController _) {
+  Padding _buildHeader(BuildContext context, EntranceController _) {
     return Padding(
       padding: AppDimens.lateralPadding,
       child: Column(
         children: [
-          CustomSpacer(),
-          //TODO: Get the real number of matches from api
-          AppTexts.small(
-              S.of(context).entranceMatchesFoundQuote('10,365', '24'),
-              textAlign: TextAlign.center,
-              color: AppColors.primary),
-          CustomSpacer(),
-          CustomButton(
-            onPressed: () {
-              _.onContinueTap();
-            },
-            text: S.of(context).entranceStartButton,
-            expanded: true,
-            suffixIcon: IconButtonParameters('ic_arrow_right',
-                color: AppColors.primary),
+          Row(
+            children: [
+              CustomSpacer(multiplier: 6),
+              AppTexts.small("#" + S.of(context).shortAppName,
+                  color: AppColors.primary),
+              const Spacer(),
+              GestureDetector(
+                onTap: () {
+                  _.onTikTokTap();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: SvgPicture.asset(
+                    'assets/images/ic_tiktok.svg',
+                    height: 12,
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  _.onInstagramTap();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: SvgPicture.asset(
+                    'assets/images/ic_instagram.svg',
+                    height: 12,
+                  ),
+                ),
+              ),
+              /*GestureDetector(
+                onTap: () {
+                  _.onTwitter();
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: SvgPicture.asset('assets/images/ic_twitter.svg'),
+                ),
+              ),*/
+            ],
           ),
           CustomSpacer(multiplier: 3),
         ],
@@ -72,32 +96,45 @@ class EntrancePage extends StatelessWidget {
             child: PageView.builder(
               scrollDirection: Axis.horizontal,
               controller: _.pageController,
-              itemCount: 3, //TODO: Get the real number of pages
+              itemCount: 3,
               itemBuilder: (context, index) => Column(
                 children: [
                   Padding(
                     padding: AppDimens.lateralPadding,
-                    child: AppTexts.title(S.of(context).entranceTitle,
+                    child: AppTexts.title(
+                        index == 0
+                            ? S.of(context).entranceTitle1
+                            : index == 1
+                                ? S.of(context).entranceTitle2
+                                : S.of(context).entranceTitle3,
                         textAlign: TextAlign.center,
                         color: AppColors.primary,
                         fontSize: AppDimens.fontSizeBig),
                   ),
+                  CustomSpacer(
+                    multiplier: 4,
+                  ),
                   Expanded(
-                    child: Image.asset(
-                      'assets/images/pigeon.png',
+                    child: Center(
+                      child: SvgPicture.asset(
+                        'assets/images/img_pigeon.svg',
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          CustomSpacer(),
+          CustomSpacer(
+            multiplier: 3,
+          ),
           SmoothPageIndicator(
             controller: _.pageController,
-            count: 3, //TODO: Get the real number of pages
+            count: 3,
             effect: WormEffect(
-              dotWidth: 10,
-              dotHeight: 10,
+              dotWidth: 8,
+              dotHeight: 8,
+              spacing: 4,
               activeDotColor: AppColors.primary,
               dotColor: AppColors.lightPrimary,
             ),
@@ -110,23 +147,23 @@ class EntrancePage extends StatelessWidget {
     );
   }
 
-  Padding _buildHeader(BuildContext context) {
+  Padding _buildFooter(BuildContext context, EntranceController _) {
     return Padding(
       padding: AppDimens.lateralPadding,
       child: Column(
         children: [
-          Row(
-            children: [
-              CustomSpacer(multiplier: 6),
-              AppTexts.small("#" + S.of(context).shortAppName,
-                  color: AppColors.primary),
-              const Spacer(),
-              SvgPicture.asset('assets/images/ic_tiktok.svg'),
-              CustomHorizontalSpacer(),
-              SvgPicture.asset('assets/images/ic_instagram.svg'),
-              CustomHorizontalSpacer(),
-              SvgPicture.asset('assets/images/ic_twitter.svg'),
-            ],
+          //TODO: Get the real number of matches from api
+          AppTexts.small(S.of(context).entranceMatchesFoundQuote('X'),
+              textAlign: TextAlign.center, color: AppColors.primary),
+          CustomSpacer(multiplier: 2,),
+          CustomButton(
+            onPressed: () {
+              _.onContinueTap();
+            },
+            text: S.of(context).entranceStartButton,
+            expanded: true,
+            suffixIcon: IconButtonParameters('ic_arrow_right',
+                color: AppColors.primary),
           ),
           CustomSpacer(multiplier: 3),
         ],

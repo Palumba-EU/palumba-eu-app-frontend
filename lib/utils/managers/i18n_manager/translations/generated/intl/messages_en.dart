@@ -20,13 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(count, time) =>
-      "${count} matches found in the last ${time}h";
+  static String m0(count) => "${count} matches found in the last 24h";
 
-  static String m1(country) =>
+  static String m1(count) => "${count} matches found in the last 24h";
+
+  static String m2(country) =>
       "Finding matches with candidates lists in ${country}  🔍";
 
-  static String m2(country) => "No local parties found in ${country}";
+  static String m3(country) => "No local parties found in ${country}";
+
+  static String m4(party, percentage) =>
+      "Me and ${party} agreed on ${percentage}% of all the statements you swiped on. Find out your match at palumba.eu";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -39,16 +43,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Start Palumba"),
-        "entranceTitle": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t help you vote in June, nothing will."),
+        "entranceTitle1": MessageLookupByLibrary.simpleMessage(
+            "Welcome to the exclusive Beta of Palumba"),
+        "entranceTitle2": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will"),
+        "entranceTitle3": MessageLookupByLibrary.simpleMessage(
+            "Get ready to disseminate the app massively on May 9th"),
+        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("France"),
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
-        "homePageBackToResults": MessageLookupByLibrary.simpleMessage(
-            "My results · Back to the test"),
+        "homePageBackToTest":
+            MessageLookupByLibrary.simpleMessage("Back to the test"),
+        "homePageMatchesFoundQuote": m1,
+        "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
         "homePageStartButton":
             MessageLookupByLibrary.simpleMessage("Start a new test"),
-        "homePageTitle": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t helpyou vote in June, nothing will."),
         "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "This can be changed later in settings."),
@@ -58,16 +67,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your personalised results are on their way :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
             "This shall be quicker than getting Taylor Swift tickets 👀 "),
-        "loadingResultsPageTitle3": m1,
+        "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Almost ready,\none last check..."),
-        "loadingResultsPageTitle5": MessageLookupByLibrary.simpleMessage(
             "Almost ready,\none last check..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "I have no clue who to vote for at the 2024 European Elections"),
+        "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
+            "Swipe according to your agreement"),
         "onBoardingNotAnswerButton":
             MessageLookupByLibrary.simpleMessage("Prefer not to say"),
         "onBoardingStep1Subtitle":
@@ -98,27 +107,66 @@ class MessageLookup extends MessageLookupByLibrary {
             "and you, it’s really a Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Your compatibility with the European Parliament Groups"),
-        "resultsPage4Text": MessageLookupByLibrary.simpleMessage(
-            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
-        "resultsPage4Title": MessageLookupByLibrary.simpleMessage(
-            "Okay, it’s cool knowing which group gets you..."),
+        "resultsPage4TitleBottom":
+            MessageLookupByLibrary.simpleMessage("Anti-EU Integration"),
+        "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
+        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
+        "resultsPage4TitleTop":
+            MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
+        "resultsPage4TitleUserHere":
+            MessageLookupByLibrary.simpleMessage("It’s you, hi!"),
         "resultsPage5Text": MessageLookupByLibrary.simpleMessage(
             "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "But at the EU Elections, you vote for a local list"),
-        "resultsPage6Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "Disclaimer about the order of the lists / temp. localization"),
-        "resultsPage6NoLocalCandidates": m2,
+            "Okay, it’s cool knowing which group gets you..."),
+        "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
-            "These are the matching Local Candidate lists in your country "),
-        "resultsPage7NopButton":
-            MessageLookupByLibrary.simpleMessage("I\'m all good!"),
+            "But at the EU Elections, you vote for a local list"),
+        "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
+            "They are in no particular order"),
+        "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
+            "These are the matching Local Candidate lists in your country "),
+        "resultsPage8NopButton":
+            MessageLookupByLibrary.simpleMessage("I\'m all good!"),
+        "resultsPage8Title": MessageLookupByLibrary.simpleMessage(
             "Would you like to receive a notification when it’s time to vote?"),
-        "resultsPage7YesButton":
+        "resultsPage8YesButton":
             MessageLookupByLibrary.simpleMessage("Yesssss"),
-        "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
+        "resultsShare":
+            MessageLookupByLibrary.simpleMessage("Share (coming soon ⏳)"),
+        "resultsSocialShareData": m4,
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "settingsPagePrivacyPolicy":
+            MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "settingsPageShareButtonText":
+            MessageLookupByLibrary.simpleMessage("Share (coming soon ⏳)"),
+        "settingsPageSubtitle1":
+            MessageLookupByLibrary.simpleMessage("Main Sponsors"),
+        "settingsPageSubtitle2":
+            MessageLookupByLibrary.simpleMessage("European Partners"),
+        "settingsPageSubtitle3":
+            MessageLookupByLibrary.simpleMessage("Academic Partner"),
+        "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
+            "National Institutional Partners"),
+        "settingsPageSubtitle5":
+            MessageLookupByLibrary.simpleMessage("Service Providers"),
+        "settingsPageSubtitleLanguage":
+            MessageLookupByLibrary.simpleMessage("I prefer to use this app in"),
+        "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
+            "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)"),
+        "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
+            "To change the language, click on the current one"),
+        "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
+            "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels."),
+        "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("About"),
+        "settingsPageTitleAssociation":
+            MessageLookupByLibrary.simpleMessage("The association"),
+        "settingsPageTitleLanguage":
+            MessageLookupByLibrary.simpleMessage("Language"),
+        "settingsPageTitlePartners":
+            MessageLookupByLibrary.simpleMessage("Partners"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "spain": MessageLookupByLibrary.simpleMessage("Spain"),

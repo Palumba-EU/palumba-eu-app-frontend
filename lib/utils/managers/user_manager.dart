@@ -13,14 +13,19 @@ class UserManager {
 
   static UserData userData = UserData(answers: []);
   static Country? userCountry;
+  static bool isTestRunning = false;
+
+  static setTestRuning(bool value) {
+    isTestRunning = value;
+  }
 
   static setCountryId(Country country) async {
     userCountry = country;
     userData.countryId = country.id;
   }
 
-  static setLanguageId(int langId) async {
-    userData.languageId = langId;
+  static setLanguageCode(String langCode) async {
+    userData.languageCode = langCode;
   }
 
   static setGender(gender? genderEnum) async {
@@ -47,5 +52,9 @@ class UserManager {
 
   static addStatment(int statmentId, StatementResponse answer) {
     userData.answers.add(Answer(statementId: statmentId, answer: answer));
+  }
+
+  static deleteLastStatement() {
+    userData.answers.removeLast();
   }
 }

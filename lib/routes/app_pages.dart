@@ -10,6 +10,9 @@ import 'package:palumba_eu/modules/results/loading/loading_results_controller.da
 import 'package:palumba_eu/modules/results/loading/loading_results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/results/results_page.dart';
+import 'package:palumba_eu/modules/settings/settings_page.dart';
+import 'package:palumba_eu/modules/settings/settings_page_binding.dart';
+import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/splash/splash_binding.dart';
 import 'package:palumba_eu/modules/splash/splash_controller.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
@@ -60,6 +63,11 @@ class AppPages {
       name: ResultsController.route,
       page: () => const ResultsPage(),
       binding: ResultsBinding(),
+    ),
+    GetPage(
+      name: SettingsPageController.route,
+      page: () => const SettingsPage(),
+      binding: SettingsBinding(),
     ),
     GetPage(
         transition: Transition.noTransition,
