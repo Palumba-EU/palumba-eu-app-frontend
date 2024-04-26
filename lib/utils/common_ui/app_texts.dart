@@ -22,7 +22,7 @@ class AppTexts {
           fontSize: fontSize ?? AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: color ?? AppColors.text,
-          fontWeight: bold ? FontWeight.w900 : FontWeight.normal,
+          fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
           decoration: decoration,
         ));
   }
@@ -45,7 +45,6 @@ class AppTexts {
 
   static regular(String text,
       {bool bold = false,
-      bool black = false,
       TextAlign? textAlign,
       Color? color,
       TextDecoration? decoration}) {
@@ -56,11 +55,7 @@ class AppTexts {
             fontSize: AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: black
-                ? FontWeight.w900
-                : bold
-                    ? FontWeight.bold
-                    : FontWeight.w300,
+            fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
             decoration: decoration));
   }
 
@@ -102,7 +97,7 @@ class AppTexts {
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
             fontWeight:
-                bold ? FontWeight.bold : (fontWeight ?? FontWeight.normal),
+                fontWeight ?? (bold ? FontWeight.w900 : FontWeight.w300),
             decoration: decoration);
 
       case AppTextType.small:
@@ -111,11 +106,12 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeSmall,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.bold : (fontWeight ?? FontWeight.normal),
+            fontWeight:
+                fontWeight ?? (bold ? FontWeight.w900 : FontWeight.w300),
             decoration: decoration);
       default:
     }
   }
 }
 
-enum AppTextType {small, regular, title }
+enum AppTextType { small, regular, title }

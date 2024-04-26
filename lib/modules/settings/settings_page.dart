@@ -167,7 +167,7 @@ class SettingsPage extends StatelessWidget {
             ],
           ),
         )),
-        floatingActionButton: Padding(
+        /*floatingActionButton: Padding(
           padding: const EdgeInsets.symmetric(
               vertical: AppDimens.bigLateralPaddingValue, horizontal: 20),
           child: CustomButton(
@@ -184,7 +184,7 @@ class SettingsPage extends StatelessWidget {
                 isOutside: true, width: 3, color: Color(0XFFAEAEAE)),
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,*/
       ),
     );
   }

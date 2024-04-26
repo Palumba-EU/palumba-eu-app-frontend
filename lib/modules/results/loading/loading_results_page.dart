@@ -87,7 +87,7 @@ class LoadingResultsPage extends StatelessWidget {
                   child: Obx(
                     () => AnimatedContainer(
                       width: compassWidth,
-                      duration: const Duration(seconds: 2),
+                      duration: Duration(milliseconds: _.milliSecondsStep),
                       transform: Matrix4Transform()
                           .rotateDegrees(_.currentStep.value % 2 == 0 ? -5 : 5,
                               origin:

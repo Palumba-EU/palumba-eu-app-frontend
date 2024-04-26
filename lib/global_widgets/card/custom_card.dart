@@ -30,6 +30,7 @@ class CustomCard extends StatelessWidget {
     this.scale,
     this.isZoneButtonEntered,
   });
+
   final bool isFirstCard;
   final CardModel? card;
   final RxBool isPanStarted;
@@ -135,8 +136,8 @@ class CustomCard extends StatelessWidget {
                                   : null,
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(
-                                  AppDimens.bigLateralPaddingValue),
+                              padding:
+                                  EdgeInsets.all(AppDimens.lateralPaddingValue),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [

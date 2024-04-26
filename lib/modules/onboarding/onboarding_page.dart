@@ -103,7 +103,7 @@ class OnboardingPage extends StatelessWidget {
                                 },
                                 child: AppTexts.regular(
                                     S.of(context).onBoardingNotAnswerButton,
-                                    black:true,
+                                    bold: true,
                                     color: AppColors.primary),
                               );
                             }),

@@ -28,6 +28,7 @@ class CustomHtmlWidget extends StatelessWidget {
     return Html(
       data: content,
       style: {
+        'body': Style(padding: HtmlPaddings.zero, margin: Margins.zero),
         'p': style,
         'a': style.copyWith(color: AppColors.lightPrimary),
       },

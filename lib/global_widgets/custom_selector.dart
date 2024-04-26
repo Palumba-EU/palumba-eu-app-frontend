@@ -46,7 +46,7 @@ class CustomSelector extends StatelessWidget {
                 : const SizedBox.shrink(),
             Expanded(
                 child: AppTexts.regular(title,
-                    black:selected, color: AppColors.primary)),
+                    bold: selected, color: AppColors.primary)),
             CustomHorizontalSpacer(),
             Container(
               height: 16,
@@ -54,9 +54,8 @@ class CustomSelector extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                      color: selected
-                          ? AppColors.primary
-                          : AppColors.lightPrimary,
+                      color:
+                          selected ? AppColors.primary : AppColors.lightPrimary,
                       width: AppDimens.borderWidth),
                   color: selected ? AppColors.primary : Colors.transparent),
             ),
