@@ -1,5 +1,5 @@
-import 'package:google_fonts/google_fonts.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -16,7 +16,8 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'utils/managers/language_manager.dart';
 
 class EnvironmentConfig {
-  static const environment = String.fromEnvironment('ENV', defaultValue: 'dev');
+  static const environment =
+      String.fromEnvironment('ENV', defaultValue: 'prod');
 
   static bool get isDevelopmentMode => environment == 'dev';
 }

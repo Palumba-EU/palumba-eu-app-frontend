@@ -6,6 +6,7 @@ import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -152,7 +153,7 @@ class OnboardingController extends GetxController {
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
       //
-      height.value = 34; //heightSize * .0415;
+      height.value = Get.width * .2; //34; //heightSize * .0415;
       radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
@@ -244,21 +245,19 @@ class OnboardingController extends GetxController {
   double _angle = 0;
   double get angle => _angle;
 
+  RxBool _strognlyDisagrementButtonSelected = false.obs;
+  bool get stronglyDisagrementButtonSelected =>
+      _strognlyDisagrementButtonSelected.value;
+
   RxBool _disagrementButtonSelected = false.obs;
   bool get disagrementButtonSelected => _disagrementButtonSelected.value;
 
-  RxBool _halfDisagrementButtonSelected = false.obs;
-  bool get halfDisagrementButtonSelected =>
-      _halfDisagrementButtonSelected.value;
+  RxBool _stronglyAgrementButtonSelected = false.obs;
+  bool get stronglyAgrementButtonSelected =>
+      _stronglyAgrementButtonSelected.value;
 
   RxBool _agrementButtonSelected = false.obs;
   bool get agrementButtonSelected => _agrementButtonSelected.value;
-
-  RxBool _halfAgrementButtonSelected = false.obs;
-  bool get halfAgrementButtonSelected => _halfAgrementButtonSelected.value;
-
-  RxDouble _cardOpacity = 1.0.obs;
-  RxDouble get cardOpacity => _cardOpacity;
 
   Rx<Offset> _smallButtonsPosition = Offset(0, Get.height * .3).obs;
   Offset get smallButtonsPosition => _smallButtonsPosition.value;
@@ -272,7 +271,7 @@ class OnboardingController extends GetxController {
         ? _position.value = Offset(Get.width * .25, ((Get.height)))
         : _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
-    _cardOpacity.value = 1;
+
     _angle = 0;
     await Future.delayed(Duration(milliseconds: 250));
     _cardAnimationDuration.value = 0;
@@ -281,30 +280,49 @@ class OnboardingController extends GetxController {
 
   void onTapDisagrementButton() async {
     //Fake button is tapped
+    _strognlyDisagrementButtonSelected.value = true;
+    await Future.delayed(Durations.long3);
+    _strognlyDisagrementButtonSelected.value = false;
+  }
+
+  void onTapHalfDisagrementButton() async {
+    //Fake button is tapped
     _disagrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _disagrementButtonSelected.value = false;
   }
 
-  void onTapHalfDisagrementButton() async {
-    //Fake button is tapped
-    _halfDisagrementButtonSelected.value = true;
-    await Future.delayed(Durations.long3);
-    _halfDisagrementButtonSelected.value = false;
-  }
-
   void onTapHalfAgrementButton() async {
-    //Fake button is tapped
-    _halfAgrementButtonSelected.value = true;
-    await Future.delayed(Durations.long3);
-    _halfAgrementButtonSelected.value = false;
-  }
-
-  void onTapAgrementButton() async {
     //Fake button is tapped
     _agrementButtonSelected.value = true;
     await Future.delayed(Durations.long3);
     _agrementButtonSelected.value = false;
+  }
+
+  void onTapAgrementButton() async {
+    //Fake button is tapped
+    _stronglyAgrementButtonSelected.value = true;
+    await Future.delayed(Durations.long3);
+    _stronglyAgrementButtonSelected.value = false;
+  }
+
+  Color getBackgroundColor() {
+    if (stronglyAgrementButtonSelected) {
+      return AppColors.green;
+    } else if (stronglyAgrementButtonSelected) {
+      return AppColors.lightGreen;
+    } else if (stronglyDisagrementButtonSelected) {
+      return AppColors.lightYellow;
+    } else if (stronglyDisagrementButtonSelected) {
+      return AppColors.yellow;
+    } else {
+      return AppColors.lightPrimary;
+    }
+  }
+
+  Future<bool> delay(int milliseconds) async {
+    await Future.delayed(Duration(milliseconds: milliseconds));
+    return true;
   }
 }
 

@@ -95,6 +95,7 @@ class ResultsPage extends GetView<ResultsController> {
                     Expanded(
                       child: GestureDetector(
                         onTapDown: controller.changePage,
+                        behavior: HitTestBehavior.translucent,
                         child: PageView.builder(
                             physics: NeverScrollableScrollPhysics(),
                             allowImplicitScrolling: true,

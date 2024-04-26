@@ -25,8 +25,12 @@ class CustomBigButtonCurve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? AppColors.blue : AppColors.primary;
-    final borderColor = isSelected ? AppColors.primary : AppColors.lightPrimary;
+    final color = isSelected
+        ? flip
+            ? AppColors.yellow
+            : AppColors.green
+        : AppColors.primary;
+    final borderColor = isSelected ? Colors.white : AppColors.lightPrimary;
     return Stack(
       children: [
         Transform.flip(
@@ -60,7 +64,7 @@ class CustomBigButtonCurve extends StatelessWidget {
               child: Center(
                   child: SvgPicture.asset(
                 'assets/images/$icon.svg',
-                height: 32,
+                height: 55,
                 fit: BoxFit.fitHeight,
               )),
             )),

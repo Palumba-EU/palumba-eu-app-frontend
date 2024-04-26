@@ -6,6 +6,6 @@ class StringUtils {
   static String contactEmail = 'hello@palumba.eu';
   static String contactEmailUrl = 'mailto:$contactEmail';
   static String organizationUrl = 'https://palumba.org/';
-  static String faqUrl = 'https://www.palumba.eu/';
+  static String faqUrl = 'https://www.palumba.eu/faq';
   static String privacyStatementUrl = 'https://palumba.org/privacy-statement/';
 }

@@ -50,7 +50,7 @@ class StatementsPage extends GetView<StatementsController> {
               child: Stickers(),
             ),
           ),
-          
+
           //Custom Plaumba header
           Obx(
             () => controller.fromOnboarding
@@ -99,7 +99,6 @@ class StatementsPage extends GetView<StatementsController> {
                           isPanStarted: controller.isPanStarted,
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
-                          cardOpacity: controller.cardOpacity,
                           isFirstCard: false,
                           onPanStart: controller.onPanStart,
                           onPanUpdate: controller.onPanUpdate,
@@ -125,12 +124,13 @@ class StatementsPage extends GetView<StatementsController> {
                           isPanStarted: controller.isPanStarted,
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
-                          cardOpacity: controller.cardOpacity,
                           isOnboardingCard: controller.fromOnboarding,
                           scale: controller.scale.value,
                           isZoneButtonEntered: controller.isZoneButtonEntered,
                           onSkipTap: () =>
                               controller.activateButton(StatementResponse.skip),
+                          selectedBackgroundColor:
+                              controller.getBackgroundColor(),
                         ),
                       )
                     ],
@@ -172,15 +172,15 @@ class StatementsPage extends GetView<StatementsController> {
                                             : () => controller.activateButton(
                                                 StatementResponse.neutral),
                                         color: controller.neutralButtonSelected
-                                            ? AppColors.blue
+                                            ? AppColors.lightPrimary
                                             : AppColors.primary,
-                                        textColor: AppColors.text,
+                                        textColor:
+                                            controller.neutralButtonSelected
+                                                ? AppColors.primary
+                                                : AppColors.text,
                                         radius: AppDimens.largeBorderRadius,
                                         border: ButtonBorderParameters(
-                                            color:
-                                                controller.neutralButtonSelected
-                                                    ? AppColors.primary
-                                                    : AppColors.lightPrimary,
+                                            color: AppColors.lightPrimary,
                                             width: 2,
                                             isOutside: true),
                                       )),

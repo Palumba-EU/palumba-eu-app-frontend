@@ -59,16 +59,16 @@ class DecisionButtons extends GetView<StatementsController> {
               child: Obx(
                 () => SizedBox(
                   height: Get.height * .3 -
-                      (controller.StronglyDisagrementButtonSelected ? 0 : 15),
+                      (controller.stronglyDisagrementButtonSelected ? 0 : 15),
                   width: Get.width * .35 +
-                      (controller.StronglyDisagrementButtonSelected
+                      (controller.stronglyDisagrementButtonSelected
                           ? Get.width * .07
                           : 0),
                   child: IgnorePointer(
                     ignoring: controller.buttonsBlocked,
                     child: CustomBigButtonCurve(
                       curveRadius: 25,
-                      isSelected: controller.StronglyDisagrementButtonSelected,
+                      isSelected: controller.stronglyDisagrementButtonSelected,
                       icon: 'ic_cross',
                       flip: true,
                       onTap: onTapStronglyDisagrementButton,
@@ -86,16 +86,16 @@ class DecisionButtons extends GetView<StatementsController> {
               child: Obx(
                 () => SizedBox(
                   height: Get.height * .3 -
-                      (controller.StronglyAgrementButtonSelected ? 0 : 15),
+                      (controller.stronglyAgrementButtonSelected ? 0 : 15),
                   width: Get.width * .35 +
-                      (controller.StronglyAgrementButtonSelected
+                      (controller.stronglyAgrementButtonSelected
                           ? Get.width * .07
                           : 0),
                   child: IgnorePointer(
                     ignoring: controller.buttonsBlocked,
                     child: CustomBigButtonCurve(
                       curveRadius: 25,
-                      isSelected: controller.StronglyAgrementButtonSelected,
+                      isSelected: controller.stronglyAgrementButtonSelected,
                       icon: 'ic_check',
                       onTap: onTapStronglyAgrementButton,
                       onLongPress: onLongPressStronglyAgrementButton,
