@@ -14,9 +14,7 @@ class DataAPI {
   var baseUrl = 'https://api.palumba-app.palumba.eu';
 
   var headers = {
-    //'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Accept-Language': LanguageManager.currentLanguage,
+    'Accept': 'application/json',
   };
 
   final localizationsEndpoint = '/localization';
@@ -24,8 +22,6 @@ class DataAPI {
   final resultsEndpoint = '/results';
   final sponsorsEndpoint = '/sponsors';
   final responseEndpoint = '/responses';
-
-  final langCode = ''; //'/api/${LanguageManager.currentLanguage}';
 
   Future<LocalizationData?> fetchLocalizations() async {
     try {
@@ -50,7 +46,8 @@ class DataAPI {
 
   Future<StatementsData?> fetchStatements() async {
     try {
-      final url = Uri.parse('${baseUrl}${statementsEndpoint}');
+      final url = Uri.parse(
+          '${baseUrl}/${LanguageManager.currentLanguage}${statementsEndpoint}');
       final response = await http.get(
         url,
         headers: headers,
@@ -70,7 +67,8 @@ class DataAPI {
 
   Future<ResultsData?> fetchResultsInfo() async {
     try {
-      final url = Uri.parse('${baseUrl}${langCode}${resultsEndpoint}');
+      final url = Uri.parse(
+          '${baseUrl}/${LanguageManager.currentLanguage}${resultsEndpoint}');
       final response = await http.get(
         url,
         headers: headers,
@@ -112,8 +110,11 @@ class DataAPI {
       final url = Uri.parse('${baseUrl}${responseEndpoint}');
       var body = UserManager.userData.toJson();
 
-      final response =
-          await http.post(url, headers: headers, body: json.encode(body));
+      final response = await http.post(url,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: json.encode(body));
 
       if (response.statusCode < 200 || response.statusCode > 201) {
         throw Exception(response.reasonPhrase);

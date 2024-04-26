@@ -57,7 +57,7 @@ class CustomSmallButtonCurve extends StatelessWidget {
             child: Center(
                 child: SvgPicture.asset(
               'assets/images/$icon.svg',
-              height: 16,
+              height: 20,
               fit: BoxFit.fitHeight,
             ))),
       ],
@@ -179,7 +179,7 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
             child: Center(
                 child: SvgPicture.asset(
               'assets/images/$icon.svg',
-              width: 16,
+              width: 20,
             ))),
       ],
     );

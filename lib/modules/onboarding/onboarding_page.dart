@@ -12,7 +12,9 @@ import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
+import 'package:palumba_eu/modules/onboarding/helpers/onboarding_clipper.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
+import 'package:palumba_eu/modules/statments/components/stickers.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -147,9 +149,9 @@ class OnboardingPage extends StatelessWidget {
               //Over Background
               Obx(
                 () => AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 250),
                   height: _.height.value,
-                  margin: _.margin.value,
+                  margin: EdgeInsets.zero, //_.margin.value,
                   decoration: BoxDecoration(
                       color: AppColors.blue,
                       borderRadius: BorderRadius.only(
@@ -188,6 +190,14 @@ class OnboardingPage extends StatelessWidget {
                               ),
                             ),
                           ),
+                          Positioned(
+                            top: Get.height * .14,
+                            child: SizedBox(
+                              height: Get.height * .5,
+                              width: Get.width,
+                              child: Stickers(),
+                            ),
+                          ),
                           Obx(
                             () => _.finalAnimationFinished.value
                                 ? CustomCard(
@@ -223,6 +233,26 @@ class OnboardingPage extends StatelessWidget {
                       )
                     : SizedBox.shrink(),
               ),
+              //Stickers
+              Obx(() {
+                debugPrint(_.currentStep.value.toString());
+                return _.showFinalView
+                    ? SizedBox.shrink()
+                    : Positioned(
+                        top: Get.height * .14,
+                        child: ClipPath(
+                          clipper: OnboardingClipper(
+                            radius: _.radius.value,
+                            height: _.height.value - Get.height * .14,
+                          ),
+                          child: SizedBox(
+                            height: Get.height * .5,
+                            width: Get.width,
+                            child: Stickers(),
+                          ),
+                        ),
+                      );
+              }),
               //Progress
               SafeArea(
                   child: Padding(
