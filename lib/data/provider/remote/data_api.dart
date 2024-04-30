@@ -88,7 +88,7 @@ class DataAPI {
 
   Future<List<Sponsor>> fetchSponsors() async {
     try {
-      final url = Uri.parse('${baseUrl}${sponsorsEndpoint}');
+      final url = Uri.parse('${baseUrl}/${LanguageManager.currentLanguage}${sponsorsEndpoint}');
       final response = await http.get(
         url,
         headers: headers,

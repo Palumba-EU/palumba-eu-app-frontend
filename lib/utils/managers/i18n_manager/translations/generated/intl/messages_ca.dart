@@ -177,6 +177,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Omet"),
         "spain": MessageLookupByLibrary.simpleMessage("Espanya"),
+        "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
+            "Sembla que no tens connexió a internet"),
         "sweden": MessageLookupByLibrary.simpleMessage("Suècia"),
         "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
         "yes": MessageLookupByLibrary.simpleMessage("Sí")
