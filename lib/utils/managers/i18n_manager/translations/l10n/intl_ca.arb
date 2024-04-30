@@ -12,6 +12,8 @@
   "skip": "Omet",
   "neutral": "Neutral",
   "faq": "FAQ",
+  "@@SplashPage": "SplashPage",
+  "splashPageNoInternet": "Sembla que no tens connexió a internet",
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Continuem en català? :)",
   "languagePageSubtitle": "Això es pot canviar més endavant a la configuració.",

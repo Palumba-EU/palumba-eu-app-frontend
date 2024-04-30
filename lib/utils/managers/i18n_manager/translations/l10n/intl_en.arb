@@ -12,6 +12,8 @@
   "skip": "Skip",
   "neutral": "Neutral",
   "faq": "FAQ",
+  "@@SplashPage": "SplashPage",
+  "splashPageNoInternet": "It looks like you don't have internet connection",
   "@@LanguagePage": "LanguagePage",
   "languagePageTitle": "Let’s continue in English? :)",
   "languagePageSubtitle": "This can be changed later in settings.",

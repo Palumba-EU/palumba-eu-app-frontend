@@ -170,6 +170,16 @@ class S {
     );
   }
 
+  /// `It looks like you don't have internet connection`
+  String get splashPageNoInternet {
+    return Intl.message(
+      'It looks like you don\'t have internet connection',
+      name: 'splashPageNoInternet',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Let’s continue in English? :)`
   String get languagePageTitle {
     return Intl.message(
