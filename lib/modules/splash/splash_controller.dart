@@ -4,11 +4,11 @@ import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
-import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/alert.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
@@ -28,18 +28,17 @@ class SplashController extends GetxController {
   _init() async {
     var response = await _dataRepository.fetchLocalizations();
     if (response == null) {
-      //TODO: Strings
-      Alert.showAlert('Palumba',
-          'It looks like you don\'t have internet connection', Get.context!);
+      Alert.showAlert(S.of(Get.context!).appName,
+          S.of(Get.context!).splashPageNoInternet, Get.context!);
       return;
     }
+
     //Set language
     final currentLanguage = (await _localDataRepository.language) ?? '';
     LanguageManager.currentLanguage = currentLanguage.isEmpty
         ? (Get.locale?.languageCode ?? 'en')
         : currentLanguage;
     UserManager.setLanguageCode(LanguageManager.currentLanguage);
-    _dataRepository.fetchStatements();
 
     //Set country
     final currentCountry = (await _localDataRepository.country) ?? '';
@@ -47,8 +46,11 @@ class SplashController extends GetxController {
       UserManager.setCountryId(Country.fromJson(jsonDecode(currentCountry)));
     }
 
+    await _dataRepository.fetchStatements();
+
+    //Navigation
     final onBoarded = await _localDataRepository.onBoarded;
-    if (onBoarded == true) {
+    if (onBoarded != null && onBoarded) {
       Get.offAllNamed(
         HomePageController.route,
       );
