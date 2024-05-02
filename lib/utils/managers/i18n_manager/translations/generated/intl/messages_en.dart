@@ -126,6 +126,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("It’s you, hi!"),
+        "resultsPage5Topic1":
+            MessageLookupByLibrary.simpleMessage("Environment"),
+        "resultsPage5Topic2":
+            MessageLookupByLibrary.simpleMessage("Humans & Social Rights"),
+        "resultsPage5Topic3":
+            MessageLookupByLibrary.simpleMessage("Economic intervention"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
             "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match."),
         "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(

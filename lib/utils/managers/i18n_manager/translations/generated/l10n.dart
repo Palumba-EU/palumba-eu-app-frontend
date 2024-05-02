@@ -620,6 +620,36 @@ class S {
     );
   }
 
+  /// `Environment`
+  String get resultsPage5Topic1 {
+    return Intl.message(
+      'Environment',
+      name: 'resultsPage5Topic1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Humans & Social Rights`
+  String get resultsPage5Topic2 {
+    return Intl.message(
+      'Humans & Social Rights',
+      name: 'resultsPage5Topic2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Economic intervention`
+  String get resultsPage5Topic3 {
+    return Intl.message(
+      'Economic intervention',
+      name: 'resultsPage5Topic3',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ok,it's cool knowing which group gets me...`
   String get resultsPage6_1Title {
     return Intl.message(

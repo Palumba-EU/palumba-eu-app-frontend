@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
-import 'package:palumba_eu/modules/results/components/dialog_appearance_page.dart';
+import 'package:palumba_eu/modules/results/components/info_widget.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
@@ -19,7 +19,7 @@ class _ResultsPage6State extends State<ResultsPage6> {
     return Column(
       children: [
         Spacer(),
-        DialogAppearancePage(
+        InfoWidget(
           title: S.of(context).resultsPage6_1Title,
           assetFront: 'img_hemicycle',
           assetHeight: 64,
@@ -27,7 +27,7 @@ class _ResultsPage6State extends State<ResultsPage6> {
         CustomSpacer(
           multiplier: 5,
         ),
-        DialogAppearancePage(
+        InfoWidget(
           title: S.of(context).resultsPage6_2Title,
           assetFront: 'img_reveille',
           assetHeight: 80,
@@ -40,7 +40,9 @@ class _ResultsPage6State extends State<ResultsPage6> {
           child: AppTexts.small(S.of(context).resultsPage6Text,
               textAlign: TextAlign.center, color: AppColors.primary),
         ),
-        Spacer(flex: 3,),
+        Spacer(
+          flex: 3,
+        ),
       ],
     );
   }

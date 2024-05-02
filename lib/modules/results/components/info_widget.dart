@@ -8,8 +8,8 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
-class DialogAppearancePage extends StatelessWidget {
-  const DialogAppearancePage({
+class InfoWidget extends StatelessWidget {
+  const InfoWidget({
     required this.title,
     required this.assetFront,
     required this.assetHeight,
