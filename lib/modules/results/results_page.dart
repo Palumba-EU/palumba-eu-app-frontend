@@ -4,7 +4,6 @@ import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
@@ -96,6 +95,7 @@ class ResultsPage extends GetView<ResultsController> {
                     CustomSpacer(
                       multiplier: 3,
                     ),
+
                     //Rounded image and #appname
                     Padding(
                       padding: AppDimens.lateralPadding,

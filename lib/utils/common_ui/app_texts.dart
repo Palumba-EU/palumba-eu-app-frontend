@@ -10,7 +10,6 @@ class AppTexts {
     TextAlign? textAlign,
     Color? color,
     TextDecoration? decoration,
-    double? fontSize,
     int? maxLines,
   }) {
     return Text(text,
@@ -19,7 +18,7 @@ class AppTexts {
         overflow: maxLines != null ? TextOverflow.ellipsis : null,
         style: TextStyle(
           fontFamily: GoogleFonts.merriweatherSans().fontFamily,
-          fontSize: fontSize ?? AppDimens.fontSizeSmall,
+          fontSize: AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: color ?? AppColors.text,
           fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
@@ -47,12 +46,13 @@ class AppTexts {
       {bool bold = false,
       TextAlign? textAlign,
       Color? color,
+      double? fontSize,
       TextDecoration? decoration}) {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
             fontFamily: GoogleFonts.merriweatherSans().fontFamily,
-            fontSize: AppDimens.fontSizeRegular,
+            fontSize: fontSize ?? AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
             fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
@@ -60,9 +60,7 @@ class AppTexts {
   }
 
   static title(String text,
-      {TextAlign? textAlign,
-      Color? color,
-      double? fontSize}) {
+      {TextAlign? textAlign, Color? color, double? fontSize}) {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(

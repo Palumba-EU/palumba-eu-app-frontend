@@ -122,6 +122,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pro-integració UE"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("Ets tu!"),
+        "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
+            "D\'acord, és genial saber quin grup et porta..."),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
             "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
         "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(

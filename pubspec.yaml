@@ -40,6 +40,7 @@ dependencies:
   syncfusion_flutter_charts: ^25.1.41
   smooth_page_indicator: ^1.1.0
   matrix4_transform: ^3.0.1
+  appinio_swiper: ^2.1.1
 
   # Localization Modules
   intl: ^0.18.1

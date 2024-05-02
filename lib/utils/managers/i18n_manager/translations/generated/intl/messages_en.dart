@@ -126,6 +126,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("It’s you, hi!"),
+        "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
+            "On more specific topics, which European Parliament Group am I closer to?"),
         "resultsPage5Topic1":
             MessageLookupByLibrary.simpleMessage("Environment"),
         "resultsPage5Topic2":
@@ -144,10 +146,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
             "These are the matching Local Candidate lists in your country "),
         "resultsPage8Text": m5,
-        "resultsPage9Text": MessageLookupByLibrary.simpleMessage(
-            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌"),
-        "resultsPage9Title": MessageLookupByLibrary.simpleMessage(
-            "You earned a badge for being a « Political Explorer »."),
+        "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
+            "Click on the cards to shuffle"),
+        "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
+            "Elections are about many topics,but there’s one thing that really"),
+        "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
         "resultsShare":
             MessageLookupByLibrary.simpleMessage("Share (coming soon ⏳)"),
         "resultsSocialShareData": m4,

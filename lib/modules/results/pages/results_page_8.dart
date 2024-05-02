@@ -45,9 +45,7 @@ class ResultsPage8 extends GetView<ResultsController> {
         ),
         CustomSpacer(),
         AppTexts.title('😱 😏'),
-        Spacer(
-          flex: 3,
-        ),
+        Spacer(flex: 10,),
       ],
     );
   }

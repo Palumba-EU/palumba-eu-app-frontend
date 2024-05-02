@@ -620,6 +620,16 @@ class S {
     );
   }
 
+  /// `On more specific topics, which European Parliament Group am I closer to?`
+  String get resultsPage5Title {
+    return Intl.message(
+      'On more specific topics, which European Parliament Group am I closer to?',
+      name: 'resultsPage5Title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Environment`
   String get resultsPage5Topic1 {
     return Intl.message(
@@ -720,21 +730,31 @@ class S {
     );
   }
 
-  /// `You earned a badge for being a « Political Explorer ».`
-  String get resultsPage9Title {
+  /// `Click on the cards to shuffle`
+  String get resultsPage9Help {
     return Intl.message(
-      'You earned a badge for being a « Political Explorer ».',
-      name: 'resultsPage9Title',
+      'Click on the cards to shuffle',
+      name: 'resultsPage9Help',
       desc: '',
       args: [],
     );
   }
 
-  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌`
-  String get resultsPage9Text {
+  /// `Elections are about many topics,but there’s one thing that really`
+  String get resultsPage9Text1 {
     return Intl.message(
-      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌',
-      name: 'resultsPage9Text',
+      'Elections are about many topics,but there’s one thing that really',
+      name: 'resultsPage9Text1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Belongs With Me 🫡`
+  String get resultsPage9Text2 {
+    return Intl.message(
+      'Belongs With Me 🫡',
+      name: 'resultsPage9Text2',
       desc: '',
       args: [],
     );
