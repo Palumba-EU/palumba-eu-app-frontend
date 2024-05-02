@@ -12,9 +12,7 @@ class ResultsPage4 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.shrink();
-
-    /*SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         children: [
           CustomSpacer(multiplier: 3),
@@ -32,6 +30,6 @@ class ResultsPage4 extends GetView<ResultsController> {
           ),
         ],
       ),
-    );*/
+    );
   }
 }

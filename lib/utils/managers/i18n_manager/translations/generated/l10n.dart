@@ -570,26 +570,6 @@ class S {
     );
   }
 
-  /// `Okay, it’s cool knowing which group gets you...`
-  String get resultsPage5Title {
-    return Intl.message(
-      'Okay, it’s cool knowing which group gets you...',
-      name: 'resultsPage5Title',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
-  String get resultsPage5Text {
-    return Intl.message(
-      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
-      name: 'resultsPage5Text',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Pro-EU Integration`
   String get resultsPage4TitleTop {
     return Intl.message(
@@ -640,20 +620,30 @@ class S {
     );
   }
 
-  /// `But at the EU Elections, you vote for a local list`
-  String get resultsPage6Title {
+  /// `Ok,it's cool knowing which group gets me...`
+  String get resultsPage6_1Title {
     return Intl.message(
-      'But at the EU Elections, you vote for a local list',
-      name: 'resultsPage6Title',
+      'Ok,it\'s cool knowing which group gets me...',
+      name: 'resultsPage6_1Title',
       desc: '',
       args: [],
     );
   }
 
-  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌`
+  /// `But at the EU Elections, you vote for a local list`
+  String get resultsPage6_2Title {
+    return Intl.message(
+      'But at the EU Elections, you vote for a local list',
+      name: 'resultsPage6_2Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match.`
   String get resultsPage6Text {
     return Intl.message(
-      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌',
+      'In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match.',
       name: 'resultsPage6Text',
       desc: '',
       args: [],
@@ -690,31 +680,71 @@ class S {
     );
   }
 
+  /// `I swiped on {num} topics and I’m in the top {top}% of climate action`
+  String resultsPage8Text(Object num, Object top) {
+    return Intl.message(
+      'I swiped on $num topics and I’m in the top $top% of climate action',
+      name: 'resultsPage8Text',
+      desc: '',
+      args: [num, top],
+    );
+  }
+
+  /// `You earned a badge for being a « Political Explorer ».`
+  String get resultsPage9Title {
+    return Intl.message(
+      'You earned a badge for being a « Political Explorer ».',
+      name: 'resultsPage9Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌`
+  String get resultsPage9Text {
+    return Intl.message(
+      'In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌',
+      name: 'resultsPage9Text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You seem to be in the top 10% for Climate action!`
+  String get resultsPage1OText {
+    return Intl.message(
+      'You seem to be in the top 10% for Climate action!',
+      name: 'resultsPage1OText',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Would you like to receive a notification when it’s time to vote?`
-  String get resultsPage8Title {
+  String get resultsPage11Title {
     return Intl.message(
       'Would you like to receive a notification when it’s time to vote?',
-      name: 'resultsPage8Title',
+      name: 'resultsPage11Title',
       desc: '',
       args: [],
     );
   }
 
   /// `I'm all good!`
-  String get resultsPage8NopButton {
+  String get resultsPage11NopButton {
     return Intl.message(
       'I\'m all good!',
-      name: 'resultsPage8NopButton',
+      name: 'resultsPage11NopButton',
       desc: '',
       args: [],
     );
   }
 
   /// `Yesssss`
-  String get resultsPage8YesButton {
+  String get resultsPage11YesButton {
     return Intl.message(
       'Yesssss',
-      name: 'resultsPage8YesButton',
+      name: 'resultsPage11YesButton',
       desc: '',
       args: [],
     );
@@ -927,7 +957,32 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'bg'),
       Locale.fromSubtags(languageCode: 'ca'),
+      Locale.fromSubtags(languageCode: 'cs'),
+      Locale.fromSubtags(languageCode: 'da'),
+      Locale.fromSubtags(languageCode: 'de'),
+      Locale.fromSubtags(languageCode: 'el'),
+      Locale.fromSubtags(languageCode: 'es'),
+      Locale.fromSubtags(languageCode: 'et'),
+      Locale.fromSubtags(languageCode: 'fi'),
+      Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'ga'),
+      Locale.fromSubtags(languageCode: 'hr'),
+      Locale.fromSubtags(languageCode: 'hu'),
+      Locale.fromSubtags(languageCode: 'it'),
+      Locale.fromSubtags(languageCode: 'lb'),
+      Locale.fromSubtags(languageCode: 'lt'),
+      Locale.fromSubtags(languageCode: 'lv'),
+      Locale.fromSubtags(languageCode: 'mt'),
+      Locale.fromSubtags(languageCode: 'nl'),
+      Locale.fromSubtags(languageCode: 'pl'),
+      Locale.fromSubtags(languageCode: 'pt'),
+      Locale.fromSubtags(languageCode: 'ro'),
+      Locale.fromSubtags(languageCode: 'sk'),
+      Locale.fromSubtags(languageCode: 'sl'),
+      Locale.fromSubtags(languageCode: 'sv'),
+      Locale.fromSubtags(languageCode: 'tr'),
     ];
   }
 

@@ -4,6 +4,7 @@ import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
@@ -21,31 +22,57 @@ class ResultsPage extends GetView<ResultsController> {
           backgroundColor: AppColors.background,
           body: Stack(
             children: [
-              //Animate background color for pages 5, 6
+              //Animate background color for special pages
               Obx(
                 () => AnimatedOpacity(
                   duration: Durations.medium2,
                   opacity: controller.isSpecialPage ? 1 : 0,
                   child: Container(
                     color: AppColors.blue,
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 180),
+                            child: SvgPicture.asset(
+                              'assets/images/ic_sticker_ballot_box1.svg',
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 190),
+                            child: SvgPicture.asset(
+                              'assets/images/ic_sticker_ballot_box2.svg',
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 40),
+                            child: SvgPicture.asset(
+                              'assets/images/ic_sticker_ballot_box3.svg',
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 10),
+                            child: SvgPicture.asset(
+                              'assets/images/ic_sticker_ballot_box4.svg',
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
 
-              Positioned(
-                bottom: 0,
-                child: Obx(
-                  () => !controller.blockedPages
-                      ? SizedBox.shrink()
-                      : SizedBox(
-                          width: Get.width,
-                          height: Get.height,
-                          child: FittedBox(
-                              fit: BoxFit.fitWidth,
-                              child: Image.asset(
-                                  'assets/images/${controller.currentPage == 3 ? 'mds_graphic_blured' : controller.currentPage == 4 ? 'comparison_screen' : controller.currentPage == 8 ? 'political_explorer_screen' : 'TOP_X_Screen'}.png'))),
-                ),
-              ),
               SafeArea(
                 bottom: false,
                 child: Column(
@@ -63,9 +90,7 @@ class ResultsPage extends GetView<ResultsController> {
                             width: double.infinity,
                             isDotted: true,
                             progressColor: AppColors.primary,
-                            backgroundColor: controller.isSpecialPage
-                                ? Colors.white
-                                : AppColors.lightPrimary,
+                            backgroundColor: AppColors.lightPrimary,
                           )),
                     ),
                     CustomSpacer(
@@ -78,15 +103,12 @@ class ResultsPage extends GetView<ResultsController> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
-                            'assets/images/img_pigeon.svg',
+                            'assets/images/logo_circle.svg',
                             height: 40,
                           ),
                           Spacer(),
-                          Obx(() => AppTexts.medium(
-                              '#${S.of(context).shortAppName}',
-                              color: controller.isSpecialPage
-                                  ? Colors.white
-                                  : AppColors.primary)),
+                          AppTexts.title('#${S.of(context).shortAppName}',
+                              color: AppColors.primary),
                         ],
                       ),
                     ),
@@ -109,7 +131,7 @@ class ResultsPage extends GetView<ResultsController> {
                 ),
               ),
 
-              //Share button only showed in pages 2, 3, 6
+              //Share button only showed in showButtonSharePages
               Obx(
                 () => controller.showButtonSharePages
                         .contains(controller.currentPage)

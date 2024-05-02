@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/components/dialog_appearance_page.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
+import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class ResultsPage6 extends StatefulWidget {
@@ -12,12 +16,32 @@ class ResultsPage6 extends StatefulWidget {
 class _ResultsPage6State extends State<ResultsPage6> {
   @override
   Widget build(BuildContext context) {
-    return DialogAppearancePage(
-      title: S.of(context).resultsPage5Title,
-      text: S.of(context).resultsPage5Text,
-      assetFront: 'img_hemicycle',
-      assetHeight: 96,
-      assetBack: 'img_hemicycle_bg',
+    return Column(
+      children: [
+        Spacer(),
+        DialogAppearancePage(
+          title: S.of(context).resultsPage6_1Title,
+          assetFront: 'img_hemicycle',
+          assetHeight: 64,
+        ),
+        CustomSpacer(
+          multiplier: 5,
+        ),
+        DialogAppearancePage(
+          title: S.of(context).resultsPage6_2Title,
+          assetFront: 'img_reveille',
+          assetHeight: 80,
+        ),
+        CustomSpacer(
+          multiplier: 2,
+        ),
+        Padding(
+          padding: AppDimens.lateralPadding,
+          child: AppTexts.small(S.of(context).resultsPage6Text,
+              textAlign: TextAlign.center, color: AppColors.primary),
+        ),
+        Spacer(flex: 3,),
+      ],
     );
   }
 }

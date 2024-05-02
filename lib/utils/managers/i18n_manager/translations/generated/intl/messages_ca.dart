@@ -122,24 +122,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pro-integració UE"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("Ets tu!"),
-        "resultsPage5Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
-        "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "D\'acord, és genial saber quin grup et porta..."),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
             "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
-        "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
-            "Però a les eleccions de la UE, voteu per una llista local"),
         "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
             "No estan en cap ordre en concret"),
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
             "Aquestes són les llistes de candidats locals que coincideixen al vostre país"),
-        "resultsPage8NopButton":
-            MessageLookupByLibrary.simpleMessage("No gràcies!"),
-        "resultsPage8Title": MessageLookupByLibrary.simpleMessage(
-            "Vols rebre una notificació quan sigui el moment de votar?"),
-        "resultsPage8YesButton": MessageLookupByLibrary.simpleMessage("Síííí"),
         "resultsShare":
             MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
         "resultsSocialShareData": m4,

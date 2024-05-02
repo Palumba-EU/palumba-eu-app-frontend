@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(country) => "No local parties found in ${country}";
 
+  static String m5(num, top) =>
+      "I swiped on ${num} topics and I’m in the top ${top}% of climate action";
+
   static String m4(party, percentage) =>
       "Me and ${party} agreed on ${percentage}% of all the statements you swiped on. Find out your match at palumba.eu";
 
@@ -95,6 +98,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("I identify as"),
         "poland": MessageLookupByLibrary.simpleMessage("Poland"),
         "resultsLabelEmoji": MessageLookupByLibrary.simpleMessage("😍❤️‍🔥💘"),
+        "resultsPage11NopButton":
+            MessageLookupByLibrary.simpleMessage("I\'m all good!"),
+        "resultsPage11Title": MessageLookupByLibrary.simpleMessage(
+            "Would you like to receive a notification when it’s time to vote?"),
+        "resultsPage11YesButton":
+            MessageLookupByLibrary.simpleMessage("Yesssss"),
+        "resultsPage1OText": MessageLookupByLibrary.simpleMessage(
+            "You seem to be in the top 10% for Climate action!"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
             "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
         "resultsPage1Title":
@@ -115,25 +126,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("It’s you, hi!"),
-        "resultsPage5Text": MessageLookupByLibrary.simpleMessage(
-            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
-        "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "Okay, it’s cool knowing which group gets you..."),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers  😌"),
-        "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match."),
+        "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
+            "Ok,it\'s cool knowing which group gets me..."),
+        "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
             "But at the EU Elections, you vote for a local list"),
         "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
             "They are in no particular order"),
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
             "These are the matching Local Candidate lists in your country "),
-        "resultsPage8NopButton":
-            MessageLookupByLibrary.simpleMessage("I\'m all good!"),
-        "resultsPage8Title": MessageLookupByLibrary.simpleMessage(
-            "Would you like to receive a notification when it’s time to vote?"),
-        "resultsPage8YesButton":
-            MessageLookupByLibrary.simpleMessage("Yesssss"),
+        "resultsPage8Text": m5,
+        "resultsPage9Text": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌"),
+        "resultsPage9Title": MessageLookupByLibrary.simpleMessage(
+            "You earned a badge for being a « Political Explorer »."),
         "resultsShare":
             MessageLookupByLibrary.simpleMessage("Share (coming soon ⏳)"),
         "resultsSocialShareData": m4,

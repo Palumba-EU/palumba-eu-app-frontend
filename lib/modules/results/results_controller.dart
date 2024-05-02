@@ -14,15 +14,15 @@ import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -47,14 +47,13 @@ class ResultsController extends GetxController {
     ResultsPage8(),
     ResultsPage9(),
     ResultsPage10(),
-    ResultsPage11(),
   ];
 
   List<CustomChartData> chartData = [];
 
   UserData get userData => UserManager.userData;
 
-  List<int> showButtonSharePages = [1, 2, 3, 4, 7, 8, 9];
+  List<int> showButtonSharePages = [1, 2, 3, 4, 6, 7, 8];
 
   RxInt _currentPage = 0.obs;
 
@@ -70,13 +69,7 @@ class ResultsController extends GetxController {
       _maxPercentagePoliticParty ??
       (_resultsData.isEmpty ? null : _resultsData.first);
 
-  bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 6;
-
-  bool get blockedPages =>
-      _currentPage.value == 3 ||
-      _currentPage.value == 4 ||
-      _currentPage.value == 8 ||
-      _currentPage.value == 9;
+  bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 8;
 
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
 

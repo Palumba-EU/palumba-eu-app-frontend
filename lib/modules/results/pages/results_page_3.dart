@@ -16,7 +16,6 @@ class ResultsPage3 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    bool isTablet = controller.isTablet;
     return SingleChildScrollView(
         child: SafeArea(
       child: Column(
