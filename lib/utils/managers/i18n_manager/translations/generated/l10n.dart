@@ -927,7 +927,32 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'bg'),
       Locale.fromSubtags(languageCode: 'ca'),
+      Locale.fromSubtags(languageCode: 'cs'),
+      Locale.fromSubtags(languageCode: 'da'),
+      Locale.fromSubtags(languageCode: 'de'),
+      Locale.fromSubtags(languageCode: 'el'),
+      Locale.fromSubtags(languageCode: 'es'),
+      Locale.fromSubtags(languageCode: 'et'),
+      Locale.fromSubtags(languageCode: 'fi'),
+      Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'ga'),
+      Locale.fromSubtags(languageCode: 'hr'),
+      Locale.fromSubtags(languageCode: 'hu'),
+      Locale.fromSubtags(languageCode: 'it'),
+      Locale.fromSubtags(languageCode: 'lb'),
+      Locale.fromSubtags(languageCode: 'lt'),
+      Locale.fromSubtags(languageCode: 'lv'),
+      Locale.fromSubtags(languageCode: 'mt'),
+      Locale.fromSubtags(languageCode: 'nl'),
+      Locale.fromSubtags(languageCode: 'pl'),
+      Locale.fromSubtags(languageCode: 'pt'),
+      Locale.fromSubtags(languageCode: 'ro'),
+      Locale.fromSubtags(languageCode: 'sk'),
+      Locale.fromSubtags(languageCode: 'sl'),
+      Locale.fromSubtags(languageCode: 'sv'),
+      Locale.fromSubtags(languageCode: 'tr'),
     ];
   }
 

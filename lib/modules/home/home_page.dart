@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -54,8 +54,8 @@ class HomePage extends StatelessWidget {
           Spacer(),
           TextButton(
             onPressed: _.launchFaqUrl,
-            child:
-                AppTexts.regular(S.of(context).faq, bold: true, color: AppColors.primary),
+            child: AppTexts.regular(S.of(context).faq,
+                bold: true, color: AppColors.primary),
           ),
           TextButton(
             onPressed: _.goToSettings,
@@ -96,8 +96,8 @@ class HomePage extends StatelessWidget {
                       index == 0
                           ? S.of(context).entranceTitle1
                           : index == 1
-                          ? S.of(context).entranceTitle2
-                          : S.of(context).entranceTitle3,
+                              ? S.of(context).entranceTitle2
+                              : S.of(context).entranceTitle3,
                       textAlign: TextAlign.center,
                       bold: true,
                       color: AppColors.primary,
@@ -134,10 +134,18 @@ class HomePage extends StatelessWidget {
       padding: AppDimens.lateralPadding,
       child: Column(
         children: [
-          //TODO: Get the real number of matches from api
-          AppTexts.small(S.of(context).homePageMatchesFoundQuote('X'),
-              textAlign: TextAlign.center, color: AppColors.primary),
-          CustomSpacer(multiplier: 2,),
+          FutureBuilder<int?>(
+            future: DataRepository().fetchStatistics(),
+            builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
+              return AppTexts.small(
+                  S.of(context).homePageMatchesFoundQuote(snapshot.data ?? 'X'),
+                  textAlign: TextAlign.center,
+                  color: AppColors.primary);
+            },
+          ),
+          CustomSpacer(
+            multiplier: 2,
+          ),
           GetBuilder<HomePageController>(
             id: _.resultsExistsKey,
             builder: (controller) => _.resultsData.isEmpty && !_.isTestRunning

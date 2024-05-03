@@ -22,6 +22,7 @@ class DataAPI {
   final resultsEndpoint = '/results';
   final sponsorsEndpoint = '/sponsors';
   final responseEndpoint = '/responses';
+  final statisticsEndpoint = '/statistics';
 
   Future<LocalizationData?> fetchLocalizations() async {
     try {
@@ -88,7 +89,8 @@ class DataAPI {
 
   Future<List<Sponsor>> fetchSponsors() async {
     try {
-      final url = Uri.parse('${baseUrl}/${LanguageManager.currentLanguage}${sponsorsEndpoint}');
+      final url = Uri.parse(
+          '${baseUrl}/${LanguageManager.currentLanguage}${sponsorsEndpoint}');
       final response = await http.get(
         url,
         headers: headers,
@@ -102,6 +104,25 @@ class DataAPI {
       return sponsors.data ?? [];
     } catch (e) {
       return [];
+    }
+  }
+
+  Future<int?> fetchStatistics() async {
+    try {
+      final url = Uri.parse('${baseUrl}${statisticsEndpoint}');
+      final response = await http.get(
+        url,
+        headers: headers,
+      );
+
+      if (response.statusCode != 200) {
+        throw Exception(response.reasonPhrase);
+      }
+
+      var data = json.decode(response.body);
+      return data['responses_last_24h'];
+    } catch (e) {
+      return null;
     }
   }
 

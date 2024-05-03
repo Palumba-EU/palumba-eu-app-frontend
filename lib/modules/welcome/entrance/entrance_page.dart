@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -152,10 +153,18 @@ class EntrancePage extends StatelessWidget {
       padding: AppDimens.lateralPadding,
       child: Column(
         children: [
-          //TODO: Get the real number of matches from api
-          AppTexts.small(S.of(context).entranceMatchesFoundQuote('X'),
-              textAlign: TextAlign.center, color: AppColors.primary),
-          CustomSpacer(multiplier: 2,),
+          FutureBuilder<int?>(
+            future: DataRepository().fetchStatistics(),
+            builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
+              return AppTexts.small(
+                  S.of(context).entranceMatchesFoundQuote(snapshot.data ?? 'X'),
+                  textAlign: TextAlign.center,
+                  color: AppColors.primary);
+            },
+          ),
+          CustomSpacer(
+            multiplier: 2,
+          ),
           CustomButton(
             onPressed: () {
               _.onContinueTap();
