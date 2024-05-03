@@ -101,7 +101,7 @@ class OnboardingController extends GetxController {
       onContinueTap();
       return;
     }
-    UserManager.setCountryId(_countries![index]);
+    UserManager.setCountry(_countries![index]);
     indexCountrySelected.value = index;
     _localDataRepository.country = _countries![index].toJson();
     updateButtonState();

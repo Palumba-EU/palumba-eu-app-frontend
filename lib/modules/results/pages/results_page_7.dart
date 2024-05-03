@@ -9,6 +9,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class ResultsPage7 extends GetView<ResultsController> {
   const ResultsPage7({super.key});
@@ -28,16 +29,21 @@ class ResultsPage7 extends GetView<ResultsController> {
 
   Column _pageContent(BuildContext context, bool smallScreen) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomSpacer(
           multiplier: 3,
         ),
-        AppTexts.title(S.of(context).resultsPage7Title,
-            color: AppColors.primary),
-        CustomSpacer(multiplier: 2),
-        AppTexts.small(S.of(context).resultsPage7Disclaimer,
+        AppTexts.title(
+            S.of(context).resultsPage7Title(controller.countryName,
+                controller.maxPercentagePoliticParty?.party.name ?? ''),
             color: AppColors.primary),
         CustomSpacer(),
+        AppTexts.small(S.of(context).resultsPage7Disclaimer,
+            color: AppColors.primary),
+        CustomSpacer(
+          multiplier: 2,
+        ),
         smallScreen
             ? _candidatesContainer()
             : Expanded(child: _candidatesContainer()),

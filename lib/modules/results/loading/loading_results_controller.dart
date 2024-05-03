@@ -28,7 +28,6 @@ class LoadingResultsController extends GetxController {
 
   List<PartyUserDistance> _partyUserDistanceList = [];
 
-  //TODO: add your country translation
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
   @override

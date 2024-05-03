@@ -26,13 +26,6 @@ class SplashController extends GetxController {
   }
 
   _init() async {
-    var response = await _dataRepository.fetchLocalizations();
-    if (response == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
-      return;
-    }
-
     //Set language
     final currentLanguage = (await _localDataRepository.language) ?? '';
     LanguageManager.currentLanguage = currentLanguage.isEmpty
@@ -43,10 +36,22 @@ class SplashController extends GetxController {
     //Set country
     final currentCountry = (await _localDataRepository.country) ?? '';
     if (currentCountry.isNotEmpty) {
-      UserManager.setCountryId(Country.fromJson(jsonDecode(currentCountry)));
+      UserManager.setCountry(Country.fromJson(jsonDecode(currentCountry)));
     }
 
-    await _dataRepository.fetchStatements();
+    var response = await _dataRepository.fetchLocalizations();
+    if (response == null) {
+      Alert.showAlert(S.of(Get.context!).appName,
+          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      return;
+    }
+
+    var response2 = await _dataRepository.fetchStatements();
+    if (response2 == null) {
+      Alert.showAlert(S.of(Get.context!).appName,
+          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      return;
+    }
 
     //Navigation
     final onBoarded = await _localDataRepository.onBoarded;

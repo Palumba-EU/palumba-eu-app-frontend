@@ -1,4 +1,5 @@
 import 'package:palumba_eu/data/model/results_data.dart';
+import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 
 class PartyUserDistance {
@@ -55,4 +56,11 @@ class ResultsHelper {
 
     return distanceMatrix[aIndex][bIndex];
   }
+}
+
+class CardStatementData {
+  late Statement statement;
+  late List<PoliticParty> parties;
+
+  CardStatementData({required this.statement, required this.parties});
 }

@@ -32,7 +32,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m3(country) =>
       "No s\'ha trobat cap partit polític local a ${country}";
 
-  static String m4(party, percentage) =>
+  static String m4(country, group) =>
+      "Aquestes són les llistes de candidats locals que coincideixen al vostre país";
+
+  static String m5(party, percentage) =>
       "Me and ${party} agreed on ${percentage}% of all the statements you swiped on. Find out your match at palumba.eu";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -129,11 +132,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
             "No estan en cap ordre en concret"),
         "resultsPage7NoLocalCandidates": m3,
-        "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
-            "Aquestes són les llistes de candidats locals que coincideixen al vostre país"),
+        "resultsPage7Title": m4,
         "resultsShare":
             MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
-        "resultsSocialShareData": m4,
+        "resultsSocialShareData": m5,
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Política de Privacitat"),

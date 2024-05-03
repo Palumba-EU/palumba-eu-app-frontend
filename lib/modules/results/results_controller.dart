@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:ui' as ui;
+import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
@@ -49,19 +51,20 @@ class ResultsController extends GetxController {
     ResultsPage10(),
   ];
 
-  List<CustomChartData> chartData = [];
-
   UserData get userData => UserManager.userData;
 
-  List<int> showButtonSharePages = [1, 2, 3, 4, 6, 7, 8];
+  final List<int> showButtonSharePages = [1, 2, 3, 4, 6, 7, 8];
 
   RxInt _currentPage = 0.obs;
 
   int get currentPage => _currentPage.value;
 
-  List<PartyUserDistance> _resultsData = [];
+  bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 8;
 
-  List<LocalParties>? get localParties => filterLocalPartiesByCountry();
+  bool get isTablet => Get.width >= 600;
+
+  //Data
+  List<PartyUserDistance> _resultsData = [];
 
   PartyUserDistance? _maxPercentagePoliticParty;
 
@@ -69,22 +72,29 @@ class ResultsController extends GetxController {
       _maxPercentagePoliticParty ??
       (_resultsData.isEmpty ? null : _resultsData.first);
 
-  bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 8;
+  //ResultsPage3
+  List<CustomChartData> chartData = [];
 
-  String get countryName => UserManager.userCountry?.name ?? 'Your country';
-
+  //ResultsPage4
   RxList<ScatterSpot> scatterSpots = <ScatterSpot>[].obs;
 
-  bool get isTablet => Get.width >= 600;
+  //ResultsPage7
+  String get countryName => UserManager.userCountry?.name ?? 'Your country';
+
+  List<LocalParties>? get localParties => filterLocalPartiesByCountry();
+
+  //ResultsPage9
+  final swiperController = AppinioSwiperController();
+  List<CardStatementData> cardsData = <CardStatementData>[];
 
   @override
   void onInit() {
-    _getArguments();
+    super.onInit();
+    _initData();
 
     pageController.addListener(() {
       _currentPage.value = pageController.page!.round();
     });
-    super.onInit();
   }
 
   @override
@@ -93,7 +103,7 @@ class ResultsController extends GetxController {
     super.onClose();
   }
 
-  void _getArguments() {
+  void _initData() {
     final args = Get.arguments as Map<String, dynamic>?;
     if (args != null) {
       final data =
@@ -115,6 +125,8 @@ class ResultsController extends GetxController {
       _maxPercentagePoliticParty = getMajorPercentageParty();
       getScatterPoints();
     }
+
+    _getCardsData();
   }
 
   PartyUserDistance? getMajorPercentageParty() {
@@ -236,5 +248,36 @@ class ResultsController extends GetxController {
     final frame = await codec.getNextFrame();
 
     return frame.image;
+  }
+
+  void _getCardsData() {
+    if (DataManager().statements != null) {
+      var myAnswers = UserManager.userData.answers
+          .where((element) =>
+              element.answer == StatementResponse.stronglyAgree ||
+              element.answer == StatementResponse.stronglyDisagree)
+          .toList();
+      for (var myAnswer in myAnswers) {
+        var statement = DataManager()
+            .statements!
+            .firstWhereOrNull((element) => element.id == myAnswer.statementId);
+        if (statement != null) {
+          var parties = <PoliticParty>[];
+
+          if (DataManager().parties != null) {
+            parties = DataManager().parties!.where((element) {
+              var answer = element.answers?.firstWhereOrNull(
+                  (element) => element.statementId == statement.id);
+              return answer != null && answer.answer == myAnswer.answer;
+            }).toList();
+          }
+
+          cardsData
+              .add(CardStatementData(statement: statement, parties: parties));
+        }
+      }
+    }
+
+    //TODO: Remove results card if empty
   }
 }

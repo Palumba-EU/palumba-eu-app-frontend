@@ -49,14 +49,7 @@ void main() async {
     }
   };
 
-  await SentryFlutter.init((options) {
-    options.dsn =
-        'https://f9be67a04b24e1ee4c1dd9c1b2a13f19@o1288946.ingest.sentry.io/4506773258371072';
-
-    options.tracesSampleRate = 1.0;
-  }, appRunner: () {
-    runApp(MyApp());
-  });
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {

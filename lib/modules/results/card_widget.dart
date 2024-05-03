@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/model/results_data.dart';
-
-import 'package:palumba_eu/data/model/statements_data.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
+import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -17,15 +15,13 @@ import '../../global_widgets/custom_network_image.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({
-    required this.statement,
-    required this.parties,
+    required this.card,
     required this.color,
     required this.colorBorder,
     super.key,
   });
 
-  final Statement? statement;
-  final List<PoliticParty?>? parties;
+  final CardStatementData card;
   final Color color;
   final Color colorBorder;
 
@@ -49,11 +45,11 @@ class CardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Spacer(),
-                statement?.emojis != null
+                card.statement.emojis != null
                     ? Padding(
                         padding: AppDimens.lateralPadding,
                         child: EmojiLabelContainer(
-                          emoji: statement!.emojis!,
+                          emoji: card.statement.emojis!,
                           backgroundColor: Colors.white,
                         ),
                       )
@@ -65,7 +61,7 @@ class CardWidget extends StatelessWidget {
                 Padding(
                   padding: AppDimens.lateralPadding,
                   child: AppTexts.title(
-                    statement?.statement ?? '',
+                    card.statement.statement ?? '',
                   ),
                 )
               ],
@@ -120,12 +116,12 @@ class CardWidget extends StatelessWidget {
                               spacing: 5,
                               runSpacing: 5,
                               children: List.generate(
-                                  parties!.length,
+                                  card.parties.length,
                                   (index) => CustomNetworkImage(
                                         width: 20,
                                         height: 20,
                                         isSvg: true,
-                                        imageUrl: parties![index]?.logo ?? '',
+                                        imageUrl: card.parties[index].logo ?? '',
                                         radius: Get.width,
                                         color: AppColors.blue,
                                       )),

@@ -29,10 +29,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(country) => "No local parties found in ${country}";
 
-  static String m5(num, top) =>
+  static String m4(country, group) =>
+      "The candidates in ${country} most aligned with ${group}";
+
+  static String m6(num, top) =>
       "I swiped on ${num} topics and I’m in the top ${top}% of climate action";
 
-  static String m4(party, percentage) =>
+  static String m5(party, percentage) =>
       "Me and ${party} agreed on ${percentage}% of all the statements you swiped on. Find out your match at palumba.eu";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -140,12 +143,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ok,it\'s cool knowing which group gets me..."),
         "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
             "But at the EU Elections, you vote for a local list"),
-        "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "They are in no particular order"),
+        "resultsPage7Disclaimer":
+            MessageLookupByLibrary.simpleMessage("In no particular order."),
         "resultsPage7NoLocalCandidates": m3,
-        "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
-            "These are the matching Local Candidate lists in your country "),
-        "resultsPage8Text": m5,
+        "resultsPage7Title": m4,
+        "resultsPage8Text": m6,
         "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
             "Click on the cards to shuffle"),
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
@@ -154,7 +156,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
         "resultsShare":
             MessageLookupByLibrary.simpleMessage("Share (coming soon ⏳)"),
-        "resultsSocialShareData": m4,
+        "resultsSocialShareData": m5,
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),

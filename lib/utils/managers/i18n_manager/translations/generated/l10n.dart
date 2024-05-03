@@ -690,20 +690,20 @@ class S {
     );
   }
 
-  /// `These are the matching Local Candidate lists in your country `
-  String get resultsPage7Title {
+  /// `The candidates in {country} most aligned with {group}`
+  String resultsPage7Title(Object country, Object group) {
     return Intl.message(
-      'These are the matching Local Candidate lists in your country ',
+      'The candidates in $country most aligned with $group',
       name: 'resultsPage7Title',
       desc: '',
-      args: [],
+      args: [country, group],
     );
   }
 
-  /// `They are in no particular order`
+  /// `In no particular order.`
   String get resultsPage7Disclaimer {
     return Intl.message(
-      'They are in no particular order',
+      'In no particular order.',
       name: 'resultsPage7Disclaimer',
       desc: '',
       args: [],
