@@ -19,6 +19,8 @@ class HomePageController extends GetxController {
 
   LocalDataRepository _localDataRepository = Get.find<LocalDataRepository>();
 
+  List<Map> answersData = [];
+
   List<Map> resultsData = [];
 
   bool get isTestRunning => UserManager.isTestRunning;
@@ -31,8 +33,12 @@ class HomePageController extends GetxController {
 
   Future<void> obtainLocalStoredLastResults() async {
     try {
-      final jsonEncoded = await _localDataRepository.results;
-      final results = jsonDecode(jsonEncoded ?? '[]');
+      final jsonAnswersEncoded = await _localDataRepository.answers;
+      final answers = jsonDecode(jsonAnswersEncoded ?? '[]');
+      answersData = List<Map<String, dynamic>>.from(answers);
+
+      final jsonResultsEncoded = await _localDataRepository.results;
+      final results = jsonDecode(jsonResultsEncoded ?? '[]');
       resultsData = List<Map<String, dynamic>>.from(results);
     } catch (e) {
       debugPrint(e.toString());
@@ -56,6 +62,7 @@ class HomePageController extends GetxController {
       return;
     }
     Get.toNamed(ResultsController.route, arguments: {
+      StringUtils.answersDataKey: answersData,
       StringUtils.resultsDataKey: resultsData,
     });
   }

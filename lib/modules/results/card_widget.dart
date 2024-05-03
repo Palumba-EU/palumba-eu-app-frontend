@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
@@ -15,18 +16,23 @@ import '../../global_widgets/custom_network_image.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({
-    required this.card,
-    required this.color,
-    required this.colorBorder,
+    required this.data,
     super.key,
   });
 
-  final CardStatementData card;
-  final Color color;
-  final Color colorBorder;
+  final CardStatementData data;
 
   @override
   Widget build(BuildContext context) {
+    var color = AppColors.green;
+    var colorBorder = AppColors.lightGreen;
+    var icon = 'ic_check';
+    if (data.answer.answer == StatementResponse.stronglyDisagree) {
+      color = AppColors.yellow;
+      colorBorder = AppColors.lightYellow;
+      icon = 'ic_cross';
+    }
+
     return Container(
       decoration: BoxDecoration(
           color: color,
@@ -45,11 +51,11 @@ class CardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Spacer(),
-                card.statement.emojis != null
+                data.statement.emojis != null
                     ? Padding(
                         padding: AppDimens.lateralPadding,
                         child: EmojiLabelContainer(
-                          emoji: card.statement.emojis!,
+                          emoji: data.statement.emojis!,
                           backgroundColor: Colors.white,
                         ),
                       )
@@ -61,7 +67,7 @@ class CardWidget extends StatelessWidget {
                 Padding(
                   padding: AppDimens.lateralPadding,
                   child: AppTexts.title(
-                    card.statement.statement ?? '',
+                    data.statement.statement ?? '',
                   ),
                 )
               ],
@@ -105,7 +111,7 @@ class CardWidget extends StatelessWidget {
                               multiplier: 5,
                             ),
                             SvgPicture.asset(
-                              'assets/images/ic_check.svg',
+                              'assets/images/$icon.svg',
                               colorFilter: ColorFilter.mode(
                                 color,
                                 BlendMode.srcIn,
@@ -116,12 +122,13 @@ class CardWidget extends StatelessWidget {
                               spacing: 5,
                               runSpacing: 5,
                               children: List.generate(
-                                  card.parties.length,
+                                  data.parties.length,
                                   (index) => CustomNetworkImage(
                                         width: 20,
                                         height: 20,
                                         isSvg: true,
-                                        imageUrl: card.parties[index].logo ?? '',
+                                        imageUrl:
+                                            data.parties[index].logo ?? '',
                                         radius: Get.width,
                                         color: AppColors.blue,
                                       )),

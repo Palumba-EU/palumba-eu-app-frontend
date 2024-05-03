@@ -53,6 +53,13 @@ class SplashController extends GetxController {
       return;
     }
 
+    var response3 = await _dataRepository.fetchResultsInfo();
+    if (response3 == null) {
+      Alert.showAlert(S.of(Get.context!).appName,
+          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      return;
+    }
+
     //Navigation
     final onBoarded = await _localDataRepository.onBoarded;
     if (onBoarded != null && onBoarded) {

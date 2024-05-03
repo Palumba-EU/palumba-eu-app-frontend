@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/card_widget.dart';
@@ -23,34 +24,38 @@ class ResultsPage9 extends GetView<ResultsController> {
         Expanded(
             child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 50),
-          child: AppinioSwiper(
-            controller: controller.swiperController,
-            cardCount: controller.cardsData.length,
-            backgroundCardCount: 1,
-            backgroundCardScale: 1.0,
-            isDisabled: true,
-            backgroundCardOffset: Offset.zero,
-            swipeOptions: SwipeOptions.only(left: true, right: true),
-            loop: true,
-            cardBuilder: (BuildContext context, int index) {
-              var card = controller.cardsData[index];
-              return GestureDetector(
-                onTapDown: (details) {
-                  controller.swiperController.swipeRight();
-                },
-                child: Transform.rotate(
-                  angle: index % 2 == 0 ? 0.03 : -0.03,
-                  child: CardWidget(
-                    card: card,
-                    color: index % 2 == 0 ? AppColors.green : AppColors.yellow,
-                    colorBorder: index % 2 == 0
-                        ? AppColors.lightGreen
-                        : AppColors.lightYellow,
-                  ),
+          //TODO
+          child: controller.cardsData.isEmpty
+              ? const SizedBox.shrink()
+              : AppinioSwiper(
+                  controller: controller.swiperController,
+                  cardCount: controller.cardsData.length,
+                  backgroundCardCount: 1,
+                  backgroundCardScale: 1.0,
+                  isDisabled: true,
+                  backgroundCardOffset: Offset.zero,
+                  swipeOptions: SwipeOptions.only(left: true, right: true),
+                  loop: true,
+                  cardBuilder: (BuildContext context, int index) {
+                    var card = controller.cardsData[index];
+                    return GestureDetector(
+                      onTapDown: (details) {
+                        if (card.answer.answer ==
+                            StatementResponse.stronglyDisagree) {
+                          controller.swiperController.swipeLeft();
+                        } else {
+                          controller.swiperController.swipeRight();
+                        }
+                      },
+                      child: Transform.rotate(
+                        angle: index % 2 == 0 ? 0.03 : -0.03,
+                        child: CardWidget(
+                          data: card,
+                        ),
+                      ),
+                    );
+                  },
                 ),
-              );
-            },
-          ),
         )),
         CustomSpacer(
           multiplier: 3,

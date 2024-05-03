@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
@@ -23,8 +24,6 @@ class LoadingResultsController extends GetxController {
   final int milliSecondsStep = 4500;
 
   RxInt currentStep = 0.obs;
-
-  ResultsData? _resultsData;
 
   List<PartyUserDistance> _partyUserDistanceList = [];
 
@@ -53,13 +52,19 @@ class LoadingResultsController extends GetxController {
       } else {
         timer.cancel();
 
+        //Store answers as local data
+        final jsonListAnswers =
+            UserManager.userData.answers.map((e) => e.toJson()).toList();
+        _localDataRepository.answers = jsonListAnswers;
+
+        //Store results as local data
         final jsonListResults =
             _partyUserDistanceList.map((e) => e.toJson()).toList();
-        //Store results as local data
         _localDataRepository.results = jsonListResults;
 
         //Navigate to results screen
         Get.offAllNamed(ResultsController.route, arguments: {
+          StringUtils.answersDataKey: jsonListAnswers,
           StringUtils.resultsDataKey: jsonListResults,
         });
       }
@@ -72,10 +77,14 @@ class LoadingResultsController extends GetxController {
   }
 
   Future<void> _getResultsData() async {
-    _resultsData = await _dataRepository.fetchResultsInfo();
+    var parties = DataManager().getParties();
+    if (parties.isEmpty) {
+      var results = await _dataRepository.fetchResultsInfo();
+      parties = results?.parties ?? [];
+    }
 
     //Calculate distances percentage
-    for (final PoliticParty party in _resultsData?.parties ?? []) {
+    for (final PoliticParty party in parties) {
       final userAnswers = UserManager.userData.answers;
       final partyAnswers = party.answers ?? [];
       //Calculate max distance

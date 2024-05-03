@@ -60,7 +60,9 @@ class ResultsHelper {
 
 class CardStatementData {
   late Statement statement;
+  late Answer answer;
   late List<PoliticParty> parties;
 
-  CardStatementData({required this.statement, required this.parties});
+  CardStatementData(
+      {required this.statement, required this.answer, required this.parties});
 }

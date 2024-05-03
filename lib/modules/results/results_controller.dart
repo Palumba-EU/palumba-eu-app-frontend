@@ -64,6 +64,7 @@ class ResultsController extends GetxController {
   bool get isTablet => Get.width >= 600;
 
   //Data
+  List<Answer> _answersData = [];
   List<PartyUserDistance> _resultsData = [];
 
   PartyUserDistance? _maxPercentagePoliticParty;
@@ -106,10 +107,14 @@ class ResultsController extends GetxController {
   void _initData() {
     final args = Get.arguments as Map<String, dynamic>?;
     if (args != null) {
-      final data =
-          args[StringUtils.resultsDataKey] as List<Map<String, dynamic>>;
+      final answersData =
+          args[StringUtils.answersDataKey] as List<Map<String, dynamic>>;
+      _answersData = answersData.map((e) => Answer.fromJson(e)).toList();
 
-      _resultsData = data.map((e) => PartyUserDistance.fromJson(e)).toList();
+      final resultsData =
+          args[StringUtils.resultsDataKey] as List<Map<String, dynamic>>;
+      _resultsData =
+          resultsData.map((e) => PartyUserDistance.fromJson(e)).toList();
 
       //Convert the data to the format that the chart needs
       _resultsData.forEach((result) {
@@ -251,33 +256,25 @@ class ResultsController extends GetxController {
   }
 
   void _getCardsData() {
-    if (DataManager().statements != null) {
-      var myAnswers = UserManager.userData.answers
-          .where((element) =>
-              element.answer == StatementResponse.stronglyAgree ||
-              element.answer == StatementResponse.stronglyDisagree)
-          .toList();
-      for (var myAnswer in myAnswers) {
-        var statement = DataManager()
-            .statements!
-            .firstWhereOrNull((element) => element.id == myAnswer.statementId);
-        if (statement != null) {
-          var parties = <PoliticParty>[];
+    var myAnswers = _answersData
+        .where((element) =>
+            element.answer == StatementResponse.stronglyAgree ||
+            element.answer == StatementResponse.stronglyDisagree)
+        .toList();
+    for (var myAnswer in myAnswers) {
+      var statement = DataManager()
+          .getStatements()
+          .firstWhereOrNull((element) => element.id == myAnswer.statementId);
+      if (statement != null) {
+        var parties = DataManager().getParties().where((element) {
+          var answer = element.answers?.firstWhereOrNull(
+              (element) => element.statementId == statement.id);
+          return answer != null && answer.answer == myAnswer.answer;
+        }).toList();
 
-          if (DataManager().parties != null) {
-            parties = DataManager().parties!.where((element) {
-              var answer = element.answers?.firstWhereOrNull(
-                  (element) => element.statementId == statement.id);
-              return answer != null && answer.answer == myAnswer.answer;
-            }).toList();
-          }
-
-          cardsData
-              .add(CardStatementData(statement: statement, parties: parties));
-        }
+        cardsData.add(CardStatementData(
+            statement: statement, answer: myAnswer, parties: parties));
       }
     }
-
-    //TODO: Remove results card if empty
   }
 }

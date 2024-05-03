@@ -173,7 +173,7 @@ class OnboardingController extends GetxController {
       if (onBoarded == true) {
         try {
           _cardData =
-              StatementsParser.getCardModelList(DataManager().statements!)
+              StatementsParser.getCardModelList(DataManager().getStatements())
                   .first;
         } catch (e) {
           debugPrint(e.toString());
