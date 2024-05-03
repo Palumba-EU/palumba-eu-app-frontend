@@ -67,23 +67,13 @@ class ResultsPage3 extends GetView<ResultsController> {
               ),
             ],
           ),
-          SizedBox(
-            height: Get.height < 750 ? 180 : 150,
-            child: Stack(
-              children: [
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Image.asset(
-                        'assets/images/img_miniature_hemicycle.png')),
-                Positioned(
-                  left: AppDimens.lateralPaddingValue,
-                  right: AppDimens.lateralPaddingValue,
-                  bottom: 0,
-                  child: AppTexts.title(S.of(context).resultsPage3Title,
-                      color: AppColors.primary),
-                ),
-              ],
-            ),
+          CustomSpacer(
+            multiplier: 3,
+          ),
+          Padding(
+            padding: AppDimens.lateralPadding,
+            child: AppTexts.title(S.of(context).resultsPage3Title,
+                color: AppColors.primary),
           ),
           CustomSpacer(
             multiplier: 12,

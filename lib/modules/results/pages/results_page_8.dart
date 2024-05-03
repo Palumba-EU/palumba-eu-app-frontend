@@ -34,18 +34,14 @@ class ResultsPage8 extends GetView<ResultsController> {
         Spacer(),
         Padding(
           padding: AppDimens.lateralPadding,
-          child: AppTexts.title(
-              S.of(context).resultsPage8Text(
-                  DataManager().getStatements().length != 0
-                      ? DataManager().getStatements().length
-                      : 28,
-                  10),
-              color: AppColors.primary,
-              textAlign: TextAlign.center),
+          child: AppTexts.title(S.of(context).resultsPage8_1Text(87),
+              color: AppColors.primary, textAlign: TextAlign.center),
         ),
         CustomSpacer(),
         AppTexts.title('😱 😏'),
-        Spacer(flex: 10,),
+        Spacer(
+          flex: 10,
+        ),
       ],
     );
   }

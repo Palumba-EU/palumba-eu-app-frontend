@@ -44,7 +44,7 @@ class ResultsPage10 extends GetView<ResultsController> {
         CustomSpacer(multiplier: 2),
         Padding(
             padding: AppDimens.lateralPadding,
-            child: AppTexts.title(S.of(context).resultsPage11Title,
+            child: AppTexts.title(S.of(context).resultsPage10Title,
                 color: AppColors.primary, textAlign: TextAlign.center)),
         CustomSpacer(multiplier: 2),
         Row(
@@ -54,12 +54,12 @@ class ResultsPage10 extends GetView<ResultsController> {
               onPressed: () {
                 Get.offAllNamed(HomePageController.route);
               },
-              child: AppTexts.regular(S.of(context).resultsPage11NopButton,
+              child: AppTexts.regular(S.of(context).resultsPage10NopButton,
                   bold: true, color: AppColors.primary),
             ),
             CustomButton(
               onPressed: controller.launchUrl,
-              text: S.of(context).resultsPage11YesButton,
+              text: S.of(context).resultsPage10YesButton,
               //Default parameters
               border: ButtonBorderParameters(),
             ),

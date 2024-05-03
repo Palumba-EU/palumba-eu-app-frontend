@@ -57,50 +57,24 @@ class ResultsPage2 extends GetView<ResultsController> {
                 : RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
-                      text:
-                          '${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
                       style: AppTexts.customTextStyle(AppTextType.title,
-                          color: controller.getFirstPartyColor()),
-                      children: [
-                        TextSpan(
-                          text: S.of(context).resultsPage2Title,
-                          style: AppTexts.customTextStyle(AppTextType.title,
-                              color: AppColors.primary),
-                        ),
-                      ],
-                    )),
-          ),
-          CustomSpacer(multiplier: 3),
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppDimens.bigLateralPaddingValue * 2),
-            child: controller.maxPercentagePoliticParty == null
-                ? AppTexts.small('No data', color: AppColors.primary)
-                : RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: S.of(context).resultsPage2FirstText,
-                      style: AppTexts.customTextStyle(AppTextType.small,
                           color: AppColors.primary),
                       children: [
                         TextSpan(
-                          text:
-                              ' ${controller.maxPercentagePoliticParty?.percentage}% ',
-                          style: AppTexts.customTextStyle(AppTextType.small,
-                              color: controller.getFirstPartyColor(),
-                              bold: true),
+                          text: S.of(context).resultsPage2_1Title,
                         ),
                         TextSpan(
-                          text: '\n  ${S.of(context).resultsPage2LastText}',
-                          style: AppTexts.customTextStyle(AppTextType.small,
-                              color: AppColors.primary),
+                          text:
+                              ' ${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
+                          style: AppTexts.customTextStyle(AppTextType.title,
+                              color: controller.getFirstPartyColor()),
+                        ),
+                        TextSpan(
+                          text: S.of(context).resultsPage2_2Title,
                         ),
                       ],
                     )),
           ),
-          //TODO: fix this quote
-          /*CustomSpacer(multiplier: 4),
-            AppTexts.small('In June, bla bla bla', color: AppColors.primary),*/
           CustomSpacer(multiplier: 12),
         ],
       ),

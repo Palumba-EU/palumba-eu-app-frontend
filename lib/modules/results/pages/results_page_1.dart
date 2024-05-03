@@ -30,11 +30,6 @@ class ResultsPage1 extends StatelessWidget {
                 ),
               ),
               CustomSpacer(multiplier: 2,),
-              EmojiLabelContainer(
-                emoji: S.of(context).resultsLabelEmoji,
-                backgroundColor: AppColors.yellow,
-              ),
-              CustomSpacer(),
               AppTexts.title(S.of(context).resultsPage1Title,
                   color: AppColors.primary),
               CustomSpacer(),

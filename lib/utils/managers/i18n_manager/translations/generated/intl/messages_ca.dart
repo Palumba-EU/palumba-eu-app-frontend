@@ -35,9 +35,6 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(country, group) =>
       "Aquestes són les llistes de candidats locals que coincideixen al vostre país";
 
-  static String m5(party, percentage) =>
-      "Me and ${party} agreed on ${percentage}% of all the statements you swiped on. Find out your match at palumba.eu";
-
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
@@ -103,17 +100,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("El meu gènere és"),
         "poland": MessageLookupByLibrary.simpleMessage("Polònia"),
-        "resultsLabelEmoji": MessageLookupByLibrary.simpleMessage("😍❤️‍🔥💘"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
             "A les següents pantalles, descobrireu el vostre grup més compatible al Parlament de la UE, les llistes locals coincidents per votar al juny al vostre país, i fins i tot hem trobat algunes coses addicionals basades en les vostres respostes 😌"),
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("T\'hem trobat un \'match\'!"),
-        "resultsPage2FirstText":
-            MessageLookupByLibrary.simpleMessage("Esteu d\'acord en un "),
-        "resultsPage2LastText": MessageLookupByLibrary.simpleMessage(
-            "de totes les idees que has valorat."),
-        "resultsPage2Title": MessageLookupByLibrary.simpleMessage(
-            "i tu, realment és una Love Story (EU\'s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "La teva compatibilitat amb els grups del Parlament Europeu"),
         "resultsPage4TitleBottom":
@@ -135,7 +125,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage7Title": m4,
         "resultsShare":
             MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
-        "resultsSocialShareData": m5,
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Política de Privacitat"),
