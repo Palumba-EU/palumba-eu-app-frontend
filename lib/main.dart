@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -28,10 +27,6 @@ void main() async {
   DependencyInjection.init();
 
   LanguageManager.init();
-
-  await dotenv.load(
-    fileName: EnvironmentConfig.isDevelopmentMode ? '.env.dev' : '.env.prod',
-  );
 
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);

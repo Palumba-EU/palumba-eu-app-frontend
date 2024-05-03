@@ -30,22 +30,6 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>We use the access to your media library to get a picture and use it in the app.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We use the access to your camera to get a picture and use it in the app.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We use your location to display relevant results around you.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We use your location to display relevant results around you.</string>
-	<key>NSLocationUsageDescription</key>
-	<string>We use your location to display relevant results around you.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use your location to display relevant results around you.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We use the access to your photo library to get a picture and use it in the app.</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
