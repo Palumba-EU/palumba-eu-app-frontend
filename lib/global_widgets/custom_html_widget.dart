@@ -10,11 +10,13 @@ import 'package:url_launcher/url_launcher.dart';
 class CustomHtmlWidget extends StatelessWidget {
   final String content;
   final TextStyle? textStyle;
+  final TextAlign textAlign;
 
   const CustomHtmlWidget({
     Key? key,
     required this.content,
     this.textStyle,
+    this.textAlign = TextAlign.start,
   }) : super(key: key);
 
   @override
@@ -28,6 +30,7 @@ class CustomHtmlWidget extends StatelessWidget {
     return Html(
       data: content,
       style: {
+        'html': Style(textAlign: textAlign),
         'body': Style(padding: HtmlPaddings.zero, margin: Margins.zero),
         'p': style,
         'a': style.copyWith(color: AppColors.lightPrimary),

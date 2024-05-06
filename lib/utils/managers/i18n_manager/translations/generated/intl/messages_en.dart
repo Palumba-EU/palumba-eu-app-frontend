@@ -32,8 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(country, group) =>
       "The candidates in ${country} most aligned with ${group}";
 
-  static String m5(percentage) =>
-      "On Environmental issues, you’re ${percentage}% more into";
+  static String m5(topic, percentage) =>
+      "On ${topic}, you’re ${percentage}% more into";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{

@@ -12,6 +12,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class ResultsPage5 extends GetView<ResultsController> {
   const ResultsPage5({super.key});
@@ -48,8 +49,7 @@ class ResultsPage5 extends GetView<ResultsController> {
                         controller.needlePositionsForTopic(topic.id!);
                     return TopicIndicatorWidget(
                       title: topic.name ?? '',
-                      color:
-                          Color(int.parse('0xff' + topic.color!.substring(1))),
+                      color: Utils.getApiColor(topic.color!),
                       position: needleData.fraction,
                       party1: controller.maxPercentagePoliticParty?.party,
                       party2: needleData.topicMatch,

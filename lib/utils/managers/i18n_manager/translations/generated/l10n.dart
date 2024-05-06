@@ -700,13 +700,13 @@ class S {
     );
   }
 
-  /// `On Environmental issues, you’re {percentage}% more into`
-  String resultsPage8_1Text(Object percentage) {
+  /// `On {topic}, you’re {percentage}% more into`
+  String resultsPage8_1Text(Object topic, Object percentage) {
     return Intl.message(
-      'On Environmental issues, you’re $percentage% more into',
+      'On $topic, you’re $percentage% more into',
       name: 'resultsPage8_1Text',
       desc: '',
-      args: [percentage],
+      args: [topic, percentage],
     );
   }
 

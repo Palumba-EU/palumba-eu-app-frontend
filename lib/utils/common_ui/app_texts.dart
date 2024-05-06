@@ -59,15 +59,21 @@ class AppTexts {
             decoration: decoration));
   }
 
-  static title(String text,
-      {TextAlign? textAlign, Color? color, double? fontSize}) {
+  static title(
+    String text, {
+    TextAlign? textAlign,
+    Color? color,
+    double? fontSize,
+    String? fontFamily,
+    FontWeight? fontWeight,
+  }) {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: GoogleFonts.merriweather().fontFamily,
+          fontFamily: fontFamily ?? GoogleFonts.merriweather().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
-          fontWeight: FontWeight.w900,
+          fontWeight: fontWeight ?? FontWeight.w900,
         ));
   }
 

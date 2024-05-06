@@ -71,7 +71,7 @@
   "resultsPage7Title": "The candidates in {country} most aligned with {group}",
   "resultsPage7Disclaimer": "In no particular order.",
   "resultsPage7NoLocalCandidates": "No local parties found in {country}",
-  "resultsPage8_1Text": "On Environmental issues, you’re {percentage}% more into",
+  "resultsPage8_1Text": "On {topic}, you’re {percentage}% more into",
   "resultsPage8_2Text": "Active Climate Action \uD83C\uDF31\uD83D\uDE0C",
   "resultsPage8Help": "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?",
   "resultsPage9Help": "Click on the cards to shuffle",

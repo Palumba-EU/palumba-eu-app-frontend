@@ -87,6 +87,18 @@ class ResultsHelper {
     return total;
   }
 
+  static double maxMagnitudeForTopicsDimension(int topicId) {
+    double total = 0;
+
+    for (var statement in DataManager().getStatements()) {
+      var dimensionWeight =
+          byTopicId(statement.weights ?? [], topicId)?.weight ?? 0.0;
+      total += dimensionWeight.abs();
+    }
+
+    return total;
+  }
+
   static Answer? byStatementId(List<Answer> items, int statementId) {
     for (var item in items) {
       if (item.statementId == statementId) {
@@ -104,6 +116,12 @@ class ResultsHelper {
     }
     return null;
   }
+
+  static double topicMatchPercentage(int topicId, List<Answer> userAnswers) {
+    final maxMagnitude = maxMagnitudeForTopicsDimension(topicId);
+    final userMagnitude = calculateTopicDimension(userAnswers, topicId);
+    return userMagnitude / maxMagnitude;
+  }
 }
 
 class CardStatementData {
@@ -120,4 +138,15 @@ class NeedleData {
   final PoliticParty? topicMatch;
 
   NeedleData({required this.fraction, required this.topicMatch});
+}
+
+class MaxTopic {
+  final String percentage;
+  final bool isExtreme1;
+  final Topic topicData;
+
+  MaxTopic(
+      {required this.percentage,
+      required this.isExtreme1,
+      required this.topicData});
 }

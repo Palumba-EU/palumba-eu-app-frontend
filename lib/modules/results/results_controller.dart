@@ -27,6 +27,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
+import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -295,12 +296,13 @@ class ResultsController extends GetxController {
     }
   }
 
+  //Page 5 calculate needle position
   NeedleData needlePositionsForTopic(
     int topicId,
   ) {
     final userParty = maxPercentagePoliticParty?.party;
     final answers = answersData;
-    final parties = _resultsData.map((e) => e.party).toList();
+    final parties = DataManager().getParties();
 
     Map<String, double> epGroupDimensions = {};
     if (userParty == null) {
@@ -341,5 +343,25 @@ class ResultsController extends GetxController {
         parties.firstWhere((element) => element.id.toString() == topicMatch);
 
     return NeedleData(fraction: fraction, topicMatch: topicMatchParty);
+  }
+
+//Page8 calculate max topic
+  MaxTopic maxTopicPercentage() {
+    final topics = DataManager().getTopics();
+    final answers = answersData;
+
+    double maxValue = 0;
+    Topic? maxTopic;
+    for (var topic in topics) {
+      final value = ResultsHelper.topicMatchPercentage(topic.id!, answers);
+      if (value.abs() > maxValue.abs()) {
+        maxTopic = topic;
+        maxValue = value;
+      }
+    }
+    return MaxTopic(
+        isExtreme1: maxValue < 0,
+        percentage: (maxValue.abs() * 100).toStringAsFixed2(2),
+        topicData: maxTopic!);
   }
 }
