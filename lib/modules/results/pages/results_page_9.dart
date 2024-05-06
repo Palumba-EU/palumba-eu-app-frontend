@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
-import 'package:palumba_eu/modules/results/card_widget.dart';
+import 'package:palumba_eu/modules/results/components/card_widget.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';

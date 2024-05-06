@@ -12,7 +12,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
-import '../../global_widgets/custom_network_image.dart';
+import '../../../global_widgets/custom_network_image.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({

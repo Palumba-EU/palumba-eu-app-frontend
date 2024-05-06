@@ -132,7 +132,7 @@ class ResultsPage extends GetView<ResultsController> {
               ),
 
               //Share button only showed in showButtonSharePages
-              Obx(
+              /*Obx(
                 () => controller.showButtonSharePages
                         .contains(controller.currentPage)
                     ? Padding(
@@ -159,7 +159,7 @@ class ResultsPage extends GetView<ResultsController> {
                         ),
                       )
                     : SizedBox.shrink(),
-              ),
+              ),*/
             ],
           )),
     );
