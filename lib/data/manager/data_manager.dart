@@ -15,6 +15,7 @@ class DataManager {
   List<Country>? countries;
   List<Statement>? statements;
   List<PoliticParty>? parties;
+  List<Topic>? topics;
 
   void setLanguages(List<Language>? languages) {
     this.languages = languages;
@@ -46,5 +47,13 @@ class DataManager {
 
   List<PoliticParty> getParties() {
     return parties ?? [];
+  }
+
+  void setTopics(List<Topic>? topics) {
+    this.topics = topics;
+  }
+
+  List<Topic> getTopics() {
+    return topics ?? [];
   }
 }

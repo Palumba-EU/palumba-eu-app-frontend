@@ -80,6 +80,7 @@ class DataAPI {
 
       var results = ResultsData.fromJson(json.decode(response.body));
       DataManager().setParties(results.parties);
+      DataManager().setTopics(results.topics);
       return results;
     } catch (e) {
       return null;
@@ -88,7 +89,8 @@ class DataAPI {
 
   Future<List<Sponsor>> fetchSponsors() async {
     try {
-      final url = Uri.parse('${baseUrl}/${LanguageManager.currentLanguage}${sponsorsEndpoint}');
+      final url = Uri.parse(
+          '${baseUrl}/${LanguageManager.currentLanguage}${sponsorsEndpoint}');
       final response = await http.get(
         url,
         headers: headers,
