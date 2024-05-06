@@ -25,7 +25,7 @@ class ResultsPage1 extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: SvgPicture.asset(
-                    'assets/images/img_pigeon.svg',
+                    'assets/images/img_results.svg',
                   ),
                 ),
               ),

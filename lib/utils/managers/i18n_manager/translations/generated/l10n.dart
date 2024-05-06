@@ -200,30 +200,30 @@ class S {
     );
   }
 
-  /// `Welcome to the exclusive Beta of Palumba`
+  /// `If this cute pigeon can’t help you vote in June, nothing will.`
   String get entranceTitle1 {
     return Intl.message(
-      'Welcome to the exclusive Beta of Palumba',
+      'If this cute pigeon can’t help you vote in June, nothing will.',
       name: 'entranceTitle1',
       desc: '',
       args: [],
     );
   }
 
-  /// `If this cute pigeon can't help you vote in June, nothing will`
+  /// `Swipe your opinion on topics that matter to you.`
   String get entranceTitle2 {
     return Intl.message(
-      'If this cute pigeon can\'t help you vote in June, nothing will',
+      'Swipe your opinion on topics that matter to you.',
       name: 'entranceTitle2',
       desc: '',
       args: [],
     );
   }
 
-  /// `Get ready to disseminate the app massively on May 9th`
+  /// `Find out your match and an orientation for who to vote for at the Elections.`
   String get entranceTitle3 {
     return Intl.message(
-      'Get ready to disseminate the app massively on May 9th',
+      'Find out your match and an orientation for who to vote for at the Elections.',
       name: 'entranceTitle3',
       desc: '',
       args: [],
@@ -480,10 +480,10 @@ class S {
     );
   }
 
-  /// `Almost ready,\none last check...`
+  /// `Almost ready, one last check...`
   String get loadingResultsPageTitle4 {
     return Intl.message(
-      'Almost ready,\none last check...',
+      'Almost ready, one last check...',
       name: 'loadingResultsPageTitle4',
       desc: '',
       args: [],
@@ -590,10 +590,10 @@ class S {
     );
   }
 
-  /// `It’s you, hi!`
+  /// `It’s me, hi!`
   String get resultsPage4TitleUserHere {
     return Intl.message(
-      'It’s you, hi!',
+      'It’s me, hi!',
       name: 'resultsPage4TitleUserHere',
       desc: '',
       args: [],
@@ -610,20 +610,20 @@ class S {
     );
   }
 
-  /// `Environment`
+  /// `Environmental issues`
   String get resultsPage5Topic1 {
     return Intl.message(
-      'Environment',
+      'Environmental issues',
       name: 'resultsPage5Topic1',
       desc: '',
       args: [],
     );
   }
 
-  /// `Humans & Social Rights`
+  /// `Human & Social Rights`
   String get resultsPage5Topic2 {
     return Intl.message(
-      'Humans & Social Rights',
+      'Human & Social Rights',
       name: 'resultsPage5Topic2',
       desc: '',
       args: [],
@@ -640,20 +640,20 @@ class S {
     );
   }
 
-  /// `Ok,it's cool knowing which group gets me...`
+  /// `Ok, it's cool knowing which group gets me...`
   String get resultsPage6_1Title {
     return Intl.message(
-      'Ok,it\'s cool knowing which group gets me...',
+      'Ok, it\'s cool knowing which group gets me...',
       name: 'resultsPage6_1Title',
       desc: '',
       args: [],
     );
   }
 
-  /// `But at the EU Elections, you vote for a local list`
+  /// `But at the EU Elections, we vote for a local list`
   String get resultsPage6_2Title {
     return Intl.message(
-      'But at the EU Elections, you vote for a local list',
+      'But at the EU Elections, we vote for a local list',
       name: 'resultsPage6_2Title',
       desc: '',
       args: [],
@@ -700,13 +700,13 @@ class S {
     );
   }
 
-  /// `On Environmental issues, you’re {percentage}% more into`
-  String resultsPage8_1Text(Object percentage) {
+  /// `On {topic}, you’re {percentage}% more into`
+  String resultsPage8_1Text(Object topic, Object percentage) {
     return Intl.message(
-      'On Environmental issues, you’re $percentage% more into',
+      'On $topic, you’re $percentage% more into',
       name: 'resultsPage8_1Text',
       desc: '',
-      args: [percentage],
+      args: [topic, percentage],
     );
   }
 
@@ -740,10 +740,10 @@ class S {
     );
   }
 
-  /// `Elections are about many topics,but there’s one thing that really`
+  /// `Elections are about many topics, but there’s one thing that really`
   String get resultsPage9Text1 {
     return Intl.message(
-      'Elections are about many topics,but there’s one thing that really',
+      'Elections are about many topics, but there’s one thing that really',
       name: 'resultsPage9Text1',
       desc: '',
       args: [],
@@ -760,10 +760,10 @@ class S {
     );
   }
 
-  /// `A notification when\nit’s time to go vote?`
+  /// `A notification when it’s time to go vote?`
   String get resultsPage10Title {
     return Intl.message(
-      'A notification when\nit’s time to go vote?',
+      'A notification when it’s time to go vote?',
       name: 'resultsPage10Title',
       desc: '',
       args: [],
@@ -980,10 +980,10 @@ class S {
     );
   }
 
-  /// `Privacy Policy`
+  /// `Data Protection`
   String get settingsPagePrivacyPolicy {
     return Intl.message(
-      'Privacy Policy',
+      'Data Protection',
       name: 'settingsPagePrivacyPolicy',
       desc: '',
       args: [],

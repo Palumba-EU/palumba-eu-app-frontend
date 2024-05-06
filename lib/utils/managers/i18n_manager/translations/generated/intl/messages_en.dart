@@ -32,8 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(country, group) =>
       "The candidates in ${country} most aligned with ${group}";
 
-  static String m5(percentage) =>
-      "On Environmental issues, you’re ${percentage}% more into";
+  static String m5(topic, percentage) =>
+      "On ${topic}, you’re ${percentage}% more into";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -47,11 +47,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Start Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Welcome to the exclusive Beta of Palumba"),
+            "If this cute pigeon can’t help you vote in June, nothing will."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will"),
+            "Swipe your opinion on topics that matter to you."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Get ready to disseminate the app massively on May 9th"),
+            "Find out your match and an orientation for who to vote for at the Elections."),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("France"),
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
@@ -72,7 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "This shall be quicker than getting Taylor Swift tickets 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Almost ready,\none last check..."),
+            "Almost ready, one last check..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -100,7 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage10NopButton":
             MessageLookupByLibrary.simpleMessage("No thanks!"),
         "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
-            "A notification when\nit’s time to go vote?"),
+            "A notification when it’s time to go vote?"),
         "resultsPage10YesButton":
             MessageLookupByLibrary.simpleMessage("Yesssss"),
         "resultsPage1Button":
@@ -122,21 +122,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage4TitleTop":
             MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("It’s you, hi!"),
+            MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
             "On more specific topics, which European Parliament Group am I closer to?"),
         "resultsPage5Topic1":
-            MessageLookupByLibrary.simpleMessage("Environment"),
+            MessageLookupByLibrary.simpleMessage("Environmental issues"),
         "resultsPage5Topic2":
-            MessageLookupByLibrary.simpleMessage("Humans & Social Rights"),
+            MessageLookupByLibrary.simpleMessage("Human & Social Rights"),
         "resultsPage5Topic3":
             MessageLookupByLibrary.simpleMessage("Economic intervention"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
             "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match."),
         "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
-            "Ok,it\'s cool knowing which group gets me..."),
+            "Ok, it\'s cool knowing which group gets me..."),
         "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
-            "But at the EU Elections, you vote for a local list"),
+            "But at the EU Elections, we vote for a local list"),
         "resultsPage7Disclaimer":
             MessageLookupByLibrary.simpleMessage("In no particular order."),
         "resultsPage7NoLocalCandidates": m3,
@@ -149,13 +149,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
             "Click on the cards to shuffle"),
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
-            "Elections are about many topics,but there’s one thing that really"),
+            "Elections are about many topics, but there’s one thing that really"),
         "resultsPage9Text2":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "settingsPagePrivacyPolicy":
-            MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+            MessageLookupByLibrary.simpleMessage("Data Protection"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Share"),
         "settingsPageSubtitle1":

@@ -117,7 +117,7 @@ class EntrancePage extends StatelessWidget {
                   Expanded(
                     child: Center(
                       child: SvgPicture.asset(
-                        'assets/images/img_pigeon.svg',
+                        'assets/images/${index == 0 ? 'img_pigeon' : index == 1 ? 'img_results' : 'img_swipe'}.svg',
                       ),
                     ),
                   ),
@@ -155,7 +155,9 @@ class EntrancePage extends StatelessWidget {
           //TODO: Get the real number of matches from api
           AppTexts.small(S.of(context).entranceMatchesFoundQuote('X'),
               textAlign: TextAlign.center, color: AppColors.primary),
-          CustomSpacer(multiplier: 2,),
+          CustomSpacer(
+            multiplier: 2,
+          ),
           CustomButton(
             onPressed: () {
               _.onContinueTap();

@@ -54,8 +54,8 @@ class HomePage extends StatelessWidget {
           Spacer(),
           TextButton(
             onPressed: _.launchFaqUrl,
-            child:
-                AppTexts.regular(S.of(context).faq, bold: true, color: AppColors.primary),
+            child: AppTexts.regular(S.of(context).faq,
+                bold: true, color: AppColors.primary),
           ),
           TextButton(
             onPressed: _.goToSettings,
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                   Expanded(
                     child: Center(
                       child: SvgPicture.asset(
-                        'assets/images/img_pigeon.svg',
+                        'assets/images/${index == 0 ? 'img_pigeon' : index == 1 ? 'img_results' : 'img_swipe'}.svg',
                       ),
                     ),
                   ),
@@ -96,8 +96,8 @@ class HomePage extends StatelessWidget {
                       index == 0
                           ? S.of(context).entranceTitle1
                           : index == 1
-                          ? S.of(context).entranceTitle2
-                          : S.of(context).entranceTitle3,
+                              ? S.of(context).entranceTitle2
+                              : S.of(context).entranceTitle3,
                       textAlign: TextAlign.center,
                       bold: true,
                       color: AppColors.primary,
@@ -137,7 +137,9 @@ class HomePage extends StatelessWidget {
           //TODO: Get the real number of matches from api
           AppTexts.small(S.of(context).homePageMatchesFoundQuote('X'),
               textAlign: TextAlign.center, color: AppColors.primary),
-          CustomSpacer(multiplier: 2,),
+          CustomSpacer(
+            multiplier: 2,
+          ),
           GetBuilder<HomePageController>(
             id: _.resultsExistsKey,
             builder: (controller) => _.resultsData.isEmpty && !_.isTestRunning
