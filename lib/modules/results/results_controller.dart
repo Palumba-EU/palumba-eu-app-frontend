@@ -198,7 +198,14 @@ class ResultsController extends GetxController {
   }
 
   void launchUrl() {
-    Utils.launch(StringUtils.electionsUrl(LanguageManager.currentLanguage));
+    var currentLanguage = LanguageManager.currentLanguage;
+    if (currentLanguage == 'ca') {
+      currentLanguage = 'es';
+    } else if (currentLanguage == 'tr') {
+      currentLanguage = 'en';
+    }
+
+    Utils.launch(StringUtils.electionsUrl(currentLanguage));
     launchHome();
   }
 

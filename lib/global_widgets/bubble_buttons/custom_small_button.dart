@@ -26,8 +26,8 @@ class CustomSmallButtonCurve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? AppColors.blue : AppColors.primary;
-    final borderColor = isSelected ? AppColors.primary : AppColors.lightPrimary;
+    final color = flip ? AppColors.lightGreen : AppColors.lightYellow;
+    final borderColor = AppColors.background;
     return Stack(
       children: [
         Transform.flip(
@@ -145,12 +145,8 @@ class CustomSmallButtonSelectedCurve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected
-        ? flip
-            ? AppColors.lightGreen
-            : AppColors.lightYellow
-        : AppColors.primary;
-    final borderColor = isSelected ? Colors.white : Colors.white;
+    final color = flip ? AppColors.lightGreen : AppColors.lightYellow;
+    final borderColor = AppColors.background;
     return Stack(
       children: [
         Transform.flip(

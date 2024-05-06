@@ -40,7 +40,7 @@ class ResultsPage3 extends GetView<ResultsController> {
                               AppTexts.medium(data.percentage,
                                   color: AppColors.primary),
                               AppTexts.medium(data.party,
-                                  color: AppColors.primary, bold: true),
+                                  color: AppColors.primary, black: true),
                               CustomSpacer(),
                             ]);
                       }),

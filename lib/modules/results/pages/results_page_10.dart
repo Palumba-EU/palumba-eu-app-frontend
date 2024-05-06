@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
+import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
@@ -40,6 +41,7 @@ class ResultsPage10 extends GetView<ResultsController> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
+        CustomSpacer(multiplier: 3),
         SvgPicture.asset('assets/images/ic_europe_vote_logos.svg'),
         CustomSpacer(multiplier: 2),
         Padding(
@@ -55,8 +57,9 @@ class ResultsPage10 extends GetView<ResultsController> {
                 Get.offAllNamed(HomePageController.route);
               },
               child: AppTexts.regular(S.of(context).resultsPage10NopButton,
-                  bold: true, color: AppColors.primary),
+                  black: true, color: AppColors.primary),
             ),
+            CustomHorizontalSpacer(),
             CustomButton(
               onPressed: controller.launchUrl,
               text: S.of(context).resultsPage10YesButton,

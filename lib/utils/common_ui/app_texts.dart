@@ -6,6 +6,7 @@ import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 class AppTexts {
   static small(
     String text, {
+    bool black = false,
     bool bold = false,
     TextAlign? textAlign,
     Color? color,
@@ -17,7 +18,8 @@ class AppTexts {
         maxLines: maxLines,
         overflow: maxLines != null ? TextOverflow.ellipsis : null,
         style: TextStyle(
-          fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+          fontFamily:
+              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
           fontSize: AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: color ?? AppColors.text,
@@ -27,14 +29,17 @@ class AppTexts {
   }
 
   static medium(String text,
-      {bool bold = false,
+      {bool black = false,
+      bool bold = false,
       TextAlign? textAlign,
       Color? color,
       TextDecoration? decoration}) {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-            fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+            fontFamily: black
+                ? 'caprasimo'
+                : GoogleFonts.merriweatherSans().fontFamily,
             fontSize: AppDimens.fontSizeMedium,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
@@ -43,7 +48,8 @@ class AppTexts {
   }
 
   static regular(String text,
-      {bool bold = false,
+      {bool black = false,
+      bool bold = false,
       TextAlign? textAlign,
       Color? color,
       double? fontSize,
@@ -51,7 +57,9 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-            fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+            fontFamily: black
+                ? 'caprasimo'
+                : GoogleFonts.merriweatherSans().fontFamily,
             fontSize: fontSize ?? AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
@@ -64,7 +72,7 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: GoogleFonts.merriweather().fontFamily,
+          fontFamily: 'caprasimo',
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           fontWeight: FontWeight.w900,
@@ -72,22 +80,26 @@ class AppTexts {
   }
 
   static customTextStyle(AppTextType appTexType,
-      {Color? color,
+      {bool black = false,
       bool bold = false,
+      Color? color,
       TextDecoration? decoration,
       FontWeight? fontWeight,
       double? fontSize}) {
     switch (appTexType) {
       case AppTextType.title:
         return TextStyle(
-          fontFamily: GoogleFonts.merriweather().fontFamily,
+          fontFamily:
+              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           fontWeight: fontWeight ?? FontWeight.w900,
         );
       case AppTextType.regular:
         return TextStyle(
-            fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+            fontFamily: black
+                ? 'caprasimo'
+                : GoogleFonts.merriweatherSans().fontFamily,
             fontSize: fontSize ?? AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
@@ -97,7 +109,9 @@ class AppTexts {
 
       case AppTextType.small:
         return TextStyle(
-            fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+            fontFamily: black
+                ? 'caprasimo'
+                : GoogleFonts.merriweatherSans().fontFamily,
             fontSize: fontSize ?? AppDimens.fontSizeSmall,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,

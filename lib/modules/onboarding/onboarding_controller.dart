@@ -54,7 +54,7 @@ class OnboardingController extends GetxController {
   bool get showFinalView => _showFinalView.value;
 
   ///Step2
-  final int minAge = 16;
+  final int minAge = 14;
   final int maxAge = 115;
 
   RxInt indexAgeSelected = (-1).obs;

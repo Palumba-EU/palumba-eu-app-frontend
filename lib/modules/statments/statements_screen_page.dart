@@ -21,7 +21,7 @@ class StatementsPage extends GetView<StatementsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.background,
       body: Stack(
         children: [
           SizedBox(

@@ -79,12 +79,11 @@ flutter:
     - assets/images/flags/
     - assets/images/app_icons/
     - assets/anims/
+    - assets/fonts/
     - .env.dev
     - .env.prod
 
-    #fonts:
-    #- family: fontFamily
-    #  fonts:
-    #    - asset: fonts/means/light.ttf
-    #    - asset: fonts/means/medium.ttf
-    #      weight: 700
+  fonts:
+    - family: caprasimo
+      fonts:
+        - asset: assets/fonts/caprasimo-regular.ttf

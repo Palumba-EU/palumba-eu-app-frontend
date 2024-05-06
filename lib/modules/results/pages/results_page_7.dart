@@ -121,7 +121,7 @@ class _CandidatesTile extends StatelessWidget {
                   )
                 : const SizedBox.shrink(),
             AppTexts.medium(candidate.name ?? '',
-                bold: true, color: AppColors.primary)
+                black: true, color: AppColors.primary)
           ],
         ))
       ]),

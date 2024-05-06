@@ -56,7 +56,9 @@ class PoliticParty {
         localParties!.add(new LocalParties.fromJson(v));
       });
     }
-    position = json['position'].cast<int>();
+    if (json['position'] != null) {
+      position = json['position'].cast<int>();
+    }
     acronym = json['acronym'];
     if (json["answers"] != null) {
       answers = <Answer>[];

@@ -1,5 +1,4 @@
 import 'package:palumba_eu/modules/splash/splash_page.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
@@ -9,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'modules/splash/splash_binding.dart';
-import 'utils/common_ui/app_colors.dart';
 import 'utils/common_ui/app_theme_data.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
@@ -64,34 +62,23 @@ class MyApp extends StatefulWidget {
 class _MyApp extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Banner(
-      message: 'BETA',
-      location: BannerLocation.topEnd,
-      color: AppColors.green,
-      textStyle: TextStyle(
-          fontFamily: GoogleFonts.merriweatherSans().fontFamily,
-          fontSize: 10,
-          fontWeight: FontWeight.w900),
-      layoutDirection: TextDirection.ltr,
-      textDirection: TextDirection.ltr,
-      child: GetMaterialApp(
-        title: 'Palumba',
-        debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
-        theme: AppThemeData.themeData(false),
-        darkTheme: AppThemeData.themeData(false),
-        locale: Locale(LanguageManager.currentLanguage),
-        home: const SplashPage(),
-        initialBinding: SplashBinding(),
-        getPages: AppPages.pages,
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: S.delegate.supportedLocales,
-      ),
+    return GetMaterialApp(
+      title: 'Palumba',
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: AppThemeData.themeData(false),
+      darkTheme: AppThemeData.themeData(false),
+      locale: Locale(LanguageManager.currentLanguage),
+      home: const SplashPage(),
+      initialBinding: SplashBinding(),
+      getPages: AppPages.pages,
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }

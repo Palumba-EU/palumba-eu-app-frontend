@@ -38,7 +38,9 @@ class Statement {
     details = json['details'];
     footnote = json['footnote'];
     emojis = json['emojis'];
-    vector = json['vector'].cast<int>();
+    if (json['vector'] != null) {
+      vector = json['vector'].cast<int>();
+    }
   }
 
   Map<String, dynamic> toJson() {

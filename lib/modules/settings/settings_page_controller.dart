@@ -4,6 +4,7 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
+import 'package:palumba_eu/modules/settings/helpers/category_sponsor.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -22,7 +23,7 @@ class SettingsPageController extends GetxController {
 
   Language? get selectedLang => getSelectedLanguage();
 
-  Rx<List<Sponsor>?> sponsors = Rx(null);
+  Rx<List<CategorySponsor>?> categoriesSponsors = Rx(null);
 
   @override
   void onInit() {
@@ -31,7 +32,26 @@ class SettingsPageController extends GetxController {
   }
 
   void _initSponsors() async {
-    sponsors.value = await _dataRepository.fetchSponsors();
+    var response = await _dataRepository.fetchSponsors();
+
+    var categories = <CategorySponsor>[];
+    var category = '';
+    var sponsors = <Sponsor>[];
+    for (var i = 0; i < response.length; i++) {
+      var sponsor = response[i];
+
+      if (category.isNotEmpty && category != sponsor.category) {
+        categories.add(CategorySponsor(category: category, sponsors: sponsors));
+        sponsors = [];
+      }
+
+      category = sponsor.category ?? '';
+      sponsors.add(sponsor);
+    }
+
+    categories.add(CategorySponsor(category: category, sponsors: sponsors));
+
+    categoriesSponsors.value = categories;
   }
 
   Language? getSelectedLanguage() {

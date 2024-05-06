@@ -47,10 +47,8 @@ class HomePage extends StatelessWidget {
           bottom: AppDimens.lateralPaddingValue),
       child: Row(
         children: [
-          AppTexts.title(
-            S.of(context).shortAppName,
-            color: AppColors.primary,
-          ),
+          AppTexts.title(S.of(context).shortAppName,
+              color: AppColors.primary, fontSize: 27.5),
           Spacer(),
           TextButton(
             onPressed: _.launchFaqUrl,
@@ -83,8 +81,11 @@ class HomePage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Center(
-                      child: SvgPicture.asset(
-                        'assets/images/${index == 0 ? 'img_pigeon' : index == 1 ? 'img_results' : 'img_swipe'}.svg',
+                      child: Padding(
+                        padding: AppDimens.lateralPadding,
+                        child: SvgPicture.asset(
+                          'assets/images/${index == 0 ? 'img_pigeon' : index == 1 ? 'img_swipe' : 'img_results'}.svg',
+                        ),
                       ),
                     ),
                   ),

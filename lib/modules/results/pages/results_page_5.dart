@@ -32,7 +32,7 @@ class ResultsPage5 extends GetView<ResultsController> {
                     horizontal: AppDimens.bigLateralPaddingValue),
                 child: AppTexts.small(S.of(context).resultsPage5Title,
                     color: AppColors.primary,
-                    bold: true,
+                    black: true,
                     textAlign: TextAlign.center),
               ),
               CustomSpacer(

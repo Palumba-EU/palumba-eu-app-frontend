@@ -25,12 +25,8 @@ class CustomBigButtonCurve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected
-        ? flip
-            ? AppColors.yellow
-            : AppColors.green
-        : AppColors.primary;
-    final borderColor = isSelected ? Colors.white : AppColors.lightPrimary;
+    final color = flip ? AppColors.yellow : AppColors.green;
+    final borderColor = AppColors.background;
     return Stack(
       children: [
         Transform.flip(

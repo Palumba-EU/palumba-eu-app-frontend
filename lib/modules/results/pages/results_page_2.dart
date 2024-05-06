@@ -58,7 +58,7 @@ class ResultsPage2 extends GetView<ResultsController> {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       style: AppTexts.customTextStyle(AppTextType.title,
-                          color: AppColors.primary),
+                          black: true, color: AppColors.primary),
                       children: [
                         TextSpan(
                           text: S.of(context).resultsPage2_1Title,
@@ -66,8 +66,8 @@ class ResultsPage2 extends GetView<ResultsController> {
                         TextSpan(
                           text:
                               ' ${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
-                          style: AppTexts.customTextStyle(AppTextType.title,
-                              color: controller.getFirstPartyColor()),
+                          style:
+                              TextStyle(color: controller.getFirstPartyColor()),
                         ),
                         TextSpan(
                           text: S.of(context).resultsPage2_2Title,

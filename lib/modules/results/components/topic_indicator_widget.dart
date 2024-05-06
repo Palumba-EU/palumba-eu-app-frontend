@@ -73,7 +73,7 @@ class TopicIndicatorWidget extends StatelessWidget {
           ),
         ),
         CustomSpacer(),
-        AppTexts.medium(title, color: color, bold: true)
+        AppTexts.medium(title, color: color, black: true)
       ],
     );
   }
