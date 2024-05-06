@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
@@ -56,6 +59,51 @@ class ResultsHelper {
 
     return distanceMatrix[aIndex][bIndex];
   }
+
+  static double calculateTopicDimension(List<Answer> answers, int topicId) {
+    double total = 0;
+
+    for (var statement in DataManager().getStatements()) {
+      var answerStatement = byStatementId(answers, statement.id!);
+
+      if (answerStatement == null) {
+        continue;
+      }
+
+      var answer = answerStatement.answer;
+
+      var factor = {
+        StatementResponse.stronglyDisagree: -1.0,
+        StatementResponse.disagree: -0.5,
+        StatementResponse.neutral: 0.0,
+        StatementResponse.agree: 0.5,
+        StatementResponse.stronglyAgree: 1.0
+      }[answer]!;
+      var dimensionWeight =
+          byTopicId(statement.weights ?? [], topicId)?.weight ?? 0.0;
+      total += factor * dimensionWeight;
+    }
+
+    return total;
+  }
+
+  static Answer? byStatementId(List<Answer> items, int statementId) {
+    for (var item in items) {
+      if (item.statementId == statementId) {
+        return item;
+      }
+    }
+    return null;
+  }
+
+  static Weight? byTopicId(List<Weight> items, int topicId) {
+    for (var item in items) {
+      if (item.topic_id == topicId) {
+        return item;
+      }
+    }
+    return null;
+  }
 }
 
 class CardStatementData {
@@ -65,4 +113,11 @@ class CardStatementData {
 
   CardStatementData(
       {required this.statement, required this.answer, required this.parties});
+}
+
+class NeedleData {
+  final double fraction;
+  final PoliticParty? topicMatch;
+
+  NeedleData({required this.fraction, required this.topicMatch});
 }

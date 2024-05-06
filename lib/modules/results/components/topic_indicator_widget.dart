@@ -22,7 +22,7 @@ class TopicIndicatorWidget extends StatelessWidget {
 
   final String title;
   final Color color;
-  final int position;
+  final double position;
   final PoliticParty? party1;
   final PoliticParty? party2;
 
@@ -44,9 +44,12 @@ class TopicIndicatorWidget extends StatelessWidget {
                   colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 15),
-                child: SvgPicture.asset('assets/images/img_needle.svg'),
+              Transform.rotate(
+                angle: (3.14 * 1.25) + position * 3.14,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 15),
+                  child: SvgPicture.asset('assets/images/img_needle.svg'),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

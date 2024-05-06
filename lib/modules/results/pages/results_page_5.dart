@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/components/topic_indicator_widget.dart';
+import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
@@ -42,29 +43,16 @@ class ResultsPage5 extends GetView<ResultsController> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    if (index == 0) {
-                      return TopicIndicatorWidget(
-                        title: S.of(context).resultsPage5Topic1,
-                        color: AppColors.green,
-                        position: 25,
-                        party1: controller.maxPercentagePoliticParty?.party,
-                        party2: controller.maxPercentagePoliticParty?.party,
-                      );
-                    } else if (index == 1) {
-                      return TopicIndicatorWidget(
-                        title: S.of(context).resultsPage5Topic2,
-                        color: AppColors.lightPrimary,
-                        position: 25,
-                        party1: controller.maxPercentagePoliticParty?.party,
-                        party2: controller.maxPercentagePoliticParty?.party,
-                      );
-                    }
+                    final topic = controller.topics[index];
+                    final needleData =
+                        controller.needlePositionsForTopic(topic.id!);
                     return TopicIndicatorWidget(
-                      title: S.of(context).resultsPage5Topic3,
-                      color: AppColors.blue,
-                      position: 25,
+                      title: topic.name ?? '',
+                      color:
+                          Color(int.parse('0xff' + topic.color!.substring(1))),
+                      position: needleData.fraction,
                       party1: controller.maxPercentagePoliticParty?.party,
-                      party2: controller.maxPercentagePoliticParty?.party,
+                      party2: needleData.topicMatch,
                     );
                   },
                   separatorBuilder: (context, index) {
@@ -75,7 +63,7 @@ class ResultsPage5 extends GetView<ResultsController> {
                       color: AppColors.yellow,
                     );
                   },
-                  itemCount: 3),
+                  itemCount: controller.topics.length),
               CustomSpacer(
                 multiplier: 12,
               )

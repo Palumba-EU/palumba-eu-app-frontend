@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
@@ -65,6 +66,7 @@ class ResultsController extends GetxController {
 
   //Data
   List<Answer> _answersData = [];
+  List<Answer> get answersData => _answersData;
   List<PartyUserDistance> _resultsData = [];
 
   PartyUserDistance? _maxPercentagePoliticParty;
@@ -78,6 +80,10 @@ class ResultsController extends GetxController {
 
   //ResultsPage4
   RxList<ScatterSpot> scatterSpots = <ScatterSpot>[].obs;
+
+  //ResultsPage5
+  List<Topic> _topics = [];
+  List<Topic> get topics => _topics;
 
   //ResultsPage7
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
@@ -132,6 +138,17 @@ class ResultsController extends GetxController {
     }
 
     _getCardsData();
+    _getTopics();
+  }
+
+  void _getTopics() async {
+    var topicsList = DataManager().getTopics();
+    if (topicsList.isEmpty) {
+      final apiRepository = Get.find<DataRepository>();
+      await apiRepository.fetchResultsInfo();
+      topicsList = DataManager().getTopics();
+    }
+    _topics = topicsList.where((e) => e.id != 2 && e.id != 3).toList();
   }
 
   PartyUserDistance? getMajorPercentageParty() {
@@ -276,5 +293,53 @@ class ResultsController extends GetxController {
             statement: statement, answer: myAnswer, parties: parties));
       }
     }
+  }
+
+  NeedleData needlePositionsForTopic(
+    int topicId,
+  ) {
+    final userParty = maxPercentagePoliticParty?.party;
+    final answers = answersData;
+    final parties = _resultsData.map((e) => e.party).toList();
+
+    Map<String, double> epGroupDimensions = {};
+    if (userParty == null) {
+      return NeedleData(fraction: 0, topicMatch: null);
+    }
+    String bestMatch = userParty.id.toString();
+    for (var entry in parties) {
+      epGroupDimensions[entry.id.toString()] =
+          ResultsHelper.calculateTopicDimension(entry.answers!, topicId);
+    }
+    double userDimension =
+        ResultsHelper.calculateTopicDimension(answers, topicId);
+
+    // Calculate the distances between the user's dimension and the dimensions of each endpoint group
+    Map<String, double> epGroupDistances = {};
+    for (var entry in epGroupDimensions.entries) {
+      epGroupDistances[entry.key] = (entry.value - userDimension).abs();
+    }
+    // Sort the endpoint groups by their distance to the user's dimension
+    List<String> epGroupDistanceRanking = epGroupDistances.keys.toList()
+      ..sort((a, b) => epGroupDistances[a]!.compareTo(epGroupDistances[b]!));
+
+    String topicMatch =
+        epGroupDistanceRanking[0]; //epGroupDistanceRanking.last;
+    if (topicMatch == bestMatch) {
+      topicMatch = epGroupDistanceRanking[
+          1]; //epGroupDistanceRanking[epGroupDistanceRanking.length - 2];
+    }
+
+    double bestMatchDistance = epGroupDistances[bestMatch]!;
+    double topicMatchDistance = epGroupDistances[topicMatch]!;
+
+    double fraction =
+        bestMatchDistance / (bestMatchDistance + topicMatchDistance);
+
+    //Get topicPartie logo
+    final topicMatchParty =
+        parties.firstWhere((element) => element.id.toString() == topicMatch);
+
+    return NeedleData(fraction: fraction, topicMatch: topicMatchParty);
   }
 }
