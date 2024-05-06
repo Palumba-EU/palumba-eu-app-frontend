@@ -150,3 +150,10 @@ class MaxTopic {
       required this.isExtreme1,
       required this.topicData});
 }
+
+class CompassData {
+  final double positionX;
+  final double positionY;
+
+  CompassData({required this.positionX, required this.positionY});
+}

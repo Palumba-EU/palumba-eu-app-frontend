@@ -242,9 +242,10 @@ class ResultsController extends GetxController {
   }
 
   void getScatterPoints() async {
-    double count = -1;
+    final userPosition = calculateCompassPosition(answersData);
+
     //This is user scatter point
-    scatterSpots.add(ScatterSpot(.4, -.5,
+    scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
         dotPainter: FlDotCirclePainterCustom(
             image: await loadAssetImage('palumba_badge_heart_small'),
             radius: 2,
@@ -252,15 +253,16 @@ class ResultsController extends GetxController {
 
     //This are parties Scatter points
     for (var data in _resultsData) {
-      //TODO: add real data
-      count = count + .2;
+      final partyPosition = calculateCompassPosition(data.party.answers ?? []);
+
       final ui.Image image = await loadSvg(data.party.logo ?? '');
-      scatterSpots.add(ScatterSpot(count, count,
-          dotPainter: FlDotCirclePainterCustom(
-            image: image,
-            color: Colors.transparent,
-            radius: 15,
-          )));
+      scatterSpots
+          .add(ScatterSpot(partyPosition.positionX, partyPosition.positionY,
+              dotPainter: FlDotCirclePainterCustom(
+                image: image,
+                color: Colors.transparent,
+                radius: 15,
+              )));
     }
   }
 
@@ -294,6 +296,25 @@ class ResultsController extends GetxController {
             statement: statement, answer: myAnswer, parties: parties));
       }
     }
+  }
+
+  //Page 4 calculate compass position
+
+  CompassData calculateCompassPosition(List<Answer> answers) {
+    final topicEuIntegration = 2;
+    final topicLeftRight = 3;
+    double dimEuIntegration =
+        ResultsHelper.calculateTopicDimension(answers, topicEuIntegration);
+    double dimLeftRight = ResultsHelper.calculateTopicDimension(answers, 3);
+    final maxMagnitudeEuIntegration =
+        ResultsHelper.maxMagnitudeForTopicsDimension(topicEuIntegration);
+    final maxMagnitudeLeftRight =
+        ResultsHelper.maxMagnitudeForTopicsDimension(topicLeftRight);
+
+    double normEuIntegration = dimEuIntegration / maxMagnitudeEuIntegration;
+    double normLeftRight = dimLeftRight / maxMagnitudeLeftRight;
+
+    return CompassData(positionX: normLeftRight, positionY: normEuIntegration);
   }
 
   //Page 5 calculate needle position
