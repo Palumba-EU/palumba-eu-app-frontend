@@ -22,18 +22,22 @@ class CustomHtmlWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Style style = Style(
-      color: textStyle?.color ?? AppColors.primary,
-      fontFamily: textStyle?.fontFamily,
-      fontSize: FontSize(textStyle?.fontSize ?? AppDimens.fontSizeRegular),
-      fontWeight: textStyle?.fontWeight,
-    );
+        color: textStyle?.color ?? AppColors.primary,
+        fontFamily: textStyle?.fontFamily,
+        fontSize: FontSize(textStyle?.fontSize ?? AppDimens.fontSizeRegular),
+        fontWeight: textStyle?.fontWeight,
+        textDecoration: TextDecoration.none,
+        textDecorationColor: AppColors.lightPrimary,
+        textDecorationThickness: 2);
     return Html(
       data: content,
       style: {
         'html': Style(textAlign: textAlign),
         'body': Style(padding: HtmlPaddings.zero, margin: Margins.zero),
         'p': style,
-        'a': style.copyWith(color: AppColors.lightPrimary),
+        'a': style.copyWith(
+          color: AppColors.lightPrimary,
+        ),
       },
       onLinkTap: (url, _, __) => Utils.launch(
         url!.replaceAll('"', '').trim(),

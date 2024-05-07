@@ -11,6 +11,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:screenshot/screenshot.dart';
 
 class ResultsPage2 extends GetView<ResultsController> {
   const ResultsPage2({super.key});
@@ -18,10 +19,11 @@ class ResultsPage2 extends GetView<ResultsController> {
   @override
   Widget build(BuildContext context) {
     bool isTablet = controller.isTablet;
-    return Container(
-      color: AppColors.background,
-      child: Stack(
-        children: [
+    return Screenshot(
+      controller: controller.screenshotPagesControllers[1]!,
+      child: Container(
+        color: AppColors.background,
+        child: Stack(children: [
           Stack(
             children: [
               Align(
@@ -114,7 +116,7 @@ class ResultsPage2 extends GetView<ResultsController> {
                                 text:
                                     ' ${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
                                 style: TextStyle(
-                                    color: controller.getPartyColor()),
+                                    color: controller.getFirstPartyColor()),
                               ),
                               TextSpan(
                                 text: S.of(context).resultsPage2_2Title,
@@ -126,7 +128,7 @@ class ResultsPage2 extends GetView<ResultsController> {
               ],
             ),
           )
-        ],
+        ]),
       ),
     );
   }

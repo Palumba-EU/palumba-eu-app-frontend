@@ -48,13 +48,15 @@ class TopicIndicatorWidget extends StatelessWidget {
                 angle: (3.14 * 1.25) + position * 3.14,
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 15),
-                  child: SvgPicture.asset('assets/images/img_needle.svg'),
+                  child: SvgPicture.asset(
+                      height: 45, 'assets/images/img_needle.svg'),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomNetworkImage(
+                    border: Border.all(color: AppColors.background, width: 3),
                     width: 48,
                     height: 48,
                     isSvg: true,
@@ -63,6 +65,7 @@ class TopicIndicatorWidget extends StatelessWidget {
                     color: AppColors.blue,
                   ),
                   CustomNetworkImage(
+                    border: Border.all(color: AppColors.background, width: 3),
                     width: 48,
                     height: 48,
                     isSvg: true,

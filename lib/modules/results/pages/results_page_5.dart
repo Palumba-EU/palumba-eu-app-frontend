@@ -12,6 +12,7 @@ import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/utils.dart';
+import 'package:screenshot/screenshot.dart';
 
 class ResultsPage5 extends GetView<ResultsController> {
   const ResultsPage5({super.key});
@@ -25,50 +26,56 @@ class ResultsPage5 extends GetView<ResultsController> {
           CustomSpacer(),
           Expanded(
               child: SingleChildScrollView(
-            child: Column(
-              children: [
-                CustomSpacer(
-                  multiplier: 2,
+            child: Screenshot(
+              controller: controller.screenshotPagesControllers[4]!,
+              child: Container(
+                color: AppColors.background,
+                child: Column(
+                  children: [
+                    CustomSpacer(
+                      multiplier: 2,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: AppDimens.bigLateralPaddingValue),
+                      child: AppTexts.small(S.of(context).resultsPage5Title,
+                          color: AppColors.primary,
+                          bold: true,
+                          textAlign: TextAlign.center),
+                    ),
+                    CustomSpacer(
+                      multiplier: 3,
+                    ),
+                    ListView.separated(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          final topic = controller.topics[index];
+                          final needleData =
+                              controller.needlePositionsForTopic(topic.id!);
+                          return TopicIndicatorWidget(
+                            title: topic.name ?? '',
+                            color: Utils.getApiColor(topic.color!),
+                            position: needleData.fraction,
+                            party1: controller.maxPercentagePoliticParty?.party,
+                            party2: needleData.topicMatch,
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(vertical: 20),
+                            height: 1,
+                            width: double.infinity,
+                            color: AppColors.yellow,
+                          );
+                        },
+                        itemCount: controller.topics.length),
+                    CustomSpacer(
+                      multiplier: 12,
+                    )
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: AppDimens.bigLateralPaddingValue),
-                  child: AppTexts.small(S.of(context).resultsPage5Title,
-                      color: AppColors.primary,
-                      bold: true,
-                      textAlign: TextAlign.center),
-                ),
-                CustomSpacer(
-                  multiplier: 3,
-                ),
-                ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      final topic = controller.topics[index];
-                      final needleData =
-                          controller.needlePositionsForTopic(topic.id!);
-                      return TopicIndicatorWidget(
-                        title: topic.name ?? '',
-                        color: Utils.getApiColor(topic.color!),
-                        position: needleData.fraction,
-                        party1: controller.maxPercentagePoliticParty?.party,
-                        party2: needleData.topicMatch,
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
-                        height: 1,
-                        width: double.infinity,
-                        color: AppColors.yellow,
-                      );
-                    },
-                    itemCount: controller.topics.length),
-                CustomSpacer(
-                  multiplier: 12,
-                )
-              ],
+              ),
             ),
           ))
         ],

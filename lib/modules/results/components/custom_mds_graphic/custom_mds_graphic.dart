@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:palumba_eu/modules/results/components/custom_mds_graphic/dotted_container.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/graphic_axis.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
@@ -32,13 +31,6 @@ class CustomMDSGraphic extends StatelessWidget {
         width: width,
         child: Stack(
           children: [
-            Padding(
-              padding: padding,
-              child: DottedContainer(
-                  width: double.infinity,
-                  height: double.infinity,
-                  pointColor: pointColor),
-            ),
             Padding(
               padding: padding,
               child: GraphicAxis(
@@ -82,7 +74,8 @@ class CustomMDSGraphic extends StatelessWidget {
         alignment: alignment,
         child: RotatedBox(
             quarterTurns: quarterTurns,
-            child: AppTexts.regular(text, color: AppColors.primary)));
+            child: AppTexts.regular(text,
+                color: AppColors.lightPrimary, bold: true)));
   }
 }
 

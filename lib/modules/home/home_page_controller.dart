@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
@@ -25,6 +27,9 @@ class HomePageController extends GetxController {
 
   bool get isTestRunning => UserManager.isTestRunning;
 
+  RxBool _showBanner = false.obs;
+  bool get showBanner => _showBanner.value;
+
   @override
   void onInit() {
     obtainLocalStoredLastResults();
@@ -47,13 +52,25 @@ class HomePageController extends GetxController {
     update([resultsExistsKey]);
   }
 
-
   void launchFaqUrl() {
     Utils.launch(StringUtils.faqUrl);
   }
 
+  void showBannerWidget() {
+    _showBanner.value = !_showBanner.value;
+  }
+
   void goToSettings() {
     Get.toNamed(SettingsPageController.route);
+  }
+
+  void launchUrl(String url) {
+    Utils.launch(url);
+  }
+
+  Sponsor getYouthCardSponsor() {
+    List<Sponsor> sponsors = DataManager().getSponsors();
+    return sponsors.firstWhere((e) => e.id == 7);
   }
 
   void backToResultsOrTest() {
@@ -70,5 +87,4 @@ class HomePageController extends GetxController {
   void startNewTest() {
     Get.offAllNamed(OnboardingController.route);
   }
-
 }

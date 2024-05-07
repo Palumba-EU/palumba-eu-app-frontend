@@ -87,7 +87,7 @@ class DataAPI {
     }
   }
 
-  Future<List<Sponsor>> fetchSponsors() async {
+  Future<SponsorsData?> fetchSponsors() async {
     try {
       final url = Uri.parse(
           '${baseUrl}/${LanguageManager.currentLanguage}${sponsorsEndpoint}');
@@ -101,9 +101,10 @@ class DataAPI {
       }
 
       var sponsors = SponsorsData.fromJson(json.decode(response.body));
-      return sponsors.data ?? [];
+      DataManager().setSponsors(sponsors.data);
+      return sponsors;
     } catch (e) {
-      return [];
+      return null;
     }
   }
 
