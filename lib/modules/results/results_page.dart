@@ -80,13 +80,10 @@ class ResultsPage extends GetView<ResultsController> {
                   ),
 
                   Obx(() => controller.currentPage == 3
-                      ? Expanded(
-                          child: DottedContainer(
-                              width: double.infinity,
-                              height: Get.height,
-                              pointColor:
-                                  AppColors.lightPrimary.withOpacity(.35)),
-                        )
+                      ? DottedContainer(
+                          width: double.infinity,
+                          height: Get.height,
+                          pointColor: AppColors.lightPrimary.withOpacity(.35))
                       : SizedBox.shrink()),
 
                   SafeArea(
