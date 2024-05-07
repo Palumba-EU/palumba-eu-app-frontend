@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:palumba_eu/utils/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,5 +16,9 @@ class Utils {
       Logger.w(' Could not launch $url: $e');
     }
     return false;
+  }
+
+  static Color getApiColor(String colorHex) {
+    return Color(int.parse('0xff' + colorHex.substring(1)));
   }
 }

@@ -8,6 +8,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:widgets_to_image/widgets_to_image.dart';
 
 import 'results_controller.dart';
 
@@ -115,16 +116,19 @@ class ResultsPage extends GetView<ResultsController> {
 
                     //Pages
                     Expanded(
-                      child: GestureDetector(
-                        onTapDown: controller.changePage,
-                        behavior: HitTestBehavior.translucent,
-                        child: PageView.builder(
-                            physics: NeverScrollableScrollPhysics(),
-                            allowImplicitScrolling: true,
-                            controller: controller.pageController,
-                            itemCount: controller.pages.length,
-                            itemBuilder: (context, index) =>
-                                controller.pages[index]),
+                      child: WidgetsToImage(
+                        controller: controller.widgetToImagecontroller,
+                        child: GestureDetector(
+                          onTapDown: controller.changePage,
+                          behavior: HitTestBehavior.translucent,
+                          child: PageView.builder(
+                              physics: NeverScrollableScrollPhysics(),
+                              allowImplicitScrolling: true,
+                              controller: controller.pageController,
+                              itemCount: controller.pages.length,
+                              itemBuilder: (context, index) =>
+                                  controller.pages[index]),
+                        ),
                       ),
                     ),
                   ],
@@ -142,19 +146,24 @@ class ResultsPage extends GetView<ResultsController> {
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: CustomButton(
+                            loading: controller.loadingShare,
                             text: S.of(context).resultsShare,
                             expanded: true,
                             onPressed: controller.shareContent,
                             prefixIcon: IconButtonParameters('ic_share',
-                                size: 18, color: Color(0XFFAEAEAE)),
+                                size: 18,
+                                color: AppColors.primary //Color(0XFFAEAEAE),
+                                ),
                             radius: AppDimens.borderRadius,
-                            color: Color(0XFF1F1F1F),
-                            textColor: Color(0XFFAEAEAE),
+                            color: AppColors.yellow, //Color(0XFF1F1F1F),
+                            textColor: AppColors.primary, //Color(0XFFAEAEAE),
                             bold: true,
                             border: ButtonBorderParameters(
                                 isOutside: true,
                                 width: 3,
-                                color: Color(0XFFAEAEAE)),
+                                color:
+                                    AppColors.lightYellow //Color(0XFFAEAEAE),
+                                ),
                           ),
                         ),
                       )

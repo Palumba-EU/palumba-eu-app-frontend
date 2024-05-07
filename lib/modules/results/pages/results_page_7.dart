@@ -9,7 +9,6 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class ResultsPage7 extends GetView<ResultsController> {
   const ResultsPage7({super.key});
@@ -17,14 +16,17 @@ class ResultsPage7 extends GetView<ResultsController> {
   @override
   Widget build(BuildContext context) {
     final smallScreen = Get.height < 750;
-    return Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: AppDimens.bigLateralPaddingValue),
-        child: smallScreen
-            ? SingleChildScrollView(
-                child: _pageContent(context, smallScreen),
-              )
-            : _pageContent(context, smallScreen));
+    return Container(
+      color: AppColors.background,
+      child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: AppDimens.bigLateralPaddingValue),
+          child: smallScreen
+              ? SingleChildScrollView(
+                  child: _pageContent(context, smallScreen),
+                )
+              : _pageContent(context, smallScreen)),
+    );
   }
 
   Column _pageContent(BuildContext context, bool smallScreen) {

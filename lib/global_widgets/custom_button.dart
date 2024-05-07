@@ -18,6 +18,7 @@ class CustomButton extends StatelessWidget {
   final bool expanded;
   final double? height;
   final EdgeInsets? padding;
+  final bool loading;
 
   const CustomButton({
     Key? key,
@@ -33,6 +34,7 @@ class CustomButton extends StatelessWidget {
     this.expanded = false,
     this.height,
     this.padding,
+    this.loading = false,
   }) : super(key: key);
 
   @override
@@ -64,35 +66,45 @@ class CustomButton extends StatelessWidget {
             ),
             child: Opacity(
               opacity: onPressed == null ? 0.25 : 1,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomHorizontalSpacer(small: true),
-                  if (prefixIcon != null)
-                    SvgPicture.asset(
-                      'assets/images/${prefixIcon!.asset}.svg',
-                      height: prefixIcon!.size,
-                      colorFilter: prefixIcon!.color == null
-                          ? null
-                          : ColorFilter.mode(
-                              prefixIcon!.color!, BlendMode.srcIn),
+              child: loading
+                  ? SizedBox(
+                      height: 23,
+                      width: 23,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 3,
+                        color: textColor,
+                        strokeCap: StrokeCap.round,
+                      ),
+                    )
+                  : Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CustomHorizontalSpacer(small: true),
+                        if (prefixIcon != null)
+                          SvgPicture.asset(
+                            'assets/images/${prefixIcon!.asset}.svg',
+                            height: prefixIcon!.size,
+                            colorFilter: prefixIcon!.color == null
+                                ? null
+                                : ColorFilter.mode(
+                                    prefixIcon!.color!, BlendMode.srcIn),
+                          ),
+                        if (prefixIcon != null) CustomHorizontalSpacer(),
+                        AppTexts.regular(text,
+                            bold: bold, color: textColor ?? AppColors.primary),
+                        if (suffixIcon != null) CustomHorizontalSpacer(),
+                        if (suffixIcon != null)
+                          SvgPicture.asset(
+                            'assets/images/${suffixIcon!.asset}.svg',
+                            height: suffixIcon!.size,
+                            colorFilter: suffixIcon!.color == null
+                                ? null
+                                : ColorFilter.mode(
+                                    suffixIcon!.color!, BlendMode.srcIn),
+                          ),
+                        CustomHorizontalSpacer(small: true),
+                      ],
                     ),
-                  if (prefixIcon != null) CustomHorizontalSpacer(),
-                  AppTexts.regular(text,
-                      bold: bold, color: textColor ?? AppColors.primary),
-                  if (suffixIcon != null) CustomHorizontalSpacer(),
-                  if (suffixIcon != null)
-                    SvgPicture.asset(
-                      'assets/images/${suffixIcon!.asset}.svg',
-                      height: suffixIcon!.size,
-                      colorFilter: suffixIcon!.color == null
-                          ? null
-                          : ColorFilter.mode(
-                              suffixIcon!.color!, BlendMode.srcIn),
-                    ),
-                  CustomHorizontalSpacer(small: true),
-                ],
-              ),
             )),
       ),
     );

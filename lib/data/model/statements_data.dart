@@ -27,10 +27,16 @@ class Statement {
   String? details;
   String? footnote;
   String? emojis;
-  List<int>? vector;
+  List<Weight>? weights;
 
-  Statement(
-      {this.id, this.statement, this.details, this.footnote, this.vector});
+  Statement({
+    this.id,
+    this.statement,
+    this.details,
+    this.footnote,
+    this.emojis,
+    this.weights,
+  });
 
   Statement.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -38,8 +44,11 @@ class Statement {
     details = json['details'];
     footnote = json['footnote'];
     emojis = json['emojis'];
-    if (json['vector'] != null) {
-      vector = json['vector'].cast<int>();
+    if (json['weights'] != null) {
+      weights = <Weight>[];
+      json['weights'].forEach((v) {
+        weights!.add(new Weight.fromJson(v));
+      });
     }
   }
 
@@ -50,7 +59,28 @@ class Statement {
     data['details'] = this.details;
     data['footnote'] = this.footnote;
     data['emojis'] = this.emojis;
-    data['vector'] = this.vector;
+    if (this.weights != null) {
+      data['weights'] = this.weights!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Weight {
+  int? topic_id;
+  int? weight;
+
+  Weight({this.topic_id, this.weight});
+
+  Weight.fromJson(Map<String, dynamic> json) {
+    topic_id = json['topic_id'];
+    weight = json['weight'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['topic_id'] = this.topic_id;
+    data['weight'] = this.weight;
     return data;
   }
 }

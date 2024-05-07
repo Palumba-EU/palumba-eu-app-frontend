@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:appinio_swiper/appinio_swiper.dart';
@@ -12,6 +13,7 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
@@ -22,14 +24,19 @@ import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
+import 'package:palumba_eu/utils/common_ui/alert.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
+import 'package:palumba_eu/utils/extensions.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:widgets_to_image/widgets_to_image.dart';
 
 import 'models/custom_chart_data.dart';
 import 'pages/results_page_5.dart';
@@ -51,6 +58,10 @@ class ResultsController extends GetxController {
     ResultsPage10(),
   ];
 
+  //Capture widget image controller
+  WidgetsToImageController widgetToImagecontroller = WidgetsToImageController();
+  Uint8List? bytes;
+
   UserData get userData => UserManager.userData;
 
   final List<int> showButtonSharePages = [1, 2, 3, 4, 6, 7, 8];
@@ -63,8 +74,12 @@ class ResultsController extends GetxController {
 
   bool get isTablet => Get.width >= 600;
 
+  RxBool _loadingShare = false.obs;
+  bool get loadingShare => _loadingShare.value;
+
   //Data
   List<Answer> _answersData = [];
+  List<Answer> get answersData => _answersData;
   List<PartyUserDistance> _resultsData = [];
 
   PartyUserDistance? _maxPercentagePoliticParty;
@@ -78,6 +93,10 @@ class ResultsController extends GetxController {
 
   //ResultsPage4
   RxList<ScatterSpot> scatterSpots = <ScatterSpot>[].obs;
+
+  //ResultsPage5
+  List<Topic> _topics = [];
+  List<Topic> get topics => _topics;
 
   //ResultsPage7
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
@@ -132,6 +151,17 @@ class ResultsController extends GetxController {
     }
 
     _getCardsData();
+    _getTopics();
+  }
+
+  void _getTopics() async {
+    var topicsList = DataManager().getTopics();
+    if (topicsList.isEmpty) {
+      final apiRepository = Get.find<DataRepository>();
+      await apiRepository.fetchResultsInfo();
+      topicsList = DataManager().getTopics();
+    }
+    _topics = topicsList.where((e) => e.id != 2 && e.id != 3).toList();
   }
 
   PartyUserDistance? getMajorPercentageParty() {
@@ -213,8 +243,18 @@ class ResultsController extends GetxController {
     Get.offAllNamed(HomePageController.route);
   }
 
-  void shareContent() {
-    //TODO: el botó de compartir ha d'enviar la imatge en pantalla.
+  void shareContent() async {
+    if (_loadingShare.value) return;
+    _loadingShare.value = true;
+    bytes = await widgetToImagecontroller.capture();
+
+    final directory = await getTemporaryDirectory();
+    final file = File('${directory.path}/screenshot.jpg');
+    await file.writeAsBytes(bytes!);
+    final xFile = XFile(file.path);
+    await Share.shareXFiles([xFile],
+        text: '#${S.of(Get.context!).shortAppName}');
+    _loadingShare.value = false;
   }
 
   //Convert svg to image
@@ -231,26 +271,27 @@ class ResultsController extends GetxController {
   }
 
   void getScatterPoints() async {
-    double count = -1;
+    //This are parties Scatter points
+    for (var data in _resultsData) {
+      final partyPosition = calculateCompassPosition(data.party.answers ?? []);
+
+      final ui.Image image = await loadSvg(data.party.logo ?? '');
+      scatterSpots
+          .add(ScatterSpot(partyPosition.positionX, partyPosition.positionY,
+              dotPainter: FlDotCirclePainterCustom(
+                image: image,
+                color: Colors.transparent,
+                radius: 15,
+              )));
+    }
+    final userPosition = calculateCompassPosition(answersData);
+
     //This is user scatter point
-    scatterSpots.add(ScatterSpot(.4, -.5,
+    scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
         dotPainter: FlDotCirclePainterCustom(
             image: await loadAssetImage('palumba_badge_heart_small'),
             radius: 2,
             imageRounded: false)));
-
-    //This are parties Scatter points
-    for (var data in _resultsData) {
-      //TODO: add real data
-      count = count + .2;
-      final ui.Image image = await loadSvg(data.party.logo ?? '');
-      scatterSpots.add(ScatterSpot(count, count,
-          dotPainter: FlDotCirclePainterCustom(
-            image: image,
-            color: Colors.transparent,
-            radius: 15,
-          )));
-    }
   }
 
   Future<ui.Image> loadAssetImage(String asset) async {
@@ -283,5 +324,93 @@ class ResultsController extends GetxController {
             statement: statement, answer: myAnswer, parties: parties));
       }
     }
+  }
+
+  //Page 4 calculate compass position
+
+  CompassData calculateCompassPosition(List<Answer> answers) {
+    final topicEuIntegration = 2;
+    final topicLeftRight = 3;
+    double dimEuIntegration =
+        ResultsHelper.calculateTopicDimension(answers, topicEuIntegration);
+    double dimLeftRight = ResultsHelper.calculateTopicDimension(answers, 3);
+    final maxMagnitudeEuIntegration =
+        ResultsHelper.maxMagnitudeForTopicsDimension(topicEuIntegration);
+    final maxMagnitudeLeftRight =
+        ResultsHelper.maxMagnitudeForTopicsDimension(topicLeftRight);
+
+    double normEuIntegration = dimEuIntegration / maxMagnitudeEuIntegration;
+    double normLeftRight = dimLeftRight / maxMagnitudeLeftRight;
+
+    return CompassData(positionX: normLeftRight, positionY: normEuIntegration);
+  }
+
+  //Page 5 calculate needle position
+  NeedleData needlePositionsForTopic(
+    int topicId,
+  ) {
+    final userParty = maxPercentagePoliticParty?.party;
+    final answers = answersData;
+    final parties = DataManager().getParties();
+
+    Map<String, double> epGroupDimensions = {};
+    if (userParty == null) {
+      return NeedleData(fraction: 0, topicMatch: null);
+    }
+    String bestMatch = userParty.id.toString();
+    for (var entry in parties) {
+      epGroupDimensions[entry.id.toString()] =
+          ResultsHelper.calculateTopicDimension(entry.answers!, topicId);
+    }
+    double userDimension =
+        ResultsHelper.calculateTopicDimension(answers, topicId);
+
+    // Calculate the distances between the user's dimension and the dimensions of each endpoint group
+    Map<String, double> epGroupDistances = {};
+    for (var entry in epGroupDimensions.entries) {
+      epGroupDistances[entry.key] = (entry.value - userDimension).abs();
+    }
+    // Sort the endpoint groups by their distance to the user's dimension
+    List<String> epGroupDistanceRanking = epGroupDistances.keys.toList()
+      ..sort((a, b) => epGroupDistances[a]!.compareTo(epGroupDistances[b]!));
+
+    String topicMatch =
+        epGroupDistanceRanking[0]; //epGroupDistanceRanking.last;
+    if (topicMatch == bestMatch) {
+      topicMatch = epGroupDistanceRanking[
+          1]; //epGroupDistanceRanking[epGroupDistanceRanking.length - 2];
+    }
+
+    double bestMatchDistance = epGroupDistances[bestMatch]!;
+    double topicMatchDistance = epGroupDistances[topicMatch]!;
+
+    double fraction =
+        bestMatchDistance / (bestMatchDistance + topicMatchDistance);
+
+    //Get topicPartie logo
+    final topicMatchParty =
+        parties.firstWhere((element) => element.id.toString() == topicMatch);
+
+    return NeedleData(fraction: fraction, topicMatch: topicMatchParty);
+  }
+
+//Page8 calculate max topic
+  MaxTopic maxTopicPercentage() {
+    final topics = DataManager().getTopics();
+    final answers = answersData;
+
+    double maxValue = 0;
+    Topic? maxTopic;
+    for (var topic in topics) {
+      final value = ResultsHelper.topicMatchPercentage(topic.id!, answers);
+      if (value.abs() > maxValue.abs()) {
+        maxTopic = topic;
+        maxValue = value;
+      }
+    }
+    return MaxTopic(
+        isExtreme1: maxValue < 0,
+        percentage: (maxValue.abs() * 100).toStringAsFixed2(2),
+        topicData: maxTopic!);
   }
 }
