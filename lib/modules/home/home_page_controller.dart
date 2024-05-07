@@ -33,6 +33,10 @@ class HomePageController extends GetxController {
   @override
   void onInit() {
     obtainLocalStoredLastResults();
+    final args = Get.arguments;
+    if (args != null) {
+      _showBanner.value = args[StringUtils.fromResultsKey];
+    }
     super.onInit();
   }
 
