@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/settings/helpers/category_sponsor.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
@@ -12,8 +11,6 @@ import 'package:palumba_eu/utils/utils.dart';
 
 class SettingsPageController extends GetxController {
   static const route = '/settings';
-
-  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   final String rebuildLanguageKey = 'rebuildLanguage';
 
@@ -32,8 +29,7 @@ class SettingsPageController extends GetxController {
   }
 
   void _initSponsors() async {
-    var response = DataManager()
-        .getSponsors(); //(await _dataRepository.fetchSponsors())?.data ?? [];
+    var response = DataManager().getSponsors();
 
     var categories = <CategorySponsor>[];
     var category = '';

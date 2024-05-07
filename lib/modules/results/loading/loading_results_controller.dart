@@ -88,11 +88,11 @@ class LoadingResultsController extends GetxController {
       final userAnswers = UserManager.userData.answers;
       final partyAnswers = party.answers ?? [];
       //Calculate max distance
-      final userAnswersNotSkipped = userAnswers
+      userAnswers
           .where((element) => element.answer != StatementResponse.skip)
           .toList();
       int numStatements = party.answers?.length ??
-          0; //  userAnswersNotSkipped.length; //TODO: check if this is correct
+          0; 
       List<Answer> maxDisagreeAnswers = List<Answer>.generate(
           numStatements,
           (index) => Answer(
@@ -104,7 +104,6 @@ class LoadingResultsController extends GetxController {
       int maxDistance = calculateDistance(maxAgreeAnswers, maxDisagreeAnswers);
 
       //Calculate distance between user and party
-
       final distance = calculateDistance(
         userAnswers,
         partyAnswers,

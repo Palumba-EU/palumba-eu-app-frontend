@@ -403,7 +403,7 @@ class ResultsController extends GetxController {
     return NeedleData(fraction: fraction, topicMatch: topicMatchParty);
   }
 
-//Page8 calculate max topic
+//Page 8 calculate max topic
   MaxTopic maxTopicPercentage() {
     final topics = DataManager().getTopics();
     final answers = answersData;
