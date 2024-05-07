@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
 const _kDefaultSize = 45.0;
 const _kDefaultPlaceholderSize = 40.0;

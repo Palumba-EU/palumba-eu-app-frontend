@@ -26,10 +26,8 @@ import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
-import 'package:palumba_eu/utils/common_ui/alert.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -75,10 +73,12 @@ class ResultsController extends GetxController {
   bool get isTablet => Get.width >= 600;
 
   RxBool _loadingShare = false.obs;
+
   bool get loadingShare => _loadingShare.value;
 
   //Data
   List<Answer> _answersData = [];
+
   List<Answer> get answersData => _answersData;
   List<PartyUserDistance> _resultsData = [];
 
@@ -96,6 +96,7 @@ class ResultsController extends GetxController {
 
   //ResultsPage5
   List<Topic> _topics = [];
+
   List<Topic> get topics => _topics;
 
   //ResultsPage7
@@ -187,11 +188,11 @@ class ResultsController extends GetxController {
     return maxPercentageParty;
   }
 
-  Color getFirstPartyColor() {
-    final fisrtParty = maxPercentagePoliticParty;
-    if (fisrtParty?.party.color != null) {
+  Color getPartyColor() {
+    final party = maxPercentagePoliticParty;
+    if (party?.party.color != null) {
       return Color(
-          int.parse(fisrtParty!.party.color!.substring(1, 7), radix: 16) +
+          int.parse(party!.party.color!.substring(1, 7), radix: 16) +
               0xFF000000);
     } else {
       return AppColors.text;
@@ -252,8 +253,7 @@ class ResultsController extends GetxController {
     final file = File('${directory.path}/screenshot.jpg');
     await file.writeAsBytes(bytes!);
     final xFile = XFile(file.path);
-    await Share.shareXFiles([xFile],
-        text: '#Palumba | ${StringUtils.webUrl}');
+    await Share.shareXFiles([xFile], text: '#Palumba | ${StringUtils.webUrl}');
     _loadingShare.value = false;
   }
 

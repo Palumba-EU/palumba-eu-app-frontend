@@ -70,7 +70,7 @@ class ResultsPage3 extends GetView<ResultsController> {
               ],
             ),
             CustomSpacer(
-              multiplier: 3,
+              multiplier: 4,
             ),
             Padding(
               padding: AppDimens.lateralPadding,

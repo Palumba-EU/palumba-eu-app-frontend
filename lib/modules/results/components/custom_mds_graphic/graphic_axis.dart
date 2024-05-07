@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';

@@ -1,7 +1,7 @@
-import 'package:html/parser.dart' as htmlParser;
-import 'package:html/dom.dart' as dom;
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
+//import 'package:html/parser.dart' as htmlParser;
+//import 'package:html/dom.dart' as dom;
 
 class StatementsParser {
   /*

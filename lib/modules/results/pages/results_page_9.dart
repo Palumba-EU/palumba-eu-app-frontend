@@ -25,7 +25,6 @@ class ResultsPage9 extends GetView<ResultsController> {
           Expanded(
               child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
-            //TODO
             child: controller.cardsData.isEmpty
                 ? const SizedBox.shrink()
                 : AppinioSwiper(
