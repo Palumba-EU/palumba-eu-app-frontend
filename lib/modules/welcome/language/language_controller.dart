@@ -39,6 +39,10 @@ class LanguageController extends GetxController {
         .indexWhere((element) => element.languagecode == currentLanguage);
     if (index != -1) {
       indexSelected.value = index;
+      _localDataRepository.language =
+          languages![indexSelected.value].languagecode!;
+      LanguageManager.setLanguage(
+          languages![indexSelected.value].languagecode!);
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scrollController.animateTo((65 * index).toDouble(),

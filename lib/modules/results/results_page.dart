@@ -30,8 +30,7 @@ class ResultsPage extends GetView<ResultsController> {
                 children: [
                   //Animate background color for special pages
                   Obx(
-                    () => AnimatedOpacity(
-                      duration: Durations.medium2,
+                    () => Opacity(
                       opacity: controller.isSpecialPage ? 1 : 0,
                       child: Container(
                         color: AppColors.blue,

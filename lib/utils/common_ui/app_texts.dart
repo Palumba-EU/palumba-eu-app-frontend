@@ -87,8 +87,7 @@ class AppTexts {
     switch (appTexType) {
       case AppTextType.title:
         return TextStyle(
-          fontFamily:
-          'caprasimo',
+          fontFamily: 'caprasimo',
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           fontWeight: fontWeight ?? FontWeight.w900,

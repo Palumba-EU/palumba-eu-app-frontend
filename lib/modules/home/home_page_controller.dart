@@ -74,7 +74,8 @@ class HomePageController extends GetxController {
 
   Sponsor getYouthCardSponsor() {
     List<Sponsor> sponsors = DataManager().getSponsors();
-    return sponsors.firstWhere((e) => e.id == 7);
+    return sponsors
+        .firstWhere((e) => e.name == "European Youth Card Association");
   }
 
   void backToResultsOrTest() {

@@ -42,10 +42,15 @@ class ResultsPage3 extends GetView<ResultsController> {
                             return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  AppTexts.medium(data.percentage,
-                                      color: AppColors.primary),
-                                  AppTexts.medium(data.party,
-                                      color: AppColors.primary, black: true),
+                                  AppTexts.medium(
+                                    data.percentage,
+                                    color: AppColors.primary,
+                                  ),
+                                  AppTexts.medium(
+                                    data.party,
+                                    color: AppColors.primary,
+                                    bold: true,
+                                  ),
                                   CustomSpacer(),
                                 ]);
                           }),
