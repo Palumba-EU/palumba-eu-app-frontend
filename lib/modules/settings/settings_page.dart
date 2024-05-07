@@ -137,37 +137,12 @@ class SettingsPage extends StatelessWidget {
               CustomSpacer(),
 
               _wrapperIcons(_),
-              /*
-              //Main sponsors
-              AppTexts.small(S.of(context).settingsPageSubtitle1,
-                  color: AppColors.primary, bold: true),
-              _wrapperIcons(),
-
-              //European partners
-              AppTexts.small(S.of(context).settingsPageSubtitle2,
-                  color: AppColors.primary, bold: true),
-              _wrapperIcons(),
-
-              //Academic partners
-              AppTexts.small(S.of(context).settingsPageSubtitle3,
-                  color: AppColors.primary, bold: true),
-              _wrapperIcons(),
-
-              //National Institutional Partners
-              AppTexts.small(S.of(context).settingsPageSubtitle4,
-                  color: AppColors.primary, bold: true),
-              _wrapperIcons(),
-
-              //Service providers
-              AppTexts.small(S.of(context).settingsPageSubtitle5,
-                  color: AppColors.primary, bold: true),
-              _wrapperIcons(),*/
 
               CustomSpacer(multiplier: 8),
             ],
           ),
         )),
-        /*floatingActionButton: Padding(
+        floatingActionButton: Padding(
           padding: const EdgeInsets.symmetric(
               vertical: AppDimens.bigLateralPaddingValue, horizontal: 20),
           child: CustomButton(
@@ -177,53 +152,73 @@ class SettingsPage extends StatelessWidget {
             prefixIcon: IconButtonParameters('ic_share',
                 size: 18, color: Color(0XFFAEAEAE)),
             radius: AppDimens.borderRadius,
-            color: Color(0XFF1F1F1F),
-            textColor: Color(0XFFAEAEAE),
-            bold: true,
+            color: AppColors.yellow,
+            textColor: AppColors.primary,
             border: ButtonBorderParameters(
-                isOutside: true, width: 3, color: Color(0XFFAEAEAE)),
+                isOutside: true, width: 3, color: AppColors.lightYellow),
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,*/
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
 
   Widget _wrapperIcons(SettingsPageController _) {
     return Obx(() {
-      if (_.sponsors.value == null) {
+      if (_.categoriesSponsors.value == null) {
         return Padding(
           padding: const EdgeInsets.only(top: 15),
           child: CustomLoading(),
         );
       }
 
-      return GridView.builder(
-          itemCount: _.sponsors.value!.length,
+      return ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: AppDimens.smallLateralPaddingValue,
-            crossAxisSpacing: AppDimens.smallLateralPaddingValue,
-          ),
+          itemCount: _.categoriesSponsors.value!.length,
           itemBuilder: (context, index) {
-            Widget content;
-            if (_.sponsors.value![index].logo!.endsWith('svg')) {
-              content = SvgPicture.network(
-                _.sponsors.value![index].logo!,
-              );
-            } else {
-              content = Image.network(
-                _.sponsors.value![index].logo!,
-              );
-            }
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                AppTexts.small(
+                    _.categoriesSponsors.value![index].category
+                            .capitalizeFirst ??
+                        '',
+                    bold: true,
+                    color: AppColors.primary),
+                CustomSpacer(),
+                GridView.builder(
+                    itemCount:
+                        _.categoriesSponsors.value![index].sponsors.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 0,
+                      crossAxisSpacing: AppDimens.smallLateralPaddingValue,
+                    ),
+                    itemBuilder: (context, index2) {
+                      var sponsor =
+                          _.categoriesSponsors.value![index].sponsors[index2];
+                      Widget content;
+                      if (sponsor.logo!.endsWith('svg')) {
+                        content = SvgPicture.network(
+                          sponsor.logo!,
+                        );
+                      } else {
+                        content = Image.network(
+                          sponsor.logo!,
+                        );
+                      }
 
-            return GestureDetector(
-              onTap: () {
-                _.launchSponsors(_.sponsors.value![index]);
-              },
-              child: content,
+                      return GestureDetector(
+                        onTap: () {
+                          _.launchSponsors(sponsor);
+                        },
+                        child: content,
+                      );
+                    })
+              ],
             );
           });
     });

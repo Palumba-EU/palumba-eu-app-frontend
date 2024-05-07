@@ -32,8 +32,8 @@ class DottedRectanglePainter extends CustomPainter {
       ..color = pointColor ?? AppColors.lightPrimary
       ..strokeWidth = 1.0;
 
-    final stepWidth = size.width * .07;
-    final stepHeight = size.height * .07;
+    final stepWidth = size.width * .05;
+    final stepHeight = size.height * .03;
 
     for (var x = 0.0; x <= size.width; x += stepWidth) {
       for (var y = 0.0; y <= size.height; y += stepHeight) {

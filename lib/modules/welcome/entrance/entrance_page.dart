@@ -117,8 +117,11 @@ class EntrancePage extends StatelessWidget {
                   ),
                   Expanded(
                     child: Center(
-                      child: SvgPicture.asset(
-                        'assets/images/img_pigeon.svg',
+                      child: Padding(
+                        padding: AppDimens.lateralPadding,
+                        child: SvgPicture.asset(
+                          'assets/images/${index == 0 ? 'img_pigeon' : index == 1 ? 'img_swipe' : 'img_results'}.svg',
+                        ),
                       ),
                     ),
                   ),

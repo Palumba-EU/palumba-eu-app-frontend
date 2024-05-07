@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ca';
 
   static String m0(count) =>
-      "${count}\'matches\' trobats en les últimes 24 hores";
+      "${count} \'match\' trobats en les darreres 24 hores";
 
   static String m1(count) =>
       "${count} \'matches\' trobats en les últimes 24 hores";
@@ -32,13 +32,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m3(country) =>
       "No s\'ha trobat cap partit polític local a ${country}";
 
-  static String m4(party, percentage) =>
-      "Me and ${party} agreed on ${percentage}% of all the statements you swiped on. Find out your match at palumba.eu";
+  static String m4(country, group) =>
+      "Aquestes són les llistes de candidats locals que coincideixen al vostre país";
+
+  static String m5(topic, percentage) =>
+      "En ${topic}, et decantes un ${percentage}% cap a";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Alguna cosa ha anat malament al nostre costat. Siusplau, intenta-ho més tard."),
+            "Alguna cosa no ens està funcionant bé. Si us plau, intenta-ho més tard."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Vaja!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel·lar"),
@@ -47,11 +50,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Començar Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Benvinguts a la Beta exclusiva de Palumba"),
+            "Si aquest colom tan bufó no t\'ajuda a votar al juny, res ho farà."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Si aquest colom tan bufó no t\'ajuda a votar al juny, res ho farà"),
+            "Fes \"swipe\" amb la teva opinió sobre els temes que t\'importen."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Prepara\'t per difondre l\'app massivament el 9 de maig"),
+            "Descobreix el teu matx i una orientació de qui votar a les eleccions."),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("França"),
         "germany": MessageLookupByLibrary.simpleMessage("Alemanya"),
@@ -64,7 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Comença un nou test"),
         "hungary": MessageLookupByLibrary.simpleMessage("Hongria"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Això es pot canviar més endavant a la configuració."),
+            "Més endavant podràs canviar-ho a la pàgina de configuració."),
         "languagePageTitle":
             MessageLookupByLibrary.simpleMessage("Continuem en català? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
@@ -100,17 +103,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("El meu gènere és"),
         "poland": MessageLookupByLibrary.simpleMessage("Polònia"),
-        "resultsLabelEmoji": MessageLookupByLibrary.simpleMessage("😍❤️‍🔥💘"),
+        "resultsPage10NopButton":
+            MessageLookupByLibrary.simpleMessage("Nope, gràcies!"),
+        "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
+            "Una notificació quan toqui anar a votar?"),
+        "resultsPage10YesButton":
+            MessageLookupByLibrary.simpleMessage("Síííííí"),
+        "resultsPage1Button":
+            MessageLookupByLibrary.simpleMessage("Clic per a continuar"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobrireu el vostre grup més compatible al Parlament de la UE, les llistes locals coincidents per votar al juny al vostre país, i fins i tot hem trobat algunes coses addicionals basades en les vostres respostes 😌"),
+            "A les pantalles següents descobriràs amb quin grup del Parlament de la UE ets més compatible, la correspondència amb les llistes locals del teu país per votar al juny i, fins i tot, algunes coses addicionals que hem descobert a partir de les teves respostes 😌"),
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("T\'hem trobat un \'match\'!"),
-        "resultsPage2FirstText":
-            MessageLookupByLibrary.simpleMessage("Esteu d\'acord en un "),
-        "resultsPage2LastText": MessageLookupByLibrary.simpleMessage(
-            "de totes les idees que has valorat."),
-        "resultsPage2Title": MessageLookupByLibrary.simpleMessage(
-            "i tu, realment és una Love Story (EU\'s Version)"),
+        "resultsPage2_1Title":
+            MessageLookupByLibrary.simpleMessage("Mira, entre"),
+        "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
+            "i jo, hi ha una mena de Love Story (EU\'s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "La teva compatibilitat amb els grups del Parlament Europeu"),
         "resultsPage4TitleBottom":
@@ -121,43 +129,52 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage4TitleTop":
             MessageLookupByLibrary.simpleMessage("Pro-integració UE"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("Ets tu!"),
-        "resultsPage5Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
+            MessageLookupByLibrary.simpleMessage("It\'s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
             "D\'acord, és genial saber quin grup et porta..."),
+        "resultsPage5Topic1":
+            MessageLookupByLibrary.simpleMessage("Environmental issues"),
+        "resultsPage5Topic2":
+            MessageLookupByLibrary.simpleMessage("Human & Social Rights"),
+        "resultsPage5Topic3":
+            MessageLookupByLibrary.simpleMessage("Economic intervention"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
             "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
-        "resultsPage6Title": MessageLookupByLibrary.simpleMessage(
-            "Però a les eleccions de la UE, voteu per una llista local"),
+        "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
+            "Val, està guai saber amb quin grup encaixo..."),
+        "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
+            "Però a les eleccions europees, votem per a candidatures locals"),
         "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
             "No estan en cap ordre en concret"),
         "resultsPage7NoLocalCandidates": m3,
-        "resultsPage7Title": MessageLookupByLibrary.simpleMessage(
-            "Aquestes són les llistes de candidats locals que coincideixen al vostre país"),
-        "resultsPage8NopButton":
-            MessageLookupByLibrary.simpleMessage("No gràcies!"),
-        "resultsPage8Title": MessageLookupByLibrary.simpleMessage(
-            "Vols rebre una notificació quan sigui el moment de votar?"),
-        "resultsPage8YesButton": MessageLookupByLibrary.simpleMessage("Síííí"),
-        "resultsShare":
-            MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
-        "resultsSocialShareData": m4,
+        "resultsPage7Title": m4,
+        "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
+            "Ets un lluitador climàtic! Creus que donar resposta a la crisi climàtica requereix d\'acció col·lectiva, amb tothom prioritzant el tema. No sap gens de greu que la UE reguli les empreses per a fer-ho possible. Al final, de què serveix el creixement econòmic si el planeta es torna inhabitable?"),
+        "resultsPage8_1Text": m5,
+        "resultsPage8_2Text":
+            MessageLookupByLibrary.simpleMessage("Active Climate Action 🌱😌"),
+        "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
+            "Fes clic a les cartes per barrejar-les"),
+        "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
+            "Les eleccions van de molts temes, però hi ha una cosa que realment"),
+        "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+        "resultsShare": MessageLookupByLibrary.simpleMessage("Comparteix"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Política de Privacitat"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Compartir (coming soon ⏳)"),
+            MessageLookupByLibrary.simpleMessage("Compartir"),
         "settingsPageSubtitle1":
-            MessageLookupByLibrary.simpleMessage("Main Sponsors"),
+            MessageLookupByLibrary.simpleMessage("Patrocinadors principals"),
         "settingsPageSubtitle2":
-            MessageLookupByLibrary.simpleMessage("European Partners"),
+            MessageLookupByLibrary.simpleMessage("Socis europeus"),
         "settingsPageSubtitle3":
-            MessageLookupByLibrary.simpleMessage("Academic Partner"),
+            MessageLookupByLibrary.simpleMessage("Soci acadèmic"),
         "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
-            "National Institutional Partners"),
+            "Socis institucionals nacionals"),
         "settingsPageSubtitle5":
-            MessageLookupByLibrary.simpleMessage("Service Providers"),
+            MessageLookupByLibrary.simpleMessage("Proveïdors del servei"),
         "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
             "Prefereixo utilitzar l\'app en"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
@@ -171,14 +188,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageTitleAssociation":
             MessageLookupByLibrary.simpleMessage("L\'Associació"),
         "settingsPageTitleLanguage":
-            MessageLookupByLibrary.simpleMessage("Language"),
+            MessageLookupByLibrary.simpleMessage("Llengua"),
         "settingsPageTitlePartners":
-            MessageLookupByLibrary.simpleMessage("Partners"),
+            MessageLookupByLibrary.simpleMessage("Socis"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Omet"),
         "spain": MessageLookupByLibrary.simpleMessage("Espanya"),
         "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
-            "Sembla que no tens connexió a internet"),
+            "Sembla que no tens connexió a Internet"),
         "sweden": MessageLookupByLibrary.simpleMessage("Suècia"),
         "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
         "yes": MessageLookupByLibrary.simpleMessage("Sí")

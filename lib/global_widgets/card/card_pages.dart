@@ -19,6 +19,10 @@ class FirstCardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var text = (isOnboardingCard && card == null)
+        ? S.of(context).onBoardingCardQuestion
+        : card!.mainQuestion;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,11 +37,18 @@ class FirstCardPage extends StatelessWidget {
           multiplier: 2,
         ),
         CustomSpacer(small: true),
-        AppTexts.title(
-          (isOnboardingCard && card == null)
-              ? S.of(context).onBoardingCardQuestion
-              : card!.mainQuestion,
-        ),
+        RichText(
+            text: TextSpan(
+                style: AppTexts.customTextStyle(AppTextType.regular,
+                    fontSize: 20, black: true),
+                children: List.generate(text.length, (index) {
+                  return TextSpan(
+                      text: text[index],
+                      style: TextStyle(
+                          color: text[index] == '*'
+                              ? AppColors.lightPrimary
+                              : Colors.white));
+                }))),
       ],
     );
   }
@@ -62,9 +73,8 @@ class SecondCardPage extends StatelessWidget {
             CustomSpacer(multiplier: 2),
             CustomHtmlWidget(
               content: card.details,
-              textStyle: AppTexts.customTextStyle(
-                AppTextType.small,
-              ),
+              textStyle:
+                  AppTexts.customTextStyle(AppTextType.regular, fontSize: 13.0),
             ),
             CustomSpacer(multiplier: 8),
           ],

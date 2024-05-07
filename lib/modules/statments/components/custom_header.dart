@@ -7,6 +7,8 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
+import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class CustomHeader extends StatelessWidget {
@@ -57,11 +59,8 @@ class CustomHeader extends StatelessWidget {
                   ),
                 ),
               ),
-              SvgPicture.asset(
-                'assets/images/logo.svg',
-                width: 143,
-                fit: BoxFit.fitWidth,
-              ),
+              AppTexts.title(S.of(context).shortAppName,
+                  fontSize: 32, color: AppColors.primary),
               InkWell(
                 onTap: homeTap,
                 child: Transform.rotate(

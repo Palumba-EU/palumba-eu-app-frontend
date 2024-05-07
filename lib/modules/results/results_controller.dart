@@ -1,5 +1,7 @@
+import 'dart:io';
 import 'dart:math';
 import 'dart:ui' as ui;
+import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -8,26 +10,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
+import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'models/custom_chart_data.dart';
 import 'pages/results_page_5.dart';
@@ -36,33 +43,69 @@ class ResultsController extends GetxController {
   static const route = '/results';
 
   final pageController = PageController();
-  final List<Widget> pages = [
-    ResultsPage1(),
-    ResultsPage2(),
-    ResultsPage3(),
-    ResultsPage4(),
-    ResultsPage5(),
-    ResultsPage6(),
-    ResultsPage7(),
-    ResultsPage8(),
-    ResultsPage9(),
-    ResultsPage10(),
-    ResultsPage11(),
+  final List<Widget> allPages = [
+    ResultsPage1(key: Key("1")),
+    ResultsPage2(key: Key("2")),
+    ResultsPage3(key: Key("3")),
+    ResultsPage4(key: Key("4")),
+    ResultsPage5(key: Key("5")),
+    ResultsPage6(key: Key("6")),
+    ResultsPage7(key: Key("7")),
+    ResultsPage8(key: Key("8")),
+    ResultsPage9(key: Key("9")),
+    ResultsPage10(key: Key("10")),
   ];
 
-  List<CustomChartData> chartData = [];
+  final List<Widget> noCardsPages = [
+    ResultsPage1(key: Key("1")),
+    ResultsPage2(key: Key("2")),
+    ResultsPage3(key: Key("3")),
+    ResultsPage4(key: Key("4")),
+    ResultsPage5(key: Key("5")),
+    ResultsPage6(key: Key("6")),
+    ResultsPage7(key: Key("7")),
+    ResultsPage8(key: Key("8")),
+    ResultsPage10(key: Key("10")),
+  ];
+
+  List<Widget> get pages => cardsData.isNotEmpty ? allPages : noCardsPages;
+
+  final List<ScreenshotController?> screenshotPagesControllers = [
+    null,
+    ScreenshotController(),
+    ScreenshotController(),
+    ScreenshotController(),
+    ScreenshotController(),
+    null,
+    ScreenshotController(),
+    ScreenshotController(),
+    ScreenshotController(),
+    null,
+  ];
 
   UserData get userData => UserManager.userData;
 
-  List<int> showButtonSharePages = [1, 2, 3, 4, 7, 8, 9];
+  final List<int> showButtonSharePages = [1, 2, 3, 4, 6, 7, 8];
 
   RxInt _currentPage = 0.obs;
 
   int get currentPage => _currentPage.value;
 
-  List<PartyUserDistance> _resultsData = [];
+  bool get isSpecialPage =>
+      _currentPage.value == 5 ||
+      (cardsData.isNotEmpty && _currentPage.value == 8);
 
-  List<LocalParties>? get localParties => filterLocalPartiesByCountry();
+  bool get isTablet => Get.width >= 600;
+
+  RxBool _loadingShare = false.obs;
+
+  bool get loadingShare => _loadingShare.value;
+
+  //Data
+  List<Answer> _answersData = [];
+
+  List<Answer> get answersData => _answersData;
+  List<PartyUserDistance> _resultsData = [];
 
   PartyUserDistance? _maxPercentagePoliticParty;
 
@@ -70,28 +113,36 @@ class ResultsController extends GetxController {
       _maxPercentagePoliticParty ??
       (_resultsData.isEmpty ? null : _resultsData.first);
 
-  bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 6;
+  //ResultsPage3
+  List<CustomChartData> chartData = [];
 
-  bool get blockedPages =>
-      _currentPage.value == 3 ||
-      _currentPage.value == 4 ||
-      _currentPage.value == 8 ||
-      _currentPage.value == 9;
-
-  String get countryName => UserManager.userCountry?.name ?? 'Your country';
-
+  //ResultsPage4
   RxList<ScatterSpot> scatterSpots = <ScatterSpot>[].obs;
 
-  bool get isTablet => Get.width >= 600;
+  //ResultsPage5
+  List<Topic> _topics = [];
+
+  List<Topic> get topics => _topics;
+
+  //ResultsPage7
+  String get countryName => UserManager.userCountry?.name ?? 'Your country';
+
+  List<LocalParties>? get localParties => filterLocalPartiesByCountry();
+
+  //ResultsPage9
+  final swiperController = AppinioSwiperController();
+  List<CardStatementData> cardsData = <CardStatementData>[];
+
+  GlobalKey globalKey = GlobalKey();
 
   @override
   void onInit() {
-    _getArguments();
+    super.onInit();
+    _initData();
 
     pageController.addListener(() {
       _currentPage.value = pageController.page!.round();
     });
-    super.onInit();
   }
 
   @override
@@ -100,13 +151,17 @@ class ResultsController extends GetxController {
     super.onClose();
   }
 
-  void _getArguments() {
+  void _initData() {
     final args = Get.arguments as Map<String, dynamic>?;
     if (args != null) {
-      final data =
-          args[StringUtils.resultsDataKey] as List<Map<String, dynamic>>;
+      final answersData =
+          args[StringUtils.answersDataKey] as List<Map<String, dynamic>>;
+      _answersData = answersData.map((e) => Answer.fromJson(e)).toList();
 
-      _resultsData = data.map((e) => PartyUserDistance.fromJson(e)).toList();
+      final resultsData =
+          args[StringUtils.resultsDataKey] as List<Map<String, dynamic>>;
+      _resultsData =
+          resultsData.map((e) => PartyUserDistance.fromJson(e)).toList();
 
       //Convert the data to the format that the chart needs
       _resultsData.forEach((result) {
@@ -122,6 +177,19 @@ class ResultsController extends GetxController {
       _maxPercentagePoliticParty = getMajorPercentageParty();
       getScatterPoints();
     }
+
+    _getCardsData();
+    _getTopics();
+  }
+
+  void _getTopics() async {
+    var topicsList = DataManager().getTopics();
+    if (topicsList.isEmpty) {
+      final apiRepository = Get.find<DataRepository>();
+      await apiRepository.fetchResultsInfo();
+      topicsList = DataManager().getTopics();
+    }
+    _topics = topicsList.where((e) => e.id != 2 && e.id != 3).toList();
   }
 
   PartyUserDistance? getMajorPercentageParty() {
@@ -147,12 +215,11 @@ class ResultsController extends GetxController {
     return maxPercentageParty;
   }
 
-  Color getFirstPartyColor() {
-    final fisrtParty = maxPercentagePoliticParty;
-    if (fisrtParty?.party.color != null) {
-      return Color(
-          int.parse(fisrtParty!.party.color!.substring(1, 7), radix: 16) +
-              0xFF000000);
+  Color getPartyColor() {
+    final party = maxPercentagePoliticParty;
+    if (party?.party.color != null) {
+      return Color(int.parse(party!.party.color!.substring(1, 7), radix: 16) +
+          0xFF000000);
     } else {
       return AppColors.text;
     }
@@ -188,7 +255,14 @@ class ResultsController extends GetxController {
   }
 
   void launchUrl() {
-    Utils.launch(StringUtils.electionsUrl(LanguageManager.currentLanguage));
+    var currentLanguage = LanguageManager.currentLanguage;
+    if (currentLanguage == 'ca') {
+      currentLanguage = 'es';
+    } else if (currentLanguage == 'tr') {
+      currentLanguage = 'en';
+    }
+
+    Utils.launch(StringUtils.electionsUrl(currentLanguage));
     launchHome();
   }
 
@@ -196,8 +270,19 @@ class ResultsController extends GetxController {
     Get.offAllNamed(HomePageController.route);
   }
 
-  void shareContent() {
-    //TODO: el botó de compartir ha d'enviar la imatge en pantalla.
+  void shareContent() async {
+    if (_loadingShare.value || screenshotPagesControllers[currentPage] == null)
+      return;
+    _loadingShare.value = true;
+    await Future.delayed(Durations.short1);
+    final bytes = await screenshotPagesControllers[currentPage]!.capture();
+
+    final directory = await getTemporaryDirectory();
+    final file = File('${directory.path}/screenshot.jpg');
+    await file.writeAsBytes(bytes!);
+    final xFile = XFile(file.path);
+    await Share.shareXFiles([xFile], text: '#Palumba | ${StringUtils.webUrl}');
+    _loadingShare.value = false;
   }
 
   //Convert svg to image
@@ -214,26 +299,27 @@ class ResultsController extends GetxController {
   }
 
   void getScatterPoints() async {
-    double count = -1;
-    //This is user scatter point
-    scatterSpots.add(ScatterSpot(.4, -.5,
-        dotPainter: FlDotCirclePainterCustom(
-            image: await loadAssetImage('palumba_badge_heart_small'),
-            radius: 2,
-            imageRounded: false)));
-
     //This are parties Scatter points
     for (var data in _resultsData) {
-      //TODO: add real data
-      count = count + .2;
+      final partyPosition = calculateCompassPosition(data.party.answers ?? []);
+
       final ui.Image image = await loadSvg(data.party.logo ?? '');
-      scatterSpots.add(ScatterSpot(count, count,
-          dotPainter: FlDotCirclePainterCustom(
-            image: image,
-            color: Colors.transparent,
-            radius: 15,
-          )));
+      scatterSpots
+          .add(ScatterSpot(partyPosition.positionX, partyPosition.positionY,
+              dotPainter: FlDotCirclePainterCustom(
+                image: image,
+                color: Colors.transparent,
+                radius: 15,
+              )));
     }
+    final userPosition = calculateCompassPosition(answersData);
+
+    //This is user scatter point
+    scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
+        dotPainter: FlDotCirclePainterCustom(
+            image: await loadAssetImage('img_heart_small'),
+            radius: 2,
+            imageRounded: false)));
   }
 
   Future<ui.Image> loadAssetImage(String asset) async {
@@ -243,5 +329,116 @@ class ResultsController extends GetxController {
     final frame = await codec.getNextFrame();
 
     return frame.image;
+  }
+
+  void _getCardsData() {
+    var myAnswers = _answersData
+        .where((element) =>
+            element.answer == StatementResponse.stronglyAgree ||
+            element.answer == StatementResponse.stronglyDisagree)
+        .toList();
+    for (var myAnswer in myAnswers) {
+      var statement = DataManager()
+          .getStatements()
+          .firstWhereOrNull((element) => element.id == myAnswer.statementId);
+      if (statement != null) {
+        var parties = DataManager().getParties().where((element) {
+          var answer = element.answers?.firstWhereOrNull(
+              (element) => element.statementId == statement.id);
+          return answer != null && answer.answer == myAnswer.answer;
+        }).toList();
+
+        cardsData.add(CardStatementData(
+            statement: statement, answer: myAnswer, parties: parties));
+      }
+    }
+  }
+
+  //Page 4 calculate compass position
+
+  CompassData calculateCompassPosition(List<Answer> answers) {
+    final topicEuIntegration = 2;
+    final topicLeftRight = 3;
+    double dimEuIntegration =
+        ResultsHelper.calculateTopicDimension(answers, topicEuIntegration);
+    double dimLeftRight = ResultsHelper.calculateTopicDimension(answers, 3);
+    final maxMagnitudeEuIntegration =
+        ResultsHelper.maxMagnitudeForTopicsDimension(topicEuIntegration);
+    final maxMagnitudeLeftRight =
+        ResultsHelper.maxMagnitudeForTopicsDimension(topicLeftRight);
+
+    double normEuIntegration = dimEuIntegration / maxMagnitudeEuIntegration;
+    double normLeftRight = dimLeftRight / maxMagnitudeLeftRight;
+
+    return CompassData(positionX: normLeftRight, positionY: normEuIntegration);
+  }
+
+  //Page 5 calculate needle position
+  NeedleData needlePositionsForTopic(
+    int topicId,
+  ) {
+    final userParty = maxPercentagePoliticParty?.party;
+    final answers = answersData;
+    final parties = DataManager().getParties();
+
+    Map<String, double> epGroupDimensions = {};
+    if (userParty == null) {
+      return NeedleData(fraction: 0, topicMatch: null);
+    }
+    String bestMatch = userParty.id.toString();
+    for (var entry in parties) {
+      epGroupDimensions[entry.id.toString()] =
+          ResultsHelper.calculateTopicDimension(entry.answers!, topicId);
+    }
+    double userDimension =
+        ResultsHelper.calculateTopicDimension(answers, topicId);
+
+    // Calculate the distances between the user's dimension and the dimensions of each endpoint group
+    Map<String, double> epGroupDistances = {};
+    for (var entry in epGroupDimensions.entries) {
+      epGroupDistances[entry.key] = (entry.value - userDimension).abs();
+    }
+    // Sort the endpoint groups by their distance to the user's dimension
+    List<String> epGroupDistanceRanking = epGroupDistances.keys.toList()
+      ..sort((a, b) => epGroupDistances[a]!.compareTo(epGroupDistances[b]!));
+
+    String topicMatch =
+        epGroupDistanceRanking[0]; //epGroupDistanceRanking.last;
+    if (topicMatch == bestMatch) {
+      topicMatch = epGroupDistanceRanking[
+          1]; //epGroupDistanceRanking[epGroupDistanceRanking.length - 2];
+    }
+
+    double bestMatchDistance = epGroupDistances[bestMatch]!;
+    double topicMatchDistance = epGroupDistances[topicMatch]!;
+
+    double fraction =
+        bestMatchDistance / (bestMatchDistance + topicMatchDistance);
+
+    //Get topicPartie logo
+    final topicMatchParty =
+        parties.firstWhere((element) => element.id.toString() == topicMatch);
+
+    return NeedleData(fraction: fraction, topicMatch: topicMatchParty);
+  }
+
+//Page 8 calculate max topic
+  MaxTopic maxTopicPercentage() {
+    final topics = DataManager().getTopics();
+    final answers = answersData;
+
+    double maxValue = 0;
+    Topic? maxTopic;
+    for (var topic in topics) {
+      final value = ResultsHelper.topicMatchPercentage(topic.id!, answers);
+      if (value.abs() > maxValue.abs()) {
+        maxTopic = topic;
+        maxValue = value;
+      }
+    }
+    return MaxTopic(
+        isExtreme1: maxValue < 0,
+        percentage: (maxValue.abs() * 100).toStringAsFixed2(2),
+        topicData: maxTopic!);
   }
 }

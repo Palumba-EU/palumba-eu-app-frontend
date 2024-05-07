@@ -21,7 +21,7 @@ class StatementsPage extends GetView<StatementsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.background,
       body: Stack(
         children: [
           SizedBox(
@@ -71,7 +71,6 @@ class StatementsPage extends GetView<StatementsController> {
                           opacity: controller.isPanStarted.value ? 0.2 : 1,
                           duration: Durations.medium4,
                           child: CustomHeader(
-                            //TODO: Fix me (fix: add correct routes)
                             homeTap: () =>
                                 Get.toNamed(HomePageController.route),
                             backTap: () => controller.returnToPreviousCard(),

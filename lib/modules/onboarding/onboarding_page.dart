@@ -81,8 +81,6 @@ class OnboardingPage extends StatelessWidget {
                                 );
                               }
 
-                              //TODO: Step4
-
                               return Container();
                             })),
                     CustomSpacer(),

@@ -54,7 +54,7 @@ class OnboardingController extends GetxController {
   bool get showFinalView => _showFinalView.value;
 
   ///Step2
-  final int minAge = 16;
+  final int minAge = 14;
   final int maxAge = 115;
 
   RxInt indexAgeSelected = (-1).obs;
@@ -101,7 +101,7 @@ class OnboardingController extends GetxController {
       onContinueTap();
       return;
     }
-    UserManager.setCountryId(_countries![index]);
+    UserManager.setCountry(_countries![index]);
     indexCountrySelected.value = index;
     _localDataRepository.country = _countries![index].toJson();
     updateButtonState();
@@ -173,7 +173,7 @@ class OnboardingController extends GetxController {
       if (onBoarded == true) {
         try {
           _cardData =
-              StatementsParser.getCardModelList(DataManager().statements!)
+              StatementsParser.getCardModelList(DataManager().getStatements())
                   .first;
         } catch (e) {
           debugPrint(e.toString());

@@ -3,16 +3,16 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
+import 'package:palumba_eu/modules/settings/helpers/category_sponsor.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SettingsPageController extends GetxController {
   static const route = '/settings';
-
-  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   final String rebuildLanguageKey = 'rebuildLanguage';
 
@@ -22,7 +22,7 @@ class SettingsPageController extends GetxController {
 
   Language? get selectedLang => getSelectedLanguage();
 
-  Rx<List<Sponsor>?> sponsors = Rx(null);
+  Rx<List<CategorySponsor>?> categoriesSponsors = Rx(null);
 
   @override
   void onInit() {
@@ -31,7 +31,26 @@ class SettingsPageController extends GetxController {
   }
 
   void _initSponsors() async {
-    sponsors.value = await _dataRepository.fetchSponsors();
+    var response = DataManager().getSponsors();
+
+    var categories = <CategorySponsor>[];
+    var category = '';
+    var sponsors = <Sponsor>[];
+    for (var i = 0; i < response.length; i++) {
+      var sponsor = response[i];
+
+      if (category.isNotEmpty && category != sponsor.category) {
+        categories.add(CategorySponsor(category: category, sponsors: sponsors));
+        sponsors = [];
+      }
+
+      category = sponsor.category ?? '';
+      sponsors.add(sponsor);
+    }
+
+    categories.add(CategorySponsor(category: category, sponsors: sponsors));
+
+    categoriesSponsors.value = categories;
   }
 
   Language? getSelectedLanguage() {
@@ -74,6 +93,7 @@ class SettingsPageController extends GetxController {
   }
 
   void shareApp() {
-    //TODO: Share link to share the app.
+    Share.share(
+        '${S.of(Get.context!).settingsPageShareText} ${StringUtils.webUrl}');
   }
 }
