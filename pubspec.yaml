@@ -43,6 +43,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   matrix4_transform: ^3.0.1
   appinio_swiper: ^2.1.1
+  dotted_border: ^2.1.0
 
   # Localization Modules
   intl: ^0.18.1

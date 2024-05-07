@@ -1,5 +1,6 @@
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
+import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 
 class DataManager {
@@ -16,6 +17,7 @@ class DataManager {
   List<Statement>? statements;
   List<PoliticParty>? parties;
   List<Topic>? topics;
+  List<Sponsor>? sponsors;
 
   void setLanguages(List<Language>? languages) {
     this.languages = languages;
@@ -55,5 +57,13 @@ class DataManager {
 
   List<Topic> getTopics() {
     return topics ?? [];
+  }
+
+  void setSponsors(List<Sponsor>? sponsors) {
+    this.sponsors = sponsors;
+  }
+
+  List<Sponsor> getSponsors() {
+    return sponsors ?? [];
   }
 }

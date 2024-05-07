@@ -1,8 +1,11 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
+import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
+import 'package:palumba_eu/global_widgets/custom_html_widget.dart';
 
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
@@ -30,11 +33,81 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   _buildHeaders(context, _),
-                  _buildBody(_),
+                  Obx(
+                    () => _.showBanner
+                        ? _buildBodyBanner(context, _)
+                        : _buildBodyPageView(_),
+                  ),
                   _buildFooter(context, _)
                 ],
               ),
             )),
+      ),
+    );
+  }
+
+  Widget _buildBodyBanner(BuildContext context, HomePageController _) {
+    final youthCardSponsor = _.getYouthCardSponsor();
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.all(AppDimens.bigLateralPaddingValue),
+        width: double.infinity,
+        color: AppColors.extraLightYellow,
+        child: DottedBorder(
+          color: AppColors.lightYellow,
+          strokeWidth: 3,
+          dashPattern: [
+            5,
+            5,
+          ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                CustomSpacer(multiplier: 3),
+                Container(
+                  height: 128,
+                  width: 264,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(AppDimens.borderRadius),
+                    image: DecorationImage(
+                      image: NetworkImage(youthCardSponsor.bannerImage ?? ''),
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ),
+                CustomSpacer(multiplier: 3),
+                Padding(
+                  padding: AppDimens.lateralPadding,
+                  child: CustomHtmlWidget(
+                    content: youthCardSponsor.bannerDescription ?? '',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                CustomSpacer(multiplier: 2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: _.showBannerWidget,
+                      child: AppTexts.regular(
+                          S.of(context).resultsPage10NopButton,
+                          black: true,
+                          color: AppColors.primary),
+                    ),
+                    CustomHorizontalSpacer(),
+                    CustomButton(
+                      onPressed: () => _.launchUrl(youthCardSponsor.bannerLink ?? ''),
+                      text: S.of(context).resultsPage10YesButton,
+                      //Default parameters
+                      border: ButtonBorderParameters(),
+                    ),
+                  ],
+                ),
+                CustomSpacer(multiplier: 2),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -50,10 +123,25 @@ class HomePage extends StatelessWidget {
           AppTexts.title(S.of(context).shortAppName,
               color: AppColors.primary, fontSize: 27.5),
           Spacer(),
-          TextButton(
-            onPressed: _.launchFaqUrl,
-            child: AppTexts.regular(S.of(context).faq,
-                bold: true, color: AppColors.primary),
+          GetBuilder<HomePageController>(
+            id: _.resultsExistsKey,
+            builder: (controller) => _.resultsData.isEmpty
+                ? TextButton(
+                    onPressed: _.launchFaqUrl,
+                    child: AppTexts.regular(S.of(context).faq,
+                        bold: true, color: AppColors.primary),
+                  )
+                : TextButton(
+                    onPressed: _.showBannerWidget,
+                    child: Obx(() => SvgPicture.asset(
+                          'assets/images/ic_egg.svg',
+                          colorFilter: ColorFilter.mode(
+                              _.showBanner
+                                  ? AppColors.lightYellow
+                                  : AppColors.primary,
+                              BlendMode.srcIn),
+                        )),
+                  ),
           ),
           TextButton(
             onPressed: _.goToSettings,
@@ -64,7 +152,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildBody(HomePageController _) {
+  Widget _buildBodyPageView(HomePageController _) {
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

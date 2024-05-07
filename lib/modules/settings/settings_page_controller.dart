@@ -32,7 +32,8 @@ class SettingsPageController extends GetxController {
   }
 
   void _initSponsors() async {
-    var response = await _dataRepository.fetchSponsors();
+    var response = DataManager()
+        .getSponsors(); //(await _dataRepository.fetchSponsors())?.data ?? [];
 
     var categories = <CategorySponsor>[];
     var category = '';

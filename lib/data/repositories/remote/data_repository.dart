@@ -16,5 +16,5 @@ class DataRepository {
 
   Future<ResultsData?> fetchResultsInfo() => _api.fetchResultsInfo();
 
-  Future<List<Sponsor>> fetchSponsors() => _api.fetchSponsors();
+  Future<SponsorsData?> fetchSponsors() => _api.fetchSponsors();
 }
