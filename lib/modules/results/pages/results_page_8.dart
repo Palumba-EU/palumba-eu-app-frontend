@@ -51,7 +51,6 @@ class ResultsPage8 extends GetView<ResultsController> {
                 textAlign: TextAlign.center,
               ),
             ),
-            CustomSpacer(),
             AppTexts.title(
                 maxTopic.isExtreme1
                     ? maxTopic.topicData.extreme1 ?? ''
@@ -60,7 +59,8 @@ class ResultsPage8 extends GetView<ResultsController> {
             CustomSpacer(),
 
             Padding(
-              padding: AppDimens.lateralPadding,
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppDimens.bigLateralPaddingValue),
               child: CustomHtmlWidget(
                 content: maxTopic.topicData.extreme2Details ?? '',
                 textStyle: TextStyle(
