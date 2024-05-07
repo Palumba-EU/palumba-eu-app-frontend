@@ -136,7 +136,7 @@ class ResultsPage extends GetView<ResultsController> {
               ),
 
               //Share button only showed in showButtonSharePages
-              /*Obx(
+              Obx(
                 () => controller.showButtonSharePages
                         .contains(controller.currentPage)
                     ? Padding(
@@ -155,8 +155,10 @@ class ResultsPage extends GetView<ResultsController> {
                                 color: AppColors.primary //Color(0XFFAEAEAE),
                                 ),
                             radius: AppDimens.borderRadius,
-                            color: AppColors.yellow, //Color(0XFF1F1F1F),
-                            textColor: AppColors.primary, //Color(0XFFAEAEAE),
+                            color: AppColors.yellow,
+                            //Color(0XFF1F1F1F),
+                            textColor: AppColors.primary,
+                            //Color(0XFFAEAEAE),
                             bold: true,
                             border: ButtonBorderParameters(
                                 isOutside: true,
@@ -168,7 +170,7 @@ class ResultsPage extends GetView<ResultsController> {
                         ),
                       )
                     : SizedBox.shrink(),
-              ),*/
+              ),
             ],
           )),
     );

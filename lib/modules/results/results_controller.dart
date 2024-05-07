@@ -253,7 +253,7 @@ class ResultsController extends GetxController {
     await file.writeAsBytes(bytes!);
     final xFile = XFile(file.path);
     await Share.shareXFiles([xFile],
-        text: '#${S.of(Get.context!).shortAppName}');
+        text: '#Palumba | ${StringUtils.webUrl}');
     _loadingShare.value = false;
   }
 

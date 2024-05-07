@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_selector.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -141,7 +142,7 @@ class SettingsPage extends StatelessWidget {
             ],
           ),
         )),
-        /*floatingActionButton: Padding(
+        floatingActionButton: Padding(
           padding: const EdgeInsets.symmetric(
               vertical: AppDimens.bigLateralPaddingValue, horizontal: 20),
           child: CustomButton(
@@ -153,12 +154,11 @@ class SettingsPage extends StatelessWidget {
             radius: AppDimens.borderRadius,
             color: Color(0XFF1F1F1F),
             textColor: Color(0XFFAEAEAE),
-            black: true,
             border: ButtonBorderParameters(
                 isOutside: true, width: 3, color: Color(0XFFAEAEAE)),
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,*/
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
