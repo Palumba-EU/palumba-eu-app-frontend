@@ -7,6 +7,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../components/custom_semicircle_chart/custom_hemicycle_chart.dart';
 import '../results_controller.dart';
@@ -16,74 +17,77 @@ class ResultsPage3 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.background,
-      child: SingleChildScrollView(
-          child: SafeArea(
-        child: Column(
-          children: [
-            CustomSpacer(multiplier: 3),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: Get.width * .5,
-                  child: Padding(
-                    padding: AppDimens.lateralPadding,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: controller.chartData.length,
-                        itemBuilder: (context, index) {
-                          final data = controller.chartData[index];
-                          return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                AppTexts.medium(data.percentage,
-                                    color: AppColors.primary),
-                                AppTexts.medium(data.party,
-                                    color: AppColors.primary, black: true),
-                                CustomSpacer(),
-                              ]);
-                        }),
+    return SingleChildScrollView(
+        child: SafeArea(
+      child: Screenshot(
+        controller: controller.screenshotPagesControllers[2]!,
+        child: Container(
+          color: AppColors.background,
+          child: Column(
+            children: [
+              CustomSpacer(multiplier: 3),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: Get.width * .5,
+                    child: Padding(
+                      padding: AppDimens.lateralPadding,
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: controller.chartData.length,
+                          itemBuilder: (context, index) {
+                            final data = controller.chartData[index];
+                            return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  AppTexts.medium(data.percentage,
+                                      color: AppColors.primary),
+                                  AppTexts.medium(data.party,
+                                      color: AppColors.primary, black: true),
+                                  CustomSpacer(),
+                                ]);
+                          }),
+                    ),
                   ),
-                ),
-                Obx(
-                  () => controller.currentPage != 2
-                      ? SizedBox.shrink()
-                      : SizedBox(
-                          width: Get.width * .5,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                right: 18,
-                                top: AppDimens.smallLateralPaddingValue),
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: CustomHemicycleChart(
-                                arcDiameter: Get.width * .85,
-                                charts: controller.chartData,
+                  Obx(
+                    () => controller.currentPage != 2
+                        ? SizedBox.shrink()
+                        : SizedBox(
+                            width: Get.width * .5,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  right: 18,
+                                  top: AppDimens.smallLateralPaddingValue),
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: CustomHemicycleChart(
+                                  arcDiameter: Get.width * .85,
+                                  charts: controller.chartData,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                ),
-              ],
-            ),
-            CustomSpacer(
-              multiplier: 3,
-            ),
-            Padding(
-              padding: AppDimens.lateralPadding,
-              child: AppTexts.title(S.of(context).resultsPage3Title,
-                  color: AppColors.primary),
-            ),
-            CustomSpacer(
-              multiplier: 12,
-            ),
-          ],
+                  ),
+                ],
+              ),
+              CustomSpacer(
+                multiplier: 3,
+              ),
+              Padding(
+                padding: AppDimens.lateralPadding,
+                child: AppTexts.title(S.of(context).resultsPage3Title,
+                    color: AppColors.primary),
+              ),
+              CustomSpacer(
+                multiplier: 12,
+              ),
+            ],
+          ),
         ),
-      )),
-    );
+      ),
+    ));
   }
 }
 

@@ -20,7 +20,7 @@ dependencies:
   # Core Modules
   get: ^4.6.6
   provider: ^6.1.2
-  widgets_to_image: ^0.0.3
+  screenshot: ^2.3.0
   path_provider: ^2.1.3
 
   # Native Specific Modules

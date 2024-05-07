@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
@@ -21,8 +20,6 @@ class HomePageController extends GetxController {
   PageController pageController = PageController();
 
   LocalDataRepository _localDataRepository = Get.find<LocalDataRepository>();
-
-  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   List<Map> answersData = [];
 

@@ -26,17 +26,15 @@ import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
-import 'package:palumba_eu/utils/common_ui/alert.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:widgets_to_image/widgets_to_image.dart';
 
 import 'models/custom_chart_data.dart';
 import 'pages/results_page_5.dart';
@@ -46,21 +44,30 @@ class ResultsController extends GetxController {
 
   final pageController = PageController();
   final List<Widget> pages = [
-    ResultsPage1(),
-    ResultsPage2(),
-    ResultsPage3(),
-    ResultsPage4(),
-    ResultsPage5(),
-    ResultsPage6(),
-    ResultsPage7(),
-    ResultsPage8(),
-    ResultsPage9(),
-    ResultsPage10(),
+    ResultsPage1(key: Key("1")),
+    ResultsPage2(key: Key("2")),
+    ResultsPage3(key: Key("3")),
+    ResultsPage4(key: Key("4")),
+    ResultsPage5(key: Key("5")),
+    ResultsPage6(key: Key("6")),
+    ResultsPage7(key: Key("7")),
+    ResultsPage8(key: Key("8")),
+    ResultsPage9(key: Key("9")),
+    ResultsPage10(key: Key("10")),
   ];
 
-  //Capture widget image controller
-  WidgetsToImageController widgetToImagecontroller = WidgetsToImageController();
-  Uint8List? bytes;
+  final List<ScreenshotController?> screenshotPagesControllers = [
+    null,
+    ScreenshotController(),
+    ScreenshotController(),
+    ScreenshotController(),
+    ScreenshotController(),
+    null,
+    ScreenshotController(),
+    ScreenshotController(),
+    ScreenshotController(),
+    null,
+  ];
 
   UserData get userData => UserManager.userData;
 
@@ -106,6 +113,8 @@ class ResultsController extends GetxController {
   //ResultsPage9
   final swiperController = AppinioSwiperController();
   List<CardStatementData> cardsData = <CardStatementData>[];
+
+  GlobalKey globalKey = GlobalKey();
 
   @override
   void onInit() {
@@ -244,16 +253,16 @@ class ResultsController extends GetxController {
   }
 
   void shareContent() async {
-    if (_loadingShare.value) return;
+    if (_loadingShare.value || screenshotPagesControllers[currentPage] == null)
+      return;
     _loadingShare.value = true;
-    bytes = await widgetToImagecontroller.capture();
+    final bytes = await screenshotPagesControllers[currentPage]!.capture();
 
     final directory = await getTemporaryDirectory();
     final file = File('${directory.path}/screenshot.jpg');
     await file.writeAsBytes(bytes!);
     final xFile = XFile(file.path);
-    await Share.shareXFiles([xFile],
-        text: '#Palumba | ${StringUtils.webUrl}');
+    await Share.shareXFiles([xFile], text: '#Palumba | ${StringUtils.webUrl}');
     _loadingShare.value = false;
   }
 

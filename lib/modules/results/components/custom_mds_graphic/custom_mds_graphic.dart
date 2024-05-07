@@ -34,13 +34,6 @@ class CustomMDSGraphic extends StatelessWidget {
           children: [
             Padding(
               padding: padding,
-              child: DottedContainer(
-                  width: double.infinity,
-                  height: double.infinity,
-                  pointColor: pointColor),
-            ),
-            Padding(
-              padding: padding,
               child: GraphicAxis(
                 assetImage: 'palumba_badge_compass',
               ),
@@ -82,7 +75,8 @@ class CustomMDSGraphic extends StatelessWidget {
         alignment: alignment,
         child: RotatedBox(
             quarterTurns: quarterTurns,
-            child: AppTexts.regular(text, color: AppColors.primary)));
+            child: AppTexts.regular(text,
+                color: AppColors.lightPrimary, bold: true)));
   }
 }
 
