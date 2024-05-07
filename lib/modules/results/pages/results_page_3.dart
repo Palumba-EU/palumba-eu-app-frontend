@@ -16,71 +16,74 @@ class ResultsPage3 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: SafeArea(
-      child: Column(
-        children: [
-          CustomSpacer(multiplier: 3),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: Get.width * .5,
-                child: Padding(
-                  padding: AppDimens.lateralPadding,
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: controller.chartData.length,
-                      itemBuilder: (context, index) {
-                        final data = controller.chartData[index];
-                        return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              AppTexts.medium(data.percentage,
-                                  color: AppColors.primary),
-                              AppTexts.medium(data.party,
-                                  color: AppColors.primary, bold: true),
-                              CustomSpacer(),
-                            ]);
-                      }),
+    return Container(
+      color: AppColors.background,
+      child: SingleChildScrollView(
+          child: SafeArea(
+        child: Column(
+          children: [
+            CustomSpacer(multiplier: 3),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: Get.width * .5,
+                  child: Padding(
+                    padding: AppDimens.lateralPadding,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: controller.chartData.length,
+                        itemBuilder: (context, index) {
+                          final data = controller.chartData[index];
+                          return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppTexts.medium(data.percentage,
+                                    color: AppColors.primary),
+                                AppTexts.medium(data.party,
+                                    color: AppColors.primary, bold: true),
+                                CustomSpacer(),
+                              ]);
+                        }),
+                  ),
                 ),
-              ),
-              Obx(
-                () => controller.currentPage != 2
-                    ? SizedBox.shrink()
-                    : SizedBox(
-                        width: Get.width * .5,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              right: 18,
-                              top: AppDimens.smallLateralPaddingValue),
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: CustomHemicycleChart(
-                              arcDiameter: Get.width * .85,
-                              charts: controller.chartData,
+                Obx(
+                  () => controller.currentPage != 2
+                      ? SizedBox.shrink()
+                      : SizedBox(
+                          width: Get.width * .5,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right: 18,
+                                top: AppDimens.smallLateralPaddingValue),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: CustomHemicycleChart(
+                                arcDiameter: Get.width * .85,
+                                charts: controller.chartData,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-              ),
-            ],
-          ),
-          CustomSpacer(
-            multiplier: 3,
-          ),
-          Padding(
-            padding: AppDimens.lateralPadding,
-            child: AppTexts.title(S.of(context).resultsPage3Title,
-                color: AppColors.primary),
-          ),
-          CustomSpacer(
-            multiplier: 12,
-          ),
-        ],
-      ),
-    ));
+                ),
+              ],
+            ),
+            CustomSpacer(
+              multiplier: 3,
+            ),
+            Padding(
+              padding: AppDimens.lateralPadding,
+              child: AppTexts.title(S.of(context).resultsPage3Title,
+                  color: AppColors.primary),
+            ),
+            CustomSpacer(
+              multiplier: 12,
+            ),
+          ],
+        ),
+      )),
+    );
   }
 }
 

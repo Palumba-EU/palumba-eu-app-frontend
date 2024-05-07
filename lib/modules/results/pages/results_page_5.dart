@@ -19,58 +19,61 @@ class ResultsPage5 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomSpacer(),
-        Expanded(
-            child: SingleChildScrollView(
-          child: Column(
-            children: [
-              CustomSpacer(
-                multiplier: 2,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: AppDimens.bigLateralPaddingValue),
-                child: AppTexts.small(S.of(context).resultsPage5Title,
-                    color: AppColors.primary,
-                    bold: true,
-                    textAlign: TextAlign.center),
-              ),
-              CustomSpacer(
-                multiplier: 3,
-              ),
-              ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    final topic = controller.topics[index];
-                    final needleData =
-                        controller.needlePositionsForTopic(topic.id!);
-                    return TopicIndicatorWidget(
-                      title: topic.name ?? '',
-                      color: Utils.getApiColor(topic.color!),
-                      position: needleData.fraction,
-                      party1: controller.maxPercentagePoliticParty?.party,
-                      party2: needleData.topicMatch,
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.symmetric(vertical: 20),
-                      height: 1,
-                      width: double.infinity,
-                      color: AppColors.yellow,
-                    );
-                  },
-                  itemCount: controller.topics.length),
-              CustomSpacer(
-                multiplier: 12,
-              )
-            ],
-          ),
-        ))
-      ],
+    return Container(
+      color: AppColors.background,
+      child: Column(
+        children: [
+          CustomSpacer(),
+          Expanded(
+              child: SingleChildScrollView(
+            child: Column(
+              children: [
+                CustomSpacer(
+                  multiplier: 2,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppDimens.bigLateralPaddingValue),
+                  child: AppTexts.small(S.of(context).resultsPage5Title,
+                      color: AppColors.primary,
+                      bold: true,
+                      textAlign: TextAlign.center),
+                ),
+                CustomSpacer(
+                  multiplier: 3,
+                ),
+                ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      final topic = controller.topics[index];
+                      final needleData =
+                          controller.needlePositionsForTopic(topic.id!);
+                      return TopicIndicatorWidget(
+                        title: topic.name ?? '',
+                        color: Utils.getApiColor(topic.color!),
+                        position: needleData.fraction,
+                        party1: controller.maxPercentagePoliticParty?.party,
+                        party2: needleData.topicMatch,
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.symmetric(vertical: 20),
+                        height: 1,
+                        width: double.infinity,
+                        color: AppColors.yellow,
+                      );
+                    },
+                    itemCount: controller.topics.length),
+                CustomSpacer(
+                  multiplier: 12,
+                )
+              ],
+            ),
+          ))
+        ],
+      ),
     );
   }
 }

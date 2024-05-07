@@ -16,70 +16,72 @@ class ResultsPage9 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomSpacer(
-          multiplier: 3,
-        ),
-        Expanded(
-            child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50),
-          //TODO
-          child: controller.cardsData.isEmpty
-              ? const SizedBox.shrink()
-              : AppinioSwiper(
-                  controller: controller.swiperController,
-                  cardCount: controller.cardsData.length,
-                  backgroundCardCount: 1,
-                  backgroundCardScale: 1.0,
-                  isDisabled: true,
-                  backgroundCardOffset: Offset.zero,
-                  swipeOptions: SwipeOptions.only(left: true, right: true),
-                  loop: true,
-                  cardBuilder: (BuildContext context, int index) {
-                    var card = controller.cardsData[index];
-                    return GestureDetector(
-                      onTapDown: (details) {
-                        if (card.answer.answer ==
-                            StatementResponse.stronglyDisagree) {
-                          controller.swiperController.swipeLeft();
-                        } else {
-                          controller.swiperController.swipeRight();
-                        }
-                      },
-                      child: Transform.rotate(
-                        angle: index % 2 == 0 ? 0.03 : -0.03,
-                        child: CardWidget(
-                          data: card,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-        )),
-        CustomSpacer(
-          multiplier: 3,
-        ),
-        Padding(
-          padding: AppDimens.lateralPadding,
-          child: Column(
-            children: [
-              AppTexts.small(S.of(context).resultsPage9Help,
-                  color: AppColors.primary),
-              CustomSpacer(),
-              AppTexts.regular(S.of(context).resultsPage9Text1,
-                  color: AppColors.primary,
-                  textAlign: TextAlign.center,
-                  fontSize: AppDimens.fontSizeTitle),
-              AppTexts.title(S.of(context).resultsPage9Text2,
-                  color: AppColors.primary, textAlign: TextAlign.center),
-            ],
+    return Container(
+      child: Column(
+        children: [
+          CustomSpacer(
+            multiplier: 3,
           ),
-        ),
-        CustomSpacer(
-          multiplier: 12,
-        )
-      ],
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            //TODO
+            child: controller.cardsData.isEmpty
+                ? const SizedBox.shrink()
+                : AppinioSwiper(
+                    controller: controller.swiperController,
+                    cardCount: controller.cardsData.length,
+                    backgroundCardCount: 1,
+                    backgroundCardScale: 1.0,
+                    isDisabled: true,
+                    backgroundCardOffset: Offset.zero,
+                    swipeOptions: SwipeOptions.only(left: true, right: true),
+                    loop: true,
+                    cardBuilder: (BuildContext context, int index) {
+                      var card = controller.cardsData[index];
+                      return GestureDetector(
+                        onTapDown: (details) {
+                          if (card.answer.answer ==
+                              StatementResponse.stronglyDisagree) {
+                            controller.swiperController.swipeLeft();
+                          } else {
+                            controller.swiperController.swipeRight();
+                          }
+                        },
+                        child: Transform.rotate(
+                          angle: index % 2 == 0 ? 0.03 : -0.03,
+                          child: CardWidget(
+                            data: card,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+          )),
+          CustomSpacer(
+            multiplier: 3,
+          ),
+          Padding(
+            padding: AppDimens.lateralPadding,
+            child: Column(
+              children: [
+                AppTexts.small(S.of(context).resultsPage9Help,
+                    color: AppColors.primary),
+                CustomSpacer(),
+                AppTexts.regular(S.of(context).resultsPage9Text1,
+                    color: AppColors.primary,
+                    textAlign: TextAlign.center,
+                    fontSize: AppDimens.fontSizeTitle),
+                AppTexts.title(S.of(context).resultsPage9Text2,
+                    color: AppColors.primary, textAlign: TextAlign.center),
+              ],
+            ),
+          ),
+          CustomSpacer(
+            multiplier: 12,
+          )
+        ],
+      ),
     );
   }
 }

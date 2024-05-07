@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:appinio_swiper/appinio_swiper.dart';
@@ -23,15 +24,19 @@ import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
+import 'package:palumba_eu/utils/common_ui/alert.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:widgets_to_image/widgets_to_image.dart';
 
 import 'models/custom_chart_data.dart';
 import 'pages/results_page_5.dart';
@@ -53,6 +58,10 @@ class ResultsController extends GetxController {
     ResultsPage10(),
   ];
 
+  //Capture widget image controller
+  WidgetsToImageController widgetToImagecontroller = WidgetsToImageController();
+  Uint8List? bytes;
+
   UserData get userData => UserManager.userData;
 
   final List<int> showButtonSharePages = [1, 2, 3, 4, 6, 7, 8];
@@ -64,6 +73,9 @@ class ResultsController extends GetxController {
   bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 8;
 
   bool get isTablet => Get.width >= 600;
+
+  RxBool _loadingShare = false.obs;
+  bool get loadingShare => _loadingShare.value;
 
   //Data
   List<Answer> _answersData = [];
@@ -224,8 +236,18 @@ class ResultsController extends GetxController {
     Get.offAllNamed(HomePageController.route);
   }
 
-  void shareContent() {
-    //TODO: el botó de compartir ha d'enviar la imatge en pantalla.
+  void shareContent() async {
+    if (_loadingShare.value) return;
+    _loadingShare.value = true;
+    bytes = await widgetToImagecontroller.capture();
+
+    final directory = await getTemporaryDirectory();
+    final file = File('${directory.path}/screenshot.jpg');
+    await file.writeAsBytes(bytes!);
+    final xFile = XFile(file.path);
+    await Share.shareXFiles([xFile],
+        text: '#${S.of(Get.context!).shortAppName}');
+    _loadingShare.value = false;
   }
 
   //Convert svg to image
@@ -242,15 +264,6 @@ class ResultsController extends GetxController {
   }
 
   void getScatterPoints() async {
-    final userPosition = calculateCompassPosition(answersData);
-
-    //This is user scatter point
-    scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
-        dotPainter: FlDotCirclePainterCustom(
-            image: await loadAssetImage('palumba_badge_heart_small'),
-            radius: 2,
-            imageRounded: false)));
-
     //This are parties Scatter points
     for (var data in _resultsData) {
       final partyPosition = calculateCompassPosition(data.party.answers ?? []);
@@ -264,6 +277,14 @@ class ResultsController extends GetxController {
                 radius: 15,
               )));
     }
+    final userPosition = calculateCompassPosition(answersData);
+
+    //This is user scatter point
+    scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
+        dotPainter: FlDotCirclePainterCustom(
+            image: await loadAssetImage('palumba_badge_heart_small'),
+            radius: 2,
+            imageRounded: false)));
   }
 
   Future<ui.Image> loadAssetImage(String asset) async {
