@@ -59,7 +59,7 @@ class ResultsPage10 extends GetView<ResultsController> {
                     arguments: {StringUtils.fromResultsKey: true});
               },
               child: AppTexts.regular(S.of(context).resultsPage10NopButton,
-                  black: true, color: AppColors.primary),
+                  bold: true, color: AppColors.primary),
             ),
             CustomHorizontalSpacer(),
             CustomButton(

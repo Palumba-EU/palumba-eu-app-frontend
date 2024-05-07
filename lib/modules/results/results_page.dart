@@ -173,12 +173,13 @@ class ResultsPage extends GetView<ResultsController> {
                                     text: S.of(context).resultsShare,
                                     expanded: true,
                                     onPressed: controller.shareContent,
-                                    prefixIcon: IconButtonParameters('ic_share',
-                                        size: 18,
+                                    prefixIcon: IconButtonParameters(
+                                      'ic_share',
+                                      size: 18,
                                       color: controller.isSpecialPage
                                           ? Colors.white
                                           : AppColors.primary,
-                                        ),
+                                    ),
                                     radius: AppDimens.borderRadius,
                                     color: controller.isSpecialPage
                                         ? AppColors.primary
@@ -193,12 +194,11 @@ class ResultsPage extends GetView<ResultsController> {
                                         color: controller.isSpecialPage
                                             ? AppColors.lightPrimary
                                             : AppColors.lightYellow),
-                                        ),
                                   ),
                                 ),
                               )
                             : SizedBox.shrink(),
-                  ),
+                  )
                 ],
               ),
             )),

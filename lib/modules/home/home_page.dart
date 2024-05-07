@@ -60,27 +60,25 @@ class HomePage extends StatelessWidget {
             5,
           ],
           child: SingleChildScrollView(
+            padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CustomSpacer(multiplier: 3),
                 Container(
-                  height: 128,
-                  width: 264,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppDimens.borderRadius),
-                    image: DecorationImage(
-                      image: NetworkImage(youthCardSponsor.bannerImage ?? ''),
-                      fit: BoxFit.fitHeight,
-                    ),
+                  ),
+                  child: Image.network(
+                    youthCardSponsor.bannerImage ?? '',
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
-                CustomSpacer(multiplier: 3),
-                Padding(
-                  padding: AppDimens.lateralPadding,
-                  child: CustomHtmlWidget(
-                    content: youthCardSponsor.bannerDescription ?? '',
-                    textAlign: TextAlign.center,
-                  ),
+                CustomSpacer(multiplier: 2),
+                CustomHtmlWidget(
+                  content: youthCardSponsor.bannerDescription ?? '',
+                  textAlign: TextAlign.center,
+                  textStyle: TextStyle(fontSize: AppDimens.fontSizeSmall),
                 ),
                 CustomSpacer(multiplier: 2),
                 Row(
@@ -88,15 +86,17 @@ class HomePage extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: _.showBannerWidget,
-                      child: AppTexts.regular(
+                      child: AppTexts.small(
                           S.of(context).resultsPage10NopButton,
-                          black: true,
+                          bold: true,
                           color: AppColors.primary),
                     ),
                     CustomHorizontalSpacer(),
                     CustomButton(
-                      onPressed: () => _.launchUrl(youthCardSponsor.bannerLink ?? ''),
+                      onPressed: () =>
+                          _.launchUrl(youthCardSponsor.bannerLink ?? ''),
                       text: S.of(context).resultsPage10YesButton,
+                      bold: true,
                       //Default parameters
                       border: ButtonBorderParameters(),
                     ),

@@ -116,7 +116,7 @@ class ResultsPage2 extends GetView<ResultsController> {
                                 text:
                                     ' ${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
                                 style: TextStyle(
-                                    color: controller.getFirstPartyColor()),
+                                    color: controller.getPartyColor()),
                               ),
                               TextSpan(
                                 text: S.of(context).resultsPage2_2Title,

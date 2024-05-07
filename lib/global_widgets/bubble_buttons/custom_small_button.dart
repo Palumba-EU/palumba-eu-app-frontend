@@ -54,12 +54,14 @@ class CustomSmallButtonCurve extends StatelessWidget {
             bottom: 0,
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
-            child: Center(
+            child: IgnorePointer(
+    child:
+            Center(
                 child: SvgPicture.asset(
               'assets/images/$icon.svg',
               height: 20,
               fit: BoxFit.fitHeight,
-            ))),
+            )))),
       ],
     );
   }
@@ -69,13 +71,12 @@ class _CustomSmallButtonPainter extends CustomPainter {
   final double curveRadius;
   final Color? color;
   final Color borderColor;
-  final double borderWidth;
 
-  _CustomSmallButtonPainter._CustomBigButtonPainter(
-      {required this.curveRadius,
-      required this.color,
-      this.borderColor = Colors.white,
-      this.borderWidth = 4.0});
+  _CustomSmallButtonPainter._CustomBigButtonPainter({
+    required this.curveRadius,
+    required this.color,
+    this.borderColor = Colors.white,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -89,7 +90,7 @@ class _CustomSmallButtonPainter extends CustomPainter {
     // Draw border
     paint.color = borderColor;
     paint.style = PaintingStyle.stroke;
-    paint.strokeWidth = borderWidth;
+    paint.strokeWidth = 4.0;
     _drawShapeBorder(canvas, size, paint);
   }
 
@@ -186,13 +187,12 @@ class _CustomSmallButtonSelectedPainter extends CustomPainter {
   final double curveRadius;
   final Color? color;
   final Color borderColor;
-  final double borderWidth;
 
-  _CustomSmallButtonSelectedPainter._CustomSmallSelectedButtonPainter(
-      {required this.curveRadius,
-      required this.color,
-      this.borderColor = Colors.white,
-      this.borderWidth = 4.0});
+  _CustomSmallButtonSelectedPainter._CustomSmallSelectedButtonPainter({
+    required this.curveRadius,
+    required this.color,
+    this.borderColor = Colors.white,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -206,7 +206,7 @@ class _CustomSmallButtonSelectedPainter extends CustomPainter {
     // Draw border
     paint.color = borderColor;
     paint.style = PaintingStyle.stroke;
-    paint.strokeWidth = borderWidth;
+    paint.strokeWidth = 4.0;
     _drawShapeBorder(canvas, size, paint);
   }
 

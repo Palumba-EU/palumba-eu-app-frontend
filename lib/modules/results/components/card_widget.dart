@@ -162,13 +162,11 @@ class _CustomButtonPainter extends CustomPainter {
   final double curveRadius;
   final Color? color;
   final Color borderColor;
-  final double borderWidth;
 
   _CustomButtonPainter._CustomBigButtonPainter({
     required this.curveRadius,
     required this.color,
     this.borderColor = Colors.white,
-    this.borderWidth = 8.0,
   });
 
   @override
@@ -184,7 +182,7 @@ class _CustomButtonPainter extends CustomPainter {
     // Draw border
     paint.color = borderColor;
     paint.style = PaintingStyle.stroke;
-    paint.strokeWidth = borderWidth;
+    paint.strokeWidth = 8.0;
     _drawBorderShape(canvas, size, paint);
   }
 

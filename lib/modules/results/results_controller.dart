@@ -274,6 +274,7 @@ class ResultsController extends GetxController {
     if (_loadingShare.value || screenshotPagesControllers[currentPage] == null)
       return;
     _loadingShare.value = true;
+    await Future.delayed(Durations.short1);
     final bytes = await screenshotPagesControllers[currentPage]!.capture();
 
     final directory = await getTemporaryDirectory();
@@ -316,7 +317,7 @@ class ResultsController extends GetxController {
     //This is user scatter point
     scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
         dotPainter: FlDotCirclePainterCustom(
-            image: await loadAssetImage('palumba_badge_heart_small'),
+            image: await loadAssetImage('img_heart_small'),
             radius: 2,
             imageRounded: false)));
   }
