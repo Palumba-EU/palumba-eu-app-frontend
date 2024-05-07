@@ -40,7 +40,14 @@ class SettingsPageController extends GetxController {
       var sponsor = response[i];
 
       if (category.isNotEmpty && category != sponsor.category) {
-        categories.add(CategorySponsor(category: category, sponsors: sponsors));
+        var current = categories
+            .firstWhereOrNull((element) => element.category == category);
+        if (current != null) {
+          current.sponsors.addAll(sponsors);
+        } else {
+          categories
+              .add(CategorySponsor(category: category, sponsors: sponsors));
+        }
         sponsors = [];
       }
 
@@ -48,7 +55,13 @@ class SettingsPageController extends GetxController {
       sponsors.add(sponsor);
     }
 
-    categories.add(CategorySponsor(category: category, sponsors: sponsors));
+    var current =
+        categories.firstWhereOrNull((element) => element.category == category);
+    if (current != null) {
+      current.sponsors.addAll(sponsors);
+    } else {
+      categories.add(CategorySponsor(category: category, sponsors: sponsors));
+    }
 
     categoriesSponsors.value = categories;
   }
