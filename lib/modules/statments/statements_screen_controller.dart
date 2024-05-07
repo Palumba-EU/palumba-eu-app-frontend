@@ -102,6 +102,9 @@ class StatementsController extends GetxController {
   RxDouble _scale = 1.0.obs;
   RxDouble get scale => _scale;
 
+  int _cardAnimationTime = 300;
+  int _awaitAnimationTime = 325;
+
   @override
   void onInit() {
     clearUserStoredStatements();
@@ -422,14 +425,14 @@ class StatementsController extends GetxController {
   Future<void> disagreeAnimation() async {
     _buttonsBlocked.value = true;
     _isPanStarted.value = true;
-    _cardAnimationDuration.value = 600;
+    _cardAnimationDuration.value = _cardAnimationTime;
     final x = _position.value.dx - (Get.width * .5);
     final centerX = Get.width * .25;
     final difference = x - centerX;
     _angle.value = -difference / centerX * 8;
     _position.value = Offset(-((Get.width * .5) + 50), Get.height * .4);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    await Future.delayed(const Duration(milliseconds: 650));
+    await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
     _isPanStarted.value = false;
   }
@@ -437,14 +440,14 @@ class StatementsController extends GetxController {
   Future<void> agreeAnimation() async {
     _buttonsBlocked.value = true;
     _isPanStarted.value = true;
-    _cardAnimationDuration.value = 600;
+    _cardAnimationDuration.value = _cardAnimationTime;
     final x = _position.value.dx + (Get.width * .5);
     final centerX = Get.width * .25;
     final difference = x - centerX;
     _angle.value = -difference / centerX * 8;
     _position.value = Offset(((Get.width) + 50), Get.height * .4);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    await Future.delayed(const Duration(milliseconds: 650));
+    await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
     _isPanStarted.value = false;
   }
@@ -452,11 +455,11 @@ class StatementsController extends GetxController {
   Future<void> neutralAnimation() async {
     _buttonsBlocked.value = true;
     _isPanStarted.value = true;
-    _cardAnimationDuration.value = 600;
+    _cardAnimationDuration.value = _cardAnimationTime;
 
     _position.value = Offset(_position.value.dx, -Get.height * .3);
     _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    await Future.delayed(const Duration(milliseconds: 650));
+    await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
     _isPanStarted.value = false;
   }
