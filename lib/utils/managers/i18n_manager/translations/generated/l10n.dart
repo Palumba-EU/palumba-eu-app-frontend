@@ -989,6 +989,16 @@ class S {
       args: [],
     );
   }
+
+  /// `If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:`
+  String get settingsPageShareText {
+    return Intl.message(
+      'If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:',
+      name: 'settingsPageShareText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

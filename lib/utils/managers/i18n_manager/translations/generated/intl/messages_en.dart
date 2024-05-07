@@ -158,6 +158,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Data Protection"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Share"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Main Sponsors"),
         "settingsPageSubtitle2":

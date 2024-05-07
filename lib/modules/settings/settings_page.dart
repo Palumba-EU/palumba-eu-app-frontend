@@ -152,10 +152,10 @@ class SettingsPage extends StatelessWidget {
             prefixIcon: IconButtonParameters('ic_share',
                 size: 18, color: Color(0XFFAEAEAE)),
             radius: AppDimens.borderRadius,
-            color: Color(0XFF1F1F1F),
-            textColor: Color(0XFFAEAEAE),
+            color: AppColors.yellow,
+            textColor: AppColors.primary,
             border: ButtonBorderParameters(
-                isOutside: true, width: 3, color: Color(0XFFAEAEAE)),
+                isOutside: true, width: 3, color: AppColors.lightYellow),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

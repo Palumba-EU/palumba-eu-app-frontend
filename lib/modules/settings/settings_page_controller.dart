@@ -6,9 +6,11 @@ import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/settings/helpers/category_sponsor.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SettingsPageController extends GetxController {
   static const route = '/settings';
@@ -94,6 +96,7 @@ class SettingsPageController extends GetxController {
   }
 
   void shareApp() {
-    //TODO: Share link to share the app.
+    Share.share(
+        '${S.of(Get.context!).settingsPageShareText} ${StringUtils.webUrl}');
   }
 }

@@ -152,19 +152,17 @@ class ResultsPage extends GetView<ResultsController> {
                             onPressed: controller.shareContent,
                             prefixIcon: IconButtonParameters('ic_share',
                                 size: 18,
-                                color: AppColors.primary //Color(0XFFAEAEAE),
+                                color: AppColors.primary,
                                 ),
                             radius: AppDimens.borderRadius,
                             color: AppColors.yellow,
-                            //Color(0XFF1F1F1F),
                             textColor: AppColors.primary,
-                            //Color(0XFFAEAEAE),
                             bold: true,
                             border: ButtonBorderParameters(
                                 isOutside: true,
                                 width: 3,
                                 color:
-                                    AppColors.lightYellow //Color(0XFFAEAEAE),
+                                    AppColors.lightYellow
                                 ),
                           ),
                         ),
