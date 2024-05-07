@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
@@ -20,7 +21,7 @@ class ResultsPage9 extends GetView<ResultsController> {
       child: Column(
         children: [
           CustomSpacer(
-            multiplier: 3,
+            multiplier: 2,
           ),
           Expanded(
               child: Padding(
@@ -57,9 +58,7 @@ class ResultsPage9 extends GetView<ResultsController> {
                     },
                   ),
           )),
-          CustomSpacer(
-            multiplier: 3,
-          ),
+          CustomSpacer(),
           Padding(
             padding: AppDimens.lateralPadding,
             child: Column(
@@ -67,17 +66,23 @@ class ResultsPage9 extends GetView<ResultsController> {
                 AppTexts.small(S.of(context).resultsPage9Help,
                     color: AppColors.primary),
                 CustomSpacer(),
-                AppTexts.regular(S.of(context).resultsPage9Text1,
+                AutoSizeText(
+                  S.of(context).resultsPage9Text1,
+                  maxLines: 2,
+                  style: AppTexts.customTextStyle(
+                    AppTextType.regular,
+                    fontSize: 20,
+                    bold: true,
                     color: AppColors.primary,
-                    textAlign: TextAlign.center,
-                    fontSize: AppDimens.fontSizeTitle),
+                  ),
+                ),
                 AppTexts.title(S.of(context).resultsPage9Text2,
                     color: AppColors.primary, textAlign: TextAlign.center),
               ],
             ),
           ),
           CustomSpacer(
-            multiplier: 12,
+            multiplier: 11,
           )
         ],
       ),

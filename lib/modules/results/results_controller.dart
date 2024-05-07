@@ -43,7 +43,7 @@ class ResultsController extends GetxController {
   static const route = '/results';
 
   final pageController = PageController();
-  final List<Widget> pages = [
+  final List<Widget> allPages = [
     ResultsPage1(),
     ResultsPage2(),
     ResultsPage3(),
@@ -55,6 +55,20 @@ class ResultsController extends GetxController {
     ResultsPage9(),
     ResultsPage10(),
   ];
+
+  final List<Widget> noCardsPages = [
+    ResultsPage1(),
+    ResultsPage2(),
+    ResultsPage3(),
+    ResultsPage4(),
+    ResultsPage5(),
+    ResultsPage6(),
+    ResultsPage7(),
+    ResultsPage8(),
+    ResultsPage10(),
+  ];
+
+  List<Widget> get pages => cardsData.isNotEmpty ? allPages : noCardsPages;
 
   //Capture widget image controller
   WidgetsToImageController widgetToImagecontroller = WidgetsToImageController();
@@ -68,7 +82,9 @@ class ResultsController extends GetxController {
 
   int get currentPage => _currentPage.value;
 
-  bool get isSpecialPage => _currentPage.value == 5 || _currentPage.value == 8;
+  bool get isSpecialPage =>
+      _currentPage.value == 5 ||
+      (cardsData.isNotEmpty && _currentPage.value == 8);
 
   bool get isTablet => Get.width >= 600;
 
@@ -191,9 +207,8 @@ class ResultsController extends GetxController {
   Color getPartyColor() {
     final party = maxPercentagePoliticParty;
     if (party?.party.color != null) {
-      return Color(
-          int.parse(party!.party.color!.substring(1, 7), radix: 16) +
-              0xFF000000);
+      return Color(int.parse(party!.party.color!.substring(1, 7), radix: 16) +
+          0xFF000000);
     } else {
       return AppColors.text;
     }

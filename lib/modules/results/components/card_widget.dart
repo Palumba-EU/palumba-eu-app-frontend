@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -46,11 +47,14 @@ class CardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            flex: 5,
+            flex: 3,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Spacer(),
+                CustomSpacer(
+                  multiplier: 2,
+                ),
                 data.statement.emojis != null
                     ? Padding(
                         padding: AppDimens.lateralPadding,
@@ -64,21 +68,27 @@ class CardWidget extends StatelessWidget {
                   multiplier: 2,
                 ),
                 CustomSpacer(small: true),
-                Padding(
+                Flexible(
+                    child: Padding(
                   padding: AppDimens.lateralPadding,
-                  child: AppTexts.title(
+                  child: AutoSizeText(
                     data.statement.statement ?? '',
+                    style: AppTexts.customTextStyle(
+                      AppTextType.title,
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
                   ),
-                )
+                ))
               ],
             ),
           ),
           Expanded(
-              flex: 3,
+              flex: 2,
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: SizedBox(
-                  width: Get.width * .25,
+                  width: 15 + (35 + 20 + 5 + 20 + AppDimens.smallLateralPaddingValue),
                   child: Stack(
                     alignment: Alignment.bottomRight,
                     children: [
@@ -102,21 +112,22 @@ class CardWidget extends StatelessWidget {
                       ),
                       Container(
                         padding: EdgeInsets.only(
-                            left: 40,
+                            left: 35,
                             right: AppDimens.smallLateralPaddingValue),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            CustomSpacer(
-                              multiplier: 5,
-                            ),
-                            SvgPicture.asset(
+                            SizedBox(height: Get.height * 0.075,),
+                            Expanded(
+                                child: SvgPicture.asset(
                               'assets/images/$icon.svg',
+                              fit: BoxFit.contain,
                               colorFilter: ColorFilter.mode(
                                 color,
                                 BlendMode.srcIn,
                               ),
-                            ),
+                            )),
                             CustomSpacer(),
                             Wrap(
                               spacing: 5,
@@ -136,7 +147,7 @@ class CardWidget extends StatelessWidget {
                             CustomSpacer(),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

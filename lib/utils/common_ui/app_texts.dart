@@ -90,7 +90,7 @@ class AppTexts {
       case AppTextType.title:
         return TextStyle(
           fontFamily:
-              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+          'caprasimo',
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           fontWeight: fontWeight ?? FontWeight.w900,
