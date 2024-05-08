@@ -455,7 +455,7 @@ class ResultsController extends GetxController {
     final answers = answersData;
 
     double maxValue = 0;
-    Topic? maxTopic = topics.first;
+    Topic maxTopic = topics.first;
     for (var topic in topics) {
       final value = ResultsHelper.topicMatchPercentage(topic.id!, answers);
       if (value.abs() > maxValue.abs()) {
