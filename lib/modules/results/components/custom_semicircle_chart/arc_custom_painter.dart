@@ -85,6 +85,12 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
   }
 
   @override
+  dispose() {
+    _controller.dispose(); // you need this
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder<ui.Image>(
         future: loadSvg(widget.imageUrl), //loadImage(widget.imageUrl),
