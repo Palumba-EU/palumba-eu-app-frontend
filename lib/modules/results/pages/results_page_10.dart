@@ -17,34 +17,13 @@ class ResultsPage10 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-          bottom: 0,
-          child: SizedBox(
-              width: Get.width,
-              height: Get.height * .5,
-              child: FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Image.asset('assets/images/img_ballot_box_big.png'))),
-        ),
-        Get.height < 850
-            ? Container(
-                color: AppColors.background.withOpacity(.7),
-                child: IntrinsicHeight(child: _body(context)))
-            : _body(context),
-      ],
-    );
-  }
-
-  Column _body(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        CustomSpacer(multiplier: 3),
+        CustomSpacer(multiplier: 6),
         SvgPicture.asset('assets/images/ic_europe_vote_logos.svg'),
-        CustomSpacer(multiplier: 2),
+        CustomSpacer(multiplier: 3),
         Padding(
             padding: AppDimens.lateralPadding,
             child: AppTexts.title(S.of(context).resultsPage10Title,
@@ -70,7 +49,13 @@ class ResultsPage10 extends GetView<ResultsController> {
             ),
           ],
         ),
-        CustomSpacer(multiplier: 2),
+        CustomSpacer(multiplier: 10),
+        Expanded(
+            child: SvgPicture.asset(
+          'assets/images/img_ballot_box_big.svg',
+          fit: BoxFit.cover,
+          alignment: Alignment.topCenter,
+        ))
       ],
     );
   }

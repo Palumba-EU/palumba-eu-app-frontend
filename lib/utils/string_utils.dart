@@ -12,6 +12,6 @@ class StringUtils {
   static String webUrl = 'https://palumba.eu';
   static String faqUrl = 'https://www.palumba.eu/faq';
   //Contact
-  static String contactEmail = 'hello@palumba.eu';
+  static String contactEmail = 'app@palumba.eu';
   static String contactEmailUrl = 'mailto:$contactEmail';
 }

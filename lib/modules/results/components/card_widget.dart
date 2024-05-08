@@ -76,6 +76,7 @@ class CardWidget extends StatelessWidget {
                     style: AppTexts.customTextStyle(
                       AppTextType.title,
                       fontSize: 24,
+                      black: true,
                       color: Colors.white,
                     ),
                   ),
@@ -88,7 +89,8 @@ class CardWidget extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: SizedBox(
-                  width: 15 + (35 + 20 + 5 + 20 + AppDimens.smallLateralPaddingValue),
+                  width: 15 +
+                      (35 + 20 + 5 + 20 + AppDimens.smallLateralPaddingValue),
                   child: Stack(
                     alignment: Alignment.bottomRight,
                     children: [
@@ -118,7 +120,9 @@ class CardWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            SizedBox(height: Get.height * 0.075,),
+                            SizedBox(
+                              height: Get.height * 0.075,
+                            ),
                             Expanded(
                                 child: SvgPicture.asset(
                               'assets/images/$icon.svg',

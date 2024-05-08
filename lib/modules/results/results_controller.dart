@@ -70,7 +70,18 @@ class ResultsController extends GetxController {
 
   List<Widget> get pages => cardsData.isNotEmpty ? allPages : noCardsPages;
 
-  final List<ScreenshotController?> screenshotPagesControllers = [
+  List<int> get showButtonSharePages => cardsData.isNotEmpty
+      ? [1, 2, 3, 4, 6, 7, 8]
+      : [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+        ];
+
+  /*final List<ScreenshotController?> screenshotPagesControllers = [
     null,
     ScreenshotController(),
     ScreenshotController(),
@@ -81,11 +92,10 @@ class ResultsController extends GetxController {
     ScreenshotController(),
     ScreenshotController(),
     null,
-  ];
+  ];*/
+  ScreenshotController screenshotController = ScreenshotController();
 
   UserData get userData => UserManager.userData;
-
-  final List<int> showButtonSharePages = [1, 2, 3, 4, 6, 7, 8];
 
   RxInt _currentPage = 0.obs;
 
@@ -271,17 +281,19 @@ class ResultsController extends GetxController {
   }
 
   void shareContent() async {
-    if (_loadingShare.value || screenshotPagesControllers[currentPage] == null)
-      return;
+    if (_loadingShare.value) return;
     _loadingShare.value = true;
     await Future.delayed(Durations.short1);
-    final bytes = await screenshotPagesControllers[currentPage]!.capture();
+    double pixelRatio = MediaQuery.of(Get.context!).devicePixelRatio;
+    final bytes = await screenshotController.capture(pixelRatio: pixelRatio);
 
     final directory = await getTemporaryDirectory();
     final file = File('${directory.path}/screenshot.jpg');
     await file.writeAsBytes(bytes!);
     final xFile = XFile(file.path);
-    await Share.shareXFiles([xFile], text: '#Palumba | ${StringUtils.webUrl}');
+    await Share.shareXFiles(
+      [xFile], /* text: '#Palumba | ${StringUtils.webUrl}'*/
+    );
     _loadingShare.value = false;
   }
 
@@ -291,12 +303,27 @@ class ResultsController extends GetxController {
     final String rawSvg = response.body.toString();
 
     final pictureInfo = await vg.loadPicture(SvgStringLoader(rawSvg), null);
-    final ui.Image image = await pictureInfo.picture.toImage(65, 65);
+    final ui.Image image = await pictureInfo.picture.toImage(63, 63);
 
     pictureInfo.picture.dispose();
 
     return image;
   }
+
+/*
+  Future<ui.Image> loadSvgAsset(String asset) async {
+    final String rawSvg =
+        await rootBundle.loadString('assets/images/${asset}.svg');
+
+    final pictureInfo =
+        await vg.loadPicture(SvgStringLoader(rawSvg), null, clipViewbox: false);
+    final ui.Image image = await pictureInfo.picture.toImage(120, 120);
+
+    pictureInfo.picture.dispose();
+
+    return image;
+  }
+  */
 
   void getScatterPoints() async {
     //This are parties Scatter points
@@ -309,7 +336,7 @@ class ResultsController extends GetxController {
               dotPainter: FlDotCirclePainterCustom(
                 image: image,
                 color: Colors.transparent,
-                radius: 15,
+                radius: 17,
               )));
     }
     final userPosition = calculateCompassPosition(answersData);
@@ -318,7 +345,7 @@ class ResultsController extends GetxController {
     scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
         dotPainter: FlDotCirclePainterCustom(
             image: await loadAssetImage('img_heart_small'),
-            radius: 2,
+            radius: 3,
             imageRounded: false)));
   }
 
@@ -428,7 +455,7 @@ class ResultsController extends GetxController {
     final answers = answersData;
 
     double maxValue = 0;
-    Topic? maxTopic;
+    Topic? maxTopic = topics.first;
     for (var topic in topics) {
       final value = ResultsHelper.topicMatchPercentage(topic.id!, answers);
       if (value.abs() > maxValue.abs()) {

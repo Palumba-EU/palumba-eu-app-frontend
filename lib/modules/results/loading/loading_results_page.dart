@@ -26,7 +26,7 @@ class LoadingResultsPage extends StatelessWidget {
               children: [
                 Center(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
@@ -38,7 +38,8 @@ class LoadingResultsPage extends StatelessWidget {
                             multiplier: 7,
                           ),
                           Obx(() => CustomProgressBar(
-                                duration: Duration(milliseconds: _.milliSecondsStep),
+                                duration:
+                                    Duration(milliseconds: _.milliSecondsStep),
                                 width: Get.width * 0.675,
                                 step: _.currentStep.value,
                                 totalSteps: _.totalSteps,
@@ -46,27 +47,30 @@ class LoadingResultsPage extends StatelessWidget {
                                 backgroundColor: AppColors.lightPrimary,
                               )),
                           CustomSpacer(multiplier: 3),
-                          Padding(
-                            padding: AppDimens.lateralPadding,
-                            child: Obx(() {
-                              var text = '';
-                              if (_.currentStep.value == 1) {
-                                text = S.of(context).loadingResultsPageTitle1;
-                              } else if (_.currentStep.value == 2) {
-                                text = S.of(context).loadingResultsPageTitle2;
-                              } else if (_.currentStep.value == 3) {
-                                text = S
-                                    .of(context)
-                                    .loadingResultsPageTitle3(_.countryName);
-                              } else if (_.currentStep.value == 4) {
-                                text = S.of(context).loadingResultsPageTitle4;
-                              }
+                          SizedBox(
+                            height: 200,
+                            child: Padding(
+                              padding: AppDimens.lateralPadding,
+                              child: Obx(() {
+                                var text = '';
+                                if (_.currentStep.value == 1) {
+                                  text = S.of(context).loadingResultsPageTitle1;
+                                } else if (_.currentStep.value == 2) {
+                                  text = S.of(context).loadingResultsPageTitle2;
+                                } else if (_.currentStep.value == 3) {
+                                  text = S
+                                      .of(context)
+                                      .loadingResultsPageTitle3(_.countryName);
+                                } else if (_.currentStep.value == 4) {
+                                  text = S.of(context).loadingResultsPageTitle4;
+                                }
 
-                              return AppTexts.title(
-                                text,
-                                textAlign: TextAlign.center,
-                              );
-                            }),
+                                return AppTexts.title(
+                                  text,
+                                  textAlign: TextAlign.center,
+                                );
+                              }),
+                            ),
                           ),
                         ],
                       )),
@@ -95,8 +99,8 @@ class LoadingResultsPage extends StatelessWidget {
                           .matrix4,
                       child: FittedBox(
                           fit: BoxFit.fitWidth,
-                          child:
-                              SvgPicture.asset('assets/images/img_compass.svg')),
+                          child: SvgPicture.asset(
+                              'assets/images/img_compass.svg')),
                     ),
                   ),
                 )

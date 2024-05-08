@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
 class EmojiLabelContainer extends StatelessWidget {
@@ -14,7 +15,9 @@ class EmojiLabelContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppDimens.smallPaddingValue,
+          vertical: AppDimens.extraSmallLateralPaddingValue),
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(100),

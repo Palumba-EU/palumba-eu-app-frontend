@@ -55,9 +55,8 @@ class CustomSmallButtonCurve extends StatelessWidget {
             right: flip ? Get.width * .1 : 0,
             left: flip ? 0 : Get.width * .1,
             child: IgnorePointer(
-    child:
-            Center(
-                child: SvgPicture.asset(
+                child: Center(
+                    child: SvgPicture.asset(
               'assets/images/$icon.svg',
               height: 20,
               fit: BoxFit.fitHeight,
@@ -87,11 +86,17 @@ class _CustomSmallButtonPainter extends CustomPainter {
     paint.style = PaintingStyle.fill;
     _drawShape(canvas, size, paint);
 
-    // Draw border
+    // Draw border middle
     paint.color = borderColor;
     paint.style = PaintingStyle.stroke;
-    paint.strokeWidth = 4.0;
-    _drawShapeBorder(canvas, size, paint);
+    paint.strokeWidth = 2.55;
+    _drawShapeBorderMiddle(canvas, size, paint);
+
+    // Draw border top
+    paint.color = borderColor;
+    paint.style = PaintingStyle.stroke;
+    paint.strokeWidth = 4;
+    _drawShapeBorderTop(canvas, size, paint);
   }
 
   void _drawShape(Canvas canvas, Size size, Paint paint) {
@@ -108,14 +113,23 @@ class _CustomSmallButtonPainter extends CustomPainter {
     canvas.drawPath(path, paint);
   }
 
-  void _drawShapeBorder(Canvas canvas, Size size, Paint paint) {
+  void _drawShapeBorderMiddle(Canvas canvas, Size size, Paint paint) {
+    final path = Path();
+
+    path.moveTo(size.width, curveRadius - 2);
+
+    path.lineTo(size.width, curveRadius);
+    path.lineTo(size.width, size.height);
+
+    canvas.drawPath(path, paint);
+  }
+
+  void _drawShapeBorderTop(Canvas canvas, Size size, Paint paint) {
     final path = Path();
 
     path.moveTo(0, 0);
     path.quadraticBezierTo(size.width * .5, 0, size.width, curveRadius);
 
-    path.lineTo(size.width, curveRadius);
-    path.lineTo(size.width, size.height);
     //path.lineTo(0, size.height);
     //path.lineTo(0, 0);
 

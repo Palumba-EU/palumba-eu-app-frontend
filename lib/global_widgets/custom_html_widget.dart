@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 //import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
@@ -22,13 +23,14 @@ class CustomHtmlWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Style style = Style(
-        color: textStyle?.color ?? AppColors.primary,
-        fontFamily: textStyle?.fontFamily,
-        fontSize: FontSize(textStyle?.fontSize ?? AppDimens.fontSizeRegular),
-        fontWeight: textStyle?.fontWeight,
-        textDecoration: TextDecoration.none,
-        textDecorationColor: AppColors.lightPrimary,
-        textDecorationThickness: 2);
+      color: textStyle?.color ?? AppColors.primary,
+      fontFamily: GoogleFonts.merriweatherSans().fontFamily,
+      fontSize: FontSize(textStyle?.fontSize ?? AppDimens.fontSizeRegular),
+      fontWeight: textStyle?.fontWeight,
+      textDecoration: TextDecoration.none,
+      textDecorationColor: AppColors.lightPrimary,
+      textDecorationThickness: 2,
+    );
     return Html(
       data: content,
       style: {
@@ -38,6 +40,9 @@ class CustomHtmlWidget extends StatelessWidget {
         'a': style.copyWith(
           color: AppColors.lightPrimary,
         ),
+        'strong': style.copyWith(
+          fontWeight: FontWeight.w900,
+        )
       },
       onLinkTap: (url, _, __) => Utils.launch(
         url!.replaceAll('"', '').trim(),

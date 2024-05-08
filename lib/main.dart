@@ -31,17 +31,6 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
-  FlutterError.onError = (FlutterErrorDetails details) async {
-    if (EnvironmentConfig.isDevelopmentMode) {
-      FlutterError.dumpErrorToConsole(details);
-    } else {
-      await Sentry.captureException(
-        details.exception,
-        stackTrace: details.stack,
-      );
-    }
-  };
-
   runApp(MyApp());
 }
 

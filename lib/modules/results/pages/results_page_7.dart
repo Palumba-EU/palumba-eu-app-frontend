@@ -17,19 +17,16 @@ class ResultsPage7 extends GetView<ResultsController> {
   @override
   Widget build(BuildContext context) {
     final smallScreen = Get.height < 750;
-    return Screenshot(
-      controller: controller.screenshotPagesControllers[6]!,
-      child: Container(
-        color: AppColors.background,
-        child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppDimens.bigLateralPaddingValue),
-            child: smallScreen
-                ? SingleChildScrollView(
-                    child: _pageContent(context, smallScreen),
-                  )
-                : _pageContent(context, smallScreen)),
-      ),
+    return Container(
+      color: AppColors.background,
+      child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: AppDimens.bigLateralPaddingValue),
+          child: smallScreen
+              ? SingleChildScrollView(
+                  child: _pageContent(context, smallScreen),
+                )
+              : _pageContent(context, smallScreen)),
     );
   }
 

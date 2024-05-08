@@ -1,5 +1,3 @@
-
-
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
@@ -50,11 +48,11 @@ class ResultsHelper {
     int bIndex = options.indexOf(b);
 
     List<List<int>> distanceMatrix = [
-      [0, 1, 2, 3, 4],
-      [1, 0, 1, 2, 3],
-      [2, 1, 0, 1, 2],
-      [3, 2, 1, 0, 1],
-      [4, 3, 2, 1, 0]
+      [0, 2, 4, 6, 8],
+      [2, 3, 4, 5, 6],
+      [4, 4, 4, 4, 4],
+      [6, 5, 4, 3, 2],
+      [8, 6, 4, 2, 0]
     ];
 
     return distanceMatrix[aIndex][bIndex];
