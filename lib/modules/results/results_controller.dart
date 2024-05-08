@@ -156,6 +156,15 @@ class ResultsController extends GetxController {
   }
 
   @override
+  void onReady() {
+    // rickroll if all neutral
+    if (_answersData.every((element) => element.answer == StatementResponse.neutral)) {
+      Utils.launch(StringUtils.rickrollUrl);
+      launchHome();
+    }
+  }
+
+  @override
   void onClose() {
     pageController.dispose();
     super.onClose();
