@@ -75,13 +75,15 @@ class HomePage extends StatelessWidget {
                     fit: BoxFit.fitWidth,
                   ),
                 ),
-                CustomSpacer(multiplier: 2),
+                CustomSpacer(),
                 CustomHtmlWidget(
                   content: youthCardSponsor.bannerDescription ?? '',
                   textAlign: TextAlign.center,
-                  textStyle: TextStyle(fontSize: AppDimens.fontSizeSmall),
+                  textStyle: TextStyle(
+                      fontSize: AppDimens.fontSizeSmall,
+                      fontWeight: FontWeight.w100),
                 ),
-                CustomSpacer(multiplier: 2),
+                CustomSpacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

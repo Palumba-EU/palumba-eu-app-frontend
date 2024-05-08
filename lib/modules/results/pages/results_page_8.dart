@@ -9,7 +9,6 @@ import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/utils.dart';
-import 'package:screenshot/screenshot.dart';
 
 class ResultsPage8 extends GetView<ResultsController> {
   const ResultsPage8({super.key});
@@ -31,12 +30,16 @@ class ResultsPage8 extends GetView<ResultsController> {
                   'assets/images/img_banner_top.svg',
                   fit: BoxFit.fitWidth,
                 ),
-                AppTexts.title(
-                    maxTopic.isExtreme1
-                        ? maxTopic.topicData.extreme1Emojis!
-                        : maxTopic.topicData.extreme2Emojis!,
-                    color: AppColors.primary,
-                    fontSize: 32.5),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppDimens.regularLateralPaddingValue),
+                  child: AppTexts.title(
+                      maxTopic.isExtreme1
+                          ? maxTopic.topicData.extreme1Emojis!
+                          : maxTopic.topicData.extreme2Emojis!,
+                      color: AppColors.primary,
+                      fontSize: 32.5),
+                )
               ],
             ),
             //Spacer(),
@@ -55,7 +58,7 @@ class ResultsPage8 extends GetView<ResultsController> {
                     : maxTopic.topicData.extreme2 ?? '',
                 color: Utils.getApiColor(maxTopic.topicData.color ?? '')),
             CustomSpacer(),
-      
+
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: AppDimens.bigLateralPaddingValue),
