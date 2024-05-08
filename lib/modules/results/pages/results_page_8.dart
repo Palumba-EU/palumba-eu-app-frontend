@@ -33,15 +33,12 @@ class ResultsPage8 extends GetView<ResultsController> {
                     'assets/images/img_banner_top.svg',
                     fit: BoxFit.fitWidth,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 60),
-                    child: AppTexts.title(
-                        maxTopic.isExtreme1
-                            ? maxTopic.topicData.extreme1Emojis!
-                            : maxTopic.topicData.extreme2Emojis!,
-                        color: AppColors.primary,
-                        fontSize: 32.5),
-                  ),
+                  AppTexts.title(
+                      maxTopic.isExtreme1
+                          ? maxTopic.topicData.extreme1Emojis!
+                          : maxTopic.topicData.extreme2Emojis!,
+                      color: AppColors.primary,
+                      fontSize: 32.5),
                 ],
               ),
               //Spacer(),
