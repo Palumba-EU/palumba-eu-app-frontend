@@ -474,7 +474,7 @@ class ResultsController extends GetxController {
     }
     return MaxTopic(
         isExtreme1: maxValue < 0,
-        percentage: (maxValue.abs() * 100).toStringAsFixed2(2),
+        percentage: (maxValue.abs() * 100).toStringAsFixed2(0),
         topicData: maxTopic!);
   }
 }
