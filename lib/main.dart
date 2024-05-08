@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
@@ -20,6 +21,8 @@ class EnvironmentConfig {
 }
 
 void main() async {
+  GoogleFonts.config.allowRuntimeFetching = false;
+
   WidgetsFlutterBinding.ensureInitialized();
 
   DependencyInjection.init();
