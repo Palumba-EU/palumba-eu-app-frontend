@@ -87,11 +87,12 @@ class AppTexts {
     switch (appTexType) {
       case AppTextType.title:
         return TextStyle(
-          fontFamily: 'caprasimo',
-          fontSize: fontSize ?? AppDimens.fontSizeTitle,
-          color: color ?? AppColors.text,
-          fontWeight: fontWeight ?? FontWeight.w900,
-        );
+            fontFamily: 'caprasimo',
+            fontSize: fontSize ?? AppDimens.fontSizeTitle,
+            color: color ?? AppColors.text,
+            fontWeight:
+                fontWeight ?? (black ? FontWeight.w400 : FontWeight.w900),
+            height: 1.14);
       case AppTextType.regular:
         return TextStyle(
             fontFamily:
@@ -99,8 +100,12 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeRegular,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight:
-                fontWeight ?? (bold ? FontWeight.w900 : FontWeight.w300),
+            fontWeight: fontWeight ??
+                (bold
+                    ? black
+                        ? FontWeight.w400
+                        : FontWeight.w900
+                    : FontWeight.w300),
             decoration: decoration);
 
       case AppTextType.small:
@@ -110,8 +115,12 @@ class AppTexts {
             fontSize: fontSize ?? AppDimens.fontSizeSmall,
             color: color ?? AppColors.text,
             decorationColor: AppColors.text,
-            fontWeight:
-                fontWeight ?? (bold ? FontWeight.w900 : FontWeight.w300),
+            fontWeight: fontWeight ??
+                (bold
+                    ? black
+                        ? FontWeight.w400
+                        : FontWeight.w900
+                    : FontWeight.w300),
             decoration: decoration);
       default:
     }

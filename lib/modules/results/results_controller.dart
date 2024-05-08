@@ -70,7 +70,7 @@ class ResultsController extends GetxController {
 
   List<Widget> get pages => cardsData.isNotEmpty ? allPages : noCardsPages;
 
-  final List<ScreenshotController?> screenshotPagesControllers = [
+  /*final List<ScreenshotController?> screenshotPagesControllers = [
     null,
     ScreenshotController(),
     ScreenshotController(),
@@ -81,7 +81,8 @@ class ResultsController extends GetxController {
     ScreenshotController(),
     ScreenshotController(),
     null,
-  ];
+  ];*/
+  ScreenshotController screenshotController = ScreenshotController();
 
   UserData get userData => UserManager.userData;
 
@@ -271,11 +272,11 @@ class ResultsController extends GetxController {
   }
 
   void shareContent() async {
-    if (_loadingShare.value || screenshotPagesControllers[currentPage] == null)
-      return;
+    if (_loadingShare.value) return;
     _loadingShare.value = true;
     await Future.delayed(Durations.short1);
-    final bytes = await screenshotPagesControllers[currentPage]!.capture();
+    double pixelRatio = MediaQuery.of(Get.context!).devicePixelRatio;
+    final bytes = await screenshotController.capture(pixelRatio: pixelRatio);
 
     final directory = await getTemporaryDirectory();
     final file = File('${directory.path}/screenshot.jpg');
@@ -297,6 +298,20 @@ class ResultsController extends GetxController {
 
     return image;
   }
+/*
+  Future<ui.Image> loadSvgAsset(String asset) async {
+    final String rawSvg =
+        await rootBundle.loadString('assets/images/${asset}.svg');
+
+    final pictureInfo =
+        await vg.loadPicture(SvgStringLoader(rawSvg), null, clipViewbox: false);
+    final ui.Image image = await pictureInfo.picture.toImage(120, 120);
+
+    pictureInfo.picture.dispose();
+
+    return image;
+  }
+  */
 
   void getScatterPoints() async {
     //This are parties Scatter points
@@ -318,7 +333,7 @@ class ResultsController extends GetxController {
     scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
         dotPainter: FlDotCirclePainterCustom(
             image: await loadAssetImage('img_heart_small'),
-            radius: 2,
+            radius: 3,
             imageRounded: false)));
   }
 

@@ -9,7 +9,7 @@ import 'package:palumba_eu/modules/results/loading/loading_results_binding.dart'
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
-import 'package:palumba_eu/modules/results/results_page.dart';
+import 'package:palumba_eu/modules/results/results_page_base.dart';
 import 'package:palumba_eu/modules/settings/settings_page.dart';
 import 'package:palumba_eu/modules/settings/settings_page_binding.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
