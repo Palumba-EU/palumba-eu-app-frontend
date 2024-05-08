@@ -30,7 +30,8 @@ class TopicIndicatorWidget extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          width: Get.width * 0.75,
+          width: Get.width * 0.7,
+          height: Get.height * (Get.height < 750 ? .115 : .15),
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
@@ -38,9 +39,9 @@ class TopicIndicatorWidget extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 15),
                 child: SvgPicture.asset(
                   'assets/images/img_hemicycle_graph.svg',
-                  height: Get.height * 0.145,
-                  width: Get.width * .6,
-                  fit: BoxFit.fitHeight,
+                  // height: Get.height * .1,
+                  fit: BoxFit.scaleDown,
+
                   colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
                 ),
               ),
@@ -49,7 +50,8 @@ class TopicIndicatorWidget extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 15),
                   child: SvgPicture.asset(
-                      height: 45, 'assets/images/img_needle.svg'),
+                      height: 45 * (Get.height < 750 ? .5 : .9),
+                      'assets/images/img_needle.svg'),
                 ),
               ),
               Row(

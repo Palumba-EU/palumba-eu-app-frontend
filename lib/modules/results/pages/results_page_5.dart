@@ -22,10 +22,8 @@ class ResultsPage5 extends GetView<ResultsController> {
       color: AppColors.background,
       child: Column(
         children: [
-          CustomSpacer(),
+          //CustomSpacer(),
           Expanded(
-              child: Container(
-            color: AppColors.background,
             child: Column(
               children: [
                 CustomSpacer(
@@ -42,33 +40,36 @@ class ResultsPage5 extends GetView<ResultsController> {
                 CustomSpacer(
                   multiplier: 3,
                 ),
-                ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      final topic = controller.topics[index];
-                      final needleData =
-                          controller.needlePositionsForTopic(topic.id!);
-                      return TopicIndicatorWidget(
-                        title: topic.name ?? '',
-                        color: Utils.getApiColor(topic.color!),
-                        position: needleData.fraction,
-                        party1: controller.maxPercentagePoliticParty?.party,
-                        party2: needleData.topicMatch,
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
-                        height: 1,
-                        width: double.infinity,
-                        color: AppColors.yellow,
-                      );
-                    },
-                    itemCount: controller.topics.length),
+                Expanded(
+                  child: ListView.separated(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final topic = controller.topics[index];
+                        final needleData =
+                            controller.needlePositionsForTopic(topic.id!);
+                        return TopicIndicatorWidget(
+                          title: topic.name ?? '',
+                          color: Utils.getApiColor(topic.color!),
+                          position: needleData.fraction,
+                          party1: controller.maxPercentagePoliticParty?.party,
+                          party2: needleData.topicMatch,
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.symmetric(vertical: 20),
+                          height: 1,
+                          width: double.infinity,
+                          color: AppColors.yellow,
+                        );
+                      },
+                      itemCount: controller.topics.length),
+                ),
+                CustomSpacer(multiplier: 8)
               ],
             ),
-          ))
+          )
         ],
       ),
     );
