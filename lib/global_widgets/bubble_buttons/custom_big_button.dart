@@ -102,7 +102,7 @@ class _CustomButtonPainter extends CustomPainter {
 
     path.moveTo(size.width, size.height);
 
-    path.lineTo(0 + curveRadius * 1.8, size.height);
+    path.lineTo(0 + curveRadius * 1.8, size.height + 2);
 
     path.quadraticBezierTo(-curveRadius * 1.2, curveRadius * 3, size.width, 0);
 
@@ -112,7 +112,7 @@ class _CustomButtonPainter extends CustomPainter {
   void _drawBorderShape(Canvas canvas, Size size, Paint paint) {
     final path = Path();
 
-    path.moveTo(0 + curveRadius * 1.8, size.height);
+    path.moveTo(0 + curveRadius * 1.8, size.height + 2);
 
     path.quadraticBezierTo(-curveRadius * 1.2, curveRadius * 3, size.width, 0);
 
@@ -136,7 +136,7 @@ class _CustomButtonClipper extends CustomClipper<Path> {
 
     path.moveTo(size.width, size.height);
 
-    path.lineTo(0 + curveRadius * 1.8, size.height);
+    path.lineTo(0 + curveRadius * 1.8, size.height + 2);
 
     path.quadraticBezierTo(-curveRadius * 1.2, curveRadius * 3, size.width, 0);
 
