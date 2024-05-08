@@ -96,6 +96,7 @@ class FlDotCirclePainterCustom extends FlDotPainter {
     }
     if (image != null) {
       final paint = Paint();
+
       final rect = Rect.fromCircle(center: offsetInCanvas, radius: radius);
       final imageRect = Rect.fromLTRB(
           0, 0, image!.width.toDouble(), image!.height.toDouble());
@@ -112,23 +113,19 @@ class FlDotCirclePainterCustom extends FlDotPainter {
         );
         final paragraphBuilder = ui.ParagraphBuilder(paragraphStyle)
           ..pushStyle(ui.TextStyle(
-              color: AppColors.lightBlue,
-              fontWeight:
-                  FontWeight.w900)) // Change color to red and make it bold
+              color: AppColors.lightBlue, fontWeight: FontWeight.w900))
           ..addText(S.of(Get.context!).resultsPage4TitleUserHere);
         final constraints = ui.ParagraphConstraints(width: 300);
         final paragraph = paragraphBuilder.build();
         paragraph.layout(constraints);
-        final offset = Offset(
-            offsetInCanvas.dx - 10,
-            offsetInCanvas.dy +
-                radius +
-                30); // Increase the padding from 10 to 20
+        final offset =
+            Offset(offsetInCanvas.dx - 10, offsetInCanvas.dy + radius + 30);
         canvas.drawParagraph(paragraph, offset);
       }
 
       canvas.restore();
     } else {
+      //If image is not avaliable draw a circle
       canvas.drawCircle(
         offsetInCanvas,
         radius,

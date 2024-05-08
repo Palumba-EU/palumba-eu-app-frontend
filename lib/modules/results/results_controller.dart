@@ -291,7 +291,7 @@ class ResultsController extends GetxController {
     final String rawSvg = response.body.toString();
 
     final pictureInfo = await vg.loadPicture(SvgStringLoader(rawSvg), null);
-    final ui.Image image = await pictureInfo.picture.toImage(65, 65);
+    final ui.Image image = await pictureInfo.picture.toImage(63, 63);
 
     pictureInfo.picture.dispose();
 
@@ -309,7 +309,7 @@ class ResultsController extends GetxController {
               dotPainter: FlDotCirclePainterCustom(
                 image: image,
                 color: Colors.transparent,
-                radius: 15,
+                radius: 17,
               )));
     }
     final userPosition = calculateCompassPosition(answersData);

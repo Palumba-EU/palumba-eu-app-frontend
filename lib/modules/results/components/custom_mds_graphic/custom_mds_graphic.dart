@@ -12,18 +12,14 @@ class CustomMDSGraphic extends StatelessWidget {
       {super.key,
       required this.height,
       required this.width,
-      this.pointColor,
       required this.scatterSpots});
   final double height;
   final double width;
-  final Color? pointColor;
   final List<ScatterSpot> scatterSpots;
 
   @override
   Widget build(BuildContext context) {
-    final padding = const EdgeInsets.symmetric(
-        horizontal: AppDimens.extraLargeLateralPaddingValue,
-        vertical: AppDimens.bigLateralPaddingValue);
+    final padding = const EdgeInsets.all(AppDimens.bigLateralPaddingValue);
     return Padding(
       padding: const EdgeInsets.all(AppDimens.smallPaddingValue),
       child: SizedBox(
@@ -53,7 +49,7 @@ class CustomMDSGraphic extends StatelessWidget {
             Center(
               child: Padding(
                   padding: const EdgeInsets.all(
-                    AppDimens.extraLargeLateralPaddingValue,
+                    AppDimens.lateralPaddingValue,
                   ),
                   child: MyScatterChart(
                     scatterSpots: scatterSpots,
