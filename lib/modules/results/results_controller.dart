@@ -70,6 +70,17 @@ class ResultsController extends GetxController {
 
   List<Widget> get pages => cardsData.isNotEmpty ? allPages : noCardsPages;
 
+  List<int> get showButtonSharePages => cardsData.isNotEmpty
+      ? [1, 2, 3, 4, 6, 7, 8]
+      : [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+        ];
+
   /*final List<ScreenshotController?> screenshotPagesControllers = [
     null,
     ScreenshotController(),
@@ -85,8 +96,6 @@ class ResultsController extends GetxController {
   ScreenshotController screenshotController = ScreenshotController();
 
   UserData get userData => UserManager.userData;
-
-  final List<int> showButtonSharePages = [1, 2, 3, 4, 6, 7, 8];
 
   RxInt _currentPage = 0.obs;
 
@@ -300,6 +309,7 @@ class ResultsController extends GetxController {
 
     return image;
   }
+
 /*
   Future<ui.Image> loadSvgAsset(String asset) async {
     final String rawSvg =
@@ -445,7 +455,7 @@ class ResultsController extends GetxController {
     final answers = answersData;
 
     double maxValue = 0;
-    Topic? maxTopic;
+    Topic? maxTopic = topics.first;
     for (var topic in topics) {
       final value = ResultsHelper.topicMatchPercentage(topic.id!, answers);
       if (value.abs() > maxValue.abs()) {
