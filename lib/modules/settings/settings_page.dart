@@ -149,13 +149,13 @@ class SettingsPage extends StatelessWidget {
             text: S.of(context).settingsPageShareButtonText,
             expanded: true,
             onPressed: _.shareApp,
-            prefixIcon: IconButtonParameters('ic_share',
-                size: 18, color: Color(0XFFAEAEAE)),
+            prefixIcon:
+                IconButtonParameters('ic_share', size: 18, color: Colors.white),
             radius: AppDimens.borderRadius,
-            color: AppColors.yellow,
-            textColor: AppColors.primary,
+            color: AppColors.primary,
+            textColor: Colors.white,
             border: ButtonBorderParameters(
-                isOutside: true, width: 3, color: AppColors.lightYellow),
+                isOutside: true, width: 3, color: AppColors.lightPrimary),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
