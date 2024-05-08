@@ -34,15 +34,23 @@ class SettingsPage extends StatelessWidget {
               CustomSpacer(),
               Row(
                 children: [
+                  // HACK but TextButton would have a margin left
                   GestureDetector(
                     onTap: () {
                       Get.back();
                     },
-                    child: SizedBox(
-                      child: SvgPicture.asset(
-                        'assets/images/ic_arrow_back.svg',
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
                       ),
-                    ),
+                      padding: EdgeInsets.fromLTRB(0, 10, 100, 10),
+                      child:
+                        SizedBox(
+                          child: SvgPicture.asset(
+                            'assets/images/ic_arrow_back.svg',
+                          ),
+                        ),
+                      )
                   ),
                   Spacer(),
                   TextButton(
