@@ -67,7 +67,7 @@ class SettingsPage extends StatelessWidget {
                   color: AppColors.primary),
               CustomSpacer(small: true),
               AppTexts.small(S.of(context).settingsPageTextLanguage,
-                  color: AppColors.primary, bold: true),
+                  color: AppColors.primary),
               CustomSpacer(),
               GetBuilder<SettingsPageController>(
                 id: _.rebuildLanguageKey,
@@ -77,9 +77,6 @@ class SettingsPage extends StatelessWidget {
                     selected: true,
                     onPressed: _.goToSelectLanguage),
               ),
-              CustomSpacer(),
-              AppTexts.small(S.of(context).settingsPageTextLanguage,
-                  color: AppColors.primary),
               CustomSpacer(multiplier: 4),
 
               //ABOUT
