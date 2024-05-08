@@ -106,7 +106,8 @@ class FlDotCirclePainterCustom extends FlDotPainter {
         canvas.clipPath(clipOval);
         canvas.drawImageRect(image!, imageRect, rect, paint);
       } else {
-        canvas.drawImage(image!, offsetInCanvas, paint);
+        final correctionOffset = ui.Offset(-20, -20);
+        canvas.drawImage(image!, offsetInCanvas + correctionOffset, paint);
         // Add text below the image
         final paragraphStyle = ui.ParagraphStyle(
           textDirection: TextDirection.ltr,
@@ -120,7 +121,7 @@ class FlDotCirclePainterCustom extends FlDotPainter {
         paragraph.layout(constraints);
         final offset =
             Offset(offsetInCanvas.dx - 10, offsetInCanvas.dy + radius + 30);
-        canvas.drawParagraph(paragraph, offset);
+        canvas.drawParagraph(paragraph, offset + correctionOffset);
       }
 
       canvas.restore();
