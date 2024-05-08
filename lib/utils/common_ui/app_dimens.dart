@@ -36,6 +36,11 @@ class AppDimens {
   static const double fontSizeBig = 28.0;
   static const double fontSizeExtraBig = 32.0;
 
+  //Font line
+  static const double blackFontHeight = 1.15;
+
   /// Widget Sizes
   static const avatarImageSize = 48.0;
+
+
 }

@@ -37,13 +37,15 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-            fontFamily:
-                black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
-            fontSize: AppDimens.fontSizeMedium,
-            color: color ?? AppColors.text,
-            decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
-            decoration: decoration));
+          fontFamily:
+              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+          fontSize: AppDimens.fontSizeMedium,
+          color: color ?? AppColors.text,
+          decorationColor: AppColors.text,
+          fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
+          decoration: decoration,
+          height: black ? AppDimens.blackFontHeight : null,
+        ));
   }
 
   static regular(String text,
@@ -56,13 +58,15 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-            fontFamily:
-                black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
-            fontSize: fontSize ?? AppDimens.fontSizeRegular,
-            color: color ?? AppColors.text,
-            decorationColor: AppColors.text,
-            fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
-            decoration: decoration));
+          fontFamily:
+              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+          fontSize: fontSize ?? AppDimens.fontSizeRegular,
+          color: color ?? AppColors.text,
+          decorationColor: AppColors.text,
+          fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
+          decoration: decoration,
+          height: black ? AppDimens.blackFontHeight : null,
+        ));
   }
 
   static title(String text,
@@ -74,6 +78,7 @@ class AppTexts {
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           fontWeight: FontWeight.w400,
+          height: AppDimens.blackFontHeight,
         ));
   }
 
@@ -87,41 +92,45 @@ class AppTexts {
     switch (appTexType) {
       case AppTextType.title:
         return TextStyle(
-            fontFamily: 'caprasimo',
-            fontSize: fontSize ?? AppDimens.fontSizeTitle,
-            color: color ?? AppColors.text,
-            fontWeight:
-                fontWeight ?? (black ? FontWeight.w400 : FontWeight.w900),
-            height: 1.14);
+          fontFamily: 'caprasimo',
+          fontSize: fontSize ?? AppDimens.fontSizeTitle,
+          color: color ?? AppColors.text,
+          fontWeight: fontWeight ?? (black ? FontWeight.w400 : FontWeight.w900),
+          height: black ? AppDimens.blackFontHeight : null,
+        );
       case AppTextType.regular:
         return TextStyle(
-            fontFamily:
-                black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
-            fontSize: fontSize ?? AppDimens.fontSizeRegular,
-            color: color ?? AppColors.text,
-            decorationColor: AppColors.text,
-            fontWeight: fontWeight ??
-                (bold
-                    ? black
-                        ? FontWeight.w400
-                        : FontWeight.w900
-                    : FontWeight.w300),
-            decoration: decoration);
+          fontFamily:
+              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+          fontSize: fontSize ?? AppDimens.fontSizeRegular,
+          color: color ?? AppColors.text,
+          decorationColor: AppColors.text,
+          fontWeight: fontWeight ??
+              (bold
+                  ? black
+                      ? FontWeight.w400
+                      : FontWeight.w900
+                  : FontWeight.w300),
+          decoration: decoration,
+          height: black ? AppDimens.blackFontHeight : null,
+        );
 
       case AppTextType.small:
         return TextStyle(
-            fontFamily:
-                black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
-            fontSize: fontSize ?? AppDimens.fontSizeSmall,
-            color: color ?? AppColors.text,
-            decorationColor: AppColors.text,
-            fontWeight: fontWeight ??
-                (bold
-                    ? black
-                        ? FontWeight.w400
-                        : FontWeight.w900
-                    : FontWeight.w300),
-            decoration: decoration);
+          fontFamily:
+              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+          fontSize: fontSize ?? AppDimens.fontSizeSmall,
+          color: color ?? AppColors.text,
+          decorationColor: AppColors.text,
+          fontWeight: fontWeight ??
+              (bold
+                  ? black
+                      ? FontWeight.w400
+                      : FontWeight.w900
+                  : FontWeight.w300),
+          decoration: decoration,
+          height: black ? AppDimens.blackFontHeight : null,
+        );
       default:
     }
   }

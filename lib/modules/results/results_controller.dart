@@ -282,7 +282,9 @@ class ResultsController extends GetxController {
     final file = File('${directory.path}/screenshot.jpg');
     await file.writeAsBytes(bytes!);
     final xFile = XFile(file.path);
-    await Share.shareXFiles([xFile], text: '#Palumba | ${StringUtils.webUrl}');
+    await Share.shareXFiles(
+      [xFile], /* text: '#Palumba | ${StringUtils.webUrl}'*/
+    );
     _loadingShare.value = false;
   }
 
