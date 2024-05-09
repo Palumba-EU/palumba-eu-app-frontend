@@ -2,10 +2,11 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'dart:ui' as ui;
 import 'package:http/http.dart' as http;
+
+import '../../helpers/svg_helper.dart';
 
 class ArcLine extends StatefulWidget {
   const ArcLine({
@@ -61,18 +62,6 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
     return frame.image;
   }
 
-  Future<ui.Image> loadSvg(String url) async {
-    final response = await http.get(Uri.parse(url));
-    final String rawSvg = response.body.toString();
-
-    final pictureInfo = await vg.loadPicture(SvgStringLoader(rawSvg), null);
-    final ui.Image image = await pictureInfo.picture.toImage(pictureInfo.size.width.round(), pictureInfo.size.height.round());
-
-    pictureInfo.picture.dispose();
-
-    return image;
-  }
-
   void _initAnimation() {
     final animationStopValue =
         calculatePercentage(widget.value, widget.maxValue);
@@ -93,7 +82,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ui.Image>(
-        future: loadSvg(widget.imageUrl), //loadImage(widget.imageUrl),
+        future: SvgHelper.loadSvg(widget.imageUrl), //loadImage(widget.imageUrl),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (!_isAnimationCompleted) {

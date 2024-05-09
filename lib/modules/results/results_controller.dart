@@ -16,6 +16,7 @@ import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
+import 'package:palumba_eu/modules/results/helpers/svg_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
@@ -298,19 +299,6 @@ class ResultsController extends GetxController {
     _loadingShare.value = false;
   }
 
-  //Convert svg to image
-  Future<ui.Image> loadSvg(String url) async {
-    final response = await http.get(Uri.parse(url));
-    final String rawSvg = response.body.toString();
-
-    final pictureInfo = await vg.loadPicture(SvgStringLoader(rawSvg), null);
-    final ui.Image image = await pictureInfo.picture.toImage(63, 63);
-
-    pictureInfo.picture.dispose();
-
-    return image;
-  }
-
 /*
   Future<ui.Image> loadSvgAsset(String asset) async {
     final String rawSvg =
@@ -331,7 +319,7 @@ class ResultsController extends GetxController {
     for (var data in _resultsData) {
       final partyPosition = calculateCompassPosition(data.party.answers ?? []);
 
-      final ui.Image image = await loadSvg(data.party.logo ?? '');
+      final ui.Image image = await SvgHelper.loadSvg(data.party.logo ?? '');
       scatterSpots
           .add(ScatterSpot(partyPosition.positionX, partyPosition.positionY,
               dotPainter: FlDotCirclePainterCustom(
