@@ -30,7 +30,7 @@ class CustomProgressBar extends StatelessWidget {
               for (int i = 0; i < totalSteps; i++)
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0.5),
+                    padding: EdgeInsets.symmetric(horizontal: 1),
                     child: Stack(
                       children: [
                         Container(

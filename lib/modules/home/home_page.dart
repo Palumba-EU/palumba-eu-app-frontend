@@ -69,6 +69,11 @@ class HomePage extends StatelessWidget {
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppDimens.borderRadius),
+                    border: Border.all(
+                      color: AppColors.lightYellow,
+                      width: 2,
+                      strokeAlign: 1
+                    ),
                   ),
                   child: Image.network(
                     youthCardSponsor.bannerImage ?? '',

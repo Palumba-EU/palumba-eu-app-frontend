@@ -75,6 +75,7 @@ class ResultsPage9 extends GetView<ResultsController> {
                     bold: true,
                     color: AppColors.primary,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 AppTexts.title(S.of(context).resultsPage9Text2,
                     color: AppColors.primary, textAlign: TextAlign.center),

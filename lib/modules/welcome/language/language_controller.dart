@@ -25,9 +25,12 @@ class LanguageController extends GetxController {
 
   @override
   void onInit() {
-    selectCurrentLanguage();
-
     super.onInit();
+  }
+
+  @override
+  void onReady() {
+    selectCurrentLanguage();
   }
 
   /**

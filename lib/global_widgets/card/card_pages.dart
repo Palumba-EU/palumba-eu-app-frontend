@@ -40,7 +40,7 @@ class FirstCardPage extends StatelessWidget {
         RichText(
             text: TextSpan(
                 style: AppTexts.customTextStyle(AppTextType.regular,
-                    fontSize: 20, black: true),
+                    fontSize: 24, black: true),
                 children: List.generate(text.length, (index) {
                   return TextSpan(
                       text: text[index],
@@ -74,7 +74,7 @@ class SecondCardPage extends StatelessWidget {
             CustomHtmlWidget(
               content: card.details,
               textStyle:
-                  AppTexts.customTextStyle(AppTextType.regular, fontSize: 13.0),
+                  AppTexts.customTextStyle(AppTextType.regular, fontSize: 14.0),
             ),
             CustomSpacer(multiplier: 8),
           ],

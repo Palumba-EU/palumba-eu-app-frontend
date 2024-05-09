@@ -34,15 +34,23 @@ class SettingsPage extends StatelessWidget {
               CustomSpacer(),
               Row(
                 children: [
+                  // HACK but TextButton would have a margin left
                   GestureDetector(
                     onTap: () {
                       Get.back();
                     },
-                    child: SizedBox(
-                      child: SvgPicture.asset(
-                        'assets/images/ic_arrow_back.svg',
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
                       ),
-                    ),
+                      padding: EdgeInsets.fromLTRB(0, 10, 100, 10),
+                      child:
+                        SizedBox(
+                          child: SvgPicture.asset(
+                            'assets/images/ic_arrow_back.svg',
+                          ),
+                        ),
+                      )
                   ),
                   Spacer(),
                   TextButton(
@@ -67,7 +75,7 @@ class SettingsPage extends StatelessWidget {
                   color: AppColors.primary),
               CustomSpacer(small: true),
               AppTexts.small(S.of(context).settingsPageTextLanguage,
-                  color: AppColors.primary, bold: true),
+                  color: AppColors.primary),
               CustomSpacer(),
               GetBuilder<SettingsPageController>(
                 id: _.rebuildLanguageKey,
@@ -77,9 +85,6 @@ class SettingsPage extends StatelessWidget {
                     selected: true,
                     onPressed: _.goToSelectLanguage),
               ),
-              CustomSpacer(),
-              AppTexts.small(S.of(context).settingsPageTextLanguage,
-                  color: AppColors.primary),
               CustomSpacer(multiplier: 4),
 
               //ABOUT

@@ -156,6 +156,15 @@ class ResultsController extends GetxController {
   }
 
   @override
+  void onReady() {
+    // rickroll if all neutral
+    if (_answersData.every((element) => element.answer == StatementResponse.neutral)) {
+      Utils.launch(StringUtils.rickrollUrl);
+      launchHome();
+    }
+  }
+
+  @override
   void onClose() {
     pageController.dispose();
     super.onClose();
@@ -465,7 +474,7 @@ class ResultsController extends GetxController {
     }
     return MaxTopic(
         isExtreme1: maxValue < 0,
-        percentage: (maxValue.abs() * 100).toStringAsFixed2(2),
+        percentage: (maxValue.abs() * 100).toStringAsFixed2(0),
         topicData: maxTopic!);
   }
 }

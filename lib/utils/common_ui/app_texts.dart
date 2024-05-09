@@ -38,7 +38,7 @@ class AppTexts {
         textAlign: textAlign,
         style: TextStyle(
           fontFamily:
-              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+              black ? GoogleFonts.caprasimo().fontFamily : GoogleFonts.merriweatherSans().fontFamily,
           fontSize: AppDimens.fontSizeMedium,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
@@ -59,7 +59,7 @@ class AppTexts {
         textAlign: textAlign,
         style: TextStyle(
           fontFamily:
-              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+              black ? GoogleFonts.caprasimo().fontFamily : GoogleFonts.merriweatherSans().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeRegular,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
@@ -74,7 +74,7 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: 'caprasimo',
+          fontFamily: GoogleFonts.caprasimo().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           fontWeight: FontWeight.w400,
@@ -92,7 +92,7 @@ class AppTexts {
     switch (appTexType) {
       case AppTextType.title:
         return TextStyle(
-          fontFamily: 'caprasimo',
+          fontFamily: GoogleFonts.caprasimo().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           fontWeight: fontWeight ?? (black ? FontWeight.w400 : FontWeight.w900),
@@ -101,7 +101,7 @@ class AppTexts {
       case AppTextType.regular:
         return TextStyle(
           fontFamily:
-              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+              black ? GoogleFonts.caprasimo().fontFamily : GoogleFonts.merriweatherSans().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeRegular,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
@@ -118,7 +118,7 @@ class AppTexts {
       case AppTextType.small:
         return TextStyle(
           fontFamily:
-              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+              black ? GoogleFonts.caprasimo().fontFamily : GoogleFonts.merriweatherSans().fontFamily,
           fontSize: fontSize ?? AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
