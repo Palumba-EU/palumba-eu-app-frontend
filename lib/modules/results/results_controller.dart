@@ -13,7 +13,6 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
@@ -177,10 +176,7 @@ class ResultsController extends GetxController {
           args[StringUtils.answersDataKey] as List<Map<String, dynamic>>;
       _answersData = answersData.map((e) => Answer.fromJson(e)).toList();
 
-      final resultsData =
-          args[StringUtils.resultsDataKey] as List<Map<String, dynamic>>;
-      _resultsData =
-          resultsData.map((e) => PartyUserDistance.fromJson(e)).toList();
+      _resultsData = ResultsHelper.getPartyUserDistances(_answersData);
 
       //Convert the data to the format that the chart needs
       _resultsData.forEach((result) {
@@ -203,11 +199,6 @@ class ResultsController extends GetxController {
 
   void _getTopics() async {
     var topicsList = DataManager().getTopics();
-    if (topicsList.isEmpty) {
-      final apiRepository = Get.find<DataRepository>();
-      await apiRepository.fetchResultsInfo();
-      topicsList = DataManager().getTopics();
-    }
     _topics = topicsList.where((e) => e.id != 2 && e.id != 3).toList();
   }
 

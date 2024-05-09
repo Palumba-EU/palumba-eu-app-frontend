@@ -35,6 +35,74 @@ class PartyUserDistance {
 }
 
 class ResultsHelper {
+
+  static List<PartyUserDistance> getPartyUserDistances(List<Answer> userAnswers) {
+    var parties = DataManager().getParties();
+    List<PartyUserDistance> groupDistances = [];
+
+    //Calculate distances percentage
+    for (final PoliticParty party in parties) {
+      final partyAnswers = party.answers ?? [];
+      //Calculate max distance
+      userAnswers
+          .where((element) => element.answer != StatementResponse.skip)
+          .toList();
+      int numStatements = party.answers?.length ??
+          0;
+      List<Answer> maxDisagreeAnswers = List<Answer>.generate(
+          numStatements,
+              (index) => Answer(
+              statementId: index, answer: StatementResponse.stronglyDisagree));
+      List<Answer> maxAgreeAnswers = List<Answer>.generate(
+          numStatements,
+              (index) => Answer(
+              statementId: index, answer: StatementResponse.stronglyAgree));
+      int maxDistance = calculateDistance(maxAgreeAnswers, maxDisagreeAnswers);
+
+      //Calculate distance between user and party
+      final distance = calculateDistance(
+        userAnswers,
+        partyAnswers,
+      );
+
+      //Calculate percentage and add to List
+      int percentage = 0;
+      if (distance != -1) {
+        percentage = ((1 - (distance / maxDistance)) * 100).round();
+      }
+
+      groupDistances
+          .add(PartyUserDistance(party: party, percentage: percentage));
+    }
+
+    return groupDistances;
+  }
+
+  static int calculateDistance(List<Answer> userAnswers, List<Answer> epGroupAnswers) {
+    int totalDistance = 0;
+    int answersCount = 0;
+    for (int i = 0; i < userAnswers.length; i++) {
+      if (userAnswers[i] == StatementResponse.skip) {
+        continue;
+      }
+      //Check if user statment is in the party answers
+      if (!epGroupAnswers
+          .any((answer) => answer.statementId == userAnswers[i].statementId)) {
+        continue;
+      }
+      answersCount++;
+      Answer matchingAnswer = epGroupAnswers.firstWhere(
+            (answer) => answer.statementId == userAnswers[i].statementId,
+      );
+      int statementDistance = ResultsHelper.likertDistance(
+        userAnswers[i].answer,
+        matchingAnswer.answer,
+      );
+      totalDistance += statementDistance;
+    }
+    return answersCount == 0 ? -1 : totalDistance;
+  }
+
   //This function calculates the distance between two responses
   static int likertDistance(StatementResponse a, StatementResponse b) {
     List<StatementResponse> options = [

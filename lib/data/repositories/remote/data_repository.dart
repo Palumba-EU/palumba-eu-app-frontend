@@ -8,6 +8,12 @@ import 'package:get/get.dart';
 class DataRepository {
   final DataAPI _api = Get.find<DataAPI>();
 
+  Future<void> fetchTranslatedData() async {
+    fetchStatements();
+    fetchResultsInfo();
+    fetchSponsors();
+  }
+
   Future<LocalizationData?> fetchLocalizations() => _api.fetchLocalizations();
 
   Future<StatementsData?> fetchStatements() => _api.fetchStatements();
