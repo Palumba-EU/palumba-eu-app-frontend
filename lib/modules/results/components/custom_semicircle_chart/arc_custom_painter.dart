@@ -66,7 +66,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
     final String rawSvg = response.body.toString();
 
     final pictureInfo = await vg.loadPicture(SvgStringLoader(rawSvg), null);
-    final ui.Image image = await pictureInfo.picture.toImage(65, 65);
+    final ui.Image image = await pictureInfo.picture.toImage(pictureInfo.size.width.round(), pictureInfo.size.height.round());
 
     pictureInfo.picture.dispose();
 
