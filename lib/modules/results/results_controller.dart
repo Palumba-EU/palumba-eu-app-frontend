@@ -4,10 +4,8 @@ import 'dart:ui' as ui;
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
@@ -319,7 +317,7 @@ class ResultsController extends GetxController {
     for (var data in _resultsData) {
       final partyPosition = calculateCompassPosition(data.party.answers ?? []);
 
-      final ui.Image image = await SvgHelper.loadSvg(data.party.logo ?? '');
+      final ui.Image image = await SvgHelper.loadSvgFromUrl(data.party.logo ?? '');
       scatterSpots
           .add(ScatterSpot(partyPosition.positionX, partyPosition.positionY,
               dotPainter: FlDotCirclePainterCustom(
@@ -333,8 +331,8 @@ class ResultsController extends GetxController {
     //This is user scatter point
     scatterSpots.add(ScatterSpot(userPosition.positionX, userPosition.positionY,
         dotPainter: FlDotCirclePainterCustom(
-            image: await loadAssetImage('img_heart_small'),
-            radius: 3,
+            image: await SvgHelper.loadSvgFromAssets('img_heart_arrow'),
+            radius: 17,
             imageRounded: false)));
   }
 
