@@ -32,7 +32,7 @@ class TopicIndicatorWidget extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          width: Get.width * 0.6,
+          width: Get.width * 0.63,
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
@@ -59,8 +59,8 @@ class TopicIndicatorWidget extends StatelessWidget {
                 children: [
                   CustomNetworkImage(
                     border: Border.all(color: AppColors.background, width: 3),
-                    width: 48,
-                    height: 48,
+                    width: 45,
+                    height: 45,
                     isSvg: true,
                     imageUrl: party1?.logo ?? '',
                     radius: Get.width,
@@ -68,8 +68,8 @@ class TopicIndicatorWidget extends StatelessWidget {
                   ),
                   CustomNetworkImage(
                     border: Border.all(color: AppColors.background, width: 3),
-                    width: 48,
-                    height: 48,
+                    width: 45,
+                    height: 45,
                     isSvg: true,
                     imageUrl: party2?.logo ?? '',
                     radius: Get.width,
