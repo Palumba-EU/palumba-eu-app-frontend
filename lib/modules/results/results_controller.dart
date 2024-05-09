@@ -286,8 +286,11 @@ class ResultsController extends GetxController {
     _loadingShare.value = true;
     await Future.delayed(Durations.short1);
 
-    final foregroundImageBytes = await foregroundScreenshotController.capture();
-    final backgroundImageBytes = await backgroundScreenshotController.capture();
+    final foregroundPromise = foregroundScreenshotController.capture();
+    final backgroundPromise = backgroundScreenshotController.capture();
+
+    final foregroundImageBytes = await foregroundPromise;
+    final backgroundImageBytes = await backgroundPromise;
 
     final compositeScreenshotController = ScreenshotController();
 
