@@ -289,7 +289,7 @@ class ResultsController extends GetxController {
     final bytes = await screenshotController.capture(pixelRatio: pixelRatio);
 
     final directory = await getTemporaryDirectory();
-    final file = File('${directory.path}/screenshot.jpg');
+    final file = File('${directory.path}/screenshot.png');
     await file.writeAsBytes(bytes!);
     final xFile = XFile(file.path);
     await Share.shareXFiles(
