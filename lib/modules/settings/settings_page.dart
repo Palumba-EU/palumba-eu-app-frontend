@@ -184,10 +184,14 @@ class SettingsPage extends StatelessWidget {
               children: [
                 CustomSpacer(),
                 AppTexts.small(
-                    _.categoriesSponsors.value![index].category.capitalizeFirst!
-                            .replaceAll('sponsor', 'Sponsors')
-                            .replaceAll('partner', 'Partners') ??
-                        '',
+                    [ // HACK we don't know if this works reliable,
+                      // but now at least the translations are shown
+                      S.of(context).settingsPageSubtitle1,
+                      S.of(context).settingsPageSubtitle2,
+                      S.of(context).settingsPageSubtitle3,
+                      S.of(context).settingsPageSubtitle4,
+                      S.of(context).settingsPageSubtitle5
+                    ][index],
                     bold: true,
                     color: AppColors.primary),
                 CustomSpacer(),

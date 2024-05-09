@@ -14,8 +14,6 @@ import 'package:palumba_eu/utils/string_utils.dart';
 class OnboardingController extends GetxController {
   static const route = '/onboarding';
 
-  //final DataRepository _dataRepository = Get.find<DataRepository>();
-
   final LocalDataRepository _localDataRepository =
       Get.find<LocalDataRepository>();
 
@@ -88,9 +86,14 @@ class OnboardingController extends GetxController {
 
   @override
   void onInit() {
+    clearUserStoredStatements();
     updateBackgroundShape();
     _initialCardPosition(true);
     super.onInit();
+  }
+
+  void clearUserStoredStatements() {
+    UserManager.clearAllStatements();
   }
 
   /**

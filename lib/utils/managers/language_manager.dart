@@ -1,9 +1,11 @@
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:ui';
 
 class LanguageManager {
   static late SharedPreferences sharedPreferences;
+  static final DataRepository _dataRepository = Get.find<DataRepository>();
 
   static String currentLanguage = 'en';
   static const String keyLanguage = 'language';
@@ -39,6 +41,8 @@ class LanguageManager {
     currentLanguage = languageCode;
     setSavedLanguage(languageCode);
     updateAppLanguage();
+
+    _dataRepository.fetchTranslatedData();
   }
 
   static updateAppLanguage() {

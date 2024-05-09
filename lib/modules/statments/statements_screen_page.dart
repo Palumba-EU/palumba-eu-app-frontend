@@ -72,7 +72,7 @@ class StatementsPage extends GetView<StatementsController> {
                           duration: Durations.medium4,
                           child: CustomHeader(
                             homeTap: () =>
-                                Get.toNamed(HomePageController.route),
+                                Get.offAllNamed(HomePageController.route),
                             backTap: () => controller.returnToPreviousCard(),
                             isBackButtonActive:
                                 controller.previousCardButtonActivated,

@@ -8,6 +8,7 @@ import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
+import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
@@ -33,10 +34,7 @@ class HomePageController extends GetxController {
   @override
   void onInit() {
     obtainLocalStoredLastResults();
-    final args = Get.arguments;
-    if (args != null) {
-      _showBanner.value = args[StringUtils.fromResultsKey];
-    }
+    conditionallyShowEYCABanner();
     super.onInit();
   }
 
@@ -54,6 +52,17 @@ class HomePageController extends GetxController {
     }
     //Update the results button
     update([resultsExistsKey]);
+  }
+
+  Future<void> conditionallyShowEYCABanner() async {
+    final args = Get.arguments;
+    if (args != null) {
+      final comingFromResults = args[StringUtils.fromResultsKey];
+      final seenEYCA = (await _localDataRepository.seenEYCA) ?? false;
+
+      _showBanner.value = comingFromResults && !seenEYCA;
+      _localDataRepository.seenEYCA = true;
+    }
   }
 
   void launchFaqUrl() {
@@ -80,7 +89,7 @@ class HomePageController extends GetxController {
 
   void backToResultsOrTest() {
     if (isTestRunning) {
-      Get.back();
+      Get.toNamed(StatementsController.route);
       return;
     }
     Get.toNamed(ResultsController.route, arguments: {

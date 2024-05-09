@@ -22,6 +22,9 @@ class LocalDataAPI {
   setResults(value) async => await setString(_sk.results, jsonEncode(value));
   Future<String?> get getResults async => await (await getString(_sk.results));
 
+  setSeenEYCA(value) async => await setBool(_sk.seenEYCA, value);
+  Future<bool?> get getSeenEYCA async => await (await getBool(_sk.seenEYCA));
+
   //Methods store and obtain
   Future<bool> setBool(String key, bool value) async =>
       (await _storage).setBool(key, value);
@@ -49,4 +52,5 @@ class _StorageKeys {
   final String country = 'localData:country';
   final String answers = 'localData:answers';
   final String results = 'localData:results';
+  final String seenEYCA = 'localData:seenEYCA';
 }

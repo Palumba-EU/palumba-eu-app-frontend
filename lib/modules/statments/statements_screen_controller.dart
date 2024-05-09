@@ -7,7 +7,6 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
@@ -21,8 +20,6 @@ enum _HeightScreenPart { top, middle, bottom }
 class StatementsController extends GetxController {
   static const route = '/statements';
   final String cardStackKey = "cardStackKey";
-
-  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   List<CardModel?> _currentCards = [];
   CardModel? get firstCard =>
@@ -107,9 +104,18 @@ class StatementsController extends GetxController {
 
   @override
   void onInit() {
-    clearUserStoredStatements();
     _getArgumentsAndFetch();
     resetAnimation();
+
+    if (UserManager.isTestRunning) {
+      final answeredQuestionIds = UserManager.userData.answers.map((e) => e.statementId);
+
+      // remove questions that have already been answered
+      UserManager.userData.answers.forEach((userAnswer) {
+        _currentCards.removeWhere((card) => answeredQuestionIds.contains(card?.id));
+      });
+    }
+
     //Set test is started
     UserManager.setTestRuning(true);
     super.onInit();
@@ -118,10 +124,6 @@ class StatementsController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-  }
-
-  void clearUserStoredStatements() {
-    UserManager.clearAllStatements();
   }
 
   Future<void> _getArgumentsAndFetch() async {
@@ -135,20 +137,10 @@ class StatementsController extends GetxController {
     try {
       _statementsData = DataManager().getStatements();
     } catch (e) {}
-    if (_statementsData == null) {
-      await _fetchStatements();
-    }
 
     _currentCards.addAll(StatementsParser.getCardModelList(statements));
     update([cardStackKey]);
     _loadingQuestions.value = false;
-  }
-
-  Future<void> _fetchStatements() async {
-    final result = await _dataRepository.fetchStatements();
-    if (result != null) {
-      _statementsData = result.data ?? [];
-    }
   }
 
   void onPanStart(DragStartDetails details) {
