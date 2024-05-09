@@ -19,178 +19,202 @@ class ResultsPage extends GetView<ResultsController> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      child: Screenshot(
-        controller: controller.screenshotController,
-        child: Scaffold(
+      child: Scaffold(
             key: controller.globalKey,
             backgroundColor: AppColors.background,
-            body: Stack(
-              children: [
-                //Animate background color for special pages
-                Obx(
-                  () => Opacity(
-                    opacity: controller.isSpecialPage ? 1 : 0,
-                    child: Container(
-                      color: AppColors.blue,
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 180),
-                              child: SvgPicture.asset(
-                                'assets/images/ic_sticker_ballot_box1.svg',
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 190),
-                              child: SvgPicture.asset(
-                                'assets/images/ic_sticker_ballot_box2.svg',
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: Padding(
-                              padding: EdgeInsets.only(bottom: 40),
-                              child: SvgPicture.asset(
-                                'assets/images/ic_sticker_ballot_box3.svg',
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: Padding(
-                              padding: EdgeInsets.only(right: 10),
-                              child: SvgPicture.asset(
-                                'assets/images/ic_sticker_ballot_box4.svg',
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-
-                Obx(() => controller.currentPage == 3
-                    ? DottedContainer(
-                        width: double.infinity,
-                        height: Get.height,
-                        pointColor: AppColors.lightPrimary.withOpacity(.35))
-                    : SizedBox.shrink()),
-
-                SafeArea(
-                  bottom: false,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+            body:  GestureDetector(
+              onTapDown: controller.changePage,
+              behavior: HitTestBehavior.translucent,
+              child:Stack(
+                children: [
+                  //Animate background color for special pages
+                Screenshot(
+                  controller: controller.backgroundScreenshotController,
+                  child: Stack(
                     children: [
-                      CustomSpacer(
-                        multiplier: 3,
-                      ),
-                      //Progressbar
-                      Padding(
-                        padding: AppDimens.lateralPadding,
-                        child: Obx(() => controller.loadingShare
-                            ? SizedBox.shrink()
-                            : CustomProgressBar(
-                                step: controller.currentPage,
-                                totalSteps: controller.pages.length,
-                                width: double.infinity,
-                                isDotted: true,
-                                progressColor: AppColors.primary,
-                                backgroundColor: AppColors.lightPrimary,
-                              )),
-                      ),
-                      CustomSpacer(
-                        multiplier: 3,
+                      Container(
+                        color: AppColors.background,
                       ),
 
-                      //Rounded image and #appname
-                      Padding(
-                        padding: AppDimens.lateralPadding,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/images/logo_circle.svg',
-                              height: 40,
-                            ),
-                            Spacer(),
-                            AppTexts.title('#${S.of(context).shortAppName}',
-                                color: AppColors.primary),
-                          ],
-                        ),
-                      ),
-
-                      //Pages
-                      Expanded(
-                        child: GestureDetector(
-                          onTapDown: controller.changePage,
-                          behavior: HitTestBehavior.translucent,
-                          child: PageView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              allowImplicitScrolling: true,
-                              controller: controller.pageController,
-                              itemCount: controller.pages.length,
-                              itemBuilder: (context, index) =>
-                                  controller.pages[index]),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                //Share button only showed in showButtonSharePages
-                Obx(
-                  () => controller.loadingShare
-                      ? SizedBox.shrink()
-                      : controller.showButtonSharePages
-                              .contains(controller.currentPage)
-                          ? Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      AppDimens.bigLateralPaddingValue * 2,
-                                  vertical: AppDimens.bigLateralPaddingValue),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: CustomButton(
-                                  loading: controller.loadingShare,
-                                  text: S.of(context).resultsShare,
-                                  expanded: true,
-                                  onPressed: controller.shareContent,
-                                  prefixIcon: IconButtonParameters(
-                                    'ic_share',
-                                    size: 18,
-                                    color: controller.isSpecialPage
-                                        ? Colors.white
-                                        : AppColors.primary,
+                      Obx(() => Opacity(
+                        opacity: controller.isSpecialPage ? 1 : 0,
+                        child: Container(
+                          color: AppColors.blue,
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.topLeft,
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 180),
+                                  child: SvgPicture.asset(
+                                    'assets/images/ic_sticker_ballot_box1.svg',
                                   ),
-                                  radius: AppDimens.borderRadius,
-                                  color: controller.isSpecialPage
-                                      ? AppColors.primary
-                                      : AppColors.yellow,
-                                  textColor: controller.isSpecialPage
-                                      ? Colors.white
-                                      : AppColors.primary,
-                                  bold: true,
-                                  border: ButtonBorderParameters(
-                                      isOutside: true,
-                                      width: 3,
-                                      color: controller.isSpecialPage
-                                          ? AppColors.lightPrimary
-                                          : AppColors.lightYellow),
                                 ),
                               ),
-                            )
-                          : SizedBox.shrink(),
-                )
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 190),
+                                  child: SvgPicture.asset(
+                                    'assets/images/ic_sticker_ballot_box2.svg',
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.bottomLeft,
+                                child: Padding(
+                                  padding: EdgeInsets.only(bottom: 40),
+                                  child: SvgPicture.asset(
+                                    'assets/images/ic_sticker_ballot_box3.svg',
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.bottomRight,
+                                child: Padding(
+                                  padding: EdgeInsets.only(right: 10),
+                                  child: SvgPicture.asset(
+                                    'assets/images/ic_sticker_ballot_box4.svg',
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Obx(() => controller.currentPage == 3
+                        ? DottedContainer(
+                            width: double.infinity,
+                            height: Get.height,
+                            pointColor: AppColors.lightPrimary.withOpacity(.35))
+                        : SizedBox.shrink()),
+                    ]
+                  ),
+                ),
+
+                  SafeArea(
+                    bottom: false,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CustomSpacer(
+                          multiplier: 1,
+                        ),
+                        //Progressbar
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: AppDimens.lateralPaddingValue),
+                          child: Obx(() => CustomProgressBar(
+                                  step: controller.currentPage,
+                                  totalSteps: controller.pages.length,
+                                  width: double.infinity,
+                                  isDotted: true,
+                                  progressColor: AppColors.primary,
+                                  backgroundColor: AppColors.lightPrimary,
+                                )),
+                        ),
+
+                        //Pages
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Screenshot(
+                                controller: controller.foregroundScreenshotController,
+                                child: AspectRatio(
+                                  aspectRatio: 9/16,
+                                  child: Column(
+                                    children: [
+                                      CustomSpacer(
+                                        multiplier: 3,
+                                      ),
+                                      //Rounded image and #appname
+                                      Padding(
+                                        padding: AppDimens.lateralPadding,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/images/logo_circle.svg',
+                                              height: 40,
+                                            ),
+                                            Spacer(),
+                                            AppTexts.title('#${S.of(context).shortAppName}',
+                                                color: AppColors.primary),
+                                          ],
+                                        ),
+                                      ),
+                                      CustomSpacer(
+                                        multiplier: 1,
+                                      ),
+                                      Expanded(
+                                        child: PageView.builder(
+                                            physics: NeverScrollableScrollPhysics(),
+                                            allowImplicitScrolling: true,
+                                            controller: controller.pageController,
+                                            itemCount: controller.pages.length,
+                                            itemBuilder: (context, index) => Expanded(child: controller.pages[index])
+                                        )
+                                      )
+                                    ],
+                                  )
+                                ),
+                              )
+                            ]
+                          )
+                        )
+                      ],
+                    ),
+                  ),
+
+                  //Share button only showed in showButtonSharePages
+                  Obx(
+                    () => controller.loadingShare
+                        ? SizedBox.shrink()
+                        : controller.showButtonSharePages
+                                .contains(controller.currentPage)
+                            ? Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        AppDimens.bigLateralPaddingValue * 2,
+                                    vertical: AppDimens.bigLateralPaddingValue),
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: CustomButton(
+                                    loading: controller.loadingShare,
+                                    text: S.of(context).resultsShare,
+                                    expanded: true,
+                                    onPressed: controller.shareContent,
+                                    prefixIcon: IconButtonParameters(
+                                      'ic_share',
+                                      size: 18,
+                                      color: controller.isSpecialPage
+                                          ? Colors.white
+                                          : AppColors.primary,
+                                    ),
+                                    radius: AppDimens.borderRadius,
+                                    color: controller.isSpecialPage
+                                        ? AppColors.primary
+                                        : AppColors.yellow,
+                                    textColor: controller.isSpecialPage
+                                        ? Colors.white
+                                        : AppColors.primary,
+                                    bold: true,
+                                    border: ButtonBorderParameters(
+                                        isOutside: true,
+                                        width: 3,
+                                        color: controller.isSpecialPage
+                                            ? AppColors.lightPrimary
+                                            : AppColors.lightYellow),
+                                  ),
+                                ),
+                              )
+                            : SizedBox.shrink(),
+                  )
               ],
-            )),
-      ),
+            )
+        ),
+      )
     );
   }
 }

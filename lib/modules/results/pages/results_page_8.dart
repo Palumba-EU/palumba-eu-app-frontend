@@ -16,66 +16,59 @@ class ResultsPage8 extends GetView<ResultsController> {
   @override
   Widget build(BuildContext context) {
     final maxTopic = controller.maxTopicPercentage();
-    return SingleChildScrollView(
-      child: Container(
-        color: AppColors.background,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Stack(
+          alignment: Alignment.center,
           children: [
-            // Spacer(),
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                SvgPicture.asset(
-                  'assets/images/img_banner_top.svg',
-                  fit: BoxFit.fitWidth,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppDimens.regularLateralPaddingValue),
-                  child: AppTexts.title(
-                      maxTopic.isExtreme1
-                          ? maxTopic.topicData.extreme1Emojis!
-                          : maxTopic.topicData.extreme2Emojis!,
-                      color: AppColors.primary,
-                      fontSize: 32.5),
-                )
-              ],
+            Container(color: Colors.blue,),
+            SvgPicture.asset(
+              'assets/images/img_banner_top.svg',
+              fit: BoxFit.fitWidth,
             ),
-            //Spacer(),
             Padding(
-              padding: AppDimens.lateralPadding,
+              padding: EdgeInsets.only(
+                  left: AppDimens.regularLateralPaddingValue),
               child: AppTexts.title(
-                S.of(context).resultsPage8_1Text(
-                    maxTopic.topicData.name ?? '', maxTopic.percentage),
-                color: AppColors.primary,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            AppTexts.title(
-                maxTopic.isExtreme1
-                    ? maxTopic.topicData.extreme1 ?? ''
-                    : maxTopic.topicData.extreme2 ?? '',
-                color: Utils.getApiColor(maxTopic.topicData.color ?? '')),
-            CustomSpacer(),
-
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: AppDimens.bigLateralPaddingValue),
-              child: CustomHtmlWidget(
-                content: maxTopic.topicData.extreme2Details ?? '',
-                textStyle: TextStyle(
-                  fontSize: AppDimens.fontSizeSmall,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            CustomSpacer(
-              multiplier: 10,
+                  maxTopic.isExtreme1
+                      ? maxTopic.topicData.extreme1Emojis!
+                      : maxTopic.topicData.extreme2Emojis!,
+                  color: AppColors.primary,
+                  fontSize: 32.5),
             )
           ],
         ),
-      ),
+        Padding(
+          padding: AppDimens.lateralPadding,
+          child: AppTexts.title(
+            S.of(context).resultsPage8_1Text(
+                maxTopic.topicData.name ?? '', maxTopic.percentage),
+            color: AppColors.primary,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        AppTexts.title(
+            maxTopic.isExtreme1
+                ? maxTopic.topicData.extreme1 ?? ''
+                : maxTopic.topicData.extreme2 ?? '',
+            color: Utils.getApiColor(maxTopic.topicData.color ?? '')), CustomSpacer(),
+
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: AppDimens.bigLateralPaddingValue),
+          child: CustomHtmlWidget(
+            content: maxTopic.topicData.extreme2Details ?? '',
+            textStyle: TextStyle(
+              fontSize: AppDimens.fontSizeSmall,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        CustomSpacer(
+          multiplier: 10,
+        ),
+      ],
     );
   }
 }
