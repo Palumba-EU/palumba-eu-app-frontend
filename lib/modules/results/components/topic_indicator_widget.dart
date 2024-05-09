@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -44,13 +46,13 @@ class TopicIndicatorWidget extends StatelessWidget {
                   colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
                 ),
               ),
-              Transform.rotate(
-                angle: (3.14 * 1.25) + position * 3.14,
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 15),
-                  child: SvgPicture.asset(
-                      height: 45, 'assets/images/img_needle.svg'),
-                ),
+              Transform.translate(
+                  offset: Offset(-1.5, 15),
+                  child: Transform.rotate(
+                      angle: position * pi,
+                      child: SvgPicture.asset(
+                          height: 80, 'assets/images/img_needle.svg'),
+                    ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

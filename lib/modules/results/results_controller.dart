@@ -200,6 +200,7 @@ class ResultsController extends GetxController {
   void _getTopics() async {
     var topicsList = DataManager().getTopics();
     _topics = topicsList.where((e) => e.id != 2 && e.id != 3).toList();
+    _topics.sort((a,b) => a.id!.compareTo(b.id!));
   }
 
   PartyUserDistance? getMajorPercentageParty() {
