@@ -33,16 +33,14 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   _buildHeaders(context, _),
-                  CustomSpacer(
-                    multiplier: 3,
-                  ),
+                  CustomSpacer(),
                   Obx(
                     () => _.showBanner
                         ? _buildBodyBanner(context, _)
                         : _buildBodyPageView(_),
                   ),
                   CustomSpacer(
-                    multiplier: 6,
+                    multiplier: 5,
                   ),
                   _buildFooter(context, _)
                 ],
@@ -84,7 +82,9 @@ class HomePage extends StatelessWidget {
                     fit: BoxFit.fitWidth,
                   ),
                 ),
-                CustomSpacer(multiplier: 4,),
+                CustomSpacer(
+                  multiplier: 2,
+                ),
                 CustomHtmlWidget(
                   content: youthCardSponsor.bannerDescription ?? '',
                   textAlign: TextAlign.center,
@@ -92,7 +92,7 @@ class HomePage extends StatelessWidget {
                       fontSize: AppDimens.fontSizeSmall,
                       fontWeight: FontWeight.w100),
                 ),
-                CustomSpacer(multiplier: 4,),
+                CustomSpacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

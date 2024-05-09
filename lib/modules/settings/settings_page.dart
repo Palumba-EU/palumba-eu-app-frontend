@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -43,7 +44,7 @@ class SettingsPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                         ),
-                        padding: EdgeInsets.fromLTRB(0, 10, 100, 10),
+                        padding: EdgeInsets.fromLTRB(0, 10, 20, 10),
                         child: SizedBox(
                           child: SvgPicture.asset(
                             'assets/images/ic_arrow_back.svg',
@@ -61,7 +62,7 @@ class SettingsPage extends StatelessWidget {
                   CustomHorizontalSpacer(),
                   TextButton(
                     onPressed: _.launchFaqUrl,
-                    child: AppTexts.regular(S.of(context).faq,
+                    child: AppTexts.regular('FAQ',
                         color: AppColors.primary, bold: true),
                   )
                 ],
@@ -91,8 +92,7 @@ class SettingsPage extends StatelessWidget {
               CustomSpacer(small: true),
               AppTexts.small(S.of(context).settingsPageTextAbout,
                   color: AppColors.primary),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+              Wrap(
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -100,9 +100,9 @@ class SettingsPage extends StatelessWidget {
                     },
                     child: Padding(
                       padding: EdgeInsets.only(
+                          right: AppDimens.smallLateralPaddingValue,
                           top: AppDimens.smallLateralPaddingValue,
-                          bottom: AppDimens.smallLateralPaddingValue,
-                          right: AppDimens.smallLateralPaddingValue),
+                          bottom: AppDimens.smallLateralPaddingValue),
                       child: AppTexts.small(
                           S.of(context).settingsPageTitleAssociation,
                           color: AppColors.primary,
@@ -115,18 +115,23 @@ class SettingsPage extends StatelessWidget {
                       _.launchEmail();
                     },
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          vertical: AppDimens.smallLateralPaddingValue,
-                          horizontal: AppDimens.smallLateralPaddingValue),
+                      padding: EdgeInsets.only(
+                          right: AppDimens.smallLateralPaddingValue,
+                          top: AppDimens.smallLateralPaddingValue,
+                          bottom: AppDimens.smallLateralPaddingValue),
                       child: AppTexts.small(StringUtils.contactEmail,
                           color: AppColors.primary,
                           bold: true,
                           decoration: TextDecoration.underline),
                     ),
                   ),
-                  CustomHorizontalSpacer(multiplier: 2),
-                  AppTexts.small("#${S.of(context).shortAppName}",
-                      color: AppColors.primary, bold: true),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: AppDimens.smallLateralPaddingValue,
+                        bottom: AppDimens.smallLateralPaddingValue),
+                    child: AppTexts.small("#${S.of(context).shortAppName}",
+                        color: AppColors.primary, bold: true),
+                  ),
                 ],
               ),
               CustomSpacer(multiplier: 4),
@@ -184,7 +189,8 @@ class SettingsPage extends StatelessWidget {
               children: [
                 CustomSpacer(),
                 AppTexts.small(
-                    [ // HACK we don't know if this works reliable,
+                    [
+                      // HACK we don't know if this works reliable,
                       // but now at least the translations are shown
                       S.of(context).settingsPageSubtitle1,
                       S.of(context).settingsPageSubtitle2,

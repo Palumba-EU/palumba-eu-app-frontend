@@ -20,147 +20,177 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'tr';
 
-  static String m0(count) =>
-      "${count}\'matches\' trobats en les últimes 24 hores";
+  static String m0(count) => "Son 24 saatte ${count} eşleşme bulundu";
 
-  static String m1(count) =>
-      "${count} \'matches\' trobats en les últimes 24 hores";
+  static String m1(count) => "Son 24 saatte ${count} eşleşme bulundu";
 
   static String m2(country) =>
-      "Trobar coincidències amb llistes de candidats a ${country} 🔍";
+      "${country} adaylar listesiyle eşleşmeler bulunuyor 🔍";
 
-  static String m3(country) =>
-      "No s\'ha trobat cap partit polític local a ${country}";
+  static String m3(country) => "${country}\'de hiçbir yerel parti bulunamadı";
 
   static String m4(country, group) =>
-      "Aquestes són les llistes de candidats locals que coincideixen al vostre país";
+      "${country}\'deki adaylar ${group} ile en uyumlu";
+
+  static String m5(topic, percentage) =>
+      "${topic}\'de, %${percentage} daha ilgilisin;";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Alguna cosa ha anat malament al nostre costat. Siusplau, intenta-ho més tard."),
-        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Vaja!"),
-        "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel·lar"),
-        "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
+            "Bizim tarafımızda bir sorun oluştu. Lütfen sonra tekrar deneyin."),
+        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ups!"),
+        "appName": MessageLookupByLibrary.simpleMessage("Palumba AB"),
+        "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
+        "denmark": MessageLookupByLibrary.simpleMessage("Danimarka"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
-            MessageLookupByLibrary.simpleMessage("Començar Palumba"),
+            MessageLookupByLibrary.simpleMessage("Palumba\'yı Başlat"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Benvinguts a la Beta exclusiva de Palumba"),
+            "Eğer bu şirin güvercin seni Haziranda oy kullanmaya ikna edemezse, hiçbir şey edemez."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Si aquest colom tan bufó no t\'ajuda a votar al juny, res ho farà"),
+            "Senin için önemli olan konuların üzerini kaydır."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Prepara\'t per difondre l\'app massivament el 9 de maig"),
-        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
-        "france": MessageLookupByLibrary.simpleMessage("França"),
-        "germany": MessageLookupByLibrary.simpleMessage("Alemanya"),
+            "Seçimlerde kime oy vereceğinle ilgili eşleşmeni ve eğilimini bul."),
+        "faq": MessageLookupByLibrary.simpleMessage("SSS"),
+        "france": MessageLookupByLibrary.simpleMessage("Fransa"),
+        "germany": MessageLookupByLibrary.simpleMessage("Almanya"),
         "homePageBackToTest":
-            MessageLookupByLibrary.simpleMessage("Tornar al test"),
+            MessageLookupByLibrary.simpleMessage("Teste devam"),
         "homePageMatchesFoundQuote": m1,
-        "homePageMyResults":
-            MessageLookupByLibrary.simpleMessage("Els meus resultats"),
+        "homePageMyResults": MessageLookupByLibrary.simpleMessage("Sonuçlarım"),
         "homePageStartButton":
-            MessageLookupByLibrary.simpleMessage("Comença un nou test"),
-        "hungary": MessageLookupByLibrary.simpleMessage("Hongria"),
+            MessageLookupByLibrary.simpleMessage("Yeni bir teste başla"),
+        "hungary": MessageLookupByLibrary.simpleMessage("Macaristan"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Això es pot canviar més endavant a la configuració."),
+            "Bu sonradan ayarlardan değiştirilebilir."),
         "languagePageTitle":
-            MessageLookupByLibrary.simpleMessage("Continuem en català? :)"),
+            MessageLookupByLibrary.simpleMessage("Türkçe devam edelim mi? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
-            "Els teus resultats personalitzats estan en camí :)"),
+            "Sana özel sonuçların yolda :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-            "Això serà més ràpid que aconseguir entrades per Taylor Swift 👀 "),
+            "Bu Taylor Swift\'e bilet almaktan daha çabuk olmalı 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Quasi preparat, una darrera comprovació..."),
-        "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
-        "no": MessageLookupByLibrary.simpleMessage("No"),
-        "ok": MessageLookupByLibrary.simpleMessage("D\'acord"),
+            "Neredeyse hazır, son bir şey..."),
+        "neutral": MessageLookupByLibrary.simpleMessage("Tarafsız"),
+        "no": MessageLookupByLibrary.simpleMessage("Hayır"),
+        "ok": MessageLookupByLibrary.simpleMessage("Tamam"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
-            "No tinc ni idea de qui votar a les eleccions europees del 2024"),
+            "2024 Avrupa Seçimlerinde kime oy vereceğimle ilgili hiçbir fikrim yok"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "Llisca en funció del teu grau d\'acord"),
+            "Katılma durumuna göre kaydır"),
         "onBoardingNotAnswerButton":
-            MessageLookupByLibrary.simpleMessage("Prefereix-ho no dir-ho"),
+            MessageLookupByLibrary.simpleMessage("Söylememeyi tercih ederim"),
         "onBoardingStep1Subtitle":
-            MessageLookupByLibrary.simpleMessage("No ho sé"),
+            MessageLookupByLibrary.simpleMessage("Bilmiyorum"),
         "onBoardingStep1Title":
-            MessageLookupByLibrary.simpleMessage("On votareu?"),
-        "onBoardingStep2Title":
-            MessageLookupByLibrary.simpleMessage("La meva edat"),
-        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Dona"),
-        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Home"),
+            MessageLookupByLibrary.simpleMessage("Nerede oy kullanacaksın?"),
+        "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("Yaşım"),
+        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Kadın"),
+        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Erkek"),
         "onBoardingStep3Option3":
-            MessageLookupByLibrary.simpleMessage("Gènere-fluid"),
+            MessageLookupByLibrary.simpleMessage("Gender-fluid"),
         "onBoardingStep3Option4":
-            MessageLookupByLibrary.simpleMessage("No binari"),
-        "onBoardingStep3Option5":
-            MessageLookupByLibrary.simpleMessage("Altres"),
+            MessageLookupByLibrary.simpleMessage("Non-binary"),
+        "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Başka"),
         "onBoardingStep3Title":
-            MessageLookupByLibrary.simpleMessage("El meu gènere és"),
-        "poland": MessageLookupByLibrary.simpleMessage("Polònia"),
+            MessageLookupByLibrary.simpleMessage("Kendimi böyle tanımlıyorum"),
+        "poland": MessageLookupByLibrary.simpleMessage("Polonya"),
+        "resultsPage10NopButton":
+            MessageLookupByLibrary.simpleMessage("Hayır sağ ol!"),
+        "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
+            "Oy kullanma vakti geldiğinde bir bildirim?"),
+        "resultsPage10YesButton":
+            MessageLookupByLibrary.simpleMessage("Oluuuuur"),
+        "resultsPage1Button":
+            MessageLookupByLibrary.simpleMessage("Devam etmek için dokun"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobrireu el vostre grup més compatible al Parlament de la UE, les llistes locals coincidents per votar al juny al vostre país, i fins i tot hem trobat algunes coses addicionals basades en les vostres respostes 😌"),
-        "resultsPage1Title":
-            MessageLookupByLibrary.simpleMessage("T\'hem trobat un \'match\'!"),
+            "Sonraki ekranlarda, Haziran ayında ülkendeki seçimlerde sana en uyumlu AB Parlemento Grubunu ve eşleşen Yerel listeyi keşfedeceksin, hatta verdiğin cevaplara göre fazladan birşeyler de bulduk 😌"),
+        "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
+            "Bir eşleşme ve çok daha fazlası 👉👈"),
+        "resultsPage2_1Title":
+            MessageLookupByLibrary.simpleMessage("Honestly, between the"),
+        "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
+            "and me, it’s kind of a Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
-            "La teva compatibilitat amb els grups del Parlament Europeu"),
+            "Avrupa Parlamento Grupları\'na ne kadar yakınım"),
         "resultsPage4TitleBottom":
-            MessageLookupByLibrary.simpleMessage("Anti-integració UE"),
-        "resultsPage4TitleLeft":
-            MessageLookupByLibrary.simpleMessage("Esquerra"),
-        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Dreta"),
+            MessageLookupByLibrary.simpleMessage("AB\'ye Entegrasyon Karşıtı"),
+        "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Sol"),
+        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Sağ"),
         "resultsPage4TitleTop":
-            MessageLookupByLibrary.simpleMessage("Pro-integració UE"),
+            MessageLookupByLibrary.simpleMessage("AB\'ye Entegrasyon Yanlısı"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("Ets tu!"),
+            MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "D\'acord, és genial saber quin grup et porta..."),
+            "Daha özel konularda, hangi Avrupa Parlamento Grubu\'na daha yakınım?"),
+        "resultsPage5Topic1":
+            MessageLookupByLibrary.simpleMessage("Çevresel sorunlar"),
+        "resultsPage5Topic2": MessageLookupByLibrary.simpleMessage(
+            "İnsan Hakları ve Sosyal Haklar"),
+        "resultsPage5Topic3":
+            MessageLookupByLibrary.simpleMessage("Ekonomik müdahale"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
-        "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "No estan en cap ordre en concret"),
+            "Sonraki ekranlarda, eşleşmene katılma ihtimali en yüksek ülkendeki aday listelerini keşfedeceksin."),
+        "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
+            "Tamamdır, hangi grubun beni anladığını bilmek güzel..."),
+        "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
+            "Ancak AB seçimlerinde, yerel bir listeye oy veririz"),
+        "resultsPage7Disclaimer":
+            MessageLookupByLibrary.simpleMessage("Belirli bir sıralama yok."),
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": m4,
-        "resultsShare":
-            MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
-        "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
+            "Sen iklim değişikliğine karşı bir savaşçısın! İklim krizinin üstesinden gelmenin, herkesin bunu en yüksek öncelik haline getirmesiyle kolektif eylem gerektirdiğine inanıyorsun. AB\'nin bu amaçla şirketleri düzenlemesi senin için bir sorun değil. Sonuç olarak, gezegen yaşanmaz hale gelirse ekonomik büyüme ne işe yarar?"),
+        "resultsPage8_1Text": m5,
+        "resultsPage8_2Text":
+            MessageLookupByLibrary.simpleMessage("Aktif İklim Hareketi 🌱😌"),
+        "resultsPage9Help":
+            MessageLookupByLibrary.simpleMessage("Kartları karmak için dokun"),
+        "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
+            "Seçimler birçok konuyla ilgilidir, ancak bir tanesi var ki"),
+        "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("O Bana Aittir 🫡"),
+        "resultsShare": MessageLookupByLibrary.simpleMessage("Paylaş"),
+        "romania": MessageLookupByLibrary.simpleMessage("Romanya"),
         "settingsPagePrivacyPolicy":
-            MessageLookupByLibrary.simpleMessage("Política de Privacitat"),
+            MessageLookupByLibrary.simpleMessage("Veri Koruma"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Compartir (coming soon ⏳)"),
+            MessageLookupByLibrary.simpleMessage("Paylaş"),
         "settingsPageSubtitle1":
-            MessageLookupByLibrary.simpleMessage("Main Sponsors"),
+            MessageLookupByLibrary.simpleMessage("Ana Sponsorlar"),
         "settingsPageSubtitle2":
-            MessageLookupByLibrary.simpleMessage("European Partners"),
+            MessageLookupByLibrary.simpleMessage("Avrupalı Ortaklar"),
         "settingsPageSubtitle3":
-            MessageLookupByLibrary.simpleMessage("Academic Partner"),
-        "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
-            "National Institutional Partners"),
+            MessageLookupByLibrary.simpleMessage("Akademik Ortak"),
+        "settingsPageSubtitle4":
+            MessageLookupByLibrary.simpleMessage("Ulusal Kurumsal Ortaklar"),
         "settingsPageSubtitle5":
-            MessageLookupByLibrary.simpleMessage("Service Providers"),
+            MessageLookupByLibrary.simpleMessage("Servis Sağlayıcılar"),
         "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
-            "Prefereixo utilitzar l\'app en"),
+            "Uygulamayı bu dilde kullanmayı tercih ederim"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Palumba no és una empresa, ni un partit polític, ni un govern. Som una associació independent sense ànim de lucre de més de 120 joves 🐦 d\'arreu d\'Europa que es van trobar l\'estiu passat i van començar a crear aquesta app. Tenim un objectiu: ajudar-te a entendre millor com funcionen les eleccions europees i quines candidatures encaixen amb les vostres idees, perquè puguis votar amb més confiança a les persones que donen suport a les teves prioritats. El nostre algorisme és de codi obert, un consell científic de politòlegs ha revisat les frases en què fas \"swipe\" i les teves dades estan taaan encriptades que no tenim manera d\'identificar-te ni de rebot :)"),
+            "Palumba bir şirket, bir siyasi parti veya bir hükümet değildir. Geçtiğimiz yaz 120\'den fazla genç 🐦 Avrupa\'nın dört bir yanından bir araya gelerek bu uygulamayı hazırlamaya başladığı, bağımsız ve kâr amacı gütmeyen bir dernektir. Tek bir amacımız var; Avrupa Seçimlerinin nasıl işlediğini ve hangi aday listelerinin senin fikirlerine uyabileceğini daha iyi anlamana yardımcı olmak, böylece önceliklerini destekleyen kişilere güvenle oy verebilirmen. Algoritmamız açık kaynaktır, üzerini kaydırdığın ifadeler de siyaset bilimciler tarafından incelenmiştir ve verilerin o kadar şifrelidir ki kimliğini saptamamızın hiçbir yolu yok :)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
-            "Per canviar l\'idioma, fes clic sobre l\'actual"),
+            "Dili değiştirmek için şu anda seçili olana dokun"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
-            "És important que sàpigues que els Partners no tenen cap poder de decisió editorial sobre els continguts de l\'app, que és una iniciativa apartidista amb un objectiu clar: ajudar-te a entendre quines opcions polítiques recolzen les teves opinions a nivell europeu i nacional."),
+            "Önemli olarak belirtelim ki ortaklarımız uygulamanın içeriği üzerinde herhangi bir editoryal yetkiye sahip değildir; bu uygulama tarafsız bir girişimdir ve net bir hedefi vardır; Avrupa ve ulusal düzeyde görüşlerinizi kimin desteklediğini anlamanıza yardımcı olmak."),
         "settingsPageTitleAbout":
-            MessageLookupByLibrary.simpleMessage("Sobre nosaltres"),
+            MessageLookupByLibrary.simpleMessage("Hakkında"),
         "settingsPageTitleAssociation":
-            MessageLookupByLibrary.simpleMessage("L\'Associació"),
+            MessageLookupByLibrary.simpleMessage("Dernek"),
         "settingsPageTitleLanguage":
-            MessageLookupByLibrary.simpleMessage("Language"),
+            MessageLookupByLibrary.simpleMessage("Dil"),
         "settingsPageTitlePartners":
-            MessageLookupByLibrary.simpleMessage("Partners"),
+            MessageLookupByLibrary.simpleMessage("Ortaklar"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
-        "skip": MessageLookupByLibrary.simpleMessage("Omet"),
-        "spain": MessageLookupByLibrary.simpleMessage("Espanya"),
-        "sweden": MessageLookupByLibrary.simpleMessage("Suècia"),
-        "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
-        "yes": MessageLookupByLibrary.simpleMessage("Sí")
+        "skip": MessageLookupByLibrary.simpleMessage("Atla"),
+        "spain": MessageLookupByLibrary.simpleMessage("İspanya"),
+        "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
+            "İnternet bağlantınız yok gibi gözüküyor"),
+        "sweden": MessageLookupByLibrary.simpleMessage("İsveç"),
+        "textContinue": MessageLookupByLibrary.simpleMessage("Devam"),
+        "yes": MessageLookupByLibrary.simpleMessage("Evet")
       };
 }
