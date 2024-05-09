@@ -36,22 +36,20 @@ class SettingsPage extends StatelessWidget {
                 children: [
                   // HACK but TextButton would have a margin left
                   GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                      ),
-                      padding: EdgeInsets.fromLTRB(0, 10, 100, 10),
-                      child:
-                        SizedBox(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        padding: EdgeInsets.fromLTRB(0, 10, 100, 10),
+                        child: SizedBox(
                           child: SvgPicture.asset(
                             'assets/images/ic_arrow_back.svg',
                           ),
                         ),
-                      )
-                  ),
+                      )),
                   Spacer(),
                   TextButton(
                     onPressed: _.launchPrivacyPoliciesUrl,
@@ -139,7 +137,6 @@ class SettingsPage extends StatelessWidget {
               CustomSpacer(small: true),
               AppTexts.small(S.of(context).settingsPageTextPartners,
                   color: AppColors.primary),
-              CustomSpacer(),
 
               _wrapperIcons(_),
 
@@ -185,9 +182,11 @@ class SettingsPage extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                CustomSpacer(),
                 AppTexts.small(
-                    _.categoriesSponsors.value![index].category
-                            .capitalizeFirst ??
+                    _.categoriesSponsors.value![index].category.capitalizeFirst!
+                            .replaceAll('sponsor', 'Sponsors')
+                            .replaceAll('partner', 'Partners') ??
                         '',
                     bold: true,
                     color: AppColors.primary),
@@ -199,7 +198,7 @@ class SettingsPage extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      mainAxisSpacing: 0,
+                      childAspectRatio: 2,
                       crossAxisSpacing: AppDimens.smallLateralPaddingValue,
                     ),
                     itemBuilder: (context, index2) {

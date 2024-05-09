@@ -20,93 +20,80 @@ class LoadingResultsPage extends StatelessWidget {
     final compassWidth = Get.width * 1.05;
     return GetBuilder<LoadingResultsController>(
       builder: (_) => Scaffold(
-          backgroundColor: AppColors.primary,
-          body: SizedBox.expand(
-            child: Stack(
+        backgroundColor: AppColors.primary,
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                          child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          CustomSpacer(
-                            multiplier: 7,
-                          ),
-                          Obx(() => CustomProgressBar(
-                                duration:
-                                    Duration(milliseconds: _.milliSecondsStep),
-                                width: Get.width * 0.675,
-                                step: _.currentStep.value,
-                                totalSteps: _.totalSteps,
-                                progressColor: AppColors.text,
-                                backgroundColor: AppColors.lightPrimary,
-                              )),
-                          CustomSpacer(multiplier: 3),
-                          SizedBox(
-                            height: 200,
-                            child: Padding(
-                              padding: AppDimens.lateralPadding,
-                              child: Obx(() {
-                                var text = '';
-                                if (_.currentStep.value == 1) {
-                                  text = S.of(context).loadingResultsPageTitle1;
-                                } else if (_.currentStep.value == 2) {
-                                  text = S.of(context).loadingResultsPageTitle2;
-                                } else if (_.currentStep.value == 3) {
-                                  text = S
-                                      .of(context)
-                                      .loadingResultsPageTitle3(_.countryName);
-                                } else if (_.currentStep.value == 4) {
-                                  text = S.of(context).loadingResultsPageTitle4;
-                                }
+                Spacer(
+                  flex: 3,
+                ),
+                CustomSpacer(
+                  multiplier: 7,
+                ),
+                Obx(() => CustomProgressBar(
+                      duration: Duration(milliseconds: _.milliSecondsStep),
+                      width: Get.width * 0.675,
+                      step: _.currentStep.value,
+                      totalSteps: _.totalSteps,
+                      progressColor: AppColors.text,
+                      backgroundColor: AppColors.lightPrimary,
+                    )),
+                CustomSpacer(multiplier: 3),
+                SizedBox(
+                  height: 200,
+                  child: Padding(
+                    padding: AppDimens.lateralPadding,
+                    child: Obx(() {
+                      var text = '';
+                      if (_.currentStep.value == 1) {
+                        text = S.of(context).loadingResultsPageTitle1;
+                      } else if (_.currentStep.value == 2) {
+                        text = S.of(context).loadingResultsPageTitle2;
+                      } else if (_.currentStep.value == 3) {
+                        text = S
+                            .of(context)
+                            .loadingResultsPageTitle3(_.countryName);
+                      } else if (_.currentStep.value == 4) {
+                        text = S.of(context).loadingResultsPageTitle4;
+                      }
 
-                                return AppTexts.title(
-                                  text,
-                                  textAlign: TextAlign.center,
-                                );
-                              }),
-                            ),
-                          ),
-                        ],
-                      )),
-                      Expanded(child: SizedBox.shrink()),
-                      /*  SizedBox(
-                          width: Get.width * 2,
-                          child: FittedBox(
-                              fit: BoxFit.fitWidth,
-                              child: SvgPicture.asset(
-                                  'assets/images/ic_compass.svg')))*/
-                    ],
+                      return AppTexts.title(
+                        text,
+                        textAlign: TextAlign.center,
+                      );
+                    }),
                   ),
                 ),
-                Positioned(
-                  bottom: -Get.width * .05,
-                  left: -Get.width * .05,
-                  right: -Get.width * .05,
-                  child: Obx(
-                    () => AnimatedContainer(
-                      width: compassWidth,
-                      duration: Duration(milliseconds: _.milliSecondsStep),
-                      transform: Matrix4Transform()
-                          .rotateDegrees(_.currentStep.value % 2 == 0 ? -5 : 5,
-                              origin:
-                                  Offset(compassWidth * .5, compassWidth * .5))
-                          .matrix4,
-                      child: FittedBox(
-                          fit: BoxFit.fitWidth,
-                          child: SvgPicture.asset(
-                              'assets/images/img_compass.svg')),
-                    ),
-                  ),
+                Spacer(
+                  flex: 10,
                 )
               ],
             ),
-          )),
+            Positioned(
+              bottom: -Get.width * .05,
+              left: -Get.width * .05,
+              right: -Get.width * .05,
+              child: Obx(
+                () => AnimatedContainer(
+                  width: compassWidth,
+                  duration: Duration(milliseconds: _.milliSecondsStep),
+                  transform: Matrix4Transform()
+                      .rotateDegrees(_.currentStep.value % 2 == 0 ? -5 : 5,
+                          origin: Offset(compassWidth * .5, compassWidth * .5))
+                      .matrix4,
+                  child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: SvgPicture.asset('assets/images/img_compass.svg')),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

@@ -13,6 +13,7 @@ class CustomButton extends StatelessWidget {
   final double? radius;
   final Color? color;
   final Color? textColor;
+  final double? textFontSize;
   final bool bold;
   final ButtonBorderParameters? border;
   final bool expanded;
@@ -29,6 +30,7 @@ class CustomButton extends StatelessWidget {
     this.radius,
     this.color,
     this.textColor,
+    this.textFontSize,
     this.bold = true,
     this.border,
     this.expanded = false,
@@ -91,7 +93,9 @@ class CustomButton extends StatelessWidget {
                           ),
                         if (prefixIcon != null) CustomHorizontalSpacer(),
                         AppTexts.regular(text,
-                            bold: bold, color: textColor ?? AppColors.primary),
+                            bold: bold,
+                            color: textColor ?? AppColors.primary,
+                            fontSize: textFontSize),
                         if (suffixIcon != null) CustomHorizontalSpacer(),
                         if (suffixIcon != null)
                           SvgPicture.asset(

@@ -33,10 +33,16 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   _buildHeaders(context, _),
+                  CustomSpacer(
+                    multiplier: 3,
+                  ),
                   Obx(
                     () => _.showBanner
                         ? _buildBodyBanner(context, _)
                         : _buildBodyPageView(_),
+                  ),
+                  CustomSpacer(
+                    multiplier: 6,
                   ),
                   _buildFooter(context, _)
                 ],
@@ -50,7 +56,8 @@ class HomePage extends StatelessWidget {
     final youthCardSponsor = _.getYouthCardSponsor();
     return Expanded(
       child: Container(
-        margin: EdgeInsets.all(AppDimens.bigLateralPaddingValue),
+        margin:
+            EdgeInsets.symmetric(horizontal: AppDimens.bigLateralPaddingValue),
         width: double.infinity,
         color: AppColors.extraLightYellow,
         child: DottedBorder(
@@ -61,7 +68,7 @@ class HomePage extends StatelessWidget {
             5,
           ],
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
+            padding: EdgeInsets.all(AppDimens.bigLateralPaddingValue),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -70,17 +77,14 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppDimens.borderRadius),
                     border: Border.all(
-                      color: AppColors.lightYellow,
-                      width: 2,
-                      strokeAlign: 1
-                    ),
+                        color: AppColors.lightYellow, width: 2, strokeAlign: 1),
                   ),
                   child: Image.network(
                     youthCardSponsor.bannerImage ?? '',
                     fit: BoxFit.fitWidth,
                   ),
                 ),
-                CustomSpacer(),
+                CustomSpacer(multiplier: 4,),
                 CustomHtmlWidget(
                   content: youthCardSponsor.bannerDescription ?? '',
                   textAlign: TextAlign.center,
@@ -88,7 +92,7 @@ class HomePage extends StatelessWidget {
                       fontSize: AppDimens.fontSizeSmall,
                       fontWeight: FontWeight.w100),
                 ),
-                CustomSpacer(),
+                CustomSpacer(multiplier: 4,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -104,13 +108,14 @@ class HomePage extends StatelessWidget {
                       onPressed: () =>
                           _.launchUrl(youthCardSponsor.bannerLink ?? ''),
                       text: S.of(context).resultsPage10YesButton,
+                      textFontSize: AppDimens.fontSizeSmall,
                       bold: true,
+                      padding: EdgeInsets.all(12),
                       //Default parameters
                       border: ButtonBorderParameters(),
                     ),
                   ],
                 ),
-                CustomSpacer(multiplier: 2),
               ],
             ),
           ),
@@ -164,9 +169,6 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomSpacer(
-            multiplier: 4,
-          ),
           Expanded(
             child: PageView.builder(
               scrollDirection: Axis.horizontal,
@@ -216,9 +218,6 @@ class HomePage extends StatelessWidget {
               activeDotColor: AppColors.primary,
               dotColor: AppColors.lightPrimary,
             ),
-          ),
-          CustomSpacer(
-            multiplier: 5,
           ),
         ],
       ),

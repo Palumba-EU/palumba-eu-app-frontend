@@ -30,7 +30,6 @@ dependencies:
   cached_network_image: ^3.3.1
   flutter_svg: ^2.0.10+1
   shimmer: ^3.0.0
-  google_fonts: ^6.2.1
   lottie: ^3.1.0
   path_drawing: ^1.0.1
   flutter_launcher_icons: ^0.13.1
@@ -86,3 +85,10 @@ flutter:
     - family: caprasimo
       fonts:
         - asset: assets/fonts/caprasimo-regular.ttf
+
+    - family: merriweather-sans
+      fonts:
+        - asset: assets/fonts/merriweather-sans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/merriweather-sans-Light.ttf
+          weight: 300

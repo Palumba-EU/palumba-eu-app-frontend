@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
@@ -18,12 +17,15 @@ class AppTexts {
         maxLines: maxLines,
         overflow: maxLines != null ? TextOverflow.ellipsis : null,
         style: TextStyle(
-          fontFamily:
-              black ? 'caprasimo' : GoogleFonts.merriweatherSans().fontFamily,
+          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
           fontSize: AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: color ?? AppColors.text,
-          fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
+          fontWeight: black
+              ? null
+              : bold
+                  ? FontWeight.bold
+                  : FontWeight.w300,
           decoration: decoration,
         ));
   }
@@ -37,12 +39,15 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily:
-              black ? GoogleFonts.caprasimo().fontFamily : GoogleFonts.merriweatherSans().fontFamily,
+          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
           fontSize: AppDimens.fontSizeMedium,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
-          fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
+          fontWeight: black
+              ? null
+              : bold
+                  ? FontWeight.bold
+                  : FontWeight.w300,
           decoration: decoration,
           height: black ? AppDimens.blackFontHeight : null,
         ));
@@ -58,12 +63,15 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily:
-              black ? GoogleFonts.caprasimo().fontFamily : GoogleFonts.merriweatherSans().fontFamily,
+          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
           fontSize: fontSize ?? AppDimens.fontSizeRegular,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
-          fontWeight: bold ? FontWeight.w900 : FontWeight.w300,
+          fontWeight: black
+              ? null
+              : bold
+                  ? FontWeight.bold
+                  : FontWeight.w300,
           decoration: decoration,
           height: black ? AppDimens.blackFontHeight : null,
         ));
@@ -74,10 +82,9 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: GoogleFonts.caprasimo().fontFamily,
+          fontFamily: 'caprasimo',
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
-          fontWeight: FontWeight.w400,
           height: AppDimens.blackFontHeight,
         ));
   }
@@ -92,42 +99,37 @@ class AppTexts {
     switch (appTexType) {
       case AppTextType.title:
         return TextStyle(
-          fontFamily: GoogleFonts.caprasimo().fontFamily,
+          fontFamily: 'caprasimo',
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
-          fontWeight: fontWeight ?? (black ? FontWeight.w400 : FontWeight.w900),
           height: black ? AppDimens.blackFontHeight : null,
         );
       case AppTextType.regular:
         return TextStyle(
-          fontFamily:
-              black ? GoogleFonts.caprasimo().fontFamily : GoogleFonts.merriweatherSans().fontFamily,
+          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
           fontSize: fontSize ?? AppDimens.fontSizeRegular,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
-          fontWeight: fontWeight ??
-              (bold
-                  ? black
-                      ? FontWeight.w400
-                      : FontWeight.w900
-                  : FontWeight.w300),
+          fontWeight: black
+              ? null
+              : bold
+                  ? FontWeight.bold
+                  : FontWeight.w300,
           decoration: decoration,
           height: black ? AppDimens.blackFontHeight : null,
         );
 
       case AppTextType.small:
         return TextStyle(
-          fontFamily:
-              black ? GoogleFonts.caprasimo().fontFamily : GoogleFonts.merriweatherSans().fontFamily,
+          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
           fontSize: fontSize ?? AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
-          fontWeight: fontWeight ??
-              (bold
-                  ? black
-                      ? FontWeight.w400
-                      : FontWeight.w900
-                  : FontWeight.w300),
+          fontWeight: black
+              ? null
+              : bold
+                  ? FontWeight.bold
+                  : FontWeight.w300,
           decoration: decoration,
           height: black ? AppDimens.blackFontHeight : null,
         );

@@ -31,16 +31,18 @@ class LanguageManager {
     } else {
       currentLanguage = PlatformDispatcher.instance.locale.languageCode;
     }
+
+    updateAppLanguage();
   }
 
   static setLanguage(String languageCode) async {
     currentLanguage = languageCode;
     setSavedLanguage(languageCode);
-    Get.updateLocale(Locale(languageCode));
+    updateAppLanguage();
   }
 
-  static String getApiLanguage() {
-    return currentLanguage;
+  static updateAppLanguage() {
+    Get.updateLocale(Locale(currentLanguage));
   }
 
   /// Manage Local Data

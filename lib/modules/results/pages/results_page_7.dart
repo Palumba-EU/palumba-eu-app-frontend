@@ -9,7 +9,6 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:screenshot/screenshot.dart';
 
 class ResultsPage7 extends GetView<ResultsController> {
   const ResultsPage7({super.key});
@@ -115,16 +114,15 @@ class _CandidatesTile extends StatelessWidget {
             candidate.acronym != null && candidate.acronym!.isNotEmpty
                 ? Padding(
                     padding: const EdgeInsets.only(bottom: 5),
-                    child: Text(
+                    child: AppTexts.regular(
                       candidate.acronym!,
-                      style: AppTexts.customTextStyle(AppTextType.regular,
-                          color: AppColors.primary,
-                          fontSize: AppDimens.fontSizeExtraSmall),
+                      fontSize: AppDimens.fontSizeExtraSmall,
+                      color: AppColors.primary,
                     ),
                   )
                 : const SizedBox.shrink(),
             AppTexts.medium(candidate.name ?? '',
-                black: true, color: AppColors.primary)
+                bold: true, color: AppColors.primary)
           ],
         ))
       ]),
