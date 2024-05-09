@@ -34,7 +34,17 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
-  runApp(MyApp());
+  await SentryFlutter.init(
+        (options) {
+      options.dsn = 'https://ff251d1b11055ec64c0058fa8f31f45c@sentry.palumba-app.palumba.eu/4';
+      // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+      // We recommend adjusting this value in production.
+      options.tracesSampleRate = 1.0;
+    },
+    appRunner: () => {
+          runApp(MyApp())
+    },
+  );
 }
 
 class MyApp extends StatefulWidget {
