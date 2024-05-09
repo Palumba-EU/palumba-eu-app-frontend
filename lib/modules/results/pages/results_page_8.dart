@@ -22,10 +22,10 @@ class ResultsPage8 extends GetView<ResultsController> {
         Stack(
           alignment: Alignment.center,
           children: [
-            Container(color: Colors.blue,),
             SvgPicture.asset(
               'assets/images/img_banner_top.svg',
               fit: BoxFit.fitWidth,
+              width: Get.width,
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -38,6 +38,9 @@ class ResultsPage8 extends GetView<ResultsController> {
                   fontSize: 32.5),
             )
           ],
+        ),
+        CustomSpacer(
+          multiplier: 3,
         ),
         Padding(
           padding: AppDimens.lateralPadding,
@@ -64,9 +67,6 @@ class ResultsPage8 extends GetView<ResultsController> {
             ),
             textAlign: TextAlign.center,
           ),
-        ),
-        CustomSpacer(
-          multiplier: 10,
         ),
       ],
     );
