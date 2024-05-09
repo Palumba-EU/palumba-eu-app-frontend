@@ -21,146 +21,182 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'el';
 
   static String m0(count) =>
-      "${count}\'matches\' trobats en les últimes 24 hores";
+      "Βρέθηκαν ${count} αντιστοιχίες τις τελευταίες 24 ώρες";
 
   static String m1(count) =>
-      "${count} \'matches\' trobats en les últimes 24 hores";
+      "Βρέθηκαν ${count} αντιστοιχίες τις τελευταίες 24 ώρες";
 
   static String m2(country) =>
-      "Trobar coincidències amb llistes de candidats a ${country} 🔍";
+      "Εύρεση αντιστοιχιών με λίστες υποψηφίων στη ${country}🔍";
 
-  static String m3(country) =>
-      "No s\'ha trobat cap partit polític local a ${country}";
+  static String m3(country) => "Δεν βρέθηκαν τοπικά κόμματα στη ${country}";
 
   static String m4(country, group) =>
-      "Aquestes són les llistes de candidats locals que coincideixen al vostre país";
+      "Οι υποψήφιοι στη ${country} που ευθυγραμμίζονται περισσότερο με την/το ${group}";
+
+  static String m5(topic, percentage) =>
+      "Όσον αφορά τα/την ${topic}, είστε ${percentage}% υπέρ";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Alguna cosa ha anat malament al nostre costat. Siusplau, intenta-ho més tard."),
-        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Vaja!"),
+            "Κάτι πήγε στραβά από την πλευρά μας. Παρακαλώ δοκιμάστε ξανά αργότερα."),
+        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ουπς!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel·lar"),
-        "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Ακύρωση"),
+        "denmark": MessageLookupByLibrary.simpleMessage("Δανία"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
-            MessageLookupByLibrary.simpleMessage("Començar Palumba"),
+            MessageLookupByLibrary.simpleMessage("Έναρξη Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Benvinguts a la Beta exclusiva de Palumba"),
+            "Αν αυτό το χαριτωμένο περιστέρι δε μπορεί να σας βοηθήσει να  ψηφίσετε τον  Ιούνιο, τίποτα δε θα μπορέσει."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Si aquest colom tan bufó no t\'ajuda a votar al juny, res ho farà"),
+            "Σύρετε τη γνώμη σας για θέματα που σας αφορούν."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Prepara\'t per difondre l\'app massivament el 9 de maig"),
-        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
-        "france": MessageLookupByLibrary.simpleMessage("França"),
-        "germany": MessageLookupByLibrary.simpleMessage("Alemanya"),
+            "Μάθετε την αντιστοιχία σας και προσανατολιστείτε για το ποιους θα ψηφίσετε στις Εκλογές."),
+        "faq": MessageLookupByLibrary.simpleMessage("ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ"),
+        "france": MessageLookupByLibrary.simpleMessage("Γαλλία"),
+        "germany": MessageLookupByLibrary.simpleMessage("Γερμανία"),
         "homePageBackToTest":
-            MessageLookupByLibrary.simpleMessage("Tornar al test"),
+            MessageLookupByLibrary.simpleMessage("Επιστροφή στο τεστ"),
         "homePageMatchesFoundQuote": m1,
         "homePageMyResults":
-            MessageLookupByLibrary.simpleMessage("Els meus resultats"),
+            MessageLookupByLibrary.simpleMessage("Τα αποτελέσματά μου"),
         "homePageStartButton":
-            MessageLookupByLibrary.simpleMessage("Comença un nou test"),
-        "hungary": MessageLookupByLibrary.simpleMessage("Hongria"),
+            MessageLookupByLibrary.simpleMessage("Έναρξη νέου τεστ"),
+        "hungary": MessageLookupByLibrary.simpleMessage("Ουγγαρία"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Això es pot canviar més endavant a la configuració."),
-        "languagePageTitle":
-            MessageLookupByLibrary.simpleMessage("Continuem en català? :)"),
+            "Αυτό μπορεί να αλλάξει αργότερα από τις ρυθμίσεις."),
+        "languagePageTitle": MessageLookupByLibrary.simpleMessage(
+            "Ας συνεχίσουμε στα ελληνικά :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
-            "Els teus resultats personalitzats estan en camí :)"),
+            "Τα εξατομικευμένα σας αποτελέσματα είναι καθ\' οδόν :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-            "Això serà més ràpid que aconseguir entrades per Taylor Swift 👀 "),
+            "Αυτό θα είναι πιο γρήγορο από το να βρείτε εισιτήρια για την Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Quasi preparat, una darrera comprovació..."),
-        "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
-        "no": MessageLookupByLibrary.simpleMessage("No"),
-        "ok": MessageLookupByLibrary.simpleMessage("D\'acord"),
+            "Σχεδόν έτοιμα, ένας τελευταίος έλεγχος..."),
+        "neutral": MessageLookupByLibrary.simpleMessage("Ουδέτερος(-η)"),
+        "no": MessageLookupByLibrary.simpleMessage("Όχι"),
+        "ok": MessageLookupByLibrary.simpleMessage("ΟΚ"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
-            "No tinc ni idea de qui votar a les eleccions europees del 2024"),
+            "Δεν έχω ιδέα για το ποιους να ψηφίσω στις Ευρωεκλογές του 2024"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "Llisca en funció del teu grau d\'acord"),
+            "Σύρετε ανάλογα με το πόσο συμφωνείτε"),
         "onBoardingNotAnswerButton":
-            MessageLookupByLibrary.simpleMessage("Prefereix-ho no dir-ho"),
+            MessageLookupByLibrary.simpleMessage("Προτιμώ να μην αναφέρω"),
         "onBoardingStep1Subtitle":
-            MessageLookupByLibrary.simpleMessage("No ho sé"),
+            MessageLookupByLibrary.simpleMessage("Δεν γνωρίζω"),
         "onBoardingStep1Title":
-            MessageLookupByLibrary.simpleMessage("On votareu?"),
-        "onBoardingStep2Title":
-            MessageLookupByLibrary.simpleMessage("La meva edat"),
-        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Dona"),
-        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Home"),
-        "onBoardingStep3Option3":
-            MessageLookupByLibrary.simpleMessage("Gènere-fluid"),
-        "onBoardingStep3Option4":
-            MessageLookupByLibrary.simpleMessage("No binari"),
-        "onBoardingStep3Option5":
-            MessageLookupByLibrary.simpleMessage("Altres"),
+            MessageLookupByLibrary.simpleMessage("Πού θα ψηφίσετε;"),
+        "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("Ηλικία"),
+        "onBoardingStep3Option1":
+            MessageLookupByLibrary.simpleMessage("Γυναίκα"),
+        "onBoardingStep3Option2":
+            MessageLookupByLibrary.simpleMessage("Άντρας"),
+        "onBoardingStep3Option3": MessageLookupByLibrary.simpleMessage(
+            "Άτομο με ρευστή ταυτότητα φύλου (gender-fluid)"),
+        "onBoardingStep3Option4": MessageLookupByLibrary.simpleMessage(
+            "Μη-δυαδικό άτομο (non-binary)"),
+        "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Άλλο"),
         "onBoardingStep3Title":
-            MessageLookupByLibrary.simpleMessage("El meu gènere és"),
-        "poland": MessageLookupByLibrary.simpleMessage("Polònia"),
+            MessageLookupByLibrary.simpleMessage("Προσδιορίζομαι ως"),
+        "poland": MessageLookupByLibrary.simpleMessage("Πολωνία"),
+        "resultsPage10NopButton":
+            MessageLookupByLibrary.simpleMessage("Όχι, ευχαριστώ!"),
+        "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
+            "Θέλετε μια ειδοποίηση όταν έρθει η ώρα να πάτε να ψηφίσετε;"),
+        "resultsPage10YesButton":
+            MessageLookupByLibrary.simpleMessage("Ναιιιιι"),
+        "resultsPage1Button":
+            MessageLookupByLibrary.simpleMessage("Πατήστε για να συνεχίσετε"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobrireu el vostre grup més compatible al Parlament de la UE, les llistes locals coincidents per votar al juny al vostre país, i fins i tot hem trobat algunes coses addicionals basades en les vostres respostes 😌"),
-        "resultsPage1Title":
-            MessageLookupByLibrary.simpleMessage("T\'hem trobat un \'match\'!"),
+            "Στις επόμενες οθόνες, θα ανακαλύψετε την πιο συμβατή σας Ομάδα στο Ευρωπαϊκό Κοινοβούλιο, τις αντίστοιχες τοπικές λίστες για να ψηφίσετε τον Ιούνιο στη χώρα σας, ενώ ανακαλύψαμε και μερικά επιπλέον πράγματα με βάση τις απαντήσεις σας 😌"),
+        "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
+            "Μια αντιστοιχία και πολλά άλλα 👉👈"),
+        "resultsPage2_1Title":
+            MessageLookupByLibrary.simpleMessage("Ειλικρινά, ανάμεσα στο/στη"),
+        "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
+            "και σε εμένα, είναι κάπως ένα Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
-            "La teva compatibilitat amb els grups del Parlament Europeu"),
+            "Πόσο κοντά βρίσκομαι στις Ομάδες του Ευρωπαϊκού Κοινοβουλίου"),
         "resultsPage4TitleBottom":
-            MessageLookupByLibrary.simpleMessage("Anti-integració UE"),
+            MessageLookupByLibrary.simpleMessage("Κατά της ένταξης στην ΕΕ"),
         "resultsPage4TitleLeft":
-            MessageLookupByLibrary.simpleMessage("Esquerra"),
-        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Dreta"),
+            MessageLookupByLibrary.simpleMessage("Αριστερά"),
+        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Δεξιά"),
         "resultsPage4TitleTop":
-            MessageLookupByLibrary.simpleMessage("Pro-integració UE"),
+            MessageLookupByLibrary.simpleMessage("Υπέρ της ένταξης στην ΕΕ"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("Ets tu!"),
+            MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "D\'acord, és genial saber quin grup et porta..."),
+            "Σχετικά με πιο συγκεκριμένα θέματα, σε ποια ομάδα του Ευρωπαϊκού Κοινοβουλίου βρίσκομαι πιο κοντά;"),
+        "resultsPage5Topic1":
+            MessageLookupByLibrary.simpleMessage("Περιβαλλοντικά θέματα"),
+        "resultsPage5Topic2": MessageLookupByLibrary.simpleMessage(
+            "Ανθρώπινα & Κοινωνικά Δικαιώματα"),
+        "resultsPage5Topic3":
+            MessageLookupByLibrary.simpleMessage("Οικονομική παρέμβαση"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
-        "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "No estan en cap ordre en concret"),
+            "Στις επόμενες οθόνες, θα ανακαλύψετε τους καταλόγους υποψηφίων στη χώρα σας που είναι πιο πιθανό να ενταχθούν στην αντιστοιχία σας."),
+        "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
+            "Εντάξει, είναι κούλ να ξέρω ποια ομάδα με καταλαβαίνει..."),
+        "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
+            "Αλλά στις Ευρωεκλογές, ψηφίζουμε για μια τοπική λίστα"),
+        "resultsPage7Disclaimer":
+            MessageLookupByLibrary.simpleMessage("Χωρίς συγκεκριμένη σειρά."),
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": m4,
-        "resultsShare":
-            MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
-        "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
+            "Είσαι μαχητής της κλιματικής αλλαγής! Πιστεύεις ότι η αντιμετώπιση της κλιματικής κρίσης απαιτεί συλλογική δράση, την οποία όλοι πρέπει να θέσουν σε ύψιστη προτεραιότητα. Δεν σε πειράζει που η ΕΕ ρυθμίζει τις εταιρείες για το σκοπό αυτό. Εξάλλου, τι νόημα έχει η οικονομική ανάπτυξη αν ο πλανήτης γίνει μη βιώσιμος;"),
+        "resultsPage8_1Text": m5,
+        "resultsPage8_2Text":
+            MessageLookupByLibrary.simpleMessage("Ενεργού Δράσης για το κλίμα"),
+        "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
+            "Κάντε κλικ στις κάρτες για ανακάτεμα"),
+        "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
+            "Οι εκλογές αφορούν πολλά θέματα, αλλά υπάρχει ένα πράγμα που πραγματικά"),
+        "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+        "resultsShare": MessageLookupByLibrary.simpleMessage("Κοινοποίηση"),
+        "romania": MessageLookupByLibrary.simpleMessage("Ρουμανία"),
         "settingsPagePrivacyPolicy":
-            MessageLookupByLibrary.simpleMessage("Política de Privacitat"),
+            MessageLookupByLibrary.simpleMessage("Προστασία Δεδομένων"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Compartir (coming soon ⏳)"),
+            MessageLookupByLibrary.simpleMessage("Κοινοποίηση"),
         "settingsPageSubtitle1":
-            MessageLookupByLibrary.simpleMessage("Main Sponsors"),
+            MessageLookupByLibrary.simpleMessage("Κύριοι Χορηγοί"),
         "settingsPageSubtitle2":
-            MessageLookupByLibrary.simpleMessage("European Partners"),
+            MessageLookupByLibrary.simpleMessage("Ευρωπαϊκοί Συνεργάτες"),
         "settingsPageSubtitle3":
-            MessageLookupByLibrary.simpleMessage("Academic Partner"),
-        "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
-            "National Institutional Partners"),
+            MessageLookupByLibrary.simpleMessage("Ακαδημαϊκός Συνεργάτης"),
+        "settingsPageSubtitle4":
+            MessageLookupByLibrary.simpleMessage("Εθνικοί Θεσμικοί Συνεργάτες"),
         "settingsPageSubtitle5":
-            MessageLookupByLibrary.simpleMessage("Service Providers"),
+            MessageLookupByLibrary.simpleMessage("Πάροχοι Υπηρεσιών"),
         "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
-            "Prefereixo utilitzar l\'app en"),
+            "Προτιμώ να χρησιμοποιήσω αυτήν την εφαρμογή στα"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Palumba no és una empresa, ni un partit polític, ni un govern. Som una associació independent sense ànim de lucre de més de 120 joves 🐦 d\'arreu d\'Europa que es van trobar l\'estiu passat i van començar a crear aquesta app. Tenim un objectiu: ajudar-te a entendre millor com funcionen les eleccions europees i quines candidatures encaixen amb les vostres idees, perquè puguis votar amb més confiança a les persones que donen suport a les teves prioritats. El nostre algorisme és de codi obert, un consell científic de politòlegs ha revisat les frases en què fas \"swipe\" i les teves dades estan taaan encriptades que no tenim manera d\'identificar-te ni de rebot :)"),
+            "Η Palumba δεν είναι εταιρεία, ούτε πολιτικό κόμμα, ούτε κυβέρνηση. Είμαστε μια ανεξάρτητη μη κερδοσκοπική ένωση 120+ νέων 🐦 από όλη την Ευρώπη που μαζεύτηκαν πέρυσι το καλοκαίρι και άρχισαν να δημιουργούν αυτή την εφαρμογή. Έχουμε έναν στόχο: να σας βοηθήσουμε να καταλάβετε καλύτερα πώς λειτουργούν οι ευρωπαϊκές εκλογές και ποιες λίστες υποψηφίων θα μπορούσαν να ταιριάζουν με τις ιδέες σας, ώστε να μπορείτε να ψηφίσετε με μεγαλύτερη αυτοπεποίθηση ανθρώπους που υποστηρίζουν τις προτεραιότητές σας. Ο αλγόριθμός μας είναι ανοιχτού κώδικα, οι δηλώσεις στις οποίες κάνετε swipe έχουν ελεγχθεί από πολιτικούς επιστήμονες και τα δεδομένα σας είναι τόσο κρυπτογραφημένα που δεν έχουμε τρόπο να σας αναγνωρίσουμε ποτέ :)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
-            "Per canviar l\'idioma, fes clic sobre l\'actual"),
+            "Για να αλλάξετε τη γλώσσα, κάντε κλικ στην τρέχουσα γλώσσα"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
-            "És important que sàpigues que els Partners no tenen cap poder de decisió editorial sobre els continguts de l\'app, que és una iniciativa apartidista amb un objectiu clar: ajudar-te a entendre quines opcions polítiques recolzen les teves opinions a nivell europeu i nacional."),
+            "Είναι σημαντικό να σας πούμε ότι οι συνεργάτες δεν έχουν καμία συντακτική εξουσία στο περιεχόμενο της εφαρμογής, η οποία παραμένει μια μη-κομματική πρωτοβουλία με σαφή στόχο: να σας βοηθήσει να καταλάβετε ποιοι υποστηρίζουν τις απόψεις σας σε ευρωπαϊκό και εθνικό επίπεδο."),
         "settingsPageTitleAbout":
-            MessageLookupByLibrary.simpleMessage("Sobre nosaltres"),
+            MessageLookupByLibrary.simpleMessage("Σχετικά"),
         "settingsPageTitleAssociation":
-            MessageLookupByLibrary.simpleMessage("L\'Associació"),
+            MessageLookupByLibrary.simpleMessage("Η οργάνωση"),
         "settingsPageTitleLanguage":
-            MessageLookupByLibrary.simpleMessage("Language"),
+            MessageLookupByLibrary.simpleMessage("Γλώσσα"),
         "settingsPageTitlePartners":
-            MessageLookupByLibrary.simpleMessage("Partners"),
+            MessageLookupByLibrary.simpleMessage("Συνεργάτες"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
-        "skip": MessageLookupByLibrary.simpleMessage("Omet"),
-        "spain": MessageLookupByLibrary.simpleMessage("Espanya"),
-        "sweden": MessageLookupByLibrary.simpleMessage("Suècia"),
-        "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
-        "yes": MessageLookupByLibrary.simpleMessage("Sí")
+        "skip": MessageLookupByLibrary.simpleMessage("Παράλειψη"),
+        "spain": MessageLookupByLibrary.simpleMessage("Ισπανία"),
+        "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
+            "Φαίνεται πως δεν έχετε σύνδεση στο διαδίκτυο"),
+        "sweden": MessageLookupByLibrary.simpleMessage("Σουηδία"),
+        "textContinue": MessageLookupByLibrary.simpleMessage("Συνέχεια"),
+        "yes": MessageLookupByLibrary.simpleMessage("Ναι")
       };
 }

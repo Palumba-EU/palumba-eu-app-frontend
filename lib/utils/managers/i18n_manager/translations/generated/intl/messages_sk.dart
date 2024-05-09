@@ -20,147 +20,177 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'sk';
 
-  static String m0(count) =>
-      "${count}\'matches\' trobats en les últimes 24 hores";
+  static String m0(count) => "${count} zhody nájdené za posledných 24 hodín";
 
-  static String m1(count) =>
-      "${count} \'matches\' trobats en les últimes 24 hores";
+  static String m1(count) => "${count} zhody nájdené za posledných 24 hodín";
 
   static String m2(country) =>
-      "Trobar coincidències amb llistes de candidats a ${country} 🔍";
+      "Vyhľadávanie zhody so zoznamami kandidátov v ${country}";
 
-  static String m3(country) =>
-      "No s\'ha trobat cap partit polític local a ${country}";
+  static String m3(country) => "Žiadne miestne strany sa na ${country} nenašli";
 
   static String m4(country, group) =>
-      "Aquestes són les llistes de candidats locals que coincideixen al vostre país";
+      "Kandidáti na ${country}, ktorí sú najviac v súlade s ${group}";
+
+  static String m5(topic, percentage) =>
+      "V téme ${topic} si na ${percentage} viac do";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Alguna cosa ha anat malament al nostre costat. Siusplau, intenta-ho més tard."),
-        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Vaja!"),
+            "Niečo sa pokazilo na našom serveri. Skúste to neskôr, prosím."),
+        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ups!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel·lar"),
-        "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Zrušiť"),
+        "denmark": MessageLookupByLibrary.simpleMessage("Dánsko"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
-            MessageLookupByLibrary.simpleMessage("Començar Palumba"),
+            MessageLookupByLibrary.simpleMessage("Spustiť Palumbu"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Benvinguts a la Beta exclusiva de Palumba"),
+            "Ak vám tento roztomilý holub nepomôže v júni voliť, tak už nič."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Si aquest colom tan bufó no t\'ajuda a votar al juny, res ho farà"),
+            "\'Swipnite\' (odlistujte) názory na témy, ktoré vás zaujímajú."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Prepara\'t per difondre l\'app massivament el 9 de maig"),
-        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
-        "france": MessageLookupByLibrary.simpleMessage("França"),
-        "germany": MessageLookupByLibrary.simpleMessage("Alemanya"),
+            "Nájdite svoj \'match\' (zhodu) a zorientujte sa v tom, koho voliť vo voľbách."),
+        "faq": MessageLookupByLibrary.simpleMessage("Často kladené otázky"),
+        "france": MessageLookupByLibrary.simpleMessage("Francúzsko"),
+        "germany": MessageLookupByLibrary.simpleMessage("Nemecko"),
         "homePageBackToTest":
-            MessageLookupByLibrary.simpleMessage("Tornar al test"),
+            MessageLookupByLibrary.simpleMessage("Späť k testu"),
         "homePageMatchesFoundQuote": m1,
         "homePageMyResults":
-            MessageLookupByLibrary.simpleMessage("Els meus resultats"),
+            MessageLookupByLibrary.simpleMessage("Moje výsledky"),
         "homePageStartButton":
-            MessageLookupByLibrary.simpleMessage("Comença un nou test"),
-        "hungary": MessageLookupByLibrary.simpleMessage("Hongria"),
+            MessageLookupByLibrary.simpleMessage("Spustenie nového testu"),
+        "hungary": MessageLookupByLibrary.simpleMessage("Maďarsko"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Això es pot canviar més endavant a la configuració."),
+            "Túto možnosť môžete neskôr zmeniť v nastaveniach."),
         "languagePageTitle":
-            MessageLookupByLibrary.simpleMessage("Continuem en català? :)"),
+            MessageLookupByLibrary.simpleMessage("Pokračujme v angličtine? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
-            "Els teus resultats personalitzats estan en camí :)"),
+            "Vaše personalizované výsledky sú na ceste :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-            "Això serà més ràpid que aconseguir entrades per Taylor Swift 👀 "),
+            "Bude to rýchlejšie ako zohnať lístky na Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Quasi preparat, una darrera comprovació..."),
-        "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
-        "no": MessageLookupByLibrary.simpleMessage("No"),
-        "ok": MessageLookupByLibrary.simpleMessage("D\'acord"),
+            "Takmer hotovo, posledná kontrola..."),
+        "neutral": MessageLookupByLibrary.simpleMessage("Neutrálne"),
+        "no": MessageLookupByLibrary.simpleMessage("Nie"),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
-            "No tinc ni idea de qui votar a les eleccions europees del 2024"),
+            "Nemám poňatia, koho budem voliť vo voľbách do Európskeho parlamentu v roku 2024"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "Llisca en funció del teu grau d\'acord"),
+            "\'Swipnite\' (odlistujte) prstom podľa vašich preferencií"),
         "onBoardingNotAnswerButton":
-            MessageLookupByLibrary.simpleMessage("Prefereix-ho no dir-ho"),
+            MessageLookupByLibrary.simpleMessage("Nechcem uviesť"),
         "onBoardingStep1Subtitle":
-            MessageLookupByLibrary.simpleMessage("No ho sé"),
+            MessageLookupByLibrary.simpleMessage("Neviem"),
         "onBoardingStep1Title":
-            MessageLookupByLibrary.simpleMessage("On votareu?"),
-        "onBoardingStep2Title":
-            MessageLookupByLibrary.simpleMessage("La meva edat"),
-        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Dona"),
-        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Home"),
-        "onBoardingStep3Option3":
-            MessageLookupByLibrary.simpleMessage("Gènere-fluid"),
+            MessageLookupByLibrary.simpleMessage("Kde budete voliť?"),
+        "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("Môj vek"),
+        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Žena"),
+        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Muž"),
+        "onBoardingStep3Option3": MessageLookupByLibrary.simpleMessage(
+            "Rodovo fluidný (gender-fluid)"),
         "onBoardingStep3Option4":
-            MessageLookupByLibrary.simpleMessage("No binari"),
-        "onBoardingStep3Option5":
-            MessageLookupByLibrary.simpleMessage("Altres"),
+            MessageLookupByLibrary.simpleMessage("Nebinárny"),
+        "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Inak"),
         "onBoardingStep3Title":
-            MessageLookupByLibrary.simpleMessage("El meu gènere és"),
-        "poland": MessageLookupByLibrary.simpleMessage("Polònia"),
+            MessageLookupByLibrary.simpleMessage("Identifikujem sa ako"),
+        "poland": MessageLookupByLibrary.simpleMessage("Poľsko"),
+        "resultsPage10NopButton":
+            MessageLookupByLibrary.simpleMessage("Nie, ďakujem!"),
+        "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
+            "Upozornenie, keď bude čas ísť voliť?"),
+        "resultsPage10YesButton": MessageLookupByLibrary.simpleMessage("Áááno"),
+        "resultsPage1Button":
+            MessageLookupByLibrary.simpleMessage("Stlačte pre pokračovanie"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobrireu el vostre grup més compatible al Parlament de la UE, les llistes locals coincidents per votar al juny al vostre país, i fins i tot hem trobat algunes coses addicionals basades en les vostres respostes 😌"),
+            "Na nasledujúcich obrazovkách zistíte, s ktorou skupinou v Európskom parlamente sa najviac stotožňujete. Tiež nájdete príslušné kandidátne listiny, ktoré môžte v júni voliť vo svojej krajine. Na základe vašich odpovedí sme dokonca zistili niekoľko ďalších zaujímavostí 😌"),
         "resultsPage1Title":
-            MessageLookupByLibrary.simpleMessage("T\'hem trobat un \'match\'!"),
+            MessageLookupByLibrary.simpleMessage("Zhoda a oveľa viac 👉👈"),
+        "resultsPage2_1Title":
+            MessageLookupByLibrary.simpleMessage("Úprimne, medzi"),
+        "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
+            "a mnou, je to niečo ako Love Story (EÚ verzia)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
-            "La teva compatibilitat amb els grups del Parlament Europeu"),
+            "Ako blízko mám ku skupinám Európskeho parlamentu"),
         "resultsPage4TitleBottom":
-            MessageLookupByLibrary.simpleMessage("Anti-integració UE"),
-        "resultsPage4TitleLeft":
-            MessageLookupByLibrary.simpleMessage("Esquerra"),
-        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Dreta"),
+            MessageLookupByLibrary.simpleMessage("Proti európskej integrácii"),
+        "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Ľavica"),
+        "resultsPage4TitleRight":
+            MessageLookupByLibrary.simpleMessage("Pravica"),
         "resultsPage4TitleTop":
-            MessageLookupByLibrary.simpleMessage("Pro-integració UE"),
+            MessageLookupByLibrary.simpleMessage("Za európsku integráciu"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("Ets tu!"),
+            MessageLookupByLibrary.simpleMessage("To som ja, ahoj!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "D\'acord, és genial saber quin grup et porta..."),
+            "Pokiaľ ide o konkrétnejšie témy, ku ktorej skupine Európskeho parlamentu mám bližšie?"),
+        "resultsPage5Topic1":
+            MessageLookupByLibrary.simpleMessage("Otázky životného prostredia"),
+        "resultsPage5Topic2":
+            MessageLookupByLibrary.simpleMessage("Ľudské a sociálne práva"),
+        "resultsPage5Topic3":
+            MessageLookupByLibrary.simpleMessage("Hospodárska intervencia"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
-        "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "No estan en cap ordre en concret"),
+            "Na ďalších obrazovkách nájdete kandidátne listiny vo vašej krajine, ktoré sa s najväčšou pravdepodobnosťou pripoja k skupine s ktorou sa najviac zhodujete."),
+        "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
+            "Ok, je super vedieť, ktorá skupina ma chápe..."),
+        "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
+            "Vo voľbách do EÚ však hlasujeme za miestnych kandidátov"),
+        "resultsPage7Disclaimer":
+            MessageLookupByLibrary.simpleMessage("Bez určenia poradia."),
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": m4,
-        "resultsShare":
-            MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
-        "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
+            "Ste bojovníkom proti klimatickým zmenám! Veríte, že boj proti klimatickej kríze si vyžaduje kolektívny prístup, ktorý by mal byť prioritou pre každého. Nevadí vám regulácia podnikov zo strany EÚ. Veď načo je hospodársky rast, keď sa planéta stane neobývateľnou?"),
+        "resultsPage8_1Text": m5,
+        "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
+            "Aktívne opatrenia v oblasti klímy 🌱😌"),
+        "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
+            "Pre zamiešanie kliknite na karty"),
+        "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
+            "Voľby sa týkajú mnohých tém, ale je tu jedna vec, ktorá naozaj"),
+        "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+        "resultsShare": MessageLookupByLibrary.simpleMessage("Zdielať"),
+        "romania": MessageLookupByLibrary.simpleMessage("Rumunsko"),
         "settingsPagePrivacyPolicy":
-            MessageLookupByLibrary.simpleMessage("Política de Privacitat"),
+            MessageLookupByLibrary.simpleMessage("Ochrana dát"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Compartir (coming soon ⏳)"),
+            MessageLookupByLibrary.simpleMessage("Zdielať"),
         "settingsPageSubtitle1":
-            MessageLookupByLibrary.simpleMessage("Main Sponsors"),
+            MessageLookupByLibrary.simpleMessage("Hlavní sponzori"),
         "settingsPageSubtitle2":
-            MessageLookupByLibrary.simpleMessage("European Partners"),
+            MessageLookupByLibrary.simpleMessage("Európski partneri"),
         "settingsPageSubtitle3":
-            MessageLookupByLibrary.simpleMessage("Academic Partner"),
+            MessageLookupByLibrary.simpleMessage("Akademický partner"),
         "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
-            "National Institutional Partners"),
+            "Partneri z národných inštitúcií"),
         "settingsPageSubtitle5":
-            MessageLookupByLibrary.simpleMessage("Service Providers"),
+            MessageLookupByLibrary.simpleMessage("Poskytovatelia služieb"),
         "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
-            "Prefereixo utilitzar l\'app en"),
+            "Preferujem používať túto aplikáciu v"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Palumba no és una empresa, ni un partit polític, ni un govern. Som una associació independent sense ànim de lucre de més de 120 joves 🐦 d\'arreu d\'Europa que es van trobar l\'estiu passat i van començar a crear aquesta app. Tenim un objectiu: ajudar-te a entendre millor com funcionen les eleccions europees i quines candidatures encaixen amb les vostres idees, perquè puguis votar amb més confiança a les persones que donen suport a les teves prioritats. El nostre algorisme és de codi obert, un consell científic de politòlegs ha revisat les frases en què fas \"swipe\" i les teves dades estan taaan encriptades que no tenim manera d\'identificar-te ni de rebot :)"),
+            "Palumba nie je spoločnosť, ani politická strana, ani vláda. Sme nezávislá nezisková organizácia 120+ mladých ľudí 🐦 z celej Európy, ktorí sa minulé leto spojili a začali vytvárať túto aplikáciu. Máme jediný cieľ: pomôcť vám lepšie pochopiť, ako fungujú európske voľby a ktorí kandidáti by mohli byť najbližšie vašim predstavám. Chceme aby ste mohli s väčšou istotou voliť ľudí, ktorí podporujú vaše priority. Náš algoritmus má otvorený zdrojový kód a výroky, ku ktorým hľadáte zhodu, boli overené politológmi. Vaše údaje sú taaaak zašifrované, že neexistuje nijaký spôsob ako vás identifikovať :)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
-            "Per canviar l\'idioma, fes clic sobre l\'actual"),
+            "Pre zmenu jazyka, kliknite na aktuálne uvedený jazyk"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
-            "És important que sàpigues que els Partners no tenen cap poder de decisió editorial sobre els continguts de l\'app, que és una iniciativa apartidista amb un objectiu clar: ajudar-te a entendre quines opcions polítiques recolzen les teves opinions a nivell europeu i nacional."),
-        "settingsPageTitleAbout":
-            MessageLookupByLibrary.simpleMessage("Sobre nosaltres"),
+            "Prehlasujeme, že nasledujúci partneri nijako neovplyvnili obsah aplikácie, ktorá zostáva nestrannou iniciatívou s jasným cieľom: pomôcť vám pochopiť, kto podporuje vaše názory na európskej a vnútroštátnej úrovni."),
+        "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("O nás"),
         "settingsPageTitleAssociation":
-            MessageLookupByLibrary.simpleMessage("L\'Associació"),
+            MessageLookupByLibrary.simpleMessage("Organizácia"),
         "settingsPageTitleLanguage":
-            MessageLookupByLibrary.simpleMessage("Language"),
+            MessageLookupByLibrary.simpleMessage("Jazyk"),
         "settingsPageTitlePartners":
-            MessageLookupByLibrary.simpleMessage("Partners"),
+            MessageLookupByLibrary.simpleMessage("Partneri"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
-        "skip": MessageLookupByLibrary.simpleMessage("Omet"),
-        "spain": MessageLookupByLibrary.simpleMessage("Espanya"),
-        "sweden": MessageLookupByLibrary.simpleMessage("Suècia"),
-        "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
-        "yes": MessageLookupByLibrary.simpleMessage("Sí")
+        "skip": MessageLookupByLibrary.simpleMessage("Preskočiť"),
+        "spain": MessageLookupByLibrary.simpleMessage("Španielsko"),
+        "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
+            "Vyzerá to, že nemáte pripojenie na internet"),
+        "sweden": MessageLookupByLibrary.simpleMessage("Švédsko"),
+        "textContinue": MessageLookupByLibrary.simpleMessage("Pokračovať"),
+        "yes": MessageLookupByLibrary.simpleMessage("Áno")
       };
 }

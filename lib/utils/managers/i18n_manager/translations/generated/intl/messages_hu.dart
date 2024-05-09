@@ -20,147 +20,180 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'hu';
 
-  static String m0(count) =>
-      "${count}\'matches\' trobats en les últimes 24 hores";
+  static String m0(count) => "${count} kitöltés az elmúlt 24 órában";
 
-  static String m1(count) =>
-      "${count} \'matches\' trobats en les últimes 24 hores";
+  static String m1(count) => "${count} „párt\" találtunk az elmúlt 24 órában";
 
   static String m2(country) =>
-      "Trobar coincidències amb llistes de candidats a ${country} 🔍";
+      "Párosítás a jelöltlistákkal itt: ${country}  🔍";
 
-  static String m3(country) =>
-      "No s\'ha trobat cap partit polític local a ${country}";
+  static String m3(country) => "Nem találtunk helyi pártot itt: ${country}";
 
   static String m4(country, group) =>
-      "Aquestes són les llistes de candidats locals que coincideixen al vostre país";
+      "${country} jelöltjei, akik legnagyobb összhangban vannak a(z) ${group} képviselőcsoporttal";
+
+  static String m5(topic, percentage) =>
+      "A(z) ${topic} kérdésében ${percentage}% -ban közelebb áll hozzád:";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Alguna cosa ha anat malament al nostre costat. Siusplau, intenta-ho més tard."),
-        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Vaja!"),
+            "Valami elromlott a mi oldalunkon. Kérlek, próbáld újra később."),
+        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Hoppá!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel·lar"),
-        "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Mégsem"),
+        "denmark": MessageLookupByLibrary.simpleMessage("Dánia"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
-            MessageLookupByLibrary.simpleMessage("Començar Palumba"),
+            MessageLookupByLibrary.simpleMessage("Mehet a Palumba?"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Benvinguts a la Beta exclusiva de Palumba"),
+            "Ha ez a cuki galamb nem tud segíteni szavazni júniusban, akkor semmi sem fog."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Si aquest colom tan bufó no t\'ajuda a votar al juny, res ho farà"),
+            "Jobbra vagy balra húzással dönthetsz a számodra fontos kérdésekben."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Prepara\'t per difondre l\'app massivament el 9 de maig"),
-        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
-        "france": MessageLookupByLibrary.simpleMessage("França"),
-        "germany": MessageLookupByLibrary.simpleMessage("Alemanya"),
+            "Fedezd fel a \'matchedet\' és egy kis iránymutatást arról, hogy kire érdemes szavaznod a választásokon."),
+        "faq": MessageLookupByLibrary.simpleMessage("GYIK"),
+        "france": MessageLookupByLibrary.simpleMessage("Franciaország"),
+        "germany": MessageLookupByLibrary.simpleMessage("Németország"),
         "homePageBackToTest":
-            MessageLookupByLibrary.simpleMessage("Tornar al test"),
+            MessageLookupByLibrary.simpleMessage("Vissza a kitöltéshez"),
         "homePageMatchesFoundQuote": m1,
         "homePageMyResults":
-            MessageLookupByLibrary.simpleMessage("Els meus resultats"),
+            MessageLookupByLibrary.simpleMessage("Eredményeim"),
         "homePageStartButton":
-            MessageLookupByLibrary.simpleMessage("Comença un nou test"),
-        "hungary": MessageLookupByLibrary.simpleMessage("Hongria"),
+            MessageLookupByLibrary.simpleMessage("Új teszt indítása"),
+        "hungary": MessageLookupByLibrary.simpleMessage("Magyarország"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Això es pot canviar més endavant a la configuració."),
+            "Ez később módosítható a beállításokban."),
         "languagePageTitle":
-            MessageLookupByLibrary.simpleMessage("Continuem en català? :)"),
+            MessageLookupByLibrary.simpleMessage("Folytassuk magyarul? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
-            "Els teus resultats personalitzats estan en camí :)"),
+            "Úton vannak a személyre szabott eredményeid :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-            "Això serà més ràpid que aconseguir entrades per Taylor Swift 👀 "),
+            "Ez gyorsabban meglesz, mint egy Taylor Swift-jegy vásárlása 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Quasi preparat, una darrera comprovació..."),
-        "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
-        "no": MessageLookupByLibrary.simpleMessage("No"),
-        "ok": MessageLookupByLibrary.simpleMessage("D\'acord"),
+            "Majdnem kész,<br>csak az utolsó simítások..."),
+        "neutral": MessageLookupByLibrary.simpleMessage("Közömbös"),
+        "no": MessageLookupByLibrary.simpleMessage("Nem"),
+        "ok": MessageLookupByLibrary.simpleMessage("Oké"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
-            "No tinc ni idea de qui votar a les eleccions europees del 2024"),
+            "Elképzelésem sincs, hogy kire szavazzak a 2024-es európai választásokon"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "Llisca en funció del teu grau d\'acord"),
+            "Húzd abba az irányba, amellyel egyetértesz"),
         "onBoardingNotAnswerButton":
-            MessageLookupByLibrary.simpleMessage("Prefereix-ho no dir-ho"),
+            MessageLookupByLibrary.simpleMessage("Inkább nem válaszolok"),
         "onBoardingStep1Subtitle":
-            MessageLookupByLibrary.simpleMessage("No ho sé"),
+            MessageLookupByLibrary.simpleMessage("Nem tudom"),
         "onBoardingStep1Title":
-            MessageLookupByLibrary.simpleMessage("On votareu?"),
+            MessageLookupByLibrary.simpleMessage("Hol fogsz szavazni?"),
         "onBoardingStep2Title":
-            MessageLookupByLibrary.simpleMessage("La meva edat"),
-        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Dona"),
-        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Home"),
+            MessageLookupByLibrary.simpleMessage("Életkorom"),
+        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Nő"),
+        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Férfi"),
         "onBoardingStep3Option3":
-            MessageLookupByLibrary.simpleMessage("Gènere-fluid"),
+            MessageLookupByLibrary.simpleMessage("Genderfluid"),
         "onBoardingStep3Option4":
-            MessageLookupByLibrary.simpleMessage("No binari"),
-        "onBoardingStep3Option5":
-            MessageLookupByLibrary.simpleMessage("Altres"),
-        "onBoardingStep3Title":
-            MessageLookupByLibrary.simpleMessage("El meu gènere és"),
-        "poland": MessageLookupByLibrary.simpleMessage("Polònia"),
+            MessageLookupByLibrary.simpleMessage("Nonbináris"),
+        "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Más"),
+        "onBoardingStep3Title": MessageLookupByLibrary.simpleMessage("Nemem"),
+        "poland": MessageLookupByLibrary.simpleMessage("Lengyelország"),
+        "resultsPage10NopButton":
+            MessageLookupByLibrary.simpleMessage("Köszönöm, nem!"),
+        "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
+            "Szeretnél emlékeztetőt kapni, hogy mikor kell szavazni menni?"),
+        "resultsPage10YesButton":
+            MessageLookupByLibrary.simpleMessage("Igeeen"),
+        "resultsPage1Button":
+            MessageLookupByLibrary.simpleMessage("Koppintással lapozz"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobrireu el vostre grup més compatible al Parlament de la UE, les llistes locals coincidents per votar al juny al vostre país, i fins i tot hem trobat algunes coses addicionals basades en les vostres respostes 😌"),
-        "resultsPage1Title":
-            MessageLookupByLibrary.simpleMessage("T\'hem trobat un \'match\'!"),
+            "A következőkben felfedezheted a hozzád illő parlamenti képviselőcsoportot az EP-ben, az ehhez passzoló helyi listákat, amelyekre júniusban szavazhatsz majd az országodban, illetve mutatunk egy pár extra dolgot is a válaszaid alapján 😌"),
+        "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
+            "Egy \'match\' és sok más 👉👈"),
+        "resultsPage2_1Title":
+            MessageLookupByLibrary.simpleMessage("Őszintén, a(z)"),
+        "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
+            "között és köztem ez egy Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
-            "La teva compatibilitat amb els grups del Parlament Europeu"),
+            "Mennyire állok közel az európai parlamenti képviselőcsoportokhoz"),
         "resultsPage4TitleBottom":
-            MessageLookupByLibrary.simpleMessage("Anti-integració UE"),
+            MessageLookupByLibrary.simpleMessage("EU integráció-ellenes"),
         "resultsPage4TitleLeft":
-            MessageLookupByLibrary.simpleMessage("Esquerra"),
-        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Dreta"),
+            MessageLookupByLibrary.simpleMessage("Baloldal"),
+        "resultsPage4TitleRight":
+            MessageLookupByLibrary.simpleMessage("Jobboldal"),
         "resultsPage4TitleTop":
-            MessageLookupByLibrary.simpleMessage("Pro-integració UE"),
+            MessageLookupByLibrary.simpleMessage("EU integráció-párti"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("Ets tu!"),
+            MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "D\'acord, és genial saber quin grup et porta..."),
+            "Konkrétabb kérdésekben melyik európai parlamenti képviselőcsoporthoz állok közelebb?"),
+        "resultsPage5Topic1":
+            MessageLookupByLibrary.simpleMessage("Környezeti problémák"),
+        "resultsPage5Topic2":
+            MessageLookupByLibrary.simpleMessage("Emberi és szociális jogok"),
+        "resultsPage5Topic3":
+            MessageLookupByLibrary.simpleMessage("Gazdasági beavatkozás"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-            "A les següents pantalles, descobriràs el teu grup més compatible al Parlament Europeu, les canidatures coincidents per votar al juny al teu país, i fins i tot hem trobat algunes coses més basades en les teves respostes 😌"),
-        "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
-            "No estan en cap ordre en concret"),
+            "A következőkben felfedezheted az országod jelöltlistáit, amelyek vélhetően a hozzád közel álló képviselőcsoporthoz csatlakoznak majd."),
+        "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
+            "Oké, jó tudni, hogy melyik képviselőcsoport ért meg igazán..."),
+        "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
+            "De az európai választásokon egy helyi listára szavazunk"),
+        "resultsPage7Disclaimer":
+            MessageLookupByLibrary.simpleMessage("Véletlenszerű sorrendben."),
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": m4,
-        "resultsShare":
-            MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
-        "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
+            "Egy igazi klímaharcos vagy! Úgy gondolod, hogy a klímaválság együttes fellépést kíván, ezért mindenki fő prioritásává kell válnia. Téged nem zavar, ha az EU ebből a célból szabályozza a cégeket. Végül is mi haszna a gazdasági növekedésnek, ha a bolygó közben lakhatatlanná válik?"),
+        "resultsPage8_1Text": m5,
+        "resultsPage8_2Text":
+            MessageLookupByLibrary.simpleMessage("Aktív klímavédelem 🌱😌"),
+        "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
+            "Cseréhez koppints a kártyákra"),
+        "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
+            "A választások sok mindenről szólnak, de van egy dolog, ami tényleg"),
+        "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+        "resultsShare": MessageLookupByLibrary.simpleMessage("Megosztás"),
+        "romania": MessageLookupByLibrary.simpleMessage("Románia"),
         "settingsPagePrivacyPolicy":
-            MessageLookupByLibrary.simpleMessage("Política de Privacitat"),
+            MessageLookupByLibrary.simpleMessage("Adatvédelmi irányelvek"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Compartir (coming soon ⏳)"),
+            MessageLookupByLibrary.simpleMessage("Megosztás"),
         "settingsPageSubtitle1":
-            MessageLookupByLibrary.simpleMessage("Main Sponsors"),
+            MessageLookupByLibrary.simpleMessage("Kiemelt támogatóink"),
         "settingsPageSubtitle2":
-            MessageLookupByLibrary.simpleMessage("European Partners"),
+            MessageLookupByLibrary.simpleMessage("Európai támogatóink"),
         "settingsPageSubtitle3":
-            MessageLookupByLibrary.simpleMessage("Academic Partner"),
+            MessageLookupByLibrary.simpleMessage("Akadémiai támogatóink"),
         "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
-            "National Institutional Partners"),
+            "Nemzeti intézményi támogatóink"),
         "settingsPageSubtitle5":
-            MessageLookupByLibrary.simpleMessage("Service Providers"),
+            MessageLookupByLibrary.simpleMessage("Szolgáltatók"),
         "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
-            "Prefereixo utilitzar l\'app en"),
+            "Az appot az alábbi nyelven szeretném használni"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Palumba no és una empresa, ni un partit polític, ni un govern. Som una associació independent sense ànim de lucre de més de 120 joves 🐦 d\'arreu d\'Europa que es van trobar l\'estiu passat i van començar a crear aquesta app. Tenim un objectiu: ajudar-te a entendre millor com funcionen les eleccions europees i quines candidatures encaixen amb les vostres idees, perquè puguis votar amb més confiança a les persones que donen suport a les teves prioritats. El nostre algorisme és de codi obert, un consell científic de politòlegs ha revisat les frases en què fas \"swipe\" i les teves dades estan taaan encriptades que no tenim manera d\'identificar-te ni de rebot :)"),
+            "A Palumba nem egy cég, nem egy politikai párt, nem is egy kormány. Független, nonprofit szervezet vagyunk, amely 120+ fiatalból áll🐦 szerte Európából. Tavaly nyáron összeültünk és elkezdtünk ezen az appon dolgozni. Egy célunk van: szeretnénk neked segíteni jobban megérteni, hogy hogyan működnek az európai parlamenti választások, melyik jelöltlisták egyezhetnek az elképzeléseiddel, azért, hogy biztosan olyanokra szavazz, akik a Te prioritásaidat támogatják. Az algoritmusunk nyílt forráskódú, az állításokat amiket látsz majd, politikai szakértők is átnézték, és az adataidat titkosítottuk, szóval esélytelen, hogy valaha is beazonosítsunk a válaszaid alapján. :)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
-            "Per canviar l\'idioma, fes clic sobre l\'actual"),
+            "A nyelv módosításához koppints a jelenleg kiválasztottra"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
-            "És important que sàpigues que els Partners no tenen cap poder de decisió editorial sobre els continguts de l\'app, que és una iniciativa apartidista amb un objectiu clar: ajudar-te a entendre quines opcions polítiques recolzen les teves opinions a nivell europeu i nacional."),
+            "Fontosnak tartjuk elmondani, hogy a támogatóink nem szólhattak bele az app tartalmába, amely továbbra is egy pártoktól független kezdeményezés egyetlen világos céllal: segítsünk neked megismerni, hogy ki támogatja a te véleményed európai és tagállami szinten."),
         "settingsPageTitleAbout":
-            MessageLookupByLibrary.simpleMessage("Sobre nosaltres"),
+            MessageLookupByLibrary.simpleMessage("Rólunk"),
         "settingsPageTitleAssociation":
-            MessageLookupByLibrary.simpleMessage("L\'Associació"),
+            MessageLookupByLibrary.simpleMessage("A szervezet"),
         "settingsPageTitleLanguage":
-            MessageLookupByLibrary.simpleMessage("Language"),
+            MessageLookupByLibrary.simpleMessage("Nyelv"),
         "settingsPageTitlePartners":
-            MessageLookupByLibrary.simpleMessage("Partners"),
+            MessageLookupByLibrary.simpleMessage("Partnereink"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
-        "skip": MessageLookupByLibrary.simpleMessage("Omet"),
-        "spain": MessageLookupByLibrary.simpleMessage("Espanya"),
-        "sweden": MessageLookupByLibrary.simpleMessage("Suècia"),
-        "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
-        "yes": MessageLookupByLibrary.simpleMessage("Sí")
+        "skip": MessageLookupByLibrary.simpleMessage("Átugrás"),
+        "spain": MessageLookupByLibrary.simpleMessage("Spanyolország"),
+        "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
+            "Úgy tűnik, hogy nincs internetkapcsolatod"),
+        "sweden": MessageLookupByLibrary.simpleMessage("Svédország"),
+        "textContinue": MessageLookupByLibrary.simpleMessage("Tovább"),
+        "yes": MessageLookupByLibrary.simpleMessage("Igen")
       };
 }
