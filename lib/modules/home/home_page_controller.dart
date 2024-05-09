@@ -34,10 +34,7 @@ class HomePageController extends GetxController {
   @override
   void onInit() {
     obtainLocalStoredLastResults();
-    final args = Get.arguments;
-    if (args != null) {
-      _showBanner.value = args[StringUtils.fromResultsKey];
-    }
+    conditionallyShowEYCABanner();
     super.onInit();
   }
 
@@ -55,6 +52,17 @@ class HomePageController extends GetxController {
     }
     //Update the results button
     update([resultsExistsKey]);
+  }
+
+  Future<void> conditionallyShowEYCABanner() async {
+    final args = Get.arguments;
+    if (args != null) {
+      final comingFromResults = args[StringUtils.fromResultsKey];
+      final seenEYCA = (await _localDataRepository.seenEYCA) ?? false;
+
+      _showBanner.value = comingFromResults && !seenEYCA;
+      _localDataRepository.seenEYCA = true;
+    }
   }
 
   void launchFaqUrl() {
