@@ -88,8 +88,8 @@ class OnboardingPage extends StatelessWidget {
                       alignment: Alignment.bottomRight,
                       child: Padding(
                         padding: AppDimens.lateralPadding,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
+                        child: Wrap(
+                          alignment: WrapAlignment.end,
                           children: [
                             Obx(() {
                               if (_.currentStep.value == 1 ||
@@ -104,6 +104,7 @@ class OnboardingPage extends StatelessWidget {
                                 child: AppTexts.regular(
                                     S.of(context).onBoardingNotAnswerButton,
                                     bold: true,
+                                    textAlign: TextAlign.right,
                                     color: AppColors.primary),
                               );
                             }),
