@@ -90,6 +90,16 @@ class ResultsPage extends GetView<ResultsController> {
                             height: Get.height,
                             pointColor: AppColors.lightPrimary.withOpacity(.35))
                         : SizedBox.shrink()),
+
+                  // HACK but content page has restricted size
+                  Obx(() => controller.currentPage == 9
+                      ? Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Image.asset(
+                          'assets/images/img_ballot_box_big.png',
+                          fit: BoxFit.fitWidth,
+                      ))
+                      : SizedBox.shrink()),
                     ]
                   ),
                 ),
