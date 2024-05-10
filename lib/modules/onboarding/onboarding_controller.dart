@@ -20,6 +20,12 @@ class OnboardingController extends GetxController {
   final totalSteps = 4;
   RxInt currentStep = 1.obs;
 
+  final isSmallScreen = Get.height < 800;
+  final heightSize = Get.height;
+  get step1Height => Get.width * .2; //34; //heightSize * .0415;
+  get step2Height => isSmallScreen ? heightSize * 0.27 : heightSize * 0.37;
+  get step3Height => isSmallScreen ? heightSize * 0.3725 : heightSize * 0.4725;
+
   final pageController = PageController();
 
   RxBool isButtonEnabled = false.obs;
@@ -152,19 +158,17 @@ class OnboardingController extends GetxController {
 
   void updateBackgroundShape() async {
     //Update the background shape
-    bool isSmallScreen = Get.height < 800;
-    var heightSize = Get.height;
     if (currentStep.value <= 1) {
       //
-      height.value = Get.width * .2; //34; //heightSize * .0415;
+      height.value = step1Height;
       radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
-      height.value = isSmallScreen ? heightSize * 0.27 : heightSize * 0.37;
+      height.value = step2Height;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 3) {
-      height.value = isSmallScreen ? heightSize * 0.3725 : heightSize * 0.4725;
+      height.value = step3Height;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else {

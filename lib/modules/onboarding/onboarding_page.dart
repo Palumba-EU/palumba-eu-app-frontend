@@ -57,7 +57,7 @@ class OnboardingPage extends StatelessWidget {
                               if (index == 1) {
                                 return Padding(
                                   padding:
-                                      EdgeInsets.only(top: _.height.value - 40),
+                                      EdgeInsets.only(top: _.step3Height - 30),
                                   child: Step2(
                                       minAge: _.minAge,
                                       maxAge: _.maxAge,
@@ -71,7 +71,7 @@ class OnboardingPage extends StatelessWidget {
                               if (index == 2) {
                                 return Padding(
                                   padding:
-                                      EdgeInsets.only(top: _.height.value - 30),
+                                      EdgeInsets.only(top: _.step3Height - 30),
                                   child: Step3(
                                       genders: _.genders,
                                       indexSelected: _.indexGenderSelected,
