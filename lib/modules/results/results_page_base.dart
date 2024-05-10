@@ -163,7 +163,7 @@ class ResultsPage extends GetView<ResultsController> {
                                             allowImplicitScrolling: true,
                                             controller: controller.pageController,
                                             itemCount: controller.pages.length,
-                                            itemBuilder: (context, index) => Expanded(child: controller.pages[index])
+                                            itemBuilder: (context, index) => controller.pages[index]
                                         )
                                       )
                                     ],
