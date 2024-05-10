@@ -76,7 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tardaremos menos de los que cuesta conseguir entradas para Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Casi estamos,<br>una última comprobación..."),
+            "Casi estamos, una última comprobación..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Vale"),

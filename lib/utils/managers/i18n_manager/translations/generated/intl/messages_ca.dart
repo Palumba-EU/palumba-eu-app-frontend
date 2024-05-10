@@ -158,13 +158,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Les eleccions van de molts temes, però hi ha una cosa que realment"),
         "resultsPage9Text2":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
-        "resultsShare":
-            MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
+        "resultsShare": MessageLookupByLibrary.simpleMessage("Comparteix"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Política de Privacitat"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Compartir (pròximament ⏳)"),
+            MessageLookupByLibrary.simpleMessage("Compartir"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Patrocinadors principals"),
         "settingsPageSubtitle2":
