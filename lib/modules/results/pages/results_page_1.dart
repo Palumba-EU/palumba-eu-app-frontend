@@ -13,52 +13,47 @@ class ResultsPage1 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Padding(
       padding: AppDimens.lateralPadding,
-      child: SafeArea(
-        child: SizedBox(
-          height: Get.height * .78,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomSpacer(
-                multiplier: 2,
-              ),
-              Expanded(
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/images/img_results.svg',
-                  ),
-                ),
-              ),
-              CustomSpacer(
-                multiplier: 2,
-              ),
-              AppTexts.title(S.of(context).resultsPage1Title,
-                  color: AppColors.primary),
-              CustomSpacer(),
-              AppTexts.small(S.of(context).resultsPage1Text,
-                  color: AppColors.primary),
-              CustomSpacer(
-                multiplier: 4,
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    controller.pageController.nextPage(
-                      duration: Duration(milliseconds: 1),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: AppTexts.regular(S.of(context).resultsPage1Button,
-                      bold: true, color: AppColors.lightPrimary),
-                ),
-              ),
-              CustomSpacer(),
-            ],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomSpacer(
+            multiplier: 2,
           ),
-        ),
+          Expanded(
+            child: Center(
+              child: SvgPicture.asset(
+                'assets/images/img_results.svg',
+              ),
+            ),
+          ),
+          CustomSpacer(
+            multiplier: 2,
+          ),
+          AppTexts.title(S.of(context).resultsPage1Title,
+              color: AppColors.primary),
+          CustomSpacer(),
+          AppTexts.small(S.of(context).resultsPage1Text,
+              color: AppColors.primary),
+          CustomSpacer(
+            multiplier: 4,
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: () {
+                controller.pageController.nextPage(
+                  duration: Duration(milliseconds: 1),
+                  curve: Curves.easeInOut,
+                );
+              },
+              child: AppTexts.regular(S.of(context).resultsPage1Button,
+                  bold: true, color: AppColors.lightPrimary),
+            ),
+          ),
+          CustomSpacer(),
+        ],
       ),
     );
   }
