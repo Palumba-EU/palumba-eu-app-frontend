@@ -11,7 +11,7 @@ class StringUtils {
   static String privacyStatementUrl = 'https://palumba.eu/data-protection/';
   static String webUrl = 'https://palumba.eu';
   static String faqUrl = 'https://www.palumba.eu/faq';
-  static String rickrollUrl = 'https://www.youtube.com/watch?v=dQw4w9WgXcQg';
+  static String rickrollUrl = 'https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8';
   //Contact
   static String contactEmail = 'app@palumba.eu';
   static String contactEmailUrl = 'mailto:$contactEmail';
