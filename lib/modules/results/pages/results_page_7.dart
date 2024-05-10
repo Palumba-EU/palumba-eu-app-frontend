@@ -86,9 +86,9 @@ class ResultsPage7 extends GetView<ResultsController> {
                 ),
         ),
         Align(
-        alignment: Alignment.topRight,
+        alignment: Alignment.bottomRight,
         child: Transform.translate(
-            offset: Offset(Get.width * 0.01, -Get.width * 0.1),
+            offset: Offset(Get.width * 0.02, -Get.width * 0.18),
             child: SvgPicture.asset(
               'assets/images/img_ballot_box.svg',
               width: Get.width * 0.2
