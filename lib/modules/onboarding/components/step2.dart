@@ -48,6 +48,7 @@ class Step2 extends StatelessWidget {
                 itemCount: maxAge - minAge,
                 padding: AppDimens.lateralPadding,
                 scrollDirection: Axis.horizontal,
+                controller: ScrollController(initialScrollOffset: 350),
                 itemBuilder: (context, index) {
                   return Obx(() => CustomAgeSelector(
                         title: (index + minAge).toString(),
