@@ -40,6 +40,9 @@ import 'pages/results_page_5.dart';
 class ResultsController extends GetxController {
   static const route = '/results';
 
+  final topicEuIntegration = 2;
+  final topicLeftRight = 3;
+
   final pageController = PageController();
   final List<Widget> allPages = [
     ResultsPage1(key: Key("1")),
@@ -399,8 +402,6 @@ class ResultsController extends GetxController {
   //Page 4 calculate compass position
 
   CompassData calculateCompassPosition(List<Answer> answers) {
-    final topicEuIntegration = 2;
-    final topicLeftRight = 3;
     double dimEuIntegration =
         ResultsHelper.calculateTopicDimension(answers, topicEuIntegration);
     double dimLeftRight = ResultsHelper.calculateTopicDimension(answers, 3);
@@ -466,7 +467,9 @@ class ResultsController extends GetxController {
 
 //Page 8 calculate max topic
   MaxTopic maxTopicPercentage() {
-    final topics = DataManager().getTopics();
+    // use all topics except left/right
+    final topics = DataManager().getTopics()
+        .where((topic) => topic.id != topicLeftRight).toList();
     final answers = answersData;
 
     double maxValue = 0;
