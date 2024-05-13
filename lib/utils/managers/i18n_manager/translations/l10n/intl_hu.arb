@@ -76,7 +76,7 @@
   "resultsPage8Help": "Egy igazi klímaharcos vagy! Úgy gondolod, hogy a klímaválság együttes fellépést kíván, ezért mindenki fő prioritásává kell válnia. Téged nem zavar, ha az EU ebből a célból szabályozza a cégeket. Végül is mi haszna a gazdasági növekedésnek, ha a bolygó közben lakhatatlanná válik?",
   "resultsPage9Help": "Cseréhez koppints a kártyákra",
   "resultsPage9Text1": "A választások sok mindenről szólnak, de van egy dolog, ami tényleg",
-  "resultsPage9Text2": "Belongs With Me 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "Szeretnél emlékeztetőt kapni, hogy mikor kell szavazni menni?",
   "resultsPage10NopButton": "Köszönöm, nem!",
   "resultsPage10YesButton": "Igeeen",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Nemzeti intézményi támogatóink",
   "settingsPageSubtitle5": "Szolgáltatók",
   "settingsPageShareButtonText": "Megosztás",
-  "settingsPagePrivacyPolicy": "Adatvédelmi irányelvek"
+  "settingsPagePrivacyPolicy": "Adatvédelmi irányelvek",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

@@ -76,7 +76,7 @@
   "resultsPage8Help": "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?",
   "resultsPage9Help": "Click on the cards to shuffle",
   "resultsPage9Text1": "Elections are about many topics, but there’s one thing that really",
-  "resultsPage9Text2": "Belongs With Me 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "A notification when it’s time to go vote?",
   "resultsPage10NopButton": "No thanks!",
   "resultsPage10YesButton": "Yesssss",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "National Institutional Partners",
   "settingsPageSubtitle5": "Service Providers",
   "settingsPageShareButtonText": "Share",
-  "settingsPagePrivacyPolicy": "Data Protection"
+  "settingsPagePrivacyPolicy": "Data Protection",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

@@ -76,7 +76,7 @@
   "resultsPage8Help": "Είσαι μαχητής της κλιματικής αλλαγής! Πιστεύεις ότι η αντιμετώπιση της κλιματικής κρίσης απαιτεί συλλογική δράση, την οποία όλοι πρέπει να θέσουν σε ύψιστη προτεραιότητα. Δεν σε πειράζει που η ΕΕ ρυθμίζει τις εταιρείες για το σκοπό αυτό. Εξάλλου, τι νόημα έχει η οικονομική ανάπτυξη αν ο πλανήτης γίνει μη βιώσιμος;",
   "resultsPage9Help": "Κάντε κλικ στις κάρτες για ανακάτεμα",
   "resultsPage9Text1": "Οι εκλογές αφορούν πολλά θέματα, αλλά υπάρχει ένα πράγμα που πραγματικά",
-  "resultsPage9Text2": "Belongs With Me 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "Θέλετε μια ειδοποίηση όταν έρθει η ώρα να πάτε να ψηφίσετε;",
   "resultsPage10NopButton": "Όχι, ευχαριστώ!",
   "resultsPage10YesButton": "Ναιιιιι",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Εθνικοί Θεσμικοί Συνεργάτες",
   "settingsPageSubtitle5": "Πάροχοι Υπηρεσιών",
   "settingsPageShareButtonText": "Κοινοποίηση",
-  "settingsPagePrivacyPolicy": "Προστασία Δεδομένων"
+  "settingsPagePrivacyPolicy": "Προστασία Δεδομένων",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

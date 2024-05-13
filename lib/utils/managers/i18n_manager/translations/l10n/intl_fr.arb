@@ -76,7 +76,7 @@
   "resultsPage8Help": "Tu es un combattant pour le climat ! Tu crois que pour lutter contre la crise climatique il faut une action collective et que chacun doit en faire sa grande priorité. Tu es favorable au fait que l'Union Européenne régule les entreprises pour aider dans cet objectif. Après tout, à quoi ça sert d'avoir de la \"croissance\" économique si la planète deviens invivable ?",
   "resultsPage9Help": "Appuie sur la carte pour en voir d'autres",
   "resultsPage9Text1": "Les élections portent sur beaucoup de sujets, mais il y a une chose qui vraiment",
-  "resultsPage9Text2": "Belongs With Me 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "Recevoir un rappel d'aller voter ?",
   "resultsPage10NopButton": "Non merci !",
   "resultsPage10YesButton": "Ouiiiii",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Partenaires Institutionnels Nationaux",
   "settingsPageSubtitle5": "Prestataires de services",
   "settingsPageShareButtonText": "Partager",
-  "settingsPagePrivacyPolicy": "Protection des données"
+  "settingsPagePrivacyPolicy": "Protection des données",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

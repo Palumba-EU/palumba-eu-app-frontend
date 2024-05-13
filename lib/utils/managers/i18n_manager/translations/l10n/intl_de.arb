@@ -76,7 +76,7 @@
   "resultsPage8Help": "Du bist ein Klimakämpfer! Du glaubst, dass die Bewältigung der Klimakrise gemeinsames Handeln erfordert und ganz oben auf der Prioritätenliste stehen sollte. Du hast auch nichts dagegen, wenn die EU dafür Unternehmen reguliert. Denn was nützt uns Wirtschaftswachstum, wenn die Erde unbewohnbar wird?",
   "resultsPage9Help": "Klicke auf die Karten, um sie zu mischen",
   "resultsPage9Text1": "Bei Wahlen geht es um viele Themen, aber es gibt eines, that really",
-  "resultsPage9Text2": "Belongs With Me 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "A notification when it’s time to go vote?",
   "resultsPage10NopButton": "Nein danke!",
   "resultsPage10YesButton": "Jaaaaaa",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Nationale institutionelle Partner",
   "settingsPageSubtitle5": "Serviceanbieter",
   "settingsPageShareButtonText": "Share",
-  "settingsPagePrivacyPolicy": "Datenschutzerklärung"
+  "settingsPagePrivacyPolicy": "Datenschutzerklärung",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }
