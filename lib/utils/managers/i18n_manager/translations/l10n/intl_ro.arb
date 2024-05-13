@@ -48,7 +48,7 @@
   "loadingResultsPageTitle1": "Rezultatele tale personalizate vor ajunge la tine imediat :)",
   "loadingResultsPageTitle2": "O să meargă mai repede decât să încerci să iei bilete la Taylor Swift 👀 ",
   "loadingResultsPageTitle3": "Căutăm potriviri cu candidații de pe listele în {country} 🔎",
-  "loadingResultsPageTitle4": "Aproape gata, <br> verificăm încă odată...",
+  "loadingResultsPageTitle4": "Aproape gata, verificăm încă odată...",
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "O potrivire și chiar mai mult de atât 👉👈",
   "resultsPage1Text": "Pe următoarele pagini, vei descoperi grupul parlamentar european, lista locală corespunzătoare de candidați cu care poți vota în iunie în țara ta și cu care ești cel/cea/cei mai compatibil/ă/x, și am găsit chiar și câteva lucruri în plus în baza răspunsurilor tale  😌",
@@ -76,7 +76,7 @@
   "resultsPage8Help": "Ești o persoană care vrea să lupte împotriva schimbării climatice! Crezi că lupta cu schimbarea climatică necesită acțiuni la nivel de colectiv, unde toți recunoaștem că schimbarea climatică este o prioritate urgentă. Ești de acord ca UE să reglementeze companiile private în acest scop. Toate ca toate, dar care este scopul creșterii economice dacă planeta devine de nelocuit?",
   "resultsPage9Help": "Apasă pe cărți pentru a le amesteca",
   "resultsPage9Text1": "Alegerile sunt despre multe lucruri, dar există un lucru care chiar",
-  "resultsPage9Text2": "Rezonează cu mine 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "O notificare atunci când este timpul să mergem să votăm?",
   "resultsPage10NopButton": "Nu, mulțumesc!",
   "resultsPage10YesButton": "Daaaaa",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Parteneri Instituționali Naționali",
   "settingsPageSubtitle5": "Furnizori Servicii",
   "settingsPageShareButtonText": "Distribuie",
-  "settingsPagePrivacyPolicy": "Politică de confidențialitate"
+  "settingsPagePrivacyPolicy": "Politică de confidențialitate",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

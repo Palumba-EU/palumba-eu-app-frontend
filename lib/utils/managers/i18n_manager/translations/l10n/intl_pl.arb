@@ -48,7 +48,7 @@
   "loadingResultsPageTitle1": "Twoje spersonalizowane wyniki są w drodze :)",
   "loadingResultsPageTitle2": "Powinno być szybsze niż kupowanie biletów na Taylor Swift 👀 ",
   "loadingResultsPageTitle3": "Szukamy matchy z listami kandydatów w {country}  🔍",
-  "loadingResultsPageTitle4": "Prawie gotowe,<br>robimy jeszcze ostatnie poprawki...",
+  "loadingResultsPageTitle4": "Prawie gotowe, robimy jeszcze ostatnie poprawki...",
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "Match i wiele więcej 👉👈",
   "resultsPage1Text": "Na następnych ekranach odkryjesz najbliższą Ci grupę w Parlamencie Europejskim i pasujące lokalne listy do głosowania w czerwcu w Twoim kraju. Będzie też kilka dodatkowych rzeczy, które stworzyliśmy na podstawie Twoich odpowiedzi 😌",
@@ -76,7 +76,7 @@
   "resultsPage8Help": "Walczysz o klimat! Wierzysz, że walka z kryzysem klimatycznym wymaga wspólnych działań i uczynienia z niej priorytetu. Nie przeszkadzają Ci wprowadzane przez UE regulacje w stosunku do firm. Bo przecież na co komu wzrost gospodarczy, jeśli planeta przestanie być zdolna do zamieszkiwania?",
   "resultsPage9Help": "Kliknij na karty, aby przetasować",
   "resultsPage9Text1": "Wybory dotyczą wielu tematów, ale jest jeden, który naprawdę",
-  "resultsPage9Text2": "Belongs With Me 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "Chcesz dostać powiadomienie, gdy będzie czas na oddanie głosu?",
   "resultsPage10NopButton": "Nie, dzięki!",
   "resultsPage10YesButton": "Takkkk",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Krajowi Partnerzy Instytucjonalni",
   "settingsPageSubtitle5": "Dostawcy Usług",
   "settingsPageShareButtonText": "Udostępnij",
-  "settingsPagePrivacyPolicy": "Polityka Prywatności"
+  "settingsPagePrivacyPolicy": "Polityka Prywatności",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

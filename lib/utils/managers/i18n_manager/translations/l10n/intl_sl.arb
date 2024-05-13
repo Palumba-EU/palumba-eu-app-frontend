@@ -48,7 +48,7 @@
   "loadingResultsPageTitle1": "Tvoji rezultati so na poti :)",
   "loadingResultsPageTitle2": "To bo hitreje kot dobiti vstopnice za Taylor Swift 👀 ",
   "loadingResultsPageTitle3": "Iskanje ujemanj z listami kandidatov v {country}  🔍",
-  "loadingResultsPageTitle4": "Skoraj pripravljeno,<br>še zadnji pregled ...",
+  "loadingResultsPageTitle4": "Skoraj pripravljeno, še zadnji pregled...",
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "En match in še veliko več 👉👈",
   "resultsPage1Text": "Na naslednjih zaslonih boste odkrili vam najbolj kompatibilno skupino v Evropskem parlamentu, sezname lokalnih kandidatov v vaši državi za evropske volitve junija in še nekaj dodatnih informacij, prilagojenih vašim odgovorom 😌",
@@ -76,7 +76,7 @@
   "resultsPage8Help": "Ste borec/ka proti podnebnim spremembam! Verjamete, da je za reševanje podnebne krize potrebno skupno delovanje, pri čemer okolje vsi postavijo za svojo najvišjo prioriteto. Ne moti vas, če EU v ta namen regulira podjetja. Konec koncev, čemu gospodarska rast, če postane planet nenaseljiv?",
   "resultsPage9Help": "Kliknite na kartice, da jih premešate",
   "resultsPage9Text1": "Pred volitvami obravnavamo veliko tem, vendar obstaja ena stvar, ki resnično",
-  "resultsPage9Text2": "Belongs With Me 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "Vas obvestimo, ko bo čas za glasovanje?",
   "resultsPage10NopButton": "Ne hvala!",
   "resultsPage10YesButton": "Jaaaaa",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Nacionalni institucionalni partnerji",
   "settingsPageSubtitle5": "Ponudniki storitev",
   "settingsPageShareButtonText": "Delite",
-  "settingsPagePrivacyPolicy": "Varstvo podatkov"
+  "settingsPagePrivacyPolicy": "Varstvo podatkov",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

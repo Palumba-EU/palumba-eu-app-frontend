@@ -48,7 +48,7 @@
   "loadingResultsPageTitle1": "Os seus resultados personalizados estão a caminho :)",
   "loadingResultsPageTitle2": "Isto será mais rápido que conseguir ingressos para Taylor Swift 👀",
   "loadingResultsPageTitle3": "Encontrando matches com as listas de candidatos na/no {country} 🔍",
-  "loadingResultsPageTitle4": "Quase pronto, <br>uma última verificação...",
+  "loadingResultsPageTitle4": "Quase pronto, uma última verificação...",
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "Um match e muito mais 👉👈",
   "resultsPage1Text": "Nos ecrãs seguintes, você descobrirá o seu grupo mais compatível no Parlamento da UE, as listas locais correspondentes para votar em junho no seu país, e até encontramos algumas coisas extras com base nas suas respostas 😌",
@@ -76,7 +76,7 @@
   "resultsPage8Help": "Você é um combatente das mudanças climáticas! Você acredita que a resolução da crise climática exige uma acção colectiva, com todos a torná-la uma prioridade absoluta. Você não se importa com a UE regulando as empresas nesse sentido. Pois, de que serve o crescimento econômico se o planeta se tornar inabitável?",
   "resultsPage9Help": "Clique nos cartões para embaralhar",
   "resultsPage9Text1": "Eleições são sobre vários tópicos, mas há uma coisa que realmente",
-  "resultsPage9Text2": "Belongs With Me 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "Uma notificação para quando for a hora de votar?",
   "resultsPage10NopButton": "Não, obrigado!",
   "resultsPage10YesButton": "Simmmm",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Parceiros Institucionais nacionais",
   "settingsPageSubtitle5": "Prestadores de serviços",
   "settingsPageShareButtonText": "Compartilhe",
-  "settingsPagePrivacyPolicy": "Política de Privacidade"
+  "settingsPagePrivacyPolicy": "Política de Privacidade",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

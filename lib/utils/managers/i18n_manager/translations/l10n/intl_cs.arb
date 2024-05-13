@@ -48,7 +48,7 @@
   "loadingResultsPageTitle1": "Vaše výsledky jsou na cestě :)",
   "loadingResultsPageTitle2": "Bude to rychlejší než prodej lístků na Taylor Swift ",
   "loadingResultsPageTitle3": "Hledám shodu s kandidáty v {country}",
-  "loadingResultsPageTitle4": "Téměř připraveno,<br>ještě poslední kontrola...",
+  "loadingResultsPageTitle4": "Téměř připraveno, ještě poslední kontrola...",
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "Shoda a mnohem více",
   "resultsPage1Text": "Na následujících obrazovkách se dozvíte, s jakou skupinou v Evropském parlamentu se nejvíce ztotožňujete, naleznete odpovídající kandidáty, pro které můžete v červnu ve vaší zemi hlasovat. Na základě vašich odpovědí jsme dokonce jsme našli několik dalších zajímavostí 😌",
@@ -76,7 +76,7 @@
   "resultsPage8Help": "Jste bojovníkem za změnu klimatu! Věříte, že boj proti klimatické krizi vyžaduje kolektivní přístup, přičemž z něj každý učiní svou hlavní prioritu. Nevadí vám regulace společností ze strany EU. Vždyť jaký užitek má hospodářský růst ve chvíli, kdy se planeta stane neobyvatelnou?",
   "resultsPage9Help": "Pro zamíchání klikněte na karty",
   "resultsPage9Text1": "Volby se týkají mnoha témat, ale jedna věc je",
-  "resultsPage9Text2": "Pro mě nejdůležitější",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "Upozornit mě, až bude čas jít volit?",
   "resultsPage10NopButton": "Ne, díky!",
   "resultsPage10YesButton": "Jasněěě",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Partneři z národních institucí",
   "settingsPageSubtitle5": "Poskytovatelé služeb",
   "settingsPageShareButtonText": "Sdílet",
-  "settingsPagePrivacyPolicy": "Zásady ochrany osobních údajů"
+  "settingsPagePrivacyPolicy": "Zásady ochrany osobních údajů",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }

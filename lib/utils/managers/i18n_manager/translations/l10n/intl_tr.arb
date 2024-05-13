@@ -76,7 +76,7 @@
   "resultsPage8Help": "Sen iklim değişikliğine karşı bir savaşçısın! İklim krizinin üstesinden gelmenin, herkesin bunu en yüksek öncelik haline getirmesiyle kolektif eylem gerektirdiğine inanıyorsun. AB'nin bu amaçla şirketleri düzenlemesi senin için bir sorun değil. Sonuç olarak, gezegen yaşanmaz hale gelirse ekonomik büyüme ne işe yarar?",
   "resultsPage9Help": "Kartları karmak için dokun",
   "resultsPage9Text1": "Seçimler birçok konuyla ilgilidir, ancak bir tanesi var ki",
-  "resultsPage9Text2": "O Bana Aittir 🫡",
+  "resultsPage9Text2": "Belongs With Me 😌",
   "resultsPage10Title": "Oy kullanma vakti geldiğinde bir bildirim?",
   "resultsPage10NopButton": "Hayır sağ ol!",
   "resultsPage10YesButton": "Oluuuuur",
@@ -101,5 +101,6 @@
   "settingsPageSubtitle4": "Ulusal Kurumsal Ortaklar",
   "settingsPageSubtitle5": "Servis Sağlayıcılar",
   "settingsPageShareButtonText": "Paylaş",
-  "settingsPagePrivacyPolicy": "Veri Koruma"
+  "settingsPagePrivacyPolicy": "Veri Koruma",
+  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }
