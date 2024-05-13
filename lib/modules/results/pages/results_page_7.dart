@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/global_widgets/custom_divider.dart';
@@ -54,33 +55,47 @@ class ResultsPage7 extends GetView<ResultsController> {
     );
   }
 
-  Container _candidatesContainer() {
-    return Container(
-      height: 250,
-      decoration: BoxDecoration(
-        color: AppColors.yellow,
-        borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
-      ),
-      child: (controller.localParties?.length ?? 0) == 0
-          ? Center(
-              child: Padding(
-                  padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
-                  child: AppTexts.regular(
-                      S.of(Get.context!).resultsPage7NoLocalCandidates(
-                          controller.countryName),
-                      color: AppColors.primary)),
+  Stack _candidatesContainer() {
+    return Stack(
+      children: [
+        Container(
+          height: 250,
+          decoration: BoxDecoration(
+            color: AppColors.yellow,
+            borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
+          ),
+          child: (controller.localParties?.length ?? 0) == 0
+              ? Center(
+                  child: Padding(
+                      padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
+                      child: AppTexts.regular(
+                          S.of(Get.context!).resultsPage7NoLocalCandidates(
+                              controller.countryName),
+                          color: AppColors.primary)),
+                )
+              : ListView.separated(
+                  shrinkWrap: true,
+                  physics: BouncingScrollPhysics(),
+                  separatorBuilder: (context, index) => CustomDivider(
+                      paddingValue: AppDimens.mediumLateralPaddingValue,
+                      color: AppColors.lightYellow),
+                  itemCount: controller.localParties?.length ?? 0,
+                  itemBuilder: (context, i) => _CandidatesTile(
+                    candidate: controller.localParties?[i] ?? LocalParties(),
+                  ),
+                ),
+        ),
+        Align(
+        alignment: Alignment.bottomRight,
+        child: Transform.translate(
+            offset: Offset(Get.width * 0.02, -Get.width * 0.18),
+            child: SvgPicture.asset(
+              'assets/images/img_ballot_box.svg',
+              width: Get.width * 0.2
             )
-          : ListView.separated(
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              separatorBuilder: (context, index) => CustomDivider(
-                  paddingValue: AppDimens.mediumLateralPaddingValue,
-                  color: AppColors.lightYellow),
-              itemCount: controller.localParties?.length ?? 0,
-              itemBuilder: (context, i) => _CandidatesTile(
-                candidate: controller.localParties?[i] ?? LocalParties(),
-              ),
-            ),
+          )
+        ),
+      ]
     );
   }
 }
