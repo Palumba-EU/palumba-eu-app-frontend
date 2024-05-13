@@ -61,7 +61,9 @@ class ResultsPage8 extends GetView<ResultsController> {
           padding: EdgeInsets.symmetric(
               horizontal: AppDimens.bigLateralPaddingValue),
           child: CustomHtmlWidget(
-            content: maxTopic.topicData.extreme2Details ?? '',
+            content:maxTopic.isExtreme1
+              ? maxTopic.topicData.extreme1Details ?? ''
+              : maxTopic.topicData.extreme2Details ?? '',
             textStyle: TextStyle(
               fontSize: AppDimens.fontSizeSmall,
             ),
