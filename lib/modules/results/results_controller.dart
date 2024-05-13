@@ -159,8 +159,9 @@ class ResultsController extends GetxController {
 
   @override
   void onReady() {
-    // rickroll if all neutral
-    if (_answersData.every((element) => element.answer == StatementResponse.neutral)) {
+    // rickroll if all the same response
+    final firstResponse = _answersData.first.answer;
+    if (_answersData.every((element) => element.answer == firstResponse)) {
       Utils.launch(StringUtils.rickrollUrl);
       launchHome();
     }
