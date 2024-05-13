@@ -63,8 +63,10 @@ class ResultsPage9 extends GetView<ResultsController> {
             padding: AppDimens.lateralPadding,
             child: Column(
               children: [
-                AppTexts.small(S.of(context).resultsPage9Help,
-                    color: AppColors.primary),
+                Obx(() => Opacity(
+                opacity: controller.loadingShare ? 0 : 1,
+                child: AppTexts.small(S.of(context).resultsPage9Help,
+                    color: AppColors.primary))),
                 CustomSpacer(),
                 AutoSizeText(
                   S.of(context).resultsPage9Text1,

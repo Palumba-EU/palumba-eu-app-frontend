@@ -25,9 +25,6 @@ class ResultsPage4 extends GetView<ResultsController> {
             ),
           ),
         ),
-        CustomSpacer(
-          multiplier: 12,
-        ),
       ],
     );
   }

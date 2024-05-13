@@ -76,7 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tardaremos menos de los que cuesta conseguir entradas para Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Casi estamos,<br>una última comprobación..."),
+            "Casi estamos, una última comprobación..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Vale"),
@@ -156,8 +156,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Haz clic en las cartas para barajar"),
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "En las elecciones se tratan muchos temas, pero lo que realmente"),
-        "resultsPage9Text2": MessageLookupByLibrary.simpleMessage(
-            "Belongs With Me 🫡 (\"va conmigo\", para los menos Swifties ;)"),
+        "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Compartir"),
         "romania": MessageLookupByLibrary.simpleMessage("Rumanía"),
         "settingsPagePrivacyPolicy":

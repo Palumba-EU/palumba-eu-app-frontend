@@ -49,13 +49,6 @@ class ResultsPage10 extends GetView<ResultsController> {
             ),
           ],
         ),
-        CustomSpacer(multiplier: 2),
-        Expanded(
-            child: Image.asset(
-          'assets/images/img_ballot_box_big.png',
-          fit: BoxFit.cover,
-          alignment: Alignment.topCenter,
-        ))
       ],
     );
   }

@@ -107,7 +107,7 @@ class FlDotCirclePainterCustom extends FlDotPainter {
         canvas.drawImageRect(image!, imageRect, rect, paint);
       } else {
         final correctionOffset = ui.Offset(-20, -20);
-        canvas.drawImage(image!, offsetInCanvas + correctionOffset, paint);
+        canvas.drawImageRect(image!, imageRect, rect, paint);
         // Add text below the image
         final paragraphStyle = ui.ParagraphStyle(
           textDirection: TextDirection.ltr,

@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Les listes en ${country} les plus alignées avec ${group}";
 
   static String m5(topic, percentage) =>
-      "Sur ${topic}, tu es ${percentage} plus pour";
+      "Sur ${topic}, tu es ${percentage}% plus pour";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -73,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ça devrait être plus rapide que d\'obtenir des billets pour Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Presque prêt, un dernier check..."),
+            "Presque prêt,<br>un dernier check..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutre"),
         "no": MessageLookupByLibrary.simpleMessage("Non"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -145,7 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": m4,
         "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
-            "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?"),
+            "Tu es un combattant pour le climat ! Tu crois que pour lutter contre la crise climatique il faut une action collective et que chacun doit en faire sa grande priorité. Tu es favorable au fait que l\'Union Européenne régule les entreprises pour aider dans cet objectif. Après tout, à quoi ça sert d\'avoir de la \"croissance\" économique si la planète deviens invivable ?"),
         "resultsPage8_1Text": m5,
         "resultsPage8_2Text":
             MessageLookupByLibrary.simpleMessage("Action climatique 🌱😌"),

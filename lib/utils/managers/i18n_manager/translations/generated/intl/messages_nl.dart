@@ -70,7 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
             "Je gepersonaliseerde resultaten zijn onderweg :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-            "Dit gaat sneller dan kaartjes voor Taylor Swift scoren 👀"),
+            "Dit gaat sneller dan kaartjes voor Taylor Swift scoren 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Bijna klaar, even een laatste check..."),

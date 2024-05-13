@@ -51,9 +51,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
             "Wenn diese süße Taube dir nicht helfen kann im Juni zu wählen, dann hilft dir gar nichts."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Swipe your opinion on topics that matter to you."),
+            "Äußere deine Meinung zu Themen, die für dich wichtig sind."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Find out your match and an orientation for who to vote for at the Elections."),
+            "Finde deine Übereinstimmung und eine Orientierung, wen du bei den Wahlen wählen sollst."),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("Frankreich"),
         "germany": MessageLookupByLibrary.simpleMessage("Deutschland"),
