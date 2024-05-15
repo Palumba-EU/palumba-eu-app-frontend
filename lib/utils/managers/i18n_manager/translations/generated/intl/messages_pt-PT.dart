@@ -73,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Isto será mais rápido que conseguir ingressos para Taylor Swift 👀"),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Quase pronto, <br>uma última verificação..."),
+            "Quase pronto, uma última verificação..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutro"),
         "no": MessageLookupByLibrary.simpleMessage("Não"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -156,13 +156,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Eleições são sobre vários tópicos, mas há uma coisa que realmente"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Compartilhar"),
         "romania": MessageLookupByLibrary.simpleMessage("Romênia"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Política de Privacidade"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Compartilhe"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Principais Patrocinadores"),
         "settingsPageSubtitle2":

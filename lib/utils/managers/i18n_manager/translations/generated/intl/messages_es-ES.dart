@@ -157,13 +157,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "En las elecciones se tratan muchos temas, pero lo que realmente"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Compartir"),
         "romania": MessageLookupByLibrary.simpleMessage("Rumanía"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Política de privacidad"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Compartir"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Principales patrocinadores"),
         "settingsPageSubtitle2":

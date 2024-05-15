@@ -155,13 +155,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Izbori se tiču mnogih stvari, ali jedna stvar posebno"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Podijeli"),
         "romania": MessageLookupByLibrary.simpleMessage("Rumunjska"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Zaštita podataka"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Podijeli"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Glavni sponzori"),
         "settingsPageSubtitle2":

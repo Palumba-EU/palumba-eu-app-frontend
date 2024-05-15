@@ -750,10 +750,10 @@ class S {
     );
   }
 
-  /// `Belongs With Me 🫡`
+  /// `Belongs With Me 😌`
   String get resultsPage9Text2 {
     return Intl.message(
-      'Belongs With Me 🫡',
+      'Belongs With Me 😌',
       name: 'resultsPage9Text2',
       desc: '',
       args: [],

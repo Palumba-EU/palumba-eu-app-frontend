@@ -75,7 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Bude to rychlejší než prodej lístků na Taylor Swift "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Téměř připraveno,<br>ještě poslední kontrola..."),
+            "Téměř připraveno, ještě poslední kontrola..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutrální"),
         "no": MessageLookupByLibrary.simpleMessage("Ne"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -156,13 +156,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Volby se týkají mnoha témat, ale jedna věc je"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Pro mě nejdůležitější"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Sdílet"),
         "romania": MessageLookupByLibrary.simpleMessage("Rumunsko"),
         "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage(
             "Zásady ochrany osobních údajů"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Sdílet"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Hlavní sponzoři"),
         "settingsPageSubtitle2":

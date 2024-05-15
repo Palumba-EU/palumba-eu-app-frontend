@@ -157,13 +157,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Οι εκλογές αφορούν πολλά θέματα, αλλά υπάρχει ένα πράγμα που πραγματικά"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Κοινοποίηση"),
         "romania": MessageLookupByLibrary.simpleMessage("Ρουμανία"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Προστασία Δεδομένων"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Κοινοποίηση"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Κύριοι Χορηγοί"),
         "settingsPageSubtitle2":

@@ -73,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "To bo hitreje kot dobiti vstopnice za Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Skoraj pripravljeno,<br>še zadnji pregled ..."),
+            "Skoraj pripravljeno, še zadnji pregled..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Nevtralno"),
         "no": MessageLookupByLibrary.simpleMessage("Ne"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -154,13 +154,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Pred volitvami obravnavamo veliko tem, vendar obstaja ena stvar, ki resnično"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Delite"),
         "romania": MessageLookupByLibrary.simpleMessage("Romunija"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Varstvo podatkov"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Delite"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Glavni sponzorji"),
         "settingsPageSubtitle2":

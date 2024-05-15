@@ -151,13 +151,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Seçimler birçok konuyla ilgilidir, ancak bir tanesi var ki"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("O Bana Aittir 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Paylaş"),
         "romania": MessageLookupByLibrary.simpleMessage("Romanya"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Veri Koruma"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Paylaş"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Ana Sponsorlar"),
         "settingsPageSubtitle2":

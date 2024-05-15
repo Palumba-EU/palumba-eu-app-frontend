@@ -75,7 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Powinno być szybsze niż kupowanie biletów na Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Prawie gotowe,<br>robimy jeszcze ostatnie poprawki..."),
+            "Prawie gotowe, robimy jeszcze ostatnie poprawki..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Nie mam zdania"),
         "no": MessageLookupByLibrary.simpleMessage("Nie"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -159,13 +159,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Wybory dotyczą wielu tematów, ale jest jeden, który naprawdę"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Udostępnij"),
         "romania": MessageLookupByLibrary.simpleMessage("Rumunia"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Polityka Prywatności"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Udostępnij"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Sponsorzy Główni"),
         "settingsPageSubtitle2":

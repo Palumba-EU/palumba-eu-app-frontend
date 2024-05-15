@@ -154,13 +154,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "A választások sok mindenről szólnak, de van egy dolog, ami tényleg"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Belongs With Me 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Megosztás"),
         "romania": MessageLookupByLibrary.simpleMessage("Románia"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Adatvédelmi irányelvek"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Megosztás"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Kiemelt támogatóink"),
         "settingsPageSubtitle2":

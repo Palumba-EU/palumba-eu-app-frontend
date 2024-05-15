@@ -74,7 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Dan għandu jkun aktar mgħaġġel milli tikseb biljetti ta\' Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Kważi lest,<br> l-aħħar kontroll..."),
+            "Kważi lest, l-aħħar kontroll..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Newtrali"),
         "no": MessageLookupByLibrary.simpleMessage("Le"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -155,13 +155,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Elections are about many topics, but there’s one thing that really"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Jappartjeni Miegħi 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Ħlief"),
         "romania": MessageLookupByLibrary.simpleMessage("Ir-rumanija"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Politika privata"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Aqsam"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Sponsors Ewlenin"),
         "settingsPageSubtitle2":

@@ -73,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "O să meargă mai repede decât să încerci să iei bilete la Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Aproape gata, <br> verificăm încă odată..."),
+            "Aproape gata, verificăm încă odată..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutru"),
         "no": MessageLookupByLibrary.simpleMessage("Nu"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -157,13 +157,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Alegerile sunt despre multe lucruri, dar există un lucru care chiar"),
         "resultsPage9Text2":
-            MessageLookupByLibrary.simpleMessage("Rezonează cu mine 🫡"),
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Distribuie"),
         "romania": MessageLookupByLibrary.simpleMessage("România"),
         "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage(
             "Politică de confidențialitate"),
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Distribuie"),
+        "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Sponsori Principali"),
         "settingsPageSubtitle2":
