@@ -47,7 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Start Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Als deze leuke duif je niet kan helpen stemmen in juni, dan lukt er niks meer."),
+            "Als deze leuke duif je niet kan helpen stemmen in juni, dan helpt niets meer."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
             "Swipe your opinion on topics that matter to you."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
@@ -80,7 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "Ik heb geen idee op wie ik zou stemmen bij de Europese verkiezingen 2024"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "Swipe volgens je overeenkomst"),
+            "Swipe op basis van je voorkeur"),
         "onBoardingNotAnswerButton":
             MessageLookupByLibrary.simpleMessage("Zeg ik liever niet"),
         "onBoardingStep1Subtitle":

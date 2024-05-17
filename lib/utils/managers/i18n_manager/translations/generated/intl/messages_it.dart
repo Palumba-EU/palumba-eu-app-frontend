@@ -41,7 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Qualcosa è andato storto. Per favore riprova più tardi."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ops!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancella"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Annulla"),
         "denmark": MessageLookupByLibrary.simpleMessage("Danimarca"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
@@ -66,9 +66,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "Potrai cambiare in seguito nelle impostazioni."),
         "languagePageTitle":
-            MessageLookupByLibrary.simpleMessage("Continuiamo in inglese? :)"),
+            MessageLookupByLibrary.simpleMessage("Continuiamo in italiano? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
-            "I tuoi risultati sono in arrivo :)"),
+            "I tuoi risultati personalizzati sono in arrivo :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
             "Dovrebbe essere più veloce che prendere dei biglietti per Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
@@ -94,7 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep3Option3":
             MessageLookupByLibrary.simpleMessage("Gender fluid"),
         "onBoardingStep3Option4":
-            MessageLookupByLibrary.simpleMessage("Non binario"),
+            MessageLookupByLibrary.simpleMessage("Genere non binario"),
         "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Altro"),
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("Mi identifico come"),
@@ -117,14 +117,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "e me, è una Love Story (EU\'s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Quanto mi sono vicini i Gruppi Parlamentari Europei"),
-        "resultsPage4TitleBottom": MessageLookupByLibrary.simpleMessage(
-            "Contro l\'Integrazione Europea"),
+        "resultsPage4TitleBottom":
+            MessageLookupByLibrary.simpleMessage("Contro l\'Integrazione UE"),
         "resultsPage4TitleLeft":
             MessageLookupByLibrary.simpleMessage("Sinistra"),
         "resultsPage4TitleRight":
             MessageLookupByLibrary.simpleMessage("Destra"),
         "resultsPage4TitleTop":
-            MessageLookupByLibrary.simpleMessage("Pro Integrazione Europea"),
+            MessageLookupByLibrary.simpleMessage("Pro Integrazione UE"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("It\'s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
@@ -146,7 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": m4,
         "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
-            "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?"),
+            "Sei un* combattente per il cambiamento climatico! Credi che combattere la crisi climatica necessiti un\'azione collettiva, che tutti ne facciano una priorità assoluta. Non ti importa che l\'UE regoli le aziende fino in fondo. Alla fine, a cosa serve la crescita economica se il pianeta diventa inabitabile?"),
         "resultsPage8_1Text": m5,
         "resultsPage8_2Text":
             MessageLookupByLibrary.simpleMessage("Azione Climatica Attiva"),
@@ -163,7 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Condividi"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Se questo simpatico piccione non ti aiuterà a votare a giugno, nient\'altro lo farà. Ho usato l\'app e dovresti farlo anch tu:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Sponsor principali"),
         "settingsPageSubtitle2":
@@ -177,11 +177,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
             "Preferisco usare quest\'app in"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)"),
+            "Palumba non è una compagnia, non è un partito politico, non è un ente governativo. Siamo un\'associazione no-profit indipendente con più di 120 giovani da tutta Europa che si sono riuniti la scorsa estate ed iniziato a creare l\'app. Abbiamo un solo obbiettivo: aiutarti a capire meglio come funzionano le Elezioni Europee e quali candidati potrebbero essere più vicini alle tue idee, affinché tu possa votare con più sicurezza per le persone che supportano le tue priorità. Il nostro algoritmo è open-source, le dichiarazioni che voterai sono state riviste da scienziati politici, e i tuoi dati sono così criptati che non c\'è modo di identificarti ;)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
             "Per cambiare la lingua, premi su quella attuale"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
-            "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels."),
+            "È importante dirti che i partners non hanno potere editoriale sul contenuto dell\'app, che rimane un\'iniziativa imparziale con un obbiettivo chiaro: aiutarti a capire chi supporta le tue opinioni a livello europeo e nazionale."),
         "settingsPageTitleAbout":
             MessageLookupByLibrary.simpleMessage("Su di noi"),
         "settingsPageTitleAssociation":
