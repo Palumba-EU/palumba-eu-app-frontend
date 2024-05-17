@@ -48,7 +48,7 @@
   "loadingResultsPageTitle1": "Úton vannak a személyre szabott eredményeid :)",
   "loadingResultsPageTitle2": "Ez gyorsabban meglesz, mint egy Taylor Swift-jegy vásárlása 👀 ",
   "loadingResultsPageTitle3": "Párosítás a jelöltlistákkal itt: {country}  🔍",
-  "loadingResultsPageTitle4": "Majdnem kész,<br>csak az utolsó simítások...",
+  "loadingResultsPageTitle4": "Majdnem kész, csak az utolsó simítások...",
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "Egy 'match' és sok más 👉👈",
   "resultsPage1Text": "A következőkben felfedezheted a hozzád illő parlamenti képviselőcsoportot az EP-ben, az ehhez passzoló helyi listákat, amelyekre júniusban szavazhatsz majd az országodban, illetve mutatunk egy pár extra dolgot is a válaszaid alapján 😌",
@@ -102,5 +102,5 @@
   "settingsPageSubtitle5": "Szolgáltatók",
   "settingsPageShareButtonText": "Megosztás",
   "settingsPagePrivacyPolicy": "Adatvédelmi irányelvek",
-  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
+  "settingsPageShareText": "Ha ez a cuki galamb nem tud segíteni szavazni júniusban, akkor semmi sem fog. Nekem bevált az app, próbáld ki te is!"
 }

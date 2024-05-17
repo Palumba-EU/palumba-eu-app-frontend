@@ -39,11 +39,11 @@
   "onBoardingStep3Option1": "Γυναίκα",
   "onBoardingStep3Option2": "Άντρας",
   "onBoardingStep3Option3": "Άτομο με ρευστή ταυτότητα φύλου (gender-fluid)",
-  "onBoardingStep3Option4": "Μη-δυαδικό άτομο (non-binary)",
+  "onBoardingStep3Option4": "Non-binary",
   "onBoardingStep3Option5": "Άλλο",
   "onBoardingNotAnswerButton": "Προτιμώ να μην αναφέρω",
   "onBoardingCardQuestion": "Δεν έχω ιδέα για το ποιους να ψηφίσω στις Ευρωεκλογές του 2024",
-  "onBoardingLastStepTitle": "Σύρετε ανάλογα με το πόσο συμφωνείτε",
+  "onBoardingLastStepTitle": "Σύρετε με το δάχτυλό σας ανάλογα με το αν συμφωνείτε, διαφωνείτε ή παραμένετε ουδέτεροι",
   "@@LoadingResultsPage": "LoadingResultsPage",
   "loadingResultsPageTitle1": "Τα εξατομικευμένα σας αποτελέσματα είναι καθ' οδόν :)",
   "loadingResultsPageTitle2": "Αυτό θα είναι πιο γρήγορο από το να βρείτε εισιτήρια για την Taylor Swift 👀 ",
@@ -102,5 +102,5 @@
   "settingsPageSubtitle5": "Πάροχοι Υπηρεσιών",
   "settingsPageShareButtonText": "Κοινοποίηση",
   "settingsPagePrivacyPolicy": "Προστασία Δεδομένων",
-  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
+  "settingsPageShareText": "Αν αυτό το χαριτωμένο περιστέρι δεν μπορεί να σας βοηθήσει να ψηφίσετε τον Ιούνιο, τότε τίποτα δεν θα μπορέσει:"
 }
