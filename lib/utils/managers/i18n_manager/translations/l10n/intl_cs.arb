@@ -18,9 +18,9 @@
   "languagePageTitle": "Pokračujme v anglickém jazyce :)",
   "languagePageSubtitle": "Toto lze změnit později v sekci Nastavení.",
   "@@Entrance": "EntrancePage",
-  "entranceTitle1": "If this cute pigeon can’t help you vote in June, nothing will.",
-  "entranceTitle2": "Swipe your opinion on topics that matter to you.",
-  "entranceTitle3": "Find out your match and an orientation for who to vote for at the Elections.",
+  "entranceTitle1": "Pokud vám tento roztomilý holub nepomůže v červnu volit, nepomůže vám nic.",
+  "entranceTitle2": "Posuňte svůj názor na témata, která vás zajímají.",
+  "entranceTitle3": "Najdi shodu a zjistíte, koho máte ve volbách volit.",
   "entranceMatchesFoundQuote": "Nalezeno {count} shodných výsledků za posledních 24 h",
   "entranceStartButton": "Spustit Palumbu",
   "@@OnBoardingPage": "OnBoardingPage",
@@ -102,5 +102,5 @@
   "settingsPageSubtitle5": "Poskytovatelé služeb",
   "settingsPageShareButtonText": "Sdílet",
   "settingsPagePrivacyPolicy": "Zásady ochrany osobních údajů",
-  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
+  "settingsPageShareText": "Pokud vám tento roztomilý holub nepomůže v červnu volit, nepomůže vám nic. Aplikaci jsem použil a vy byste měli také:"
 }

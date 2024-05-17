@@ -18,9 +18,9 @@
   "languagePageTitle": "Vamos continuar em português? :)",
   "languagePageSubtitle": "Isto pode ser alterado posteriormente nas configurações.",
   "@@Entrance": "EntrancePage",
-  "entranceTitle1": "If this cute pigeon can’t help you vote in June, nothing will.",
-  "entranceTitle2": "Swipe your opinion on topics that matter to you.",
-  "entranceTitle3": "Find out your match and an orientation for who to vote for at the Elections.",
+  "entranceTitle1": "Se esse pombinho fofo não puder ajudá-lo a votar  em junho, nada irá.",
+  "entranceTitle2": "Deslize a sua opinião sobre temas que são importantes para você.",
+  "entranceTitle3": "Descubra o seu match e uma orientação para quem votar nas eleições.",
   "entranceMatchesFoundQuote": "{count} matches encontrados nas últimas 24h",
   "entranceStartButton": "Iniciar Palumba",
   "@@OnBoardingPage": "OnBoardingPage",
@@ -60,7 +60,7 @@
   "resultsPage4TitleBottom": "Contra Integração UE",
   "resultsPage4TitleLeft": "Esquerda",
   "resultsPage4TitleRight": "Direita",
-  "resultsPage4TitleUserHere": "It’s me, hi!",
+  "resultsPage4TitleUserHere": "It's me, hi!",
   "resultsPage5Title": "Quanto a temas mais específicos, qual é o grupo do Parlamento Europeu que eu estou mais próximo?",
   "resultsPage5Topic1": "Questões ambientais",
   "resultsPage5Topic2": "Direitos Humanos e Sociais",
@@ -102,5 +102,5 @@
   "settingsPageSubtitle5": "Prestadores de serviços",
   "settingsPageShareButtonText": "Compartilhe",
   "settingsPagePrivacyPolicy": "Política de Privacidade",
-  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
+  "settingsPageShareText": "Se esse pombinho fofo não puder ajudá-lo a votar em junho, nada irá. Eu usei esse aplicativo e você também deveria:"
 }
