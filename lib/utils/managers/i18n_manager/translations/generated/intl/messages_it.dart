@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(count) => "${count} match trovati nelle ultime 24 ore";
 
   static String m2(country) =>
-      "Trova gli abbinamenti con le liste candidate in ${country}  🔍";
+      "Trova gli abbinamenti con le liste candidate in ${country} 🔍";
 
   static String m3(country) => "Nessun partito trovato in ${country}";
 
@@ -47,7 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Avvia Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Se questo piccione carino non ti aiuterà a votare a giugno, nient\'altro lo farà."),
+            "Se questo piccione carino non ti aiuterà a votare a Giugno, nient\'altro lo farà."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
             "Scorri sull\'opinione che più ti interessa."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
@@ -64,13 +64,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Inizia un nuovo test"),
         "hungary": MessageLookupByLibrary.simpleMessage("Ungheria"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Potrai cambiare in seguito nelle impostazioni."),
+            "Potrai cambiarla in seguito nelle impostazioni."),
         "languagePageTitle":
             MessageLookupByLibrary.simpleMessage("Continuiamo in italiano? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
             "I tuoi risultati personalizzati sono in arrivo :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-            "Dovrebbe essere più veloce che prendere dei biglietti per Taylor Swift 👀 "),
+            "Dovrebbe essere più veloce che prendere dei biglietti per Taylor Swift 👀"),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Quasi pronti, un ultimo controllo..."),
@@ -108,7 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage1Button":
             MessageLookupByLibrary.simpleMessage("Premi per continuare"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "Nelle prossime schermate, scoprirai il gruppo del Parlamento Europeo con cui sei più compatibile, le liste locali da votare a giugno nel tuo paese e abbiamo anche trovato un paio di cose extra in base alle tue risposte  😌"),
+            "Nelle prossime schermate, scoprirai il gruppo del Parlamento Europeo con cui sei più compatibile, le liste locali da votare a Giugno nel tuo paese e abbiamo anche trovato un paio di cose extra in base alle tue risposte 😌"),
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("Un match e tanto altro 👉👈"),
         "resultsPage2_1Title":
@@ -126,7 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage4TitleTop":
             MessageLookupByLibrary.simpleMessage("Pro Integrazione UE"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("It\'s me, hi!"),
+            MessageLookupByLibrary.simpleMessage("Eccomi qua!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
             "Su argomenti specifici, quale Gruppo Parlamentare Europeo mi è più vicino?"),
         "resultsPage5Topic1":
@@ -163,7 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Condividi"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "Se questo simpatico piccione non ti aiuterà a votare a giugno, nient\'altro lo farà. Ho usato l\'app e dovresti farlo anch tu:"),
+            "Se questo simpatico piccione non ti aiuterà a votare a Giugno, nient\'altro lo farà. Ho usato l\'app e dovresti farlo anche tu:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Sponsor principali"),
         "settingsPageSubtitle2":
@@ -177,11 +177,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
             "Preferisco usare quest\'app in"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Palumba non è una compagnia, non è un partito politico, non è un ente governativo. Siamo un\'associazione no-profit indipendente con più di 120 giovani da tutta Europa che si sono riuniti la scorsa estate ed iniziato a creare l\'app. Abbiamo un solo obbiettivo: aiutarti a capire meglio come funzionano le Elezioni Europee e quali candidati potrebbero essere più vicini alle tue idee, affinché tu possa votare con più sicurezza per le persone che supportano le tue priorità. Il nostro algoritmo è open-source, le dichiarazioni che voterai sono state riviste da scienziati politici, e i tuoi dati sono così criptati che non c\'è modo di identificarti ;)"),
+            "Palumba non è una compagnia, non è un partito politico, non è un ente governativo. Siamo un\'associazione no-profit indipendente con più di 120 giovani da tutta Europa che si sono riuniti la scorsa estate ed iniziato a creare l\'app. Abbiamo un solo obiettivo: aiutarti a capire meglio come funzionano le Elezioni Europee e quali candidati potrebbero essere più vicini alle tue idee, affinché tu possa votare con più sicurezza per le persone che supportano le tue priorità. Il nostro algoritmo è open-source, le dichiarazioni che voterai sono state riviste da scienziati politici, e i tuoi dati sono così criptati che non c\'è modo di identificarti ;)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
             "Per cambiare la lingua, premi su quella attuale"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
-            "È importante dirti che i partners non hanno potere editoriale sul contenuto dell\'app, che rimane un\'iniziativa imparziale con un obbiettivo chiaro: aiutarti a capire chi supporta le tue opinioni a livello europeo e nazionale."),
+            "È importante dirti che i partner non hanno potere editoriale sul contenuto dell\'app e che rimane un\'iniziativa imparziale con un obiettivo chiaro: aiutarti a capire chi supporta le tue opinioni a livello europeo e nazionale."),
         "settingsPageTitleAbout":
             MessageLookupByLibrary.simpleMessage("Su di noi"),
         "settingsPageTitleAssociation":
@@ -189,12 +189,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageTitleLanguage":
             MessageLookupByLibrary.simpleMessage("Lingua"),
         "settingsPageTitlePartners":
-            MessageLookupByLibrary.simpleMessage("Partners"),
+            MessageLookupByLibrary.simpleMessage("Partner"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Salta"),
         "spain": MessageLookupByLibrary.simpleMessage("Spagna"),
         "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
-            "Sembra che tu non abbia una connessione internet"),
+            "Sembra che tu non abbia una connessione ad internet"),
         "sweden": MessageLookupByLibrary.simpleMessage("Svezia"),
         "textContinue": MessageLookupByLibrary.simpleMessage("Continua"),
         "yes": MessageLookupByLibrary.simpleMessage("Sì")
