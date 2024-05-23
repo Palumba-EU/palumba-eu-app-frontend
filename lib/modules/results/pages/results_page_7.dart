@@ -47,19 +47,16 @@ class ResultsPage7 extends GetView<ResultsController> {
         CustomSpacer(
           multiplier: 2,
         ),
-        smallScreen
-            ? _candidatesContainer()
-            : Expanded(child: _candidatesContainer()),
-        CustomSpacer(multiplier: 11),
+        Expanded(child: _candidatesContainer(smallScreen)),
+        CustomSpacer(multiplier: 4),
       ],
     );
   }
 
-  Stack _candidatesContainer() {
-    return Stack(
-      children: [
-        Container(
-          height: 250,
+  Widget _candidatesContainer(smallScreen) {
+    return Column(children: [
+      Flexible(
+        child: Container(
           decoration: BoxDecoration(
             color: AppColors.yellow,
             borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
@@ -85,18 +82,18 @@ class ResultsPage7 extends GetView<ResultsController> {
                   ),
                 ),
         ),
-        Align(
-        alignment: Alignment.bottomRight,
-        child: Transform.translate(
-            offset: Offset(Get.width * 0.02, -Get.width * 0.18),
-            child: SvgPicture.asset(
-              'assets/images/img_ballot_box.svg',
-              width: Get.width * 0.2
+      ),
+      !smallScreen
+          ? Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: SvgPicture.asset('assets/images/img_ballot_box.svg',
+                    width: Get.width * 0.2),
+              ),
             )
-          )
-        ),
-      ]
-    );
+          : const SizedBox.shrink(),
+    ]);
   }
 }
 
