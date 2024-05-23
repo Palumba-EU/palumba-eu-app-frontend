@@ -29,6 +29,7 @@ class TopicIndicatorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final smallScreen = Get.height < 750;
     return Column(
       children: [
         SizedBox(
@@ -40,19 +41,20 @@ class TopicIndicatorWidget extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 15),
                 child: SvgPicture.asset(
                   'assets/images/img_hemicycle_graph.svg',
-                  height: Get.height * 0.13,
+                  height: smallScreen ? Get.height * 0.1 : Get.height * 0.13,
                   width: Get.width * .6,
                   fit: BoxFit.fitWidth,
                   colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
                 ),
               ),
               Transform.translate(
-                  offset: Offset(-1.5, 15),
-                  child: Transform.rotate(
-                      angle: position * pi,
-                      child: SvgPicture.asset(
-                          height: 80, 'assets/images/img_needle.svg'),
-                    ),
+                offset: Offset(-1.5, 15),
+                child: Transform.rotate(
+                  angle: position * pi,
+                  child: SvgPicture.asset(
+                      height: smallScreen ? 60 : 80,
+                      'assets/images/img_needle.svg'),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
