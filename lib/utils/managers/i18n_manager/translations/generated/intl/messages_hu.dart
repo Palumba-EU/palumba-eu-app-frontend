@@ -73,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ez gyorsabban meglesz, mint egy Taylor Swift-jegy vásárlása 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Majdnem kész,<br>csak az utolsó simítások..."),
+            "Majdnem kész, csak az utolsó simítások..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Közömbös"),
         "no": MessageLookupByLibrary.simpleMessage("Nem"),
         "ok": MessageLookupByLibrary.simpleMessage("Oké"),
@@ -162,7 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Megosztás"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Ha ez a cuki galamb nem tud segíteni szavazni júniusban, akkor semmi sem fog. Nekem bevált az app, próbáld ki te is!"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Kiemelt támogatóink"),
         "settingsPageSubtitle2":

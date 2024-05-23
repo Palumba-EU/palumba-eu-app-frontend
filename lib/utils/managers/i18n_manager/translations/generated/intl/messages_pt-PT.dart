@@ -47,11 +47,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Iniciar Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t help you vote in June, nothing will."),
+            "Se esse pombinho fofo não puder ajudá-lo a votar  em junho, nada irá."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Swipe your opinion on topics that matter to you."),
+            "Deslize a sua opinião sobre temas que são importantes para você."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Find out your match and an orientation for who to vote for at the Elections."),
+            "Descubra o seu match e uma orientação para quem votar nas eleições."),
         "faq": MessageLookupByLibrary.simpleMessage("Perguntas frequentes"),
         "france": MessageLookupByLibrary.simpleMessage("França"),
         "germany": MessageLookupByLibrary.simpleMessage("Alemanha"),
@@ -127,7 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage4TitleTop":
             MessageLookupByLibrary.simpleMessage("Pró-Integração UE"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
+            MessageLookupByLibrary.simpleMessage("It\'s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
             "Quanto a temas mais específicos, qual é o grupo do Parlamento Europeu que eu estou mais próximo?"),
         "resultsPage5Topic1":
@@ -164,7 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Compartilhe"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Se esse pombinho fofo não puder ajudá-lo a votar em junho, nada irá. Eu usei esse aplicativo e você também deveria:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Principais Patrocinadores"),
         "settingsPageSubtitle2":

@@ -158,7 +158,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Les eleccions van de molts temes, però hi ha una cosa que realment"),
         "resultsPage9Text2":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
-        "resultsShare": MessageLookupByLibrary.simpleMessage("Comparteix"),
+        "resultsShare":
+            MessageLookupByLibrary.simpleMessage("Comparteix (coming soon ⏳)"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Política de Privacitat"),

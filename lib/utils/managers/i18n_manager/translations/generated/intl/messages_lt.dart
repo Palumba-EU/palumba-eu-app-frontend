@@ -38,65 +38,67 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Something has gone wrong on our side. Please try again later."),
-        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ops!"),
+            "Kažkas čia ne taip iš mūsų pusės. Pabandykite dar kartą vėliau."),
+        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ups!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-        "denmark": MessageLookupByLibrary.simpleMessage("Denmark"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Atšaukti"),
+        "denmark": MessageLookupByLibrary.simpleMessage("Danija"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
-            MessageLookupByLibrary.simpleMessage("Start Palumba"),
+            MessageLookupByLibrary.simpleMessage("Pradėti Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t help you vote in June, nothing will."),
+            "Jeigu šis mielas balandis Jums nepadės  balsuoti  birželį, niekas nepadės."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
             "Swipe your opinion on topics that matter to you."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
             "Find out your match and an orientation for who to vote for at the Elections."),
-        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
-        "france": MessageLookupByLibrary.simpleMessage("France"),
-        "germany": MessageLookupByLibrary.simpleMessage("Germany"),
+        "faq": MessageLookupByLibrary.simpleMessage("DUK"),
+        "france": MessageLookupByLibrary.simpleMessage("Prancūzija"),
+        "germany": MessageLookupByLibrary.simpleMessage("Vokietija"),
         "homePageBackToTest":
             MessageLookupByLibrary.simpleMessage("Back to the test"),
         "homePageMatchesFoundQuote": m1,
         "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
         "homePageStartButton":
             MessageLookupByLibrary.simpleMessage("Start a new test"),
-        "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
+        "hungary": MessageLookupByLibrary.simpleMessage("Vengrija"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "This can be changed later in settings."),
-        "languagePageTitle": MessageLookupByLibrary.simpleMessage(
-            "Let’s continue in English? :)"),
+            "Tai galima pakeisti vėliau nustatymuose."),
+        "languagePageTitle":
+            MessageLookupByLibrary.simpleMessage("Tęskime lietuviškai? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
-            "Your personalised results are on their way :)"),
+            "Jūsų personalizuoti rezultatai pakeliui:)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-            "This shall be quicker than getting Taylor Swift tickets 👀 "),
+            "Tai bus greičiau negu įsigyti Taylor Swift bilietus 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Almost ready, one last check..."),
-        "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
-        "no": MessageLookupByLibrary.simpleMessage("No"),
-        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+        "neutral": MessageLookupByLibrary.simpleMessage("Neturiu nuomonės"),
+        "no": MessageLookupByLibrary.simpleMessage("Ne"),
+        "ok": MessageLookupByLibrary.simpleMessage("Gerai"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
-            "I have no clue who to vote for at the 2024 European Elections"),
+            "Neturiu žalio supratimo už ką balsuoti 2024 Europos Parlamento rinkimuose"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
             "Swipe according to your agreement"),
         "onBoardingNotAnswerButton":
-            MessageLookupByLibrary.simpleMessage("Prefer not to say"),
+            MessageLookupByLibrary.simpleMessage("Nenoriu atskleisti"),
         "onBoardingStep1Subtitle":
-            MessageLookupByLibrary.simpleMessage("I don\'t know"),
+            MessageLookupByLibrary.simpleMessage("Nežinau"),
         "onBoardingStep1Title":
-            MessageLookupByLibrary.simpleMessage("Where will you vote?"),
-        "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("My age"),
-        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Woman"),
-        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Man"),
+            MessageLookupByLibrary.simpleMessage("Kur balsuosite?"),
+        "onBoardingStep2Title":
+            MessageLookupByLibrary.simpleMessage("Mano amžius"),
+        "onBoardingStep3Option1":
+            MessageLookupByLibrary.simpleMessage("Moteris"),
+        "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Vyras"),
         "onBoardingStep3Option3":
             MessageLookupByLibrary.simpleMessage("Gender-fluid"),
         "onBoardingStep3Option4":
-            MessageLookupByLibrary.simpleMessage("Non-binary"),
-        "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Else"),
+            MessageLookupByLibrary.simpleMessage("Nebinarinė tapatybė"),
+        "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Kita"),
         "onBoardingStep3Title":
-            MessageLookupByLibrary.simpleMessage("I identify as"),
-        "poland": MessageLookupByLibrary.simpleMessage("Poland"),
+            MessageLookupByLibrary.simpleMessage("Aš save identifikuoju kaip"),
+        "poland": MessageLookupByLibrary.simpleMessage("Lenkija"),
         "resultsPage10NopButton":
             MessageLookupByLibrary.simpleMessage("No thanks!"),
         "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
@@ -153,7 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text2":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
-        "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "romania": MessageLookupByLibrary.simpleMessage("Rumunija"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Data Protection"),
         "settingsPageShareButtonText":
@@ -186,12 +188,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageTitlePartners":
             MessageLookupByLibrary.simpleMessage("Partners"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
-        "skip": MessageLookupByLibrary.simpleMessage("Skip"),
-        "spain": MessageLookupByLibrary.simpleMessage("Spain"),
+        "skip": MessageLookupByLibrary.simpleMessage("Praleisti"),
+        "spain": MessageLookupByLibrary.simpleMessage("Ispanija"),
         "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
-            "It looks like you don\'t have internet connection"),
-        "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),
-        "textContinue": MessageLookupByLibrary.simpleMessage("Continue"),
-        "yes": MessageLookupByLibrary.simpleMessage("Yes")
+            "Panašu, kad neturite prieigos prie interneto"),
+        "sweden": MessageLookupByLibrary.simpleMessage("Švedija"),
+        "textContinue": MessageLookupByLibrary.simpleMessage("Tęsti"),
+        "yes": MessageLookupByLibrary.simpleMessage("Taip")
       };
 }

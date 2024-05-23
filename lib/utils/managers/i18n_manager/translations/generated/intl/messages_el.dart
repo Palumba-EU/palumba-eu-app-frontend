@@ -82,7 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "Δεν έχω ιδέα για το ποιους να ψηφίσω στις Ευρωεκλογές του 2024"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "Σύρετε ανάλογα με το πόσο συμφωνείτε"),
+            "Σύρετε με το δάχτυλό σας ανάλογα με το αν συμφωνείτε, διαφωνείτε ή παραμένετε ουδέτεροι"),
         "onBoardingNotAnswerButton":
             MessageLookupByLibrary.simpleMessage("Προτιμώ να μην αναφέρω"),
         "onBoardingStep1Subtitle":
@@ -96,8 +96,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Άντρας"),
         "onBoardingStep3Option3": MessageLookupByLibrary.simpleMessage(
             "Άτομο με ρευστή ταυτότητα φύλου (gender-fluid)"),
-        "onBoardingStep3Option4": MessageLookupByLibrary.simpleMessage(
-            "Μη-δυαδικό άτομο (non-binary)"),
+        "onBoardingStep3Option4":
+            MessageLookupByLibrary.simpleMessage("Non-binary"),
         "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Άλλο"),
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("Προσδιορίζομαι ως"),
@@ -165,7 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Κοινοποίηση"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Αν αυτό το χαριτωμένο περιστέρι δεν μπορεί να σας βοηθήσει να ψηφίσετε τον Ιούνιο, τότε τίποτα δεν θα μπορέσει:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Κύριοι Χορηγοί"),
         "settingsPageSubtitle2":

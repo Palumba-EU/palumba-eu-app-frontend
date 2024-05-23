@@ -38,11 +38,11 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Something has gone wrong on our side. Please try again later."),
+            "Ett fel har uppstått från vårt håll. Vänligen försök igen senare."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ops!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-        "denmark": MessageLookupByLibrary.simpleMessage("Denmark"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Avbryt"),
+        "denmark": MessageLookupByLibrary.simpleMessage("Danmark"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Start Palumba"),
@@ -53,19 +53,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
             "Find out your match and an orientation for who to vote for at the Elections."),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
-        "france": MessageLookupByLibrary.simpleMessage("France"),
-        "germany": MessageLookupByLibrary.simpleMessage("Germany"),
+        "france": MessageLookupByLibrary.simpleMessage("Frankrike"),
+        "germany": MessageLookupByLibrary.simpleMessage("Tyskland"),
         "homePageBackToTest":
             MessageLookupByLibrary.simpleMessage("Back to the test"),
         "homePageMatchesFoundQuote": m1,
         "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
         "homePageStartButton":
             MessageLookupByLibrary.simpleMessage("Start a new test"),
-        "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
+        "hungary": MessageLookupByLibrary.simpleMessage("Ungern"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "This can be changed later in settings."),
-        "languagePageTitle": MessageLookupByLibrary.simpleMessage(
-            "Let’s continue in English? :)"),
+        "languagePageTitle":
+            MessageLookupByLibrary.simpleMessage("Fortsätt på svenska? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
             "Your personalised results are on their way :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
@@ -74,7 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Almost ready, one last check..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
-        "no": MessageLookupByLibrary.simpleMessage("No"),
+        "no": MessageLookupByLibrary.simpleMessage("Nej"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "I have no clue who to vote for at the 2024 European Elections"),
@@ -83,20 +83,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingNotAnswerButton":
             MessageLookupByLibrary.simpleMessage("Prefer not to say"),
         "onBoardingStep1Subtitle":
-            MessageLookupByLibrary.simpleMessage("I don\'t know"),
+            MessageLookupByLibrary.simpleMessage("Jag vet inte"),
         "onBoardingStep1Title":
-            MessageLookupByLibrary.simpleMessage("Where will you vote?"),
+            MessageLookupByLibrary.simpleMessage("Var kommer du rösta?"),
         "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("My age"),
-        "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Woman"),
+        "onBoardingStep3Option1":
+            MessageLookupByLibrary.simpleMessage("Kvinna"),
         "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Man"),
         "onBoardingStep3Option3":
             MessageLookupByLibrary.simpleMessage("Gender-fluid"),
         "onBoardingStep3Option4":
-            MessageLookupByLibrary.simpleMessage("Non-binary"),
+            MessageLookupByLibrary.simpleMessage("Ickebinär"),
         "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Else"),
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("I identify as"),
-        "poland": MessageLookupByLibrary.simpleMessage("Poland"),
+        "poland": MessageLookupByLibrary.simpleMessage("Polen"),
         "resultsPage10NopButton":
             MessageLookupByLibrary.simpleMessage("No thanks!"),
         "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
@@ -153,7 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage9Text2":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
-        "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+        "romania": MessageLookupByLibrary.simpleMessage("Rumänien"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Data Protection"),
         "settingsPageShareButtonText":
@@ -186,12 +187,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageTitlePartners":
             MessageLookupByLibrary.simpleMessage("Partners"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
-        "skip": MessageLookupByLibrary.simpleMessage("Skip"),
-        "spain": MessageLookupByLibrary.simpleMessage("Spain"),
+        "skip": MessageLookupByLibrary.simpleMessage("Hoppa över"),
+        "spain": MessageLookupByLibrary.simpleMessage("Spanien"),
         "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
             "It looks like you don\'t have internet connection"),
-        "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),
-        "textContinue": MessageLookupByLibrary.simpleMessage("Continue"),
-        "yes": MessageLookupByLibrary.simpleMessage("Yes")
+        "sweden": MessageLookupByLibrary.simpleMessage("Sverige"),
+        "textContinue": MessageLookupByLibrary.simpleMessage("Fortsätt"),
+        "yes": MessageLookupByLibrary.simpleMessage("Ja")
       };
 }

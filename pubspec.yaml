@@ -86,6 +86,14 @@ flutter:
       fonts:
         - asset: assets/fonts/caprasimo-regular.ttf
 
+    - family: merriweather-black
+      fonts:
+        - asset: assets/fonts/merriweather-black.ttf
+
+    - family: noto-serif-black
+      fonts:
+        - asset: assets/fonts/noto-serif-black.ttf
+
     - family: merriweather-sans
       fonts:
         - asset: assets/fonts/merriweather-sans-Bold.ttf

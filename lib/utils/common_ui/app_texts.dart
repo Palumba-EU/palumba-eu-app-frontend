@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
+import 'package:palumba_eu/utils/managers/language_manager.dart';
 
 class AppTexts {
   static small(
@@ -17,7 +18,7 @@ class AppTexts {
         maxLines: maxLines,
         overflow: maxLines != null ? TextOverflow.ellipsis : null,
         style: TextStyle(
-          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
+          fontFamily: black ? getBlackFontFamily() : 'merriweather-sans',
           fontSize: AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: color ?? AppColors.text,
@@ -39,7 +40,7 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
+          fontFamily: black ? getBlackFontFamily() : 'merriweather-sans',
           fontSize: AppDimens.fontSizeMedium,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
@@ -63,7 +64,7 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
+          fontFamily: black ? getBlackFontFamily() : 'merriweather-sans',
           fontSize: fontSize ?? AppDimens.fontSizeRegular,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
@@ -82,7 +83,7 @@ class AppTexts {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: 'caprasimo',
+          fontFamily: getBlackFontFamily(),
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           height: AppDimens.blackFontHeight,
@@ -99,14 +100,14 @@ class AppTexts {
     switch (appTexType) {
       case AppTextType.title:
         return TextStyle(
-          fontFamily: 'caprasimo',
+          fontFamily: getBlackFontFamily(),
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           height: black ? AppDimens.blackFontHeight : null,
         );
       case AppTextType.regular:
         return TextStyle(
-          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
+          fontFamily: black ? getBlackFontFamily() : 'merriweather-sans',
           fontSize: fontSize ?? AppDimens.fontSizeRegular,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
@@ -121,7 +122,7 @@ class AppTexts {
 
       case AppTextType.small:
         return TextStyle(
-          fontFamily: black ? 'caprasimo' : 'merriweather-sans',
+          fontFamily: black ? getBlackFontFamily() : 'merriweather-sans',
           fontSize: fontSize ?? AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: AppColors.text,
@@ -134,6 +135,23 @@ class AppTexts {
           height: black ? AppDimens.blackFontHeight : null,
         );
       default:
+    }
+  }
+
+  static String getBlackFontFamily() {
+    switch (LanguageManager.currentLanguage) {
+      case 'ro':
+      case 'cs':
+      case 'sk':
+      case 'hr':
+      case 'hu':
+      case 'sl':
+      case 'bg':
+        return 'merriweather-black';
+      case 'el':
+        return 'noto-serif-black';
+      default:
+        return 'caprasimo';
     }
   }
 }

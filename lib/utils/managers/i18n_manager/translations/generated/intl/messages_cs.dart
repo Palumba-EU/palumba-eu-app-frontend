@@ -49,11 +49,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Spustit Palumbu"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t help you vote in June, nothing will."),
+            "Pokud vám tento roztomilý holub nepomůže v červnu volit, nepomůže vám nic."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Swipe your opinion on topics that matter to you."),
+            "Posuňte svůj názor na témata, která vás zajímají."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Find out your match and an orientation for who to vote for at the Elections."),
+            "Najdi shodu a zjistíte, koho máte ve volbách volit."),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("Francie"),
         "germany": MessageLookupByLibrary.simpleMessage("Německo"),
@@ -164,7 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Sdílet"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Pokud vám tento roztomilý holub nepomůže v červnu volit, nepomůže vám nic. Aplikaci jsem použil a vy byste měli také:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Hlavní sponzoři"),
         "settingsPageSubtitle2":
