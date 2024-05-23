@@ -80,7 +80,7 @@
   "resultsPage10Title": "Una notificació quan toqui anar a votar?",
   "resultsPage10NopButton": "Nope, gràcies!",
   "resultsPage10YesButton": "Síííííí",
-  "resultsShare": "Comparteix (coming soon ⏳)",
+  "resultsShare": "Comparteix",
   "@HomePage": "HomePage",
   "homePageMatchesFoundQuote": "{count} 'matches' trobats en les últimes 24 hores",
   "homePageBackToTest": "Tornar al test",
@@ -100,7 +100,7 @@
   "settingsPageSubtitle3": "Soci acadèmic",
   "settingsPageSubtitle4": "Socis institucionals nacionals",
   "settingsPageSubtitle5": "Proveïdors del servei",
-  "settingsPageShareButtonText": "Compartir (pròximament ⏳)",
+  "settingsPageShareButtonText": "Compartir",
   "settingsPagePrivacyPolicy": "Política de Privacitat",
   "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
 }
