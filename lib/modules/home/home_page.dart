@@ -133,7 +133,7 @@ class HomePage extends StatelessWidget {
       child: Row(
         children: [
           AppTexts.title(S.of(context).shortAppName,
-              color: AppColors.primary, fontSize: 27.5),
+              forceCaprasimo: true, color: AppColors.primary, fontSize: 27.5),
           Spacer(),
           GetBuilder<HomePageController>(
             id: _.resultsExistsKey,

@@ -204,7 +204,7 @@ class ResultsController extends GetxController {
   void _getTopics() async {
     var topicsList = DataManager().getTopics();
     _topics = topicsList.where((e) => e.id != 2 && e.id != 3).toList();
-    _topics.sort((a,b) => a.id!.compareTo(b.id!));
+    _topics.sort((a, b) => a.id!.compareTo(b.id!));
   }
 
   PartyUserDistance? getMajorPercentageParty() {
@@ -301,23 +301,21 @@ class ResultsController extends GetxController {
     const screenshotWidth = 1080.0;
     const screenshotHeight = 1920.0;
     final bytes = await compositeScreenshotController.captureFromWidget(
-      Container(
-        width: screenshotWidth,
-        height: screenshotHeight,
-        child: Stack(
-          children: [
-            Image(
-              image: MemoryImage(backgroundImageBytes!),
-              width: screenshotWidth,
-              height: screenshotHeight,
-              fit: BoxFit.fill
-            ),
-            Image.memory(foregroundImageBytes!)
-          ],
+        Container(
+          width: screenshotWidth,
+          height: screenshotHeight,
+          child: Stack(
+            children: [
+              Image(
+                  image: MemoryImage(backgroundImageBytes!),
+                  width: screenshotWidth,
+                  height: screenshotHeight,
+                  fit: BoxFit.fill),
+              Image.memory(foregroundImageBytes!)
+            ],
+          ),
         ),
-      ),
-      targetSize: ui.Size(screenshotWidth, screenshotHeight)
-    );
+        targetSize: ui.Size(screenshotWidth, screenshotHeight));
 
     final directory = await getTemporaryDirectory();
     final file = File('${directory.path}/screenshot.png');
@@ -349,7 +347,8 @@ class ResultsController extends GetxController {
     for (var data in _resultsData) {
       final partyPosition = calculateCompassPosition(data.party.answers ?? []);
 
-      final ui.Image image = await SvgHelper.loadSvgFromUrl(data.party.logo ?? '');
+      final ui.Image image =
+          await SvgHelper.loadSvgFromUrl(data.party.logo ?? '');
       scatterSpots
           .add(ScatterSpot(partyPosition.positionX, partyPosition.positionY,
               dotPainter: FlDotCirclePainterCustom(
@@ -469,8 +468,10 @@ class ResultsController extends GetxController {
 //Page 8 calculate max topic
   MaxTopic maxTopicPercentage() {
     // use all topics except left/right
-    final topics = DataManager().getTopics()
-        .where((topic) => topic.id != topicLeftRight).toList();
+    final topics = DataManager()
+        .getTopics()
+        .where((topic) => topic.id != topicLeftRight)
+        .toList();
     final answers = answersData;
 
     double maxValue = 0;

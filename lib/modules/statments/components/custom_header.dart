@@ -60,7 +60,7 @@ class CustomHeader extends StatelessWidget {
                 ),
               ),
               AppTexts.title(S.of(context).shortAppName,
-                  fontSize: 32, color: AppColors.primary),
+                  forceCaprasimo: true, fontSize: 32, color: AppColors.primary),
               InkWell(
                 onTap: homeTap,
                 child: Transform.rotate(

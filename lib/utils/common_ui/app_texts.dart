@@ -79,11 +79,14 @@ class AppTexts {
   }
 
   static title(String text,
-      {TextAlign? textAlign, Color? color, double? fontSize}) {
+      {bool forceCaprasimo = false,
+      TextAlign? textAlign,
+      Color? color,
+      double? fontSize}) {
     return Text(text,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: getBlackFontFamily(),
+          fontFamily: forceCaprasimo ? 'caprasimo' : getBlackFontFamily(),
           fontSize: fontSize ?? AppDimens.fontSizeTitle,
           color: color ?? AppColors.text,
           height: AppDimens.blackFontHeight,

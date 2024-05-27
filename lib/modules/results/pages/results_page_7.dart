@@ -47,53 +47,48 @@ class ResultsPage7 extends GetView<ResultsController> {
         CustomSpacer(
           multiplier: 2,
         ),
-        Expanded(child: _candidatesContainer(smallScreen)),
+        Flexible(child: _candidatesContainer(smallScreen)),
         CustomSpacer(multiplier: 4),
       ],
     );
   }
 
   Widget _candidatesContainer(smallScreen) {
-    return Column(children: [
-      Flexible(
-        child: Container(
-          decoration: BoxDecoration(
-            color: AppColors.yellow,
-            borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
-          ),
-          child: (controller.localParties?.length ?? 0) == 0
-              ? Center(
-                  child: Padding(
-                      padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
-                      child: AppTexts.regular(
-                          S.of(Get.context!).resultsPage7NoLocalCandidates(
-                              controller.countryName),
-                          color: AppColors.primary)),
-                )
-              : ListView.separated(
-                  shrinkWrap: true,
-                  physics: BouncingScrollPhysics(),
-                  separatorBuilder: (context, index) => CustomDivider(
-                      paddingValue: AppDimens.mediumLateralPaddingValue,
-                      color: AppColors.lightYellow),
-                  itemCount: controller.localParties?.length ?? 0,
-                  itemBuilder: (context, i) => _CandidatesTile(
-                    candidate: controller.localParties?[i] ?? LocalParties(),
+    return Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 70),
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.yellow,
+              borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
+            ),
+            child: (controller.localParties?.length ?? 0) == 0
+                ? Center(
+                    child: Padding(
+                        padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
+                        child: AppTexts.regular(
+                            S.of(Get.context!).resultsPage7NoLocalCandidates(
+                                controller.countryName),
+                            color: AppColors.primary)),
+                  )
+                : ListView.separated(
+                    shrinkWrap: true,
+                    physics: BouncingScrollPhysics(),
+                    separatorBuilder: (context, index) => CustomDivider(
+                        paddingValue: AppDimens.mediumLateralPaddingValue,
+                        color: AppColors.lightYellow),
+                    itemCount: controller.localParties?.length ?? 0,
+                    itemBuilder: (context, i) => _CandidatesTile(
+                      candidate: controller.localParties?[i] ?? LocalParties(),
+                    ),
                   ),
-                ),
+          ),
         ),
-      ),
-      !smallScreen
-          ? Align(
-              alignment: Alignment.centerRight,
-              child: Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: SvgPicture.asset('assets/images/img_ballot_box.svg',
-                    width: Get.width * 0.2),
-              ),
-            )
-          : const SizedBox.shrink(),
-    ]);
+        SvgPicture.asset('assets/images/img_ballot_box.svg', height: 96)
+      ],
+    );
   }
 }
 
