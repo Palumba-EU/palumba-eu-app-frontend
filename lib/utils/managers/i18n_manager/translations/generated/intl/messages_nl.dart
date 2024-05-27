@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "De kandidaten in ${country} die het meest overeenkomen met ${group}";
 
   static String m5(topic, percentage) =>
-      "In het geval van ${topic}, sta je ${percentage} dichterbij";
+      "In het geval van ${topic}, sta je ${percentage}% dichterbij";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -92,7 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Vrouw"),
         "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Man"),
         "onBoardingStep3Option3":
-            MessageLookupByLibrary.simpleMessage("Gendervloeiend"),
+            MessageLookupByLibrary.simpleMessage("Genderfluïde"),
         "onBoardingStep3Option4":
             MessageLookupByLibrary.simpleMessage("Non-binair"),
         "onBoardingStep3Option5":

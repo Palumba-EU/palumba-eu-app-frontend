@@ -42,7 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
             "Algo ha ido mal. Inténtalo otra vez más tarde, por favor."),
-        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ups!"),
+        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("¡Ups!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
@@ -110,7 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sí, porfiiii"),
         "resultsPage1Button": MessageLookupByLibrary.simpleMessage("Continuar"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "A continuación te mostraremos el grupo parlamentario de la UE que es más compatible contigo y las listas de candidatos nacionales en línea con ellos para que puedas votarlas en junio en tu país. También te explicamos alguna que otra cosa más según lo que has respondido 😌"),
+            "A continuación te mostramos el grupo parlamentario de la UE que es más compatible contigo y las listas de candidatos nacionales en línea con él. Así podrás votarlas en junio en tu país. También te explicamos alguna que otra cosa más según lo que has respondido 😌"),
         "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
             "Tienes un \"match\" y mucho más 👉👈"),
         "resultsPage2_1Title":
@@ -165,7 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Compartir"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Si esta palomita no te ayuda a votar en junio, nada podrá. He usado la app y te la recomiendo:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Principales patrocinadores"),
         "settingsPageSubtitle2":

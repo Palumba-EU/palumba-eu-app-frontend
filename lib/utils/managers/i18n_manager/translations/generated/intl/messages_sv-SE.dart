@@ -20,73 +20,75 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'sv_SE';
 
-  static String m0(count) => "${count} matches found in the last 24h";
+  static String m0(count) => "${count} matcher hittade de senaste 24 timmarna";
 
-  static String m1(count) => "${count} matches found in the last 24h";
+  static String m1(count) => "${count} matcher hittade de senaste 24 timmarna";
 
   static String m2(country) =>
-      "Finding matches with candidates lists in ${country}  🔍";
+      "Hittar matcher med kandidatlistor i ${country}🔍";
 
-  static String m3(country) => "No local parties found in ${country}";
+  static String m3(country) => "Inga lokala partier hittades i ${country}";
 
   static String m4(country, group) =>
-      "The candidates in ${country} most aligned with ${group}";
+      "Kandidaterna i ${country} mest i linje med ${group}";
 
   static String m5(topic, percentage) =>
-      "On ${topic}, you’re ${percentage}% more into";
+      "Angående ${topic}, är du ${percentage}% mer intresserad av";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
             "Ett fel har uppstått från vårt håll. Vänligen försök igen senare."),
-        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ops!"),
+        "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Oj!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
         "cancel": MessageLookupByLibrary.simpleMessage("Avbryt"),
         "denmark": MessageLookupByLibrary.simpleMessage("Danmark"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
-            MessageLookupByLibrary.simpleMessage("Start Palumba"),
+            MessageLookupByLibrary.simpleMessage("Starta Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can’t help you vote in June, nothing will."),
+            "Om denna söta duva inte kan hjälpa dig att rösta i juni, kan inget."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Swipe your opinion on topics that matter to you."),
+            "Svajpa din åsikt om frågor som är viktiga för dig."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Find out your match and an orientation for who to vote for at the Elections."),
-        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
+            "Hitta din match och en orientering för vilka du kan rösta på vid valet."),
+        "faq": MessageLookupByLibrary.simpleMessage("Vanliga frågor (FAQ)"),
         "france": MessageLookupByLibrary.simpleMessage("Frankrike"),
         "germany": MessageLookupByLibrary.simpleMessage("Tyskland"),
         "homePageBackToTest":
-            MessageLookupByLibrary.simpleMessage("Back to the test"),
+            MessageLookupByLibrary.simpleMessage("Tillbaka till testet"),
         "homePageMatchesFoundQuote": m1,
-        "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
+        "homePageMyResults":
+            MessageLookupByLibrary.simpleMessage("Mina resultat"),
         "homePageStartButton":
-            MessageLookupByLibrary.simpleMessage("Start a new test"),
+            MessageLookupByLibrary.simpleMessage("Starta ett nytt test"),
         "hungary": MessageLookupByLibrary.simpleMessage("Ungern"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "This can be changed later in settings."),
+            "Detta kan ändras senare i inställningar."),
         "languagePageTitle":
             MessageLookupByLibrary.simpleMessage("Fortsätt på svenska? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
-            "Your personalised results are on their way :)"),
+            "Dina personliga resultat är på väg :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-            "This shall be quicker than getting Taylor Swift tickets 👀 "),
+            "Detta kommer gå fortare än att skaffa biljetter till Taylor Swift 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Almost ready, one last check..."),
+            "Nästan klart, en sista kontroll..."),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("Nej"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
-            "I have no clue who to vote for at the 2024 European Elections"),
+            "Jag har ingen aning om vem jag ska rösta på vid valet till Europaparlamentet 2024"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "Swipe according to your agreement"),
+            "Svajpa enligt hur mycket du instämmer"),
         "onBoardingNotAnswerButton":
-            MessageLookupByLibrary.simpleMessage("Prefer not to say"),
+            MessageLookupByLibrary.simpleMessage("Föredrar att inte säga"),
         "onBoardingStep1Subtitle":
             MessageLookupByLibrary.simpleMessage("Jag vet inte"),
         "onBoardingStep1Title":
             MessageLookupByLibrary.simpleMessage("Var kommer du rösta?"),
-        "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("My age"),
+        "onBoardingStep2Title":
+            MessageLookupByLibrary.simpleMessage("Min ålder"),
         "onBoardingStep3Option1":
             MessageLookupByLibrary.simpleMessage("Kvinna"),
         "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Man"),
@@ -94,103 +96,105 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Gender-fluid"),
         "onBoardingStep3Option4":
             MessageLookupByLibrary.simpleMessage("Ickebinär"),
-        "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Else"),
+        "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Annat"),
         "onBoardingStep3Title":
-            MessageLookupByLibrary.simpleMessage("I identify as"),
+            MessageLookupByLibrary.simpleMessage("Jag identifierar som"),
         "poland": MessageLookupByLibrary.simpleMessage("Polen"),
         "resultsPage10NopButton":
-            MessageLookupByLibrary.simpleMessage("No thanks!"),
+            MessageLookupByLibrary.simpleMessage("Nej tack!"),
         "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
-            "A notification when it’s time to go vote?"),
+            "En notifikation när det är dags att rösta?"),
         "resultsPage10YesButton":
-            MessageLookupByLibrary.simpleMessage("Yesssss"),
+            MessageLookupByLibrary.simpleMessage("Jaaaaaa"),
         "resultsPage1Button":
-            MessageLookupByLibrary.simpleMessage("Press to continue"),
+            MessageLookupByLibrary.simpleMessage("Tryck för att fortsätta"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌"),
-        "resultsPage1Title":
-            MessageLookupByLibrary.simpleMessage("A match and much more 👉👈"),
+            "På de följande sidorna kommer du att upptäcka din mest kompatibla partigrupp i Europaparlamentet, de matchande lokala kandidatlistorna att rösta på i juni i ditt land, och vi hittade även ett par extra saker baserat på dina svar 😌"),
+        "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
+            "En match och mycket mer 👉👈"),
         "resultsPage2_1Title":
-            MessageLookupByLibrary.simpleMessage("Honestly, between the"),
+            MessageLookupByLibrary.simpleMessage("Ärligt talat, mellan"),
         "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
-            "and me, it’s kind of a Love Story (EU’s Version)"),
+            "och mig, är det typ en Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
-            "How close I am to European Parliament Groups"),
+            "Hur nära jag står partigrupperna i Europaparlamentet"),
         "resultsPage4TitleBottom":
-            MessageLookupByLibrary.simpleMessage("Anti-EU Integration"),
-        "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
-        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
+            MessageLookupByLibrary.simpleMessage("Mot EU-Integration"),
+        "resultsPage4TitleLeft":
+            MessageLookupByLibrary.simpleMessage("Vänster"),
+        "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Höger"),
         "resultsPage4TitleTop":
-            MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
+            MessageLookupByLibrary.simpleMessage("För EU-Integration"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-            "On more specific topics, which European Parliament Group am I closer to?"),
+            "När det gäller mer specifika frågor, vilken av Europaparlamentets partigrupper står jag närmast?"),
         "resultsPage5Topic1":
-            MessageLookupByLibrary.simpleMessage("Environmental issues"),
-        "resultsPage5Topic2":
-            MessageLookupByLibrary.simpleMessage("Human & Social Rights"),
+            MessageLookupByLibrary.simpleMessage("Miljöfrågor"),
+        "resultsPage5Topic2": MessageLookupByLibrary.simpleMessage(
+            "Mänskliga & Sociala Rättigheter"),
         "resultsPage5Topic3":
-            MessageLookupByLibrary.simpleMessage("Economic intervention"),
+            MessageLookupByLibrary.simpleMessage("Ekonomisk Intervention"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-            "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match."),
+            "På följande sidor kommer du hitta listorna på kandidaterna i ditt land mest troliga att ingå i din match."),
         "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
-            "Ok, it\'s cool knowing which group gets me..."),
+            "Okej, coolt att veta vilken grupp som fattar mig..."),
         "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
-            "But at the EU Elections, we vote for a local list"),
+            "Men vid EU-valet röstar vi på en lokal kandidatlista"),
         "resultsPage7Disclaimer":
-            MessageLookupByLibrary.simpleMessage("In no particular order."),
+            MessageLookupByLibrary.simpleMessage("I ingen speciell ordning."),
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": m4,
         "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
-            "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?"),
+            "Du är en klimatkämpe! Du anser att det krävs kollektiva åtgärder för att ta itu med klimatkrisen, där alla gör det till en hög prioritet. Du har inget emot att EU reglerar företag i detta syfte. När allt kommer omkring, vilken nytta har vi den ekonomiska tillväxten om planeten blir obeboelig?"),
         "resultsPage8_1Text": m5,
         "resultsPage8_2Text":
-            MessageLookupByLibrary.simpleMessage("Active Climate Action 🌱😌"),
+            MessageLookupByLibrary.simpleMessage("Aktiva Klimatåtgärder 🌱😌"),
         "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
-            "Click on the cards to shuffle"),
+            "Klicka på korten för att blanda"),
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
-            "Elections are about many topics, but there’s one thing that really"),
+            "Val handlar om många frågor, men det finns en sak som verkligen"),
         "resultsPage9Text2":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
-        "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
+        "resultsShare": MessageLookupByLibrary.simpleMessage("Dela"),
         "romania": MessageLookupByLibrary.simpleMessage("Rumänien"),
         "settingsPagePrivacyPolicy":
-            MessageLookupByLibrary.simpleMessage("Data Protection"),
+            MessageLookupByLibrary.simpleMessage("Integritetspolicy"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Share"),
+            MessageLookupByLibrary.simpleMessage("Dela"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Om denna söta duva inte kan hjälpa dig att rösta i juni, kan inget. Jag har använt appen och det borde du också:"),
         "settingsPageSubtitle1":
-            MessageLookupByLibrary.simpleMessage("Main Sponsors"),
+            MessageLookupByLibrary.simpleMessage("Huvudsponsorer"),
         "settingsPageSubtitle2":
-            MessageLookupByLibrary.simpleMessage("European Partners"),
+            MessageLookupByLibrary.simpleMessage("Europeiska partner"),
         "settingsPageSubtitle3":
-            MessageLookupByLibrary.simpleMessage("Academic Partner"),
+            MessageLookupByLibrary.simpleMessage("Akademiska partner"),
         "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
-            "National Institutional Partners"),
+            "Nationella institutionella partner"),
         "settingsPageSubtitle5":
-            MessageLookupByLibrary.simpleMessage("Service Providers"),
-        "settingsPageSubtitleLanguage":
-            MessageLookupByLibrary.simpleMessage("I prefer to use this app in"),
+            MessageLookupByLibrary.simpleMessage("Tjänsteleverantörer"),
+        "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
+            "Jag föredrar att använda denna app på"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)"),
+            "Palumba är inte ett företeg, inte ett politiskt parti och inte en regering. Vi är en oberoende ideell förening bestående av 120+ unga människor 🐦 från hela europa som slöt sig samman förra sommaren och påbörjade skapandet av denna app. Vi har ett mål: att hjälpa dig bättre förstå hur Europavalet fungerar och vilka kandidatlistor matchar dina idéer, så att du med mer förtroende kan rösta för människor som stöttar dina prioriteringar. Vår algoritm är open-source, påståendena du svajpar på är granskade av statsvetare, och din data är sååå krypterad att vi inte har något sätt att någonsin identifiera dig :)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
-            "To change the language, click on the current one"),
+            "För att ändra språk, klicka på det nuvarande"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
-            "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels."),
-        "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("About"),
+            "Det är viktigt att vi berättar för dig att våra partner inte har någon redaktionell makt över innehållet i appen, som är och förblir ett opartiskt initiativ med ett tydligt mål: att hjälpa dig att förstå vem som stöder dina åsikter på europeisk och nationell nivå."),
+        "settingsPageTitleAbout":
+            MessageLookupByLibrary.simpleMessage("Om oss"),
         "settingsPageTitleAssociation":
-            MessageLookupByLibrary.simpleMessage("The association"),
+            MessageLookupByLibrary.simpleMessage("Föreningen"),
         "settingsPageTitleLanguage":
-            MessageLookupByLibrary.simpleMessage("Language"),
+            MessageLookupByLibrary.simpleMessage("Språk"),
         "settingsPageTitlePartners":
-            MessageLookupByLibrary.simpleMessage("Partners"),
+            MessageLookupByLibrary.simpleMessage("Samarbetspartner"),
         "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
         "skip": MessageLookupByLibrary.simpleMessage("Hoppa över"),
         "spain": MessageLookupByLibrary.simpleMessage("Spanien"),
         "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
-            "It looks like you don\'t have internet connection"),
+            "Det verkar som om du saknar internetanslutning"),
         "sweden": MessageLookupByLibrary.simpleMessage("Sverige"),
         "textContinue": MessageLookupByLibrary.simpleMessage("Fortsätt"),
         "yes": MessageLookupByLibrary.simpleMessage("Ja")

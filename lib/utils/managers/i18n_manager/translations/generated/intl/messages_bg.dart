@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Кандидатите в${country}, които най-много се придържат към ${group}";
 
   static String m5(topic, percentage) =>
-      "На ${topic} вие сте ${percentage} повече към";
+      "На ${topic} вие сте ${percentage}% повече към";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{

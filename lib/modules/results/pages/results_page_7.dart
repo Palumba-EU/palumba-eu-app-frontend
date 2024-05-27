@@ -10,6 +10,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class ResultsPage7 extends GetView<ResultsController> {
   const ResultsPage7({super.key});
@@ -101,38 +102,46 @@ class _CandidatesTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: AppDimens.lateralPaddingValue, vertical: 15),
-      child: Row(children: [
-        Container(
-            height: AppDimens.avatarImageSize,
-            width: AppDimens.avatarImageSize,
-            decoration: BoxDecoration(
-                image:
-                    DecorationImage(image: NetworkImage(candidate.logo ?? '')),
-                border: Border.all(color: AppColors.lightYellow, width: 2),
-                shape: BoxShape.circle)),
-        CustomHorizontalSpacer(),
-        Expanded(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            candidate.acronym != null && candidate.acronym!.isNotEmpty
-                ? Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
-                    child: AppTexts.regular(
-                      candidate.acronym!,
-                      fontSize: AppDimens.fontSizeExtraSmall,
-                      color: AppColors.primary,
-                    ),
-                  )
-                : const SizedBox.shrink(),
-            AppTexts.medium(candidate.name ?? '',
-                bold: true, color: AppColors.primary)
-          ],
-        ))
-      ]),
+    return GestureDetector(
+      onTap: () {
+        if (candidate.link != null) {
+          Utils.launch(candidate.link!);
+        }
+      },
+      behavior: HitTestBehavior.translucent,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: AppDimens.lateralPaddingValue, vertical: 15),
+        child: Row(children: [
+          Container(
+              height: AppDimens.avatarImageSize,
+              width: AppDimens.avatarImageSize,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(candidate.logo ?? '')),
+                  border: Border.all(color: AppColors.lightYellow, width: 2),
+                  shape: BoxShape.circle)),
+          CustomHorizontalSpacer(),
+          Expanded(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              candidate.acronym != null && candidate.acronym!.isNotEmpty
+                  ? Padding(
+                      padding: const EdgeInsets.only(bottom: 5),
+                      child: AppTexts.regular(
+                        candidate.acronym!,
+                        fontSize: AppDimens.fontSizeExtraSmall,
+                        color: AppColors.primary,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+              AppTexts.medium(candidate.name ?? '',
+                  bold: true, color: AppColors.primary)
+            ],
+          ))
+        ]),
+      ),
     );
   }
 }

@@ -35,7 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kandidáti v ${country} mají nejblíže ke ${group}";
 
   static String m5(topic, percentage) =>
-      "V ${topic}, se z ${percentage} % shodujete v";
+      "V ${topic}, se z ${percentage}% shodujete v";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -67,8 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "hungary": MessageLookupByLibrary.simpleMessage("Maďarsko"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "Toto lze změnit později v sekci Nastavení."),
-        "languagePageTitle": MessageLookupByLibrary.simpleMessage(
-            "Pokračujme v anglickém jazyce :)"),
+        "languagePageTitle":
+            MessageLookupByLibrary.simpleMessage("Pokračovat v češtině? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
             "Vaše výsledky jsou na cestě :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(

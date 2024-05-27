@@ -275,6 +275,9 @@ class ResultsController extends GetxController {
       currentLanguage = 'es';
     } else if (currentLanguage == 'tr') {
       currentLanguage = 'en';
+    } else if (currentLanguage.contains('-')) {
+      currentLanguage =
+          currentLanguage.substring(0, currentLanguage.indexOf('-'));
     }
 
     Utils.launch(StringUtils.electionsUrl(currentLanguage));

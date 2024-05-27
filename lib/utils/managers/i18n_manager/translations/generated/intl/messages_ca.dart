@@ -165,7 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Compartir"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Si aquest colom tan bufó no t\'ajuda a votar al juny, res no ho farà. Jo ja he fet servir l\'app, fes-ho tu també:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Patrocinadors principals"),
         "settingsPageSubtitle2":

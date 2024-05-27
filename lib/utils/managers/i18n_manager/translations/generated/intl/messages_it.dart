@@ -20,7 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'it';
 
-  static String m0(count) => "${count} abbinamenti trovati nelle ultime 24 ore";
+  static String m0(count) => "${count} match trovati nelle ultime 24 ore";
 
   static String m1(count) => "${count} match trovati nelle ultime 24 ore";
 
@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "I candidati in ${country} più allineati con ${group}";
 
   static String m5(topic, percentage) =>
-      "Su ${topic}, sei ${percentage} in più in";
+      "Su ${topic}, sei ${percentage}% più incline in";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -112,7 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("Un match e tanto altro 👉👈"),
         "resultsPage2_1Title":
-            MessageLookupByLibrary.simpleMessage("Onestamente, tra il"),
+            MessageLookupByLibrary.simpleMessage("Onestamente, tra"),
         "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
             "e me, è una Love Story (EU\'s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(

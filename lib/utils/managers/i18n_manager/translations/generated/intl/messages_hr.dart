@@ -34,7 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kandidati u ${country} najviše se podudaraju s ${group}";
 
   static String m5(topic, percentage) =>
-      "Što se tiče ${topic}, ${percentage} si više za";
+      "Što se tiče ${topic}, ${percentage}% si više za";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -163,7 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Podijeli"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Ako ti ni ovaj slatki golub ne može pomoći da glasaš u lipnju, onda ništa neće. Ja sam koristio ovu aplikaciju, to znači da moraš i ti:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Glavni sponzori"),
         "settingsPageSubtitle2":
