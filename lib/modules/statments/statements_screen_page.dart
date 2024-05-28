@@ -7,6 +7,7 @@ import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
+import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 import 'components/buttons/decision_buttons.dart';
@@ -237,6 +238,40 @@ class StatementsPage extends GetView<StatementsController> {
                     ),
                   ),
           ),
+
+          //TOP BANNER SHOWED IN HALF AND LAST 5 STATEMENTS
+          Obx(() => IntrinsicHeight(
+                child: Opacity(
+                  opacity: controller.bannerOpacity,
+                  child: AnimatedContainer(
+                    duration: controller.bannerDuration,
+                    curve: Curves.easeInOutBack,
+                    transform: Matrix4.identity()
+                      ..translate(controller.bannerPosition.dx,
+                          controller.bannerPosition.dy, 0),
+                    margin: AppDimens.lateralPadding,
+                    padding: EdgeInsets.symmetric(
+                        horizontal: AppDimens.smallLateralPaddingValue,
+                        vertical: AppDimens.lateralPaddingValue),
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(AppDimens.borderRadius)),
+                        border: Border.all(
+                          color: AppColors.lightPrimary,
+                          width: AppDimens.borderWidth * 2,
+                        )),
+                    child: AppTexts.regular(
+                        controller.halfBannerShowed
+                            ? S.of(context).message_five_cards_left
+                            : S.of(context).message_half_test_done,
+                        bold: true,
+                        black: false),
+                  ),
+                ),
+              ))
         ],
       ),
     );

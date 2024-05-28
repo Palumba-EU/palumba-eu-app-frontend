@@ -170,6 +170,26 @@ class S {
     );
   }
 
+  /// `Keep swiping, you're 50% done!`
+  String get message_half_test_done {
+    return Intl.message(
+      'Keep swiping, you\'re 50% done!',
+      name: 'message_half_test_done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Only 5 cards left to swipe :)`
+  String get message_five_cards_left {
+    return Intl.message(
+      'Only 5 cards left to swipe :)',
+      name: 'message_five_cards_left',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `It looks like you don't have internet connection`
   String get splashPageNoInternet {
     return Intl.message(
