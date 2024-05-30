@@ -119,6 +119,12 @@ class StatementsController extends GetxController {
         _currentCards
             .removeWhere((card) => answeredQuestionIds.contains(card?.id));
       });
+      final currentIndex = DataManager()
+          .getStatements()
+          .indexWhere((e) => e.id == firstCard!.id);
+      if (currentIndex != 0) {
+        _previousCardButtonActivated.value = true;
+      }
     }
 
     //Set test is started
@@ -411,13 +417,15 @@ class StatementsController extends GetxController {
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
+    if (!_fromOnboarding.value) {
+      _previousCardButtonActivated.value = true;
+    }
     if (_fromOnboarding.value) {
       _fromOnboarding.value = false;
     }
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);
     }
-    _previousCardButtonActivated.value = true;
   }
 
   Future<void> disagreeAnimation() async {
