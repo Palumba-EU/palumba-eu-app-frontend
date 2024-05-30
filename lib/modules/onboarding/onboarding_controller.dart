@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
@@ -83,6 +84,8 @@ class OnboardingController extends GetxController {
   //Step 4
   RxBool _showLastStepTitle = false.obs;
   bool get showLastStepTitle => _showLastStepTitle.value;
+
+  Rxn<StatementResponse> buttonEventSelected = Rxn();
 
   @override
   void onInit() {
@@ -173,6 +176,7 @@ class OnboardingController extends GetxController {
       radius.value = Radius.zero;
       final onBoarded = await _localDataRepository.onBoarded;
       _isOnBoardingCard = onBoarded != true;
+
       if (onBoarded == true) {
         try {
           _cardData =
@@ -208,13 +212,13 @@ class OnboardingController extends GetxController {
           return;
         }
         onTapDisagrementButton();
-        await Future.delayed(Durations.long3);
+        await Future.delayed(onBoardingTimeAnimation);
         onTapHalfDisagrementButton();
-        await Future.delayed(Durations.long3);
+        await Future.delayed(onBoardingTimeAnimation);
         onTapHalfAgrementButton();
-        await Future.delayed(Durations.long3);
+        await Future.delayed(onBoardingTimeAnimation);
         onTapAgrementButton();
-        await Future.delayed(Durations.long3);
+        await Future.delayed(onBoardingTimeAnimation);
 
         //Set onBoarding as showed
         _localDataRepository.onBoarded = true;
@@ -267,6 +271,8 @@ class OnboardingController extends GetxController {
   Rx<Offset> _bigButtonsPosition = Offset(0, Get.height * .3).obs;
   Offset get bigButtonsPosition => _bigButtonsPosition.value;
 
+  Duration onBoardingTimeAnimation = Duration(milliseconds: 1000);
+
   void _initialCardPosition([bool initial = false]) async {
     _buttonsBlocked.value = true;
     _cardAnimationDuration.value = 250;
@@ -284,28 +290,36 @@ class OnboardingController extends GetxController {
   void onTapDisagrementButton() async {
     //Fake button is tapped
     _strognlyDisagrementButtonSelected.value = true;
-    await Future.delayed(Durations.long3);
+    buttonEventSelected.value = StatementResponse.stronglyDisagree;
+    await Future.delayed(onBoardingTimeAnimation);
+    buttonEventSelected.value = null;
     _strognlyDisagrementButtonSelected.value = false;
   }
 
   void onTapHalfDisagrementButton() async {
     //Fake button is tapped
     _disagrementButtonSelected.value = true;
-    await Future.delayed(Durations.long3);
+    buttonEventSelected.value = StatementResponse.disagree;
+    await Future.delayed(onBoardingTimeAnimation);
+    buttonEventSelected.value = null;
     _disagrementButtonSelected.value = false;
   }
 
   void onTapHalfAgrementButton() async {
     //Fake button is tapped
     _agrementButtonSelected.value = true;
-    await Future.delayed(Durations.long3);
+    buttonEventSelected.value = StatementResponse.agree;
+    await Future.delayed(onBoardingTimeAnimation);
+    buttonEventSelected.value = null;
     _agrementButtonSelected.value = false;
   }
 
   void onTapAgrementButton() async {
     //Fake button is tapped
     _stronglyAgrementButtonSelected.value = true;
-    await Future.delayed(Durations.long3);
+    buttonEventSelected.value = StatementResponse.stronglyAgree;
+    await Future.delayed(onBoardingTimeAnimation);
+    buttonEventSelected.value = null;
     _stronglyAgrementButtonSelected.value = false;
   }
 
