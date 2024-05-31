@@ -258,7 +258,7 @@ class StatementsPage extends GetView<StatementsController> {
                     decoration: BoxDecoration(
                         color: AppColors.primary,
                         borderRadius: BorderRadius.all(
-                            Radius.circular(AppDimens.borderRadius)),
+                            Radius.circular(AppDimens.largeBorderRadius)),
                         border: Border.all(
                           color: AppColors.lightPrimary,
                           width: AppDimens.borderWidth * 2,
