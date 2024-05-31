@@ -150,6 +150,7 @@ class AppTexts {
       case 'hu':
       case 'sl':
       case 'bg':
+      case 'pl':
         return 'merriweather-black';
       case 'el':
         return 'noto-serif-black';

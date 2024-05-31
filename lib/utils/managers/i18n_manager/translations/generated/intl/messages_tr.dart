@@ -73,6 +73,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Neredeyse hazır, son bir şey..."),
+        "message_five_cards_left":
+            MessageLookupByLibrary.simpleMessage("Sadece 5 soru daha kaldı :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Kaydırmaya devam et, yolu yarıladın!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Tarafsız"),
         "no": MessageLookupByLibrary.simpleMessage("Hayır"),
         "ok": MessageLookupByLibrary.simpleMessage("Tamam"),

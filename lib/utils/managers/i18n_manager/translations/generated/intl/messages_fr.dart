@@ -74,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Presque prêt, un dernier check..."),
+        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
+            "Plus que 5 questions à swiper :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Continue, t\'es déjà à la moitié !"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutre"),
         "no": MessageLookupByLibrary.simpleMessage("Non"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),

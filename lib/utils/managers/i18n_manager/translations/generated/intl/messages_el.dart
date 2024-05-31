@@ -76,6 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Σχεδόν έτοιμα, ένας τελευταίος έλεγχος..."),
+        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
+            "Only 5 cards left to swipe :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Keep swiping, you\'re 50% done!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Ουδέτερος(-η)"),
         "no": MessageLookupByLibrary.simpleMessage("Όχι"),
         "ok": MessageLookupByLibrary.simpleMessage("ΟΚ"),

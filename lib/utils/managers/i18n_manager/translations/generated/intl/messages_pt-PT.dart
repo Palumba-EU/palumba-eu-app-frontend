@@ -40,14 +40,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
             "Algo deu errado no nosso lado. Por favor, tente novamente mais tarde."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ops!"),
-        "appName": MessageLookupByLibrary.simpleMessage("Palumba UE"),
+        "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
         "entranceMatchesFoundQuote": m0,
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Iniciar Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Se este pombinho fofo não puder ajudar-te a votar  em junho, nada poderá."),
+            "Se este pombinho fofo não puder ajudar-te a votar em junho, nada poderá."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
             "Desliza a tua opinião sobre temas que são importantes para ti."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
@@ -74,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Quase pronto, uma última verificação..."),
+        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
+            "Only 5 cards left to swipe :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Keep swiping, you\'re 50% done!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutro"),
         "no": MessageLookupByLibrary.simpleMessage("Não"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),

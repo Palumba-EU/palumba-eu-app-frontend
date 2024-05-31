@@ -49,9 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
             "Dacă acest porumbel drăguț nu te poate ajuta să votezi în iunie, nimic nu te poate ajuta."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Swipe your opinion on topics that matter to you."),
+            "Dă swipe la opinia ta despre subiectele de care îți pasă!"),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-            "Find out your match and an orientation for who to vote for at the Elections."),
+            "Descoperă-ți perechea și orientarea către cine poți vota la alegeri."),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("Franța"),
         "germany": MessageLookupByLibrary.simpleMessage("Germania"),
@@ -74,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Aproape gata, verificăm încă odată..."),
+        "message_five_cards_left":
+            MessageLookupByLibrary.simpleMessage("Doar 5 carduri rămase :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Continuă să dai swipe, ești 50% gata!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutru"),
         "no": MessageLookupByLibrary.simpleMessage("Nu"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),

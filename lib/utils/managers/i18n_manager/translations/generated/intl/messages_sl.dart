@@ -74,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Skoraj pripravljeno, še zadnji pregled..."),
+        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
+            "Only 5 cards left to swipe :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Keep swiping, you\'re 50% done!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Nevtralno"),
         "no": MessageLookupByLibrary.simpleMessage("Ne"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),

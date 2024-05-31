@@ -52,7 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Swipe your opinion on topics that matter to you."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
             "Find out your match and an orientation for who to vote for at the Elections."),
-        "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
+        "faq": MessageLookupByLibrary.simpleMessage("KKK"),
         "france": MessageLookupByLibrary.simpleMessage("France"),
         "germany": MessageLookupByLibrary.simpleMessage("Germany"),
         "homePageBackToTest":
@@ -73,6 +73,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Almost ready, one last check..."),
+        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
+            "Only 5 cards left to swipe :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Keep swiping, you\'re 50% done!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),

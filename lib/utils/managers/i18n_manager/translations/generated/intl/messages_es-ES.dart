@@ -27,7 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "${count} \"matches\" encontrados en las últimas 24 horas";
 
   static String m2(country) =>
-      "Buscando \"matches\" para las listas de candidatos de ${country}  🔍";
+      "Buscando \"matches\" para las candidaturas en ${country}  🔍";
 
   static String m3(country) =>
       "No se han encontrado partidos nacionales en ${country}";
@@ -77,6 +77,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Casi estamos, una última comprobación..."),
+        "message_five_cards_left":
+            MessageLookupByLibrary.simpleMessage("Últimas 5 preguntas :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Sigue así, ¡ya vas por la mitad!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "ok": MessageLookupByLibrary.simpleMessage("Vale"),
@@ -114,7 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
             "Tienes un \"match\" y mucho más 👉👈"),
         "resultsPage2_1Title":
-            MessageLookupByLibrary.simpleMessage("A decir verdad, entre el"),
+            MessageLookupByLibrary.simpleMessage("Oye, entre el"),
         "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
             "y tú hay como una verdadera Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(

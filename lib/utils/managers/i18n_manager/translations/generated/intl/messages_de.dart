@@ -49,7 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceStartButton":
             MessageLookupByLibrary.simpleMessage("Palumba starten"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-            "Wenn diese süße Taube dir nicht helfen kann im Juni zu wählen, dann hilft dir gar nichts."),
+            "If this cute pigeon can’t help you vote in June, nothing will."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
             "Äußere deine Meinung zu Themen, die für dich wichtig sind."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
@@ -76,6 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Fast fertig, ein letzter Check..."),
+        "message_five_cards_left":
+            MessageLookupByLibrary.simpleMessage("Nur noch 5 Karten übrig :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Mach weiter, du hast schon 50% geschafft!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("Nein"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -165,9 +169,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Datenschutzerklärung"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Share"),
+            MessageLookupByLibrary.simpleMessage("Teilen"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Wenn diese süße Taube dir nicht helfen kann im Juni zu wählen, dann hilft dir gar nichts. Ich habe die App bereits benutzt und du solltest das auch tun:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Hauptsponsoren"),
         "settingsPageSubtitle2":

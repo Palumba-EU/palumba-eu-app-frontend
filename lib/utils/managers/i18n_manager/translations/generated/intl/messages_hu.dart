@@ -74,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Majdnem kész, csak az utolsó simítások..."),
+        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
+            "Már csak 5 kártya van hátra :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Ne hagyd abba, már a felénél vagy!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Közömbös"),
         "no": MessageLookupByLibrary.simpleMessage("Nem"),
         "ok": MessageLookupByLibrary.simpleMessage("Oké"),

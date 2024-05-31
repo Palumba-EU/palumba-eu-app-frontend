@@ -76,6 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Téměř připraveno, ještě poslední kontrola..."),
+        "message_five_cards_left":
+            MessageLookupByLibrary.simpleMessage("Už jen 5 karet do konce :)"),
+        "message_half_test_done":
+            MessageLookupByLibrary.simpleMessage("Swipuj dál, už jsi v půlce!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutrální"),
         "no": MessageLookupByLibrary.simpleMessage("Ne"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),

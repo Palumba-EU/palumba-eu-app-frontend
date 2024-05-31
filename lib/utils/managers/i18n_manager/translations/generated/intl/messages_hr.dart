@@ -76,6 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Skoro spremno, još samo jedna provjera..."),
+        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
+            "Only 5 cards left to swipe :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Keep swiping, you\'re 50% done!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Nepristran"),
         "no": MessageLookupByLibrary.simpleMessage("Ne"),
         "ok": MessageLookupByLibrary.simpleMessage("Slažem se"),
@@ -100,7 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nebinarna osoba"),
         "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Drugo"),
         "onBoardingStep3Title":
-            MessageLookupByLibrary.simpleMessage("Identificiram se kao"),
+            MessageLookupByLibrary.simpleMessage("Izjašnjavam se kao"),
         "poland": MessageLookupByLibrary.simpleMessage("Poljska"),
         "resultsPage10NopButton":
             MessageLookupByLibrary.simpleMessage("Ne hvala!"),

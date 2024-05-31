@@ -35,7 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kandydaci w/we ${country} najbardziej zgodni z ${group}";
 
   static String m5(topic, percentage) =>
-      "On ${topic}, you’re ${percentage}% more into";
+      "W kwestii ${topic}, jesteś w ${percentage}% za";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -51,7 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
             "Jeżeli ten uroczy gołąb nie zachęci Cię do głosowania w czerwcu, to nic innego nie da rady."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "Swipe your opinion on topics that matter to you."),
+            "Przesuń palcem w kwestiach, które są dla Ciebie ważne."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
             "Znajdź swój typ i dowiedz się, na kogo głosować w wyborach."),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
@@ -76,6 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Prawie gotowe, robimy jeszcze ostatnie poprawki..."),
+        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
+            "Only 5 cards left to swipe :)"),
+        "message_half_test_done": MessageLookupByLibrary.simpleMessage(
+            "Keep swiping, you\'re 50% done!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Nie mam zdania"),
         "no": MessageLookupByLibrary.simpleMessage("Nie"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -128,7 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage4TitleRight":
             MessageLookupByLibrary.simpleMessage("Prawica"),
         "resultsPage4TitleTop":
-            MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
+            MessageLookupByLibrary.simpleMessage("Za integracją europejską"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
@@ -167,7 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Udostępnij"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Jeśli ten uroczy gołąb nie pomoże Ci zagłosować w czerwcu, to już nic nie da rady. Sprawdź tę aplikację (tak jak ja):"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Sponsorzy Główni"),
         "settingsPageSubtitle2":
@@ -181,7 +185,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
             "Wolę używać tej aplikacji po"),
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-            "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)"),
+            "Palumba nie jest firmą, partią polityczną, czy rządem. Jesteśmy niezależnym stowarzyszeniem non-profit złożonym z ponad 120 młodyh ludzi 🐦 z całej Europy, którzy zebrali się latem zeszłego roku i zaczęli tworzyć tę aplikację. Mamy jeden cel: pomóc Ci lepiej zrozumieć, jak działają wybory do Parlamentu Europejskiego i jakie listy kandydatów mogą odpowiadać Twoim poglądom, aby można było głosować bardziej pewnie na tych, którzy popierają wasze priorytety. Nasz algorytm jest open-source, przeciągnięte przez Ciebie stwierdzenia zostały sprawdzone przez naukowców politycznych, a Twoje dane są tak zaszyfrowane, że nie mamy możliwości zidentyfikowania Cię :)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
             "Żeby zmienić język, kliknij na język aktualnie używany w aplikacji"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
