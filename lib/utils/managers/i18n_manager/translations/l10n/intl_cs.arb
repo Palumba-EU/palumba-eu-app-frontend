@@ -12,6 +12,8 @@
   "skip": "Přeskočit",
   "neutral": "Neutrální",
   "faq": "FAQ",
+  "message_half_test_done": "Swipuj dál, už jsi v půlce!",
+  "message_five_cards_left": "Už jen 5 karet do konce :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Vypadá to, že nejste připojeni k internetu",
   "@@LanguagePage": "LanguagePage",

@@ -12,6 +12,8 @@
   "skip": "Saltar",
   "neutral": "Neutral",
   "faq": "FAQ",
+  "message_half_test_done": "Sigue así, ¡ya vas por la mitad!",
+  "message_five_cards_left": "Últimas 5 preguntas :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Parece que no tienes conexión a internet",
   "@@LanguagePage": "LanguagePage",

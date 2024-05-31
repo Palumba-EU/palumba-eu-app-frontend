@@ -12,6 +12,8 @@
   "skip": "Átugrás",
   "neutral": "Közömbös",
   "faq": "GYIK",
+  "message_half_test_done": "Ne hagyd abba, már a felénél vagy!",
+  "message_five_cards_left": "Már csak 5 kártya van hátra :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Úgy tűnik, hogy nincs internetkapcsolatod",
   "@@LanguagePage": "LanguagePage",

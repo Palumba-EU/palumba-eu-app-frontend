@@ -12,6 +12,8 @@
   "skip": "Omet",
   "neutral": "Neutral",
   "faq": "FAQ",
+  "message_half_test_done": "Segueix, ja vas per la meitat!",
+  "message_five_cards_left": "Últimes 5 preguntes :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Sembla que no tens connexió a Internet",
   "@@LanguagePage": "LanguagePage",

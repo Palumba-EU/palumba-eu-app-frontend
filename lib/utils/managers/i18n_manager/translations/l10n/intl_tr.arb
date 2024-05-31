@@ -12,6 +12,8 @@
   "skip": "Atla",
   "neutral": "Tarafsız",
   "faq": "SSS",
+  "message_half_test_done": "Kaydırmaya devam et, yolu yarıladın!",
+  "message_five_cards_left": "Sadece 5 soru daha kaldı :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "İnternet bağlantınız yok gibi gözüküyor",
   "@@LanguagePage": "LanguagePage",

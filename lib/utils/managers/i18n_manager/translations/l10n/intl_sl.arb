@@ -12,6 +12,8 @@
   "skip": "Preskoči",
   "neutral": "Nevtralno",
   "faq": "FAQ",
+  "message_half_test_done": "Keep swiping, you're 50% done!",
+  "message_five_cards_left": "Only 5 cards left to swipe :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Izgleda, da nimate internetne povezave",
   "@@LanguagePage": "LanguagePage",
