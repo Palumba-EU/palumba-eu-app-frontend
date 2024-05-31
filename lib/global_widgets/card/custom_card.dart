@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/global_widgets/card/card_pages.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
@@ -10,26 +11,26 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({
-    super.key,
-    this.isFirstCard = false,
-    this.card,
-    required this.isPanStarted,
-    this.onPanStart,
-    this.onPanUpdate,
-    this.onPanEnd,
-    this.onTapDown,
-    required this.cardAnimationDuration,
-    required this.angleCard,
-    required this.positionCard,
-    required this.bgPosition,
-    this.currentCardIndex,
-    this.isOnboardingCard = false,
-    this.onSkipTap,
-    this.scale,
-    this.isZoneButtonEntered,
-    this.selectedBackgroundColor,
-  });
+  const CustomCard(
+      {super.key,
+      this.isFirstCard = false,
+      this.card,
+      required this.isPanStarted,
+      this.onPanStart,
+      this.onPanUpdate,
+      this.onPanEnd,
+      this.onTapDown,
+      required this.cardAnimationDuration,
+      required this.angleCard,
+      required this.positionCard,
+      required this.bgPosition,
+      this.currentCardIndex,
+      this.isOnboardingCard = false,
+      this.onSkipTap,
+      this.scale,
+      this.isZoneButtonEntered,
+      this.selectedBackgroundColor,
+      this.onBoardingButtonSelected});
 
   final bool isFirstCard;
   final CardModel? card;
@@ -48,11 +49,13 @@ class CustomCard extends StatelessWidget {
   final double? scale;
   final RxBool? isZoneButtonEntered;
   final Color? selectedBackgroundColor;
+  final StatementResponse? onBoardingButtonSelected;
 
   @override
   Widget build(BuildContext context) {
     List<StatelessWidget> pages = [
-      FirstCardPage(card, isOnboardingCard),
+      FirstCardPage(card, isOnboardingCard,
+          onBoardingButtonSelected: onBoardingButtonSelected),
     ];
     if (!isOnboardingCard && card != null) {
       pages = [
@@ -116,8 +119,7 @@ class CustomCard extends StatelessWidget {
                                         !(isZoneButtonEntered == null
                                             ? true
                                             : !isZoneButtonEntered!.value)
-                                    ? selectedBackgroundColor ??
-                                        AppColors.blue
+                                    ? selectedBackgroundColor ?? AppColors.blue
                                     : AppColors.primary,
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: isPanStarted.value

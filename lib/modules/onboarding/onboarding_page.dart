@@ -209,6 +209,7 @@ class OnboardingPage extends StatelessWidget {
                                     isOnboardingCard: _.isOnBoardingCard,
                                     isPanStarted: false.obs,
                                     card: _.cardData,
+                                    onBoardingButtonSelected: _.buttonEventSelected.value,
                                   )
                                 : AnimatedContainer(
                                     duration: const Duration(milliseconds: 650),
