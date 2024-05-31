@@ -1,6 +1,6 @@
 {
   "@@locale": "pt-PT",
-  "appName": "Palumba UE",
+  "appName": "Palumba EU",
   "shortAppName": "Palumba",
   "ok": "Ok",
   "yes": "Sim",
@@ -18,7 +18,7 @@
   "languagePageTitle": "Vamos continuar em Português? :)",
   "languagePageSubtitle": "Isto pode ser alterado posteriormente nas configurações.",
   "@@Entrance": "EntrancePage",
-  "entranceTitle1": "Se este pombinho fofo não puder ajudar-te a votar  em junho, nada poderá.",
+  "entranceTitle1": "Se este pombinho fofo não puder ajudar-te a votar em junho, nada poderá.",
   "entranceTitle2": "Desliza a tua opinião sobre temas que são importantes para ti.",
   "entranceTitle3": "Descobre o teu match e uma orientação em quem votar nestas eleições.",
   "entranceMatchesFoundQuote": "{count} matches encontrados nas últimas 24h",
