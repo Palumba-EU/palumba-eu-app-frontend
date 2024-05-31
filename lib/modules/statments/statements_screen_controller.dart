@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.da
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
+
+import 'statements_screen_page.dart';
 
 enum _WidthScreenPart { maxLeft, middleLeft, center, middleRight, maxRight }
 
@@ -108,12 +111,20 @@ class StatementsController extends GetxController {
     resetAnimation();
 
     if (UserManager.isTestRunning) {
-      final answeredQuestionIds = UserManager.userData.answers.map((e) => e.statementId);
+      final answeredQuestionIds =
+          UserManager.userData.answers.map((e) => e.statementId);
 
       // remove questions that have already been answered
       UserManager.userData.answers.forEach((userAnswer) {
-        _currentCards.removeWhere((card) => answeredQuestionIds.contains(card?.id));
+        _currentCards
+            .removeWhere((card) => answeredQuestionIds.contains(card?.id));
       });
+      final currentIndex = DataManager()
+          .getStatements()
+          .indexWhere((e) => e.id == firstCard!.id);
+      if (currentIndex != 0) {
+        _previousCardButtonActivated.value = true;
+      }
     }
 
     //Set test is started
@@ -402,16 +413,19 @@ class StatementsController extends GetxController {
   }
 
   nextCard() async {
+    _checkIfNeedToShowBanner();
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
+    if (!_fromOnboarding.value) {
+      _previousCardButtonActivated.value = true;
+    }
     if (_fromOnboarding.value) {
       _fromOnboarding.value = false;
     }
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);
     }
-    _previousCardButtonActivated.value = true;
   }
 
   Future<void> disagreeAnimation() async {
@@ -545,5 +559,45 @@ class StatementsController extends GetxController {
     } else {
       return AppColors.lightPrimary;
     }
+  }
+  ////////////////////
+  ///
+  ///BANNER ANIMATION
+  ///
+  ////////////////////
+
+  Rx<Offset> _bannerPosition = Offset(0, -(Get.height * .1)).obs;
+  Offset get bannerPosition => _bannerPosition.value;
+
+  bool _halfBannerShowed = false;
+  bool get halfBannerShowed => _halfBannerShowed;
+
+  RxDouble _bannerOpacity = 0.0.obs;
+  double get bannerOpacity => _bannerOpacity.value;
+
+  final bannerDuration = Durations.long4;
+
+  _checkIfNeedToShowBanner() async {
+    final allStatementsList = DataManager().getStatements();
+    final currentIndex =
+        allStatementsList.indexWhere((e) => e.id == firstCard!.id);
+    final middleIndex = (allStatementsList.length / 2).floor();
+    if (currentIndex == middleIndex) {
+      await _showBanner();
+      _halfBannerShowed = true;
+      return;
+    }
+    if (currentIndex == allStatementsList.length - 6) {
+      await _showBanner();
+    }
+  }
+
+  Future<void> _showBanner() async {
+    _bannerOpacity.value = 1;
+    _bannerPosition.value = Offset(0, Get.height * .075);
+    await Future.delayed(Duration(milliseconds: 2500));
+    _bannerPosition.value = Offset(0, -(Get.height * .1));
+    await Future.delayed(bannerDuration);
+    _bannerOpacity.value = 0;
   }
 }
