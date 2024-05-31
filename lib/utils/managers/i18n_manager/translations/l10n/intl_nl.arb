@@ -12,6 +12,8 @@
   "skip": "Overslaan",
   "neutral": "Neutraal",
   "faq": "FAQ",
+  "message_half_test_done": "Blijf swipen, je bent al over de helft!",
+  "message_five_cards_left": "Nog maar 5 kaarten :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Het lijkt erop dat je geen internetverbinding hebt",
   "@@LanguagePage": "LanguagePage",

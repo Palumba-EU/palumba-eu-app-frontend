@@ -12,6 +12,8 @@
   "skip": "Preskočiť",
   "neutral": "Neutrálne",
   "faq": "Často kladené otázky",
+  "message_half_test_done": "Keep swiping, you're 50% done!",
+  "message_five_cards_left": "Only 5 cards left to swipe :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Vyzerá to, že nemáte pripojenie na internet",
   "@@LanguagePage": "LanguagePage",

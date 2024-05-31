@@ -12,6 +12,8 @@
   "skip": "Παράλειψη",
   "neutral": "Ουδέτερος(-η)",
   "faq": "ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ",
+  "message_half_test_done": "Keep swiping, you're 50% done!",
+  "message_five_cards_left": "Only 5 cards left to swipe :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Φαίνεται πως δεν έχετε σύνδεση στο διαδίκτυο",
   "@@LanguagePage": "LanguagePage",

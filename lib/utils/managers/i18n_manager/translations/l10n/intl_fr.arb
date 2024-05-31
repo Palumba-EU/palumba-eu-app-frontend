@@ -12,6 +12,8 @@
   "skip": "Ignorer",
   "neutral": "Neutre",
   "faq": "FAQ",
+  "message_half_test_done": "Continue, t'es déjà à la moitié !",
+  "message_five_cards_left": "Plus que 5 questions à swiper :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "On dirait que tu n'es plus connecté à internet :(",
   "@@LanguagePage": "LanguagePage",
