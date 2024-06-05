@@ -12,8 +12,8 @@
   "skip": "Пропускане",
   "neutral": "Неутрален",
   "faq": "ЧЗВ",
-  "message_half_test_done": "Keep swiping, you're 50% done!",
-  "message_five_cards_left": "Only 5 cards left to swipe :)",
+  "message_half_test_done": "Продължи напред, готов/а си на 50%!",
+  "message_five_cards_left": "Остават още само 5 карти :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Изглежда, че нямате връзка с интернет",
   "@@LanguagePage": "LanguagePage",
@@ -104,5 +104,5 @@
   "settingsPageSubtitle5": "Доставчици на услуги",
   "settingsPageShareButtonText": "Споделяне",
   "settingsPagePrivacyPolicy": "Защита на данните",
-  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
+  "settingsPageShareText": "Ако този сладък гълъб не може да ти помогне да гласуваш юни месец, нищо няма да ти помогне. Аз съм използвал приложението, пробвай и ти:"
 }

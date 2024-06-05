@@ -75,7 +75,7 @@
   "resultsPage7NoLocalCandidates": "Aucune liste locale trouvée en {country}",
   "resultsPage8_1Text": "Sur {topic}, tu es à {percentage}% plus pour",
   "resultsPage8_2Text": "Action climatique 🌱😌",
-  "resultsPage8Help": "Tu es un combattant pour le climat ! Tu crois que pour lutter contre la crise climatique il faut une action collective et que chacun doit en faire sa grande priorité. Tu es favorable au fait que l'Union Européenne régule les entreprises pour aider dans cet objectif. Après tout, à quoi ça sert d'avoir de la \"croissance\" économique si la planète deviens invivable ?",
+  "resultsPage8Help": "Tu es un·e militant·e pour l'action climatique ! Tu penses que la lutte contre la crise environnementale nécessite une action collective et que chacun·e doit en faire une priorité absolue. Tu ne vois pas d'inconvénient à ce que l'Union européenne réglemente les entreprises à cette fin. Après tout, à quoi sert la croissance économique si la planète devient inhabitable ?#ClimateActionNow #NoPlanetB",
   "resultsPage9Help": "Appuie sur la carte pour en voir d'autres",
   "resultsPage9Text1": "Les élections portent sur beaucoup de sujets, mais il y a une chose qui vraiment",
   "resultsPage9Text2": "Belongs With Me 😌",
@@ -104,5 +104,5 @@
   "settingsPageSubtitle5": "Prestataires de services",
   "settingsPageShareButtonText": "Partager",
   "settingsPagePrivacyPolicy": "Protection des données",
-  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
+  "settingsPageShareText": "Si même un pigeon te convainc pas d’aller voter, rien n'y arrivera 👀 J'ai utilisé l'application et tu devrais essayer :"
 }
