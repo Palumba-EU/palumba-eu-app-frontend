@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -15,12 +14,16 @@ class Step3 extends StatelessWidget {
   final List<String> genders;
   final RxInt indexSelected;
   final Function(int index) onGenderPressed;
+  final RxBool acceptDataPrivacy;
+  final Function(bool acceptDataPrivacy) onDataPrivacyToggle;
 
   const Step3({
     super.key,
     required this.genders,
     required this.indexSelected,
     required this.onGenderPressed,
+    required this.acceptDataPrivacy,
+    required this.onDataPrivacyToggle,
   });
 
   @override
@@ -50,9 +53,38 @@ class Step3 extends StatelessWidget {
                         onGenderPressed(index);
                       }))),
             ),
-            /*SizedBox(
-              height: Get.height * 0.05,
-            ),*/
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Obx(() {
+                  return Transform.scale(
+                      scale: 1.2,
+                      child: Checkbox(
+                        value: acceptDataPrivacy.value,
+                        onChanged: (bool? value) {
+                          onDataPrivacyToggle(value ?? false);
+                        },
+                        checkColor: AppColors.primary,
+                        fillColor: WidgetStateProperty.resolveWith<Color>(
+                          (Set<WidgetState> states) {
+                            return Colors.white;
+                          },
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero,
+                        ),
+                        side: WidgetStateBorderSide.resolveWith(
+                          (states) =>
+                              BorderSide(width: 2.0, color: AppColors.yellow),
+                        ),
+                      ));
+                }),
+                Text(
+                  'Agree to Terms',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
+            ),
           ],
         ),
       ),

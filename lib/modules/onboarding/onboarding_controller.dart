@@ -80,6 +80,7 @@ class OnboardingController extends GetxController {
   List<String> get genders => _genders.map((gender) => gender.name).toList();
 
   RxInt indexGenderSelected = (-1).obs;
+  RxBool acceptDataPrivacy = (false).obs;
 
   //Step 4
   RxBool _showLastStepTitle = false.obs;
@@ -125,6 +126,11 @@ class OnboardingController extends GetxController {
     updateButtonState();
   }
 
+  void onDataPrivacyToggle(bool accept) {
+    acceptDataPrivacy.value = accept;
+    updateButtonState();
+  }
+
   void notAnsweredContinue() {
     if (currentStep.value == 2) {
       UserManager.setAge(null);
@@ -150,7 +156,9 @@ class OnboardingController extends GetxController {
     isButtonEnabled.value =
         currentStep.value == 1 && indexCountrySelected.value != -1 ||
             currentStep.value == 2 && indexAgeSelected.value != -1 ||
-            currentStep.value == 3 && indexGenderSelected.value != -1;
+            currentStep.value == 3 &&
+                indexGenderSelected.value != -1 &&
+                acceptDataPrivacy == true;
   }
 
   void updateBackgroundShape() async {

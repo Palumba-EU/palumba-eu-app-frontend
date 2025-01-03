@@ -73,11 +73,16 @@ class OnboardingPage extends StatelessWidget {
                                   padding:
                                       EdgeInsets.only(top: _.height.value - 30),
                                   child: Step3(
-                                      genders: _.genders,
-                                      indexSelected: _.indexGenderSelected,
-                                      onGenderPressed: (int index) {
-                                        _.onGenderPressed(index);
-                                      }),
+                                    genders: _.genders,
+                                    indexSelected: _.indexGenderSelected,
+                                    onGenderPressed: (int index) {
+                                      _.onGenderPressed(index);
+                                    },
+                                    acceptDataPrivacy: _.acceptDataPrivacy,
+                                    onDataPrivacyToggle: (acceptDataPrivacy) {
+                                      _.onDataPrivacyToggle(acceptDataPrivacy);
+                                    },
+                                  ),
                                 );
                               }
 
@@ -209,7 +214,8 @@ class OnboardingPage extends StatelessWidget {
                                     isOnboardingCard: _.isOnBoardingCard,
                                     isPanStarted: false.obs,
                                     card: _.cardData,
-                                    onBoardingButtonSelected: _.buttonEventSelected.value,
+                                    onBoardingButtonSelected:
+                                        _.buttonEventSelected.value,
                                   )
                                 : AnimatedContainer(
                                     duration: const Duration(milliseconds: 650),
