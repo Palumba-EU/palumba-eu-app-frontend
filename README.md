@@ -1,6 +1,6 @@
 # Palumba (Palumba layout)
 
-📲 Flutter version: 3.19.5
+📲 Flutter version: 3.27.1
 
 ⭐️Flutter 3.0 (with sound null safety)⭐️
 

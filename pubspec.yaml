@@ -51,7 +51,7 @@ dependencies:
   http: ^1.2.1
 
   # Reporting Modules
-  sentry_flutter: ^7.19.0
+  sentry_flutter: ^8.0.0
 
 dev_dependencies:
   flutter_test:
