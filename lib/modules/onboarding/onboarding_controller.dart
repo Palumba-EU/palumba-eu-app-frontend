@@ -25,6 +25,7 @@ class OnboardingController extends GetxController {
   final pageController = PageController();
 
   RxBool isButtonEnabled = false.obs;
+  RxBool isPreferNotToSayEnabled = true.obs;
 
   Rx<EdgeInsets> margin = EdgeInsets.zero.obs;
   Rx<Radius> radius = Radius.zero.obs;
@@ -130,6 +131,7 @@ class OnboardingController extends GetxController {
   void onDataPrivacyToggle(bool accept) {
     acceptDataPrivacy.value = accept;
     updateButtonState();
+    updatePreferNotToSay();
   }
 
   void notAnsweredContinue() {
@@ -146,6 +148,7 @@ class OnboardingController extends GetxController {
     pageController.jumpToPage(pageController.page!.toInt() + 1);
     updateBackgroundShape();
     updateButtonState();
+    updatePreferNotToSay();
   }
 
   /**
@@ -164,6 +167,12 @@ class OnboardingController extends GetxController {
             currentStep.value == 3 &&
                 indexGenderSelected.value != -1 &&
                 acceptDataPrivacy == true;
+  }
+
+  void updatePreferNotToSay() {
+    isPreferNotToSayEnabled.value = currentStep == 1 ||
+        currentStep == 2 ||
+        currentStep == 3 && acceptDataPrivacy == true;
   }
 
   void updateBackgroundShape() async {

@@ -99,16 +99,21 @@ class OnboardingPage extends StatelessWidget {
                                 return const SizedBox.shrink();
                               }
 
-                              return TextButton(
-                                onPressed: () {
-                                  _.notAnsweredContinue();
-                                },
-                                child: AppTexts.regular(
-                                    S.of(context).onBoardingNotAnswerButton,
-                                    bold: true,
-                                    textAlign: TextAlign.right,
-                                    color: AppColors.primary),
-                              );
+                              return Opacity(
+                                  opacity:
+                                      _.isPreferNotToSayEnabled.value ? 1 : 0.5,
+                                  child: TextButton(
+                                    onPressed: _.isPreferNotToSayEnabled.value
+                                        ? () {
+                                            _.onContinueTap();
+                                          }
+                                        : null,
+                                    child: AppTexts.regular(
+                                        S.of(context).onBoardingNotAnswerButton,
+                                        bold: true,
+                                        textAlign: TextAlign.right,
+                                        color: AppColors.primary),
+                                  ));
                             }),
                             CustomHorizontalSpacer(
                               multiplier: Get.width < 400 ? 1 : 2,
