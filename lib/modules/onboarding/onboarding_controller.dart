@@ -11,6 +11,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class OnboardingController extends GetxController {
   static const route = '/onboarding';
@@ -151,6 +152,10 @@ class OnboardingController extends GetxController {
    * Functions
    */
 
+  void launchDataPrivcay() {
+    Utils.launch("https://www.palumba.eu/de/data-protection");
+  }
+
   void updateButtonState() {
     updateBackgroundShape();
     isButtonEnabled.value =
@@ -175,7 +180,7 @@ class OnboardingController extends GetxController {
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 3) {
-      height.value = isSmallScreen ? heightSize * 0.3725 : heightSize * 0.4725;
+      height.value = isSmallScreen ? heightSize * 0.3025 : heightSize * 0.4025;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else {

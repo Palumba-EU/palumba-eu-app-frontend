@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -16,6 +17,7 @@ class Step3 extends StatelessWidget {
   final Function(int index) onGenderPressed;
   final RxBool acceptDataPrivacy;
   final Function(bool acceptDataPrivacy) onDataPrivacyToggle;
+  final Function() launchDataPrivcay;
 
   const Step3({
     super.key,
@@ -24,6 +26,7 @@ class Step3 extends StatelessWidget {
     required this.onGenderPressed,
     required this.acceptDataPrivacy,
     required this.onDataPrivacyToggle,
+    required this.launchDataPrivcay,
   });
 
   @override
@@ -79,10 +82,25 @@ class Step3 extends StatelessWidget {
                         ),
                       ));
                 }),
-                Text(
-                  'Agree to Terms',
-                  style: TextStyle(fontSize: 16),
+                CustomSpacer(
+                  multiplier: 8,
                 ),
+                Flexible(
+                    child: RichText(
+                  text: TextSpan(
+                    style: DefaultTextStyle.of(context)
+                        .style, // Default text style
+                    children: [
+                      TextSpan(text: 'I allow palumba to process my data '),
+                      TextSpan(
+                        text: '(Data Protection Policy)',
+                        style: TextStyle(decoration: TextDecoration.underline),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = launchDataPrivcay,
+                      ),
+                    ],
+                  ),
+                ))
               ],
             ),
           ],

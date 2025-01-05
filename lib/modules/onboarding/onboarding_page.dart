@@ -73,16 +73,13 @@ class OnboardingPage extends StatelessWidget {
                                   padding:
                                       EdgeInsets.only(top: _.height.value - 30),
                                   child: Step3(
-                                    genders: _.genders,
-                                    indexSelected: _.indexGenderSelected,
-                                    onGenderPressed: (int index) {
-                                      _.onGenderPressed(index);
-                                    },
-                                    acceptDataPrivacy: _.acceptDataPrivacy,
-                                    onDataPrivacyToggle: (acceptDataPrivacy) {
-                                      _.onDataPrivacyToggle(acceptDataPrivacy);
-                                    },
-                                  ),
+                                      genders: _.genders,
+                                      indexSelected: _.indexGenderSelected,
+                                      onGenderPressed: _.onGenderPressed,
+                                      acceptDataPrivacy: _.acceptDataPrivacy,
+                                      onDataPrivacyToggle:
+                                          _.onDataPrivacyToggle,
+                                      launchDataPrivcay: _.launchDataPrivcay),
                                 );
                               }
 
