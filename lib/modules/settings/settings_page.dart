@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_selector.dart';
@@ -82,6 +83,24 @@ class SettingsPage extends StatelessWidget {
                     title: _.selectedLang?.name ?? '',
                     selected: true,
                     onPressed: _.goToSelectLanguage),
+              ),
+              CustomSpacer(multiplier: 4),
+
+              // ELECTION
+              AppTexts.title("Election Questionnaire",
+                  color: AppColors.primary),
+              CustomSpacer(small: true),
+              AppTexts.small(
+                  "To change the questionnaire, click on the current one",
+                  color: AppColors.primary),
+              CustomSpacer(),
+              GetBuilder<SettingsPageController>(
+                id: _.rebuildElectionKey,
+                builder: (cnt) => CustomSelector(
+                    leading: const SizedBox.shrink(),
+                    title: _.selectedElection.localized,
+                    selected: true,
+                    onPressed: _.goToSelectElection),
               ),
               CustomSpacer(multiplier: 4),
 

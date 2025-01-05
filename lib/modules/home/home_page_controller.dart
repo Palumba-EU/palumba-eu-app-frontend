@@ -3,12 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
@@ -100,5 +102,14 @@ class HomePageController extends GetxController {
 
   void startNewTest() {
     Get.offAllNamed(OnboardingController.route);
+  }
+
+  String imageForIndex(int index, Election election) {
+    if (index == 0) {
+      return election.pigeon;
+    } else if (index == 1) {
+      return election.swipe;
+    }
+    return election.swipe;
   }
 }
