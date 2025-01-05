@@ -11,7 +11,6 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:screenshot/screenshot.dart';
 
 class ResultsPage2 extends GetView<ResultsController> {
   const ResultsPage2({super.key});

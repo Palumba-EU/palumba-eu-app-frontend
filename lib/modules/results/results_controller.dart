@@ -322,7 +322,7 @@ class ResultsController extends GetxController {
 
     final directory = await getTemporaryDirectory();
     final file = File('${directory.path}/screenshot.png');
-    await file.writeAsBytes(bytes!);
+    await file.writeAsBytes(bytes);
     final xFile = XFile(file.path);
     await Share.shareXFiles(
       [xFile], /* text: '#Palumba | ${StringUtils.webUrl}'*/
@@ -489,6 +489,6 @@ class ResultsController extends GetxController {
     return MaxTopic(
         isExtreme1: maxValue < 0,
         percentage: (maxValue.abs() * 100).toStringAsFixed2(0),
-        topicData: maxTopic!);
+        topicData: maxTopic);
   }
 }

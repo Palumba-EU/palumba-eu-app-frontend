@@ -4,7 +4,6 @@ import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
-import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 
 import 'package:get/get.dart';

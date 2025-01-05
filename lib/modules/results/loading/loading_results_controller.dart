@@ -1,9 +1,5 @@
 import 'dart:async';
-
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/manager/data_manager.dart';
-import 'package:palumba_eu/data/model/results_data.dart';
-import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
@@ -77,6 +73,7 @@ class LoadingResultsController extends GetxController {
   }
 
   Future<void> _getResultsData() async {
-    _partyUserDistanceList = ResultsHelper.getPartyUserDistances(UserManager.userData.answers);
+    _partyUserDistanceList =
+        ResultsHelper.getPartyUserDistances(UserManager.userData.answers);
   }
 }

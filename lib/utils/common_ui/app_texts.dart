@@ -137,7 +137,6 @@ class AppTexts {
           decoration: decoration,
           height: black ? AppDimens.blackFontHeight : null,
         );
-      default:
     }
   }
 
