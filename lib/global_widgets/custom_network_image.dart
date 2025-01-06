@@ -94,7 +94,7 @@ class CustomNetworkImage extends StatelessWidget {
             ? SvgPicture.asset(
                 'assets/images/image_placeholder.svg',
                 colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(.2),
+                  Colors.black.withAlpha((0.2 * 255).toInt()),
                   BlendMode.srcIn,
                 ),
                 height: (height ?? 40) * .425,
@@ -103,7 +103,7 @@ class CustomNetworkImage extends StatelessWidget {
                 ? SvgPicture.asset(
                     placeholder!,
                     colorFilter: ColorFilter.mode(
-                      Colors.black.withOpacity(.2),
+                      Colors.black.withAlpha((0.2 * 255).toInt()),
                       BlendMode.srcIn,
                     ),
                     height: (height ?? 40) * .425,

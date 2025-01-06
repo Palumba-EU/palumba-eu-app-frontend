@@ -88,7 +88,8 @@ class ResultsPage extends GetView<ResultsController> {
                       ? DottedContainer(
                           width: double.infinity,
                           height: Get.height,
-                          pointColor: AppColors.lightPrimary.withOpacity(.35))
+                          pointColor: AppColors.lightPrimary
+                              .withAlpha((0.35 * 255).toInt()))
                       : SizedBox.shrink()),
 
                   // HACK but content page has restricted size

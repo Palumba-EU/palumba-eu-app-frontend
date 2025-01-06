@@ -128,7 +128,7 @@ class CustomCard extends StatelessWidget {
                                       color: Theme.of(context)
                                           .colorScheme
                                           .shadow
-                                          .withOpacity(.5),
+                                          .withAlpha((0.5 * 255).toInt()),
                                       blurRadius: 10,
                                       offset: const Offset(0, 5),
                                     )
