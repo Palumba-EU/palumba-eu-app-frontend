@@ -12,7 +12,7 @@ class AppThemeData {
       colorScheme: ColorScheme.fromSeed(
         primary: AppColors.primary,
         seedColor: AppColors.primary,
-        background: AppColors.background,
+        surface: AppColors.background,
       ),
     );
   }

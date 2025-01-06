@@ -9,7 +9,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(
       builder: (_) => Scaffold(
-          backgroundColor: Theme.of(context).colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: Container()),
     );
   }
