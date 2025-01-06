@@ -87,8 +87,7 @@ class SettingsPage extends StatelessWidget {
               CustomSpacer(multiplier: 4),
 
               // ELECTION
-              AppTexts.title("Election Questionnaire",
-                  color: AppColors.primary),
+              AppTexts.title("Election", color: AppColors.primary),
               CustomSpacer(small: true),
               AppTexts.small(
                   "To change the questionnaire, click on the current one",

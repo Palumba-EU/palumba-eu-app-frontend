@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
+
 enum StatementResponse {
   stronglyDisagree, // -1
   disagree, // -0.5
@@ -18,6 +20,7 @@ class UserData {
   int? countryId;
   String? languageCode;
   String? gender;
+  LevelOfEducation? levelOfStudy;
   List<Answer> answers;
 
   UserData({

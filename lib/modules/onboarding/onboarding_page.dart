@@ -12,6 +12,7 @@ import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
+import 'package:palumba_eu/modules/onboarding/components/step4.dart';
 import 'package:palumba_eu/modules/onboarding/helpers/onboarding_clipper.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
@@ -50,9 +51,7 @@ class OnboardingPage extends StatelessWidget {
                                 return Step1(
                                     countries: _.countries,
                                     indexSelected: _.indexCountrySelected,
-                                    onCountryPressed: (int index) {
-                                      _.onCountryPressed(index);
-                                    });
+                                    onCountryPressed: _.onCountryPressed);
                               }
                               if (index == 1) {
                                 return Padding(
@@ -62,9 +61,7 @@ class OnboardingPage extends StatelessWidget {
                                       minAge: _.minAge,
                                       maxAge: _.maxAge,
                                       indexSelected: _.indexAgeSelected,
-                                      onAgePressed: (int index) {
-                                        _.onAgePressed(index);
-                                      }),
+                                      onAgePressed: _.onAgePressed),
                                 );
                               }
 
@@ -81,6 +78,19 @@ class OnboardingPage extends StatelessWidget {
                                           _.onDataPrivacyToggle,
                                       launchDataPrivcay: _.launchDataPrivcay),
                                 );
+                              }
+
+                              if (index == 3) {
+                                return Padding(
+                                    padding: EdgeInsets.only(
+                                        top: _.height.value - 30),
+                                    child: Step4(
+                                      levelsofEducation: _.levelsofEducation,
+                                      indexSelected:
+                                          _.indexLevelOfEducationSelected,
+                                      onLevelOfEducationPressed:
+                                          _.onLevelOfEducationPressed,
+                                    ));
                               }
 
                               return Container();

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/data/model/gender_model.dart';
+import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
@@ -19,7 +21,7 @@ class OnboardingController extends GetxController {
   final LocalDataRepository _localDataRepository =
       Get.find<LocalDataRepository>();
 
-  final totalSteps = 4;
+  final totalSteps = 5;
   RxInt currentStep = 1.obs;
 
   final pageController = PageController();
@@ -64,19 +66,19 @@ class OnboardingController extends GetxController {
   final List<GenderModel> _genders = [
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option1,
-        genderEnum: gender.woman),
+        genderEnum: Gender.woman),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option2,
-        genderEnum: gender.man),
+        genderEnum: Gender.man),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option3,
-        genderEnum: gender.genderFluid),
+        genderEnum: Gender.genderFluid),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option4,
-        genderEnum: gender.nonBinary),
+        genderEnum: Gender.nonBinary),
     GenderModel(
         name: S.of(Get.context!).onBoardingStep3Option5,
-        genderEnum: gender.other),
+        genderEnum: Gender.other),
   ];
 
   List<String> get genders => _genders.map((gender) => gender.name).toList();
@@ -84,10 +86,13 @@ class OnboardingController extends GetxController {
   RxInt indexGenderSelected = (-1).obs;
   RxBool acceptDataPrivacy = (false).obs;
 
-  //Step 4
+  ///Step 4
+  List<LevelOfEducation> levelsofEducation = LevelOfEducation.values;
+  RxInt indexLevelOfEducationSelected = (-1).obs;
+
+  ///Step5
   RxBool _showLastStepTitle = false.obs;
   bool get showLastStepTitle => _showLastStepTitle.value;
-
   Rxn<StatementResponse> buttonEventSelected = Rxn();
 
   @override
@@ -134,11 +139,19 @@ class OnboardingController extends GetxController {
     updatePreferNotToSay();
   }
 
+  void onLevelOfEducationPressed(int index) {
+    indexLevelOfEducationSelected.value = index;
+    UserManager.setLevelOfEducation(levelsofEducation[index]);
+    updateButtonState();
+  }
+
   void notAnsweredContinue() {
     if (currentStep.value == 2) {
       UserManager.setAge(null);
     } else if (currentStep.value == 3) {
       UserManager.setGender(null);
+    } else if (currentStep.value == 3) {
+      UserManager.setLevelOfEducation(null);
     }
     onContinueTap();
   }
@@ -166,13 +179,15 @@ class OnboardingController extends GetxController {
             currentStep.value == 2 && indexAgeSelected.value != -1 ||
             currentStep.value == 3 &&
                 indexGenderSelected.value != -1 &&
-                acceptDataPrivacy == true;
+                acceptDataPrivacy == true ||
+            currentStep.value == 4 && indexLevelOfEducationSelected != -1;
   }
 
   void updatePreferNotToSay() {
     isPreferNotToSayEnabled.value = currentStep == 1 ||
         currentStep == 2 ||
-        currentStep == 3 && acceptDataPrivacy == true;
+        currentStep == 3 && acceptDataPrivacy == true ||
+        currentStep == 4;
   }
 
   void updateBackgroundShape() async {
@@ -190,6 +205,10 @@ class OnboardingController extends GetxController {
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 3) {
       height.value = isSmallScreen ? heightSize * 0.3025 : heightSize * 0.4025;
+      radius.value = Radius.circular(250);
+      margin.value = EdgeInsets.zero;
+    } else if (currentStep.value == 4) {
+      height.value = isSmallScreen ? heightSize * 0.3725 : heightSize * 0.4725;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else {
@@ -363,13 +382,4 @@ class OnboardingController extends GetxController {
     await Future.delayed(Duration(milliseconds: milliseconds));
     return true;
   }
-}
-
-enum gender { woman, man, nonBinary, genderFluid, other, none }
-
-class GenderModel {
-  final String name;
-  final gender genderEnum;
-
-  GenderModel({required this.name, required this.genderEnum});
 }
