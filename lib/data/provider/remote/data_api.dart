@@ -26,7 +26,8 @@ class DataAPI {
 
   Future<LocalizationData?> fetchLocalizations() async {
     try {
-      final url = Uri.parse('${baseUrl}${localizationsEndpoint}');
+      final url = Uri.parse(
+          '${baseUrl}/${LanguageManager.currentLanguage}${localizationsEndpoint}');
       final response = await http.get(
         url,
         headers: headers,
