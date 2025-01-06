@@ -16,14 +16,14 @@ import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/helpers/svg_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
@@ -44,30 +44,9 @@ class ResultsController extends GetxController {
   final topicLeftRight = 3;
 
   final pageController = PageController();
-  final List<Widget> allPages = [
-    ResultsPage1(key: Key("1")),
-    ResultsPage2(key: Key("2")),
-    ResultsPage3(key: Key("3")),
-    ResultsPage4(key: Key("4")),
-    ResultsPage5(key: Key("5")),
-    ResultsPage6(key: Key("6")),
-    ResultsPage7(key: Key("7")),
-    ResultsPage8(key: Key("8")),
-    ResultsPage9(key: Key("9")),
-    ResultsPage10(key: Key("10")),
-  ];
 
-  final List<Widget> noCardsPages = [
-    ResultsPage1(key: Key("1")),
-    ResultsPage2(key: Key("2")),
-    ResultsPage3(key: Key("3")),
-    ResultsPage4(key: Key("4")),
-    ResultsPage5(key: Key("5")),
-    ResultsPage6(key: Key("6")),
-    ResultsPage7(key: Key("7")),
-    ResultsPage8(key: Key("8")),
-    ResultsPage10(key: Key("10")),
-  ];
+  late List<Widget> allPages = createAllResultsPages();
+  late List<Widget> noCardsPages = createNoCardsResultsPages();
 
   List<Widget> get pages => cardsData.isNotEmpty ? allPages : noCardsPages;
 
@@ -82,18 +61,6 @@ class ResultsController extends GetxController {
           7,
         ];
 
-  /*final List<ScreenshotController?> screenshotPagesControllers = [
-    null,
-    ScreenshotController(),
-    ScreenshotController(),
-    ScreenshotController(),
-    ScreenshotController(),
-    null,
-    ScreenshotController(),
-    ScreenshotController(),
-    ScreenshotController(),
-    null,
-  ];*/
   ScreenshotController foregroundScreenshotController = ScreenshotController();
   ScreenshotController backgroundScreenshotController = ScreenshotController();
 
@@ -144,6 +111,9 @@ class ResultsController extends GetxController {
   //ResultsPage9
   final swiperController = AppinioSwiperController();
   List<CardStatementData> cardsData = <CardStatementData>[];
+
+  //ResultsPage10
+  RxnBool willVote = RxnBool();
 
   GlobalKey globalKey = GlobalKey();
 
@@ -199,6 +169,35 @@ class ResultsController extends GetxController {
 
     _getCardsData();
     _getTopics();
+  }
+
+  List<Widget> createAllResultsPages() {
+    return [
+      ResultsPage1(key: Key("1")),
+      ResultsPage2(key: Key("2")),
+      ResultsPage3(key: Key("3")),
+      ResultsPage4(key: Key("4")),
+      ResultsPage5(key: Key("5")),
+      ResultsPage6(key: Key("6")),
+      ResultsPage7(key: Key("7")),
+      ResultsPage8(key: Key("8")),
+      ResultsPage9(key: Key("9")),
+      ResultsPage10(willVote: willVote),
+    ];
+  }
+
+  List<Widget> createNoCardsResultsPages() {
+    return [
+      ResultsPage1(key: Key("1")),
+      ResultsPage2(key: Key("2")),
+      ResultsPage3(key: Key("3")),
+      ResultsPage4(key: Key("4")),
+      ResultsPage5(key: Key("5")),
+      ResultsPage6(key: Key("6")),
+      ResultsPage7(key: Key("7")),
+      ResultsPage8(key: Key("8")),
+      ResultsPage10(willVote: willVote)
+    ];
   }
 
   void _getTopics() async {

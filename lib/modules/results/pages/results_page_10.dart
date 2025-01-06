@@ -13,7 +13,12 @@ import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l1
 import 'package:palumba_eu/utils/string_utils.dart';
 
 class ResultsPage10 extends GetView<ResultsController> {
-  const ResultsPage10({super.key});
+  final RxnBool willVote;
+
+  const ResultsPage10({
+    super.key,
+    required this.willVote,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,32 +29,86 @@ class ResultsPage10 extends GetView<ResultsController> {
         CustomSpacer(multiplier: 6),
         SvgPicture.asset('assets/images/ic_europe_vote_logos.svg'),
         CustomSpacer(multiplier: 3),
-        Padding(
-            padding: AppDimens.lateralPadding,
-            child: AppTexts.title(S.of(context).resultsPage10Title,
-                color: AppColors.primary, textAlign: TextAlign.center)),
-        CustomSpacer(multiplier: 2),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(
-              onPressed: () {
-                Get.offAllNamed(HomePageController.route,
-                    arguments: {StringUtils.fromResultsKey: true});
-              },
-              child: AppTexts.regular(S.of(context).resultsPage10NopButton,
-                  bold: true, color: AppColors.primary),
-            ),
-            CustomHorizontalSpacer(),
-            CustomButton(
-              onPressed: controller.launchUrl,
-              text: S.of(context).resultsPage10YesButton,
-              //Default parameters
-              border: ButtonBorderParameters(),
-            ),
-          ],
-        ),
+        content(context)
       ],
     );
+  }
+
+  Widget content(BuildContext context) {
+    return Obx(() {
+      if (willVote.value == true) {
+        /// Notification?
+        return Column(
+          children: [
+            Padding(
+                padding: AppDimens.lateralPadding,
+                child: AppTexts.title(S.of(context).resultsPage10Title,
+                    color: AppColors.primary, textAlign: TextAlign.center)),
+            CustomSpacer(multiplier: 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Get.offAllNamed(HomePageController.route);
+                  },
+                  child: AppTexts.regular(S.of(context).resultsPage10NopButton,
+                      bold: true, color: AppColors.primary),
+                ),
+                CustomHorizontalSpacer(),
+                CustomButton(
+                  onPressed: () {
+                    // TODO: check and subscribe to notifcations
+                    Get.offAllNamed(HomePageController.route);
+                  },
+                  text: S.of(context).resultsPage10YesButton,
+                  //Default parameters
+                  border: ButtonBorderParameters(),
+                ),
+              ],
+            )
+          ],
+        );
+      } else {
+        /// Going to vote?
+        return Column(
+          children: [
+            Padding(
+                padding: AppDimens.lateralPadding,
+                child: AppTexts.title('Are you going to vote?',
+                    color: AppColors.primary, textAlign: TextAlign.center)),
+            CustomSpacer(multiplier: 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Get.offAllNamed(HomePageController.route);
+                  },
+                  child: AppTexts.regular(S.of(context).no,
+                      bold: true, color: AppColors.primary),
+                ),
+                TextButton(
+                  onPressed: () {
+                    willVote.value = true;
+                  },
+                  child: AppTexts.regular("Maybe",
+                      bold: true, color: AppColors.primary),
+                ),
+                CustomHorizontalSpacer(),
+                CustomButton(
+                  onPressed: () {
+                    willVote.value = true;
+                  },
+                  text: S.of(context).resultsPage10YesButton,
+                  //Default parameters
+                  border: ButtonBorderParameters(),
+                ),
+              ],
+            )
+          ],
+        );
+      }
+    });
   }
 }
