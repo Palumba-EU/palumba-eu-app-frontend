@@ -86,12 +86,13 @@ class StatementsPage extends GetView<StatementsController> {
           GetBuilder<StatementsController>(
             id: controller.cardStackKey,
             init: controller,
-            builder: (controller) => (controller.firstCard != null ||
-                    controller.fromOnboarding)
+            builder: (controller) => (controller.firstCard != null)
                 ? Stack(
                     children: [
                       if (controller.secondCard != null)
+                        // card in background
                         CustomCard(
+                          isFirstCard: false,
                           card: controller.secondCard,
                           angleCard: controller.angle,
                           positionCard: controller.position,
@@ -99,24 +100,16 @@ class StatementsPage extends GetView<StatementsController> {
                           isPanStarted: controller.isPanStarted,
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
-                          isFirstCard: false,
-                          onPanStart: controller.onPanStart,
-                          onPanUpdate: controller.onPanUpdate,
-                          onPanEnd: controller.onPanEnd,
-                          onTapDown: controller.onTapDown,
-                          currentCardIndex: 0.obs,
-                          //controller.currentCardIndex,
                           isOnboardingCard: false,
-                          //onSkipTap: controller.onSkipTap,
                         ),
                       Obx(
+                        // main card
                         () => CustomCard(
                           isFirstCard: true,
                           card: controller.firstCard,
                           onPanStart: controller.onPanStart,
                           onPanUpdate: controller.onPanUpdate,
                           onPanEnd: controller.onPanEnd,
-                          onTapDown: controller.onTapDown,
                           currentCardIndex: controller.currentCardIndex,
                           angleCard: controller.angle,
                           positionCard: controller.position,
@@ -131,6 +124,7 @@ class StatementsPage extends GetView<StatementsController> {
                               controller.activateButton(StatementResponse.skip),
                           selectedBackgroundColor:
                               controller.getBackgroundColor(),
+                          flipCcardController: controller.flipCardcontroller,
                         ),
                       )
                     ],
@@ -188,51 +182,7 @@ class StatementsPage extends GetView<StatementsController> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: double.infinity,
-                            height: Get.height * .3,
-                            child: DecisionButtons(
-                              //Strongly disagree taps
-                              onTapStronglyDisagrementButton: () =>
-                                  controller.activateButton(
-                                      StatementResponse.stronglyDisagree),
-                              onLongPressStronglyDisagrementButton: () =>
-                                  controller.onLongPressButton(
-                                      StatementResponse.stronglyDisagree),
-                              onLongPressEndStronglyDisagrementButton: (_) =>
-                                  controller.activateButton(
-                                StatementResponse.stronglyDisagree,
-                              ),
-
-                              //Disagree taps
-                              onTapDisagrementButton: () => controller
-                                  .activateButton(StatementResponse.disagree),
-                              onLongPressDisgrementButton: () =>
-                                  controller.onLongPressButton(
-                                      StatementResponse.disagree),
-                              onLongPressEndDisgrementButton: (_) => controller
-                                  .activateButton(StatementResponse.disagree),
-
-                              //Agree taps
-                              onTapAgrementButton: () => controller
-                                  .activateButton(StatementResponse.agree),
-                              onLongPressAgrementButton: () => controller
-                                  .onLongPressButton(StatementResponse.agree),
-                              onLongPressEndAgrementButton: (_) => controller
-                                  .activateButton(StatementResponse.agree),
-
-                              //Strongly agree taps
-                              onTapStronglyAgrementButton: () =>
-                                  controller.activateButton(
-                                      StatementResponse.stronglyAgree),
-                              onLongPressStronglyAgrementButton: () =>
-                                  controller.onLongPressButton(
-                                      StatementResponse.stronglyAgree),
-                              onLongPressEndStronglyAgrementButton: (_) =>
-                                  controller.activateButton(
-                                      StatementResponse.stronglyAgree),
-                            ),
-                          ),
+                          agreeButtons()
                         ],
                       ),
                     ),
@@ -273,6 +223,48 @@ class StatementsPage extends GetView<StatementsController> {
                 ),
               ))
         ],
+      ),
+    );
+  }
+
+  Widget agreeButtons() {
+    return SizedBox(
+      width: double.infinity,
+      height: Get.height * .3,
+      child: DecisionButtons(
+        //Strongly disagree taps
+        onTapStronglyDisagrementButton: () =>
+            controller.activateButton(StatementResponse.stronglyDisagree),
+        onLongPressStronglyDisagrementButton: () =>
+            controller.onLongPressButton(StatementResponse.stronglyDisagree),
+        onLongPressEndStronglyDisagrementButton: (_) =>
+            controller.activateButton(
+          StatementResponse.stronglyDisagree,
+        ),
+
+        //Disagree taps
+        onTapDisagrementButton: () =>
+            controller.activateButton(StatementResponse.disagree),
+        onLongPressDisgrementButton: () =>
+            controller.onLongPressButton(StatementResponse.disagree),
+        onLongPressEndDisgrementButton: (_) =>
+            controller.activateButton(StatementResponse.disagree),
+
+        //Agree taps
+        onTapAgrementButton: () =>
+            controller.activateButton(StatementResponse.agree),
+        onLongPressAgrementButton: () =>
+            controller.onLongPressButton(StatementResponse.agree),
+        onLongPressEndAgrementButton: (_) =>
+            controller.activateButton(StatementResponse.agree),
+
+        //Strongly agree taps
+        onTapStronglyAgrementButton: () =>
+            controller.activateButton(StatementResponse.stronglyAgree),
+        onLongPressStronglyAgrementButton: () =>
+            controller.onLongPressButton(StatementResponse.stronglyAgree),
+        onLongPressEndStronglyAgrementButton: (_) =>
+            controller.activateButton(StatementResponse.stronglyAgree),
       ),
     );
   }

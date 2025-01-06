@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
@@ -54,6 +55,11 @@ class StatementsController extends GetxController {
   final Rx<Offset> _bgPosition = Offset(0, 0).obs;
   Rx<Offset> get bgPosition => _bgPosition;
 
+  final Offset positionDefault =
+      Offset(Get.width * .25, (Get.height * .9) * .28);
+  final Offset bgPositionDefault =
+      Offset(Get.width * .25, (Get.height * .9) * .55);
+
 //This is front card angle
   RxDouble _angle = 0.0.obs;
   double get angle => _angle.value;
@@ -101,6 +107,8 @@ class StatementsController extends GetxController {
 
   int _cardAnimationTime = 300;
   int _awaitAnimationTime = 325;
+
+  FlipCardController flipCardcontroller = FlipCardController();
 
   @override
   void onInit() {
@@ -171,14 +179,14 @@ class StatementsController extends GetxController {
 
   void _setBackgroundCardPosition() {
     final y = _position.value.dy;
+    var screeHeight = (Get.height * .9);
     // Calculate the distance from the center of the screen
     final distanceFromCenter = (y - Get.height * .25).abs();
     // Map the distance to the range [(Get.height * .9) * .5, (Get.height * .9) * .25]
-    final mappedY = lerpDouble((Get.height * .9) * .55, (Get.height * .9) * .25,
+    final mappedY = lerpDouble(screeHeight * .55, screeHeight * .25,
         distanceFromCenter / (Get.height * .25));
-    final bgY = (mappedY ?? y) < (Get.height * .9) * .28
-        ? (Get.height * .9) * .28
-        : mappedY;
+    final bgY =
+        (mappedY ?? y) < screeHeight * .28 ? screeHeight * .28 : mappedY;
     _bgPosition.value = Offset(Get.width * .25, bgY!);
   }
 
@@ -249,22 +257,18 @@ class StatementsController extends GetxController {
   void _nothingHappen() async {
     _buttonsBlocked.value = true;
     _cardAnimationDuration.value = 250;
-    _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
+    _position.value = positionDefault;
+    _bgPosition.value = bgPositionDefault;
     _angle.value = 0;
     await Future.delayed(Duration(milliseconds: 250));
     _cardAnimationDuration.value = 0;
     _buttonsBlocked.value = false;
   }
 
-  void onTapDown(TapDownDetails details) async {
-    changeCardPage(details);
-  }
-
 //Reset all animations and set cards in the initial position
   void resetAnimation() {
-    _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
+    _position.value = positionDefault;
+    _bgPosition.value = bgPositionDefault;
     _angle.value = 0;
     _cardAnimationDuration.value = 0;
     _stronglyDisagrementButtonSelected.value = false;
@@ -387,25 +391,6 @@ class StatementsController extends GetxController {
       return _HeightScreenPart.middle;
     } else {
       return _HeightScreenPart.bottom;
-    }
-  }
-
-  void changeCardPage(TapDownDetails event) async {
-    await Future.delayed(Duration(milliseconds: 100));
-    if (_isPanStarted.value) return;
-    final tapPos = event.localPosition.dx;
-    final isNext = tapPos > Get.width * .65;
-    final isPrevious = tapPos < Get.width * .35;
-
-    if (isNext) {
-      if (_currentCardIndex < 1) {
-        _currentCardIndex.value++;
-      }
-    }
-    if (isPrevious) {
-      if (_currentCardIndex > 0) {
-        _currentCardIndex.value--;
-      }
     }
   }
 
@@ -577,7 +562,7 @@ class StatementsController extends GetxController {
   _checkIfNeedToShowBanner() async {
     final allStatementsList = DataManager().getStatements();
     final currentIndex =
-        allStatementsList.indexWhere((e) => e.id == firstCard!.id);
+        allStatementsList.indexWhere((e) => e.id == firstCard?.id);
     final middleIndex = (allStatementsList.length / 2).floor();
     if (currentIndex == middleIndex) {
       await _showBanner();
