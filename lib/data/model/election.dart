@@ -17,7 +17,7 @@ extension ElectionImages on Election {
       case Election.DE:
         return 'assets/images/img_pigeon.svg';
       case Election.EU:
-        return 'assets/images/img_swipe.svg';
+        return 'assets/images/img_pigeon.svg';
     }
   }
 

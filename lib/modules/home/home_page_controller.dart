@@ -109,6 +109,6 @@ class HomePageController extends GetxController {
     } else if (index == 1) {
       return election.swipe;
     }
-    return election.swipe;
+    return election.results;
   }
 }
