@@ -1,5 +1,5 @@
 class CardModel {
-  final int? id;
+  final int id;
   final String emojis;
   final String mainQuestion;
   final String details;

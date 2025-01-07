@@ -69,15 +69,19 @@ class StatementsPage extends GetView<StatementsController> {
                 : SafeArea(
                     child: IntrinsicHeight(
                       child: AnimatedOpacity(
-                          opacity: controller.isPanStarted.value ? 0.2 : 1,
-                          duration: Durations.medium4,
-                          child: CustomHeader(
-                            homeTap: () =>
-                                Get.offAllNamed(HomePageController.route),
-                            backTap: () => controller.returnToPreviousCard(),
-                            isBackButtonActive:
-                                controller.previousCardButtonActivated,
-                          )),
+                        opacity: controller.isPanStarted.value ? 0.2 : 1,
+                        duration: Durations.medium4,
+                        child: GetBuilder<StatementsController>(
+                            id: controller.cardStackKey,
+                            builder: (controller) => CustomHeader(
+                                  homeTap: () =>
+                                      Get.offAllNamed(HomePageController.route),
+                                  backTap: () =>
+                                      controller.returnToPreviousCard(),
+                                  isBackButtonActive:
+                                      controller.firstCard?.id != -1,
+                                )),
+                      ),
                     ),
                   ),
           ),
@@ -110,7 +114,6 @@ class StatementsPage extends GetView<StatementsController> {
                           onPanStart: controller.onPanStart,
                           onPanUpdate: controller.onPanUpdate,
                           onPanEnd: controller.onPanEnd,
-                          currentCardIndex: controller.currentCardIndex,
                           angleCard: controller.angle,
                           positionCard: controller.position,
                           bgPosition: controller.bgPosition,
@@ -119,7 +122,6 @@ class StatementsPage extends GetView<StatementsController> {
                               controller.cardAnimationDuration,
                           isOnboardingCard: controller.fromOnboarding,
                           scale: controller.scale.value,
-                          isZoneButtonEntered: controller.isZoneButtonEntered,
                           onSkipTap: () =>
                               controller.activateButton(StatementResponse.skip),
                           selectedBackgroundColor:
@@ -165,13 +167,14 @@ class StatementsPage extends GetView<StatementsController> {
                                             ? null
                                             : () => controller.activateButton(
                                                 StatementResponse.neutral),
-                                        color: controller.neutralButtonSelected
-                                            ? AppColors.lightPrimary
-                                            : AppColors.primary,
-                                        textColor:
-                                            controller.neutralButtonSelected
-                                                ? AppColors.primary
-                                                : AppColors.text,
+                                        color: AppColors.primary,
+                                        // controller.neutralButtonSelected
+                                        //     ? AppColors.lightPrimary
+                                        //     : AppColors.primary,
+                                        textColor: AppColors.text,
+                                        // controller.neutralButtonSelected
+                                        //     ? AppColors.primary
+                                        //     : AppColors.text,
                                         radius: AppDimens.largeBorderRadius,
                                         border: ButtonBorderParameters(
                                             color: AppColors.lightPrimary,

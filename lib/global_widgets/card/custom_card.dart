@@ -24,7 +24,6 @@ class CustomCard extends StatelessWidget {
     required this.angleCard,
     required this.positionCard,
     required this.bgPosition,
-    this.currentCardIndex,
     this.isOnboardingCard = false,
     this.onSkipTap,
     this.scale,
@@ -44,7 +43,6 @@ class CustomCard extends StatelessWidget {
   final double angleCard;
   final Rx<Offset> positionCard;
   final Rx<Offset> bgPosition;
-  final Rx<int>? currentCardIndex;
   final bool isOnboardingCard;
   final Function()? onSkipTap;
   final double? scale;
