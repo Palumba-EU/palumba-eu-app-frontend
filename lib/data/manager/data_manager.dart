@@ -13,7 +13,7 @@ class DataManager {
     return _singleton;
   }
 
-  Rxn<List<Language>> languages = Rxn();
+  List<Language>? languages;
   List<Country>? countries;
   List<Statement>? statements;
   List<PoliticParty>? parties;
@@ -21,7 +21,11 @@ class DataManager {
   List<Sponsor>? sponsors;
 
   void setLanguages(List<Language>? languages) {
-    this.languages.value = languages;
+    this.languages = languages;
+  }
+
+  List<Language> getLanguages() {
+    return languages ?? [];
   }
 
   void setCountries(List<Country>? countries) {

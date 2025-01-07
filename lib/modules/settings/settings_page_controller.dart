@@ -20,8 +20,8 @@ class SettingsPageController extends GetxController {
   final String rebuildLanguageKey = 'rebuildLanguage';
   final String rebuildElectionKey = 'rebuildElection';
 
-  Rxn<List<Language>>? _languages = DataManager().languages;
-  Rxn<List<Language>>? get languages => _languages;
+  List<Language>? _languages = DataManager().getLanguages();
+  List<Language>? get languages => _languages;
   Language? get selectedLang => getSelectedLanguage();
 
   Election get selectedElection => getSelectedElection();
@@ -79,7 +79,7 @@ class SettingsPageController extends GetxController {
 
   Language? getSelectedLanguage() {
     try {
-      return _languages?.value?.firstWhere(
+      return _languages?.firstWhere(
           (lang) => lang.languagecode == (LanguageManager.currentLanguage));
     } catch (e) {
       debugPrint(e.toString());

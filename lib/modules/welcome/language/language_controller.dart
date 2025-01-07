@@ -17,9 +17,9 @@ class LanguageController extends GetxController {
 
   ScrollController scrollController = ScrollController();
 
-  Rxn<List<Language>> _languages = DataManager().languages;
+  List<Language> _languages = DataManager().getLanguages();
 
-  Rxn<List<Language>> get languages => _languages;
+  List<Language> get languages => _languages;
 
   RxInt indexSelected = 0.obs;
 
@@ -27,7 +27,7 @@ class LanguageController extends GetxController {
   void onInit() {
     super.onInit();
     print('onInit');
-    print(_languages.value?.length != 0 ? _languages.value?.length : 'leer');
+    print(_languages?.length != 0 ? _languages?.length : 'leer');
   }
 
   @override
@@ -40,14 +40,14 @@ class LanguageController extends GetxController {
    */
   void selectCurrentLanguage() {
     final currentLanguage = LanguageManager.currentLanguage;
-    final index = _languages.value!
+    final index = _languages!
         .indexWhere((element) => element.languagecode == currentLanguage);
     if (index != -1) {
       indexSelected.value = index;
       _localDataRepository.language =
-          _languages.value![indexSelected.value].languagecode!;
+          _languages![indexSelected.value].languagecode!;
       LanguageManager.setLanguage(
-          _languages.value![indexSelected.value].languagecode!);
+          _languages![indexSelected.value].languagecode!);
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scrollController.animateTo((65 * index).toDouble(),
@@ -61,12 +61,10 @@ class LanguageController extends GetxController {
   void onLanguagePressed(int index) {
     indexSelected.value = index;
 
-    UserManager.setLanguageCode(
-        _languages.value![indexSelected.value].id!.toString());
-    LanguageManager.setLanguage(
-        _languages.value![indexSelected.value].languagecode!);
+    UserManager.setLanguageCode(languages![indexSelected.value].id!.toString());
+    LanguageManager.setLanguage(languages![indexSelected.value].languagecode!);
     _localDataRepository.language =
-        _languages.value![indexSelected.value].languagecode!;
+        languages![indexSelected.value].languagecode!;
   }
 
   void onContinueTap() async {
