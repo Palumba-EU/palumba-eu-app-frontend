@@ -70,81 +70,82 @@ class CustomCard extends StatelessWidget {
 
   ClipPath cardAlignment(List<StatelessWidget> pages) {
     return ClipPath(
-      clipper: !isFirstCard
-          ? CustomContainerClipper(curveRadius: 200)
-          : (isPanStarted.value
-              ? null
-              : CustomContainerClipper(curveRadius: 200)),
-      child: SizedBox(
-        height: isPanStarted.value
-            ? (isFirstCard ? Get.height : Get.height * .82)
-            : Get.height * .82,
-        width: double.infinity,
-        child: GestureDetector(
-            onPanStart: onPanStart,
-            onPanUpdate: onPanUpdate,
-            onPanEnd: onPanEnd,
-            child: (pages.length > 1)
-                ? FlipCard(
-                    controller: flipCcardController,
-                    direction: FlipDirection.HORIZONTAL, // Flip direction
-                    front: aCard(pages[0]),
-                    back: aCard(pages[1]))
-                : aCard(pages[0])),
-      ),
+        clipper: !isFirstCard
+            ? CustomContainerClipper(curveRadius: 200)
+            : (isPanStarted.value
+                ? null
+                : CustomContainerClipper(curveRadius: 200)),
+        child: SizedBox(
+          height: isPanStarted.value
+              ? (isFirstCard ? Get.height : Get.height * .82)
+              : Get.height * .82,
+          width: double.infinity,
+          child: GestureDetector(
+              onPanStart: onPanStart,
+              onPanUpdate: onPanUpdate,
+              onPanEnd: onPanEnd,
+              child: LayoutBuilder(
+                  builder: (context, constraints) => Obx(
+                        () {
+                          final duration = Duration(
+                              milliseconds: cardAnimationDuration?.value ?? 0);
+                          final position = isFirstCard
+                              ? positionCard.value
+                              : bgPosition.value;
+                          final center =
+                              constraints.smallest.center(Offset.zero);
+                          final double angle =
+                              isFirstCard ? angleCard * pi / 180 : 0;
+                          final double scaleValue =
+                              isFirstCard ? scale ?? 1 : 1;
+                          final rotatedMatrix = Matrix4.identity()
+                            ..translate(position.dx, position.dy, 0)
+                            ..rotateZ(angle)
+                            ..translate(-center.dx, -center.dy, 0);
+                          return Align(
+                              alignment: Alignment.center,
+                              widthFactor: null,
+                              heightFactor: null,
+                              child: AnimatedContainer(
+                                  duration: duration,
+                                  transform: rotatedMatrix
+                                    ..translate(position.dx, position.dy, 0)
+                                    ..scale(scaleValue, scaleValue, 1.0),
+                                  height: Get.height * .575,
+                                  width: Get.width * .77,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: boxShadow(context),
+                                  ),
+                                  child: pages.length > 1
+                                      ? flipCard(pages, context)
+                                      : aCard(pages[0], context)));
+                        },
+                      ))),
+        ));
+  }
+
+  Widget flipCard(List<StatelessWidget> pages, BuildContext context) {
+    return FlipCard(
+        controller: flipCcardController,
+        direction: FlipDirection.HORIZONTAL, // Flip direction
+        front: aCard(pages[0], context),
+        back: aCard(pages[1], context));
+  }
+
+  Widget aCard(StatelessWidget page, BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+          color: backgroundColor(context),
+          child: Padding(
+            padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
+            child: page,
+          )),
     );
   }
 
-  Widget aCard(StatelessWidget page) {
-    return LayoutBuilder(
-        builder: (context, constraints) => Obx(
-              () {
-                final duration =
-                    Duration(milliseconds: cardAnimationDuration?.value ?? 0);
-                final position =
-                    isFirstCard ? positionCard.value : bgPosition.value;
-                final center = constraints.smallest.center(Offset.zero);
-                final double angle = isFirstCard ? angleCard * pi / 180 : 0;
-                final double scaleValue = isFirstCard ? scale ?? 1 : 1;
-                final rotatedMatrix = Matrix4.identity()
-                  ..translate(position.dx, position.dy, 0)
-                  ..rotateZ(angle)
-                  ..translate(-center.dx, -center.dy, 0);
-                return Align(
-                    alignment: Alignment.center,
-                    widthFactor: null,
-                    heightFactor: null,
-                    child: AnimatedContainer(
-                      duration: duration,
-                      transform: rotatedMatrix
-                        ..translate(position.dx, position.dy, 0)
-                        ..scale(scaleValue, scaleValue, 1.0),
-                      height: Get.height * .575,
-                      width: Get.width * .77,
-                      decoration: BoxDecoration(
-                        color: backgroundColor(context),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: isPanStarted.value
-                            ? [
-                                BoxShadow(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .shadow
-                                      .withAlpha((0.5 * 255).toInt()),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 5),
-                                )
-                              ]
-                            : null,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
-                        child: page,
-                      ),
-                    ));
-              },
-            ));
-  }
+  // Helper to not inline styling logic in view
 
   Color backgroundColor(BuildContext context) {
     if (!isFirstCard && isPanStarted.value == false) {
@@ -157,5 +158,20 @@ class CustomCard extends StatelessWidget {
       return selectedBackgroundColor ?? AppColors.blue;
     }
     return Theme.of(context).colorScheme.primary;
+  }
+
+  List<BoxShadow>? boxShadow(BuildContext context) {
+    return isPanStarted.value
+        ? [
+            BoxShadow(
+              color: Theme.of(context)
+                  .colorScheme
+                  .shadow
+                  .withAlpha((0.5 * 255).toInt()),
+              blurRadius: 10,
+              offset: const Offset(0, 5),
+            )
+          ]
+        : null;
   }
 }
