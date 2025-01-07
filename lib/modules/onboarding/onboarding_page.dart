@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/card/custom_card.dart';
-
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
-
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
@@ -16,13 +13,10 @@ import 'package:palumba_eu/modules/onboarding/components/step4.dart';
 import 'package:palumba_eu/modules/onboarding/helpers/onboarding_clipper.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-
 import 'components/onboarding_decision_buttons.dart';
 import 'components/step1.dart';
 
@@ -253,7 +247,6 @@ class OnboardingPage extends StatelessWidget {
               ),
               //Stickers
               Obx(() {
-                debugPrint(_.currentStep.value.toString());
                 return _.showFinalView
                     ? SizedBox.shrink()
                     : Positioned(

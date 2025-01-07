@@ -101,6 +101,11 @@ class OnboardingController extends GetxController {
     updateBackgroundShape();
     _initialCardPosition(true);
     super.onInit();
+
+    debugPrint('currentStep: ' + currentStep.value.toString());
+    currentStep.listen((step) {
+      debugPrint('currentStep: ' + step.toString());
+    });
   }
 
   void clearUserStoredStatements() {

@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
-import 'package:palumba_eu/global_widgets/card/card_pages.dart';
+import 'package:palumba_eu/global_widgets/card/card_back_page.dart';
+import 'package:palumba_eu/global_widgets/card/card_front_page.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -55,13 +56,13 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<StatelessWidget> pages = [
-      FirstCardPage(card, isOnboardingCard,
+      CardFrontPage(card, isOnboardingCard,
           onBoardingButtonSelected: onBoardingButtonSelected),
     ];
     if (!isOnboardingCard && card != null) {
       pages = [
-        FirstCardPage(card!, isOnboardingCard),
-        SecondCardPage(card!),
+        CardFrontPage(card!, isOnboardingCard),
+        CardBackPage(card!),
       ];
     }
     return IgnorePointer(
@@ -119,7 +120,7 @@ class CustomCard extends StatelessWidget {
                                   ),
                                   child: pages.length > 1
                                       ? flipCard(pages, context)
-                                      : aCard(pages[0], context)));
+                                      : aCard(pages[1], context)));
                         },
                       ))),
         ));
