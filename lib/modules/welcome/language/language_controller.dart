@@ -17,9 +17,9 @@ class LanguageController extends GetxController {
 
   ScrollController scrollController = ScrollController();
 
-  List<Language> _languages = DataManager().getLanguages();
+  List<Language>? _languages = DataManager().getLanguages();
 
-  List<Language> get languages => _languages;
+  List<Language>? get languages => _languages;
 
   RxInt indexSelected = 0.obs;
 
@@ -40,14 +40,14 @@ class LanguageController extends GetxController {
    */
   void selectCurrentLanguage() {
     final currentLanguage = LanguageManager.currentLanguage;
-    final index = _languages!
+    final index = languages!
         .indexWhere((element) => element.languagecode == currentLanguage);
     if (index != -1) {
       indexSelected.value = index;
       _localDataRepository.language =
-          _languages![indexSelected.value].languagecode!;
+          languages![indexSelected.value].languagecode!;
       LanguageManager.setLanguage(
-          _languages![indexSelected.value].languagecode!);
+          languages![indexSelected.value].languagecode!);
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scrollController.animateTo((65 * index).toDouble(),
