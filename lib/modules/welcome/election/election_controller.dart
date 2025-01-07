@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
+import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 class ElectionController extends GetxController {
   static const route = '/election';
 
+  final DataRepository _dataRepository = Get.find<DataRepository>();
   final LocalDataRepository _localDataRepository =
       Get.find<LocalDataRepository>();
 
@@ -54,9 +57,11 @@ class ElectionController extends GetxController {
   }
 
   void onContinueTap() async {
+    await _dataRepository.fetchLocalizations();
+
     final isOnboarded = await _localDataRepository.onBoarded;
     if (isOnboarded != null && isOnboarded) {
-      Get.back(result: true);
+      Get.offAllNamed(LanguageController.route);
       return;
     }
     Get.offAllNamed(EntranceController.route);

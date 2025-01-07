@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
@@ -26,8 +28,10 @@ class DataAPI {
 
   Future<LocalizationData?> fetchLocalizations() async {
     try {
-      final url = Uri.parse(
-          '${baseUrl}/${LanguageManager.currentLanguage}${localizationsEndpoint}');
+      final url = Uri.parse('${baseUrl}/'
+          '${LanguageManager.currentLanguage}'
+          '${localizationsEndpoint}?'
+          'election=${ElectionManager.currentElection.value.backend}');
       final response = await http.get(
         url,
         headers: headers,
@@ -38,7 +42,15 @@ class DataAPI {
       }
 
       var localization = LocalizationData.fromJson(json.decode(response.body));
-      DataManager().setLanguages(localization.languages);
+      print(ElectionManager.currentElection.value);
+      if (ElectionManager.currentElection.value == Election.DE) {
+        print('use hardcoded languages');
+        DataManager().setLanguages(json.decode(
+            '{"languages":[{"id":1,"name":"English","language_code":"en"},{"id":9,"name":"Deutsch","language_code":"de"},{"id":16,"name":"Nederlands","language_code":"nl"},{"id":2,"name":"Rom\u00e2n\u0103","language_code":"ro"},{"id":4,"name":"Espa\u00f1ol","language_code":"es-ES"},{"id":3,"name":"Fran\u00e7ais","language_code":"fr"}]}'));
+      } else {
+        print('use real languages');
+        DataManager().setLanguages(localization.languages);
+      }
       DataManager().setCountries(localization.countries);
       return localization;
     } catch (e) {

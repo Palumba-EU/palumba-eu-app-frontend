@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
@@ -12,7 +13,7 @@ class DataManager {
     return _singleton;
   }
 
-  List<Language>? languages;
+  Rxn<List<Language>> languages = Rxn();
   List<Country>? countries;
   List<Statement>? statements;
   List<PoliticParty>? parties;
@@ -20,11 +21,7 @@ class DataManager {
   List<Sponsor>? sponsors;
 
   void setLanguages(List<Language>? languages) {
-    this.languages = languages;
-  }
-
-  List<Language> getLanguages() {
-    return languages ?? [];
+    this.languages.value = languages;
   }
 
   void setCountries(List<Country>? countries) {

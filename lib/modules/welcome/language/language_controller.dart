@@ -17,15 +17,17 @@ class LanguageController extends GetxController {
 
   ScrollController scrollController = ScrollController();
 
-  List<Language>? _languages = DataManager().getLanguages();
+  Rxn<List<Language>> _languages = DataManager().languages;
 
-  List<Language>? get languages => _languages;
+  Rxn<List<Language>> get languages => _languages;
 
   RxInt indexSelected = 0.obs;
 
   @override
   void onInit() {
     super.onInit();
+    print('onInit');
+    print(_languages.value?.length != 0 ? _languages.value?.length : 'leer');
   }
 
   @override
@@ -38,14 +40,14 @@ class LanguageController extends GetxController {
    */
   void selectCurrentLanguage() {
     final currentLanguage = LanguageManager.currentLanguage;
-    final index = languages!
+    final index = _languages.value!
         .indexWhere((element) => element.languagecode == currentLanguage);
     if (index != -1) {
       indexSelected.value = index;
       _localDataRepository.language =
-          languages![indexSelected.value].languagecode!;
+          _languages.value![indexSelected.value].languagecode!;
       LanguageManager.setLanguage(
-          languages![indexSelected.value].languagecode!);
+          _languages.value![indexSelected.value].languagecode!);
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scrollController.animateTo((65 * index).toDouble(),
@@ -59,10 +61,12 @@ class LanguageController extends GetxController {
   void onLanguagePressed(int index) {
     indexSelected.value = index;
 
-    UserManager.setLanguageCode(languages![indexSelected.value].id!.toString());
-    LanguageManager.setLanguage(languages![indexSelected.value].languagecode!);
+    UserManager.setLanguageCode(
+        _languages.value![indexSelected.value].id!.toString());
+    LanguageManager.setLanguage(
+        _languages.value![indexSelected.value].languagecode!);
     _localDataRepository.language =
-        languages![indexSelected.value].languagecode!;
+        _languages.value![indexSelected.value].languagecode!;
   }
 
   void onContinueTap() async {
