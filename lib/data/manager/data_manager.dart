@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
