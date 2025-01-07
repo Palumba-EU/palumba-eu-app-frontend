@@ -4,6 +4,7 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
+import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -27,6 +28,7 @@ class LanguageController extends GetxController {
   void onInit() {
     super.onInit();
     print('onInit');
+    print(DataManager().getLanguages().length);
     print(_languages?.length != 0 ? _languages?.length : 'leer');
   }
 
@@ -69,6 +71,12 @@ class LanguageController extends GetxController {
 
   void onContinueTap() async {
     _dataRepository.fetchStatements();
+
+    final args = Get.arguments;
+    if (args == 'fromElection') {
+      Get.offAllNamed(SettingsPageController.route);
+      return;
+    }
 
     final isOnboarded = await _localDataRepository.onBoarded;
     if (isOnboarded != null && isOnboarded) {

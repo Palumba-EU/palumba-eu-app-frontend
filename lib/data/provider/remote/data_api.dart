@@ -44,11 +44,9 @@ class DataAPI {
       var localization = LocalizationData.fromJson(json.decode(response.body));
       print(ElectionManager.currentElection.value);
       if (ElectionManager.currentElection.value == Election.DE) {
-        print('use hardcoded languages');
-        DataManager().setLanguages(json.decode(
-            '{"languages":[{"id":1,"name":"English","language_code":"en"},{"id":9,"name":"Deutsch","language_code":"de"},{"id":16,"name":"Nederlands","language_code":"nl"},{"id":2,"name":"Rom\u00e2n\u0103","language_code":"ro"},{"id":4,"name":"Espa\u00f1ol","language_code":"es-ES"},{"id":3,"name":"Fran\u00e7ais","language_code":"fr"}]}'));
+        var subset = localization.languages?.sublist(0, 3);
+        DataManager().setLanguages(subset);
       } else {
-        print('use real languages');
         DataManager().setLanguages(localization.languages);
       }
       DataManager().setCountries(localization.countries);
