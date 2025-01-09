@@ -53,6 +53,7 @@ dependencies:
 
   # Reporting Modules
   sentry_flutter: ^8.0.0
+  device_region: ^1.4.0
 
 dev_dependencies:
   flutter_test:
