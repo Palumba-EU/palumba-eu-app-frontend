@@ -1,6 +1,7 @@
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
@@ -26,21 +27,22 @@ void main() async {
 
   LanguageManager.init();
 
+  ElectionManager.init();
+
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
   await SentryFlutter.init(
-        (options) {
-      options.dsn = 'https://ff251d1b11055ec64c0058fa8f31f45c@sentry.palumba-app.palumba.eu/4';
+    (options) {
+      options.dsn =
+          'https://ff251d1b11055ec64c0058fa8f31f45c@sentry.palumba-app.palumba.eu/4';
       // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
       // We recommend adjusting this value in production.
       options.tracesSampleRate = 1.0;
     },
-    appRunner: () => {
-          runApp(MyApp())
-    },
+    appRunner: () => {runApp(MyApp())},
   );
 }
 

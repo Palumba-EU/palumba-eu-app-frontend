@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:device_region/device_region.dart';
 
 class ElectionManager {
   static final Rx<Election> currentElection = Election.EU.obs;
@@ -19,8 +19,7 @@ class ElectionManager {
   static setupElection() async {
     // returned AT => need to test it for DE
     var election = await getSavedElection();
-    var countryCode =
-        WidgetsBinding.instance.platformDispatcher.locale.countryCode;
+    var countryCode = await DeviceRegion.getSIMCountryCode();
 
     if (election != null) {
       currentElection.value = election;
@@ -43,6 +42,8 @@ class ElectionManager {
   static Future<Election?> getSavedElection() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var enumString = sharedPreferences.getString(keyElection);
-    return Election.values.firstWhere((e) => e.toString() == enumString);
+    return enumString != null
+        ? Election.values.firstWhere((e) => e.toString() == enumString)
+        : null;
   }
 }
