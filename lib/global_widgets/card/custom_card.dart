@@ -127,6 +127,7 @@ class CustomCard extends StatelessWidget {
   Widget flipCard(List<StatelessWidget> pages, BuildContext context) {
     return FlipCard(
         controller: flipCcardController,
+        flipOnTouch: card?.enableCardFlip ?? true,
         direction: FlipDirection.HORIZONTAL, // Flip direction
         front: aCard(pages[0], context),
         back: aCard(pages[1], context));

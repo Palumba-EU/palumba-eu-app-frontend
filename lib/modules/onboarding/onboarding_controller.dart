@@ -225,7 +225,7 @@ class OnboardingController extends GetxController {
 
       if (onBoarded == true) {
         try {
-          _cardData = StatementsParser.getIntroCard(Get.context!);
+          _cardData = StatementsParser.getIntroCard(Get.context!, false);
         } catch (e) {
           debugPrint(e.toString());
         }

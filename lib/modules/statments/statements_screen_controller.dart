@@ -134,7 +134,7 @@ class StatementsController extends GetxController {
     } catch (e) {}
 
     _currentCards.addAll(StatementsParser.getCardModelList(statements));
-    _currentCards.insert(0, StatementsParser.getIntroCard(Get.context!));
+    _currentCards.insert(0, StatementsParser.getIntroCard(Get.context!, true));
     // .toList() makes copy, otherwise just a ref
     _allCards = _currentCards.toList();
 

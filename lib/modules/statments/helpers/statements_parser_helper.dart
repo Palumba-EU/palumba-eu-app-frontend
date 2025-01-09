@@ -43,17 +43,21 @@ class StatementsParser {
         emojis: statement.emojis ?? '',
         mainQuestion: statement.statement ?? '<p>No data</p>',
         details: statement.details ?? '<p>No definition</p>',
+        isOnboardingCard: true,
+        enableCardFlip: true,
       ));
     }
     return cards;
   }
 
-  static CardModel getIntroCard(BuildContext context) {
+  static CardModel getIntroCard(BuildContext context, bool enableCardFlip) {
     // context later need for translated strings
     return CardModel(
         id: -1,
         emojis: "",
         mainQuestion: S.of(context).onBoardingCardQuestion,
-        details: "OnboardingDetails");
+        details: "OnboardingDetails",
+        isOnboardingCard: true,
+        enableCardFlip: enableCardFlip);
   }
 }
