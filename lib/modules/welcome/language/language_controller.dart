@@ -27,9 +27,6 @@ class LanguageController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    print('onInit');
-    print(DataManager().getLanguages().length);
-    print(_languages?.length != 0 ? _languages?.length : 'leer');
   }
 
   @override

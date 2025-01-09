@@ -42,7 +42,6 @@ class DataAPI {
       }
 
       var localization = LocalizationData.fromJson(json.decode(response.body));
-      print(ElectionManager.currentElection.value);
       if (ElectionManager.currentElection.value == Election.DE) {
         var subset = localization.languages?.sublist(0, 3);
         DataManager().setLanguages(subset);
