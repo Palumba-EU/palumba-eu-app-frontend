@@ -24,7 +24,6 @@ class CustomCard extends StatelessWidget {
     required this.angleCard,
     required this.positionCard,
     required this.bgPosition,
-    this.currentCardIndex,
     this.isOnboardingCard = false,
     this.onSkipTap,
     this.scale,
@@ -44,7 +43,6 @@ class CustomCard extends StatelessWidget {
   final double angleCard;
   final Rx<Offset> positionCard;
   final Rx<Offset> bgPosition;
-  final Rx<int>? currentCardIndex;
   final bool isOnboardingCard;
   final Function()? onSkipTap;
   final double? scale;
@@ -129,6 +127,7 @@ class CustomCard extends StatelessWidget {
   Widget flipCard(List<StatelessWidget> pages, BuildContext context) {
     return FlipCard(
         controller: flipCcardController,
+        flipOnTouch: card?.enableCardFlip ?? true,
         direction: FlipDirection.HORIZONTAL, // Flip direction
         front: aCard(pages[0], context),
         back: aCard(pages[1], context));

@@ -1,9 +1,6 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -21,7 +18,7 @@ class CustomHeader extends StatelessWidget {
 
   Function()? homeTap;
   Function()? backTap;
-  final RxBool isBackButtonActive;
+  final bool isBackButtonActive;
 
   @override
   Widget build(BuildContext context) {
@@ -33,62 +30,64 @@ class CustomHeader extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Obx(
-                () => Opacity(
-                  opacity: isBackButtonActive.value ? 1 : 0,
-                  child: Transform.rotate(
-                    angle: -pi * .06,
-                    child: InkWell(
-                      onTap: backTap,
-                      child: Container(
-                        height: 32,
-                        width: 40,
-                        margin: EdgeInsets.only(
-                            top: AppDimens.smallLateralPaddingValue * 1.5),
-                        decoration: BoxDecoration(
-                          color: AppColors.lightPrimary,
-                          borderRadius: BorderRadius.circular(
-                              AppDimens.largeBorderRadius),
-                        ),
-                        child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: SvgPicture.asset(
-                                'assets/images/ic_arrow_back.svg')),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              isBackButtonActive
+                  ? backButton(32, 40)
+                  : Container(height: 32, width: 40),
               AppTexts.title(S.of(context).shortAppName,
                   forceCaprasimo: true, fontSize: 32, color: AppColors.primary),
-              InkWell(
-                onTap: homeTap,
-                child: Transform.rotate(
-                  angle: pi * .06,
-                  child: Container(
-                    margin: EdgeInsets.only(
-                        top: AppDimens.smallLateralPaddingValue * 1.5),
-                    height: 32,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: AppColors.lightPrimary,
-                      borderRadius:
-                          BorderRadius.circular(AppDimens.largeBorderRadius),
-                    ),
-                    child: Transform.rotate(
-                      angle: -pi * .06,
-                      child: Padding(
-                          padding: EdgeInsets.all(6),
-                          child: SvgPicture.asset('assets/images/ic_home.svg')),
-                    ),
-                  ),
-                ),
-              ),
+              homeButton(),
             ],
           ),
         ),
         CustomSpacer(multiplier: 2),
       ],
+    );
+  }
+
+  Widget backButton(double height, double width) {
+    return Transform.rotate(
+      angle: -pi * .06,
+      child: InkWell(
+        onTap: backTap,
+        child: Container(
+          height: height,
+          width: width,
+          margin:
+              EdgeInsets.only(top: AppDimens.smallLateralPaddingValue * 1.5),
+          decoration: BoxDecoration(
+            color: AppColors.lightPrimary,
+            borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
+          ),
+          child: Padding(
+              padding: EdgeInsets.all(8),
+              child: SvgPicture.asset('assets/images/ic_arrow_back.svg')),
+        ),
+      ),
+    );
+  }
+
+  Widget homeButton() {
+    return InkWell(
+      onTap: homeTap,
+      child: Transform.rotate(
+        angle: pi * .06,
+        child: Container(
+          margin:
+              EdgeInsets.only(top: AppDimens.smallLateralPaddingValue * 1.5),
+          height: 32,
+          width: 40,
+          decoration: BoxDecoration(
+            color: AppColors.lightPrimary,
+            borderRadius: BorderRadius.circular(AppDimens.largeBorderRadius),
+          ),
+          child: Transform.rotate(
+            angle: -pi * .06,
+            child: Padding(
+                padding: EdgeInsets.all(6),
+                child: SvgPicture.asset('assets/images/ic_home.svg')),
+          ),
+        ),
+      ),
     );
   }
 }

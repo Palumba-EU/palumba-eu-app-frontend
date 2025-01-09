@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ import 'package:palumba_eu/modules/results/loading/loading_results_controller.da
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
-import 'package:palumba_eu/utils/string_utils.dart';
 
 enum _WidthScreenPart { maxLeft, middleLeft, center, middleRight, maxRight }
 
@@ -22,15 +20,12 @@ class StatementsController extends GetxController {
   static const route = '/statements';
   final String cardStackKey = "cardStackKey";
 
-  List<CardModel?> _currentCards = [];
+  List<CardModel> _allCards = [];
+  List<CardModel> _currentCards = [];
   CardModel? get firstCard =>
       _currentCards.length > 0 ? _currentCards[0] : null;
   CardModel? get secondCard =>
       _currentCards.length > 1 ? _currentCards[1] : null;
-
-//Flag to decide if previous button is shown or not
-  RxBool _previousCardButtonActivated = false.obs;
-  RxBool get previousCardButtonActivated => _previousCardButtonActivated;
 
 ///////////////////////////////////
 ///////////////////////////////////
@@ -90,9 +85,6 @@ class StatementsController extends GetxController {
   RxBool _neutralButtonSelected = false.obs;
   bool get neutralButtonSelected => _neutralButtonSelected.value;
 
-  RxInt _currentCardIndex = 0.obs;
-  RxInt get currentCardIndex => _currentCardIndex;
-
   RxBool _fromOnboarding = false.obs;
   bool get fromOnboarding => _fromOnboarding.value;
 
@@ -122,14 +114,8 @@ class StatementsController extends GetxController {
       // remove questions that have already been answered
       UserManager.userData.answers.forEach((userAnswer) {
         _currentCards
-            .removeWhere((card) => answeredQuestionIds.contains(card?.id));
+            .removeWhere((card) => answeredQuestionIds.contains(card.id));
       });
-      final currentIndex = DataManager()
-          .getStatements()
-          .indexWhere((e) => e.id == firstCard!.id);
-      if (currentIndex != 0) {
-        _previousCardButtonActivated.value = true;
-      }
     }
 
     //Set test is started
@@ -143,18 +129,15 @@ class StatementsController extends GetxController {
   }
 
   Future<void> _getArgumentsAndFetch() async {
-    final args = Get.arguments;
-
-    try {
-      _fromOnboarding.value = args[StringUtils.fromOnboardingKey] as bool;
-      _currentCards.add(null);
-      _loadingQuestions.value = false;
-    } catch (e) {}
     try {
       _statementsData = DataManager().getStatements();
     } catch (e) {}
 
     _currentCards.addAll(StatementsParser.getCardModelList(statements));
+    _currentCards.insert(0, StatementsParser.getIntroCard(Get.context!, true));
+    // .toList() makes copy, otherwise just a ref
+    _allCards = _currentCards.toList();
+
     update([cardStackKey]);
     _loadingQuestions.value = false;
   }
@@ -276,7 +259,6 @@ class StatementsController extends GetxController {
     _agrementButtonSelected.value = false;
     _stronglyAgrementButtonSelected.value = false;
     _buttonsBlocked.value = false;
-    _currentCardIndex.value = 0;
   }
 
 //When card is dragged handle wich button is selected depending on the part of the screen user drops the card
@@ -399,9 +381,6 @@ class StatementsController extends GetxController {
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
-    if (!_fromOnboarding.value) {
-      _previousCardButtonActivated.value = true;
-    }
     if (_fromOnboarding.value) {
       _fromOnboarding.value = false;
     }
@@ -490,7 +469,7 @@ class StatementsController extends GetxController {
   storeAnswerData(StatementResponse answer) {
     if (fromOnboarding) return;
     try {
-      UserManager.addStatment(firstCard!.id!, answer);
+      UserManager.addStatment(firstCard!.id, answer);
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -506,25 +485,23 @@ class StatementsController extends GetxController {
   }
 
   returnToPreviousCard() {
+    if (firstCard == null) {
+      debugPrint("first card was null");
+      return;
+    }
+
     try {
-      final allStatementsList = DataManager().getStatements();
-      final currentIndex =
-          allStatementsList.indexWhere((e) => e.id == firstCard!.id);
+      final currentIndex = _allCards.indexWhere((e) => e.id == firstCard!.id);
 
       if (currentIndex >= 1) {
-        _currentCards.insert(
-            0,
-            StatementsParser.getCardModelList(
-                allStatementsList)[currentIndex - 1]);
+        _currentCards.insert(0, _allCards[currentIndex - 1]);
         resetAnimation();
         update([cardStackKey]);
         UserManager.deleteLastStatement();
       }
-
-      if (currentIndex == 1) {
-        _previousCardButtonActivated.value = false;
-      }
-    } catch (e) {}
+    } catch (e) {
+      debugPrint("error returnToPreviousCard");
+    }
   }
 
   Color getBackgroundColor() {

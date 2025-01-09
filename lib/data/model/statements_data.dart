@@ -22,20 +22,20 @@ class StatementsData {
 }
 
 class Statement {
-  int? id;
-  String? statement;
-  String? details;
-  String? footnote;
-  String? emojis;
-  List<Weight>? weights;
+  late int id;
+  late String statement;
+  late String details;
+  late String footnote;
+  late String emojis;
+  late List<Weight> weights;
 
   Statement({
-    this.id,
-    this.statement,
-    this.details,
-    this.footnote,
-    this.emojis,
-    this.weights,
+    required this.id,
+    required this.statement,
+    required this.details,
+    required this.footnote,
+    required this.emojis,
+    required this.weights,
   });
 
   Statement.fromJson(Map<String, dynamic> json) {
@@ -47,7 +47,7 @@ class Statement {
     if (json['weights'] != null) {
       weights = <Weight>[];
       json['weights'].forEach((v) {
-        weights!.add(new Weight.fromJson(v));
+        weights.add(new Weight.fromJson(v));
       });
     }
   }
@@ -59,9 +59,7 @@ class Statement {
     data['details'] = this.details;
     data['footnote'] = this.footnote;
     data['emojis'] = this.emojis;
-    if (this.weights != null) {
-      data['weights'] = this.weights!.map((v) => v.toJson()).toList();
-    }
+    data['weights'] = this.weights.map((v) => v.toJson()).toList();
     return data;
   }
 }
