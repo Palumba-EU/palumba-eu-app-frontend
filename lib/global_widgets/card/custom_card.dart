@@ -118,7 +118,7 @@ class CustomCard extends StatelessWidget {
                                   ),
                                   child: pages.length > 1
                                       ? flipCard(pages, context)
-                                      : aCard(pages[1], context)));
+                                      : aCard(pages[0], context)));
                         },
                       ))),
         ));
