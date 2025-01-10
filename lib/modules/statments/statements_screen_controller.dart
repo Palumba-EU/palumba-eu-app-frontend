@@ -62,28 +62,8 @@ class StatementsController extends GetxController {
   RxBool get isPanStarted => _isPanStarted;
 
 //This define if card is dragged in a buttone zone
-  RxBool _isZoneButtonEntered = false.obs;
-  RxBool get isZoneButtonEntered => _isZoneButtonEntered;
-
-//The next 5 variables define wich button is Selected
-  RxBool _stronglyDisagrementButtonSelected = false.obs;
-  bool get stronglyDisagrementButtonSelected =>
-      _stronglyDisagrementButtonSelected.value;
-
-  RxBool _disagrementButtonSelected = false.obs;
-  bool get disagrementButtonSelected => _disagrementButtonSelected.value;
-
-  RxBool _stronglyAgrementButtonSelected = false.obs;
-  bool get stronglyAgrementButtonSelected =>
-      _stronglyAgrementButtonSelected.value;
-
-  RxBool _agrementButtonSelected = false.obs;
-  bool get agrementButtonSelected => _agrementButtonSelected.value;
-
-  Rxn<StatementResponse> currentHoveredStatement = Rxn();
-
-  RxBool _neutralButtonSelected = false.obs;
-  bool get neutralButtonSelected => _neutralButtonSelected.value;
+  Rxn<StatementResponse> currentDraggedResponseStatement = Rxn();
+  Rxn<StatementResponse> selectedResponseStatement = Rxn();
 
   RxBool _fromOnboarding = false.obs;
   bool get fromOnboarding => _fromOnboarding.value;
@@ -147,7 +127,7 @@ class StatementsController extends GetxController {
   }
 
   void onPanUpdate(DragUpdateDetails details) {
-    currentHoveredStatement.value = _checkActionSelected();
+    currentDraggedResponseStatement.value = _checkActionSelected();
     _setAngle(details);
     _frontCardposition.value +=
         Offset(details.delta.dx * .65, details.delta.dy * .65);
@@ -212,25 +192,7 @@ class StatementsController extends GetxController {
   void onLongPressButton(
     StatementResponse? decision,
   ) {
-    switch (decision) {
-      case StatementResponse.stronglyAgree:
-        _stronglyAgrementButtonSelected.value = true;
-
-        break;
-      case StatementResponse.agree:
-        _agrementButtonSelected.value = true;
-        break;
-      case StatementResponse.disagree:
-        _disagrementButtonSelected.value = true;
-        break;
-      case StatementResponse.stronglyDisagree:
-        _stronglyDisagrementButtonSelected.value = true;
-        break;
-      case StatementResponse.neutral:
-        break;
-      default:
-        break;
-    }
+    selectedResponseStatement.value = decision;
   }
 
 //Handle animation after a user drag a card without selecting a button
@@ -251,10 +213,7 @@ class StatementsController extends GetxController {
     _backCardPosition.value = bgPositionDefault;
     _angle.value = 0;
     _cardAnimationDuration.value = 0;
-    _stronglyDisagrementButtonSelected.value = false;
-    _disagrementButtonSelected.value = false;
-    _agrementButtonSelected.value = false;
-    _stronglyAgrementButtonSelected.value = false;
+    selectedResponseStatement.value = null;
     _buttonsBlocked.value = false;
   }
 
@@ -382,37 +341,37 @@ class StatementsController extends GetxController {
   }
 
   void onTapNeutralButton() async {
-    _neutralButtonSelected.value = true;
+    selectedResponseStatement.value = StatementResponse.neutral;
     await neutralAnimation();
-    _neutralButtonSelected.value = false;
+    selectedResponseStatement.value = null;
     nextCard();
   }
 
   void onTapStronglyDisagrementButton() async {
-    _stronglyDisagrementButtonSelected.value = true;
+    selectedResponseStatement.value = StatementResponse.stronglyDisagree;
     await disagreeAnimation();
-    _stronglyDisagrementButtonSelected.value = false;
+    selectedResponseStatement.value = null;
     nextCard();
   }
 
   void onTapDisagrementButton() async {
-    _disagrementButtonSelected.value = true;
+    selectedResponseStatement.value = StatementResponse.disagree;
     await disagreeAnimation();
-    _disagrementButtonSelected.value = false;
+    selectedResponseStatement.value = null;
     nextCard();
   }
 
   void onTapAgrementButton() async {
-    _agrementButtonSelected.value = true;
+    selectedResponseStatement.value = StatementResponse.agree;
     await agreeAnimation();
-    _agrementButtonSelected.value = false;
+    selectedResponseStatement.value = null;
     nextCard();
   }
 
   void onTapStronglyAgrementButton() async {
-    _stronglyAgrementButtonSelected.value = true;
+    selectedResponseStatement.value = StatementResponse.stronglyAgree;
     await agreeAnimation();
-    _stronglyAgrementButtonSelected.value = false;
+    selectedResponseStatement.value = null;
     nextCard();
   }
 

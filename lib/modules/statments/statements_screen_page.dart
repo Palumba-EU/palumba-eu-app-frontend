@@ -118,8 +118,8 @@ class StatementsPage extends GetView<StatementsController> {
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
                           isOnboardingCard: controller.fromOnboarding,
-                          currentHoveredStatement:
-                              controller.currentHoveredStatement,
+                          currentDraggedResponseStatement:
+                              controller.currentDraggedResponseStatement,
                           flipCcardController: controller.flipCardcontroller,
                         ),
                       )
@@ -162,12 +162,12 @@ class StatementsPage extends GetView<StatementsController> {
                                             : () => controller.activateButton(
                                                 StatementResponse.neutral),
                                         color: controller
-                                                    .currentHoveredStatement ==
+                                                    .currentDraggedResponseStatement ==
                                                 StatementResponse.neutral
                                             ? AppColors.lightPrimary
                                             : AppColors.primary,
                                         textColor: controller
-                                                    .currentHoveredStatement ==
+                                                    .currentDraggedResponseStatement ==
                                                 StatementResponse.neutral
                                             ? AppColors.primary
                                             : AppColors.text,

@@ -23,7 +23,7 @@ class CustomCard extends StatelessWidget {
     required this.cardAnimationDuration,
     required this.angleCard,
     required this.position,
-    this.currentHoveredStatement,
+    this.currentDraggedResponseStatement,
     this.isOnboardingCard = false,
     this.onBoardingButtonSelected,
     this.flipCcardController,
@@ -39,7 +39,7 @@ class CustomCard extends StatelessWidget {
   final double angleCard;
   final Rx<Offset> position;
   final bool isOnboardingCard;
-  final Rxn<StatementResponse>? currentHoveredStatement;
+  final Rxn<StatementResponse>? currentDraggedResponseStatement;
   final StatementResponse? onBoardingButtonSelected;
   final FlipCardController? flipCcardController;
 
@@ -125,7 +125,7 @@ class CustomCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Obx(() => Container(
-          color: backgroundColor(currentHoveredStatement?.value) ??
+          color: backgroundColor(currentDraggedResponseStatement?.value) ??
               Theme.of(context).colorScheme.primary,
           child: Padding(
             padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
