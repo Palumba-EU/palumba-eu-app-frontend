@@ -10,7 +10,6 @@ import 'package:flutter/services.dart';
 import 'modules/splash/splash_binding.dart';
 import 'utils/common_ui/app_theme_data.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-
 import 'utils/managers/language_manager.dart';
 
 class EnvironmentConfig {

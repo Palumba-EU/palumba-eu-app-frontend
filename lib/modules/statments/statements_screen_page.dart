@@ -78,7 +78,7 @@ class StatementsPage extends GetView<StatementsController> {
                                   backTap: () =>
                                       controller.returnToPreviousCard(),
                                   isBackButtonActive:
-                                      controller.firstCard?.id != -1,
+                                      controller.frontCard?.id != -1,
                                 )),
                       ),
                     ),
@@ -89,17 +89,16 @@ class StatementsPage extends GetView<StatementsController> {
           GetBuilder<StatementsController>(
             id: controller.cardStackKey,
             init: controller,
-            builder: (controller) => (controller.firstCard != null)
+            builder: (controller) => (controller.frontCard != null)
                 ? Stack(
                     children: [
-                      if (controller.secondCard != null)
+                      if (controller.backCard != null)
                         // card in background
                         CustomCard(
-                          isFirstCard: false,
-                          card: controller.secondCard,
+                          isFrontCard: false,
+                          card: controller.backCard,
                           angleCard: controller.angle,
-                          positionCard: controller.position,
-                          bgPosition: controller.bgPosition,
+                          position: controller.backCardPosition,
                           isPanStarted: controller.isPanStarted,
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
@@ -108,20 +107,19 @@ class StatementsPage extends GetView<StatementsController> {
                       Obx(
                         // main card
                         () => CustomCard(
-                          isFirstCard: true,
-                          card: controller.firstCard,
+                          isFrontCard: true,
+                          card: controller.frontCard,
                           onPanStart: controller.onPanStart,
                           onPanUpdate: controller.onPanUpdate,
                           onPanEnd: controller.onPanEnd,
                           angleCard: controller.angle,
-                          positionCard: controller.position,
-                          bgPosition: controller.bgPosition,
+                          position: controller.frontCardposition,
                           isPanStarted: controller.isPanStarted,
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
                           isOnboardingCard: controller.fromOnboarding,
-                          selectedBackgroundColor:
-                              controller.getBackgroundColor(),
+                          currentHoveredStatement:
+                              controller.currentHoveredStatement,
                           flipCcardController: controller.flipCardcontroller,
                         ),
                       )
@@ -163,14 +161,16 @@ class StatementsPage extends GetView<StatementsController> {
                                             ? null
                                             : () => controller.activateButton(
                                                 StatementResponse.neutral),
-                                        color: AppColors.primary,
-                                        // controller.neutralButtonSelected
-                                        //     ? AppColors.lightPrimary
-                                        //     : AppColors.primary,
-                                        textColor: AppColors.text,
-                                        // controller.neutralButtonSelected
-                                        //     ? AppColors.primary
-                                        //     : AppColors.text,
+                                        color: controller
+                                                    .currentHoveredStatement ==
+                                                StatementResponse.neutral
+                                            ? AppColors.lightPrimary
+                                            : AppColors.primary,
+                                        textColor: controller
+                                                    .currentHoveredStatement ==
+                                                StatementResponse.neutral
+                                            ? AppColors.primary
+                                            : AppColors.text,
                                         radius: AppDimens.largeBorderRadius,
                                         border: ButtonBorderParameters(
                                             color: AppColors.lightPrimary,

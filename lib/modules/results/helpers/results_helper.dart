@@ -35,8 +35,8 @@ class PartyUserDistance {
 }
 
 class ResultsHelper {
-
-  static List<PartyUserDistance> getPartyUserDistances(List<Answer> userAnswers) {
+  static List<PartyUserDistance> getPartyUserDistances(
+      List<Answer> userAnswers) {
     var parties = DataManager().getParties();
     List<PartyUserDistance> groupDistances = [];
 
@@ -44,18 +44,14 @@ class ResultsHelper {
     for (final PoliticParty party in parties) {
       final partyAnswers = party.answers ?? [];
       //Calculate max distance
-      userAnswers
-          .where((element) => element.answer != StatementResponse.skip)
-          .toList();
-      int numStatements = party.answers?.length ??
-          0;
+      int numStatements = party.answers?.length ?? 0;
       List<Answer> maxDisagreeAnswers = List<Answer>.generate(
           numStatements,
-              (index) => Answer(
+          (index) => Answer(
               statementId: index, answer: StatementResponse.stronglyDisagree));
       List<Answer> maxAgreeAnswers = List<Answer>.generate(
           numStatements,
-              (index) => Answer(
+          (index) => Answer(
               statementId: index, answer: StatementResponse.stronglyAgree));
       int maxDistance = calculateDistance(maxAgreeAnswers, maxDisagreeAnswers);
 
@@ -78,13 +74,11 @@ class ResultsHelper {
     return groupDistances;
   }
 
-  static int calculateDistance(List<Answer> userAnswers, List<Answer> epGroupAnswers) {
+  static int calculateDistance(
+      List<Answer> userAnswers, List<Answer> epGroupAnswers) {
     int totalDistance = 0;
     int answersCount = 0;
     for (int i = 0; i < userAnswers.length; i++) {
-      if (userAnswers[i] == StatementResponse.skip) {
-        continue;
-      }
       //Check if user statment is in the party answers
       if (!epGroupAnswers
           .any((answer) => answer.statementId == userAnswers[i].statementId)) {
@@ -92,7 +86,7 @@ class ResultsHelper {
       }
       answersCount++;
       Answer matchingAnswer = epGroupAnswers.firstWhere(
-            (answer) => answer.statementId == userAnswers[i].statementId,
+        (answer) => answer.statementId == userAnswers[i].statementId,
       );
       int statementDistance = ResultsHelper.likertDistance(
         userAnswers[i].answer,
@@ -130,7 +124,7 @@ class ResultsHelper {
     double total = 0;
 
     for (var statement in DataManager().getStatements()) {
-      var answerStatement = byStatementId(answers, statement.id!);
+      var answerStatement = byStatementId(answers, statement.id);
 
       if (answerStatement == null) {
         continue;
@@ -146,7 +140,7 @@ class ResultsHelper {
         StatementResponse.stronglyAgree: 1.0
       }[answer]!;
       var dimensionWeight =
-          byTopicId(statement.weights ?? [], topicId)?.weight ?? 0.0;
+          byTopicId(statement.weights, topicId)?.weight ?? 0.0;
       total += factor * dimensionWeight;
     }
 
@@ -158,7 +152,7 @@ class ResultsHelper {
 
     for (var statement in DataManager().getStatements()) {
       var dimensionWeight =
-          byTopicId(statement.weights ?? [], topicId)?.weight ?? 0.0;
+          byTopicId(statement.weights, topicId)?.weight ?? 0.0;
       total += dimensionWeight.abs();
     }
 

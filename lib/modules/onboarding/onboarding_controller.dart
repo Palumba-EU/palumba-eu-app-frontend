@@ -9,7 +9,6 @@ import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
-import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -364,20 +363,6 @@ class OnboardingController extends GetxController {
     await Future.delayed(onBoardingTimeAnimation);
     buttonEventSelected.value = null;
     _stronglyAgrementButtonSelected.value = false;
-  }
-
-  Color getBackgroundColor() {
-    if (stronglyAgrementButtonSelected) {
-      return AppColors.green;
-    } else if (stronglyAgrementButtonSelected) {
-      return AppColors.lightGreen;
-    } else if (stronglyDisagrementButtonSelected) {
-      return AppColors.lightYellow;
-    } else if (stronglyDisagrementButtonSelected) {
-      return AppColors.yellow;
-    } else {
-      return AppColors.lightPrimary;
-    }
   }
 
   Future<bool> delay(int milliseconds) async {

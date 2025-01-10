@@ -45,12 +45,8 @@ class UserData {
         "language_code": languageCode,
         "gender": gender,
         "answers": List<Map<String, dynamic>>.from(answers.map((x) {
-          //Make sure to parse only the answers that are not skipped
-          if (x.answer != StatementResponse.skip) {
-            return x.toJson();
-          }
-          return null;
-        }).where((x) => x != null))
+          return x.toJson();
+        }))
       };
 }
 
@@ -104,6 +100,6 @@ StatementResponse _valuesToStatementResponse(num value) {
     case 1:
       return StatementResponse.stronglyAgree;
     default:
-      return StatementResponse.skip;
+      return StatementResponse.neutral;
   }
 }

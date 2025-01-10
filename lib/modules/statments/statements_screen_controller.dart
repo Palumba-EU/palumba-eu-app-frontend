@@ -9,7 +9,6 @@ import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
-import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 enum _WidthScreenPart { maxLeft, middleLeft, center, middleRight, maxRight }
@@ -22,10 +21,9 @@ class StatementsController extends GetxController {
 
   List<CardModel> _allCards = [];
   List<CardModel> _currentCards = [];
-  CardModel? get firstCard =>
+  CardModel? get frontCard =>
       _currentCards.length > 0 ? _currentCards[0] : null;
-  CardModel? get secondCard =>
-      _currentCards.length > 1 ? _currentCards[1] : null;
+  CardModel? get backCard => _currentCards.length > 1 ? _currentCards[1] : null;
 
 ///////////////////////////////////
 ///////////////////////////////////
@@ -43,12 +41,12 @@ class StatementsController extends GetxController {
   StatementResponse get selectedButton => _statementResponse;
 
 //This is front card position
-  final Rx<Offset> _position = Offset(0, 0).obs;
-  Rx<Offset> get position => _position;
+  final Rx<Offset> _frontCardposition = Offset(0, 0).obs;
+  Rx<Offset> get frontCardposition => _frontCardposition;
 
 //This is back card position
-  final Rx<Offset> _bgPosition = Offset(0, 0).obs;
-  Rx<Offset> get bgPosition => _bgPosition;
+  final Rx<Offset> _backCardPosition = Offset(0, 0).obs;
+  Rx<Offset> get backCardPosition => _backCardPosition;
 
   final Offset positionDefault =
       Offset(Get.width * .25, (Get.height * .9) * .28);
@@ -81,6 +79,8 @@ class StatementsController extends GetxController {
 
   RxBool _agrementButtonSelected = false.obs;
   bool get agrementButtonSelected => _agrementButtonSelected.value;
+
+  Rxn<StatementResponse> currentHoveredStatement = Rxn();
 
   RxBool _neutralButtonSelected = false.obs;
   bool get neutralButtonSelected => _neutralButtonSelected.value;
@@ -147,21 +147,22 @@ class StatementsController extends GetxController {
   }
 
   void onPanUpdate(DragUpdateDetails details) {
-    _checkActionSelected();
+    currentHoveredStatement.value = _checkActionSelected();
     _setAngle(details);
-    _position.value += Offset(details.delta.dx * .65, details.delta.dy * .65);
+    _frontCardposition.value +=
+        Offset(details.delta.dx * .65, details.delta.dy * .65);
     _setBackgroundCardPosition();
   }
 
   void _setAngle(DragUpdateDetails details) {
-    final x = _position.value.dx + details.delta.dx;
+    final x = _frontCardposition.value.dx + details.delta.dx;
     final centerX = Get.width * .25;
     final difference = x - centerX;
     _angle.value = -difference / centerX * 8;
   }
 
   void _setBackgroundCardPosition() {
-    final y = _position.value.dy;
+    final y = _frontCardposition.value.dy;
     var screeHeight = (Get.height * .9);
     // Calculate the distance from the center of the screen
     final distanceFromCenter = (y - Get.height * .25).abs();
@@ -170,7 +171,7 @@ class StatementsController extends GetxController {
         distanceFromCenter / (Get.height * .25));
     final bgY =
         (mappedY ?? y) < screeHeight * .28 ? screeHeight * .28 : mappedY;
-    _bgPosition.value = Offset(Get.width * .25, bgY!);
+    _backCardPosition.value = Offset(Get.width * .25, bgY!);
   }
 
   void onPanEnd(DragEndDetails details) {
@@ -236,8 +237,8 @@ class StatementsController extends GetxController {
   void _nothingHappen() async {
     _buttonsBlocked.value = true;
     _cardAnimationDuration.value = 250;
-    _position.value = positionDefault;
-    _bgPosition.value = bgPositionDefault;
+    _frontCardposition.value = positionDefault;
+    _backCardPosition.value = bgPositionDefault;
     _angle.value = 0;
     await Future.delayed(Duration(milliseconds: 250));
     _cardAnimationDuration.value = 0;
@@ -246,8 +247,8 @@ class StatementsController extends GetxController {
 
 //Reset all animations and set cards in the initial position
   void resetAnimation() {
-    _position.value = positionDefault;
-    _bgPosition.value = bgPositionDefault;
+    _frontCardposition.value = positionDefault;
+    _backCardPosition.value = bgPositionDefault;
     _angle.value = 0;
     _cardAnimationDuration.value = 0;
     _stronglyDisagrementButtonSelected.value = false;
@@ -259,87 +260,38 @@ class StatementsController extends GetxController {
 
 //When card is dragged handle wich button is selected depending on the part of the screen user drops the card
   StatementResponse? _checkActionSelected() {
-    final widthPart = currentWidthScreeenPart(_position.value.dx);
+    final widthPart = currentWidthScreeenPart(_frontCardposition.value.dx);
     final heightPart = currentHeightScreeenPart();
 
     switch (heightPart) {
       case _HeightScreenPart.bottom:
         switch (widthPart) {
           case _WidthScreenPart.maxLeft:
-            _stronglyDisagrementButtonSelected.value = true;
-            _disagrementButtonSelected.value = false;
-            _agrementButtonSelected.value = false;
-            _stronglyAgrementButtonSelected.value = false;
-            _isZoneButtonEntered.value = true;
             return StatementResponse.stronglyDisagree;
-
           case _WidthScreenPart.middleLeft:
-            _stronglyDisagrementButtonSelected.value = false;
-            _disagrementButtonSelected.value =
-                (_position.value.dy < Get.height * .35) ? false : true;
-            _agrementButtonSelected.value = false;
-            _stronglyAgrementButtonSelected.value = false;
-            _isZoneButtonEntered.value =
-                (_position.value.dy < Get.height * .35) ? false : true;
-            return (_position.value.dy < Get.height * .35)
+            return (_frontCardposition.value.dy < Get.height * .35)
                 ? null
                 : StatementResponse.disagree;
           case _WidthScreenPart.center:
             return null;
           case _WidthScreenPart.middleRight:
-            _stronglyDisagrementButtonSelected.value = false;
-            _disagrementButtonSelected.value = false;
-            _agrementButtonSelected.value =
-                (_position.value.dy < Get.height * .35) ? false : true;
-            _stronglyAgrementButtonSelected.value = false;
-            _isZoneButtonEntered.value =
-                (_position.value.dy < Get.height * .35) ? false : true;
-            return (_position.value.dy < Get.height * .35)
+            return (_frontCardposition.value.dy < Get.height * .35)
                 ? null
                 : StatementResponse.agree;
           case _WidthScreenPart.maxRight:
-            _stronglyDisagrementButtonSelected.value = false;
-            _disagrementButtonSelected.value = false;
-            _agrementButtonSelected.value = false;
-            _stronglyAgrementButtonSelected.value = true;
-            _isZoneButtonEntered.value = true;
             return StatementResponse.stronglyAgree;
         }
       case _HeightScreenPart.top:
-        _stronglyDisagrementButtonSelected.value = false;
-        _disagrementButtonSelected.value = false;
-        _agrementButtonSelected.value = false;
-        _stronglyAgrementButtonSelected.value = false;
-        _isZoneButtonEntered.value = true;
         if (widthPart == _WidthScreenPart.maxRight) {
-          _neutralButtonSelected.value = false;
-          _stronglyAgrementButtonSelected.value = true;
           return StatementResponse.stronglyAgree;
         } else if (widthPart == _WidthScreenPart.maxLeft) {
-          _neutralButtonSelected.value = false;
-          _stronglyDisagrementButtonSelected.value = true;
-
           return StatementResponse.stronglyDisagree;
         }
-        _neutralButtonSelected.value = true;
         return StatementResponse.neutral;
-
       default:
-        _stronglyDisagrementButtonSelected.value = false;
-        _disagrementButtonSelected.value = false;
-        _agrementButtonSelected.value = false;
-        _stronglyAgrementButtonSelected.value = false;
-        _neutralButtonSelected.value = false;
-        _isZoneButtonEntered.value = false;
         if (widthPart == _WidthScreenPart.maxRight) {
-          _neutralButtonSelected.value = false;
-          _stronglyAgrementButtonSelected.value = true;
-          _isZoneButtonEntered.value = true;
           return StatementResponse.stronglyAgree;
         } else if (widthPart == _WidthScreenPart.maxLeft) {
-          _neutralButtonSelected.value = false;
-          _stronglyDisagrementButtonSelected.value = true;
-          _isZoneButtonEntered.value = true;
           return StatementResponse.stronglyDisagree;
         }
         return null;
@@ -362,10 +314,10 @@ class StatementsController extends GetxController {
   }
 
   _HeightScreenPart currentHeightScreeenPart() {
-    if (_position.value.dy < Get.height * .15) {
+    if (_frontCardposition.value.dy < Get.height * .15) {
       return _HeightScreenPart.top;
-    } else if (_position.value.dy > Get.height * .15 &&
-        _position.value.dy < Get.height * .22) {
+    } else if (_frontCardposition.value.dy > Get.height * .15 &&
+        _frontCardposition.value.dy < Get.height * .22) {
       return _HeightScreenPart.middle;
     } else {
       return _HeightScreenPart.bottom;
@@ -389,12 +341,13 @@ class StatementsController extends GetxController {
     _buttonsBlocked.value = true;
     _isPanStarted.value = true;
     _cardAnimationDuration.value = _cardAnimationTime;
-    final x = _position.value.dx - (Get.width * .5);
+    final x = _frontCardposition.value.dx - (Get.width * .5);
     final centerX = Get.width * .25;
     final difference = x - centerX;
     _angle.value = -difference / centerX * 8;
-    _position.value = Offset(-((Get.width * .5) + 50), Get.height * .4);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
+    _frontCardposition.value =
+        Offset(-((Get.width * .5) + 50), Get.height * .4);
+    _backCardPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
     _isPanStarted.value = false;
@@ -404,12 +357,12 @@ class StatementsController extends GetxController {
     _buttonsBlocked.value = true;
     _isPanStarted.value = true;
     _cardAnimationDuration.value = _cardAnimationTime;
-    final x = _position.value.dx + (Get.width * .5);
+    final x = _frontCardposition.value.dx + (Get.width * .5);
     final centerX = Get.width * .25;
     final difference = x - centerX;
     _angle.value = -difference / centerX * 8;
-    _position.value = Offset(((Get.width) + 50), Get.height * .4);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
+    _frontCardposition.value = Offset(((Get.width) + 50), Get.height * .4);
+    _backCardPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
     _isPanStarted.value = false;
@@ -420,8 +373,9 @@ class StatementsController extends GetxController {
     _isPanStarted.value = true;
     _cardAnimationDuration.value = _cardAnimationTime;
 
-    _position.value = Offset(_position.value.dx, -Get.height * .3);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
+    _frontCardposition.value =
+        Offset(_frontCardposition.value.dx, -Get.height * .3);
+    _backCardPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
     _isPanStarted.value = false;
@@ -465,20 +419,20 @@ class StatementsController extends GetxController {
   storeAnswerData(StatementResponse answer) {
     if (fromOnboarding) return;
     try {
-      UserManager.addStatment(firstCard!.id, answer);
+      UserManager.addStatment(frontCard!.id, answer);
     } catch (e) {
       debugPrint(e.toString());
     }
   }
 
   returnToPreviousCard() {
-    if (firstCard == null) {
-      debugPrint("first card was null");
+    if (frontCard == null) {
+      debugPrint("front card was null");
       return;
     }
 
     try {
-      final currentIndex = _allCards.indexWhere((e) => e.id == firstCard!.id);
+      final currentIndex = _allCards.indexWhere((e) => e.id == frontCard!.id);
 
       if (currentIndex >= 1) {
         _currentCards.insert(0, _allCards[currentIndex - 1]);
@@ -488,22 +442,6 @@ class StatementsController extends GetxController {
       }
     } catch (e) {
       debugPrint("error returnToPreviousCard");
-    }
-  }
-
-  Color getBackgroundColor() {
-    if (neutralButtonSelected) {
-      return AppColors.lightPrimary;
-    } else if (stronglyAgrementButtonSelected) {
-      return AppColors.green;
-    } else if (agrementButtonSelected) {
-      return AppColors.lightGreen;
-    } else if (stronglyDisagrementButtonSelected) {
-      return AppColors.yellow;
-    } else if (disagrementButtonSelected) {
-      return AppColors.lightYellow;
-    } else {
-      return AppColors.lightPrimary;
     }
   }
   ////////////////////
@@ -526,7 +464,7 @@ class StatementsController extends GetxController {
   _checkIfNeedToShowBanner() async {
     final allStatementsList = DataManager().getStatements();
     final currentIndex =
-        allStatementsList.indexWhere((e) => e.id == firstCard?.id);
+        allStatementsList.indexWhere((e) => e.id == frontCard?.id);
     final middleIndex = (allStatementsList.length / 2).floor();
     if (currentIndex == middleIndex) {
       await _showBanner();

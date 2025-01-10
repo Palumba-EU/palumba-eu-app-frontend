@@ -1,19 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
-
+import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-
-import '../../../global_widgets/custom_network_image.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({
@@ -55,15 +51,13 @@ class CardWidget extends StatelessWidget {
                 CustomSpacer(
                   multiplier: 2,
                 ),
-                data.statement.emojis != null
-                    ? Padding(
-                        padding: AppDimens.lateralPadding,
-                        child: EmojiLabelContainer(
-                          emoji: data.statement.emojis!,
-                          backgroundColor: Colors.white,
-                        ),
-                      )
-                    : const SizedBox.shrink(),
+                Padding(
+                  padding: AppDimens.lateralPadding,
+                  child: EmojiLabelContainer(
+                    emoji: data.statement.emojis,
+                    backgroundColor: Colors.white,
+                  ),
+                ),
                 CustomSpacer(
                   multiplier: 2,
                 ),
@@ -72,7 +66,7 @@ class CardWidget extends StatelessWidget {
                     child: Padding(
                   padding: AppDimens.lateralPadding,
                   child: AutoSizeText(
-                    data.statement.statement ?? '',
+                    data.statement.statement,
                     style: AppTexts.customTextStyle(
                       AppTextType.title,
                       fontSize: 24,

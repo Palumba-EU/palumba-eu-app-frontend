@@ -209,37 +209,19 @@ class OnboardingPage extends StatelessWidget {
                             ),
                           ),
                           Obx(
-                            () => _.finalAnimationFinished.value
-                                ? CustomCard(
-                                    isFirstCard: true,
-                                    angleCard: _.angle,
-                                    bgPosition: _.bgPosition,
-                                    positionCard: _.position,
-                                    cardAnimationDuration:
-                                        _.cardAnimationDuration,
-                                    isOnboardingCard: _.isOnBoardingCard,
-                                    isPanStarted: false.obs,
-                                    card: _.cardData,
-                                    onBoardingButtonSelected:
-                                        _.buttonEventSelected.value,
-                                  )
-                                : AnimatedContainer(
-                                    duration: const Duration(milliseconds: 650),
-                                    height: _.heighClippedContainer.value,
-                                    child: CustomCard(
-                                      isFirstCard: true,
-                                      angleCard: _.angle,
-                                      bgPosition: _.bgPosition,
-                                      positionCard: _.position,
-                                      cardAnimationDuration:
-                                          _.cardAnimationDuration,
-                                      isOnboardingCard: _.isOnBoardingCard,
-                                      isPanStarted: false.obs,
-                                      card: _.cardData,
-                                      selectedBackgroundColor:
-                                          _.getBackgroundColor(),
-                                    ),
-                                  ),
+                            () => AnimatedContainer(
+                              duration: const Duration(milliseconds: 650),
+                              height: _.heighClippedContainer.value,
+                              child: CustomCard(
+                                isFrontCard: true,
+                                angleCard: _.angle,
+                                position: _.position,
+                                cardAnimationDuration: _.cardAnimationDuration,
+                                isOnboardingCard: _.isOnBoardingCard,
+                                isPanStarted: false.obs,
+                                card: _.cardData,
+                              ),
+                            ),
                           ),
                         ],
                       )
