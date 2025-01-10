@@ -200,20 +200,19 @@ class OnboardingController extends GetxController {
     bool isSmallScreen = Get.height < 800;
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
-      //
       height.value = Get.width * .2; //34; //heightSize * .0415;
       radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
-      height.value = isSmallScreen ? heightSize * 0.27 : heightSize * 0.37;
+      height.value = isSmallScreen ? heightSize * 0.2 : heightSize * 0.3;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 3) {
-      height.value = isSmallScreen ? heightSize * 0.3025 : heightSize * 0.4025;
+      height.value = isSmallScreen ? heightSize * 0.25 : heightSize * 0.35;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 4) {
-      height.value = isSmallScreen ? heightSize * 0.3725 : heightSize * 0.4725;
+      height.value = isSmallScreen ? heightSize * 0.34 : heightSize * 0.44;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else {
