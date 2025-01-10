@@ -128,65 +128,13 @@ class StatementsPage extends GetView<StatementsController> {
                 : SizedBox.shrink(),
           ),
           //Buttons
-          Obx(
-            () => controller.loadingQuestions
-                ? Center(
-                    child: CircularProgressIndicator(
-                      color: AppColors.primary,
-                    ),
-                  )
-                : Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      height: Get.height * .3,
-                      child: Stack(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: Get.height * .08),
-                            child: Align(
-                              alignment: Alignment.topCenter,
-                              child: Obx(
-                                () => AnimatedOpacity(
-                                  duration: Durations.long4,
-                                  opacity: controller.fromOnboarding ? 0 : 1,
-                                  child: IgnorePointer(
-                                      ignoring: controller.buttonsBlocked,
-                                      child: CustomButton(
-                                        text: S.of(context).neutral,
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                AppDimens.lateralPaddingValue *
-                                                    .5),
-                                        onPressed: controller.fromOnboarding
-                                            ? null
-                                            : () => controller.activateButton(
-                                                StatementResponse.neutral),
-                                        color: controller
-                                                    .currentDraggedResponseStatement ==
-                                                StatementResponse.neutral
-                                            ? AppColors.lightPrimary
-                                            : AppColors.primary,
-                                        textColor: controller
-                                                    .currentDraggedResponseStatement ==
-                                                StatementResponse.neutral
-                                            ? AppColors.primary
-                                            : AppColors.text,
-                                        radius: AppDimens.largeBorderRadius,
-                                        border: ButtonBorderParameters(
-                                            color: AppColors.lightPrimary,
-                                            width: 2,
-                                            isOutside: true),
-                                      )),
-                                ),
-                              ),
-                            ),
-                          ),
-                          agreeButtons()
-                        ],
-                      ),
-                    ),
+          Obx(() => controller.loadingQuestions
+              ? Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primary,
                   ),
-          ),
+                )
+              : neutralButton(context)),
 
           //TOP BANNER SHOWED IN HALF AND LAST 5 STATEMENTS
           Obx(() => IntrinsicHeight(
@@ -226,44 +174,66 @@ class StatementsPage extends GetView<StatementsController> {
     );
   }
 
+  Widget neutralButton(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: SizedBox(
+        height: Get.height * .3,
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: Get.height * .08),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Obx(
+                  () => AnimatedOpacity(
+                    duration: Durations.long4,
+                    opacity: controller.fromOnboarding ? 0 : 1,
+                    child: IgnorePointer(
+                        ignoring: controller.buttonsBlocked,
+                        child: CustomButton(
+                          text: S.of(context).neutral,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.lateralPaddingValue * .5),
+                          onPressed: controller.fromOnboarding
+                              ? null
+                              : () => controller
+                                  .activateButton(StatementResponse.neutral),
+                          color: controller.currentDraggedResponseStatement ==
+                                  StatementResponse.neutral
+                              ? AppColors.lightPrimary
+                              : AppColors.primary,
+                          textColor:
+                              controller.currentDraggedResponseStatement ==
+                                      StatementResponse.neutral
+                                  ? AppColors.primary
+                                  : AppColors.text,
+                          radius: AppDimens.largeBorderRadius,
+                          border: ButtonBorderParameters(
+                              color: AppColors.lightPrimary,
+                              width: 2,
+                              isOutside: true),
+                        )),
+                  ),
+                ),
+              ),
+            ),
+            agreeButtons()
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget agreeButtons() {
     return SizedBox(
       width: double.infinity,
       height: Get.height * .3,
       child: DecisionButtons(
-        //Strongly disagree taps
-        onTapStronglyDisagrementButton: () =>
-            controller.activateButton(StatementResponse.stronglyDisagree),
-        onLongPressStronglyDisagrementButton: () =>
-            controller.onLongPressButton(StatementResponse.stronglyDisagree),
-        onLongPressEndStronglyDisagrementButton: (_) =>
-            controller.activateButton(
-          StatementResponse.stronglyDisagree,
-        ),
-
-        //Disagree taps
-        onTapDisagrementButton: () =>
-            controller.activateButton(StatementResponse.disagree),
-        onLongPressDisgrementButton: () =>
-            controller.onLongPressButton(StatementResponse.disagree),
-        onLongPressEndDisgrementButton: (_) =>
-            controller.activateButton(StatementResponse.disagree),
-
-        //Agree taps
-        onTapAgrementButton: () =>
-            controller.activateButton(StatementResponse.agree),
-        onLongPressAgrementButton: () =>
-            controller.onLongPressButton(StatementResponse.agree),
-        onLongPressEndAgrementButton: (_) =>
-            controller.activateButton(StatementResponse.agree),
-
-        //Strongly agree taps
-        onTapStronglyAgrementButton: () =>
-            controller.activateButton(StatementResponse.stronglyAgree),
-        onLongPressStronglyAgrementButton: () =>
-            controller.onLongPressButton(StatementResponse.stronglyAgree),
-        onLongPressEndStronglyAgrementButton: (_) =>
-            controller.activateButton(StatementResponse.stronglyAgree),
+        onTap: (statement) => controller.activateButton(statement),
+        onLongPressStart: (statement) =>
+            controller.onLongPressButton(statement),
+        onLongPressEnd: (statement, _) => controller.activateButton(statement),
       ),
     );
   }

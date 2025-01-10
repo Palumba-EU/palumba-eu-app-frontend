@@ -5,7 +5,6 @@ import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/gender_model.dart';
 import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
-import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
@@ -92,13 +91,11 @@ class OnboardingController extends GetxController {
   ///Step5
   RxBool _showLastStepTitle = false.obs;
   bool get showLastStepTitle => _showLastStepTitle.value;
-  Rxn<StatementResponse> buttonEventSelected = Rxn();
 
   @override
   void onInit() {
     clearUserStoredStatements();
     updateBackgroundShape();
-    _initialCardPosition(true);
     super.onInit();
 
     debugPrint('currentStep: ' + currentStep.value.toString());
@@ -237,32 +234,9 @@ class OnboardingController extends GetxController {
         height.value = Get.height * .72;
         margin.value = EdgeInsets.zero;
         radius.value = Radius.elliptical(240, 280);
-        _cardAnimationDuration.value = 650;
-        _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
       }).then((value) async {
-        _showLastStepTitle.value = true;
-        await Future.delayed(Duration(milliseconds: 350));
-        _bigButtonsPosition.value = Offset(0, 0);
-        await Future.delayed(Duration(milliseconds: 450));
-        _smallButtonsPosition.value = Offset(0, 0);
-        await Future.delayed(Duration(milliseconds: 1500));
-        _cardAnimationDuration.value = 0;
-        finalAnimationFinished.value = true;
-        if (onBoarded == true) {
-          //If is already on boarded return to home page
-          Get.offAllNamed(StatementsController.route);
-          return;
-        }
-        onTapDisagrementButton();
-        await Future.delayed(onBoardingTimeAnimation);
-        onTapHalfDisagrementButton();
-        await Future.delayed(onBoardingTimeAnimation);
-        onTapHalfAgrementButton();
-        await Future.delayed(onBoardingTimeAnimation);
-        onTapAgrementButton();
-        await Future.delayed(onBoardingTimeAnimation);
-
-        //Set onBoarding as showed
+        Get.offAllNamed(StatementsController.route);
+        //Set onBoarding as showe
         _localDataRepository.onBoarded = true;
 
         //Finally when animation finish we navigate to statments screen
@@ -271,102 +245,5 @@ class OnboardingController extends GetxController {
         });
       });
     }
-  }
-
-  ////////////////////////
-  ///
-  /// CARD ANIMATION
-  ///
-  ////////////////////////
-
-  RxInt _cardAnimationDuration = 0.obs;
-  RxInt get cardAnimationDuration => _cardAnimationDuration;
-
-  final RxBool _buttonsBlocked = false.obs;
-  bool get buttonsBlocked => _buttonsBlocked.value;
-
-  final Rx<Offset> _position = Offset(0, 0).obs;
-  Rx<Offset> get position => _position;
-
-  final Rx<Offset> _bgPosition = Offset(0, 0).obs;
-  Rx<Offset> get bgPosition => _bgPosition;
-
-  double _angle = 0;
-  double get angle => _angle;
-
-  RxBool _strognlyDisagrementButtonSelected = false.obs;
-  bool get stronglyDisagrementButtonSelected =>
-      _strognlyDisagrementButtonSelected.value;
-
-  RxBool _disagrementButtonSelected = false.obs;
-  bool get disagrementButtonSelected => _disagrementButtonSelected.value;
-
-  RxBool _stronglyAgrementButtonSelected = false.obs;
-  bool get stronglyAgrementButtonSelected =>
-      _stronglyAgrementButtonSelected.value;
-
-  RxBool _agrementButtonSelected = false.obs;
-  bool get agrementButtonSelected => _agrementButtonSelected.value;
-
-  Rx<Offset> _smallButtonsPosition = Offset(0, Get.height * .3).obs;
-  Offset get smallButtonsPosition => _smallButtonsPosition.value;
-  Rx<Offset> _bigButtonsPosition = Offset(0, Get.height * .3).obs;
-  Offset get bigButtonsPosition => _bigButtonsPosition.value;
-
-  Duration onBoardingTimeAnimation = Duration(milliseconds: 1000);
-
-  void _initialCardPosition([bool initial = false]) async {
-    _buttonsBlocked.value = true;
-    _cardAnimationDuration.value = 250;
-    initial
-        ? _position.value = Offset(Get.width * .25, ((Get.height)))
-        : _position.value = Offset(Get.width * .25, (Get.height * .9) * .28);
-    _bgPosition.value = Offset(Get.width * .25, (Get.height * .9) * .55);
-
-    _angle = 0;
-    await Future.delayed(Duration(milliseconds: 250));
-    _cardAnimationDuration.value = 0;
-    _buttonsBlocked.value = false;
-  }
-
-  void onTapDisagrementButton() async {
-    //Fake button is tapped
-    _strognlyDisagrementButtonSelected.value = true;
-    buttonEventSelected.value = StatementResponse.stronglyDisagree;
-    await Future.delayed(onBoardingTimeAnimation);
-    buttonEventSelected.value = null;
-    _strognlyDisagrementButtonSelected.value = false;
-  }
-
-  void onTapHalfDisagrementButton() async {
-    //Fake button is tapped
-    _disagrementButtonSelected.value = true;
-    buttonEventSelected.value = StatementResponse.disagree;
-    await Future.delayed(onBoardingTimeAnimation);
-    buttonEventSelected.value = null;
-    _disagrementButtonSelected.value = false;
-  }
-
-  void onTapHalfAgrementButton() async {
-    //Fake button is tapped
-    _agrementButtonSelected.value = true;
-    buttonEventSelected.value = StatementResponse.agree;
-    await Future.delayed(onBoardingTimeAnimation);
-    buttonEventSelected.value = null;
-    _agrementButtonSelected.value = false;
-  }
-
-  void onTapAgrementButton() async {
-    //Fake button is tapped
-    _stronglyAgrementButtonSelected.value = true;
-    buttonEventSelected.value = StatementResponse.stronglyAgree;
-    await Future.delayed(onBoardingTimeAnimation);
-    buttonEventSelected.value = null;
-    _stronglyAgrementButtonSelected.value = false;
-  }
-
-  Future<bool> delay(int milliseconds) async {
-    await Future.delayed(Duration(milliseconds: milliseconds));
-    return true;
   }
 }

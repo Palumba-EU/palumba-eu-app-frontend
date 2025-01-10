@@ -1,38 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/global_widgets/bubble_buttons/custom_big_button.dart';
+import 'package:palumba_eu/global_widgets/bubble_buttons/custom_small_button.dart';
 import '../../statements_screen_controller.dart';
-import '../../../../global_widgets/bubble_buttons/custom_big_button.dart';
-import '../../../../global_widgets/bubble_buttons/custom_small_button.dart';
 
 class DecisionButtons extends GetView<StatementsController> {
   const DecisionButtons({
     super.key,
-    required this.onTapStronglyDisagrementButton,
-    required this.onLongPressStronglyDisagrementButton,
-    required this.onLongPressEndStronglyDisagrementButton,
-    required this.onTapDisagrementButton,
-    required this.onLongPressDisgrementButton,
-    required this.onLongPressEndDisgrementButton,
-    required this.onTapAgrementButton,
-    required this.onLongPressAgrementButton,
-    required this.onLongPressEndAgrementButton,
-    required this.onTapStronglyAgrementButton,
-    required this.onLongPressStronglyAgrementButton,
-    required this.onLongPressEndStronglyAgrementButton,
+    required this.onTap,
+    required this.onLongPressStart,
+    required this.onLongPressEnd,
   });
-  final Function() onTapStronglyDisagrementButton;
-  final Function() onLongPressStronglyDisagrementButton;
-  final Function(LongPressEndDetails) onLongPressEndStronglyDisagrementButton;
-  final Function() onTapDisagrementButton;
-  final Function() onLongPressDisgrementButton;
-  final Function(LongPressEndDetails) onLongPressEndDisgrementButton;
-  final Function() onTapAgrementButton;
-  final Function() onLongPressAgrementButton;
-  final Function(LongPressEndDetails) onLongPressEndAgrementButton;
-  final Function() onTapStronglyAgrementButton;
-  final Function() onLongPressStronglyAgrementButton;
-  final Function(LongPressEndDetails) onLongPressEndStronglyAgrementButton;
+
+  final Function(StatementResponse) onTap;
+  final Function(StatementResponse) onLongPressStart;
+  final Function(StatementResponse, LongPressEndDetails) onLongPressEnd;
+
+  bool isSelectedOrHovered(StatementResponse response) {
+    var yo = controller.selectedResponseStatement.value == response ||
+        controller.currentDraggedResponseStatement == response;
+
+    print("isSelectedOrHovered " + response.toString() + " " + yo.toString());
+    return yo;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,68 +35,83 @@ class DecisionButtons extends GetView<StatementsController> {
             () => Stack(
               children: [
                 _nonSelectedButtons(),
-                if (controller.agrementButtonSelected) _selectedButtons(true),
-                if (controller.disagrementButtonSelected)
+                // overlay agree and disagree buttons
+                if (isSelectedOrHovered(StatementResponse.agree))
+                  _selectedButtons(true),
+                if (isSelectedOrHovered(StatementResponse.disagree))
                   _selectedButtons(false),
               ],
             ),
           ),
         ),
-        Stack(
-          children: [
-            Positioned(
-              left: 0,
-              bottom: 0,
-              child: Obx(
-                () => SizedBox(
-                  height: Get.height * .3 -
-                      (controller.stronglyDisagrementButtonSelected ? 0 : 15),
-                  width: Get.width * .35 +
-                      (controller.stronglyDisagrementButtonSelected
-                          ? Get.width * .07
-                          : 0),
-                  child: IgnorePointer(
-                    ignoring: controller.buttonsBlocked,
-                    child: CustomBigButtonCurve(
-                      curveRadius: 25,
-                      isSelected: controller.stronglyDisagrementButtonSelected,
-                      icon: 'ic_cross',
-                      flip: true,
-                      onTap: onTapStronglyDisagrementButton,
-                      onLongPress: onLongPressStronglyDisagrementButton,
-                      onLongPressEnd: onLongPressEndStronglyDisagrementButton,
-                    ),
-                  ),
+        _strongSelectedButtons()
+      ],
+    );
+  }
+
+  Widget _strongSelectedButtons() {
+    return Stack(
+      children: [
+        Positioned(
+          left: 0,
+          bottom: 0,
+          child: Obx(
+            () => SizedBox(
+              height: Get.height * .3 -
+                  (isSelectedOrHovered(StatementResponse.stronglyDisagree)
+                      ? 0
+                      : 15),
+              width: Get.width * .35 +
+                  (isSelectedOrHovered(StatementResponse.stronglyDisagree)
+                      ? Get.width * .07
+                      : 0),
+              child: IgnorePointer(
+                ignoring: controller.buttonsBlocked,
+                child: CustomBigButtonCurve(
+                  curveRadius: 25,
+                  isSelected:
+                      isSelectedOrHovered(StatementResponse.stronglyDisagree),
+                  icon: 'ic_cross',
+                  flip: true,
+                  onTap: () => onTap(StatementResponse.stronglyDisagree),
+                  onLongPress: () =>
+                      onLongPressStart(StatementResponse.stronglyDisagree),
+                  onLongPressEnd: (details) => onLongPressEnd(
+                      StatementResponse.stronglyDisagree, details),
                 ),
               ),
             ),
-            //Spacer(),
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: Obx(
-                () => SizedBox(
-                  height: Get.height * .3 -
-                      (controller.stronglyAgrementButtonSelected ? 0 : 15),
-                  width: Get.width * .35 +
-                      (controller.stronglyAgrementButtonSelected
-                          ? Get.width * .07
-                          : 0),
-                  child: IgnorePointer(
-                    ignoring: controller.buttonsBlocked,
-                    child: CustomBigButtonCurve(
-                      curveRadius: 25,
-                      isSelected: controller.stronglyAgrementButtonSelected,
-                      icon: 'ic_check',
-                      onTap: onTapStronglyAgrementButton,
-                      onLongPress: onLongPressStronglyAgrementButton,
-                      onLongPressEnd: onLongPressEndStronglyAgrementButton,
-                    ),
-                  ),
+          ),
+        ),
+        Positioned(
+          right: 0,
+          bottom: 0,
+          child: Obx(
+            () => SizedBox(
+              height: Get.height * .3 -
+                  (isSelectedOrHovered(StatementResponse.stronglyAgree)
+                      ? 0
+                      : 15),
+              width: Get.width * .35 +
+                  (isSelectedOrHovered(StatementResponse.stronglyAgree)
+                      ? Get.width * .07
+                      : 0),
+              child: IgnorePointer(
+                ignoring: controller.buttonsBlocked,
+                child: CustomBigButtonCurve(
+                  curveRadius: 25,
+                  isSelected:
+                      isSelectedOrHovered(StatementResponse.stronglyAgree),
+                  icon: 'ic_check',
+                  onTap: () => onTap(StatementResponse.stronglyAgree),
+                  onLongPress: () =>
+                      onLongPressStart(StatementResponse.stronglyAgree),
+                  onLongPressEnd: (details) =>
+                      onLongPressEnd(StatementResponse.stronglyAgree, details),
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ],
     );
@@ -119,7 +125,7 @@ class DecisionButtons extends GetView<StatementsController> {
           flex: 2,
           child: Obx(
             () => Opacity(
-              opacity: controller.disagrementButtonSelected ? 0 : 1,
+              opacity: isSelectedOrHovered(StatementResponse.disagree) ? 0 : 1,
               child: IgnorePointer(
                 ignoring: controller.buttonsBlocked,
                 child: CustomSmallButtonCurve(
@@ -127,16 +133,18 @@ class DecisionButtons extends GetView<StatementsController> {
                   isSelected: false,
                   icon: 'ic_cross',
                   flip: false,
-                  onTap: onTapDisagrementButton,
-                  onLongPress: onLongPressDisgrementButton,
-                  onLongPressEnd: onLongPressEndDisgrementButton,
+                  onTap: () => onTap(StatementResponse.disagree),
+                  onLongPress: () =>
+                      onLongPressStart(StatementResponse.disagree),
+                  onLongPressEnd: (details) =>
+                      onLongPressEnd(StatementResponse.disagree, details),
                 ),
               ),
             ),
           ),
         ),
-        if (!controller.disagrementButtonSelected &&
-            !controller.agrementButtonSelected)
+        if (!isSelectedOrHovered(StatementResponse.agree) &&
+            !isSelectedOrHovered(StatementResponse.disagree))
           SizedBox(
             width: 2,
           ),
@@ -144,7 +152,7 @@ class DecisionButtons extends GetView<StatementsController> {
           flex: 2,
           child: Obx(
             () => Opacity(
-              opacity: controller.agrementButtonSelected ? 0 : 1,
+              opacity: isSelectedOrHovered(StatementResponse.agree) ? 0 : 1,
               child: IgnorePointer(
                 ignoring: controller.buttonsBlocked,
                 child: CustomSmallButtonCurve(
@@ -152,9 +160,10 @@ class DecisionButtons extends GetView<StatementsController> {
                   isSelected: false,
                   icon: 'ic_check',
                   flip: true,
-                  onTap: onTapAgrementButton,
-                  onLongPress: onLongPressAgrementButton,
-                  onLongPressEnd: onLongPressEndAgrementButton,
+                  onTap: () => onTap(StatementResponse.agree),
+                  onLongPress: () => onLongPressStart(StatementResponse.agree),
+                  onLongPressEnd: (details) =>
+                      onLongPressEnd(StatementResponse.agree, details),
                 ),
               ),
             ),

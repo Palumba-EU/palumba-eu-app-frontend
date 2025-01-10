@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/global_widgets/card/custom_card.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
@@ -17,7 +16,6 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'components/onboarding_decision_buttons.dart';
 import 'components/step1.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -176,17 +174,8 @@ class OnboardingPage extends StatelessWidget {
                         children: [
                           IgnorePointer(
                             child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: SizedBox(
-                                height: Get.height * .3,
-                                child: DecisionButtonsOnBoarding(
-                                  onTapDisagrementButton: () {},
-                                  onTapHalfDisagrementButton: () {},
-                                  onTapHalfAgrementButton: () {},
-                                  onTapAgrementButton: () {},
-                                ),
-                              ),
-                            ),
+                                alignment: Alignment.bottomCenter,
+                                child: SizedBox.shrink()),
                           ),
                           Obx(
                             () => AnimatedContainer(
@@ -206,21 +195,6 @@ class OnboardingPage extends StatelessWidget {
                               height: Get.height * .5,
                               width: Get.width,
                               child: Stickers(),
-                            ),
-                          ),
-                          Obx(
-                            () => AnimatedContainer(
-                              duration: const Duration(milliseconds: 650),
-                              height: _.heighClippedContainer.value,
-                              child: CustomCard(
-                                isFrontCard: true,
-                                angleCard: _.angle,
-                                position: _.position,
-                                cardAnimationDuration: _.cardAnimationDuration,
-                                isOnboardingCard: _.isOnBoardingCard,
-                                isPanStarted: false.obs,
-                                card: _.cardData,
-                              ),
                             ),
                           ),
                         ],
