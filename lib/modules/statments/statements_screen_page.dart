@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/global_widgets/card/custom_card.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
+import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
@@ -9,10 +11,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-
 import 'components/buttons/decision_buttons.dart';
-import '../../global_widgets/card/custom_card.dart';
-import '../../global_widgets/custom_container_curve.dart';
 import 'components/custom_header.dart';
 import 'statements_screen_controller.dart';
 
@@ -121,9 +120,6 @@ class StatementsPage extends GetView<StatementsController> {
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
                           isOnboardingCard: controller.fromOnboarding,
-                          scale: controller.scale.value,
-                          onSkipTap: () =>
-                              controller.activateButton(StatementResponse.skip),
                           selectedBackgroundColor:
                               controller.getBackgroundColor(),
                           flipCcardController: controller.flipCardcontroller,

@@ -39,7 +39,7 @@ class StatementsController extends GetxController {
   bool get buttonsBlocked => _buttonsBlocked.value;
 
 //Selected button type
-  StatementResponse _statementResponse = StatementResponse.skip;
+  StatementResponse _statementResponse = StatementResponse.neutral;
   StatementResponse get selectedButton => _statementResponse;
 
 //This is front card position
@@ -199,12 +199,8 @@ class StatementsController extends GetxController {
       case StatementResponse.neutral:
         onTapNeutralButton();
         break;
-      case StatementResponse.skip:
-        onSkipTap();
-        break;
       default:
         _nothingHappen();
-      // resetAnimation();
     }
     if (decision != null) {
       storeAnswerData(decision);
@@ -473,15 +469,6 @@ class StatementsController extends GetxController {
     } catch (e) {
       debugPrint(e.toString());
     }
-  }
-
-  void onSkipTap() async {
-    _scale.value = 0.0;
-    await Future.delayed(Durations.medium1);
-    await neutralAnimation();
-    _scale.value = 1.0;
-
-    nextCard();
   }
 
   returnToPreviousCard() {

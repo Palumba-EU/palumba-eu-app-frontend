@@ -8,7 +8,6 @@ enum StatementResponse {
   neutral, // 0
   agree, // 0.5
   stronglyAgree, // 1
-  skip
 }
 
 UserData userDataFromJson(String str) => UserData.fromJson(json.decode(str));
