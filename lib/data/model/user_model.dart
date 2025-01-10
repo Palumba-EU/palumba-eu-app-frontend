@@ -82,8 +82,6 @@ double _statementResponseValues(StatementResponse response) {
       return 0.5;
     case StatementResponse.stronglyAgree:
       return 1;
-    default:
-      return -2;
   }
 }
 

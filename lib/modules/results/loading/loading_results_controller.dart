@@ -28,7 +28,7 @@ class LoadingResultsController extends GetxController {
   @override
   void onInit() {
     //Set test finished
-    UserManager.setTestRuning(false);
+    UserManager.isTestRunning = false;
     super.onInit();
   }
 

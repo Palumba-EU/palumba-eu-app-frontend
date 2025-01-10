@@ -12,7 +12,7 @@ class StatementsParser {
         emojis: statement.emojis,
         mainQuestion: statement.statement,
         details: statement.details,
-        isOnboardingCard: true,
+        isOnboardingCard: false,
         enableCardFlip: true,
       ));
     }

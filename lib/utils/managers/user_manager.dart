@@ -16,10 +16,6 @@ class UserManager {
   static Country? userCountry;
   static bool isTestRunning = false;
 
-  static setTestRuning(bool value) {
-    isTestRunning = value;
-  }
-
   static setCountry(Country country) async {
     userCountry = country;
     userData.countryId = country.id;

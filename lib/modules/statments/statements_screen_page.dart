@@ -53,7 +53,7 @@ class StatementsPage extends GetView<StatementsController> {
 
           //Custom Plaumba header
           Obx(
-            () => controller.fromOnboarding
+            () => false //controller.fromOnboarding
                 ?
                 //Onboarding header
                 SafeArea(
@@ -102,7 +102,6 @@ class StatementsPage extends GetView<StatementsController> {
                           isPanStarted: controller.isPanStarted,
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
-                          isOnboardingCard: false,
                         ),
                       Obx(
                         // main card
@@ -117,24 +116,18 @@ class StatementsPage extends GetView<StatementsController> {
                           isPanStarted: controller.isPanStarted,
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
-                          isOnboardingCard: controller.fromOnboarding,
                           currentDraggedResponseStatement:
                               controller.currentDraggedResponseStatement,
-                          flipCcardController: controller.flipCardcontroller,
+                          flipCcardController: controller.flipCardController,
                         ),
                       )
                     ],
                   )
                 : SizedBox.shrink(),
           ),
+
           //Buttons
-          Obx(() => controller.loadingQuestions
-              ? Center(
-                  child: CircularProgressIndicator(
-                    color: AppColors.primary,
-                  ),
-                )
-              : neutralButton(context)),
+          neutralButton(context),
 
           //TOP BANNER SHOWED IN HALF AND LAST 5 STATEMENTS
           Obx(() => IntrinsicHeight(
@@ -186,35 +179,28 @@ class StatementsPage extends GetView<StatementsController> {
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Obx(
-                  () => AnimatedOpacity(
-                    duration: Durations.long4,
-                    opacity: controller.fromOnboarding ? 0 : 1,
-                    child: IgnorePointer(
-                        ignoring: controller.buttonsBlocked,
-                        child: CustomButton(
-                          text: S.of(context).neutral,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: AppDimens.lateralPaddingValue * .5),
-                          onPressed: controller.fromOnboarding
-                              ? null
-                              : () => controller
-                                  .activateButton(StatementResponse.neutral),
-                          color: controller.currentDraggedResponseStatement ==
-                                  StatementResponse.neutral
-                              ? AppColors.lightPrimary
-                              : AppColors.primary,
-                          textColor:
-                              controller.currentDraggedResponseStatement ==
-                                      StatementResponse.neutral
-                                  ? AppColors.primary
-                                  : AppColors.text,
-                          radius: AppDimens.largeBorderRadius,
-                          border: ButtonBorderParameters(
-                              color: AppColors.lightPrimary,
-                              width: 2,
-                              isOutside: true),
-                        )),
-                  ),
+                  () => IgnorePointer(
+                      ignoring: controller.buttonsBlocked,
+                      child: CustomButton(
+                        text: S.of(context).neutral,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: AppDimens.lateralPaddingValue * .5),
+                        onPressed: () => controller
+                            .activateButton(StatementResponse.neutral),
+                        color: controller.currentDraggedResponseStatement ==
+                                StatementResponse.neutral
+                            ? AppColors.lightPrimary
+                            : AppColors.primary,
+                        textColor: controller.currentDraggedResponseStatement ==
+                                StatementResponse.neutral
+                            ? AppColors.primary
+                            : AppColors.text,
+                        radius: AppDimens.largeBorderRadius,
+                        border: ButtonBorderParameters(
+                            color: AppColors.lightPrimary,
+                            width: 2,
+                            isOutside: true),
+                      )),
                 ),
               ),
             ),

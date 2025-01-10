@@ -24,7 +24,6 @@ class CustomCard extends StatelessWidget {
     required this.angleCard,
     required this.position,
     this.currentDraggedResponseStatement,
-    this.isOnboardingCard = false,
     this.onBoardingButtonSelected,
     this.flipCcardController,
   });
@@ -38,28 +37,24 @@ class CustomCard extends StatelessWidget {
   final Rx<int>? cardAnimationDuration;
   final double angleCard;
   final Rx<Offset> position;
-  final bool isOnboardingCard;
   final Rxn<StatementResponse>? currentDraggedResponseStatement;
   final StatementResponse? onBoardingButtonSelected;
   final FlipCardController? flipCcardController;
 
   @override
   Widget build(BuildContext context) {
-    List<StatelessWidget> pages = [
-      CardFrontPage(card, isOnboardingCard,
-          onBoardingButtonSelected: onBoardingButtonSelected),
-    ];
-    if (!isOnboardingCard && card != null) {
-      pages = [
-        CardFrontPage(card!, isOnboardingCard),
-        CardBackPage(card!),
-      ];
-    }
+    List<Widget> pages = [];
+    if (card != null && card?.details != "")
+      pages.add(CardFrontPage(card!,
+          onBoardingButtonSelected: onBoardingButtonSelected));
+    if (card?.details != null && card?.details != "")
+      pages.add(CardBackPage(card!));
+
     return IgnorePointer(
         ignoring: !isFrontCard, child: Obx(() => cardAlignment(pages)));
   }
 
-  ClipPath cardAlignment(List<StatelessWidget> pages) {
+  ClipPath cardAlignment(List<Widget> pages) {
     return ClipPath(
         clipper: !isFrontCard
             ? CustomContainerClipper(curveRadius: 200)
@@ -101,7 +96,9 @@ class CustomCard extends StatelessWidget {
                                   width: Get.width * .77,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    boxShadow: boxShadow(context),
+                                    boxShadow: isPanStarted.value
+                                        ? boxShadow(context)
+                                        : null,
                                   ),
                                   child: pages.length > 1
                                       ? flipCard(pages, context)
@@ -111,7 +108,7 @@ class CustomCard extends StatelessWidget {
         ));
   }
 
-  Widget flipCard(List<StatelessWidget> pages, BuildContext context) {
+  Widget flipCard(List<Widget> pages, BuildContext context) {
     return FlipCard(
         controller: flipCcardController,
         flipOnTouch: card?.enableCardFlip ?? true,
@@ -121,7 +118,7 @@ class CustomCard extends StatelessWidget {
         back: aCard(pages[1], context));
   }
 
-  Widget aCard(StatelessWidget page, BuildContext context) {
+  Widget aCard(Widget page, BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Obx(() => Container(
@@ -160,17 +157,13 @@ class CustomCard extends StatelessWidget {
   }
 
   List<BoxShadow>? boxShadow(BuildContext context) {
-    return isPanStarted.value
-        ? [
-            BoxShadow(
-              color: Theme.of(context)
-                  .colorScheme
-                  .shadow
-                  .withAlpha((0.5 * 255).toInt()),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
-            )
-          ]
-        : null;
+    return [
+      BoxShadow(
+        color:
+            Theme.of(context).colorScheme.shadow.withAlpha((0.5 * 255).toInt()),
+        blurRadius: 10,
+        offset: const Offset(0, 5),
+      )
+    ];
   }
 }

@@ -36,15 +36,8 @@ class StatementsController extends GetxController {
   final RxBool _buttonsBlocked = false.obs;
   bool get buttonsBlocked => _buttonsBlocked.value;
 
-//Selected button type
-  StatementResponse _statementResponse = StatementResponse.neutral;
-  StatementResponse get selectedButton => _statementResponse;
-
-//This is front card position
   final Rx<Offset> _frontCardposition = Offset(0, 0).obs;
   Rx<Offset> get frontCardposition => _frontCardposition;
-
-//This is back card position
   final Rx<Offset> _backCardPosition = Offset(0, 0).obs;
   Rx<Offset> get backCardPosition => _backCardPosition;
 
@@ -53,77 +46,61 @@ class StatementsController extends GetxController {
   final Offset bgPositionDefault =
       Offset(Get.width * .25, (Get.height * .9) * .55);
 
-//This is front card angle
+  //This is front card angle
   RxDouble _angle = 0.0.obs;
   double get angle => _angle.value;
 
-//This defines if the pan gesture has started
-  RxBool _isPanStarted = false.obs;
-  RxBool get isPanStarted => _isPanStarted;
+  //This defines if the pan gesture has started
+  RxBool isPanStarted = false.obs;
 
-//This define if card is dragged in a buttone zone
+  //This define if card is dragged in a buttone zone
   Rxn<StatementResponse> currentDraggedResponseStatement = Rxn();
   Rxn<StatementResponse> selectedResponseStatement = Rxn();
-
-  RxBool _fromOnboarding = false.obs;
-  bool get fromOnboarding => _fromOnboarding.value;
-
-  RxBool _loadingQuestions = true.obs;
-  bool get loadingQuestions => _loadingQuestions.value;
 
   List<Statement>? _statementsData;
   List<Statement> get statements => _statementsData ?? [];
 
-  RxDouble _scale = 1.0.obs;
-  RxDouble get scale => _scale;
-
   int _cardAnimationTime = 300;
   int _awaitAnimationTime = 325;
 
-  FlipCardController flipCardcontroller = FlipCardController();
+  FlipCardController flipCardController = FlipCardController();
 
   @override
   void onInit() {
     _getArgumentsAndFetch();
     resetAnimation();
 
+    print(UserManager.isTestRunning);
     if (UserManager.isTestRunning) {
       final answeredQuestionIds =
           UserManager.userData.answers.map((e) => e.statementId);
-
-      // remove questions that have already been answered
-      UserManager.userData.answers.forEach((userAnswer) {
-        _currentCards
-            .removeWhere((card) => answeredQuestionIds.contains(card.id));
-      });
+      _currentCards = _currentCards
+          .where((card) => !answeredQuestionIds.contains(card.id))
+          .toList();
     }
+    UserManager.isTestRunning = true;
 
-    //Set test is started
-    UserManager.setTestRuning(true);
     super.onInit();
+
+    runOnboardingAnimationIfFirstCardIsOnboardingCard();
   }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  Future<void> _getArgumentsAndFetch() async {
-    try {
-      _statementsData = DataManager().getStatements();
-    } catch (e) {}
-
+  void _getArgumentsAndFetch() {
+    _statementsData = DataManager().getStatements();
     _currentCards.addAll(StatementsParser.getCardModelList(statements));
     _currentCards.insert(0, StatementsParser.getIntroCard(Get.context!, true));
     // .toList() makes copy, otherwise just a ref
     _allCards = _currentCards.toList();
 
     update([cardStackKey]);
-    _loadingQuestions.value = false;
+  }
+
+  void runOnboardingAnimationIfFirstCardIsOnboardingCard() {
+    if (frontCard?.isOnboardingCard != true) return;
   }
 
   void onPanStart(DragStartDetails details) {
-    _isPanStarted.value = true;
+    isPanStarted.value = true;
   }
 
   void onPanUpdate(DragUpdateDetails details) {
@@ -155,7 +132,7 @@ class StatementsController extends GetxController {
   }
 
   void onPanEnd(DragEndDetails details) {
-    _isPanStarted.value = false;
+    isPanStarted.value = false;
     final decision = _checkActionSelected();
     activateButton(decision);
   }
@@ -165,23 +142,27 @@ class StatementsController extends GetxController {
     StatementResponse? decision,
   ) {
     currentDraggedResponseStatement.value = null;
+    print("here?");
     switch (decision) {
       case StatementResponse.stronglyAgree:
-        return onTapStronglyAgrementButton();
+        onTapStronglyAgrementButton();
+        break;
       case StatementResponse.agree:
-        return onTapAgrementButton();
+        onTapAgrementButton();
+        break;
       case StatementResponse.disagree:
-        return onTapDisagrementButton();
+        onTapDisagrementButton();
+        break;
       case StatementResponse.stronglyDisagree:
-        return onTapStronglyDisagrementButton();
+        onTapStronglyDisagrementButton();
+        break;
       case StatementResponse.neutral:
-        return onTapNeutralButton();
+        onTapNeutralButton();
+        break;
       default:
         _nothingHappen();
     }
-    if (decision != null) {
-      storeAnswerData(decision);
-    }
+    if (decision != null) storeAnswerData(decision);
   }
 
 //Handle user LongPress, activate button color but not card animation, animation will be triggered when user release the button
@@ -213,7 +194,7 @@ class StatementsController extends GetxController {
     _buttonsBlocked.value = false;
   }
 
-//When card is dragged handle wich button is selected depending on the part of the screen user drops the card
+  //When card is dragged handle wich button is selected depending on the part of the screen user drops the card
   StatementResponse? _checkActionSelected() {
     final widthPart = currentWidthScreeenPart(_frontCardposition.value.dx);
     final heightPart = currentHeightScreeenPart();
@@ -253,7 +234,7 @@ class StatementsController extends GetxController {
     }
   }
 
-//Define wich part of the screen the user is dragging the card
+  //Define wich part of the screen the user is dragging the card
   _WidthScreenPart currentWidthScreeenPart(double x) {
     if (x < Get.width * .15) {
       return _WidthScreenPart.maxLeft;
@@ -284,9 +265,6 @@ class StatementsController extends GetxController {
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
-    if (_fromOnboarding.value) {
-      _fromOnboarding.value = false;
-    }
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);
     }
@@ -294,7 +272,7 @@ class StatementsController extends GetxController {
 
   Future<void> disagreeAnimation() async {
     _buttonsBlocked.value = true;
-    _isPanStarted.value = true;
+    isPanStarted.value = true;
     _cardAnimationDuration.value = _cardAnimationTime;
     final x = _frontCardposition.value.dx - (Get.width * .5);
     final centerX = Get.width * .25;
@@ -305,12 +283,12 @@ class StatementsController extends GetxController {
     _backCardPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
-    _isPanStarted.value = false;
+    isPanStarted.value = false;
   }
 
   Future<void> agreeAnimation() async {
     _buttonsBlocked.value = true;
-    _isPanStarted.value = true;
+    isPanStarted.value = true;
     _cardAnimationDuration.value = _cardAnimationTime;
     final x = _frontCardposition.value.dx + (Get.width * .5);
     final centerX = Get.width * .25;
@@ -320,20 +298,19 @@ class StatementsController extends GetxController {
     _backCardPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
-    _isPanStarted.value = false;
+    isPanStarted.value = false;
   }
 
   Future<void> neutralAnimation() async {
     _buttonsBlocked.value = true;
-    _isPanStarted.value = true;
+    isPanStarted.value = true;
     _cardAnimationDuration.value = _cardAnimationTime;
-
     _frontCardposition.value =
         Offset(_frontCardposition.value.dx, -Get.height * .3);
     _backCardPosition.value = Offset(Get.width * .25, (Get.height * .9) * .28);
     await Future.delayed(Duration(milliseconds: _awaitAnimationTime));
     _cardAnimationDuration.value = 0;
-    _isPanStarted.value = false;
+    isPanStarted.value = false;
   }
 
   void onTapNeutralButton() async {
@@ -372,14 +349,10 @@ class StatementsController extends GetxController {
   }
 
   storeAnswerData(StatementResponse answer) {
-    if (fromOnboarding) return;
-    try {
-      UserManager.addStatment(frontCard!.id, answer);
-    } catch (e) {
-      debugPrint(e.toString());
-    }
+    UserManager.addStatment(frontCard!.id, answer);
   }
 
+  // TODO: this could have an animation
   returnToPreviousCard() {
     if (frontCard == null) {
       debugPrint("front card was null");
@@ -399,12 +372,8 @@ class StatementsController extends GetxController {
       debugPrint("error returnToPreviousCard");
     }
   }
-  ////////////////////
-  ///
-  ///BANNER ANIMATION
-  ///
-  ////////////////////
 
+  //BANNER ANIMATION
   Rx<Offset> _bannerPosition = Offset(0, -(Get.height * .1)).obs;
   Offset get bannerPosition => _bannerPosition.value;
 

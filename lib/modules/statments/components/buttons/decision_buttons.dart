@@ -21,7 +21,7 @@ class DecisionButtons extends GetView<StatementsController> {
     var yo = controller.selectedResponseStatement.value == response ||
         controller.currentDraggedResponseStatement == response;
 
-    print("isSelectedOrHovered " + response.toString() + " " + yo.toString());
+    // debugPrint("isSelectedOrHovered " + response.toString() + " " + yo.toString());
     return yo;
   }
 
