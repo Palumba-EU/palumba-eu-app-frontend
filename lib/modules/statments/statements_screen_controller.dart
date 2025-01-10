@@ -164,22 +164,18 @@ class StatementsController extends GetxController {
   void activateButton(
     StatementResponse? decision,
   ) {
+    currentDraggedResponseStatement.value = null;
     switch (decision) {
       case StatementResponse.stronglyAgree:
-        onTapStronglyAgrementButton();
-        break;
+        return onTapStronglyAgrementButton();
       case StatementResponse.agree:
-        onTapAgrementButton();
-        break;
+        return onTapAgrementButton();
       case StatementResponse.disagree:
-        onTapDisagrementButton();
-        break;
+        return onTapDisagrementButton();
       case StatementResponse.stronglyDisagree:
-        onTapStronglyDisagrementButton();
-        break;
+        return onTapStronglyDisagrementButton();
       case StatementResponse.neutral:
-        onTapNeutralButton();
-        break;
+        return onTapNeutralButton();
       default:
         _nothingHappen();
     }

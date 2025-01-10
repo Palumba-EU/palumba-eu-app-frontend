@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
-import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/gender_model.dart';
 import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
-import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
@@ -27,60 +24,28 @@ class OnboardingController extends GetxController {
   RxBool isButtonEnabled = false.obs;
   RxBool isPreferNotToSayEnabled = true.obs;
 
+  ///fields for background
   Rx<EdgeInsets> margin = EdgeInsets.zero.obs;
   Rx<Radius> radius = Radius.zero.obs;
   Rx<double> height = 0.0.obs;
   Rx<double> heighClippedContainer = (Get.height).obs;
-  RxBool finalAnimationFinished = false.obs;
 
-  RxBool _startAnimation = false.obs;
-
-  bool _isOnBoardingCard = false;
-  bool get isOnBoardingCard => _isOnBoardingCard;
-
-  CardModel? _cardData;
-  CardModel? get cardData => _cardData;
-
-  get startAnimation => _startAnimation.value;
+  RxBool _showFinalView = false.obs;
+  bool get showFinalView => _showFinalView.value;
 
   ///Step1
   List<Country>? _countries = DataManager().getCountries();
-
   List<Country>? get countries => _countries;
-
   RxInt indexCountrySelected = (-1).obs;
-
-  RxBool _showFinalView = false.obs;
-
-  bool get showFinalView => _showFinalView.value;
 
   ///Step2
   final int minAge = 14;
   final int maxAge = 115;
-
   RxInt indexAgeSelected = (-1).obs;
 
   ///Step3
-  final List<GenderModel> _genders = [
-    GenderModel(
-        name: S.of(Get.context!).onBoardingStep3Option1,
-        genderEnum: Gender.woman),
-    GenderModel(
-        name: S.of(Get.context!).onBoardingStep3Option2,
-        genderEnum: Gender.man),
-    GenderModel(
-        name: S.of(Get.context!).onBoardingStep3Option3,
-        genderEnum: Gender.genderFluid),
-    GenderModel(
-        name: S.of(Get.context!).onBoardingStep3Option4,
-        genderEnum: Gender.nonBinary),
-    GenderModel(
-        name: S.of(Get.context!).onBoardingStep3Option5,
-        genderEnum: Gender.other),
-  ];
-
+  final List<GenderModel> _genders = GenderModel.allGenders(Get.context!);
   List<String> get genders => _genders.map((gender) => gender.name).toList();
-
   RxInt indexGenderSelected = (-1).obs;
   RxBool acceptDataPrivacy = (false).obs;
 
@@ -97,10 +62,13 @@ class OnboardingController extends GetxController {
     clearUserStoredStatements();
     updateBackgroundShape();
     super.onInit();
+    trackSteps();
+  }
 
-    debugPrint('currentStep: ' + currentStep.value.toString());
+  void trackSteps() {
+    debugPrint('currentOnbStep: ' + currentStep.value.toString());
     currentStep.listen((step) {
-      debugPrint('currentStep: ' + step.toString());
+      debugPrint('currentOnbStep: ' + step.toString());
     });
   }
 
@@ -215,16 +183,6 @@ class OnboardingController extends GetxController {
       height.value = Get.height;
       radius.value = Radius.circular(250);
       radius.value = Radius.zero;
-      final onBoarded = await _localDataRepository.onBoarded;
-      _isOnBoardingCard = onBoarded != true;
-
-      if (onBoarded == true) {
-        try {
-          _cardData = StatementsParser.getIntroCard(Get.context!, false);
-        } catch (e) {
-          debugPrint(e.toString());
-        }
-      }
 
       //When shape reach bottom of the screen we activate the rise card and buttons animation
       Future.delayed(Duration(milliseconds: 750), () async {
