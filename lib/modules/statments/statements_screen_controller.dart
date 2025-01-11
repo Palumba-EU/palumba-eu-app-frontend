@@ -112,6 +112,10 @@ class StatementsController extends GetxController {
       selectedResponseStatement.value = response;
       await Future.delayed(Duration(milliseconds: 500));
     }
+
+    flipCardController.toggleCard();
+    await Future.delayed(Duration(milliseconds: 500));
+    flipCardController.toggleCard();
   }
 
   void onPanStart(DragStartDetails details) {
