@@ -146,17 +146,17 @@ class OnboardingController extends GetxController {
     isButtonEnabled.value =
         currentStep.value == 1 && indexCountrySelected.value != -1 ||
             currentStep.value == 2 && indexAgeSelected.value != -1 ||
-            currentStep.value == 3 &&
+            currentStep.value == 3 && indexLevelOfEducationSelected != -1 ||
+            currentStep.value == 4 &&
                 indexGenderSelected.value != -1 &&
-                acceptDataPrivacy == true ||
-            currentStep.value == 4 && indexLevelOfEducationSelected != -1;
+                acceptDataPrivacy == true;
   }
 
   void updatePreferNotToSay() {
     isPreferNotToSayEnabled.value = currentStep == 1 ||
         currentStep == 2 ||
-        currentStep == 3 && acceptDataPrivacy == true ||
-        currentStep == 4;
+        currentStep == 3 ||
+        currentStep == 4 && acceptDataPrivacy == true;
   }
 
   void updateBackgroundShape() async {
@@ -172,11 +172,11 @@ class OnboardingController extends GetxController {
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 3) {
-      height.value = isSmallScreen ? heightSize * 0.25 : heightSize * 0.35;
+      height.value = isSmallScreen ? heightSize * 0.23 : heightSize * 0.33;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 4) {
-      height.value = isSmallScreen ? heightSize * 0.34 : heightSize * 0.44;
+      height.value = isSmallScreen ? heightSize * 0.25 : heightSize * 0.35;
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else {

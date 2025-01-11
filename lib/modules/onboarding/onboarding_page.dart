@@ -7,8 +7,8 @@ import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
-import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/components/step4.dart';
+import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/helpers/onboarding_clipper.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
@@ -59,9 +59,22 @@ class OnboardingPage extends StatelessWidget {
 
                               if (index == 2) {
                                 return Padding(
+                                    padding: EdgeInsets.only(
+                                        top: _.height.value - 30),
+                                    child: Step3(
+                                      levelsofEducation: _.levelsofEducation,
+                                      indexSelected:
+                                          _.indexLevelOfEducationSelected,
+                                      onLevelOfEducationPressed:
+                                          _.onLevelOfEducationPressed,
+                                    ));
+                              }
+
+                              if (index == 3) {
+                                return Padding(
                                   padding:
                                       EdgeInsets.only(top: _.height.value - 30),
-                                  child: Step3(
+                                  child: Step4(
                                       genders: _.genders,
                                       indexSelected: _.indexGenderSelected,
                                       onGenderPressed: _.onGenderPressed,
@@ -70,19 +83,6 @@ class OnboardingPage extends StatelessWidget {
                                           _.onDataPrivacyToggle,
                                       launchDataPrivcay: _.launchDataPrivcay),
                                 );
-                              }
-
-                              if (index == 3) {
-                                return Padding(
-                                    padding: EdgeInsets.only(
-                                        top: _.height.value - 30),
-                                    child: Step4(
-                                      levelsofEducation: _.levelsofEducation,
-                                      indexSelected:
-                                          _.indexLevelOfEducationSelected,
-                                      onLevelOfEducationPressed:
-                                          _.onLevelOfEducationPressed,
-                                    ));
                               }
 
                               return Container();

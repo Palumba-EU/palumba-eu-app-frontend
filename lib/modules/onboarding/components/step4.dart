@@ -1,22 +1,29 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/onboarding/components/custom_gender_selector.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class Step4 extends StatelessWidget {
-  final List<LevelOfEducation> levelsofEducation;
+  final List<String> genders;
   final RxInt indexSelected;
-  final Function(int index) onLevelOfEducationPressed;
+  final Function(int index) onGenderPressed;
+  final RxBool acceptDataPrivacy;
+  final Function(bool acceptDataPrivacy) onDataPrivacyToggle;
+  final Function() launchDataPrivcay;
 
   const Step4({
     super.key,
-    required this.levelsofEducation,
+    required this.genders,
     required this.indexSelected,
-    required this.onLevelOfEducationPressed,
+    required this.onGenderPressed,
+    required this.acceptDataPrivacy,
+    required this.onDataPrivacyToggle,
+    required this.launchDataPrivcay,
   });
 
   @override
@@ -29,7 +36,8 @@ class Step4 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: [
-            AppTexts.title("Level of Education", color: AppColors.primary),
+            AppTexts.title(S.of(context).onBoardingStep3Title,
+                color: AppColors.primary),
             CustomSpacer(
               multiplier: 3,
             ),
@@ -37,13 +45,64 @@ class Step4 extends StatelessWidget {
               spacing: 7.5,
               runSpacing: 7.5,
               children: List.generate(
-                  levelsofEducation.length,
+                  genders.length,
                   (index) => Obx(() => CustomGenderSelector(
-                      title: levelsofEducation[index].localized,
+                      title: genders[index],
                       selected: indexSelected == index,
                       onPressed: () {
-                        onLevelOfEducationPressed(index);
+                        onGenderPressed(index);
                       }))),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Obx(() {
+                  return Transform.scale(
+                      scale: 1.2,
+                      child: Checkbox(
+                        value: acceptDataPrivacy.value,
+                        onChanged: (bool? value) {
+                          onDataPrivacyToggle(value ?? false);
+                        },
+                        checkColor: AppColors.primary,
+                        fillColor: WidgetStateProperty.resolveWith<Color>(
+                          (Set<WidgetState> states) {
+                            return Colors.white;
+                          },
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero,
+                        ),
+                        side: WidgetStateBorderSide.resolveWith(
+                          (states) =>
+                              BorderSide(width: 2.0, color: AppColors.yellow),
+                        ),
+                      ));
+                }),
+                CustomSpacer(
+                  multiplier: 8,
+                ),
+                Flexible(
+                    child: RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: AppColors.primary, // Default color
+                    ), // Default text style
+                    children: [
+                      TextSpan(
+                        text: 'I allow palumba to process my data ',
+                      ),
+                      TextSpan(
+                        text: '(Data Protection Policy)',
+                        style: TextStyle(decoration: TextDecoration.underline),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = launchDataPrivcay,
+                      ),
+                    ],
+                  ),
+                ))
+              ],
             ),
           ],
         ),
