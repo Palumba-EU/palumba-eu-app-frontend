@@ -33,6 +33,8 @@ class StatementsController extends GetxController {
   RxInt _cardAnimationDuration = 0.obs;
   RxInt get cardAnimationDuration => _cardAnimationDuration;
 
+  final RxBool tutorialOngoing = false.obs;
+
   final RxBool _buttonsBlocked = false.obs;
   bool get buttonsBlocked => _buttonsBlocked.value;
 
@@ -85,6 +87,12 @@ class StatementsController extends GetxController {
     runOnboardingAnimationIfFirstCardIsOnboardingCard();
   }
 
+  @override
+  void onClose() {
+    tutorialOngoing.value = false;
+    super.onClose();
+  }
+
   void _getArgumentsAndFetch() {
     _statementsData = DataManager().getStatements();
     _currentCards.addAll(StatementsParser.getCardModelList(statements));
@@ -98,6 +106,7 @@ class StatementsController extends GetxController {
   void runOnboardingAnimationIfFirstCardIsOnboardingCard() async {
     // only if new test? -> check for UserManager.isTestRunning
     if (frontCard?.isOnboardingCard != true) return;
+    tutorialOngoing.value = true;
     final animationOrder = [
       StatementResponse.stronglyDisagree,
       StatementResponse.disagree,
@@ -109,16 +118,19 @@ class StatementsController extends GetxController {
 
     await Future.delayed(Duration(milliseconds: 500));
     for (var response in animationOrder) {
+      if (!tutorialOngoing.value) return;
       selectedResponseStatement.value = response;
       await Future.delayed(Duration(milliseconds: 500));
     }
 
+    if (!tutorialOngoing.value) return;
     flipCardController.toggleCard();
     await Future.delayed(Duration(milliseconds: 500));
     flipCardController.toggleCard();
   }
 
   void onPanStart(DragStartDetails details) {
+    tutorialOngoing.value = false;
     isPanStarted.value = true;
   }
 
@@ -160,6 +172,7 @@ class StatementsController extends GetxController {
   void activateButton(
     StatementResponse? decision,
   ) {
+    tutorialOngoing.value = false;
     currentDraggedResponseStatement.value = null;
     print("here?");
     switch (decision) {
