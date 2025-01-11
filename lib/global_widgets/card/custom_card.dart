@@ -24,7 +24,7 @@ class CustomCard extends StatelessWidget {
     required this.angleCard,
     required this.position,
     this.currentDraggedResponseStatement,
-    this.onBoardingButtonSelected,
+    this.selectedResponseStatement,
     this.flipCcardController,
   });
 
@@ -38,15 +38,14 @@ class CustomCard extends StatelessWidget {
   final double angleCard;
   final Rx<Offset> position;
   final Rxn<StatementResponse>? currentDraggedResponseStatement;
-  final StatementResponse? onBoardingButtonSelected;
+  final StatementResponse? selectedResponseStatement;
   final FlipCardController? flipCcardController;
 
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [];
     if (card != null && card?.details != "")
-      pages.add(CardFrontPage(card!,
-          onBoardingButtonSelected: onBoardingButtonSelected));
+      pages.add(CardFrontPage(card!, selectedResponseStatement));
     if (card?.details != null && card?.details != "")
       pages.add(CardBackPage(card!));
 

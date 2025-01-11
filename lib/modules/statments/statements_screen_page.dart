@@ -106,20 +106,21 @@ class StatementsPage extends GetView<StatementsController> {
                       Obx(
                         // main card
                         () => CustomCard(
-                          isFrontCard: true,
-                          card: controller.frontCard,
-                          onPanStart: controller.onPanStart,
-                          onPanUpdate: controller.onPanUpdate,
-                          onPanEnd: controller.onPanEnd,
-                          angleCard: controller.angle,
-                          position: controller.frontCardposition,
-                          isPanStarted: controller.isPanStarted,
-                          cardAnimationDuration:
-                              controller.cardAnimationDuration,
-                          currentDraggedResponseStatement:
-                              controller.currentDraggedResponseStatement,
-                          flipCcardController: controller.flipCardController,
-                        ),
+                            isFrontCard: true,
+                            card: controller.frontCard,
+                            onPanStart: controller.onPanStart,
+                            onPanUpdate: controller.onPanUpdate,
+                            onPanEnd: controller.onPanEnd,
+                            angleCard: controller.angle,
+                            position: controller.frontCardposition,
+                            isPanStarted: controller.isPanStarted,
+                            cardAnimationDuration:
+                                controller.cardAnimationDuration,
+                            currentDraggedResponseStatement:
+                                controller.currentDraggedResponseStatement,
+                            flipCcardController: controller.flipCardController,
+                            selectedResponseStatement:
+                                controller.selectedResponseStatement.value),
                       )
                     ],
                   )
@@ -127,7 +128,15 @@ class StatementsPage extends GetView<StatementsController> {
           ),
 
           //Buttons
-          neutralButton(context),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              height: Get.height * .3,
+              child: Stack(
+                children: [neutralButton(context), agreeButtons()],
+              ),
+            ),
+          ),
 
           //TOP BANNER SHOWED IN HALF AND LAST 5 STATEMENTS
           Obx(() => IntrinsicHeight(
@@ -168,44 +177,30 @@ class StatementsPage extends GetView<StatementsController> {
   }
 
   Widget neutralButton(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: SizedBox(
-        height: Get.height * .3,
-        child: Stack(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: Get.height * .08),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: Obx(
-                  () => IgnorePointer(
-                      ignoring: controller.buttonsBlocked,
-                      child: CustomButton(
-                        text: S.of(context).neutral,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: AppDimens.lateralPaddingValue * .5),
-                        onPressed: () => controller
-                            .activateButton(StatementResponse.neutral),
-                        color: controller.currentDraggedResponseStatement ==
-                                StatementResponse.neutral
-                            ? AppColors.lightPrimary
-                            : AppColors.primary,
-                        textColor: controller.currentDraggedResponseStatement ==
-                                StatementResponse.neutral
-                            ? AppColors.primary
-                            : AppColors.text,
-                        radius: AppDimens.largeBorderRadius,
-                        border: ButtonBorderParameters(
-                            color: AppColors.lightPrimary,
-                            width: 2,
-                            isOutside: true),
-                      )),
-                ),
-              ),
-            ),
-            agreeButtons()
-          ],
+    return Padding(
+      padding: EdgeInsets.only(top: Get.height * .08),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Obx(
+          () => IgnorePointer(
+              ignoring: controller.buttonsBlocked,
+              child: CustomButton(
+                text: S.of(context).neutral,
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppDimens.lateralPaddingValue * .5),
+                onPressed: () =>
+                    controller.activateButton(StatementResponse.neutral),
+                color: controller.isSelectedOrHovered(StatementResponse.neutral)
+                    ? AppColors.lightPrimary
+                    : AppColors.primary,
+                textColor:
+                    controller.isSelectedOrHovered(StatementResponse.neutral)
+                        ? AppColors.primary
+                        : AppColors.text,
+                radius: AppDimens.largeBorderRadius,
+                border: ButtonBorderParameters(
+                    color: AppColors.lightPrimary, width: 2, isOutside: true),
+              )),
         ),
       ),
     );

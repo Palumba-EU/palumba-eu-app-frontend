@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -9,13 +10,13 @@ import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
 class CardFrontPage extends StatelessWidget {
   const CardFrontPage(
-    this.card, {
-    this.onBoardingButtonSelected,
+    this.card,
+    this.selectedResponseStatement, {
     super.key,
   });
 
   final CardModel card;
-  final StatementResponse? onBoardingButtonSelected;
+  final StatementResponse? selectedResponseStatement;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +84,7 @@ class CardFrontPage extends StatelessWidget {
   }
 
   String _getOnboardingEmojis() {
-    switch (onBoardingButtonSelected) {
+    switch (selectedResponseStatement) {
       case StatementResponse.stronglyDisagree:
         return '😤🙅‍';
       case StatementResponse.disagree:
@@ -92,13 +93,15 @@ class CardFrontPage extends StatelessWidget {
         return '👍';
       case StatementResponse.stronglyAgree:
         return '🧡⚡';
-      default:
+      case StatementResponse.neutral:
+        return '🤷';
+      case null:
         return '';
     }
   }
 
   Color _getBackgroundEmojiColor() {
-    switch (onBoardingButtonSelected) {
+    switch (selectedResponseStatement) {
       case StatementResponse.stronglyDisagree:
         return AppColors.yellow;
       case StatementResponse.disagree:
@@ -107,8 +110,10 @@ class CardFrontPage extends StatelessWidget {
         return AppColors.lightGreen;
       case StatementResponse.stronglyAgree:
         return AppColors.green;
-      default:
-        return AppColors.green;
+      case StatementResponse.neutral:
+        return AppColors.lightPrimary;
+      case null:
+        return Colors.transparent;
     }
   }
 }

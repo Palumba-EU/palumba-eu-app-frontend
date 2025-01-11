@@ -17,14 +17,6 @@ class DecisionButtons extends GetView<StatementsController> {
   final Function(StatementResponse) onLongPressStart;
   final Function(StatementResponse, LongPressEndDetails) onLongPressEnd;
 
-  bool isSelectedOrHovered(StatementResponse response) {
-    var yo = controller.selectedResponseStatement.value == response ||
-        controller.currentDraggedResponseStatement == response;
-
-    // debugPrint("isSelectedOrHovered " + response.toString() + " " + yo.toString());
-    return yo;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -36,9 +28,9 @@ class DecisionButtons extends GetView<StatementsController> {
               children: [
                 _nonSelectedButtons(),
                 // overlay agree and disagree buttons
-                if (isSelectedOrHovered(StatementResponse.agree))
+                if (controller.isSelectedOrHovered(StatementResponse.agree))
                   _selectedButtons(true),
-                if (isSelectedOrHovered(StatementResponse.disagree))
+                if (controller.isSelectedOrHovered(StatementResponse.disagree))
                   _selectedButtons(false),
               ],
             ),
@@ -58,19 +50,21 @@ class DecisionButtons extends GetView<StatementsController> {
           child: Obx(
             () => SizedBox(
               height: Get.height * .3 -
-                  (isSelectedOrHovered(StatementResponse.stronglyDisagree)
+                  (controller.isSelectedOrHovered(
+                          StatementResponse.stronglyDisagree)
                       ? 0
                       : 15),
               width: Get.width * .35 +
-                  (isSelectedOrHovered(StatementResponse.stronglyDisagree)
+                  (controller.isSelectedOrHovered(
+                          StatementResponse.stronglyDisagree)
                       ? Get.width * .07
                       : 0),
               child: IgnorePointer(
                 ignoring: controller.buttonsBlocked,
                 child: CustomBigButtonCurve(
                   curveRadius: 25,
-                  isSelected:
-                      isSelectedOrHovered(StatementResponse.stronglyDisagree),
+                  isSelected: controller
+                      .isSelectedOrHovered(StatementResponse.stronglyDisagree),
                   icon: 'ic_cross',
                   flip: true,
                   onTap: () => onTap(StatementResponse.stronglyDisagree),
@@ -89,19 +83,21 @@ class DecisionButtons extends GetView<StatementsController> {
           child: Obx(
             () => SizedBox(
               height: Get.height * .3 -
-                  (isSelectedOrHovered(StatementResponse.stronglyAgree)
+                  (controller
+                          .isSelectedOrHovered(StatementResponse.stronglyAgree)
                       ? 0
                       : 15),
               width: Get.width * .35 +
-                  (isSelectedOrHovered(StatementResponse.stronglyAgree)
+                  (controller
+                          .isSelectedOrHovered(StatementResponse.stronglyAgree)
                       ? Get.width * .07
                       : 0),
               child: IgnorePointer(
                 ignoring: controller.buttonsBlocked,
                 child: CustomBigButtonCurve(
                   curveRadius: 25,
-                  isSelected:
-                      isSelectedOrHovered(StatementResponse.stronglyAgree),
+                  isSelected: controller
+                      .isSelectedOrHovered(StatementResponse.stronglyAgree),
                   icon: 'ic_check',
                   onTap: () => onTap(StatementResponse.stronglyAgree),
                   onLongPress: () =>
@@ -125,7 +121,10 @@ class DecisionButtons extends GetView<StatementsController> {
           flex: 2,
           child: Obx(
             () => Opacity(
-              opacity: isSelectedOrHovered(StatementResponse.disagree) ? 0 : 1,
+              opacity:
+                  controller.isSelectedOrHovered(StatementResponse.disagree)
+                      ? 0
+                      : 1,
               child: IgnorePointer(
                 ignoring: controller.buttonsBlocked,
                 child: CustomSmallButtonCurve(
@@ -143,8 +142,8 @@ class DecisionButtons extends GetView<StatementsController> {
             ),
           ),
         ),
-        if (!isSelectedOrHovered(StatementResponse.agree) &&
-            !isSelectedOrHovered(StatementResponse.disagree))
+        if (!controller.isSelectedOrHovered(StatementResponse.agree) &&
+            !controller.isSelectedOrHovered(StatementResponse.disagree))
           SizedBox(
             width: 2,
           ),
@@ -152,7 +151,9 @@ class DecisionButtons extends GetView<StatementsController> {
           flex: 2,
           child: Obx(
             () => Opacity(
-              opacity: isSelectedOrHovered(StatementResponse.agree) ? 0 : 1,
+              opacity: controller.isSelectedOrHovered(StatementResponse.agree)
+                  ? 0
+                  : 1,
               child: IgnorePointer(
                 ignoring: controller.buttonsBlocked,
                 child: CustomSmallButtonCurve(

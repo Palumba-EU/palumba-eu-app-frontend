@@ -95,8 +95,23 @@ class StatementsController extends GetxController {
     update([cardStackKey]);
   }
 
-  void runOnboardingAnimationIfFirstCardIsOnboardingCard() {
+  void runOnboardingAnimationIfFirstCardIsOnboardingCard() async {
+    // only if new test? -> check for UserManager.isTestRunning
     if (frontCard?.isOnboardingCard != true) return;
+    final animationOrder = [
+      StatementResponse.stronglyDisagree,
+      StatementResponse.disagree,
+      StatementResponse.agree,
+      StatementResponse.stronglyAgree,
+      StatementResponse.neutral,
+      null
+    ];
+
+    await Future.delayed(Duration(milliseconds: 500));
+    for (var response in animationOrder) {
+      selectedResponseStatement.value = response;
+      await Future.delayed(Duration(milliseconds: 500));
+    }
   }
 
   void onPanStart(DragStartDetails details) {
@@ -407,5 +422,13 @@ class StatementsController extends GetxController {
     _bannerPosition.value = Offset(0, -(Get.height * .1));
     await Future.delayed(bannerDuration);
     _bannerOpacity.value = 0;
+  }
+
+  bool isSelectedOrHovered(StatementResponse response) {
+    var yo = selectedResponseStatement.value == response ||
+        currentDraggedResponseStatement == response;
+
+    // debugPrint("isSelectedOrHovered " + response.toString() + " " + yo.toString());
+    return yo;
   }
 }
