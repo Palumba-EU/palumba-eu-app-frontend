@@ -73,7 +73,7 @@ class CustomCard extends StatelessWidget {
                   builder: (context, constraints) => Obx(
                         () {
                           final duration = Duration(
-                              milliseconds: cardAnimationDuration.value ?? 0);
+                              milliseconds: cardAnimationDuration.value);
                           final center =
                               constraints.smallest.center(Offset.zero);
                           final double angle =

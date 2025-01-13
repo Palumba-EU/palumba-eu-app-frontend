@@ -127,6 +127,7 @@ class StatementsController extends GetxController {
       if (!tutorialOngoing.value) return;
       flipCardController.toggleCard();
       await Future.delayed(Duration(milliseconds: 500));
+      if (!tutorialOngoing.value) return;
       flipCardController.toggleCard();
       await Future.delayed(Duration(milliseconds: 500));
     }
@@ -177,7 +178,6 @@ class StatementsController extends GetxController {
   ) {
     tutorialOngoing.value = false;
     currentDraggedResponseStatement.value = null;
-    print("here?");
     switch (decision) {
       case StatementResponse.stronglyAgree:
         onTapStronglyAgrementButton();

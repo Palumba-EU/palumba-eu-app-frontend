@@ -53,10 +53,8 @@ class StatementsPage extends GetView<StatementsController> {
 
           //Custom Plaumba header
           Obx(
-            () => false //controller.fromOnboarding
-                ?
-                //Onboarding header
-                SafeArea(
+            () => controller.tutorialOngoing.value
+                ? SafeArea(
                     child: Padding(
                       padding:
                           EdgeInsets.only(top: AppDimens.lateralPaddingValue),
