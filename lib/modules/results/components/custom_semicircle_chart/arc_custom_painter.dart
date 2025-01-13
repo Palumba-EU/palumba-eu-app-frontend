@@ -53,6 +53,13 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
     }
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+        vsync: this, duration: Duration(seconds: 2), value: 0.0);
+  }
+
   Future<ui.Image> loadImage(String url) async {
     final response = await http.get(Uri.parse(url));
     final bytes = Uint8List.fromList(response.bodyBytes);
@@ -65,11 +72,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
   void _initAnimation() {
     final animationStopValue =
         calculatePercentage(widget.value, widget.maxValue);
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 2),
-      value: 0.0,
-    )..animateTo(animationStopValue);
+    _controller.animateTo(animationStopValue);
     _isAnimationCompleted = true;
   }
 
@@ -82,7 +85,8 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ui.Image>(
-        future: SvgHelper.loadSvgFromUrl(widget.imageUrl), //loadImage(widget.imageUrl),
+        future: SvgHelper.loadSvgFromUrl(
+            widget.imageUrl), //loadImage(widget.imageUrl),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (!_isAnimationCompleted) {
