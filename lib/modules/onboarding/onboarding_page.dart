@@ -13,7 +13,6 @@ import 'package:palumba_eu/modules/onboarding/components/step4.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/helpers/onboarding_clipper.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
-import 'package:palumba_eu/modules/statments/components/buttons/decision_buttons.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';

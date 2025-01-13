@@ -116,17 +116,20 @@ class StatementsController extends GetxController {
       null
     ];
 
-    await Future.delayed(Duration(milliseconds: 500));
-    for (var response in animationOrder) {
+    while (tutorialOngoing.value) {
+      await Future.delayed(Duration(milliseconds: 800));
+      for (var response in animationOrder) {
+        if (!tutorialOngoing.value) return;
+        selectedResponseStatement.value = response;
+        await Future.delayed(Duration(milliseconds: 500));
+      }
+
       if (!tutorialOngoing.value) return;
-      selectedResponseStatement.value = response;
+      flipCardController.toggleCard();
+      await Future.delayed(Duration(milliseconds: 500));
+      flipCardController.toggleCard();
       await Future.delayed(Duration(milliseconds: 500));
     }
-
-    if (!tutorialOngoing.value) return;
-    flipCardController.toggleCard();
-    await Future.delayed(Duration(milliseconds: 500));
-    flipCardController.toggleCard();
   }
 
   void onPanStart(DragStartDetails details) {
