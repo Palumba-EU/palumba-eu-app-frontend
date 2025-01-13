@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/global_widgets/card/custom_card.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/modules/onboarding/components/animated_decision_buttons.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
 import 'package:palumba_eu/modules/onboarding/components/step4.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/helpers/onboarding_clipper.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
+import 'package:palumba_eu/modules/statments/components/buttons/decision_buttons.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -145,7 +148,7 @@ class OnboardingPage extends StatelessWidget {
                 ),
               ),
               Obx(
-                () => _.showFinalView
+                () => _.showFinalView.value
                     ? Container(
                         margin: EdgeInsets.only(top: 100),
                         height: double.infinity,
@@ -167,15 +170,18 @@ class OnboardingPage extends StatelessWidget {
                           bottomRight: _.radius.value)),
                 ),
               ),
-
               Obx(
-                () => _.showFinalView
+                () => _.showFinalView.value
                     ? Stack(
                         children: [
                           IgnorePointer(
                             child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: SizedBox.shrink()),
+                              alignment: Alignment.bottomCenter,
+                              child: SizedBox(
+                                height: Get.height * .3,
+                                child: AnimatedDecisionButtons(),
+                              ),
+                            ),
                           ),
                           Obx(
                             () => AnimatedContainer(
@@ -197,13 +203,21 @@ class OnboardingPage extends StatelessWidget {
                               child: Stickers(),
                             ),
                           ),
+                          CustomCard(
+                            isFrontCard: true,
+                            angleCard: 0.0,
+                            position: _.cardPosition,
+                            cardAnimationDuration: Rx(1600),
+                            isPanStarted: false.obs,
+                            card: _.cardData,
+                          ),
                         ],
                       )
                     : SizedBox.shrink(),
               ),
               //Stickers
               Obx(() {
-                return _.showFinalView
+                return _.showFinalView.value
                     ? SizedBox.shrink()
                     : Positioned(
                         top: Get.height * .14,

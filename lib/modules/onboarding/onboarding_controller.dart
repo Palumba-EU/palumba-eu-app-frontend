@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/gender_model.dart';
 import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
+import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -30,9 +32,6 @@ class OnboardingController extends GetxController {
   Rx<double> height = 0.0.obs;
   Rx<double> heighClippedContainer = (Get.height).obs;
 
-  RxBool _showFinalView = false.obs;
-  bool get showFinalView => _showFinalView.value;
-
   ///Step1
   List<Country>? _countries = DataManager().getCountries();
   List<Country>? get countries => _countries;
@@ -57,12 +56,21 @@ class OnboardingController extends GetxController {
   RxBool _showLastStepTitle = false.obs;
   bool get showLastStepTitle => _showLastStepTitle.value;
 
+  /// animate statementUI
+  Rx<Offset> smallButtonsPosition = Offset(0, Get.height * .3).obs;
+  Rx<Offset> bigButtonsPosition = Offset(0, Get.height * .3).obs;
+  RxBool showFinalView = false.obs;
+  final Rx<Offset> cardPosition = Offset(Get.width * .25, Get.height).obs;
+  late CardModel cardData;
+  RxBool finalAnimationFinished = false.obs;
+
   @override
   void onInit() {
     clearUserStoredStatements();
     updateBackgroundShape();
     super.onInit();
     trackSteps();
+    cardData = StatementsParser.getIntroCard(Get.context!, true);
   }
 
   void trackSteps() {
@@ -159,7 +167,7 @@ class OnboardingController extends GetxController {
         currentStep == 4 && acceptDataPrivacy == true;
   }
 
-  void updateBackgroundShape() async {
+  void updateBackgroundShape() {
     //Update the background shape
     bool isSmallScreen = Get.height < 800;
     var heightSize = Get.height;
@@ -183,25 +191,33 @@ class OnboardingController extends GetxController {
       height.value = Get.height;
       radius.value = Radius.circular(250);
       radius.value = Radius.zero;
-
-      //When shape reach bottom of the screen we activate the rise card and buttons animation
-      Future.delayed(Duration(milliseconds: 750), () async {
-        _showFinalView.value = true;
-        await Future.delayed(Duration(milliseconds: 250));
-        heighClippedContainer.value = Get.height * .82;
-        height.value = Get.height * .72;
-        margin.value = EdgeInsets.zero;
-        radius.value = Radius.elliptical(240, 280);
-      }).then((value) async {
-        Get.offAllNamed(StatementsController.route);
-        //Set onBoarding as showe
-        _localDataRepository.onBoarded = true;
-
-        //Finally when animation finish we navigate to statments screen
-        Get.offAllNamed(StatementsController.route, arguments: {
-          StringUtils.fromOnboardingKey: true,
-        });
-      });
+      wrapUpScreenAndAnimateStatementUI();
     }
+  }
+
+  void wrapUpScreenAndAnimateStatementUI() {
+    //When shape reach bottom of the screen we activate the rise card and buttons animation
+    Future.delayed(Duration(milliseconds: 750), () async {
+      showFinalView.value = true;
+      await Future.delayed(Duration(milliseconds: 250));
+      heighClippedContainer.value = Get.height * .82;
+      height.value = Get.height * .72;
+      margin.value = EdgeInsets.zero;
+      radius.value = Radius.elliptical(240, 280);
+    }).then((value) async {
+      _showLastStepTitle.value = true;
+      cardPosition.value =
+          Offset(cardPosition.value.dx, (Get.height * .9) * .28);
+      await Future.delayed(Duration(milliseconds: 350));
+      bigButtonsPosition.value = Offset(0, 0);
+      await Future.delayed(Duration(milliseconds: 450));
+      smallButtonsPosition.value = Offset(0, 0);
+      await Future.delayed(Duration(milliseconds: 1200));
+
+      // Finally when animation finish we navigate to statments screen
+      Get.offAllNamed(StatementsController.route, arguments: {
+        StringUtils.fromOnboardingKey: true,
+      });
+    });
   }
 }

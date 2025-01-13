@@ -34,7 +34,7 @@ class CustomCard extends StatelessWidget {
   final Function(DragStartDetails)? onPanStart;
   final Function(DragUpdateDetails)? onPanUpdate;
   final Function(DragEndDetails)? onPanEnd;
-  final Rx<int>? cardAnimationDuration;
+  final Rx<int> cardAnimationDuration;
   final double angleCard;
   final Rx<Offset> position;
   final Rxn<StatementResponse>? currentDraggedResponseStatement;
@@ -73,7 +73,7 @@ class CustomCard extends StatelessWidget {
                   builder: (context, constraints) => Obx(
                         () {
                           final duration = Duration(
-                              milliseconds: cardAnimationDuration?.value ?? 0);
+                              milliseconds: cardAnimationDuration.value ?? 0);
                           final center =
                               constraints.smallest.center(Offset.zero);
                           final double angle =
@@ -121,7 +121,8 @@ class CustomCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Obx(() => Container(
-          color: backgroundColor(currentDraggedResponseStatement?.value) ??
+          color: backgroundColor(
+                  (currentDraggedResponseStatement ?? Rxn()).value) ??
               Theme.of(context).colorScheme.primary,
           child: Padding(
             padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
