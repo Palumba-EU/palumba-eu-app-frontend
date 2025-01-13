@@ -66,6 +66,7 @@ class StatementsController extends GetxController {
   int _awaitAnimationTime = 325;
 
   FlipCardController flipCardController = FlipCardController();
+  bool _isProgrammaticFlip = false;
 
   @override
   void onInit() {
@@ -125,16 +126,30 @@ class StatementsController extends GetxController {
       }
 
       if (!tutorialOngoing.value) return;
+      _isProgrammaticFlip = true;
       flipCardController.toggleCard();
       await Future.delayed(Duration(milliseconds: 500));
       if (!tutorialOngoing.value) return;
+      _isProgrammaticFlip = true;
       flipCardController.toggleCard();
       await Future.delayed(Duration(milliseconds: 500));
     }
   }
 
+  void onFlip() {
+    if (!_isProgrammaticFlip) {
+      if (tutorialOngoing.value) {
+        tutorialOngoing.value = false;
+        selectedResponseStatement.value = null;
+      }
+    } else {
+      _isProgrammaticFlip = false;
+    }
+  }
+
   void onPanStart(DragStartDetails details) {
     tutorialOngoing.value = false;
+    selectedResponseStatement.value = null;
     isPanStarted.value = true;
   }
 
@@ -300,6 +315,10 @@ class StatementsController extends GetxController {
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
+    // reset card to front side
+    if (flipCardController.state?.isFront == false) {
+      flipCardController.toggleCard();
+    }
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);
     }

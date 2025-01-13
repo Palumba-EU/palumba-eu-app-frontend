@@ -20,12 +20,13 @@ class CustomCard extends StatelessWidget {
     this.onPanStart,
     this.onPanUpdate,
     this.onPanEnd,
+    this.onFlip,
     required this.cardAnimationDuration,
     required this.angleCard,
     required this.position,
     this.currentDraggedResponseStatement,
     this.selectedResponseStatement,
-    this.flipCcardController,
+    this.flipCardController,
   });
 
   final bool isFrontCard;
@@ -34,12 +35,13 @@ class CustomCard extends StatelessWidget {
   final Function(DragStartDetails)? onPanStart;
   final Function(DragUpdateDetails)? onPanUpdate;
   final Function(DragEndDetails)? onPanEnd;
+  final Function()? onFlip;
   final Rx<int> cardAnimationDuration;
   final double angleCard;
   final Rx<Offset> position;
   final Rxn<StatementResponse>? currentDraggedResponseStatement;
   final StatementResponse? selectedResponseStatement;
-  final FlipCardController? flipCcardController;
+  final FlipCardController? flipCardController;
 
   @override
   Widget build(BuildContext context) {
@@ -109,9 +111,10 @@ class CustomCard extends StatelessWidget {
 
   Widget flipCard(List<Widget> pages, BuildContext context) {
     return FlipCard(
-        controller: flipCcardController,
+        controller: flipCardController,
         flipOnTouch: card?.enableCardFlip ?? true,
         speed: 300,
+        onFlip: onFlip,
         direction: FlipDirection.HORIZONTAL, // Flip direction
         front: aCard(pages[0], context),
         back: aCard(pages[1], context));

@@ -116,9 +116,10 @@ class StatementsPage extends GetView<StatementsController> {
                                 controller.cardAnimationDuration,
                             currentDraggedResponseStatement:
                                 controller.currentDraggedResponseStatement,
-                            flipCcardController: controller.flipCardController,
+                            flipCardController: controller.flipCardController,
                             selectedResponseStatement:
-                                controller.selectedResponseStatement.value),
+                                controller.selectedResponseStatement.value,
+                            onFlip: controller.onFlip),
                       )
                     ],
                   )
