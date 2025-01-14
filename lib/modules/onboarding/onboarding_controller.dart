@@ -208,6 +208,7 @@ class OnboardingController extends GetxController {
       margin.value = EdgeInsets.zero;
       radius.value = Radius.elliptical(240, 280);
     }).then((value) async {
+      _localDataRepository.onBoarded = true;
       _showLastStepTitle.value = true;
       cardPosition.value =
           Offset(cardPosition.value.dx, (Get.height * .9) * .28);

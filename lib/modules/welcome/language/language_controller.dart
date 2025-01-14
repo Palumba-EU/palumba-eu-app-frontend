@@ -71,7 +71,7 @@ class LanguageController extends GetxController {
 
     final args = Get.arguments;
     if (args == 'fromElection') {
-      Get.offAllNamed(SettingsPageController.route);
+      Get.until((route) => route.settings.name == SettingsPageController.route);
       return;
     }
 

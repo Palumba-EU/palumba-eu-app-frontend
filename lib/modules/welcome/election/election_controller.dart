@@ -61,7 +61,7 @@ class ElectionController extends GetxController {
 
     final isOnboarded = await _localDataRepository.onBoarded;
     if (isOnboarded != null && isOnboarded) {
-      Get.offAllNamed(LanguageController.route, arguments: 'fromElection');
+      Get.toNamed(LanguageController.route, arguments: 'fromElection');
       return;
     }
     Get.offAllNamed(EntranceController.route);
