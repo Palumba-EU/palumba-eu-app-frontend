@@ -49,8 +49,8 @@ class OnboardingPage extends StatelessWidget {
                               }
                               if (index == 1) {
                                 return Padding(
-                                  padding:
-                                      EdgeInsets.only(top: _.height.value - 40),
+                                  padding: EdgeInsets.only(
+                                      top: _.height.value - _.topInset),
                                   child: Step2(
                                       minAge: _.minAge,
                                       maxAge: _.maxAge,
@@ -62,7 +62,7 @@ class OnboardingPage extends StatelessWidget {
                               if (index == 2) {
                                 return Padding(
                                     padding: EdgeInsets.only(
-                                        top: _.height.value - 30),
+                                        top: _.height.value - _.topInset),
                                     child: Step3(
                                       levelsofEducation: _.levelsofEducation,
                                       indexSelected:
@@ -74,8 +74,8 @@ class OnboardingPage extends StatelessWidget {
 
                               if (index == 3) {
                                 return Padding(
-                                  padding:
-                                      EdgeInsets.only(top: _.height.value - 30),
+                                  padding: EdgeInsets.only(
+                                      top: _.height.value - _.topInset),
                                   child: Step4(
                                       genders: _.genders,
                                       indexSelected: _.indexGenderSelected,

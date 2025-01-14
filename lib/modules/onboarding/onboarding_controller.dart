@@ -56,6 +56,9 @@ class OnboardingController extends GetxController {
   RxBool _showLastStepTitle = false.obs;
   bool get showLastStepTitle => _showLastStepTitle.value;
 
+  bool isSmallScreen = Get.height < 800;
+  late int topInset = isSmallScreen ? 0 : 30;
+
   /// animate statementUI
   Rx<Offset> smallButtonsPosition = Offset(0, Get.height * .3).obs;
   Rx<Offset> bigButtonsPosition = Offset(0, Get.height * .3).obs;
@@ -169,7 +172,7 @@ class OnboardingController extends GetxController {
 
   void updateBackgroundShape() {
     //Update the background shape
-    bool isSmallScreen = Get.height < 800;
+
     var heightSize = Get.height;
     if (currentStep.value <= 1) {
       height.value = Get.width * .2; //34; //heightSize * .0415;
