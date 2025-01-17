@@ -18,10 +18,6 @@ class DataAPI {
     'Accept': 'application/json',
   };
 
-  final resultsEndpoint = '/results';
-  final responseEndpoint = '/responses';
-  final statisticsEndpoint = '/statistics';
-
   String urlLang() {
     return baseUrl + '/${LanguageManager.currentLanguage}/';
   }
@@ -74,8 +70,7 @@ class DataAPI {
 
   Future<ResultsData?> fetchResultsInfo() async {
     try {
-      final url = Uri.parse(
-          '${baseUrl}/${LanguageManager.currentLanguage}${resultsEndpoint}');
+      final url = Uri.parse('${urlLangAndEl()}' 'results');
       final response = await http.get(
         url,
         headers: headers,
@@ -116,7 +111,7 @@ class DataAPI {
 
   Future<int?> fetchStatistics() async {
     try {
-      final url = Uri.parse('${baseUrl}${statisticsEndpoint}');
+      final url = Uri.parse('${baseUrl}/statistics');
       final response = await http.get(
         url,
         headers: headers,
@@ -135,7 +130,7 @@ class DataAPI {
 
   Future<bool> setResponse() async {
     try {
-      final url = Uri.parse('${baseUrl}${responseEndpoint}');
+      final url = Uri.parse('${baseUrl}/responses');
       var body = UserManager.userData.toJson();
 
       final response = await http.post(url,
