@@ -7,6 +7,7 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -404,6 +405,10 @@ class StatementsController extends GetxController {
 
   storeAnswerData(StatementResponse answer) {
     UserManager.addStatment(frontCard!.id, answer);
+  }
+
+  homeTap() {
+    Get.offAllNamed(HomePageController.route);
   }
 
   // TODO: this could have an animation

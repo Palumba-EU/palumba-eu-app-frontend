@@ -4,7 +4,6 @@ import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/global_widgets/card/custom_card.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
-import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
@@ -71,10 +70,8 @@ class StatementsPage extends GetView<StatementsController> {
                         child: GetBuilder<StatementsController>(
                             id: controller.cardStackKey,
                             builder: (controller) => CustomHeader(
-                                  homeTap: () =>
-                                      Get.offAllNamed(HomePageController.route),
-                                  backTap: () =>
-                                      controller.returnToPreviousCard(),
+                                  homeTap: controller.homeTap,
+                                  backTap: controller.returnToPreviousCard,
                                   isBackButtonActive:
                                       controller.frontCard?.id != -1,
                                 )),
@@ -210,9 +207,8 @@ class StatementsPage extends GetView<StatementsController> {
       width: double.infinity,
       height: Get.height * .3,
       child: DecisionButtons(
-        onTap: (statement) => controller.activateButton(statement),
-        onLongPressStart: (statement) =>
-            controller.onLongPressButton(statement),
+        onTap: controller.activateButton,
+        onLongPressStart: controller.onLongPressButton,
         onLongPressEnd: (statement, _) => controller.activateButton(statement),
       ),
     );
