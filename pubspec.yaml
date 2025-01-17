@@ -1,7 +1,7 @@
 name: palumba_eu
 description: Palumba project with GetX and Provider
 
-version: 1.0.7+1543
+version: 2.0.0+1544
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
