@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -7,9 +8,9 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:screenshot/screenshot.dart';
-
 import 'components/custom_mds_graphic/dotted_container.dart';
 import 'results_controller.dart';
 
@@ -97,7 +98,7 @@ class ResultsPage extends GetView<ResultsController> {
                       ? Align(
                           alignment: Alignment.bottomCenter,
                           child: Image.asset(
-                            'assets/images/img_ballot_box_big.png',
+                            ElectionManager.currentElection.value.ballotBoxBig,
                             fit: BoxFit.fitWidth,
                           ))
                       : SizedBox.shrink()),
@@ -144,10 +145,11 @@ class ResultsPage extends GetView<ResultsController> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SvgPicture.asset(
-                                        'assets/images/logo_circle.svg',
-                                        height: 40,
-                                      ),
+                                      Obx(() => SvgPicture.asset(
+                                            ElectionManager.currentElection
+                                                .value.logoCircle,
+                                            height: 40,
+                                          )),
                                       Spacer(),
                                       AppTexts.title(
                                           '#${S.of(context).shortAppName}',

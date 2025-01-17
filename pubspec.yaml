@@ -80,6 +80,8 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
+    - assets/images/election/de/
+    - assets/images/election/eu/
     - assets/images/flags/
     - assets/images/app_icons/
 

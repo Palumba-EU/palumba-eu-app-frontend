@@ -15,27 +15,45 @@ extension ElectionImages on Election {
   String get pigeon {
     switch (this) {
       case Election.DE:
-        return 'assets/images/img_pigeon.svg';
+        return 'assets/images/election/de/img_pigeon_de.svg';
       case Election.EU:
-        return 'assets/images/img_pigeon.svg';
+        return 'assets/images/election/eu/img_pigeon_eu.svg';
     }
   }
 
-  String get swipe {
+  String get logoCircle {
     switch (this) {
       case Election.DE:
-        return 'assets/images/img_swipe.svg';
+        return 'assets/images/election/de/logo_circle_de.svg';
       case Election.EU:
-        return 'assets/images/img_swipe.svg';
+        return 'assets/images/election/eu/logo_circle_eu.svg';
     }
   }
 
-  String get results {
+  String get ballotBox {
     switch (this) {
       case Election.DE:
-        return 'assets/images/img_results.svg';
+        return 'assets/images/election/de/img_ballot_box_de.svg';
       case Election.EU:
-        return 'assets/images/img_results.svg';
+        return 'assets/images/election/eu/img_ballot_box_eu.svg';
+    }
+  }
+
+  String get ballotBoxBig {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/img_ballot_box_big_de.png';
+      case Election.EU:
+        return 'assets/images/election/eu/img_ballot_box_big_eu.png';
+    }
+  }
+
+  String get voteResult10 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_vote_logos_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_vote_logos_eu.svg';
     }
   }
 }
