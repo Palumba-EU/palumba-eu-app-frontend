@@ -61,10 +61,10 @@ extension ElectionImages on Election {
 extension BackendElection on Election {
   String get backend {
     switch (this) {
-      case Election.DE:
-        return 'de';
       case Election.EU:
-        return 'eu';
+        return '1';
+      case Election.DE:
+        return '2';
     }
   }
 }

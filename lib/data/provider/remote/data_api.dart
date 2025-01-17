@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
@@ -13,25 +11,29 @@ import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class DataAPI {
-  var baseUrl = 'https://api.palumba-app.palumba.eu';
+  // var baseUrl = 'https://api.palumba-app.palumba.eu';
+  var baseUrl = 'https://palumba-staging.bitperfect-software.com/api';
 
   var headers = {
     'Accept': 'application/json',
   };
 
-  final localizationsEndpoint = '/localization';
-  final statementsEndpoint = '/statements';
   final resultsEndpoint = '/results';
-  final sponsorsEndpoint = '/sponsors';
   final responseEndpoint = '/responses';
   final statisticsEndpoint = '/statistics';
 
+  String urlLang() {
+    return baseUrl + '/${LanguageManager.currentLanguage}/';
+  }
+
+  String urlLangAndEl() {
+    return urlLang() +
+        'elections/${ElectionManager.currentElection.value.backend}/';
+  }
+
   Future<LocalizationData?> fetchLocalizations() async {
     try {
-      final url = Uri.parse('${baseUrl}/'
-          '${LanguageManager.currentLanguage}'
-          '${localizationsEndpoint}?'
-          'election=${ElectionManager.currentElection.value.backend}');
+      final url = Uri.parse('${urlLangAndEl()}' 'localization');
       final response = await http.get(
         url,
         headers: headers,
@@ -42,12 +44,7 @@ class DataAPI {
       }
 
       var localization = LocalizationData.fromJson(json.decode(response.body));
-      if (ElectionManager.currentElection.value == Election.DE) {
-        var subset = localization.languages?.sublist(0, 3);
-        DataManager().setLanguages(subset);
-      } else {
-        DataManager().setLanguages(localization.languages);
-      }
+      DataManager().setLanguages(localization.languages ?? []);
       DataManager().setCountries(localization.countries);
       return localization;
     } catch (e) {
@@ -57,8 +54,7 @@ class DataAPI {
 
   Future<StatementsData?> fetchStatements() async {
     try {
-      final url = Uri.parse(
-          '${baseUrl}/${LanguageManager.currentLanguage}${statementsEndpoint}');
+      final url = Uri.parse('${urlLangAndEl()}' 'statements');
       final response = await http.get(
         url,
         headers: headers,
@@ -100,8 +96,7 @@ class DataAPI {
 
   Future<SponsorsData?> fetchSponsors() async {
     try {
-      final url = Uri.parse(
-          '${baseUrl}/${LanguageManager.currentLanguage}${sponsorsEndpoint}');
+      final url = Uri.parse('${urlLangAndEl()}' 'sponsors');
       final response = await http.get(
         url,
         headers: headers,
