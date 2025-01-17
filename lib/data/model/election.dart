@@ -4,9 +4,9 @@ extension ElectionLocalization on Election {
   String get localized {
     switch (this) {
       case Election.DE:
-        return 'German Election';
+        return 'Bundestagswahl 2025 🇩🇪';
       case Election.EU:
-        return 'EU Election';
+        return 'European Elections 2024 🇪🇺';
     }
   }
 }
