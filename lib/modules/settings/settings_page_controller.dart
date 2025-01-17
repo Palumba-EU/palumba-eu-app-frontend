@@ -28,10 +28,19 @@ class SettingsPageController extends GetxController {
 
   Rx<List<CategorySponsor>?> categoriesSponsors = Rx(null);
 
+  RxString appVersionAndBuildNumber = "".obs;
+
   @override
   void onInit() {
     super.onInit();
     _initSponsors();
+    _initAppVersion();
+  }
+
+  void _initAppVersion() async {
+    var appVersion = await Utils.appVersion();
+    var buildNumber = await Utils.buildNumber();
+    appVersionAndBuildNumber.value = appVersion + " (" + buildNumber + ")";
   }
 
   void _initSponsors() async {

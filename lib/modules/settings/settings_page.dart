@@ -37,9 +37,7 @@ class SettingsPage extends StatelessWidget {
                 children: [
                   // HACK but TextButton would have a margin left
                   GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
+                      onTap: Get.back,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.transparent,
@@ -112,9 +110,7 @@ class SettingsPage extends StatelessWidget {
               Wrap(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      _.launchOrganization();
-                    },
+                    onTap: _.launchOrganization,
                     child: Padding(
                       padding: EdgeInsets.only(
                           right: AppDimens.smallLateralPaddingValue,
@@ -161,7 +157,16 @@ class SettingsPage extends StatelessWidget {
                   color: AppColors.primary),
 
               _wrapperIcons(_),
-
+              Padding(
+                  padding:
+                      EdgeInsets.only(top: AppDimens.lateralPaddingValue * 2),
+                  child: Container(
+                    width: double.infinity,
+                    child: Obx(() => AppTexts.small(
+                        _.appVersionAndBuildNumber.value,
+                        textAlign: TextAlign.center,
+                        color: AppColors.primary)),
+                  )),
               CustomSpacer(multiplier: 8),
             ],
           ),
