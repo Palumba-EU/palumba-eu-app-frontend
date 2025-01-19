@@ -74,7 +74,6 @@ class StatementsController extends GetxController {
     _getArgumentsAndFetch();
     resetAnimation();
 
-    print(UserManager.isTestRunning);
     if (UserManager.isTestRunning) {
       final answeredQuestionIds =
           UserManager.userData.answers.map((e) => e.statementId);

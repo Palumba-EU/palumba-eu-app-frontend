@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
@@ -47,8 +46,11 @@ class HomePageController extends GetxController {
 
       final jsonResultsEncoded = await _localDataRepository.results;
       final results = jsonDecode(jsonResultsEncoded ?? '[]');
+
       resultsData = List<Map<String, dynamic>>.from(results);
     } catch (e) {
+      resultsData = [];
+      answersData = [];
       debugPrint(e.toString());
     }
     //Update the results button

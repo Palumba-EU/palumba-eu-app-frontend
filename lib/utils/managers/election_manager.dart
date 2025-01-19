@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
+import 'package:palumba_eu/modules/home/home_page_controller.dart';
+import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:device_region/device_region.dart';
 
@@ -29,6 +32,16 @@ class ElectionManager {
   }
 
   static setElection(Election election) async {
+    // reset pre election data
+    if (currentElection.value != election) {
+      final LocalDataRepository _localDataRepository =
+          Get.find<LocalDataRepository>();
+      _localDataRepository.answers = null;
+      _localDataRepository.results = null;
+      Get.find<HomePageController>().obtainLocalStoredLastResults();
+      UserManager.isTestRunning = false;
+    }
+
     currentElection.value = election;
     setSavedElection(election);
   }
