@@ -7,6 +7,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
+import 'package:plausible_analytics/navigator_observer.dart';
 import 'modules/splash/splash_binding.dart';
 import 'utils/common_ui/app_theme_data.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -74,6 +76,9 @@ class _MyApp extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
+      navigatorObservers: [
+        PlausibleNavigatorObserver(PlausibleManager.getInstance()),
+      ],
     );
   }
 }
