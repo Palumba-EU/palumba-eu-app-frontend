@@ -58,7 +58,7 @@ extension ElectionImages on Election {
   }
 }
 
-extension BackendElection on Election {
+extension ElectionBackend on Election {
   String get backend {
     switch (this) {
       case Election.EU:

@@ -3,6 +3,19 @@ import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l1
 
 enum Gender { woman, man, nonBinary, genderFluid, other, none }
 
+extension GenderBackend on Gender {
+  String get backend {
+    switch (this) {
+      case Gender.man:
+        return "male";
+      case Gender.woman:
+        return "female";
+      default:
+        return "diverse";
+    }
+  }
+}
+
 class GenderModel {
   final String name;
   final Gender genderEnum;

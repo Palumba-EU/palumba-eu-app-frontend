@@ -25,24 +25,12 @@ class UserManager {
     userData.languageCode = langCode;
   }
 
-  static setGender(Gender? genderEnum) async {
-    String? value;
-    switch (genderEnum) {
-      case Gender.woman:
-        value = 'female';
-        break;
-      case Gender.man:
-        value = 'male';
-        break;
-      default:
-        value = 'diverse';
-        break;
-    }
-    userData.gender = value;
+  static setGender(Gender? gender) async {
+    userData.gender = gender?.backend;
   }
 
   static setLevelOfEducation(LevelOfEducation? levelOfStudy) async {
-    userData.gender = levelOfStudy.toString(); // TODO: extend enum for BE
+    userData.levelOfEducation = levelOfStudy?.backend;
   }
 
   static setAge(int? age) async {

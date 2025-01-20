@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
-
 enum StatementResponse {
   stronglyDisagree, // -1
   disagree, // -0.5
@@ -19,7 +17,7 @@ class UserData {
   int? countryId;
   String? languageCode;
   String? gender;
-  LevelOfEducation? levelOfStudy;
+  String? levelOfEducation;
   List<Answer> answers;
 
   UserData({
@@ -27,6 +25,7 @@ class UserData {
     this.countryId,
     this.languageCode,
     this.gender,
+    this.levelOfEducation,
     required this.answers,
   });
 
@@ -35,6 +34,7 @@ class UserData {
         countryId: json["country_id"],
         languageCode: json["language_code"],
         gender: json["gender"],
+        levelOfEducation: json["levelOfEducation"],
         answers:
             List<Answer>.from(json["answers"].map((x) => Answer.fromJson(x))),
       );
@@ -44,6 +44,7 @@ class UserData {
         "country_id": countryId,
         "language_code": languageCode,
         "gender": gender,
+        "level_of_education": levelOfEducation,
         "answers": List<Map<String, dynamic>>.from(answers.map((x) {
           return x.toJson();
         }))
