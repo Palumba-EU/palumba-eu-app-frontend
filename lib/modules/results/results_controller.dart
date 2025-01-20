@@ -329,21 +329,6 @@ class ResultsController extends GetxController {
     _loadingShare.value = false;
   }
 
-/*
-  Future<ui.Image> loadSvgAsset(String asset) async {
-    final String rawSvg =
-        await rootBundle.loadString('assets/images/${asset}.svg');
-
-    final pictureInfo =
-        await vg.loadPicture(SvgStringLoader(rawSvg), null, clipViewbox: false);
-    final ui.Image image = await pictureInfo.picture.toImage(120, 120);
-
-    pictureInfo.picture.dispose();
-
-    return image;
-  }
-  */
-
   void getScatterPoints() async {
     //This are parties Scatter points
     for (var data in _resultsData) {
@@ -457,8 +442,9 @@ class ResultsController extends GetxController {
     double bestMatchDistance = epGroupDistances[bestMatch]!;
     double topicMatchDistance = epGroupDistances[topicMatch]!;
 
-    double fraction =
-        bestMatchDistance / (bestMatchDistance + topicMatchDistance);
+    double fraction = (bestMatchDistance + topicMatchDistance == 0)
+        ? 0
+        : bestMatchDistance / (bestMatchDistance + topicMatchDistance);
 
     //Get topicPartie logo
     final topicMatchParty =
