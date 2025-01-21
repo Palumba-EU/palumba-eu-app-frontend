@@ -38,7 +38,15 @@ class ElectionManager {
           Get.find<LocalDataRepository>();
       _localDataRepository.answers = null;
       _localDataRepository.results = null;
-      Get.find<HomePageController>().obtainLocalStoredLastResults();
+
+      // TODO:
+      // clean up this answers code completely.
+      // No view should directly use the _localDataRepository,
+      // but have a ViewModel wrapper which holds Rx instances writing back and forth with _localDataRepository
+      if (Get.isRegistered<HomePageController>()) {
+        // If it is for some reason not registerd, the init runs the function anyway
+        Get.find<HomePageController>().obtainLocalStoredLastResults();
+      }
       UserManager.isTestRunning = false;
     }
 
