@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+
 enum Election { DE, EU }
 
 extension ElectionLocalization on Election {
@@ -54,6 +57,44 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/ic_vote_logos_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/ic_vote_logos_eu.svg';
+    }
+  }
+}
+
+extension ElectionTexts on Election {
+  String resultsPage4TitleTop(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return "Socially Progressive";
+      case Election.EU:
+        return S.of(context).resultsPage4TitleTop;
+    }
+  }
+
+  String resultsPage4TitleBottom(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return "Socially Conservative";
+      case Election.EU:
+        return S.of(context).resultsPage4TitleBottom;
+    }
+  }
+
+  String resultsPage4TitleRight(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return "Free Market Economics";
+      case Election.EU:
+        return S.of(context).resultsPage4TitleRight;
+    }
+  }
+
+  String resultsPage4TitleLeft(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return "Economic Intervention";
+      case Election.EU:
+        return S.of(context).resultsPage4TitleLeft;
     }
   }
 }
