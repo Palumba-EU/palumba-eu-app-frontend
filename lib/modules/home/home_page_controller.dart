@@ -43,15 +43,17 @@ class HomePageController extends GetxController {
       final jsonAnswersEncoded = await _localDataRepository.answers;
       final answers = jsonDecode(jsonAnswersEncoded ?? '[]');
       answersData = List<Map<String, dynamic>>.from(answers);
-
+    } catch (e) {
+      answersData = [];
+      debugPrint("no answers found in local storage");
+    }
+    try {
       final jsonResultsEncoded = await _localDataRepository.results;
       final results = jsonDecode(jsonResultsEncoded ?? '[]');
-
       resultsData = List<Map<String, dynamic>>.from(results);
     } catch (e) {
       resultsData = [];
-      answersData = [];
-      debugPrint(e.toString());
+      debugPrint("no results found in local storage");
     }
     //Update the results button
     update([resultsExistsKey]);
