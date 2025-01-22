@@ -404,8 +404,11 @@ class ResultsController extends GetxController {
     final maxMagnitudeLeftRight =
         ResultsHelper.maxMagnitudeForTopicsDimension(topicLeftRight);
 
-    double normEuIntegration = dimEuIntegration / maxMagnitudeEuIntegration;
-    double normLeftRight = dimLeftRight / maxMagnitudeLeftRight;
+    double normEuIntegration = maxMagnitudeEuIntegration == 0
+        ? 0
+        : dimEuIntegration / maxMagnitudeEuIntegration;
+    double normLeftRight =
+        maxMagnitudeLeftRight == 0 ? 0 : dimLeftRight / maxMagnitudeLeftRight;
 
     return CompassData(positionX: normLeftRight, positionY: normEuIntegration);
   }
