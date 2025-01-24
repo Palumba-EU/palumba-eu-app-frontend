@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
-import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';

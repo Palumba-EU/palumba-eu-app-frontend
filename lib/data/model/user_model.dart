@@ -1,14 +1,7 @@
 import 'dart:convert';
-
-enum StatementResponse {
-  stronglyDisagree, // -1
-  disagree, // -0.5
-  neutral, // 0
-  agree, // 0.5
-  stronglyAgree, // 1
-}
-
-UserData userDataFromJson(String str) => UserData.fromJson(json.decode(str));
+import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/data/model/statement_response.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 String userDataToJson(UserData data) => json.encode(data.toJson());
 
@@ -29,25 +22,14 @@ class UserData {
     required this.answers,
   });
 
-  factory UserData.fromJson(Map<String, dynamic> json) => UserData(
-        age: json["age"],
-        countryId: json["country_id"],
-        languageCode: json["language_code"],
-        gender: json["gender"],
-        levelOfEducation: json["levelOfEducation"],
-        answers:
-            List<Answer>.from(json["answers"].map((x) => Answer.fromJson(x))),
-      );
-
   Map<String, dynamic> toJson() => {
+        "election_id": ElectionManager.currentElection.value.backend,
         "age": age,
         "country_id": countryId,
         "language_code": languageCode,
         "gender": gender,
         "level_of_education": levelOfEducation,
-        "answers": List<Map<String, dynamic>>.from(answers.map((x) {
-          return x.toJson();
-        }))
+        "answers": []
       };
 }
 
@@ -67,23 +49,8 @@ class Answer {
 
   Map<String, dynamic> toJson() => {
         "statement_id": statementId,
-        "answer": _statementResponseValues(answer),
+        "answer": answer.backend,
       };
-}
-
-double _statementResponseValues(StatementResponse response) {
-  switch (response) {
-    case StatementResponse.stronglyDisagree:
-      return -1;
-    case StatementResponse.disagree:
-      return -0.5;
-    case StatementResponse.neutral:
-      return 0;
-    case StatementResponse.agree:
-      return 0.5;
-    case StatementResponse.stronglyAgree:
-      return 1;
-  }
 }
 
 StatementResponse _valuesToStatementResponse(num value) {

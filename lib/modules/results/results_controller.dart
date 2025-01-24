@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
+import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
@@ -32,7 +33,6 @@ import 'package:palumba_eu/utils/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
-
 import 'models/custom_chart_data.dart';
 import 'pages/results_page_5.dart';
 
@@ -181,7 +181,7 @@ class ResultsController extends GetxController {
       ResultsPage7(key: Key("7")),
       ResultsPage8(key: Key("8")),
       ResultsPage9(key: Key("9")),
-      ResultsPage10(willVote: willVote),
+      ResultsPage10(key: Key("10"), willVote: willVote),
       ResultsPage11(
           key: Key("11"), onDisplayBallotTutorial: onDisplayBallotTutorial),
     ];
@@ -197,7 +197,7 @@ class ResultsController extends GetxController {
       ResultsPage6(key: Key("6")),
       ResultsPage7(key: Key("7")),
       ResultsPage8(key: Key("8")),
-      ResultsPage10(willVote: willVote),
+      ResultsPage10(key: Key("10"), willVote: willVote),
       ResultsPage11(
           key: Key("11"), onDisplayBallotTutorial: onDisplayBallotTutorial),
     ];
@@ -398,7 +398,8 @@ class ResultsController extends GetxController {
   CompassData calculateCompassPosition(List<Answer> answers) {
     double dimEuIntegration =
         ResultsHelper.calculateTopicDimension(answers, topicEuIntegration);
-    double dimLeftRight = ResultsHelper.calculateTopicDimension(answers, 3);
+    double dimLeftRight =
+        ResultsHelper.calculateTopicDimension(answers, topicLeftRight);
     final maxMagnitudeEuIntegration =
         ResultsHelper.maxMagnitudeForTopicsDimension(topicEuIntegration);
     final maxMagnitudeLeftRight =

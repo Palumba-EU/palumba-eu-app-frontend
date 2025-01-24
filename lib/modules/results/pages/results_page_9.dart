@@ -1,8 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/model/user_model.dart';
-
+import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/components/card_widget.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
@@ -64,9 +63,9 @@ class ResultsPage9 extends GetView<ResultsController> {
             child: Column(
               children: [
                 Obx(() => Opacity(
-                opacity: controller.loadingShare ? 0 : 1,
-                child: AppTexts.small(S.of(context).resultsPage9Help,
-                    color: AppColors.primary))),
+                    opacity: controller.loadingShare ? 0 : 1,
+                    child: AppTexts.small(S.of(context).resultsPage9Help,
+                        color: AppColors.primary))),
                 CustomSpacer(),
                 AutoSizeText(
                   S.of(context).resultsPage9Text1,

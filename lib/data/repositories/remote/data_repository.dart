@@ -1,7 +1,9 @@
 import 'package:palumba_eu/data/model/localization_data.dart';
+import 'package:palumba_eu/data/model/responses_response.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/data/provider/remote/data_api.dart';
 import 'package:get/get.dart';
 
@@ -24,5 +26,7 @@ class DataRepository {
 
   Future<int?> fetchStatistics() => _api.fetchStatistics();
 
-  Future<bool> setResponse() => _api.setResponse();
+  Future<ResponsesResponse?> postResponses() => _api.postResponses();
+  Future<bool> postResponsesAnswer(Answer answer) =>
+      _api.postResponsesAnswer(answer);
 }

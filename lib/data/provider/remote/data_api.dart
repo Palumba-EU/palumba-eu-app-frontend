@@ -1,11 +1,15 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:http/http.dart' as http;
+import 'package:palumba_eu/data/model/responses_request.dart';
+import 'package:palumba_eu/data/model/responses_response.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -128,7 +132,7 @@ class DataAPI {
     }
   }
 
-  Future<bool> setResponse() async {
+  Future<ResponsesResponse?> postResponses() async {
     try {
       final url = Uri.parse('${baseUrl}/responses');
       var body = UserManager.userData.toJson();
@@ -142,9 +146,37 @@ class DataAPI {
       if (response.statusCode < 200 || response.statusCode > 201) {
         throw Exception(response.reasonPhrase);
       }
+      var responsesResponse =
+          ResponsesResponse.fromJson(json.decode(response.body));
+      UserManager.responsesResponse = responsesResponse;
+      return responsesResponse;
+    } catch (e) {
+      debugPrint(e.toString());
+      debugPrint("failed to load responses response");
+      UserManager.responsesResponse = null;
+      return null;
+    }
+  }
 
+  Future<bool> postResponsesAnswer(Answer answer) async {
+    try {
+      var id = UserManager.responsesResponse?.id;
+      final url = Uri.parse('${baseUrl}/responses/${id}/answers');
+      var request = ResponsesRequest(answers: [answer]);
+
+      final response = await http.post(url,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: json.encode(request.toJson()));
+
+      if (response.statusCode < 200 || response.statusCode > 201) {
+        throw Exception(response.reasonPhrase);
+      }
       return true;
     } catch (e) {
+      debugPrint(e.toString());
+      debugPrint("failed to post answer");
       return false;
     }
   }

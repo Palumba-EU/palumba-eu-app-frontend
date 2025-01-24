@@ -4,7 +4,7 @@ import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
-import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/global_widgets/card/card_back_page.dart';
 import 'package:palumba_eu/global_widgets/card/card_front_page.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';

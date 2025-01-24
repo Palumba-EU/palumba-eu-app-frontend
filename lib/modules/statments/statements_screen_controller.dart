@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
@@ -25,6 +27,8 @@ class StatementsController extends GetxController {
   CardModel? get frontCard =>
       _currentCards.length > 0 ? _currentCards[0] : null;
   CardModel? get backCard => _currentCards.length > 1 ? _currentCards[1] : null;
+
+  final DataRepository _dataRepository = Get.find<DataRepository>();
 
 ///////////////////////////////////
 ///////////////////////////////////
@@ -310,7 +314,9 @@ class StatementsController extends GetxController {
     }
   }
 
-  nextCard() async {
+  nextCard(StatementResponse response) async {
+    _dataRepository.postResponsesAnswer(
+        Answer(statementId: _currentCards[0].id, answer: response));
     _checkIfNeedToShowBanner();
     _currentCards.removeAt(0);
     update([cardStackKey]);
@@ -371,35 +377,35 @@ class StatementsController extends GetxController {
     selectedResponseStatement.value = StatementResponse.neutral;
     await neutralAnimation();
     selectedResponseStatement.value = null;
-    nextCard();
+    nextCard(StatementResponse.neutral);
   }
 
   void onTapStronglyDisagrementButton() async {
     selectedResponseStatement.value = StatementResponse.stronglyDisagree;
     await disagreeAnimation();
     selectedResponseStatement.value = null;
-    nextCard();
+    nextCard(StatementResponse.stronglyDisagree);
   }
 
   void onTapDisagrementButton() async {
     selectedResponseStatement.value = StatementResponse.disagree;
     await disagreeAnimation();
     selectedResponseStatement.value = null;
-    nextCard();
+    nextCard(StatementResponse.disagree);
   }
 
   void onTapAgrementButton() async {
     selectedResponseStatement.value = StatementResponse.agree;
     await agreeAnimation();
     selectedResponseStatement.value = null;
-    nextCard();
+    nextCard(StatementResponse.agree);
   }
 
   void onTapStronglyAgrementButton() async {
     selectedResponseStatement.value = StatementResponse.stronglyAgree;
     await agreeAnimation();
     selectedResponseStatement.value = null;
-    nextCard();
+    nextCard(StatementResponse.stronglyAgree);
   }
 
   storeAnswerData(StatementResponse answer) {
