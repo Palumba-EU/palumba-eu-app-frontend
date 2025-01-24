@@ -13,7 +13,7 @@ import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class DataAPI {
-  var baseUrl = 'https://api.palumba-app.palumba.eu';
+  var baseUrl = 'http://palumba-staging.bitperfect-software.com/api';
 
   var headers = {
     'Accept': 'application/json',

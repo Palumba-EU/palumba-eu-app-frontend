@@ -74,6 +74,7 @@ class StatementsController extends GetxController {
   void onInit() {
     _getArgumentsAndFetch();
     resetAnimation();
+    PlausibleManager.trackPage(route);
 
     print(UserManager.isTestRunning);
     if (UserManager.isTestRunning) {
@@ -313,7 +314,6 @@ class StatementsController extends GetxController {
   }
 
   nextCard() async {
-    print('nextCard');
     // fire Plausible event
     _checkIfNeedToShowBanner();
     _currentCards.removeAt(0);
@@ -321,7 +321,9 @@ class StatementsController extends GetxController {
     resetAnimation();
 
     // Todo: track statement
-    PlausibleManager.trackStatement(_currentCards[0].id);
+    if (_currentCards.length > 0) {
+      PlausibleManager.trackStatement(_currentCards[0].id.toString());
+    }
 
     // reset card to front side
     if (flipCardController.state?.isFront == false) {
@@ -433,6 +435,8 @@ class StatementsController extends GetxController {
         resetAnimation();
         update([cardStackKey]);
         UserManager.deleteLastStatement();
+        // track previous card
+        PlausibleManager.trackStatement(_currentCards[0].id.toString());
       }
     } catch (e) {
       debugPrint("error returnToPreviousCard");

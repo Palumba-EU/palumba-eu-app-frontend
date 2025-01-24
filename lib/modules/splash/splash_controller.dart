@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/alert.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class SplashController extends GetxController {
@@ -23,6 +24,7 @@ class SplashController extends GetxController {
   void onReady() {
     super.onReady();
     _init();
+    PlausibleManager.trackPage(route);
   }
 
   _init() async {

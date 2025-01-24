@@ -4,6 +4,7 @@ import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
@@ -30,6 +31,7 @@ class LoadingResultsController extends GetxController {
     //Set test finished
     UserManager.isTestRunning = false;
     super.onInit();
+    PlausibleManager.trackPage(route);
   }
 
   @override

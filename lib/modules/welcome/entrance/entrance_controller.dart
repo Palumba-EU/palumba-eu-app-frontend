@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
 class EntranceController extends GetxController {
   static const route = '/entrance';
 
   PageController pageController = PageController();
+
+  @override
+  void onInit() {
+    super.onInit();
+    PlausibleManager.trackPage(route);
+  }
 
   /**
    * On Click Actions
