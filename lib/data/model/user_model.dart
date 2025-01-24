@@ -29,7 +29,7 @@ class UserData {
         "language_code": languageCode,
         "gender": gender,
         "level_of_education": levelOfEducation,
-        "answers": []
+        "answers": [] // TODO: remove when api allows this to be null
       };
 }
 
