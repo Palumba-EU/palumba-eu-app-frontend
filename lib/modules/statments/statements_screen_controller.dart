@@ -320,7 +320,6 @@ class StatementsController extends GetxController {
     update([cardStackKey]);
     resetAnimation();
 
-    // Todo: track statement
     if (_currentCards.length > 0) {
       PlausibleManager.trackStatement(_currentCards[0].id.toString());
     }
