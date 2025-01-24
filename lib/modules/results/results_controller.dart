@@ -4,18 +4,18 @@ import 'dart:ui' as ui;
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
+import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/helpers/svg_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
@@ -34,7 +34,6 @@ import 'package:palumba_eu/utils/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
-
 import 'models/custom_chart_data.dart';
 import 'pages/results_page_5.dart';
 
@@ -187,7 +186,9 @@ class ResultsController extends GetxController {
       ResultsPage7(key: Key("7")),
       ResultsPage8(key: Key("8")),
       ResultsPage9(key: Key("9")),
-      ResultsPage10(willVote: willVote),
+      ResultsPage10(key: Key("10"), willVote: willVote),
+      ResultsPage11(
+          key: Key("11"), onDisplayBallotTutorial: onDisplayBallotTutorial),
     ];
   }
 
@@ -201,8 +202,14 @@ class ResultsController extends GetxController {
       ResultsPage6(key: Key("6")),
       ResultsPage7(key: Key("7")),
       ResultsPage8(key: Key("8")),
-      ResultsPage10(willVote: willVote)
+      ResultsPage10(key: Key("10"), willVote: willVote),
+      ResultsPage11(
+          key: Key("11"), onDisplayBallotTutorial: onDisplayBallotTutorial),
     ];
+  }
+
+  void onDisplayBallotTutorial() {
+    Utils.launch("https://google.com");
   }
 
   void _getTopics() async {
@@ -334,21 +341,6 @@ class ResultsController extends GetxController {
     _loadingShare.value = false;
   }
 
-/*
-  Future<ui.Image> loadSvgAsset(String asset) async {
-    final String rawSvg =
-        await rootBundle.loadString('assets/images/${asset}.svg');
-
-    final pictureInfo =
-        await vg.loadPicture(SvgStringLoader(rawSvg), null, clipViewbox: false);
-    final ui.Image image = await pictureInfo.picture.toImage(120, 120);
-
-    pictureInfo.picture.dispose();
-
-    return image;
-  }
-  */
-
   void getScatterPoints() async {
     //This are parties Scatter points
     for (var data in _resultsData) {
@@ -411,14 +403,18 @@ class ResultsController extends GetxController {
   CompassData calculateCompassPosition(List<Answer> answers) {
     double dimEuIntegration =
         ResultsHelper.calculateTopicDimension(answers, topicEuIntegration);
-    double dimLeftRight = ResultsHelper.calculateTopicDimension(answers, 3);
+    double dimLeftRight =
+        ResultsHelper.calculateTopicDimension(answers, topicLeftRight);
     final maxMagnitudeEuIntegration =
         ResultsHelper.maxMagnitudeForTopicsDimension(topicEuIntegration);
     final maxMagnitudeLeftRight =
         ResultsHelper.maxMagnitudeForTopicsDimension(topicLeftRight);
 
-    double normEuIntegration = dimEuIntegration / maxMagnitudeEuIntegration;
-    double normLeftRight = dimLeftRight / maxMagnitudeLeftRight;
+    double normEuIntegration = maxMagnitudeEuIntegration == 0
+        ? 0
+        : dimEuIntegration / maxMagnitudeEuIntegration;
+    double normLeftRight =
+        maxMagnitudeLeftRight == 0 ? 0 : dimLeftRight / maxMagnitudeLeftRight;
 
     return CompassData(positionX: normLeftRight, positionY: normEuIntegration);
   }
@@ -462,8 +458,9 @@ class ResultsController extends GetxController {
     double bestMatchDistance = epGroupDistances[bestMatch]!;
     double topicMatchDistance = epGroupDistances[topicMatch]!;
 
-    double fraction =
-        bestMatchDistance / (bestMatchDistance + topicMatchDistance);
+    double fraction = (bestMatchDistance + topicMatchDistance == 0)
+        ? 0
+        : bestMatchDistance / (bestMatchDistance + topicMatchDistance);
 
     //Get topicPartie logo
     final topicMatchParty =

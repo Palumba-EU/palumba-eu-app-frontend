@@ -251,9 +251,7 @@ class HomePage extends StatelessWidget {
                         ? S.of(context).homePageBackToTest
                         : S.of(context).homePageMyResults,
                     expanded: true,
-                    onPressed: () {
-                      _.backToResultsOrTest();
-                    },
+                    onPressed: _.backToResultsOrTest,
                     suffixIcon:
                         IconButtonParameters('ic_arrow_right', size: 18),
                     radius: AppDimens.borderRadius,

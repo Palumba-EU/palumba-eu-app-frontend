@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
@@ -46,12 +45,17 @@ class HomePageController extends GetxController {
       final jsonAnswersEncoded = await _localDataRepository.answers;
       final answers = jsonDecode(jsonAnswersEncoded ?? '[]');
       answersData = List<Map<String, dynamic>>.from(answers);
-
+    } catch (e) {
+      answersData = [];
+      debugPrint("no answers found in local storage");
+    }
+    try {
       final jsonResultsEncoded = await _localDataRepository.results;
       final results = jsonDecode(jsonResultsEncoded ?? '[]');
       resultsData = List<Map<String, dynamic>>.from(results);
     } catch (e) {
-      debugPrint(e.toString());
+      resultsData = [];
+      debugPrint("no results found in local storage");
     }
     //Update the results button
     update([resultsExistsKey]);

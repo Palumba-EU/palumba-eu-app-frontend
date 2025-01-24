@@ -94,7 +94,8 @@ class ResultsPage extends GetView<ResultsController> {
                       : SizedBox.shrink()),
 
                   // HACK but content page has restricted size
-                  Obx(() => controller.currentPage == 9
+                  Obx(() => controller.currentPage == 9 ||
+                          controller.currentPage == 10
                       ? Align(
                           alignment: Alignment.bottomCenter,
                           child: Image.asset(

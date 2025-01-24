@@ -37,13 +37,13 @@ class LanguagePage extends StatelessWidget {
                   Expanded(
                       child: ListView.separated(
                     controller: _.scrollController,
-                    itemCount: _.languages?.length ?? 0,
+                    itemCount: _.languages.length,
                     padding: EdgeInsets.only(
                         top: AppDimens.lateralPaddingValue * 0.8),
                     itemBuilder: (context, index) {
                       return Obx(() => CustomSelector(
                           leading: const SizedBox.shrink(),
-                          title: _.languages![index].name ?? '',
+                          title: _.languages[index].name ?? '',
                           selected: _.indexSelected.value == index,
                           onPressed: () {
                             _.onLanguagePressed(index);

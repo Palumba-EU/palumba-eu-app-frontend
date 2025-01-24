@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/components/topic_indicator_widget.dart';
-
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -39,8 +37,7 @@ class ResultsPage5 extends GetView<ResultsController> {
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               final topic = controller.topics[index];
-              final needleData =
-                  controller.needlePositionsForTopic(topic.id!);
+              final needleData = controller.needlePositionsForTopic(topic.id!);
               return TopicIndicatorWidget(
                 title: topic.name ?? '',
                 color: Utils.getApiColor(topic.color!),

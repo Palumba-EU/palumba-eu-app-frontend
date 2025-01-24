@@ -6,6 +6,7 @@ import 'package:palumba_eu/data/model/gender_model.dart';
 import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
@@ -196,8 +197,14 @@ class OnboardingController extends GetxController {
       height.value = Get.height;
       radius.value = Radius.circular(250);
       radius.value = Radius.zero;
+      sendOnboardingData();
       wrapUpScreenAndAnimateStatementUI();
     }
+  }
+
+  void sendOnboardingData() {
+    final DataRepository _dataRepository = Get.find<DataRepository>();
+    _dataRepository.postResponses();
   }
 
   void wrapUpScreenAndAnimateStatementUI() {

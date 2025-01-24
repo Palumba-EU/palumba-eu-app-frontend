@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/global_widgets/card/custom_card.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';

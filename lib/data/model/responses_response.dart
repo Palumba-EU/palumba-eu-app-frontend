@@ -1,0 +1,18 @@
+class ResponsesResponse {
+  final String id;
+  final String editableUntil;
+
+  // Constructor
+  ResponsesResponse({
+    required this.id,
+    required this.editableUntil,
+  });
+
+  // Factory method to create an instance from JSON
+  factory ResponsesResponse.fromJson(Map<String, dynamic> json) {
+    return ResponsesResponse(
+      id: json['id'] as String,
+      editableUntil: json['editable_until'] as String,
+    );
+  }
+}

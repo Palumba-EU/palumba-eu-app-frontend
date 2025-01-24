@@ -45,8 +45,16 @@ class ElectionController extends GetxController {
     }
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      scrollController.animateTo((65 * index).toDouble(),
-          duration: Durations.short1, curve: Curves.easeIn);
+      final maxScrollExtent = scrollController.position.maxScrollExtent;
+      final targetOffset = (65 * index).toDouble();
+
+      if (targetOffset <= maxScrollExtent) {
+        scrollController.animateTo(
+          targetOffset,
+          duration: Durations.short1,
+          curve: Curves.easeIn,
+        );
+      }
     });
   }
 
