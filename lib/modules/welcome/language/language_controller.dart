@@ -7,6 +7,7 @@ import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class LanguageController extends GetxController {
@@ -27,6 +28,7 @@ class LanguageController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    PlausibleManager.trackPage(route);
   }
 
   @override

@@ -27,6 +27,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
@@ -123,7 +124,11 @@ class ResultsController extends GetxController {
 
     pageController.addListener(() {
       _currentPage.value = pageController.page!.round();
+      PlausibleManager.trackResult(currentPage.toString());
     });
+
+    PlausibleManager.trackPage(route);
+    PlausibleManager.trackResult(currentPage.toString()); // track first page
   }
 
   @override

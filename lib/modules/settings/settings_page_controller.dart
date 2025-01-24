@@ -10,6 +10,7 @@ import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
 import 'package:share_plus/share_plus.dart';
@@ -35,6 +36,7 @@ class SettingsPageController extends GetxController {
     super.onInit();
     _initSponsors();
     _initAppVersion();
+    PlausibleManager.trackPage(route);
   }
 
   void _initAppVersion() async {

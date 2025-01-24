@@ -12,6 +12,7 @@ import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 enum _WidthScreenPart { maxLeft, middleLeft, center, middleRight, maxRight }
@@ -77,6 +78,7 @@ class StatementsController extends GetxController {
   void onInit() {
     _getArgumentsAndFetch();
     resetAnimation();
+    PlausibleManager.trackPage(route);
 
     if (UserManager.isTestRunning) {
       final answeredQuestionIds =
@@ -321,6 +323,11 @@ class StatementsController extends GetxController {
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
+
+    if (_currentCards.length > 0) {
+      PlausibleManager.trackStatement(_currentCards[0].id.toString());
+    }
+
     // reset card to front side
     if (flipCardController.state?.isFront == false) {
       flipCardController.toggleCard();
@@ -431,6 +438,8 @@ class StatementsController extends GetxController {
         resetAnimation();
         update([cardStackKey]);
         UserManager.deleteLastStatement();
+        // track previous card
+        PlausibleManager.trackStatement(_currentCards[0].id.toString());
       }
     } catch (e) {
       debugPrint("error returnToPreviousCard");

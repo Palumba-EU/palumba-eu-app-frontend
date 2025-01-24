@@ -9,6 +9,7 @@ import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
@@ -75,6 +76,7 @@ class OnboardingController extends GetxController {
     super.onInit();
     trackSteps();
     cardData = StatementsParser.getIntroCard(Get.context!, true);
+    PlausibleManager.trackPage(route);
   }
 
   void trackSteps() {
