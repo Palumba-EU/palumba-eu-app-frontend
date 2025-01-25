@@ -5,10 +5,13 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
+import 'package:palumba_eu/modules/message_widget.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -22,6 +25,7 @@ class HomePageController extends GetxController {
   PageController pageController = PageController();
 
   LocalDataRepository _localDataRepository = Get.find<LocalDataRepository>();
+  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   List<Map> answersData = [];
 
@@ -76,8 +80,15 @@ class HomePageController extends GetxController {
     Utils.launch(StringUtils.faqUrl);
   }
 
-  void showBannerWidget() {
-    _showBanner.value = !_showBanner.value;
+  void eggPressed(BuildContext context) async {
+    var info = await _dataRepository.getEggInfo();
+    if (info == null) return;
+
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new MessageWidget(content: info);
+        },
+        fullscreenDialog: true));
   }
 
   void goToSettings() {

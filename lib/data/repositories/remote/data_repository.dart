@@ -1,3 +1,4 @@
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/responses_response.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
@@ -27,6 +28,9 @@ class DataRepository {
   Future<int?> fetchStatistics() => _api.fetchStatistics();
 
   Future<ResponsesResponse?> postResponses() => _api.postResponses();
+
   Future<bool> postResponsesAnswer(Answer answer) =>
       _api.postResponsesAnswer(answer);
+
+  Future<MessageScreenContent?> getEggInfo() => _api.getEggInfo();
 }

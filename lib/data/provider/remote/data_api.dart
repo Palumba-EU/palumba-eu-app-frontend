@@ -180,4 +180,32 @@ class DataAPI {
       return false;
     }
   }
+
+  Future<MessageScreenContent?> getEggInfo() async {
+    return MessageScreenContent(
+        title: "TestTitle",
+        message: "TestMessage",
+        imageUrl:
+            "https://media.istockphoto.com/id/527072689/photo/wooden-logs-with-forest-on-background.jpg?s=612x612&w=0&k=20&c=ws7VoKKpYq4qJi-1DemwpI9xxHOSR4Wfds_mVlm41OY=",
+        yesButtonText: "Yes!!",
+        yesButtonLink: "https://www.google.com",
+        noButtonText: "No :(");
+  }
+}
+
+class MessageScreenContent {
+  String title;
+  String message;
+  String imageUrl;
+  String yesButtonText;
+  String? yesButtonLink;
+  String noButtonText;
+
+  MessageScreenContent(
+      {required this.title,
+      required this.message,
+      required this.imageUrl,
+      required this.yesButtonText,
+      this.yesButtonLink,
+      required this.noButtonText});
 }
