@@ -12,8 +12,8 @@
   "skip": "Überspringen",
   "neutral": "Neutral",
   "faq": "FAQ",
-  "message_half_test_done": "Mach weiter, du hast schon 50% geschafft!",
-  "message_five_cards_left": "Nur noch 5 Karten übrig :)",
+  "message_half_test_done": "Mach weiter, Du hast schon 50% geschafft!",
+  "message_five_cards_left": "Nur noch 5 Swipes übrig :)",
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Scheinbar hast du keine Internetverbindung",
   "@@LanguagePage": "LanguagePage",
@@ -104,5 +104,181 @@
   "settingsPageSubtitle5": "Serviceanbieter",
   "settingsPageShareButtonText": "Teilen",
   "settingsPagePrivacyPolicy": "Datenschutzerklärung",
-  "settingsPageShareText": "Wenn diese süße Taube dir nicht helfen kann im Juni zu wählen, dann hilft dir gar nichts. Ich habe die App bereits benutzt und du solltest das auch tun:"
+  "settingsPageShareText": "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann ist Dir nicht mehr zu helfen. Ich habe die App bereits benutzt und Du solltest das auch tun:",
+  "entranceTitle1_ger25": "Wenn diese Taube Dich nicht zum Wählen bringt, da schafft das niemand.",
+  "@entranceTitle1_ger25": {
+    "description": "-> entranceTitle1"
+  },
+  "entranceTitle2_ger25": "Swipe zu Meinungen die Dir wichtig sind.",
+  "@entranceTitle2_ger25": {
+    "description": "-> entranceTitle2"
+  },
+  "entranceTitle3_ger25": "Finde Dein Match und finde heraus, welche Partei zu Dir passt.",
+  "@entranceTitle3_ger25": {
+    "description": "-> entranceTitle3"
+  },
+  "onBoardingCardQuestion_ger25": "Ich habe keine Ahnung, wen ich bei den Bundestagswahlen 2025 wählen soll",
+  "@onBoardingCardQuestion_ger25": {
+    "description": "-> onBoardingCardQuestion"
+  },
+  "loadingResultsPageTitle1_ger25": "Deine persönlichen Ergebnisse sind auf dem Weg :)",
+  "@loadingResultsPageTitle1_ger25": {
+    "description": "-> loadingResultsPageTitle1"
+  },
+  "loadingResultsPageTitle2_ger25": "Das ist schneller als Taylor Swift Tickets zu bekommen 👀 ",
+  "@loadingResultsPageTitle2_ger25": {
+    "description": "-> loadingResultsPageTitle2"
+  },
+  "loadingResultsPageTitle3_ger25": "Wir suchen Matches mit Listen in {country}  🔍",
+  "@loadingResultsPageTitle3_ger25": {
+    "description": "-> loadingResultsPageTitle3"
+  },
+  "loadingResultsPageTitle4_ger25": "Fast fertig, ein letzter Check...",
+  "@loadingResultsPageTitle4_ger25": {
+    "description": "-> loadingResultsPageTitle4"
+  },
+  "resultsPage1Title_ger25": "Ein Match und noch viel mehr 👉👈",
+  "@resultsPage1Title_ger25": {
+    "description": "-> resultsPage1Title"
+  },
+  "resultsPage1Text_ger25": "Auf den nächsten Seiten kannst Du herausfinden welche Partei Dich im Bundestag am besten vertreten würde. Und wir haben sogar noch extra Infos nur für Dich! 😌",
+  "@resultsPage1Text_ger25": {
+    "description": "-> resultsPage1Text"
+  },
+  "resultsPage2_1Title_ger25": "Du und",
+  "@resultsPage2_1Title_ger25": {
+    "description": "-> resultsPage2_1Title"
+  },
+  "resultsPage2_2Title_ger25": "seid ein Traumpaar",
+  "@resultsPage2_2Title_ger25": {
+    "description": "-> resultsPage2_2Title"
+  },
+  "resultsPage3Title_ger25": "Wie nahe bin ich den Parteien im Bundestag",
+  "@resultsPage3Title_ger25": {
+    "description": "-> resultsPage3Title"
+  },
+  "resultsPage4TitleTop_ger25": "Pro-EU Integration",
+  "@resultsPage4TitleTop_ger25": {
+    "description": "-> resultsPage4TitleTop"
+  },
+  "resultsPage4TitleBottom_ger25": "Anti-EU Integration",
+  "@resultsPage4TitleBottom_ger25": {
+    "description": "-> resultsPage4TitleBottom"
+  },
+  "resultsPage4TitleLeft_ger25": "Links",
+  "@resultsPage4TitleLeft_ger25": {
+    "description": "-> resultsPage4TitleLeft"
+  },
+  "resultsPage4TitleRight_ger25": "Rechts",
+  "@resultsPage4TitleRight_ger25": {
+    "description": "-> resultsPage4TitleRight"
+  },
+  "resultsPage4TitleUserHere_ger25": "Hallo, hier bin ich!",
+  "@resultsPage4TitleUserHere_ger25": {
+    "description": "-> resultsPage4TitleUserHere"
+  },
+  "resultsPage5Title_ger25": "Welcher Fraktion des Bundetags stehe ich näher bei konkreten Themen?",
+  "@resultsPage5Title_ger25": {
+    "description": "resultsPage5Title"
+  },
+  "resultsPage5Topic1_ger25": "Umweltthemen",
+  "@resultsPage5Topic1_ger25": {
+    "description": "-> resultsPage5Topic1"
+  },
+  "resultsPage5Topic2_ger25": "Menschen- und soziale Rechte",
+  "@resultsPage5Topic2_ger25": {
+    "description": "-> resultsPage5Topic2"
+  },
+  "resultsPage5Topic3_ger25": "Wirtschaftliche Intervention",
+  "@resultsPage5Topic3_ger25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage6_1Title_ger25": "Ok, es ist cool zu wissen, welche Partei mich versteht...",
+  "@resultsPage6_1Title_ger25": {
+    "description": "-> resultsPage6_1Title"
+  },
+  "resultsPage6_2Title_ger25": "(EU specific) But at the EU Elections, we vote for a local list",
+  "@resultsPage6_2Title_ger25": {
+    "description": "resultsPage6_2Title"
+  },
+  "resultsPage6Text_ger25": "(EU specific) In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match.",
+  "@resultsPage6Text_ger25": {
+    "description": "-> resultsPage6Text"
+  },
+  "resultsPage7Title_ger25": "(EU specific) Die Kandidaten in {country} richten sich am meisten an {group}",
+  "@resultsPage7Title_ger25": {
+    "description": "-> resultsPage7Title"
+  },
+  "resultsPage7Disclaimer_ger25": "In keiner bestimmten Reihenfolge.",
+  "@resultsPage7Disclaimer_ger25": {
+    "description": "-> resultsPage7Disclaimer"
+  },
+  "resultsPage7NoLocalCandidates_ger25": "(EU specific) No local parties found in {country}",
+  "@resultsPage7NoLocalCandidates_ger25": {
+    "description": "-> resultsPage7NoLocalCandidates"
+  },
+  "resultsPage8_1Text_ger25": "(EU specific) No local parties found in {country}",
+  "@resultsPage8_1Text_ger25": {
+    "description": "-> resultsPage8_1Text"
+  },
+  "resultsPage8_2Text_ger25": "Active Climate Action 🌱😌",
+  "@resultsPage8_2Text_ger25": {
+    "description": "-> resultsPage8_2Text"
+  },
+  "resultsPage8Help_ger": "Du setzt Dich für unseren Planeten ein!\nDu glaubst, dass die Bewältigung der Klimakrise gemeinsames Handeln erfordert und ganz oben auf der Prioritätenliste stehen sollte. Du hast auch nichts dagegen, wenn wir deswegen Unternehmen regulieren. Denn was nützt uns unkontrolliertes Wirtschaftswachstum, wenn die Erde unbewohnbar wird?",
+  "@resultsPage8Help_ger": {
+    "description": "-> resultsPage8Help"
+  },
+  "resultsPage9Help_ger25": "Klicke auf die Karten, um sie zu mischen",
+  "@resultsPage9Help_ger25": {
+    "description": "-> resultsPage9Help"
+  },
+  "resultsPage9Text1_ger25": "Bei Wahlen geht es um viele Themen, aber eines ist wirklich",
+  "@resultsPage9Text1_ger25": {
+    "description": "-> resultsPage9Text1"
+  },
+  "resultsPage9Text2_egr": "ganz meins 😌",
+  "@resultsPage9Text2_egr": {
+    "description": "-> resultsPage9Text2"
+  },
+  "resultsPage10Title_ger25": "A notification when it’s time to go vote?",
+  "@resultsPage10Title_ger25": {
+    "description": "-> resultsPage10Title"
+  },
+  "messageScreenYes_ger25": "Jaaaaa!",
+  "@messageScreenYes_ger25": {
+    "description": "-> messageScreenYes"
+  },
+  "messageScreenNo_ger25": "ne...",
+  "@messageScreenNo_ger25": {
+    "description": "-> messageScreenNo"
+  },
+  "onBoardingStep4Option1_ger25": "Universitätsabschluss",
+  "@onBoardingStep4Option1_ger25": {
+    "description": "-> onBoardingStep4Option1"
+  },
+  "onBoardingStep4Option2_ger25": "Abitur",
+  "@onBoardingStep4Option2_ger25": {
+    "description": "-> onBoardingStep4Option2"
+  },
+  "onBoardingStep4Option3_ger25": "Berufsausbildung",
+  "@onBoardingStep4Option3_ger25": {
+    "description": "-> onBoardingStep4Option3"
+  },
+  "onBoardingStep4Option4_ger25": "Realschulabschluss",
+  "@onBoardingStep4Option4_ger25": {
+    "description": "-> onBoardingStep4Option4"
+  },
+  "onBoardingStep4Option5_ger25": "Mittlerer Schulabschluss",
+  "@onBoardingStep4Option5_ger25": {
+    "description": "-> onBoardingStep4Option5"
+  },
+  "onBoardingStep4Option6_ger25": "Sonstiges",
+  "@onBoardingStep4Option6_ger25": {
+    "description": "-> onBoardingStep4Option6"
+  },
+  "resultsPage8Help_ger25": "Du setzt Dich für unseren Planeten ein!\nDu glaubst, dass die Bewältigung der Klimakrise gemeinsames Handeln erfordert und ganz oben auf der Prioritätenliste stehen sollte. Du hast auch nichts dagegen, wenn wir deswegen Unternehmen regulieren. Denn was nützt uns unkontrolliertes Wirtschaftswachstum, wenn die Erde unbewohnbar wird?",
+  "@resultsPage8Help_ger25": {
+    "description": "-> resultsPage8Help"
+  }
 }

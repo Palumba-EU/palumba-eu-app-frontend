@@ -20,17 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'sk';
 
-  static String m0(count) => "${count} zhody nájdené za posledných 24 hodín";
+  static String m0(count) => "${count} zhôd nájdených za ostatných 24 hodín";
 
-  static String m1(count) => "${count} zhody nájdené za posledných 24 hodín";
+  static String m1(count) => "${count} zhôd nájdených za ostatných 24 hodín";
 
   static String m2(country) =>
-      "Vyhľadávanie zhody so zoznamami kandidátov v ${country}";
+      "Vyhľadávanie zhody so zoznamami kandidátov v&nbsp;${country}";
 
   static String m3(country) => "Žiadne miestne strany sa na ${country} nenašli";
 
   static String m4(country, group) =>
-      "Kandidáti na ${country}, ktorí sú najviac v súlade s ${group}";
+      "Kandidujúce subjekty za ${country}, ktoré sa najviac zhodujú s ${group}";
 
   static String m5(topic, percentage) =>
       "V téme ${topic} si na ${percentage}% viac do";
@@ -38,7 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Niečo sa pokazilo na našom serveri. Skúste to neskôr, prosím."),
+            "Niečo sa pokazilo na našom serveri. Skús to neskôr, prosím."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ups!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
         "cancel": MessageLookupByLibrary.simpleMessage("Zrušiť"),
@@ -49,7 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
             "Ak vám tento roztomilý holub nepomôže v júni voliť, tak už nič."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-            "\'Swipnite\' (odlistujte) názory na témy, ktoré vás zaujímajú."),
+            "\'Swajpni\' názory na témy, ktoré ťa zaujímajú."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
             "Nájdite svoj \'match\' (zhodu) a zorientujte sa v tom, koho voliť vo voľbách."),
         "faq": MessageLookupByLibrary.simpleMessage("Často kladené otázky"),
@@ -64,9 +64,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Spustenie nového testu"),
         "hungary": MessageLookupByLibrary.simpleMessage("Maďarsko"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Túto možnosť môžete neskôr zmeniť v nastaveniach."),
+            "Túto možnosť môžeš neskôr zmeniť v nastaveniach."),
         "languagePageTitle":
-            MessageLookupByLibrary.simpleMessage("Pokračujme v slovenčina? :)"),
+            MessageLookupByLibrary.simpleMessage("Pokračujme v slovenčine? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
             "Vaše personalizované výsledky sú na ceste :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
@@ -74,17 +74,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Takmer hotovo, posledná kontrola..."),
-        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
-            "Only 5 cards left to swipe :)"),
+        "message_five_cards_left":
+            MessageLookupByLibrary.simpleMessage("Už len 5 kariet do konca :)"),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
-            "Keep swiping, you\'re 50% done!"),
+            "Swajpuj ďalej, už si v polovici!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutrálne"),
         "no": MessageLookupByLibrary.simpleMessage("Nie"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "Nemám poňatia, koho budem voliť vo voľbách do Európskeho parlamentu v roku 2024"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "\'Swipnite\' (odlistujte) prstom podľa vašich preferencií"),
+            "\'Swajpni\' prstom podľa tvojich preferencií"),
         "onBoardingNotAnswerButton":
             MessageLookupByLibrary.simpleMessage("Nechcem uviesť"),
         "onBoardingStep1Subtitle":
@@ -108,15 +108,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Upozornenie, keď bude čas ísť voliť?"),
         "resultsPage10YesButton": MessageLookupByLibrary.simpleMessage("Áááno"),
         "resultsPage1Button":
-            MessageLookupByLibrary.simpleMessage("Stlačte pre pokračovanie"),
+            MessageLookupByLibrary.simpleMessage("Stlač pre pokračovanie"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-            "Na nasledujúcich obrazovkách zistíte, s ktorou skupinou v Európskom parlamente sa najviac stotožňujete. Tiež nájdete príslušné kandidátne listiny, ktoré môžte v júni voliť vo svojej krajine. Na základe vašich odpovedí sme dokonca zistili niekoľko ďalších zaujímavostí 😌"),
+            "Na nasledujúcich obrazovkách zistíš, s ktorou skupinou v&nbsp;Európskom parlamente sa najviac stotožňuješ. Tiež nájdeš príslušné kandidátne listiny, ktoré môžeš v&nbsp;júni voliť vo svojej krajine. Na základe tvojich odpovedí sme dokonca zistili niekoľko ďalších zaujímavostí 😌"),
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("Zhoda a oveľa viac 👉👈"),
         "resultsPage2_1Title":
             MessageLookupByLibrary.simpleMessage("Úprimne, medzi"),
         "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
-            "a mnou, je to niečo ako Love Story (EÚ verzia)"),
+            "a mnou je niečo ako Love Story (EÚ verzia)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Ako blízko mám ku skupinám Európskeho parlamentu"),
         "resultsPage4TitleBottom":
@@ -137,7 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage5Topic3":
             MessageLookupByLibrary.simpleMessage("Hospodárska intervencia"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-            "Na ďalších obrazovkách nájdete kandidátne listiny vo vašej krajine, ktoré sa s najväčšou pravdepodobnosťou pripoja k skupine s ktorou sa najviac zhodujete."),
+            "Na ďalších obrazovkách nájdeš kandidátne listiny v tvojej krajine, ktoré sa s&nbsp;najväčšou pravdepodobnosťou pripoja k&nbsp;skupine, s&nbsp;ktorou sa najviac zhoduješ."),
         "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
             "Ok, je super vedieť, ktorá skupina ma chápe..."),
         "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
@@ -162,9 +162,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Ochrana dát"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Zdielať"),
+            MessageLookupByLibrary.simpleMessage("Zdieľať"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Ak vám ani táto roztomilá holubička nepomôže ísť voliť v júni, tak už nič asi! Použil/a som túto aplikáciu a mali by ste aj vy:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Hlavní sponzori"),
         "settingsPageSubtitle2":
@@ -194,7 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("Preskočiť"),
         "spain": MessageLookupByLibrary.simpleMessage("Španielsko"),
         "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
-            "Vyzerá to, že nemáte pripojenie na internet"),
+            "Vyzerá to, že nemáš pripojenie na internet"),
         "sweden": MessageLookupByLibrary.simpleMessage("Švédsko"),
         "textContinue": MessageLookupByLibrary.simpleMessage("Pokračovať"),
         "yes": MessageLookupByLibrary.simpleMessage("Áno")

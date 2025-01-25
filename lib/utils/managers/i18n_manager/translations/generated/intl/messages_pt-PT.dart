@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(count) => "${count} matches encontrados nas últimas 24h";
 
   static String m2(country) =>
-      "A encontrar matches com as listas de candidatos na/no ${country} 🔍";
+      "Procurando combinações com lista de candidatos em ${country}  🔍";
 
   static String m3(country) => "Nenhum partido local encontrado em ${country}";
 
@@ -40,7 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
             "Algo deu errado no nosso lado. Por favor, tente novamente mais tarde."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ops!"),
-        "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
+        "appName": MessageLookupByLibrary.simpleMessage("Palumba UE"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
         "entranceMatchesFoundQuote": m0,
@@ -64,7 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Iniciar um novo teste"),
         "hungary": MessageLookupByLibrary.simpleMessage("Hungria"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Isto pode ser alterado posteriormente nas configurações."),
+            "Isto pode ser alterado posteriormente nas definições."),
         "languagePageTitle": MessageLookupByLibrary.simpleMessage(
             "Vamos continuar em Português? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
@@ -75,16 +75,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Quase pronto, uma última verificação..."),
         "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
-            "Only 5 cards left to swipe :)"),
+            "Apenas 5 cartas para deslizar :)"),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
-            "Keep swiping, you\'re 50% done!"),
+            "Continue a deslizar, 50% está pronto!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutro"),
         "no": MessageLookupByLibrary.simpleMessage("Não"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "Não faço ideia em quem votar para as eleições europeias de 2024"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-            "Desliza conforme estejas de acordo"),
+            "Deslize conforme a sua preferência"),
         "onBoardingNotAnswerButton":
             MessageLookupByLibrary.simpleMessage("Prefiro não dizer"),
         "onBoardingStep1Subtitle":
@@ -92,7 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep1Title":
             MessageLookupByLibrary.simpleMessage("Onde vais votar?"),
         "onBoardingStep2Title":
-            MessageLookupByLibrary.simpleMessage("A minha idade"),
+            MessageLookupByLibrary.simpleMessage("Minha idade"),
         "onBoardingStep3Option1":
             MessageLookupByLibrary.simpleMessage("Mulher"),
         "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Homem"),
@@ -111,7 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage10YesButton":
             MessageLookupByLibrary.simpleMessage("Simmmm"),
         "resultsPage1Button":
-            MessageLookupByLibrary.simpleMessage("Pressiona para continuar"),
+            MessageLookupByLibrary.simpleMessage("Selecione para continuar"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
             "Nas seguintes páginas, descobrirás o grupo que é mais compatível contigo no Parlamento da UE, as listas locais correspondentes para votar em junho no teu país, e até encontrámos algumas coisas extras com base nas tuas respostas 😌"),
         "resultsPage1Title":
@@ -131,7 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage4TitleTop":
             MessageLookupByLibrary.simpleMessage("Pró-Integração UE"),
         "resultsPage4TitleUserHere":
-            MessageLookupByLibrary.simpleMessage("Olá, sou eu!"),
+            MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
             "Quanto a temas mais específicos, qual é o grupo do Parlamento Europeu ao qual estou mais próximo?"),
         "resultsPage5Topic1":
@@ -161,20 +161,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Eleições são sobre vários tópicos, mas há uma coisa que realmente"),
         "resultsPage9Text2":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
-        "resultsShare": MessageLookupByLibrary.simpleMessage("Compartilhar"),
+        "resultsShare": MessageLookupByLibrary.simpleMessage("Partilhar"),
         "romania": MessageLookupByLibrary.simpleMessage("Roménia"),
         "settingsPagePrivacyPolicy":
             MessageLookupByLibrary.simpleMessage("Política de Privacidade"),
         "settingsPageShareButtonText":
-            MessageLookupByLibrary.simpleMessage("Compartilha"),
+            MessageLookupByLibrary.simpleMessage("Partilha"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "Se este pombinho fofo não puder ajudar-te a votar em junho, nada poderá. Eu usei esta app e tu também deverias usar:"),
+            "Se este lindo pombo não te puder ajudar a votar em junho, nada ajudará. Eu usei esta App e tu devias também:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Principais Patrocinadores"),
         "settingsPageSubtitle2":
             MessageLookupByLibrary.simpleMessage("Parceiros Europeus"),
         "settingsPageSubtitle3":
-            MessageLookupByLibrary.simpleMessage("Parceiro Acadêmico"),
+            MessageLookupByLibrary.simpleMessage("Parceiro Académico"),
         "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
             "Parceiros Institucionais nacionais"),
         "settingsPageSubtitle5":
@@ -184,7 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
             "Palumba não é uma empresa, nem um partido político, nem um governo. Somos uma associação independente sem fins lucrativos de mais de 120 jovens 🐦 de toda a Europa que se reuniram no verão passado e começaram a desenvolver esta app. Temos um objetivo: ajudá-lo a compreender melhor o funcionamento das eleições europeias e quais as listas de candidatos que poderiam corresponder às tuas ideias, para que possas votar com mais confiança nas pessoas que apoiam as tuas prioridades. O nosso algoritmo é open-source, as declarações que tu fazes foram analisadas por cientistas políticos, e teus dados são criptografados de tal maneira que nós não temos como te identificar :)"),
         "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
-            "Para alterar o idioma, clica no atual"),
+            "Para alterar o idioma, selecione o atual"),
         "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
             "É importante dizer que os parceiros não têm poder editorial sobre o conteúdo da app, que continua a ser uma iniciativa não partidária com um objetivo claro: ajudar-te a compreender quem apoia as tuas opiniões a nível europeu e nacional."),
         "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("Sobre"),

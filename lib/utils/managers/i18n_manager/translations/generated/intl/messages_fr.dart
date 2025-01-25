@@ -149,7 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage7NoLocalCandidates": m3,
         "resultsPage7Title": m4,
         "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
-            "Tu es un combattant pour le climat ! Tu crois que pour lutter contre la crise climatique il faut une action collective et que chacun doit en faire sa grande priorité. Tu es favorable au fait que l\'Union Européenne régule les entreprises pour aider dans cet objectif. Après tout, à quoi ça sert d\'avoir de la \"croissance\" économique si la planète deviens invivable ?"),
+            "Tu es un·e militant·e pour l\'action climatique ! Tu penses que la lutte contre la crise environnementale nécessite une action collective et que chacun·e doit en faire une priorité absolue. Tu ne vois pas d\'inconvénient à ce que l\'Union européenne réglemente les entreprises à cette fin. Après tout, à quoi sert la croissance économique si la planète devient inhabitable ?#ClimateActionNow #NoPlanetB"),
         "resultsPage8_1Text": m5,
         "resultsPage8_2Text":
             MessageLookupByLibrary.simpleMessage("Action climatique 🌱😌"),
@@ -166,7 +166,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Partager"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Si même un pigeon te convainc pas d’aller voter, rien n\'y arrivera 👀 J\'ai utilisé l\'application et tu devrais essayer :"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Sponsors Principaux"),
         "settingsPageSubtitle2":

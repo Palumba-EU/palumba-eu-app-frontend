@@ -74,10 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Почти готово, последна проверка..."),
-        "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
-            "Only 5 cards left to swipe :)"),
+        "message_five_cards_left":
+            MessageLookupByLibrary.simpleMessage("Остават още само 5 карти :)"),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
-            "Keep swiping, you\'re 50% done!"),
+            "Продължи напред, готов/а си на 50%!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Неутрален"),
         "no": MessageLookupByLibrary.simpleMessage("Не"),
         "ok": MessageLookupByLibrary.simpleMessage("Добре"),
@@ -98,7 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep3Option3":
             MessageLookupByLibrary.simpleMessage("Gender-fluid"),
         "onBoardingStep3Option4":
-            MessageLookupByLibrary.simpleMessage("Non-binary"),
+            MessageLookupByLibrary.simpleMessage("Небинарен"),
         "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Друго"),
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("Аз се идентифицирам като"),
@@ -165,7 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Споделяне"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Ако този сладък гълъб не може да ти помогне да гласуваш юни месец, нищо няма да ти помогне. Аз съм използвал приложението, пробвай и ти:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Главни спонсори"),
         "settingsPageSubtitle2":

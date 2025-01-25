@@ -38,7 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-            "Bizim tarafımızda bir sorun oluştu. Lütfen sonra tekrar deneyin."),
+            "Bizim tarafımızda bir sorun oluştu. Lütfen daha sonra tekrar dene."),
         "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ups!"),
         "appName": MessageLookupByLibrary.simpleMessage("Palumba AB"),
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
@@ -63,7 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Yeni bir teste başla"),
         "hungary": MessageLookupByLibrary.simpleMessage("Macaristan"),
         "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Bu sonradan ayarlardan değiştirilebilir."),
+            "Bunu daha sonra ayarlardan değiştirebilirsin."),
         "languagePageTitle":
             MessageLookupByLibrary.simpleMessage("Türkçe devam edelim mi? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
@@ -72,12 +72,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Bu Taylor Swift\'e bilet almaktan daha çabuk olmalı 👀 "),
         "loadingResultsPageTitle3": m2,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-            "Neredeyse hazır, son bir şey..."),
+            "Neredeyse hazır, son bir şey daha..."),
         "message_five_cards_left":
             MessageLookupByLibrary.simpleMessage("Sadece 5 soru daha kaldı :)"),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
             "Kaydırmaya devam et, yolu yarıladın!"),
-        "neutral": MessageLookupByLibrary.simpleMessage("Tarafsız"),
+        "neutral": MessageLookupByLibrary.simpleMessage("Tarafsızım"),
         "no": MessageLookupByLibrary.simpleMessage("Hayır"),
         "ok": MessageLookupByLibrary.simpleMessage("Tamam"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
@@ -85,7 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
             "Katılma durumuna göre kaydır"),
         "onBoardingNotAnswerButton":
-            MessageLookupByLibrary.simpleMessage("Söylememeyi tercih ederim"),
+            MessageLookupByLibrary.simpleMessage("Belirtmemeyi tercih ederim"),
         "onBoardingStep1Subtitle":
             MessageLookupByLibrary.simpleMessage("Bilmiyorum"),
         "onBoardingStep1Title":
@@ -99,7 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Non-binary"),
         "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Başka"),
         "onBoardingStep3Title":
-            MessageLookupByLibrary.simpleMessage("Kendimi böyle tanımlıyorum"),
+            MessageLookupByLibrary.simpleMessage("Kendimi şöyle tanımlıyorum"),
         "poland": MessageLookupByLibrary.simpleMessage("Polonya"),
         "resultsPage10NopButton":
             MessageLookupByLibrary.simpleMessage("Hayır sağ ol!"),
@@ -114,9 +114,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
             "Bir eşleşme ve çok daha fazlası 👉👈"),
         "resultsPage2_1Title":
-            MessageLookupByLibrary.simpleMessage("Honestly, between the"),
+            MessageLookupByLibrary.simpleMessage("Dürüst olmak gerekirse,"),
         "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
-            "and me, it’s kind of a Love Story (EU’s Version)"),
+            "ile benim aramda, bu tam Bir Aşk Hikayesi (AB Versiyonu)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Avrupa Parlamento Grupları\'na ne kadar yakınım"),
         "resultsPage4TitleBottom":
@@ -163,7 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Paylaş"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:"),
+            "Eğer bu sevimli güvercin Haziran ayında oy kullanmana yardımcı olamazsa, hiçbir şey olamaz. Ben uygulamayı kullandım ve sen de kullanmalısın:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Ana Sponsorlar"),
         "settingsPageSubtitle2":
@@ -194,7 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("Atla"),
         "spain": MessageLookupByLibrary.simpleMessage("İspanya"),
         "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
-            "İnternet bağlantınız yok gibi gözüküyor"),
+            "İnternet bağlantın yok gibi gözüküyor"),
         "sweden": MessageLookupByLibrary.simpleMessage("İsveç"),
         "textContinue": MessageLookupByLibrary.simpleMessage("Devam"),
         "yes": MessageLookupByLibrary.simpleMessage("Evet")

@@ -104,5 +104,181 @@
   "settingsPageSubtitle5": "Proveedores de servicios",
   "settingsPageShareButtonText": "Compartir",
   "settingsPagePrivacyPolicy": "Política de privacidad",
-  "settingsPageShareText": "Si esta palomita no te ayuda a votar en junio, nada podrá. He usado la app y te la recomiendo:"
+  "settingsPageShareText": "Si esta palomita no te ayuda a votar en junio, nada podrá. He usado la app y te la recomiendo:",
+  "entranceTitle1_ger25": "If this cute pigeon can’t help you vote in February, nothing will.",
+  "@entranceTitle1_ger25": {
+    "description": "-> entranceTitle1"
+  },
+  "entranceTitle2_ger25": "Swipe your opinion on topics that matter to you.",
+  "@entranceTitle2_ger25": {
+    "description": "-> entranceTitle2"
+  },
+  "entranceTitle3_ger25": "Find out your match and an orientation for who to vote for at the Elections.",
+  "@entranceTitle3_ger25": {
+    "description": "-> entranceTitle3"
+  },
+  "onBoardingCardQuestion_ger25": "I have no clue who to vote for at the 2024 European Elections",
+  "@onBoardingCardQuestion_ger25": {
+    "description": "-> onBoardingCardQuestion"
+  },
+  "loadingResultsPageTitle1_ger25": "Your personalised results are on their way :)",
+  "@loadingResultsPageTitle1_ger25": {
+    "description": "-> loadingResultsPageTitle1"
+  },
+  "loadingResultsPageTitle2_ger25": "This shall be quicker than getting Taylor Swift tickets 👀 ",
+  "@loadingResultsPageTitle2_ger25": {
+    "description": "-> loadingResultsPageTitle2"
+  },
+  "loadingResultsPageTitle3_ger25": "Finding matches with candidates lists in {country}  🔍",
+  "@loadingResultsPageTitle3_ger25": {
+    "description": "-> loadingResultsPageTitle3"
+  },
+  "loadingResultsPageTitle4_ger25": "Almost ready, one last check...",
+  "@loadingResultsPageTitle4_ger25": {
+    "description": "-> loadingResultsPageTitle4"
+  },
+  "resultsPage1Title_ger25": "A match and much more 👉👈",
+  "@resultsPage1Title_ger25": {
+    "description": "-> resultsPage1Title"
+  },
+  "resultsPage1Text_ger25": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌",
+  "@resultsPage1Text_ger25": {
+    "description": "-> resultsPage1Text"
+  },
+  "resultsPage2_1Title_ger25": "Honestly, between the",
+  "@resultsPage2_1Title_ger25": {
+    "description": "-> resultsPage2_1Title"
+  },
+  "resultsPage2_2Title_ger25": "and me, it’s kind of a Love Story (EU’s Version)",
+  "@resultsPage2_2Title_ger25": {
+    "description": "-> resultsPage2_2Title"
+  },
+  "resultsPage3Title_ger25": "How close I am to European Parliament Groups",
+  "@resultsPage3Title_ger25": {
+    "description": "-> resultsPage3Title"
+  },
+  "resultsPage4TitleTop_ger25": "Pro-EU Integration",
+  "@resultsPage4TitleTop_ger25": {
+    "description": "-> resultsPage4TitleTop"
+  },
+  "resultsPage4TitleBottom_ger25": "Anti-EU Integration",
+  "@resultsPage4TitleBottom_ger25": {
+    "description": "-> resultsPage4TitleBottom"
+  },
+  "resultsPage4TitleLeft_ger25": "Left",
+  "@resultsPage4TitleLeft_ger25": {
+    "description": "-> resultsPage4TitleLeft"
+  },
+  "resultsPage4TitleRight_ger25": "Right",
+  "@resultsPage4TitleRight_ger25": {
+    "description": "-> resultsPage4TitleRight"
+  },
+  "resultsPage4TitleUserHere_ger25": "It’s me, hi!",
+  "@resultsPage4TitleUserHere_ger25": {
+    "description": "-> resultsPage4TitleUserHere"
+  },
+  "resultsPage5Title_ger25": "On more specific topics, which European Parliament Group am I closer to?",
+  "@resultsPage5Title_ger25": {
+    "description": "resultsPage5Title"
+  },
+  "resultsPage5Topic1_ger25": "Environmental issues",
+  "@resultsPage5Topic1_ger25": {
+    "description": "-> resultsPage5Topic1"
+  },
+  "resultsPage5Topic2_ger25": "Human & Social Rights",
+  "@resultsPage5Topic2_ger25": {
+    "description": "-> resultsPage5Topic2"
+  },
+  "resultsPage5Topic3_ger25": "Economic intervention",
+  "@resultsPage5Topic3_ger25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage6_1Title_ger25": "Ok, it's cool knowing which group gets me...",
+  "@resultsPage6_1Title_ger25": {
+    "description": "-> resultsPage6_1Title"
+  },
+  "resultsPage6_2Title_ger25": "But at the EU Elections, we vote for a local list",
+  "@resultsPage6_2Title_ger25": {
+    "description": "resultsPage6_2Title"
+  },
+  "resultsPage6Text_ger25": "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match.",
+  "@resultsPage6Text_ger25": {
+    "description": "-> resultsPage6Text"
+  },
+  "resultsPage7Title_ger25": "The candidates in {country} most aligned with {group}",
+  "@resultsPage7Title_ger25": {
+    "description": "-> resultsPage7Title"
+  },
+  "resultsPage7Disclaimer_ger25": "In no particular order.",
+  "@resultsPage7Disclaimer_ger25": {
+    "description": "-> resultsPage7Disclaimer"
+  },
+  "resultsPage7NoLocalCandidates_ger25": "No local parties found in {country}",
+  "@resultsPage7NoLocalCandidates_ger25": {
+    "description": "-> resultsPage7NoLocalCandidates"
+  },
+  "resultsPage8_1Text_ger25": "On {topic}, you’re {percentage}% more into",
+  "@resultsPage8_1Text_ger25": {
+    "description": "-> resultsPage8_1Text"
+  },
+  "resultsPage8_2Text_ger25": "Active Climate Action 🌱😌",
+  "@resultsPage8_2Text_ger25": {
+    "description": "-> resultsPage8_2Text"
+  },
+  "resultsPage8Help_ger": "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?",
+  "@resultsPage8Help_ger": {
+    "description": "-> resultsPage8Help"
+  },
+  "resultsPage9Help_ger25": "Click on the cards to shuffle",
+  "@resultsPage9Help_ger25": {
+    "description": "-> resultsPage9Help"
+  },
+  "resultsPage9Text1_ger25": "Elections are about many topics, but there’s one thing that really",
+  "@resultsPage9Text1_ger25": {
+    "description": "-> resultsPage9Text1"
+  },
+  "resultsPage9Text2_egr": "Belongs With Me 😌",
+  "@resultsPage9Text2_egr": {
+    "description": "-> resultsPage9Text2"
+  },
+  "resultsPage10Title_ger25": "A notification when it’s time to go vote?",
+  "@resultsPage10Title_ger25": {
+    "description": "-> resultsPage10Title"
+  },
+  "messageScreenYes_ger25": "Yesss!",
+  "@messageScreenYes_ger25": {
+    "description": "-> messageScreenYes"
+  },
+  "messageScreenNo_ger25": "nope...",
+  "@messageScreenNo_ger25": {
+    "description": "-> messageScreenNo"
+  },
+  "onBoardingStep4Option1_ger25": "Universitätsabschluss",
+  "@onBoardingStep4Option1_ger25": {
+    "description": "-> onBoardingStep4Option1"
+  },
+  "onBoardingStep4Option2_ger25": "Abitur",
+  "@onBoardingStep4Option2_ger25": {
+    "description": "-> onBoardingStep4Option2"
+  },
+  "onBoardingStep4Option3_ger25": "Berufsausbildung",
+  "@onBoardingStep4Option3_ger25": {
+    "description": "-> onBoardingStep4Option3"
+  },
+  "onBoardingStep4Option4_ger25": "Realschulabschluss",
+  "@onBoardingStep4Option4_ger25": {
+    "description": "-> onBoardingStep4Option4"
+  },
+  "onBoardingStep4Option5_ger25": "Mittlerer Schulabschluss",
+  "@onBoardingStep4Option5_ger25": {
+    "description": "-> onBoardingStep4Option5"
+  },
+  "onBoardingStep4Option6_ger25": "Ungebildet",
+  "@onBoardingStep4Option6_ger25": {
+    "description": "-> onBoardingStep4Option6"
+  },
+  "resultsPage8Help_ger25": "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?",
+  "@resultsPage8Help_ger25": {
+    "description": "-> resultsPage8Help"
+  }
 }

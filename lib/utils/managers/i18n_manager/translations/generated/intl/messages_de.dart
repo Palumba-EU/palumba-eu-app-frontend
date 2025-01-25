@@ -77,9 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Fast fertig, ein letzter Check..."),
         "message_five_cards_left":
-            MessageLookupByLibrary.simpleMessage("Nur noch 5 Karten übrig :)"),
+            MessageLookupByLibrary.simpleMessage("Nur noch 5 Swipes übrig :)"),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
-            "Mach weiter, du hast schon 50% geschafft!"),
+            "Mach weiter, Du hast schon 50% geschafft!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("Nein"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -171,7 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageShareButtonText":
             MessageLookupByLibrary.simpleMessage("Teilen"),
         "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-            "Wenn diese süße Taube dir nicht helfen kann im Juni zu wählen, dann hilft dir gar nichts. Ich habe die App bereits benutzt und du solltest das auch tun:"),
+            "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann ist Dir nicht mehr zu helfen. Ich habe die App bereits benutzt und Du solltest das auch tun:"),
         "settingsPageSubtitle1":
             MessageLookupByLibrary.simpleMessage("Hauptsponsoren"),
         "settingsPageSubtitle2":

@@ -75,9 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Bal fäerdeg, ee leschte Check..."),
         "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
-            "Only 5 cards left to swipe :)"),
+            "Just nach 5 Kaarten iwwreg fir ze swipen :) "),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
-            "Keep swiping, you\'re 50% done!"),
+            "Swipe weider, 50% si gepackt!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("Nee"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),

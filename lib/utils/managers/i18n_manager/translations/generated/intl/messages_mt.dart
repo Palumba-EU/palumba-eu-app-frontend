@@ -76,9 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Kważi lest, l-aħħar kontroll..."),
         "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
-            "Only 5 cards left to swipe :)"),
+            "Fadallek biss 5 mistoqsijiet xi twieġeb :)"),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
-            "Keep swiping, you\'re 50% done!"),
+            "Wasalt f’nofs il mistoqsijiet, daqt tlesti!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Newtrali"),
         "no": MessageLookupByLibrary.simpleMessage("Le"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),

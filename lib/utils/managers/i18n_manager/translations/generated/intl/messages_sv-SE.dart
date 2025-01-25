@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kandidaterna i ${country} mest i linje med ${group}";
 
   static String m5(topic, percentage) =>
-      "Angående ${topic}, är du ${percentage}% mer intresserad av";
+      "Angående ${topic}, är du ${percentage}% mer för";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -75,9 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Nästan klart, en sista kontroll..."),
         "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
-            "Only 5 cards left to swipe :)"),
+            "Bara 5 kort kvar att svajpa :)"),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
-            "Keep swiping, you\'re 50% done!"),
+            "Fortsätt svajpa, du är halvvägs klar!"),
         "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
         "no": MessageLookupByLibrary.simpleMessage("Nej"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -138,7 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "resultsPage5Topic2": MessageLookupByLibrary.simpleMessage(
             "Mänskliga & Sociala Rättigheter"),
         "resultsPage5Topic3":
-            MessageLookupByLibrary.simpleMessage("Ekonomisk Intervention"),
+            MessageLookupByLibrary.simpleMessage("Ekonomisk intervention"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
             "På följande sidor kommer du hitta listorna på kandidaterna i ditt land mest troliga att ingå i din match."),
         "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
