@@ -11,7 +11,6 @@ import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
-import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -83,12 +82,7 @@ class HomePageController extends GetxController {
   void eggPressed(BuildContext context) async {
     var info = await _dataRepository.getEggInfo();
     if (info == null) return;
-
-    Navigator.of(context).push(new MaterialPageRoute<Null>(
-        builder: (BuildContext context) {
-          return new MessageWidget(content: info);
-        },
-        fullscreenDialog: true));
+    MessageWidget.callAsBottomSheet(context, info);
   }
 
   void goToSettings() {

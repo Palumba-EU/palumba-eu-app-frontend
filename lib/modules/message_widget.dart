@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:palumba_eu/data/provider/remote/data_api.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class MessageWidget extends StatelessWidget {
   final MessageScreenContent content;
@@ -24,6 +26,15 @@ class MessageWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Row(
+                children: [
+                  AppTexts.title(S.of(context).shortAppName,
+                      forceCaprasimo: true,
+                      color: AppColors.primary,
+                      fontSize: 27.5),
+                  Spacer(),
+                ],
+              ),
               CustomSpacer(
                 multiplier: 2,
               ),
@@ -66,5 +77,22 @@ class MessageWidget extends StatelessWidget {
 
   void dismiss(BuildContext context) {
     Navigator.of(context).pop();
+  }
+
+  static callAsBottomSheet(BuildContext context, MessageScreenContent info) {
+    Get.bottomSheet(
+      SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height, // Full screen height
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+          ),
+          child: MessageWidget(content: info),
+        ),
+      ),
+      isScrollControlled: true,
+      enableDrag: true,
+    );
   }
 }
