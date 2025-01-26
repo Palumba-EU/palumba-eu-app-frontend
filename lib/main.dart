@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:palumba_eu/firebase_options.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
@@ -32,6 +34,8 @@ void main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await SentryFlutter.init(
     (options) {
