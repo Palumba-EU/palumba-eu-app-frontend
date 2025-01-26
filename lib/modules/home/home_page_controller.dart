@@ -12,6 +12,7 @@ import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
+import 'package:palumba_eu/utils/managers/push_notification_service.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
@@ -41,6 +42,12 @@ class HomePageController extends GetxController {
     conditionallyShowEYCABanner();
     super.onInit();
     PlausibleManager.trackPage(route);
+
+    PushNotificationService().register();
+    PushNotificationService()
+        .fromForeground((message) => eggPressed(Get.context!));
+    PushNotificationService()
+        .fromBackground((message) => eggPressed(Get.context!));
   }
 
   Future<void> obtainLocalStoredLastResults() async {

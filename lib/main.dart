@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:palumba_eu/firebase_options.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
@@ -36,6 +37,7 @@ void main() async {
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   await SentryFlutter.init(
     (options) {
@@ -80,4 +82,13 @@ class _MyApp extends State<MyApp> {
       supportedLocales: S.delegate.supportedLocales,
     );
   }
+}
+
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  await Firebase.initializeApp();
+
+  print("Handling a background message: ${message.messageId}");
 }
