@@ -27,13 +27,24 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m2(country) =>
       "Trova gli abbinamenti con le liste candidate in ${country}  🔍";
 
-  static String m3(country) => "Nessun partito trovato in ${country}";
+  static String m3(country) =>
+      "Finding matches with candidates lists in ${country}  🔍";
 
-  static String m4(country, group) =>
+  static String m4(country) => "Nessun partito trovato in ${country}";
+
+  static String m5(country) => "No local parties found in ${country}";
+
+  static String m6(country, group) =>
       "I candidati in ${country} più allineati con ${group}";
 
-  static String m5(topic, percentage) =>
+  static String m7(country, group) =>
+      "The candidates in ${country} most aligned with ${group}";
+
+  static String m8(topic, percentage) =>
       "Su ${topic}, sei ${percentage}% più incline in";
+
+  static String m9(topic, percentage) =>
+      "On ${topic}, you’re ${percentage}% more into";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -48,10 +59,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Avvia Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
             "Se questo piccione carino non ti aiuterà a votare a giugno, nient\'altro lo farà."),
+        "entranceTitle1_ger25": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can’t help you vote in February, nothing will."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
             "Scorri sull\'opinione che più ti interessa."),
+        "entranceTitle2_ger25": MessageLookupByLibrary.simpleMessage(
+            "Swipe your opinion on topics that matter to you."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
             "Trova il tuo abbinamento e l\'orientamento per cui votare alle elezioni."),
+        "entranceTitle3_ger25": MessageLookupByLibrary.simpleMessage(
+            "Find out your match and an orientation for who to vote for at the Elections."),
         "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
         "france": MessageLookupByLibrary.simpleMessage("Francia"),
         "germany": MessageLookupByLibrary.simpleMessage("Germania"),
@@ -69,11 +86,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continuiamo in italiano? :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
             "I tuoi risultati personalizzati sono in arrivo :)"),
+        "loadingResultsPageTitle1_ger25": MessageLookupByLibrary.simpleMessage(
+            "Your personalised results are on their way :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
             "Dovrebbe essere più veloce che prendere dei biglietti per Taylor Swift 👀 "),
+        "loadingResultsPageTitle2_ger25": MessageLookupByLibrary.simpleMessage(
+            "This shall be quicker than getting Taylor Swift tickets 👀 "),
         "loadingResultsPageTitle3": m2,
+        "loadingResultsPageTitle3_ger25": m3,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Quasi pronti, un ultimo controllo..."),
+        "loadingResultsPageTitle4_ger25": MessageLookupByLibrary.simpleMessage(
+            "Almost ready, one last check..."),
+        "messageScreenNo_ger25":
+            MessageLookupByLibrary.simpleMessage("nope..."),
+        "messageScreenYes_ger25":
+            MessageLookupByLibrary.simpleMessage("Yesss!"),
         "message_five_cards_left":
             MessageLookupByLibrary.simpleMessage("Solo 5 domande rimanenti :)"),
         "message_half_test_done":
@@ -83,6 +111,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "Non ho alcuna idea per chi votare alle Elezioni Europee 2024"),
+        "onBoardingCardQuestion_ger25": MessageLookupByLibrary.simpleMessage(
+            "I have no clue who to vote for at the 2024 European Elections"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
             "Scorri in base a quanto sei d\'accordo"),
         "onBoardingNotAnswerButton":
@@ -102,63 +132,128 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Altro"),
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("Mi identifico come"),
+        "onBoardingStep4Option1_ger25":
+            MessageLookupByLibrary.simpleMessage("Universitätsabschluss"),
+        "onBoardingStep4Option2_ger25":
+            MessageLookupByLibrary.simpleMessage("Abitur"),
+        "onBoardingStep4Option3_ger25":
+            MessageLookupByLibrary.simpleMessage("Berufsausbildung"),
+        "onBoardingStep4Option4_ger25":
+            MessageLookupByLibrary.simpleMessage("Realschulabschluss"),
+        "onBoardingStep4Option5_ger25":
+            MessageLookupByLibrary.simpleMessage("Mittlerer Schulabschluss"),
+        "onBoardingStep4Option6_ger25":
+            MessageLookupByLibrary.simpleMessage("Ungebildet"),
         "poland": MessageLookupByLibrary.simpleMessage("Polonia"),
         "resultsPage10NopButton":
             MessageLookupByLibrary.simpleMessage("No grazie!"),
         "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
             "Vuoi ricevere una notifica per quando sarà tempo di andare a votare?"),
+        "resultsPage10Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "A notification when it’s time to go vote?"),
         "resultsPage10YesButton":
             MessageLookupByLibrary.simpleMessage("Sììììì"),
         "resultsPage1Button":
             MessageLookupByLibrary.simpleMessage("Premi per continuare"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
             "Nelle prossime schermate, scoprirai il gruppo del Parlamento Europeo con cui sei più compatibile, le liste locali da votare a giugno nel tuo paese e abbiamo anche trovato un paio di cose extra in base alle tue risposte  😌"),
+        "resultsPage1Text_ger25": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌"),
         "resultsPage1Title":
             MessageLookupByLibrary.simpleMessage("Un match e tanto altro 👉👈"),
+        "resultsPage1Title_ger25":
+            MessageLookupByLibrary.simpleMessage("A match and much more 👉👈"),
         "resultsPage2_1Title":
             MessageLookupByLibrary.simpleMessage("Onestamente, tra"),
+        "resultsPage2_1Title_ger25":
+            MessageLookupByLibrary.simpleMessage("Honestly, between the"),
         "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
             "e me, è una Love Story (EU\'s Version)"),
+        "resultsPage2_2Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "and me, it’s kind of a Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Quanto mi sono vicini i Gruppi Parlamentari Europei"),
+        "resultsPage3Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "How close I am to European Parliament Groups"),
         "resultsPage4TitleBottom":
             MessageLookupByLibrary.simpleMessage("Contro l\'Integrazione UE"),
+        "resultsPage4TitleBottom_ger25":
+            MessageLookupByLibrary.simpleMessage("Anti-EU Integration"),
         "resultsPage4TitleLeft":
             MessageLookupByLibrary.simpleMessage("Sinistra"),
+        "resultsPage4TitleLeft_ger25":
+            MessageLookupByLibrary.simpleMessage("Left"),
         "resultsPage4TitleRight":
             MessageLookupByLibrary.simpleMessage("Destra"),
+        "resultsPage4TitleRight_ger25":
+            MessageLookupByLibrary.simpleMessage("Right"),
         "resultsPage4TitleTop":
             MessageLookupByLibrary.simpleMessage("Pro Integrazione UE"),
+        "resultsPage4TitleTop_ger25":
+            MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
         "resultsPage4TitleUserHere":
             MessageLookupByLibrary.simpleMessage("It\'s me, hi!"),
+        "resultsPage4TitleUserHere_ger25":
+            MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
             "Su argomenti specifici, quale Gruppo Parlamentare Europeo mi è più vicino?"),
+        "resultsPage5Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "On more specific topics, which European Parliament Group am I closer to?"),
         "resultsPage5Topic1":
             MessageLookupByLibrary.simpleMessage("Questioni ambientali"),
+        "resultsPage5Topic1_ger25":
+            MessageLookupByLibrary.simpleMessage("Environmental issues"),
         "resultsPage5Topic2":
             MessageLookupByLibrary.simpleMessage("Diritti Umani e Sociali"),
+        "resultsPage5Topic2_ger25":
+            MessageLookupByLibrary.simpleMessage("Human & Social Rights"),
         "resultsPage5Topic3":
             MessageLookupByLibrary.simpleMessage("Intervento economico"),
+        "resultsPage5Topic3_ger25":
+            MessageLookupByLibrary.simpleMessage("Economic intervention"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
             "Nelle prossime schermate, scoprirai le liste candidate nel tuo paese che potrebbero esserti più vicine."),
+        "resultsPage6Text_ger25": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match."),
         "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
             "Ok, è bello sapere quale gruppo mi è più vicino..."),
+        "resultsPage6_1Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "Ok, it\'s cool knowing which group gets me..."),
         "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
             "Ma alle Elezioni Europee, si vota per una lista locale"),
+        "resultsPage6_2Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "But at the EU Elections, we vote for a local list"),
         "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
             "Non in un ordine particolare."),
-        "resultsPage7NoLocalCandidates": m3,
-        "resultsPage7Title": m4,
+        "resultsPage7Disclaimer_ger25":
+            MessageLookupByLibrary.simpleMessage("In no particular order."),
+        "resultsPage7NoLocalCandidates": m4,
+        "resultsPage7NoLocalCandidates_ger25": m5,
+        "resultsPage7Title": m6,
+        "resultsPage7Title_ger25": m7,
         "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
             "Sei un* combattente per il cambiamento climatico! Credi che combattere la crisi climatica necessiti un\'azione collettiva, che tutti ne facciano una priorità assoluta. Non ti importa che l\'UE regoli le aziende fino in fondo. Alla fine, a cosa serve la crescita economica se il pianeta diventa inabitabile?"),
-        "resultsPage8_1Text": m5,
+        "resultsPage8Help_ger": MessageLookupByLibrary.simpleMessage(
+            "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?"),
+        "resultsPage8Help_ger25": MessageLookupByLibrary.simpleMessage(
+            "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?"),
+        "resultsPage8_1Text": m8,
+        "resultsPage8_1Text_ger25": m9,
         "resultsPage8_2Text":
             MessageLookupByLibrary.simpleMessage("Azione Climatica Attiva"),
+        "resultsPage8_2Text_ger25":
+            MessageLookupByLibrary.simpleMessage("Active Climate Action 🌱😌"),
         "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
             "Clicca sulle carte per mescolare"),
+        "resultsPage9Help_ger25": MessageLookupByLibrary.simpleMessage(
+            "Click on the cards to shuffle"),
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Le elezioni hanno diversi argomenti, ma ce n\'è uno che veramente"),
+        "resultsPage9Text1_ger25": MessageLookupByLibrary.simpleMessage(
+            "Elections are about many topics, but there’s one thing that really"),
         "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
+        "resultsPage9Text2_egr":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Condividi"),
         "romania": MessageLookupByLibrary.simpleMessage("Romania"),
