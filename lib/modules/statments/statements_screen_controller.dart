@@ -320,17 +320,16 @@ class StatementsController extends GetxController {
     _dataRepository.postResponsesAnswer(
         Answer(statementId: _currentCards[0].id, answer: response));
     _checkIfNeedToShowBanner();
+    // reset card to front side
+    if (flipCardController.state?.isFront == false) {
+      flipCardController.toggleCardWithoutAnimation();
+    }
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
 
     if (_currentCards.length > 0) {
       PlausibleManager.trackStatement(_currentCards[0].id.toString());
-    }
-
-    // reset card to front side
-    if (flipCardController.state?.isFront == false) {
-      flipCardController.toggleCard();
     }
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);
