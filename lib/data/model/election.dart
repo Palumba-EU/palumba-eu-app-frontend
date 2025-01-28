@@ -59,6 +59,15 @@ extension ElectionImages on Election {
         return 'assets/images/election/eu/ic_vote_logos_eu.svg';
     }
   }
+
+  String get swipe {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/img_swipe_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/img_swipe_eu.svg';
+    }
+  }
 }
 
 extension ElectionTexts on Election {
