@@ -1,7 +1,6 @@
 import 'package:palumba_eu/modules/home/home_page.dart';
 import 'package:palumba_eu/modules/home/home_page_binding.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
-import 'package:palumba_eu/modules/message_widget.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_binding.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_page.dart';

@@ -108,6 +108,25 @@ extension ElectionTexts on Election {
   }
 }
 
+class ResultAxisTopic {
+  int y;
+  int x;
+  ResultAxisTopic({required this.y, required this.x});
+}
+
+extension ElectionResult4Axis on Election {
+  ResultAxisTopic get result4AxisTopic {
+    switch (this) {
+      case Election.DE:
+        // demo topics. TODO: use acutal topic ids
+        return ResultAxisTopic(x: 9, y: 10);
+      case Election.EU:
+        // topicEuIntegration, topicEuIntegration
+        return ResultAxisTopic(x: 3, y: 2);
+    }
+  }
+}
+
 extension ElectionBackend on Election {
   String get backend {
     switch (this) {

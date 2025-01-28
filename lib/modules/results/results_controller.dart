@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
@@ -26,6 +27,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -39,9 +41,6 @@ import 'pages/results_page_5.dart';
 
 class ResultsController extends GetxController {
   static const route = '/results';
-
-  final topicEuIntegration = 2;
-  final topicLeftRight = 3;
 
   final pageController = PageController();
 
@@ -401,14 +400,16 @@ class ResultsController extends GetxController {
   //Page 4 calculate compass position
 
   CompassData calculateCompassPosition(List<Answer> answers) {
+    var axisTopic = ElectionManager.currentElection.value.result4AxisTopic;
+
     double dimEuIntegration =
-        ResultsHelper.calculateTopicDimension(answers, topicEuIntegration);
+        ResultsHelper.calculateTopicDimension(answers, axisTopic.y);
     double dimLeftRight =
-        ResultsHelper.calculateTopicDimension(answers, topicLeftRight);
+        ResultsHelper.calculateTopicDimension(answers, axisTopic.x);
     final maxMagnitudeEuIntegration =
-        ResultsHelper.maxMagnitudeForTopicsDimension(topicEuIntegration);
+        ResultsHelper.maxMagnitudeForTopicsDimension(axisTopic.y);
     final maxMagnitudeLeftRight =
-        ResultsHelper.maxMagnitudeForTopicsDimension(topicLeftRight);
+        ResultsHelper.maxMagnitudeForTopicsDimension(axisTopic.x);
 
     double normEuIntegration = maxMagnitudeEuIntegration == 0
         ? 0
@@ -472,9 +473,10 @@ class ResultsController extends GetxController {
 //Page 8 calculate max topic
   MaxTopic maxTopicPercentage() {
     // use all topics except left/right
+    const leftRightTopic = 3;
     final topics = DataManager()
         .getTopics()
-        .where((topic) => topic.id != topicLeftRight)
+        .where((topic) => topic.id != leftRightTopic)
         .toList();
     final answers = answersData;
 
