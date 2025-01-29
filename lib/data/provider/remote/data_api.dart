@@ -54,7 +54,7 @@ class DataAPI {
 
   Future<StatementsData?> fetchStatements() async {
     try {
-      final url = Uri.parse('${urlLangAndEl()}' 'statements');
+      final url = Uri.parse('${urlLangAndEl()}' 'statements?include_tutorial');
       final response = await http.get(
         url,
         headers: headers,
