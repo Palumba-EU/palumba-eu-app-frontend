@@ -14,7 +14,7 @@ class PushNotificationService {
     return _instance;
   }
 
-  void register() async {
+  Future<void> register() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
 
     NotificationSettings settings = await messaging.requestPermission(

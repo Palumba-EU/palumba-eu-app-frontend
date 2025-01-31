@@ -44,14 +44,11 @@ class HomePageController extends GetxController {
     conditionallyShowEYCABanner();
     super.onInit();
     PlausibleManager.trackPage(route);
-
-    PushNotificationService().register();
     PushNotificationService().fromForeground(_showSnackbar);
     PushNotificationService().fromBackground(_eggFromPush);
   }
 
   void _showSnackbar(RemoteMessage message) {
-    debugPrint("show snackbar");
     Get.snackbar(
       message.notification?.title ?? '', // Title
       message.notification?.body ?? '', // Message

@@ -13,6 +13,7 @@ import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/push_notification_service.dart';
 
 class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
   final RxnBool willVote;
@@ -62,10 +63,7 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
                 ),
                 CustomHorizontalSpacer(),
                 CustomButton(
-                  onPressed: () {
-                    // TODO: check and subscribe to notifcations
-                    Get.offAllNamed(HomePageController.route);
-                  },
+                  onPressed: registerForPush,
                   text: S.of(context).resultsPage10YesButton,
                   //Default parameters
                   border: ButtonBorderParameters(),
@@ -115,5 +113,10 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
         );
       }
     });
+  }
+
+  void registerForPush() async {
+    await PushNotificationService().register();
+    Get.offAllNamed(HomePageController.route);
   }
 }
