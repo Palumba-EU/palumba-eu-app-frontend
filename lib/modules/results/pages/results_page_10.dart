@@ -47,8 +47,11 @@ class ResultsPage10 extends GetView<ResultsController> with ResultPage {
           children: [
             Padding(
                 padding: AppDimens.lateralPadding,
-                child: AppTexts.title(S.of(context).resultsPage10Title,
-                    color: AppColors.primary, textAlign: TextAlign.center)),
+                child: AppTexts.title(
+                    ElectionManager.currentElection.value
+                        .resultsPage10Title(context),
+                    color: AppColors.primary,
+                    textAlign: TextAlign.center)),
             CustomSpacer(multiplier: 2),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

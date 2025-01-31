@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/components/card_widget.dart';
@@ -9,7 +10,7 @@ import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:appinio_swiper/appinio_swiper.dart';
 
 class ResultsPage9 extends GetView<ResultsController> with ResultPage {
@@ -66,11 +67,14 @@ class ResultsPage9 extends GetView<ResultsController> with ResultPage {
               children: [
                 Obx(() => Opacity(
                     opacity: controller.loadingShare ? 0 : 1,
-                    child: AppTexts.small(S.of(context).resultsPage9Help,
+                    child: AppTexts.small(
+                        ElectionManager.currentElection.value
+                            .resultsPage9Help(context),
                         color: AppColors.primary))),
                 CustomSpacer(),
                 AutoSizeText(
-                  S.of(context).resultsPage9Text1,
+                  ElectionManager.currentElection.value
+                      .resultsPage9Text1(context),
                   maxLines: 2,
                   style: AppTexts.customTextStyle(
                     AppTextType.regular,
@@ -80,8 +84,11 @@ class ResultsPage9 extends GetView<ResultsController> with ResultPage {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                AppTexts.title(S.of(context).resultsPage9Text2,
-                    color: AppColors.primary, textAlign: TextAlign.center),
+                AppTexts.title(
+                    ElectionManager.currentElection.value
+                        .resultsPage9Text2(context),
+                    color: AppColors.primary,
+                    textAlign: TextAlign.center),
               ],
             ),
           ),

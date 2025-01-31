@@ -12,7 +12,6 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
 class ResultsPage7 extends GetView<ResultsController> with ResultPage {
@@ -40,11 +39,15 @@ class ResultsPage7 extends GetView<ResultsController> with ResultPage {
           multiplier: 3,
         ),
         AppTexts.title(
-            S.of(context).resultsPage7Title(controller.countryName,
+            ElectionManager.currentElection.value.resultsPage7Title(
+                context,
+                controller.countryName,
                 controller.maxPercentagePoliticParty?.party.name ?? ''),
             color: AppColors.primary),
         CustomSpacer(),
-        AppTexts.small(S.of(context).resultsPage7Disclaimer,
+        AppTexts.small(
+            ElectionManager.currentElection.value
+                .resultsPage7Disclaimer(context),
             color: AppColors.primary),
         CustomSpacer(
           multiplier: 2,
@@ -71,8 +74,9 @@ class ResultsPage7 extends GetView<ResultsController> with ResultPage {
                     child: Padding(
                         padding: EdgeInsets.all(AppDimens.lateralPaddingValue),
                         child: AppTexts.regular(
-                            S.of(Get.context!).resultsPage7NoLocalCandidates(
-                                controller.countryName),
+                            ElectionManager.currentElection.value
+                                .resultsPage7NoLocalCandidates(
+                                    Get.context!, controller.countryName),
                             color: AppColors.primary)),
                   )
                 : ListView.separated(
