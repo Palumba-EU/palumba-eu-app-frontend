@@ -156,16 +156,18 @@ class ResultsController extends GetxController {
       _resultsData = ResultsHelper.getPartyUserDistances(_answersData);
 
       //Convert the data to the format that the chart needs
-      _resultsData.forEach((result) {
-        chartData.add(CustomChartData(
-          party: result.party.name ?? result.party.acronym ?? '',
-          value: result.percentage.toDouble(),
-          image: result.party.logo ?? '',
-          percentage: '${result.percentage}%',
-        ));
-      });
-      //ATTENTION! Make sure to order list by value, from mayor to minor, before user it. If not chart will not work
-      chartData.sort((b, a) => a.value.compareTo(b.value));
+      chartData = _resultsData
+          .where((result) => result.party.inParliament == true)
+          .take(7) // max we want to display
+          .map((result) => CustomChartData(
+                party: result.party.name ?? result.party.acronym ?? '',
+                value: result.percentage.toDouble(),
+                image: result.party.logo ?? '',
+                percentage: '${result.percentage}%',
+              ))
+          .toList()
+        //ATTENTION! Make sure to order list by value, from mayor to minor, before user it. If not chart will not work
+        ..sort((b, a) => a.value.compareTo(b.value));
       _maxPercentagePoliticParty = getMajorPercentageParty();
       getScatterPoints();
     }
