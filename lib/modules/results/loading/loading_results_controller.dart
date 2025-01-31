@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
@@ -73,5 +75,19 @@ class LoadingResultsController extends GetxController {
   Future<void> _getResultsData() async {
     _partyUserDistanceList =
         ResultsHelper.getPartyUserDistances(UserManager.userData.answers);
+  }
+
+  String titleForIndex(BuildContext context, Election election) {
+    switch (currentStep.value) {
+      case 1:
+        return election.loadingResultsPageTitle1(context);
+      case 2:
+        return election.loadingResultsPageTitle2(context);
+      case 3:
+        return election.loadingResultsPageTitle3(context, countryName);
+      case 4:
+        return election.loadingResultsPageTitle4(context);
+    }
+    return '';
   }
 }

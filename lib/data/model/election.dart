@@ -143,6 +143,42 @@ extension ElectionTexts on Election {
     }
   }
 
+  String loadingResultsPageTitle1(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).loadingResultsPageTitle1_ger25;
+      case Election.EU:
+        return S.of(context).loadingResultsPageTitle1;
+    }
+  }
+
+  String loadingResultsPageTitle2(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).loadingResultsPageTitle2_ger25;
+      case Election.EU:
+        return S.of(context).loadingResultsPageTitle2;
+    }
+  }
+
+  String loadingResultsPageTitle3(BuildContext context, String country) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).loadingResultsPageTitle3_ger25(country);
+      case Election.EU:
+        return S.of(context).loadingResultsPageTitle3(country);
+    }
+  }
+
+  String loadingResultsPageTitle4(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).loadingResultsPageTitle4_ger25;
+      case Election.EU:
+        return S.of(context).loadingResultsPageTitle4;
+    }
+  }
+
   String resultsPage4TitleTop(BuildContext context) {
     switch (this) {
       case Election.DE:

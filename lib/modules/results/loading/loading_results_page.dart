@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matrix4_transform/matrix4_transform.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
-
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 class LoadingResultsPage extends StatelessWidget {
   const LoadingResultsPage({Key? key}) : super(key: key);
@@ -48,21 +46,9 @@ class LoadingResultsPage extends StatelessWidget {
                   child: Padding(
                     padding: AppDimens.lateralPadding,
                     child: Obx(() {
-                      var text = '';
-                      if (_.currentStep.value == 1) {
-                        text = S.of(context).loadingResultsPageTitle1;
-                      } else if (_.currentStep.value == 2) {
-                        text = S.of(context).loadingResultsPageTitle2;
-                      } else if (_.currentStep.value == 3) {
-                        text = S
-                            .of(context)
-                            .loadingResultsPageTitle3(_.countryName);
-                      } else if (_.currentStep.value == 4) {
-                        text = S.of(context).loadingResultsPageTitle4;
-                      }
-
                       return AppTexts.title(
-                        text,
+                        _.titleForIndex(
+                            context, ElectionManager.currentElection.value),
                         textAlign: TextAlign.center,
                       );
                     }),
