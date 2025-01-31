@@ -6,12 +6,10 @@ import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_html_widget.dart';
-
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';

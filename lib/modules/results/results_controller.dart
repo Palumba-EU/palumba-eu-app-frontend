@@ -15,6 +15,7 @@ import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/helpers/svg_helper.dart';
+import 'package:palumba_eu/modules/results/pages/result_page.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
@@ -44,21 +45,8 @@ class ResultsController extends GetxController {
 
   final pageController = PageController();
 
-  late List<Widget> allPages = createAllResultsPages();
-  late List<Widget> noCardsPages = createNoCardsResultsPages();
-
-  List<Widget> get pages => cardsData.isNotEmpty ? allPages : noCardsPages;
-
-  List<int> get showButtonSharePages => cardsData.isNotEmpty
-      ? [1, 2, 3, 4, 6, 7, 8]
-      : [
-          1,
-          2,
-          3,
-          4,
-          6,
-          7,
-        ];
+  late List<ResultPage> allPages = createAllResultsPages();
+  List<ResultPage> get pages => allPages;
 
   ScreenshotController foregroundScreenshotController = ScreenshotController();
   ScreenshotController backgroundScreenshotController = ScreenshotController();
@@ -66,8 +54,8 @@ class ResultsController extends GetxController {
   UserData get userData => UserManager.userData;
 
   RxInt _currentPage = 0.obs;
-
   int get currentPage => _currentPage.value;
+  bool get showShareForCurrentPage => allPages[_currentPage.value].showShare;
 
   bool get isSpecialPage =>
       _currentPage.value == 5 ||
@@ -123,11 +111,12 @@ class ResultsController extends GetxController {
 
     pageController.addListener(() {
       _currentPage.value = pageController.page!.round();
-      PlausibleManager.trackResult(currentPage.toString());
+      PlausibleManager.trackResult(_currentPage.value.toString());
     });
 
     PlausibleManager.trackPage(route);
-    PlausibleManager.trackResult(currentPage.toString()); // track first page
+    PlausibleManager.trackResult(
+        _currentPage.value.toString()); // track first page
   }
 
   @override
@@ -176,36 +165,19 @@ class ResultsController extends GetxController {
     _getTopics();
   }
 
-  List<Widget> createAllResultsPages() {
+  List<ResultPage> createAllResultsPages() {
     return [
-      ResultsPage1(key: Key("1")),
-      ResultsPage2(key: Key("2")),
-      ResultsPage3(key: Key("3")),
-      ResultsPage4(key: Key("4")),
-      ResultsPage5(key: Key("5")),
-      ResultsPage6(key: Key("6")),
-      ResultsPage7(key: Key("7")),
-      ResultsPage8(key: Key("8")),
-      ResultsPage9(key: Key("9")),
-      ResultsPage10(key: Key("10"), willVote: willVote),
-      ResultsPage11(
-          key: Key("11"), onDisplayBallotTutorial: onDisplayBallotTutorial),
-    ];
-  }
-
-  List<Widget> createNoCardsResultsPages() {
-    return [
-      ResultsPage1(key: Key("1")),
-      ResultsPage2(key: Key("2")),
-      ResultsPage3(key: Key("3")),
-      ResultsPage4(key: Key("4")),
-      ResultsPage5(key: Key("5")),
-      ResultsPage6(key: Key("6")),
-      ResultsPage7(key: Key("7")),
-      ResultsPage8(key: Key("8")),
-      ResultsPage10(key: Key("10"), willVote: willVote),
-      ResultsPage11(
-          key: Key("11"), onDisplayBallotTutorial: onDisplayBallotTutorial),
+      ResultsPage1(),
+      ResultsPage2(),
+      ResultsPage3(),
+      ResultsPage4(),
+      ResultsPage5(),
+      ResultsPage6(),
+      ResultsPage7(),
+      ResultsPage8(),
+      ResultsPage9(),
+      ResultsPage10(willVote: willVote),
+      ResultsPage11(onDisplayBallotTutorial: onDisplayBallotTutorial),
     ];
   }
 
@@ -254,14 +226,14 @@ class ResultsController extends GetxController {
 
   void changePage(TapDownDetails details) {
     if (details.localPosition.dx < Get.width * .25) {
-      if (currentPage > 0) {
+      if (_currentPage.value > 0) {
         pageController.previousPage(
           duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,
         );
       }
     } else if (details.localPosition.dx > Get.width * .75) {
-      if (currentPage < pages.length - 1) {
+      if (_currentPage.value < pages.length - 1) {
         pageController.nextPage(
           duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,

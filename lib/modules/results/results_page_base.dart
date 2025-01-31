@@ -186,8 +186,7 @@ class ResultsPage extends GetView<ResultsController> {
               Obx(
                 () => controller.loadingShare
                     ? SizedBox.shrink()
-                    : controller.showButtonSharePages
-                            .contains(controller.currentPage)
+                    : controller.showShareForCurrentPage
                         ? Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal:

@@ -6,6 +6,7 @@ import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
+import 'package:palumba_eu/modules/results/pages/result_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -13,13 +14,15 @@ import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
-class ResultsPage10 extends GetView<ResultsController> {
+class ResultsPage10 extends GetView<ResultsController> with ResultPage {
   final RxnBool willVote;
 
-  const ResultsPage10({
-    super.key,
+  ResultsPage10({
     required this.willVote,
   });
+
+  @override
+  final bool showShare = false;
 
   @override
   Widget build(BuildContext context) {
