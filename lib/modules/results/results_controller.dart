@@ -225,20 +225,24 @@ class ResultsController extends GetxController {
 
   void changePage(TapDownDetails details) {
     if (details.localPosition.dx < Get.width * .25) {
-      if (currentPage.value > 0) {
-        pageController.previousPage(
-          duration: Duration(milliseconds: 1),
-          curve: Curves.easeInOut,
-        );
-      }
+      if (currentPage.value > 0) previousPage();
     } else if (details.localPosition.dx > Get.width * .75) {
-      if (currentPage.value < pages.length - 1) {
-        pageController.nextPage(
-          duration: Duration(milliseconds: 1),
-          curve: Curves.easeInOut,
-        );
-      }
+      if (currentPage.value < pages.length - 1) nextPage();
     }
+  }
+
+  void previousPage() {
+    pageController.previousPage(
+      duration: Duration(milliseconds: 1),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void nextPage() {
+    pageController.nextPage(
+      duration: Duration(milliseconds: 1),
+      curve: Curves.easeInOut,
+    );
   }
 
   List<LocalParties> filterLocalPartiesByCountry() {

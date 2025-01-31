@@ -14,7 +14,7 @@ class PushNotificationService {
     return _instance;
   }
 
-  Future<void> register() async {
+  Future<AuthorizationStatus> register() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
 
     NotificationSettings settings = await messaging.requestPermission(
@@ -28,10 +28,11 @@ class PushNotificationService {
     );
     debugPrint('User granted permission: ${settings.authorizationStatus}');
     final fcmToken = await FirebaseMessaging.instance.getToken();
-    if (fcmToken == null) {
-      debugPrint("Not FCM Token");
-    }
-    debugPrint("FCM-TOKEN: " + fcmToken.toString());
+    if (fcmToken == null)
+      debugPrint("No FCM Token");
+    else
+      debugPrint("FCM-TOKEN: " + fcmToken.toString());
+    return settings.authorizationStatus;
   }
 
   void fromForeground(Function(RemoteMessage message) receivePush) async {

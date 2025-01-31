@@ -1,3 +1,5 @@
+import 'package:app_settings/app_settings.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -116,7 +118,26 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
   }
 
   void registerForPush() async {
-    await PushNotificationService().register();
-    Get.offAllNamed(HomePageController.route);
+    var status = await PushNotificationService().register();
+    if (status == AuthorizationStatus.denied) {
+      _showPushDeactivatedDialog();
+    }
+    controller.nextPage();
+  }
+
+  void _showPushDeactivatedDialog() {
+    Get.defaultDialog(
+      title: 'Notifications disabled',
+      middleText:
+          'To be able to receive Push Notifcation enable them in the settings',
+      onConfirm: () {
+        AppSettings.openAppSettings();
+      },
+      onCancel: () {
+        print('Canceled!');
+      },
+      textConfirm: 'Open Settings',
+      textCancel: 'Close',
+    );
   }
 }
