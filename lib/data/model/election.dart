@@ -116,6 +116,33 @@ extension ElectionImages on Election {
 }
 
 extension ElectionTexts on Election {
+  String entranceTitle1(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).entranceTitle1_ger25;
+      case Election.EU:
+        return S.of(context).entranceTitle1;
+    }
+  }
+
+  String entranceTitle2(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).entranceTitle2_ger25;
+      case Election.EU:
+        return S.of(context).entranceTitle2;
+    }
+  }
+
+  String entranceTitle3(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).entranceTitle3_ger25;
+      case Election.EU:
+        return S.of(context).entranceTitle3;
+    }
+  }
+
   String resultsPage4TitleTop(BuildContext context) {
     switch (this) {
       case Election.DE:
