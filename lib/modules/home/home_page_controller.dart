@@ -122,4 +122,16 @@ class HomePageController extends GetxController {
     }
     return 'assets/images/img_results.svg';
   }
+
+  String textForIndex(BuildContext context, int index, Election election) {
+    switch (index) {
+      case 0:
+        return election.entranceTitle1(context);
+      case 1:
+        return election.entranceTitle2(context);
+      case 2:
+        return election.entranceTitle3(context);
+    }
+    return '';
+  }
 }

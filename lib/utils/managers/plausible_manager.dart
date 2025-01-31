@@ -8,8 +8,7 @@ class PlausibleManager {
 
   PlausibleManager._internal();
 
-  static final _plausible =
-      Plausible('https://plausible.io', 'palumba-app.palumba.eu');
+  static final _plausible = Plausible('https://plausible.io', 'app.palumba.eu');
 
   static Plausible getInstance() {
     return _plausible;
