@@ -68,6 +68,51 @@ extension ElectionImages on Election {
         return 'assets/images/election/eu/img_swipe_eu.svg';
     }
   }
+
+  String get stickerBallotBox {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox1 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box1_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box1_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox2 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box2_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box2_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox3 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box3_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box3_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox4 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box4_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box4_eu.svg';
+    }
+  }
 }
 
 extension ElectionTexts on Election {

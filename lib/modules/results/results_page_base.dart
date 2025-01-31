@@ -48,7 +48,8 @@ class ResultsPage extends GetView<ResultsController> {
                               child: Padding(
                                 padding: EdgeInsets.only(top: 180),
                                 child: SvgPicture.asset(
-                                  'assets/images/ic_sticker_ballot_box1.svg',
+                                  ElectionManager
+                                      .currentElection.value.stickerBallotBox1,
                                 ),
                               ),
                             ),
@@ -57,7 +58,8 @@ class ResultsPage extends GetView<ResultsController> {
                               child: Padding(
                                 padding: EdgeInsets.only(top: 190),
                                 child: SvgPicture.asset(
-                                  'assets/images/ic_sticker_ballot_box2.svg',
+                                  ElectionManager
+                                      .currentElection.value.stickerBallotBox2,
                                 ),
                               ),
                             ),
@@ -66,7 +68,8 @@ class ResultsPage extends GetView<ResultsController> {
                               child: Padding(
                                 padding: EdgeInsets.only(bottom: 40),
                                 child: SvgPicture.asset(
-                                  'assets/images/ic_sticker_ballot_box3.svg',
+                                  ElectionManager
+                                      .currentElection.value.stickerBallotBox3,
                                 ),
                               ),
                             ),
@@ -75,7 +78,8 @@ class ResultsPage extends GetView<ResultsController> {
                               child: Padding(
                                 padding: EdgeInsets.only(right: 10),
                                 child: SvgPicture.asset(
-                                  'assets/images/ic_sticker_ballot_box4.svg',
+                                  ElectionManager
+                                      .currentElection.value.stickerBallotBox4,
                                 ),
                               ),
                             )
