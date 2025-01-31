@@ -16,7 +16,8 @@ class ResultsPage5 extends GetView<ResultsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return SingleChildScrollView(
+        child: Column(
       children: [
         CustomSpacer(
           multiplier: 2,
@@ -56,6 +57,6 @@ class ResultsPage5 extends GetView<ResultsController> {
             },
             itemCount: controller.topics.length),
       ],
-    );
+    ));
   }
 }
