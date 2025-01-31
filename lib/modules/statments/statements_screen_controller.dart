@@ -28,6 +28,7 @@ class StatementsController extends GetxController {
   CardModel? get frontCard =>
       _currentCards.length > 0 ? _currentCards[0] : null;
   CardModel? get backCard => _currentCards.length > 1 ? _currentCards[1] : null;
+  int? firstCardId; // used to check if back button is shown
 
   final DataRepository _dataRepository = Get.find<DataRepository>();
 
@@ -103,8 +104,8 @@ class StatementsController extends GetxController {
   void _getArgumentsAndFetch() {
     _statementsData = DataManager().getStatements();
     _currentCards.addAll(StatementsParser.getCardModelList(statements));
-    _currentCards.insert(0, StatementsParser.getIntroCard(Get.context!, true));
-    // .toList() makes copy, otherwise just a ref
+    firstCardId = _currentCards.first.id;
+    // .toList() => copy by value, otherwise copy by ref
     _allCards = _currentCards.toList();
 
     update([cardStackKey]);
@@ -320,17 +321,16 @@ class StatementsController extends GetxController {
     _dataRepository.postResponsesAnswer(
         Answer(statementId: _currentCards[0].id, answer: response));
     _checkIfNeedToShowBanner();
+    // reset card to front side
+    if (flipCardController.state?.isFront == false) {
+      flipCardController.toggleCardWithoutAnimation();
+    }
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
 
     if (_currentCards.length > 0) {
       PlausibleManager.trackStatement(_currentCards[0].id.toString());
-    }
-
-    // reset card to front side
-    if (flipCardController.state?.isFront == false) {
-      flipCardController.toggleCard();
     }
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);

@@ -75,7 +75,8 @@ class OnboardingController extends GetxController {
     updateBackgroundShape();
     super.onInit();
     trackSteps();
-    cardData = StatementsParser.getIntroCard(Get.context!, true);
+    cardData =
+        StatementsParser.getCardModelList(DataManager().getStatements())[0];
     PlausibleManager.trackPage(route);
   }
 

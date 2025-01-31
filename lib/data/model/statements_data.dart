@@ -28,6 +28,7 @@ class Statement {
   late String footnote;
   late String emojis;
   late List<Weight> weights;
+  late bool isTutorial;
 
   Statement({
     required this.id,
@@ -36,6 +37,7 @@ class Statement {
     required this.footnote,
     required this.emojis,
     required this.weights,
+    required this.isTutorial,
   });
 
   Statement.fromJson(Map<String, dynamic> json) {
@@ -44,6 +46,7 @@ class Statement {
     details = json['details'];
     footnote = json['footnote'];
     emojis = json['emojis'];
+    isTutorial = json['is_tutorial'];
     if (json['weights'] != null) {
       weights = <Weight>[];
       json['weights'].forEach((v) {
@@ -60,6 +63,7 @@ class Statement {
     data['footnote'] = this.footnote;
     data['emojis'] = this.emojis;
     data['weights'] = this.weights.map((v) => v.toJson()).toList();
+    data['is_tutorial'] = this.isTutorial;
     return data;
   }
 }

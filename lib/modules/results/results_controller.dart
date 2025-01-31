@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
@@ -14,6 +15,7 @@ import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/helpers/svg_helper.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
@@ -26,6 +28,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -40,39 +43,22 @@ import 'pages/results_page_5.dart';
 class ResultsController extends GetxController {
   static const route = '/results';
 
-  final topicEuIntegration = 2;
-  final topicLeftRight = 3;
-
   final pageController = PageController();
 
-  late List<Widget> allPages = createAllResultsPages();
-  late List<Widget> noCardsPages = createNoCardsResultsPages();
-
-  List<Widget> get pages => cardsData.isNotEmpty ? allPages : noCardsPages;
-
-  List<int> get showButtonSharePages => cardsData.isNotEmpty
-      ? [1, 2, 3, 4, 6, 7, 8]
-      : [
-          1,
-          2,
-          3,
-          4,
-          6,
-          7,
-        ];
+  late List<ResultsPage> allPages = createAllResultsPages();
+  List<ResultsPage> get pages => allPages;
 
   ScreenshotController foregroundScreenshotController = ScreenshotController();
   ScreenshotController backgroundScreenshotController = ScreenshotController();
 
   UserData get userData => UserManager.userData;
 
-  RxInt _currentPage = 0.obs;
-
-  int get currentPage => _currentPage.value;
+  RxInt currentPage = 0.obs;
+  bool get showShareForCurrentPage => allPages[currentPage.value].showShare;
 
   bool get isSpecialPage =>
-      _currentPage.value == 5 ||
-      (cardsData.isNotEmpty && _currentPage.value == 8);
+      currentPage.value == 5 ||
+      (cardsData.isNotEmpty && currentPage.value == 8);
 
   bool get isTablet => Get.width >= 600;
 
@@ -123,12 +109,13 @@ class ResultsController extends GetxController {
     _initData();
 
     pageController.addListener(() {
-      _currentPage.value = pageController.page!.round();
-      PlausibleManager.trackResult(currentPage.toString());
+      currentPage.value = pageController.page!.round();
+      PlausibleManager.trackResult(currentPage.value.toString());
     });
 
     PlausibleManager.trackPage(route);
-    PlausibleManager.trackResult(currentPage.toString()); // track first page
+    PlausibleManager.trackResult(
+        currentPage.value.toString()); // track first page
   }
 
   @override
@@ -157,16 +144,18 @@ class ResultsController extends GetxController {
       _resultsData = ResultsHelper.getPartyUserDistances(_answersData);
 
       //Convert the data to the format that the chart needs
-      _resultsData.forEach((result) {
-        chartData.add(CustomChartData(
-          party: result.party.name ?? result.party.acronym ?? '',
-          value: result.percentage.toDouble(),
-          image: result.party.logo ?? '',
-          percentage: '${result.percentage}%',
-        ));
-      });
-      //ATTENTION! Make sure to order list by value, from mayor to minor, before user it. If not chart will not work
-      chartData.sort((b, a) => a.value.compareTo(b.value));
+      chartData = _resultsData
+          .where((result) => result.party.inParliament == true)
+          .take(7) // max we want to display
+          .map((result) => CustomChartData(
+                party: result.party.name ?? result.party.acronym ?? '',
+                value: result.percentage.toDouble(),
+                image: result.party.logo ?? '',
+                percentage: '${result.percentage}%',
+              ))
+          .toList()
+        //ATTENTION! Make sure to order list by value, from mayor to minor, before user it. If not chart will not work
+        ..sort((b, a) => a.value.compareTo(b.value));
       _maxPercentagePoliticParty = getMajorPercentageParty();
       getScatterPoints();
     }
@@ -175,36 +164,19 @@ class ResultsController extends GetxController {
     _getTopics();
   }
 
-  List<Widget> createAllResultsPages() {
+  List<ResultsPage> createAllResultsPages() {
     return [
-      ResultsPage1(key: Key("1")),
-      ResultsPage2(key: Key("2")),
-      ResultsPage3(key: Key("3")),
-      ResultsPage4(key: Key("4")),
-      ResultsPage5(key: Key("5")),
-      ResultsPage6(key: Key("6")),
-      ResultsPage7(key: Key("7")),
-      ResultsPage8(key: Key("8")),
-      ResultsPage9(key: Key("9")),
-      ResultsPage10(key: Key("10"), willVote: willVote),
-      ResultsPage11(
-          key: Key("11"), onDisplayBallotTutorial: onDisplayBallotTutorial),
-    ];
-  }
-
-  List<Widget> createNoCardsResultsPages() {
-    return [
-      ResultsPage1(key: Key("1")),
-      ResultsPage2(key: Key("2")),
-      ResultsPage3(key: Key("3")),
-      ResultsPage4(key: Key("4")),
-      ResultsPage5(key: Key("5")),
-      ResultsPage6(key: Key("6")),
-      ResultsPage7(key: Key("7")),
-      ResultsPage8(key: Key("8")),
-      ResultsPage10(key: Key("10"), willVote: willVote),
-      ResultsPage11(
-          key: Key("11"), onDisplayBallotTutorial: onDisplayBallotTutorial),
+      ResultsPage1(),
+      ResultsPage2(),
+      ResultsPage3(),
+      ResultsPage4(),
+      ResultsPage5(),
+      ResultsPage6(),
+      ResultsPage7(),
+      ResultsPage8(),
+      ResultsPage9(),
+      ResultsPage10(willVote: willVote),
+      ResultsPage11(onDisplayBallotTutorial: onDisplayBallotTutorial),
     ];
   }
 
@@ -253,14 +225,14 @@ class ResultsController extends GetxController {
 
   void changePage(TapDownDetails details) {
     if (details.localPosition.dx < Get.width * .25) {
-      if (currentPage > 0) {
+      if (currentPage.value > 0) {
         pageController.previousPage(
           duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,
         );
       }
     } else if (details.localPosition.dx > Get.width * .75) {
-      if (currentPage < pages.length - 1) {
+      if (currentPage.value < pages.length - 1) {
         pageController.nextPage(
           duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,
@@ -401,14 +373,16 @@ class ResultsController extends GetxController {
   //Page 4 calculate compass position
 
   CompassData calculateCompassPosition(List<Answer> answers) {
+    var axisTopic = ElectionManager.currentElection.value.result4AxisTopic;
+
     double dimEuIntegration =
-        ResultsHelper.calculateTopicDimension(answers, topicEuIntegration);
+        ResultsHelper.calculateTopicDimension(answers, axisTopic.y);
     double dimLeftRight =
-        ResultsHelper.calculateTopicDimension(answers, topicLeftRight);
+        ResultsHelper.calculateTopicDimension(answers, axisTopic.x);
     final maxMagnitudeEuIntegration =
-        ResultsHelper.maxMagnitudeForTopicsDimension(topicEuIntegration);
+        ResultsHelper.maxMagnitudeForTopicsDimension(axisTopic.y);
     final maxMagnitudeLeftRight =
-        ResultsHelper.maxMagnitudeForTopicsDimension(topicLeftRight);
+        ResultsHelper.maxMagnitudeForTopicsDimension(axisTopic.x);
 
     double normEuIntegration = maxMagnitudeEuIntegration == 0
         ? 0
@@ -472,9 +446,10 @@ class ResultsController extends GetxController {
 //Page 8 calculate max topic
   MaxTopic maxTopicPercentage() {
     // use all topics except left/right
+    const leftRightTopic = 3;
     final topics = DataManager()
         .getTopics()
-        .where((topic) => topic.id != topicLeftRight)
+        .where((topic) => topic.id != leftRightTopic)
         .toList();
     final answers = answersData;
 

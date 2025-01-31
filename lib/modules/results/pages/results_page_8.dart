@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_html_widget.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -10,9 +11,7 @@ import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
-class ResultsPage8 extends GetView<ResultsController> {
-  const ResultsPage8({super.key});
-
+class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
     final maxTopic = controller.maxTopicPercentage();
@@ -28,8 +27,8 @@ class ResultsPage8 extends GetView<ResultsController> {
               width: Get.width,
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  left: AppDimens.regularLateralPaddingValue),
+              padding:
+                  EdgeInsets.only(left: AppDimens.regularLateralPaddingValue),
               child: AppTexts.title(
                   maxTopic.isExtreme1
                       ? maxTopic.topicData.extreme1Emojis!
@@ -55,15 +54,15 @@ class ResultsPage8 extends GetView<ResultsController> {
             maxTopic.isExtreme1
                 ? maxTopic.topicData.extreme1 ?? ''
                 : maxTopic.topicData.extreme2 ?? '',
-            color: Utils.getApiColor(maxTopic.topicData.color ?? '')), CustomSpacer(),
-
+            color: Utils.getApiColor(maxTopic.topicData.color ?? '')),
+        CustomSpacer(),
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: AppDimens.bigLateralPaddingValue),
           child: CustomHtmlWidget(
-            content:maxTopic.isExtreme1
-              ? maxTopic.topicData.extreme1Details ?? ''
-              : maxTopic.topicData.extreme2Details ?? '',
+            content: maxTopic.isExtreme1
+                ? maxTopic.topicData.extreme1Details ?? ''
+                : maxTopic.topicData.extreme2Details ?? '',
             textStyle: TextStyle(
               fontSize: AppDimens.fontSizeSmall,
             ),

@@ -43,29 +43,31 @@ class SplashController extends GetxController {
 
     var response = await _dataRepository.fetchLocalizations();
     if (response == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      showInternetAlert();
       return;
     }
 
     var response2 = await _dataRepository.fetchStatements();
     if (response2 == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      showInternetAlert();
       return;
     }
 
     var response3 = await _dataRepository.fetchResultsInfo();
     if (response3 == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      showInternetAlert();
       return;
     }
 
     var response4 = await _dataRepository.fetchSponsors();
     if (response4 == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      showInternetAlert();
+      return;
+    }
+
+    var response5 = await _dataRepository.getElections();
+    if (response5 == null) {
+      showInternetAlert();
       return;
     }
 
@@ -80,5 +82,10 @@ class SplashController extends GetxController {
         LanguageController.route,
       );
     }
+  }
+
+  void showInternetAlert() {
+    Alert.showAlert(S.of(Get.context!).appName,
+        S.of(Get.context!).splashPageNoInternet, Get.context!);
   }
 }

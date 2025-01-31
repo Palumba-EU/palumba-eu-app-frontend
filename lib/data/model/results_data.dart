@@ -97,6 +97,7 @@ class PoliticParty {
   List<LocalParties>? localParties;
   String? acronym;
   List<Answer>? answers;
+  bool? inParliament;
 
   PoliticParty(
       {this.id,
@@ -105,13 +106,15 @@ class PoliticParty {
       this.logo,
       this.localParties,
       this.acronym,
-      this.answers});
+      this.answers,
+      this.inParliament});
 
   PoliticParty.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     color = json['color'];
     logo = json['logo'];
+    inParliament = json['in_parliament'];
     if (json['local_parties'] != null) {
       localParties = <LocalParties>[];
       json['local_parties'].forEach((v) {
@@ -131,6 +134,7 @@ class PoliticParty {
     data['name'] = this.name;
     data['color'] = this.color;
     data['logo'] = this.logo;
+    data['in_parliament'] = this.inParliament;
     if (this.localParties != null) {
       data['local_parties'] =
           this.localParties!.map((v) => v.toJson()).toList();

@@ -6,12 +6,10 @@ import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_html_widget.dart';
-
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -192,11 +190,8 @@ class HomePage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                         horizontal: AppDimens.extraLargeLateralPaddingValue),
                     child: AppTexts.small(
-                      index == 0
-                          ? S.of(context).entranceTitle1
-                          : index == 1
-                              ? S.of(context).entranceTitle2
-                              : S.of(context).entranceTitle3,
+                      _.textForIndex(context, index,
+                          ElectionManager.currentElection.value),
                       textAlign: TextAlign.center,
                       bold: true,
                       color: AppColors.primary,

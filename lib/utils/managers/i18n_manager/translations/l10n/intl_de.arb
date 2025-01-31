@@ -217,10 +217,6 @@
   "@resultsPage7NoLocalCandidates_ger25": {
     "description": "-> resultsPage7NoLocalCandidates"
   },
-  "resultsPage8_1Text_ger25": "(EU specific) No local parties found in {country}",
-  "@resultsPage8_1Text_ger25": {
-    "description": "-> resultsPage8_1Text"
-  },
   "resultsPage8_2Text_ger25": "Active Climate Action 🌱😌",
   "@resultsPage8_2Text_ger25": {
     "description": "-> resultsPage8_2Text"

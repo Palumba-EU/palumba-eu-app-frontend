@@ -5,12 +5,12 @@ import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/message_widget.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/push_notification_service.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -25,7 +25,6 @@ class HomePageController extends GetxController {
   PageController pageController = PageController();
 
   LocalDataRepository _localDataRepository = Get.find<LocalDataRepository>();
-  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   List<Map> answersData = [];
 
@@ -86,8 +85,8 @@ class HomePageController extends GetxController {
     Utils.launch(StringUtils.faqUrl);
   }
 
-  void eggPressed(BuildContext context) async {
-    var info = await _dataRepository.getEggInfo();
+  void eggPressed(BuildContext context) {
+    var info = ElectionManager.eggInfo;
     if (info == null) return;
     MessageWidget.callAsBottomSheet(context, info);
   }
@@ -125,8 +124,20 @@ class HomePageController extends GetxController {
     if (index == 0) {
       return election.pigeon;
     } else if (index == 1) {
-      return 'assets/images/img_swipe.svg';
+      return election.swipe;
     }
     return 'assets/images/img_results.svg';
+  }
+
+  String textForIndex(BuildContext context, int index, Election election) {
+    switch (index) {
+      case 0:
+        return election.entranceTitle1(context);
+      case 1:
+        return election.entranceTitle2(context);
+      case 2:
+        return election.entranceTitle3(context);
+    }
+    return '';
   }
 }

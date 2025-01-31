@@ -35,7 +35,7 @@ class EntranceController extends GetxController {
     if (index == 0) {
       return election.pigeon;
     } else if (index == 1) {
-      return 'assets/images/img_swipe.svg';
+      return election.swipe;
     }
     return 'assets/images/img_results.svg';
   }

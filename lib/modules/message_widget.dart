@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/provider/remote/data_api.dart';
+import 'package:palumba_eu/data/model/elections_response.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
+import 'package:palumba_eu/global_widgets/custom_html_widget.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class MessageWidget extends StatelessWidget {
-  final MessageScreenContent content;
+  final EggScreen content;
 
   const MessageWidget({
     super.key,
@@ -18,68 +20,83 @@ class MessageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: AppColors.background,
-        child: Padding(
-          padding: AppDimens.lateralPadding,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  AppTexts.title(S.of(context).shortAppName,
-                      forceCaprasimo: true,
-                      color: AppColors.primary,
-                      fontSize: 27.5),
-                  Spacer(),
-                ],
-              ),
-              CustomSpacer(
-                multiplier: 2,
-              ),
-              Container(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(AppDimens.borderRadius),
-                    border: Border.all(
-                        color: AppColors.lightYellow, width: 2, strokeAlign: 1),
-                  ),
-                  child: Image.network(
-                    content.imageUrl,
-                    fit: BoxFit.fitWidth,
-                  )),
-              AppTexts.title(content.title, color: AppColors.primary),
-              AppTexts.regular(content.message, color: AppColors.primary),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+    return SingleChildScrollView(
+        child: Container(
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.of(context).size.height,
+            ),
+            color: AppColors.background,
+            child: Padding(
+              padding: AppDimens.lateralPadding,
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  TextButton(
-                      onPressed: () => dismiss(context),
-                      child: AppTexts.regular("dismiss",
-                          color: AppColors.primary, bold: true)),
-                  CustomButton(
-                    onPressed: () => dismiss(context),
-                    text: "Okay",
-                    //Default parameters
-                    border: ButtonBorderParameters(),
+                  Row(
+                    children: [
+                      AppTexts.title(S.of(context).shortAppName,
+                          forceCaprasimo: true,
+                          color: AppColors.primary,
+                          fontSize: 27.5),
+                      Spacer(),
+                    ],
+                  ),
+                  CustomSpacer(
+                    multiplier: 2,
+                  ),
+                  Container(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(AppDimens.borderRadius),
+                        border: Border.all(
+                            color: AppColors.lightYellow,
+                            width: 2,
+                            strokeAlign: 1),
+                      ),
+                      child: Image.network(
+                        content.image,
+                        fit: BoxFit.fitWidth,
+                      )),
+                  AppTexts.title(content.title, color: AppColors.primary),
+                  CustomHtmlWidget(
+                    content:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur ac felis eget tortor malesuada ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer bibendum, risus eu gravida pellentesque, mauris odio dapibus ligula, nec scelerisque purus nisl sit amet elit. Phasellus quis nunc non nunc venenatis luctus. Duis sed urna nec velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur ac felis eget tortor malesuada ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer bibendum, risus eu gravida pellentesque, mauris odio dapibus ligula, nec scelerisque purus nisl sit amet elit. Phasellus quis nunc non nunc venenatis luctus. Duis sed urna nec velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur ac felis eget tortor malesuada ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer bibendum, risus eu gravida pellentesque, mauris odio dapibus ligula, nec scelerisque purus nisl sit amet elit. Phasellus quis nunc non nunc venenatis luctus. Duis sed urna nec velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur ac felis eget tortor malesuada ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer bibendum, risus eu gravida pellentesque, mauris odio dapibus ligula, nec scelerisque purus nisl sit amet elit. Phasellus quis nunc non nunc venenatis luctus. Duis sed urna nec velit.",
+                    textStyle: AppTexts.customTextStyle(AppTextType.regular,
+                        color: AppColors.primary, fontSize: 14.0),
+                  ),
+                  Wrap(
+                    alignment: WrapAlignment.spaceEvenly,
+                    children: [
+                      TextButton(
+                          onPressed: () => dismiss(context),
+                          child: AppTexts.regular(content.noBtnText,
+                              color: AppColors.primary, bold: true)),
+                      CustomButton(
+                        onPressed: () => launchUrl(content.yesBtnLink),
+                        text: content.yesBtnText,
+                        //Default parameters
+                        border: ButtonBorderParameters(),
+                      ),
+                    ],
+                  ),
+                  CustomSpacer(
+                    multiplier: 2,
                   ),
                 ],
               ),
-              CustomSpacer(
-                multiplier: 2,
-              ),
-            ],
-          ),
-        ));
+            )));
   }
 
   void dismiss(BuildContext context) {
     Navigator.of(context).pop();
   }
 
-  static callAsBottomSheet(BuildContext context, MessageScreenContent info) {
+  void launchUrl(String url) {
+    Utils.launch(url);
+  }
+
+  static callAsBottomSheet(BuildContext context, EggScreen info) {
     Get.bottomSheet(
       SingleChildScrollView(
         child: Container(

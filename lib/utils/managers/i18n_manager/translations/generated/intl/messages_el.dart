@@ -29,13 +29,24 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m2(country) =>
       "Εύρεση αντιστοιχιών με λίστες υποψηφίων στη ${country}🔍";
 
-  static String m3(country) => "Δεν βρέθηκαν τοπικά κόμματα στη ${country}";
+  static String m3(country) =>
+      "Finding matches with candidates lists in ${country}  🔍";
 
-  static String m4(country, group) =>
+  static String m4(country) => "Δεν βρέθηκαν τοπικά κόμματα στη ${country}";
+
+  static String m5(country) => "No local parties found in ${country}";
+
+  static String m6(country, group) =>
       "Οι υποψήφιοι στη ${country} που ευθυγραμμίζονται περισσότερο με την/το ${group}";
 
-  static String m5(topic, percentage) =>
+  static String m7(country, group) =>
+      "The candidates in ${country} most aligned with ${group}";
+
+  static String m8(topic, percentage) =>
       "Όσον αφορά τα/την ${topic}, είστε ${percentage}% υπέρ";
+
+  static String m9(topic, percentage) =>
+      "On ${topic}, you’re ${percentage}% more into";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -50,10 +61,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Έναρξη Palumba"),
         "entranceTitle1": MessageLookupByLibrary.simpleMessage(
             "Αν αυτό το χαριτωμένο περιστέρι δε μπορεί να σας βοηθήσει να  ψηφίσετε τον  Ιούνιο, τίποτα δε θα μπορέσει."),
+        "entranceTitle1_ger25": MessageLookupByLibrary.simpleMessage(
+            "If this cute pigeon can’t help you vote in February, nothing will."),
         "entranceTitle2": MessageLookupByLibrary.simpleMessage(
             "Σύρετε τη γνώμη σας για θέματα που σας αφορούν."),
+        "entranceTitle2_ger25": MessageLookupByLibrary.simpleMessage(
+            "Swipe your opinion on topics that matter to you."),
         "entranceTitle3": MessageLookupByLibrary.simpleMessage(
             "Μάθετε την αντιστοιχία σας και προσανατολιστείτε για το ποιους θα ψηφίσετε στις Εκλογές."),
+        "entranceTitle3_ger25": MessageLookupByLibrary.simpleMessage(
+            "Find out your match and an orientation for who to vote for at the Elections."),
         "faq": MessageLookupByLibrary.simpleMessage("ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ"),
         "france": MessageLookupByLibrary.simpleMessage("Γαλλία"),
         "germany": MessageLookupByLibrary.simpleMessage("Γερμανία"),
@@ -71,11 +88,22 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ας συνεχίσουμε στα ελληνικά :)"),
         "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
             "Τα εξατομικευμένα σας αποτελέσματα είναι καθ\' οδόν :)"),
+        "loadingResultsPageTitle1_ger25": MessageLookupByLibrary.simpleMessage(
+            "Your personalised results are on their way :)"),
         "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
             "Αυτό θα είναι πιο γρήγορο από το να βρείτε εισιτήρια για την Taylor Swift 👀 "),
+        "loadingResultsPageTitle2_ger25": MessageLookupByLibrary.simpleMessage(
+            "This shall be quicker than getting Taylor Swift tickets 👀 "),
         "loadingResultsPageTitle3": m2,
+        "loadingResultsPageTitle3_ger25": m3,
         "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
             "Σχεδόν έτοιμα, ένας τελευταίος έλεγχος..."),
+        "loadingResultsPageTitle4_ger25": MessageLookupByLibrary.simpleMessage(
+            "Almost ready, one last check..."),
+        "messageScreenNo_ger25":
+            MessageLookupByLibrary.simpleMessage("nope..."),
+        "messageScreenYes_ger25":
+            MessageLookupByLibrary.simpleMessage("Yesss!"),
         "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
             "Only 5 cards left to swipe :)"),
         "message_half_test_done": MessageLookupByLibrary.simpleMessage(
@@ -85,6 +113,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("ΟΚ"),
         "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
             "Δεν έχω ιδέα για το ποιους να ψηφίσω στις Ευρωεκλογές του 2024"),
+        "onBoardingCardQuestion_ger25": MessageLookupByLibrary.simpleMessage(
+            "I have no clue who to vote for at the 2024 European Elections"),
         "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
             "Σύρετε με το δάχτυλό σας ανάλογα με το αν συμφωνείτε, διαφωνείτε ή παραμένετε ουδέτεροι"),
         "onBoardingNotAnswerButton":
@@ -105,62 +135,127 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Άλλο"),
         "onBoardingStep3Title":
             MessageLookupByLibrary.simpleMessage("Προσδιορίζομαι ως"),
+        "onBoardingStep4Option1_ger25":
+            MessageLookupByLibrary.simpleMessage("Universitätsabschluss"),
+        "onBoardingStep4Option2_ger25":
+            MessageLookupByLibrary.simpleMessage("Abitur"),
+        "onBoardingStep4Option3_ger25":
+            MessageLookupByLibrary.simpleMessage("Berufsausbildung"),
+        "onBoardingStep4Option4_ger25":
+            MessageLookupByLibrary.simpleMessage("Realschulabschluss"),
+        "onBoardingStep4Option5_ger25":
+            MessageLookupByLibrary.simpleMessage("Mittlerer Schulabschluss"),
+        "onBoardingStep4Option6_ger25":
+            MessageLookupByLibrary.simpleMessage("Ungebildet"),
         "poland": MessageLookupByLibrary.simpleMessage("Πολωνία"),
         "resultsPage10NopButton":
             MessageLookupByLibrary.simpleMessage("Όχι, ευχαριστώ!"),
         "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
             "Θέλετε μια ειδοποίηση όταν έρθει η ώρα να πάτε να ψηφίσετε;"),
+        "resultsPage10Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "A notification when it’s time to go vote?"),
         "resultsPage10YesButton":
             MessageLookupByLibrary.simpleMessage("Ναιιιιι"),
         "resultsPage1Button":
             MessageLookupByLibrary.simpleMessage("Πατήστε για να συνεχίσετε"),
         "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
             "Στις επόμενες οθόνες, θα ανακαλύψετε την πιο συμβατή σας Ομάδα στο Ευρωπαϊκό Κοινοβούλιο, τις αντίστοιχες τοπικές λίστες για να ψηφίσετε τον Ιούνιο στη χώρα σας, ενώ ανακαλύψαμε και μερικά επιπλέον πράγματα με βάση τις απαντήσεις σας 😌"),
+        "resultsPage1Text_ger25": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌"),
         "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
             "Μια αντιστοιχία και πολλά άλλα 👉👈"),
+        "resultsPage1Title_ger25":
+            MessageLookupByLibrary.simpleMessage("A match and much more 👉👈"),
         "resultsPage2_1Title":
             MessageLookupByLibrary.simpleMessage("Ειλικρινά, ανάμεσα στο/στη"),
+        "resultsPage2_1Title_ger25":
+            MessageLookupByLibrary.simpleMessage("Honestly, between the"),
         "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
             "και σε εμένα, είναι κάπως ένα Love Story (EU’s Version)"),
+        "resultsPage2_2Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "and me, it’s kind of a Love Story (EU’s Version)"),
         "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
             "Πόσο κοντά βρίσκομαι στις Ομάδες του Ευρωπαϊκού Κοινοβουλίου"),
+        "resultsPage3Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "How close I am to European Parliament Groups"),
         "resultsPage4TitleBottom":
             MessageLookupByLibrary.simpleMessage("Κατά της ένταξης στην ΕΕ"),
+        "resultsPage4TitleBottom_ger25":
+            MessageLookupByLibrary.simpleMessage("Anti-EU Integration"),
         "resultsPage4TitleLeft":
             MessageLookupByLibrary.simpleMessage("Αριστερά"),
+        "resultsPage4TitleLeft_ger25":
+            MessageLookupByLibrary.simpleMessage("Left"),
         "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Δεξιά"),
+        "resultsPage4TitleRight_ger25":
+            MessageLookupByLibrary.simpleMessage("Right"),
         "resultsPage4TitleTop":
             MessageLookupByLibrary.simpleMessage("Υπέρ της ένταξης στην ΕΕ"),
+        "resultsPage4TitleTop_ger25":
+            MessageLookupByLibrary.simpleMessage("Pro-EU Integration"),
         "resultsPage4TitleUserHere":
+            MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
+        "resultsPage4TitleUserHere_ger25":
             MessageLookupByLibrary.simpleMessage("It’s me, hi!"),
         "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
             "Σχετικά με πιο συγκεκριμένα θέματα, σε ποια ομάδα του Ευρωπαϊκού Κοινοβουλίου βρίσκομαι πιο κοντά;"),
+        "resultsPage5Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "On more specific topics, which European Parliament Group am I closer to?"),
         "resultsPage5Topic1":
             MessageLookupByLibrary.simpleMessage("Περιβαλλοντικά θέματα"),
+        "resultsPage5Topic1_ger25":
+            MessageLookupByLibrary.simpleMessage("Environmental issues"),
         "resultsPage5Topic2": MessageLookupByLibrary.simpleMessage(
             "Ανθρώπινα & Κοινωνικά Δικαιώματα"),
+        "resultsPage5Topic2_ger25":
+            MessageLookupByLibrary.simpleMessage("Human & Social Rights"),
         "resultsPage5Topic3":
             MessageLookupByLibrary.simpleMessage("Οικονομική παρέμβαση"),
+        "resultsPage5Topic3_ger25":
+            MessageLookupByLibrary.simpleMessage("Economic intervention"),
         "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
             "Στις επόμενες οθόνες, θα ανακαλύψετε τους καταλόγους υποψηφίων στη χώρα σας που είναι πιο πιθανό να ενταχθούν στην αντιστοιχία σας."),
+        "resultsPage6Text_ger25": MessageLookupByLibrary.simpleMessage(
+            "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match."),
         "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
             "Εντάξει, είναι κούλ να ξέρω ποια ομάδα με καταλαβαίνει..."),
+        "resultsPage6_1Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "Ok, it\'s cool knowing which group gets me..."),
         "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
             "Αλλά στις Ευρωεκλογές, ψηφίζουμε για μια τοπική λίστα"),
+        "resultsPage6_2Title_ger25": MessageLookupByLibrary.simpleMessage(
+            "But at the EU Elections, we vote for a local list"),
         "resultsPage7Disclaimer":
             MessageLookupByLibrary.simpleMessage("Χωρίς συγκεκριμένη σειρά."),
-        "resultsPage7NoLocalCandidates": m3,
-        "resultsPage7Title": m4,
+        "resultsPage7Disclaimer_ger25":
+            MessageLookupByLibrary.simpleMessage("In no particular order."),
+        "resultsPage7NoLocalCandidates": m4,
+        "resultsPage7NoLocalCandidates_ger25": m5,
+        "resultsPage7Title": m6,
+        "resultsPage7Title_ger25": m7,
         "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
             "Είσαι μαχητής της κλιματικής αλλαγής! Πιστεύεις ότι η αντιμετώπιση της κλιματικής κρίσης απαιτεί συλλογική δράση, την οποία όλοι πρέπει να θέσουν σε ύψιστη προτεραιότητα. Δεν σε πειράζει που η ΕΕ ρυθμίζει τις εταιρείες για το σκοπό αυτό. Εξάλλου, τι νόημα έχει η οικονομική ανάπτυξη αν ο πλανήτης γίνει μη βιώσιμος;"),
-        "resultsPage8_1Text": m5,
+        "resultsPage8Help_ger": MessageLookupByLibrary.simpleMessage(
+            "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?"),
+        "resultsPage8Help_ger25": MessageLookupByLibrary.simpleMessage(
+            "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?"),
+        "resultsPage8_1Text": m8,
+        "resultsPage8_1Text_ger25": m9,
         "resultsPage8_2Text":
             MessageLookupByLibrary.simpleMessage("Ενεργού Δράσης για το κλίμα"),
+        "resultsPage8_2Text_ger25":
+            MessageLookupByLibrary.simpleMessage("Active Climate Action 🌱😌"),
         "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
             "Κάντε κλικ στις κάρτες για ανακάτεμα"),
+        "resultsPage9Help_ger25": MessageLookupByLibrary.simpleMessage(
+            "Click on the cards to shuffle"),
         "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
             "Οι εκλογές αφορούν πολλά θέματα, αλλά υπάρχει ένα πράγμα που πραγματικά"),
+        "resultsPage9Text1_ger25": MessageLookupByLibrary.simpleMessage(
+            "Elections are about many topics, but there’s one thing that really"),
         "resultsPage9Text2":
+            MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
+        "resultsPage9Text2_egr":
             MessageLookupByLibrary.simpleMessage("Belongs With Me 😌"),
         "resultsShare": MessageLookupByLibrary.simpleMessage("Κοινοποίηση"),
         "romania": MessageLookupByLibrary.simpleMessage("Ρουμανία"),

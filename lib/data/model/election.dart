@@ -59,9 +59,126 @@ extension ElectionImages on Election {
         return 'assets/images/election/eu/ic_vote_logos_eu.svg';
     }
   }
+
+  String get swipe {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/img_swipe_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/img_swipe_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox1 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box1_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box1_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox2 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box2_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box2_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox3 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box3_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box3_eu.svg';
+    }
+  }
+
+  String get stickerBallotBox4 {
+    switch (this) {
+      case Election.DE:
+        return 'assets/images/election/de/ic_sticker_ballot_box4_de.svg';
+      case Election.EU:
+        return 'assets/images/election/eu/ic_sticker_ballot_box4_eu.svg';
+    }
+  }
 }
 
 extension ElectionTexts on Election {
+  String entranceTitle1(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).entranceTitle1_ger25;
+      case Election.EU:
+        return S.of(context).entranceTitle1;
+    }
+  }
+
+  String entranceTitle2(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).entranceTitle2_ger25;
+      case Election.EU:
+        return S.of(context).entranceTitle2;
+    }
+  }
+
+  String entranceTitle3(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).entranceTitle3_ger25;
+      case Election.EU:
+        return S.of(context).entranceTitle3;
+    }
+  }
+
+  String loadingResultsPageTitle1(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).loadingResultsPageTitle1_ger25;
+      case Election.EU:
+        return S.of(context).loadingResultsPageTitle1;
+    }
+  }
+
+  String loadingResultsPageTitle2(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).loadingResultsPageTitle2_ger25;
+      case Election.EU:
+        return S.of(context).loadingResultsPageTitle2;
+    }
+  }
+
+  String loadingResultsPageTitle3(BuildContext context, String country) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).loadingResultsPageTitle3_ger25(country);
+      case Election.EU:
+        return S.of(context).loadingResultsPageTitle3(country);
+    }
+  }
+
+  String loadingResultsPageTitle4(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).loadingResultsPageTitle4_ger25;
+      case Election.EU:
+        return S.of(context).loadingResultsPageTitle4;
+    }
+  }
+
   String resultsPage4TitleTop(BuildContext context) {
     switch (this) {
       case Election.DE:
@@ -99,13 +216,32 @@ extension ElectionTexts on Election {
   }
 }
 
+class ResultAxisTopic {
+  int y;
+  int x;
+  ResultAxisTopic({required this.y, required this.x});
+}
+
+extension ElectionResult4Axis on Election {
+  ResultAxisTopic get result4AxisTopic {
+    switch (this) {
+      case Election.DE:
+        // demo topics. TODO: use acutal topic ids
+        return ResultAxisTopic(x: 12, y: 13);
+      case Election.EU:
+        // topicEuIntegration, topicEuIntegration
+        return ResultAxisTopic(x: 3, y: 2);
+    }
+  }
+}
+
 extension ElectionBackend on Election {
-  String get backend {
+  int get backend {
     switch (this) {
       case Election.EU:
-        return '1';
+        return 1;
       case Election.DE:
-        return '2';
+        return 2;
     }
   }
 }

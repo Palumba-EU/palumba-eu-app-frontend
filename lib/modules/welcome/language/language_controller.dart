@@ -96,6 +96,7 @@ class LanguageController extends GetxController {
 
   void onContinueTap() async {
     _dataRepository.fetchStatements();
+    _dataRepository.getElections();
 
     final args = Get.arguments;
     if (args == 'fromElection') {
