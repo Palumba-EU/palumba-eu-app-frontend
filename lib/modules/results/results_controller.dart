@@ -53,13 +53,12 @@ class ResultsController extends GetxController {
 
   UserData get userData => UserManager.userData;
 
-  RxInt _currentPage = 0.obs;
-  int get currentPage => _currentPage.value;
-  bool get showShareForCurrentPage => allPages[_currentPage.value].showShare;
+  RxInt currentPage = 0.obs;
+  bool get showShareForCurrentPage => allPages[currentPage.value].showShare;
 
   bool get isSpecialPage =>
-      _currentPage.value == 5 ||
-      (cardsData.isNotEmpty && _currentPage.value == 8);
+      currentPage.value == 5 ||
+      (cardsData.isNotEmpty && currentPage.value == 8);
 
   bool get isTablet => Get.width >= 600;
 
@@ -110,13 +109,13 @@ class ResultsController extends GetxController {
     _initData();
 
     pageController.addListener(() {
-      _currentPage.value = pageController.page!.round();
-      PlausibleManager.trackResult(_currentPage.value.toString());
+      currentPage.value = pageController.page!.round();
+      PlausibleManager.trackResult(currentPage.value.toString());
     });
 
     PlausibleManager.trackPage(route);
     PlausibleManager.trackResult(
-        _currentPage.value.toString()); // track first page
+        currentPage.value.toString()); // track first page
   }
 
   @override
@@ -226,14 +225,14 @@ class ResultsController extends GetxController {
 
   void changePage(TapDownDetails details) {
     if (details.localPosition.dx < Get.width * .25) {
-      if (_currentPage.value > 0) {
+      if (currentPage.value > 0) {
         pageController.previousPage(
           duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,
         );
       }
     } else if (details.localPosition.dx > Get.width * .75) {
-      if (_currentPage.value < pages.length - 1) {
+      if (currentPage.value < pages.length - 1) {
         pageController.nextPage(
           duration: Duration(milliseconds: 1),
           curve: Curves.easeInOut,

@@ -123,7 +123,7 @@ class ResultsPage extends GetView<ResultsController> {
                       padding: EdgeInsets.symmetric(
                           horizontal: AppDimens.lateralPaddingValue),
                       child: Obx(() => CustomProgressBar(
-                            step: controller.currentPage,
+                            step: controller.currentPage.value,
                             totalSteps: controller.pages.length,
                             width: double.infinity,
                             isDotted: true,
@@ -156,15 +156,12 @@ class ResultsPage extends GetView<ResultsController> {
                                             height: 40,
                                           )),
                                       if (kDebugMode)
-                                        Container(
-                                          color: Colors.red,
-                                          padding: EdgeInsets.all(8),
-                                          child: Text(
-                                            'This is only visible in Debug Mode!',
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                        ),
+                                        Obx(() => AppTexts.small(
+                                            controller
+                                                .pages[controller
+                                                    .currentPage.value]
+                                                .className,
+                                            color: AppColors.primary)),
                                       Spacer(),
                                       AppTexts.title(
                                           '#${S.of(context).shortAppName}',
