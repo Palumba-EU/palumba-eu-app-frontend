@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/data/model/election.dart';
@@ -35,7 +36,6 @@ class ResultsPage extends GetView<ResultsController> {
                   Container(
                     color: AppColors.background,
                   ),
-
                   Obx(
                     () => Opacity(
                       opacity: controller.isSpecialPage ? 1 : 0,
@@ -123,7 +123,7 @@ class ResultsPage extends GetView<ResultsController> {
                       padding: EdgeInsets.symmetric(
                           horizontal: AppDimens.lateralPaddingValue),
                       child: Obx(() => CustomProgressBar(
-                            step: controller.currentPage,
+                            step: controller.currentPage.value,
                             totalSteps: controller.pages.length,
                             width: double.infinity,
                             isDotted: true,
@@ -155,6 +155,13 @@ class ResultsPage extends GetView<ResultsController> {
                                                 .value.logoCircle,
                                             height: 40,
                                           )),
+                                      if (kDebugMode)
+                                        Obx(() => AppTexts.small(
+                                            controller
+                                                .pages[controller
+                                                    .currentPage.value]
+                                                .className,
+                                            color: AppColors.primary)),
                                       Spacer(),
                                       AppTexts.title(
                                           '#${S.of(context).shortAppName}',

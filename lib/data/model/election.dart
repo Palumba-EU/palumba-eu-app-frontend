@@ -236,12 +236,12 @@ extension ElectionResult4Axis on Election {
 }
 
 extension ElectionBackend on Election {
-  String get backend {
+  int get backend {
     switch (this) {
       case Election.EU:
-        return '1';
+        return 1;
       case Election.DE:
-        return '2';
+        return 2;
     }
   }
 }

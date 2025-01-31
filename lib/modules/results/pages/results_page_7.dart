@@ -6,7 +6,7 @@ import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/global_widgets/custom_divider.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
-import 'package:palumba_eu/modules/results/pages/result_page.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -15,7 +15,7 @@ import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
-class ResultsPage7 extends GetView<ResultsController> with ResultPage {
+class ResultsPage7 extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
     final smallScreen = Get.height < 750;
