@@ -4,10 +4,10 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/custom_mds_graphic.dart';
-import 'package:palumba_eu/modules/results/pages/result_page.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 
-class ResultsPage4 extends GetView<ResultsController> with ResultPage {
+class ResultsPage4 extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
     return Column(

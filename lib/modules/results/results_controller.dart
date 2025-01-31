@@ -15,7 +15,7 @@ import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/helpers/svg_helper.dart';
-import 'package:palumba_eu/modules/results/pages/result_page.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
@@ -45,8 +45,8 @@ class ResultsController extends GetxController {
 
   final pageController = PageController();
 
-  late List<ResultPage> allPages = createAllResultsPages();
-  List<ResultPage> get pages => allPages;
+  late List<ResultsPage> allPages = createAllResultsPages();
+  List<ResultsPage> get pages => allPages;
 
   ScreenshotController foregroundScreenshotController = ScreenshotController();
   ScreenshotController backgroundScreenshotController = ScreenshotController();
@@ -165,7 +165,7 @@ class ResultsController extends GetxController {
     _getTopics();
   }
 
-  List<ResultPage> createAllResultsPages() {
+  List<ResultsPage> createAllResultsPages() {
     return [
       ResultsPage1(),
       ResultsPage2(),

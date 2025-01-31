@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-mixin ResultPage implements Widget {
+mixin ResultsPage implements Widget {
   final bool showShare = true;
 }
