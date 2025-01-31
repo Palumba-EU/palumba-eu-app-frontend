@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/data/model/elections_response.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/message_widget.dart';
@@ -10,6 +12,7 @@ import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
+import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/push_notification_service.dart';
@@ -43,10 +46,24 @@ class HomePageController extends GetxController {
     PlausibleManager.trackPage(route);
 
     PushNotificationService().register();
-    PushNotificationService()
-        .fromForeground((message) => eggPressed(Get.context!));
-    PushNotificationService()
-        .fromBackground((message) => eggPressed(Get.context!));
+    PushNotificationService().fromForeground(_showSnackbar);
+    PushNotificationService().fromBackground(_eggFromPush);
+  }
+
+  void _showSnackbar(RemoteMessage message) {
+    debugPrint("show snackbar");
+    Get.snackbar(
+      message.notification?.title ?? '', // Title
+      message.notification?.body ?? '', // Message
+      snackPosition: SnackPosition.TOP,
+      backgroundColor: AppColors.yellow,
+      colorText: AppColors.primary,
+      duration: Duration(seconds: 3),
+      borderRadius: 10,
+      margin: EdgeInsets.all(10),
+      barBlur: 20,
+      onTap: (snack) => _eggFromPush(message),
+    );
   }
 
   Future<void> obtainLocalStoredLastResults() async {
@@ -85,10 +102,22 @@ class HomePageController extends GetxController {
     Utils.launch(StringUtils.faqUrl);
   }
 
-  void eggPressed(BuildContext context) {
+  void _eggFromPush(RemoteMessage message) {
+    Get.closeCurrentSnackbar();
+    try {
+      var info = EggScreen.fromJson(json.decode(message.data["eggScreen"]));
+      info.image =
+          "https://palumba-staging.bitperfect-software.com/storage/elections/egg_screen/01JJV1PP92481V3PBE4G17YHR4.png";
+      MessageWidget.callAsBottomSheet(info);
+    } catch (e) {
+      debugPrint("could not decode push to eggScreen");
+    }
+  }
+
+  void eggPressed() {
     var info = ElectionManager.eggInfo;
     if (info == null) return;
-    MessageWidget.callAsBottomSheet(context, info);
+    MessageWidget.callAsBottomSheet(info);
   }
 
   void goToSettings() {

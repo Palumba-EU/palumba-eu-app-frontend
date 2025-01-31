@@ -94,7 +94,7 @@ class Country {
 class EggScreen {
   final String title;
   final String description;
-  final String image;
+  String image;
   final String yesBtnText;
   final String yesBtnLink;
   final String noBtnText;

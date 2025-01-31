@@ -27,15 +27,14 @@ class PushNotificationService {
       sound: true,
     );
     debugPrint('User granted permission: ${settings.authorizationStatus}');
-  }
-
-  void fromForeground(Function(RemoteMessage message) receivePush) async {
     final fcmToken = await FirebaseMessaging.instance.getToken();
     if (fcmToken == null) {
       debugPrint("Not FCM Token");
     }
     debugPrint("FCM-TOKEN: " + fcmToken.toString());
+  }
 
+  void fromForeground(Function(RemoteMessage message) receivePush) async {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       debugPrint('Received (Foreground) Message: ${message}');
       receivePush(message);

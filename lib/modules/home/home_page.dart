@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      onPressed: () => {_.eggPressed(context)},
+                      onPressed: _.eggPressed,
                       child: AppTexts.small(
                           S.of(context).resultsPage10NopButton,
                           bold: true,
@@ -143,7 +143,7 @@ class HomePage extends StatelessWidget {
                         bold: true, color: AppColors.primary),
                   )
                 : TextButton(
-                    onPressed: () => {_.eggPressed(context)},
+                    onPressed: _.eggPressed,
                     child: Obx(() => SvgPicture.asset(
                           'assets/images/ic_egg.svg',
                           colorFilter: ColorFilter.mode(
