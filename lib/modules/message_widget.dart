@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/provider/remote/data_api.dart';
+import 'package:palumba_eu/data/model/elections_response.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class MessageWidget extends StatelessWidget {
-  final MessageScreenContent content;
+  final EggScreen content;
 
   const MessageWidget({
     super.key,
@@ -46,22 +47,22 @@ class MessageWidget extends StatelessWidget {
                         color: AppColors.lightYellow, width: 2, strokeAlign: 1),
                   ),
                   child: Image.network(
-                    content.imageUrl,
+                    content.image,
                     fit: BoxFit.fitWidth,
                   )),
               AppTexts.title(content.title, color: AppColors.primary),
-              AppTexts.regular(content.message, color: AppColors.primary),
+              AppTexts.regular(content.description, color: AppColors.primary),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TextButton(
                       onPressed: () => dismiss(context),
-                      child: AppTexts.regular("dismiss",
+                      child: AppTexts.regular(content.noBtnText,
                           color: AppColors.primary, bold: true)),
                   CustomButton(
-                    onPressed: () => dismiss(context),
-                    text: "Okay",
+                    onPressed: () => launchUrl(content.yesBtnLink),
+                    text: content.yesBtnText,
                     //Default parameters
                     border: ButtonBorderParameters(),
                   ),
@@ -79,7 +80,11 @@ class MessageWidget extends StatelessWidget {
     Navigator.of(context).pop();
   }
 
-  static callAsBottomSheet(BuildContext context, MessageScreenContent info) {
+  void launchUrl(String url) {
+    Utils.launch(url);
+  }
+
+  static callAsBottomSheet(BuildContext context, EggScreen info) {
     Get.bottomSheet(
       SingleChildScrollView(
         child: Container(

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/data/model/election.dart';
@@ -35,7 +36,6 @@ class ResultsPage extends GetView<ResultsController> {
                   Container(
                     color: AppColors.background,
                   ),
-
                   Obx(
                     () => Opacity(
                       opacity: controller.isSpecialPage ? 1 : 0,
@@ -155,6 +155,16 @@ class ResultsPage extends GetView<ResultsController> {
                                                 .value.logoCircle,
                                             height: 40,
                                           )),
+                                      if (kDebugMode)
+                                        Container(
+                                          color: Colors.red,
+                                          padding: EdgeInsets.all(8),
+                                          child: Text(
+                                            'This is only visible in Debug Mode!',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ),
                                       Spacer(),
                                       AppTexts.title(
                                           '#${S.of(context).shortAppName}',

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/data/model/elections_response.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:http/http.dart' as http;
 import 'package:palumba_eu/data/model/responses_request.dart';
@@ -181,31 +182,27 @@ class DataAPI {
     }
   }
 
-  Future<MessageScreenContent?> getEggInfo() async {
-    return MessageScreenContent(
-        title: "TestTitle",
-        message: "TestMessage",
-        imageUrl:
-            "https://media.istockphoto.com/id/527072689/photo/wooden-logs-with-forest-on-background.jpg?s=612x612&w=0&k=20&c=ws7VoKKpYq4qJi-1DemwpI9xxHOSR4Wfds_mVlm41OY=",
-        yesButtonText: "Yes!!",
-        yesButtonLink: "https://www.google.com",
-        noButtonText: "No :(");
+  Future<ElectionResponse?> getElection() async {
+    try {
+      final url = Uri.parse('${urlLang()}elections');
+
+      final response = await http.get(url, headers: {
+        'Content-Type': 'application/json',
+      });
+
+      if (response.statusCode < 200 || response.statusCode > 201) {
+        throw Exception(response.reasonPhrase);
+      }
+      var electionsResponse =
+          ElectionsResponse.fromJson(json.decode(response.body));
+      var electionResponse = electionsResponse.data.firstWhere(
+          (er) => er.id == ElectionManager.currentElection.value.backend);
+      ElectionManager.eggInfo = electionResponse.eggScreen;
+      return electionResponse;
+    } catch (e) {
+      debugPrint(e.toString());
+      debugPrint("failed to get election");
+      return null;
+    }
   }
-}
-
-class MessageScreenContent {
-  String title;
-  String message;
-  String imageUrl;
-  String yesButtonText;
-  String? yesButtonLink;
-  String noButtonText;
-
-  MessageScreenContent(
-      {required this.title,
-      required this.message,
-      required this.imageUrl,
-      required this.yesButtonText,
-      this.yesButtonLink,
-      required this.noButtonText});
 }
