@@ -1,21 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+
 enum LevelOfEducation {
-  academic,
-  highschool,
-  elementary,
-  vocational,
+  academic, // "Universitätsabschluss"
+  highschool, // "Abitur"
+  vocational, // "Berufsausbildung"
+  secondary, // "Realschulabschluss"
+  intermediate, // Mittlerer Schulabschluss
+  none, // Ungebildet
 }
 
 extension LevelOfEducationLocalization on LevelOfEducation {
-  String get localized {
+  String localized(BuildContext context) {
     switch (this) {
       case LevelOfEducation.academic:
-        return 'Academic';
+        return S.of(context).onBoardingStep4Option1_ger25;
       case LevelOfEducation.highschool:
-        return 'Highschool';
-      case LevelOfEducation.elementary:
-        return 'Elemtary school';
+        return S.of(context).onBoardingStep4Option2_ger25;
+      case LevelOfEducation.intermediate:
+        return S.of(context).onBoardingStep4Option5_ger25;
       case LevelOfEducation.vocational:
-        return 'Vocational training';
+        return S.of(context).onBoardingStep4Option3_ger25;
+      case LevelOfEducation.secondary:
+        return S.of(context).onBoardingStep4Option4_ger25;
+      case LevelOfEducation.none:
+        return S.of(context).onBoardingStep4Option6_ger25;
     }
   }
 }
@@ -40,10 +49,14 @@ extension LevelOfEducationBackend on LevelOfEducation {
         return '6';
       case LevelOfEducation.highschool:
         return '3';
-      case LevelOfEducation.elementary:
+      case LevelOfEducation.intermediate:
         return '2';
       case LevelOfEducation.vocational:
         return '1';
+      case LevelOfEducation.secondary:
+        return '2';
+      case LevelOfEducation.none:
+        return '0';
     }
   }
 }

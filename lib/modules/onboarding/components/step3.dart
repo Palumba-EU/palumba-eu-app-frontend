@@ -25,27 +25,30 @@ class Step3 extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Padding(
         padding: AppDimens.lateralPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AppTexts.title("Level of Education", color: AppColors.primary),
-            CustomSpacer(
-              multiplier: 3,
-            ),
-            Wrap(
-              spacing: 7.5,
-              runSpacing: 7.5,
-              children: List.generate(
+        child: SingleChildScrollView(
+          // Make the whole page scrollable
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppTexts.title("Level of Education", color: AppColors.primary),
+              CustomSpacer(multiplier: 3),
+              Wrap(
+                spacing: 7.5,
+                runSpacing: 7.5,
+                children: List.generate(
                   levelsofEducation.length,
                   (index) => Obx(() => CustomGenderSelector(
-                      title: levelsofEducation[index].localized,
-                      selected: indexSelected == index,
-                      onPressed: () {
-                        onLevelOfEducationPressed(index);
-                      }))),
-            ),
-          ],
+                        title: levelsofEducation[index].localized(context),
+                        selected: indexSelected.value == index,
+                        onPressed: () {
+                          onLevelOfEducationPressed(index);
+                        },
+                      )),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
