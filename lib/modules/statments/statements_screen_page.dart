@@ -73,7 +73,8 @@ class StatementsPage extends GetView<StatementsController> {
                                   homeTap: controller.homeTap,
                                   backTap: controller.returnToPreviousCard,
                                   isBackButtonActive:
-                                      controller.frontCard?.id != -1,
+                                      controller.frontCard?.id !=
+                                          controller.firstCardId,
                                 )),
                       ),
                     ),

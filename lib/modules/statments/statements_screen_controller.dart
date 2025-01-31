@@ -28,6 +28,7 @@ class StatementsController extends GetxController {
   CardModel? get frontCard =>
       _currentCards.length > 0 ? _currentCards[0] : null;
   CardModel? get backCard => _currentCards.length > 1 ? _currentCards[1] : null;
+  int? firstCardId; // used to check if back button is shown
 
   final DataRepository _dataRepository = Get.find<DataRepository>();
 
@@ -103,7 +104,8 @@ class StatementsController extends GetxController {
   void _getArgumentsAndFetch() {
     _statementsData = DataManager().getStatements();
     _currentCards.addAll(StatementsParser.getCardModelList(statements));
-    // .toList() makes copy, otherwise just a ref
+    firstCardId = _currentCards.first.id;
+    // .toList() => copy by value, otherwise copy by ref
     _allCards = _currentCards.toList();
 
     update([cardStackKey]);
