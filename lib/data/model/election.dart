@@ -164,7 +164,7 @@ extension ElectionResult4Axis on Election {
     switch (this) {
       case Election.DE:
         // demo topics. TODO: use acutal topic ids
-        return ResultAxisTopic(x: 9, y: 10);
+        return ResultAxisTopic(x: 12, y: 13);
       case Election.EU:
         // topicEuIntegration, topicEuIntegration
         return ResultAxisTopic(x: 3, y: 2);

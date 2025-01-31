@@ -5,17 +5,16 @@ class StatementsParser {
   static List<CardModel> getCardModelList(List<Statement> statements) {
     List<CardModel> cards = [];
 
-    for (var (index, statement) in statements.indexed) {
+    for (var statement in statements) {
       cards.add(CardModel(
         id: statement.id,
         emojis: statement.emojis,
         mainQuestion: statement.statement,
         details: statement.details,
-        isOnboardingCard: index == 0, // first card is always onboarding
-        enableCardFlip: true,
+        isOnboardingCard: statement.isTutorial,
+        enableCardFlip: !statement.details.isEmpty,
       ));
     }
-    // TODO: isOnboardingCard should be a flag in a statement coming from the BE
 
     return cards;
   }
