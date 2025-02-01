@@ -122,10 +122,10 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
 
   void registerForPush() async {
     var status = await PushNotificationService().register();
-    if (status == AuthorizationStatus.denied) {
+    if (status == AuthorizationStatus.denied)
       _showPushDeactivatedDialog();
-    }
-    controller.nextPage();
+    else
+      controller.nextPage();
   }
 
   void _showPushDeactivatedDialog() {
@@ -135,6 +135,8 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
           'To be able to receive Push Notifcation enable them in the settings',
       onConfirm: () {
         AppSettings.openAppSettings();
+        Get.close(1);
+        controller.nextPage();
       },
       onCancel: () {
         print('Canceled!');
