@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/components/topic_indicator_widget.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
@@ -9,7 +10,7 @@ import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
 class ResultsPage5 extends GetView<ResultsController> with ResultsPage {
@@ -24,7 +25,8 @@ class ResultsPage5 extends GetView<ResultsController> with ResultsPage {
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: AppDimens.bigLateralPaddingValue),
-          child: AppTexts.small(S.of(context).resultsPage5Title,
+          child: AppTexts.small(
+              ElectionManager.currentElection.value.resultsPage5Title(context),
               color: AppColors.primary,
               bold: true,
               textAlign: TextAlign.center),

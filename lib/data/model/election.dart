@@ -179,6 +179,51 @@ extension ElectionTexts on Election {
     }
   }
 
+  String resultsPage1Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage1Title_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage1Title;
+    }
+  }
+
+  String resultsPage1Text(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage1Text_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage1Text;
+    }
+  }
+
+  String resultsPage2_1Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage2_1Title_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage2_1Title;
+    }
+  }
+
+  String resultsPage2_2Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage2_2Title_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage2_2Title;
+    }
+  }
+
+  String resultsPage3Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage3Title_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage3Title;
+    }
+  }
+
   String resultsPage4TitleTop(BuildContext context) {
     switch (this) {
       case Election.DE:
@@ -212,6 +257,169 @@ extension ElectionTexts on Election {
         return "Economic Intervention";
       case Election.EU:
         return S.of(context).resultsPage4TitleLeft;
+    }
+  }
+
+  String resultsPage4TitleUserHere(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage4TitleUserHere_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage4TitleUserHere;
+    }
+  }
+
+  String resultsPage5Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage5Title_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage5Title;
+    }
+  }
+
+  String resultsPage5Topic1(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage5Topic1_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage5Topic1;
+    }
+  }
+
+  String resultsPage5Topic2(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage5Topic2_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage5Topic2;
+    }
+  }
+
+  String resultsPage5Topic3(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage5Topic3_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage5Topic3;
+    }
+  }
+
+  String resultsPage6_1Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage6_1Title_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage6_1Title;
+    }
+  }
+
+  String resultsPage6_2Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage6_2Title_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage6_2Title;
+    }
+  }
+
+  String resultsPage6Text(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage6Text_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage6Text;
+    }
+  }
+
+  String resultsPage7Title(BuildContext context, String country, String group) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage7Title_ger25(country, group);
+      case Election.EU:
+        return S.of(context).resultsPage7Title(country, group);
+    }
+  }
+
+  String resultsPage7Disclaimer(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage7Disclaimer_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage7Disclaimer;
+    }
+  }
+
+  String resultsPage7NoLocalCandidates(BuildContext context, String country) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage7NoLocalCandidates_ger25(country);
+      case Election.EU:
+        return S.of(context).resultsPage7NoLocalCandidates(country);
+    }
+  }
+
+  String resultsPage8_1Text(
+      BuildContext context, String topic, String percentage) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage8_1Text_ger25(topic, percentage);
+      case Election.EU:
+        return S.of(context).resultsPage8_1Text(topic, percentage);
+    }
+  }
+
+  String resultsPage8_2Text(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage8_2Text_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage8_2Text;
+    }
+  }
+
+  String resultsPage8Help(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage8Help_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage8Help;
+    }
+  }
+
+  String resultsPage9Help(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage9Help_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage9Help;
+    }
+  }
+
+  String resultsPage9Text1(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage9Text1_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage9Text1;
+    }
+  }
+
+  String resultsPage9Text2(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage9Text2_egr;
+      case Election.EU:
+        return S.of(context).resultsPage9Text2;
+    }
+  }
+
+  String resultsPage10Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage10Title_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage10Title;
     }
   }
 }

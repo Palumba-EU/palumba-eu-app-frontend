@@ -2,8 +2,9 @@ import 'dart:ui' as ui;
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 class MyScatterChart extends StatelessWidget {
   final List<ScatterSpot> scatterSpots;
@@ -114,7 +115,8 @@ class FlDotCirclePainterCustom extends FlDotPainter {
         final paragraphBuilder = ui.ParagraphBuilder(paragraphStyle)
           ..pushStyle(ui.TextStyle(
               color: AppColors.lightBlue, fontWeight: FontWeight.w900))
-          ..addText(S.of(Get.context!).resultsPage4TitleUserHere);
+          ..addText(ElectionManager.currentElection.value
+              .resultsPage4TitleUserHere(Get.context!));
         final constraints = ui.ParagraphConstraints(width: 300);
         final paragraph = paragraphBuilder.build();
         paragraph.layout(constraints);
