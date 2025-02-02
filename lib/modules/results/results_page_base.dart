@@ -38,7 +38,8 @@ class ResultsPage extends GetView<ResultsController> {
                   ),
                   Obx(
                     () => Opacity(
-                      opacity: controller.isSpecialPage ? 1 : 0,
+                      opacity:
+                          controller.currentPage.showSpecialBackground ? 1 : 0,
                       child: Container(
                         color: AppColors.blue,
                         child: Stack(
@@ -89,7 +90,8 @@ class ResultsPage extends GetView<ResultsController> {
                     ),
                   ),
 
-                  Obx(() => controller.currentPage == 3
+                  // Has to be on parent because result page is not full height
+                  Obx(() => controller.currentPage.showDottedContainer
                       ? DottedContainer(
                           width: double.infinity,
                           height: Get.height,
@@ -97,9 +99,8 @@ class ResultsPage extends GetView<ResultsController> {
                               .withAlpha((0.35 * 255).toInt()))
                       : SizedBox.shrink()),
 
-                  // HACK but content page has restricted size
-                  Obx(() => controller.currentPage == 9 ||
-                          controller.currentPage == 10
+                  // Has to be on parent because result page is not full height
+                  Obx(() => controller.currentPage.showBallotBoxBackground
                       ? Align(
                           alignment: Alignment.bottomCenter,
                           child: Image.asset(
@@ -123,7 +124,7 @@ class ResultsPage extends GetView<ResultsController> {
                       padding: EdgeInsets.symmetric(
                           horizontal: AppDimens.lateralPaddingValue),
                       child: Obx(() => CustomProgressBar(
-                            step: controller.currentPage.value,
+                            step: controller.currentPageIndex.value,
                             totalSteps: controller.pages.length,
                             width: double.infinity,
                             isDotted: true,
@@ -159,7 +160,7 @@ class ResultsPage extends GetView<ResultsController> {
                                         Obx(() => AppTexts.small(
                                             controller
                                                 .pages[controller
-                                                    .currentPage.value]
+                                                    .currentPageIndex.value]
                                                 .className,
                                             color: AppColors.primary)),
                                       Spacer(),
@@ -193,7 +194,7 @@ class ResultsPage extends GetView<ResultsController> {
               Obx(
                 () => controller.loadingShare
                     ? SizedBox.shrink()
-                    : controller.showShareForCurrentPage
+                    : controller.currentPage.showShare
                         ? Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal:
@@ -209,22 +210,26 @@ class ResultsPage extends GetView<ResultsController> {
                                 prefixIcon: IconButtonParameters(
                                   'ic_share',
                                   size: 18,
-                                  color: controller.isSpecialPage
+                                  color: controller
+                                          .currentPage.showSpecialBackground
                                       ? Colors.white
                                       : AppColors.primary,
                                 ),
                                 radius: AppDimens.borderRadius,
-                                color: controller.isSpecialPage
-                                    ? AppColors.primary
-                                    : AppColors.yellow,
-                                textColor: controller.isSpecialPage
-                                    ? Colors.white
-                                    : AppColors.primary,
+                                color:
+                                    controller.currentPage.showSpecialBackground
+                                        ? AppColors.primary
+                                        : AppColors.yellow,
+                                textColor:
+                                    controller.currentPage.showSpecialBackground
+                                        ? Colors.white
+                                        : AppColors.primary,
                                 bold: true,
                                 border: ButtonBorderParameters(
                                     isOutside: true,
                                     width: 3,
-                                    color: controller.isSpecialPage
+                                    color: controller
+                                            .currentPage.showSpecialBackground
                                         ? AppColors.lightPrimary
                                         : AppColors.lightYellow),
                               ),

@@ -9,6 +9,9 @@ import 'package:palumba_eu/modules/results/results_controller.dart';
 
 class ResultsPage4 extends GetView<ResultsController> with ResultsPage {
   @override
+  final bool showDottedContainer = true;
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [

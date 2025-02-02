@@ -1,8 +1,8 @@
 import 'package:app_settings/app_settings.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
@@ -20,12 +20,15 @@ import 'package:palumba_eu/utils/managers/push_notification_service.dart';
 class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
   final RxnBool willVote;
 
+  @override
+  final bool showShare = false;
+
+  @override
+  final bool showBallotBoxBackground = true;
+
   ResultsPage10({
     required this.willVote,
   });
-
-  @override
-  final bool showShare = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +37,23 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         CustomSpacer(multiplier: 6),
-        Obx(() => SvgPicture.asset(
-            ElectionManager.currentElection.value.voteResult10)),
+        Align(
+            alignment: Alignment.center, // Center horizontally
+            child: Container(
+              width: Get.width * 0.5,
+              child: Center(
+                  child: Obx(
+                () => AppTexts.regular(
+                    "Get Ready, Voting Day is " +
+                        DateFormat("MMM, d y")
+                            .format(ElectionManager.electionDate!),
+                    color: willVote.value == true
+                        ? AppColors.primary
+                        : Colors.transparent,
+                    bold: true,
+                    textAlign: TextAlign.center),
+              )),
+            )),
         CustomSpacer(multiplier: 3),
         content(context)
       ],
@@ -60,9 +78,7 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: () {
-                    Get.offAllNamed(HomePageController.route);
-                  },
+                  onPressed: controller.nextPage,
                   child: AppTexts.regular(S.of(context).resultsPage10NopButton,
                       bold: true, color: AppColors.primary),
                 ),

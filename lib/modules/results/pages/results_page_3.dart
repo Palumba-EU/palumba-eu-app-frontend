@@ -53,7 +53,7 @@ class ResultsPage3 extends GetView<ResultsController> with ResultsPage {
                   ),
                 ),
                 Obx(
-                  () => controller.currentPage != 2
+                  () => controller.currentPageIndex != 2
                       ? SizedBox.shrink()
                       : SizedBox(
                           width: Get.width * .5,

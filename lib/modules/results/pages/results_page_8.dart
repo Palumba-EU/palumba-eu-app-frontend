@@ -14,6 +14,9 @@ import 'package:palumba_eu/utils/utils.dart';
 
 class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
   @override
+  final bool showSpecialBackground = true;
+
+  @override
   Widget build(BuildContext context) {
     final maxTopic = controller.maxTopicPercentage();
     return Column(

@@ -85,8 +85,7 @@ class _ArcLineState extends State<ArcLine> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ui.Image>(
-        future: SvgHelper.loadSvgFromUrl(
-            widget.imageUrl), //loadImage(widget.imageUrl),
+        future: SvgHelper.loadSvgFromUrl(widget.imageUrl),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (!_isAnimationCompleted) {

@@ -26,6 +26,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -53,12 +54,8 @@ class ResultsController extends GetxController {
 
   UserData get userData => UserManager.userData;
 
-  RxInt currentPage = 0.obs;
-  bool get showShareForCurrentPage => allPages[currentPage.value].showShare;
-
-  bool get isSpecialPage =>
-      currentPage.value == 5 ||
-      (cardsData.isNotEmpty && currentPage.value == 8);
+  RxInt currentPageIndex = 0.obs;
+  ResultsPage get currentPage => allPages[currentPageIndex.value];
 
   bool get isTablet => Get.width >= 600;
 
@@ -86,7 +83,6 @@ class ResultsController extends GetxController {
 
   //ResultsPage5
   List<Topic> _topics = [];
-
   List<Topic> get topics => _topics;
 
   //ResultsPage7
@@ -101,6 +97,9 @@ class ResultsController extends GetxController {
   //ResultsPage10
   RxnBool willVote = RxnBool();
 
+  //ResultPageAllParties
+  late final allPartiesWithPercent = preparePoliticalPartiesWithPercent();
+
   GlobalKey globalKey = GlobalKey();
 
   @override
@@ -109,18 +108,21 @@ class ResultsController extends GetxController {
     _initData();
 
     pageController.addListener(() {
-      currentPage.value = pageController.page!.round();
-      PlausibleManager.trackResult(currentPage.value.toString());
+      currentPageIndex.value = pageController.page!.round();
+      PlausibleManager.trackResult(currentPageIndex.value.toString());
     });
 
     PlausibleManager.trackPage(route);
     PlausibleManager.trackResult(
-        currentPage.value.toString()); // track first page
+        currentPageIndex.value.toString()); // track first page
   }
 
   @override
   void onReady() {
-    // rickroll if all the same response
+    rickRollIfAllAnswersAreSame();
+  }
+
+  void rickRollIfAllAnswersAreSame() {
     final firstResponse = _answersData.first.answer;
     if (_answersData.every((element) => element.answer == firstResponse)) {
       Utils.launch(StringUtils.rickrollUrl);
@@ -148,9 +150,9 @@ class ResultsController extends GetxController {
           .where((result) => result.party.inParliament == true)
           .take(7) // max we want to display
           .map((result) => CustomChartData(
-                party: result.party.name ?? result.party.acronym ?? '',
+                party: result.party.name,
                 value: result.percentage.toDouble(),
-                image: result.party.logo ?? '',
+                image: result.party.logo,
                 percentage: '${result.percentage}%',
               ))
           .toList()
@@ -173,6 +175,7 @@ class ResultsController extends GetxController {
       ResultsPage5(),
       ResultsPage6(),
       ResultsPage7(),
+      ResultsPageAllParties(),
       ResultsPage8(),
       ResultsPage9(),
       ResultsPage10(willVote: willVote),
@@ -188,6 +191,19 @@ class ResultsController extends GetxController {
     var topicsList = DataManager().getTopics();
     _topics = topicsList.where((e) => e.id != 2 && e.id != 3).toList();
     _topics.sort((a, b) => a.id!.compareTo(b.id!));
+  }
+
+  List<PoliticalPartyWithPercent> preparePoliticalPartiesWithPercent() {
+    var partyUserDistance = ResultsHelper.getPartyUserDistances(_answersData);
+
+    return partyUserDistance
+        .where((result) => result.party.inParliament == true)
+        .map((result) => PoliticalPartyWithPercent(
+              party: result.party,
+              percent: result.percentage,
+            ))
+        .toList()
+      ..sort((b, a) => a.percent.compareTo(b.percent));
   }
 
   PartyUserDistance? getMajorPercentageParty() {
@@ -225,9 +241,9 @@ class ResultsController extends GetxController {
 
   void changePage(TapDownDetails details) {
     if (details.localPosition.dx < Get.width * .25) {
-      if (currentPage.value > 0) previousPage();
+      if (currentPageIndex.value > 0) previousPage();
     } else if (details.localPosition.dx > Get.width * .75) {
-      if (currentPage.value < pages.length - 1) nextPage();
+      if (currentPageIndex.value < pages.length - 1) nextPage();
     }
   }
 
@@ -322,8 +338,7 @@ class ResultsController extends GetxController {
     for (var data in _resultsData) {
       final partyPosition = calculateCompassPosition(data.party.answers ?? []);
 
-      final ui.Image image =
-          await SvgHelper.loadSvgFromUrl(data.party.logo ?? '');
+      final ui.Image image = await SvgHelper.loadSvgFromUrl(data.party.logo);
       scatterSpots
           .add(ScatterSpot(partyPosition.positionX, partyPosition.positionY,
               dotPainter: FlDotCirclePainterCustom(

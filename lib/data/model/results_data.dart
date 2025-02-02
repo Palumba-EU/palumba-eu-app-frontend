@@ -90,30 +90,35 @@ class Topic {
 }
 
 class PoliticParty {
-  int? id;
-  String? name;
-  String? color;
-  String? logo;
+  late int id;
+  late String name;
+  late String color;
+  late String logo;
+  late String link;
+  late String acronym;
+  late bool inParliament;
   List<LocalParties>? localParties;
-  String? acronym;
   List<Answer>? answers;
-  bool? inParliament;
 
-  PoliticParty(
-      {this.id,
-      this.name,
-      this.color,
-      this.logo,
-      this.localParties,
-      this.acronym,
-      this.answers,
-      this.inParliament});
+  PoliticParty({
+    required this.id,
+    required this.name,
+    required this.color,
+    required this.logo,
+    required this.link,
+    required this.acronym,
+    required this.inParliament,
+    this.localParties,
+    this.answers,
+  });
 
   PoliticParty.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     color = json['color'];
     logo = json['logo'];
+    link = json['link'];
+    acronym = json['acronym'];
     inParliament = json['in_parliament'];
     if (json['local_parties'] != null) {
       localParties = <LocalParties>[];
@@ -121,7 +126,6 @@ class PoliticParty {
         localParties!.add(new LocalParties.fromJson(v));
       });
     }
-    acronym = json['acronym'];
     if (json["answers"] != null) {
       answers = <Answer>[];
       json["answers"].forEach((x) => answers!.add(Answer.fromJson(x)));

@@ -18,6 +18,9 @@ class ResultsPage11 extends GetView<ResultsController> with ResultsPage {
   @override
   final bool showShare = false;
 
+  @override
+  final bool showBallotBoxBackground = true;
+
   ResultsPage11({required this.onDisplayBallotTutorial});
   final Function() onDisplayBallotTutorial;
 

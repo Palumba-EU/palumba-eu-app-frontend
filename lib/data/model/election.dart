@@ -33,15 +33,6 @@ extension ElectionImages on Election {
     }
   }
 
-  String get ballotBox {
-    switch (this) {
-      case Election.DE:
-        return 'assets/images/election/de/img_ballot_box_de.svg';
-      case Election.EU:
-        return 'assets/images/election/eu/img_ballot_box_eu.svg';
-    }
-  }
-
   String get ballotBoxBig {
     switch (this) {
       case Election.DE:
@@ -339,6 +330,17 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage7Title(country, group);
     }
+  }
+
+  String resultsPageAllCandidatesTitle(BuildContext context) {
+    return "Your personal ranking of all parties";
+  }
+
+  String resultsPageAllCandidatesDescription(
+      BuildContext context, int totalParties) {
+    return "Including " +
+        totalParties.toString() +
+        " political parties in all Bundesländer in Germany.";
   }
 
   String resultsPage7Disclaimer(BuildContext context) {
