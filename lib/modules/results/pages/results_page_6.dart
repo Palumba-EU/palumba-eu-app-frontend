@@ -11,6 +11,10 @@ import 'package:palumba_eu/utils/managers/election_manager.dart';
 class ResultsPage6 extends StatefulWidget with ResultsPage {
   @override
   final showShare = false;
+
+  @override
+  final bool showSpecialBackground = true;
+
   @override
   State<ResultsPage6> createState() => _ResultsPage6State();
 }

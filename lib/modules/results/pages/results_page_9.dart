@@ -18,6 +18,9 @@ class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
   final bool showShare = true;
 
   @override
+  final bool showSpecialBackground = true;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(

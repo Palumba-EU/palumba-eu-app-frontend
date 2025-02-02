@@ -17,7 +17,6 @@ import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/helpers/svg_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_11.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
@@ -179,12 +178,7 @@ class ResultsController extends GetxController {
       ResultsPage8(),
       ResultsPage9(),
       ResultsPage10(willVote: willVote),
-      ResultsPage11(onDisplayBallotTutorial: onDisplayBallotTutorial),
     ];
-  }
-
-  void onDisplayBallotTutorial() {
-    Utils.launch("https://google.com");
   }
 
   void _getTopics() async {
@@ -232,7 +226,7 @@ class ResultsController extends GetxController {
   Color getPartyColor() {
     final party = maxPercentagePoliticParty;
     if (party?.party.color != null) {
-      return Color(int.parse(party!.party.color!.substring(1, 7), radix: 16) +
+      return Color(int.parse(party!.party.color.substring(1, 7), radix: 16) +
           0xFF000000);
     } else {
       return AppColors.text;
@@ -255,10 +249,15 @@ class ResultsController extends GetxController {
   }
 
   void nextPage() {
-    pageController.nextPage(
-      duration: Duration(milliseconds: 1),
-      curve: Curves.easeInOut,
-    );
+    final isLastPage = pageController.page?.round() == allPages.length - 1;
+    if (isLastPage)
+      Get.back();
+    else {
+      pageController.nextPage(
+        duration: Duration(milliseconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 
   List<LocalParties> filterLocalPartiesByCountry() {
