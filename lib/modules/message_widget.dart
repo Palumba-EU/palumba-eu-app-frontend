@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/elections_response.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_html_widget.dart';
+import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -56,10 +57,12 @@ class MessageWidget extends StatelessWidget {
                                     width: 2,
                                     strokeAlign: 1),
                               ),
-                              child: Image.network(
-                                content.image,
-                                fit: BoxFit.fitWidth,
-                              )),
+                              child: CustomNetworkImage(
+                                  imageUrl: content.image,
+                                  isSvg: content.image.contains(".svg"),
+                                  width: Get.width,
+                                  height: 200,
+                                  fit: BoxFit.cover)),
                           AppTexts.title(content.title,
                               color: AppColors.primary),
                           CustomHtmlWidget(
