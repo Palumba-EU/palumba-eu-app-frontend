@@ -75,6 +75,8 @@ class StatementsController extends GetxController {
   FlipCardController flipCardController = FlipCardController();
   bool _isProgrammaticFlip = false;
 
+  bool _shouldTrackFlipping = true;
+
   @override
   void onInit() {
     _getArgumentsAndFetch();
@@ -145,6 +147,11 @@ class StatementsController extends GetxController {
 
   void onFlip() {
     if (!_isProgrammaticFlip) {
+      if (_shouldTrackFlipping) {
+        PlausibleManager.trackStatementInteraction(
+            _currentCards[0].id.toString(), StatementInteraction.flip);
+        _shouldTrackFlipping = false;
+      }
       if (tutorialOngoing.value) {
         tutorialOngoing.value = false;
         selectedResponseStatement.value = null;
@@ -191,13 +198,12 @@ class StatementsController extends GetxController {
   void onPanEnd(DragEndDetails details) {
     isPanStarted.value = false;
     final decision = _checkActionSelected();
-    activateButton(decision);
+    activateButton(decision, trackClick: false);
   }
 
 //Decide wich button to activate
-  void activateButton(
-    StatementResponse? decision,
-  ) {
+  void activateButton(StatementResponse? decision,
+      {bool trackClick = true}) async {
     tutorialOngoing.value = false;
     currentDraggedResponseStatement.value = null;
     switch (decision) {
@@ -219,7 +225,16 @@ class StatementsController extends GetxController {
       default:
         _nothingHappen();
     }
-    if (decision != null) storeAnswerData(decision);
+    if (decision != null) {
+      storeAnswerData(decision);
+      if (trackClick) {
+        PlausibleManager.trackStatementInteraction(
+            _currentCards[0].id.toString(), StatementInteraction.click);
+      } else {
+        PlausibleManager.trackStatementInteraction(
+            _currentCards[0].id.toString(), StatementInteraction.swipe);
+      }
+    }
   }
 
 //Handle user LongPress, activate button color but not card animation, animation will be triggered when user release the button
@@ -325,15 +340,15 @@ class StatementsController extends GetxController {
     if (flipCardController.state?.isFront == false) {
       flipCardController.toggleCardWithoutAnimation();
     }
+    _shouldTrackFlipping = true;
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
 
-    if (_currentCards.length > 0) {
-      PlausibleManager.trackStatement(_currentCards[0].id.toString());
-    }
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);
+    } else {
+      PlausibleManager.trackStatement(_currentCards[0].id.toString());
     }
   }
 
@@ -440,6 +455,7 @@ class StatementsController extends GetxController {
         UserManager.deleteLastStatement();
         // track previous card
         PlausibleManager.trackStatement(_currentCards[0].id.toString());
+        _shouldTrackFlipping = true;
       }
     } catch (e) {
       debugPrint("error returnToPreviousCard");
