@@ -62,75 +62,81 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
   Widget content(BuildContext context) {
     return Obx(() {
       if (willVote.value == true) {
-        /// Notification?
-        return Column(
-          children: [
-            Padding(
-                padding: AppDimens.lateralPadding,
-                child: AppTexts.title(
-                    ElectionManager.currentElection.value
-                        .resultsPage10Title(context),
-                    color: AppColors.primary,
-                    textAlign: TextAlign.center)),
-            CustomSpacer(multiplier: 2),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(
-                  onPressed: controller.nextPage,
-                  child: AppTexts.regular(S.of(context).resultsPage10NopButton,
-                      bold: true, color: AppColors.primary),
-                ),
-                CustomHorizontalSpacer(),
-                CustomButton(
-                  onPressed: registerForPush,
-                  text: S.of(context).resultsPage10YesButton,
-                  //Default parameters
-                  border: ButtonBorderParameters(),
-                ),
-              ],
-            )
-          ],
-        );
+        return _wantANotifcation(context);
       } else {
-        /// Going to vote?
-        return Column(
-          children: [
-            Padding(
-                padding: AppDimens.lateralPadding,
-                child: AppTexts.title('Are you going to vote?',
-                    color: AppColors.primary, textAlign: TextAlign.center)),
-            CustomSpacer(multiplier: 2),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(
-                  onPressed: controller.nextPage,
-                  child: AppTexts.regular(S.of(context).no,
-                      bold: true, color: AppColors.primary),
-                ),
-                TextButton(
-                  onPressed: () {
-                    willVote.value = true;
-                  },
-                  child: AppTexts.regular("Maybe",
-                      bold: true, color: AppColors.primary),
-                ),
-                CustomHorizontalSpacer(),
-                CustomButton(
-                  onPressed: () {
-                    willVote.value = true;
-                  },
-                  text: S.of(context).resultsPage10YesButton,
-                  //Default parameters
-                  border: ButtonBorderParameters(),
-                ),
-              ],
-            )
-          ],
-        );
+        return _goingToVote(context);
       }
     });
+  }
+
+  Widget _wantANotifcation(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+            padding: AppDimens.lateralPadding,
+            child: AppTexts.title(
+                ElectionManager.currentElection.value
+                    .resultsPage10Title(context),
+                color: AppColors.primary,
+                textAlign: TextAlign.center)),
+        CustomSpacer(multiplier: 2),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: controller.nextPage,
+              child: AppTexts.regular(S.of(context).resultsPage10NopButton,
+                  bold: true, color: AppColors.primary),
+            ),
+            CustomHorizontalSpacer(),
+            CustomButton(
+              onPressed: registerForPush,
+              text: S.of(context).resultsPage10YesButton,
+              //Default parameters
+              border: ButtonBorderParameters(),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _goingToVote(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+            padding: AppDimens.lateralPadding,
+            child: AppTexts.title('Are you going to vote?',
+                color: AppColors.primary, textAlign: TextAlign.center)),
+        CustomSpacer(multiplier: 2),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: controller.nextPage,
+              child: AppTexts.regular(S.of(context).no,
+                  bold: true, color: AppColors.primary),
+            ),
+            TextButton(
+              onPressed: () {
+                willVote.value = true;
+              },
+              child: AppTexts.regular("Maybe",
+                  bold: true, color: AppColors.primary),
+            ),
+            CustomHorizontalSpacer(),
+            CustomButton(
+              onPressed: () {
+                willVote.value = true;
+              },
+              text: S.of(context).resultsPage10YesButton,
+              //Default parameters
+              border: ButtonBorderParameters(),
+            ),
+          ],
+        )
+      ],
+    );
   }
 
   void registerForPush() async {

@@ -166,7 +166,7 @@ class ResultsController extends GetxController {
   }
 
   List<ResultsPage> createAllResultsPages() {
-    return [
+    List<ResultsPage> results = [
       ResultsPage1(),
       ResultsPage2(),
       ResultsPage3(),
@@ -177,8 +177,13 @@ class ResultsController extends GetxController {
       ResultsPageAllParties(),
       ResultsPage8(),
       ResultsPage9(),
-      ResultsPage10(willVote: willVote),
     ];
+    bool isPastElection =
+        ElectionManager.electionDate!.isBefore(DateTime.now());
+    if (!isPastElection) {
+      results.add(ResultsPage10(willVote: willVote));
+    }
+    return results;
   }
 
   void _getTopics() async {
@@ -237,11 +242,12 @@ class ResultsController extends GetxController {
     if (details.localPosition.dx < Get.width * .25) {
       if (currentPageIndex.value > 0) previousPage();
     } else if (details.localPosition.dx > Get.width * .75) {
-      if (currentPageIndex.value < pages.length - 1) nextPage();
+      nextPage();
     }
   }
 
   void previousPage() {
+    debugPrint("results previousPage");
     pageController.previousPage(
       duration: Duration(milliseconds: 1),
       curve: Curves.easeInOut,
@@ -249,6 +255,7 @@ class ResultsController extends GetxController {
   }
 
   void nextPage() {
+    debugPrint("results nextPage");
     final isLastPage = pageController.page?.round() == allPages.length - 1;
     if (isLastPage)
       Get.back();
