@@ -196,7 +196,6 @@ class ResultsController extends GetxController {
     var partyUserDistance = ResultsHelper.getPartyUserDistances(_answersData);
 
     return partyUserDistance
-        .where((result) => result.party.inParliament == true)
         .map((result) => PoliticalPartyWithPercent(
               party: result.party,
               percent: result.percentage,
