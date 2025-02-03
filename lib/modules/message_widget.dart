@@ -62,9 +62,10 @@ class MessageWidget extends StatelessWidget {
                                   isSvg: content.image.contains(".svg"),
                                   width: Get.width,
                                   height: 200,
-                                  fit: BoxFit.cover)),
+                                  fit: BoxFit.contain)),
                           AppTexts.title(content.title,
-                              color: AppColors.primary),
+                              color: AppColors.primary,
+                              textAlign: TextAlign.center),
                           CustomHtmlWidget(
                             content: content.description,
                             textStyle: AppTexts.customTextStyle(
@@ -72,8 +73,8 @@ class MessageWidget extends StatelessWidget {
                                 color: AppColors.primary,
                                 fontSize: 14.0),
                           ),
-                          Wrap(
-                            alignment: WrapAlignment.spaceEvenly,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               TextButton(
                                   onPressed: () => dismiss(context),
