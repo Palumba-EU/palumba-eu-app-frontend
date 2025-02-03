@@ -40,7 +40,7 @@ class ResultsTile extends StatelessWidget {
             horizontal: AppDimens.lateralPaddingValue, vertical: 15),
         child: Row(children: [
           CustomNetworkImage(
-            border: Border.all(color: AppColors.background, width: 3),
+            border: Border.all(color: AppColors.lightYellow, width: 3),
             width: AppDimens.avatarImageSize,
             height: AppDimens.avatarImageSize,
             isSvg: viewModel.logo.contains(".svg"),
