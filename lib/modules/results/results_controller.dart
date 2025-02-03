@@ -400,6 +400,8 @@ class ResultsController extends GetxController {
     for (var myAnswer in myAnswers) {
       var statement = DataManager()
           .getStatements()
+          .where((statement) => statement.isTutorial == false)
+          .toList()
           .firstWhereOrNull((element) => element.id == myAnswer.statementId);
       if (statement != null) {
         var parties = DataManager().getParties().where((element) {
