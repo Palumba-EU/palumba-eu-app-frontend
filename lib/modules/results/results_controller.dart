@@ -146,14 +146,13 @@ class ResultsController extends GetxController {
 
       //Convert the data to the format that the chart needs
       //ATTENTION! Make sure to order list by value, from mayor to minor, before useing it. If not chart will not work
-      final topResults = _resultsData
+      var filteredResults = _resultsData
           .where((result) => result.party.inParliament == true)
-          .toList()
-        ..sort((b, a) => a.percentage.compareTo(b.percentage))
-        ..take(7) // max we want to display
-            .toList();
+          .toList();
+      filteredResults.sort((b, a) => a.percentage.compareTo(b.percentage));
 
-      chartData = topResults
+      chartData = filteredResults
+          .take(7)
           .map((result) => CustomChartData(
                 party: result.party.name,
                 value: result.percentage.toDouble(),
@@ -170,18 +169,34 @@ class ResultsController extends GetxController {
   }
 
   List<ResultsPage> createAllResultsPages() {
-    List<ResultsPage> results = [
-      ResultsPage1(),
-      ResultsPage2(),
-      ResultsPage3(),
-      ResultsPage4(),
-      ResultsPage5(),
-      ResultsPage6(),
-      ResultsPage7(),
-      ResultsPageAllParties(),
-      ResultsPage8(),
-      ResultsPage9(),
-    ];
+    List<ResultsPage> results;
+    switch (ElectionManager.currentElection.value) {
+      case Election.DE:
+        results = [
+          ResultsPage1(),
+          ResultsPage2(),
+          ResultsPage3(),
+          ResultsPage4(),
+          ResultsPage5(),
+          ResultsPage6(),
+          ResultsPageAllParties(),
+          ResultsPage8(),
+          ResultsPage9(),
+        ];
+      case Election.EU:
+        results = [
+          ResultsPage1(),
+          ResultsPage2(),
+          ResultsPage3(),
+          ResultsPage4(),
+          ResultsPage5(),
+          ResultsPage6(),
+          ResultsPage7(),
+          ResultsPage8(),
+          ResultsPage9(),
+        ];
+    }
+
     bool isPastElection =
         ElectionManager.electionDate!.isBefore(DateTime.now());
     if (!isPastElection) {
