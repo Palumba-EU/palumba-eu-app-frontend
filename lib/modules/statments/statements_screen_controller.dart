@@ -131,33 +131,33 @@ class StatementsController extends GetxController {
       for (var response in animationOrder) {
         if (!tutorialOngoing.value) return;
         selectedResponseStatement.value = response;
-        await Future.delayed(Duration(milliseconds: 500));
+        await Future.delayed(Duration(milliseconds: 800));
       }
 
       if (!tutorialOngoing.value) return;
       _isProgrammaticFlip = true;
       flipCardController.toggleCard();
+      _isProgrammaticFlip = false;
       await Future.delayed(Duration(milliseconds: 500));
       if (!tutorialOngoing.value) return;
       _isProgrammaticFlip = true;
       flipCardController.toggleCard();
+      _isProgrammaticFlip = false;
       await Future.delayed(Duration(milliseconds: 500));
     }
   }
 
   void onFlip() {
-    if (!_isProgrammaticFlip) {
-      if (_shouldTrackFlipping) {
-        PlausibleManager.trackStatementInteraction(
-            _currentCards[0].id.toString(), StatementInteraction.flip);
-        _shouldTrackFlipping = false;
-      }
-      if (tutorialOngoing.value) {
-        tutorialOngoing.value = false;
-        selectedResponseStatement.value = null;
-      }
-    } else {
-      _isProgrammaticFlip = false;
+    if (_isProgrammaticFlip) return;
+
+    if (_shouldTrackFlipping) {
+      PlausibleManager.trackStatementInteraction(
+          _currentCards[0].id.toString(), StatementInteraction.flip);
+      _shouldTrackFlipping = false;
+    }
+    if (tutorialOngoing.value) {
+      tutorialOngoing.value = false;
+      selectedResponseStatement.value = null;
     }
   }
 
