@@ -59,26 +59,34 @@ class CardFrontPage extends StatelessWidget {
   Widget onBoardingView() {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.only(top: AppDimens.largeLateralPaddingValue),
-        child: Container(
-          decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: _getBackgroundEmojiColor(),
-                  spreadRadius: 0,
-                  blurRadius: 48,
-                  offset: Offset(0, 0),
+          padding:
+              const EdgeInsets.only(top: AppDimens.largeLateralPaddingValue),
+          child: Column(
+            children: [
+              AppTexts.regular("Tap to turn & read more info"),
+              CustomSpacer(
+                multiplier: 3,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: _getBackgroundEmojiColor(),
+                        spreadRadius: 0,
+                        blurRadius: 48,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
+                    color: _getBackgroundEmojiColor(),
+                    borderRadius: BorderRadius.circular(50)),
+                padding: EdgeInsets.symmetric(vertical: 12.5, horizontal: 22.5),
+                child: Text(
+                  _getOnboardingEmojis(),
+                  style: TextStyle(fontSize: 32),
                 ),
-              ],
-              color: _getBackgroundEmojiColor(),
-              borderRadius: BorderRadius.circular(50)),
-          padding: EdgeInsets.symmetric(vertical: 12.5, horizontal: 22.5),
-          child: Text(
-            _getOnboardingEmojis(),
-            style: TextStyle(fontSize: 32),
-          ),
-        ),
-      ),
+              ),
+            ],
+          )),
     );
   }
 
