@@ -114,7 +114,10 @@ class FlDotCirclePainterCustom extends FlDotPainter {
         );
         final paragraphBuilder = ui.ParagraphBuilder(paragraphStyle)
           ..pushStyle(ui.TextStyle(
-              color: AppColors.lightBlue, fontWeight: FontWeight.w900))
+              color: AppColors.primary,
+              fontWeight: FontWeight.w900,
+              background: Paint()
+                ..color = AppColors.lightBlue.withAlpha((0.8 * 255).toInt())))
           ..addText(ElectionManager.currentElection.value
               .resultsPage4TitleUserHere(Get.context!));
         final constraints = ui.ParagraphConstraints(width: 300);
