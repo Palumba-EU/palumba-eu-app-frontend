@@ -361,6 +361,7 @@ class ResultsController extends GetxController {
   void getScatterPoints() async {
     //This are parties Scatter points
     for (var data in _resultsData) {
+      if (data.party.inParliament == false) continue;
       final partyPosition = calculateCompassPosition(data.party.answers ?? []);
 
       final ui.Image image = await SvgHelper.loadSvgFromUrl(data.party.logo);
