@@ -446,7 +446,11 @@ class ResultsController extends GetxController {
   ) {
     final userParty = maxPercentagePoliticParty?.party;
     final answers = answersData;
-    final parties = DataManager().getPartiesInParliament();
+    var parties = DataManager().getParties();
+    parties = parties
+        .where(
+            (party) => party.inParliament == true || party.id == userParty!.id)
+        .toList();
 
     Map<String, double> epGroupDimensions = {};
     if (userParty == null) {

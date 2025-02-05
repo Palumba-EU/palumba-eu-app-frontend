@@ -54,10 +54,6 @@ class DataManager {
     return parties ?? [];
   }
 
-  List<PoliticParty> getPartiesInParliament() {
-    return parties?.where((party) => party.inParliament == true).toList() ?? [];
-  }
-
   void setTopics(List<Topic>? topics) {
     this.topics = topics;
   }
