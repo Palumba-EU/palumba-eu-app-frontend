@@ -2,6 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
@@ -98,7 +99,8 @@ class HomePage extends StatelessWidget {
                     TextButton(
                       onPressed: _.eggPressed,
                       child: AppTexts.small(
-                          S.of(context).resultsPage10NopButton,
+                          ElectionManager.currentElection.value
+                              .resultsPage10NopButton(context),
                           bold: true,
                           color: AppColors.primary),
                     ),
@@ -106,7 +108,8 @@ class HomePage extends StatelessWidget {
                     CustomButton(
                       onPressed: () =>
                           _.launchUrl(youthCardSponsor.bannerLink ?? ''),
-                      text: S.of(context).resultsPage10YesButton,
+                      text: ElectionManager.currentElection.value
+                          .resultsPage10YesButton(context),
                       textFontSize: AppDimens.fontSizeSmall,
                       bold: true,
                       padding: EdgeInsets.all(12),

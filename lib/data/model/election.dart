@@ -134,6 +134,15 @@ extension ElectionTexts on Election {
     }
   }
 
+  String onBoardingStep3Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).onBoardingStep3Title_ger25;
+      case Election.EU:
+        return S.of(context).onBoardingStep3Title;
+    }
+  }
+
   String loadingResultsPageTitle1(BuildContext context) {
     switch (this) {
       case Election.DE:
@@ -155,7 +164,7 @@ extension ElectionTexts on Election {
   String loadingResultsPageTitle3(BuildContext context, String country) {
     switch (this) {
       case Election.DE:
-        return S.of(context).loadingResultsPageTitle3_ger25(country);
+        return S.of(context).loadingResultsPageTitle3_ger25;
       case Election.EU:
         return S.of(context).loadingResultsPageTitle3(country);
     }
@@ -185,6 +194,15 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage1Text_ger25;
       case Election.EU:
         return S.of(context).resultsPage1Text;
+    }
+  }
+
+  String resultsPage1Button(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage1Button_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage1Button;
     }
   }
 
@@ -218,7 +236,7 @@ extension ElectionTexts on Election {
   String resultsPage4TitleTop(BuildContext context) {
     switch (this) {
       case Election.DE:
-        return "Socially Progressive";
+        return S.of(context).resultsPage4TitleTop_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleTop;
     }
@@ -227,7 +245,7 @@ extension ElectionTexts on Election {
   String resultsPage4TitleBottom(BuildContext context) {
     switch (this) {
       case Election.DE:
-        return "Socially Conservative";
+        return S.of(context).resultsPage4TitleBottom_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleBottom;
     }
@@ -236,7 +254,7 @@ extension ElectionTexts on Election {
   String resultsPage4TitleRight(BuildContext context) {
     switch (this) {
       case Election.DE:
-        return "Free Market Economics";
+        return S.of(context).resultsPage4TitleRight_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleRight;
     }
@@ -245,7 +263,7 @@ extension ElectionTexts on Election {
   String resultsPage4TitleLeft(BuildContext context) {
     switch (this) {
       case Election.DE:
-        return "Economic Intervention";
+        return S.of(context).resultsPage4TitleLeft_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleLeft;
     }
@@ -296,6 +314,26 @@ extension ElectionTexts on Election {
     }
   }
 
+  String resultsPage5Topic4(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage5Topic4_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage5Topic3; // wrong in translation file
+    }
+  }
+
+  String resultsPage5Topic5(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage5Topic5_ger25;
+      case Election.EU:
+        return S
+            .of(context)
+            .resultsPage5Topic5_ger25; // wrong in translation file
+    }
+  }
+
   String resultsPage6_1Title(BuildContext context) {
     switch (this) {
       case Election.DE:
@@ -326,7 +364,7 @@ extension ElectionTexts on Election {
   String resultsPage7Title(BuildContext context, String country, String group) {
     switch (this) {
       case Election.DE:
-        return S.of(context).resultsPage7Title_ger25(country, group);
+        return S.of(context).resultsPage7Title_ger25(group);
       case Election.EU:
         return S.of(context).resultsPage7Title(country, group);
     }
@@ -355,7 +393,7 @@ extension ElectionTexts on Election {
   String resultsPage7NoLocalCandidates(BuildContext context, String country) {
     switch (this) {
       case Election.DE:
-        return S.of(context).resultsPage7NoLocalCandidates_ger25(country);
+        return S.of(context).resultsPage7NoLocalCandidates(country);
       case Election.EU:
         return S.of(context).resultsPage7NoLocalCandidates(country);
     }
@@ -365,7 +403,7 @@ extension ElectionTexts on Election {
       BuildContext context, String topic, String percentage) {
     switch (this) {
       case Election.DE:
-        return S.of(context).resultsPage8_1Text_ger25(topic, percentage);
+        return S.of(context).resultsPage8_1Text_ger25(percentage, topic);
       case Election.EU:
         return S.of(context).resultsPage8_1Text(topic, percentage);
     }
@@ -422,6 +460,105 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage10Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage10Title;
+    }
+  }
+
+  String resultsPage10NopButton(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage10NopButton_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage10NopButton;
+    }
+  }
+
+  String resultsPage10YesButton(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPage10YesButton_ger25;
+      case Election.EU:
+        return S.of(context).resultsPage10YesButton;
+    }
+  }
+
+  String settingsPageTitleAssociation(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageTitleAssociation_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageTitleAssociation;
+    }
+  }
+
+  String settingsPageTitlePartners(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageTitlePartners_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageTitlePartners;
+    }
+  }
+
+  String settingsPageTextPartners(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageTextPartners_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageTextPartners;
+    }
+  }
+
+  String settingsPageSubtitle1(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageSubtitle1_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageSubtitle1;
+    }
+  }
+
+  String settingsPageSubtitle2(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageSubtitle2_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageSubtitle2;
+    }
+  }
+
+  String settingsPageSubtitle3(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageSubtitle3_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageSubtitle3;
+    }
+  }
+
+  String settingsPageSubtitle4(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageSubtitle4_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageSubtitle4;
+    }
+  }
+
+  String settingsPageSubtitle5(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageSubtitle5_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageSubtitle5;
+    }
+  }
+
+  String settingsPageShareText(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).settingsPageShareText_ger25;
+      case Election.EU:
+        return S.of(context).settingsPageShareText;
     }
   }
 }

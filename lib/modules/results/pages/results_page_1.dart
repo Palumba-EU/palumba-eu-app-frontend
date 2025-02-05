@@ -9,7 +9,6 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class ResultsPage1 extends GetView<ResultsController> with ResultsPage {
   @override
@@ -54,8 +53,11 @@ class ResultsPage1 extends GetView<ResultsController> with ResultsPage {
                   curve: Curves.easeInOut,
                 );
               },
-              child: AppTexts.regular(S.of(context).resultsPage1Button,
-                  bold: true, color: AppColors.lightPrimary),
+              child: AppTexts.regular(
+                  ElectionManager.currentElection.value
+                      .resultsPage1Button(context),
+                  bold: true,
+                  color: AppColors.lightPrimary),
             ),
           ),
           CustomSpacer(),

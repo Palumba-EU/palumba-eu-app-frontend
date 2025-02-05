@@ -13,6 +13,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
@@ -117,7 +118,8 @@ class SettingsPage extends StatelessWidget {
                           top: AppDimens.smallLateralPaddingValue,
                           bottom: AppDimens.smallLateralPaddingValue),
                       child: AppTexts.small(
-                          S.of(context).settingsPageTitleAssociation,
+                          ElectionManager.currentElection.value
+                              .settingsPageTitleAssociation(context),
                           color: AppColors.primary,
                           bold: true,
                           decoration: TextDecoration.underline),
@@ -150,10 +152,14 @@ class SettingsPage extends StatelessWidget {
               CustomSpacer(multiplier: 4),
 
               //PARTNERS
-              AppTexts.title(S.of(context).settingsPageTitlePartners,
+              AppTexts.title(
+                  ElectionManager.currentElection.value
+                      .settingsPageTitlePartners(context),
                   color: AppColors.primary),
               CustomSpacer(small: true),
-              AppTexts.small(S.of(context).settingsPageTextPartners,
+              AppTexts.small(
+                  ElectionManager.currentElection.value
+                      .settingsPageTextPartners(context),
                   color: AppColors.primary),
 
               _wrapperIcons(_),
@@ -214,11 +220,16 @@ class SettingsPage extends StatelessWidget {
                     [
                       // HACK we don't know if this works reliable,
                       // but now at least the translations are shown
-                      S.of(context).settingsPageSubtitle1,
-                      S.of(context).settingsPageSubtitle2,
-                      S.of(context).settingsPageSubtitle3,
-                      S.of(context).settingsPageSubtitle4,
-                      S.of(context).settingsPageSubtitle5
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle1(context),
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle2(context),
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle3(context),
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle4(context),
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle5(context)
                     ][index],
                     bold: true,
                     color: AppColors.primary),

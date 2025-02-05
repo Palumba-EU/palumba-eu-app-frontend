@@ -1,12 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/onboarding/components/custom_gender_selector.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 class Step4 extends StatelessWidget {
   final List<String> genders;
@@ -36,7 +37,9 @@ class Step4 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: [
-            AppTexts.title(S.of(context).onBoardingStep3Title,
+            AppTexts.title(
+                ElectionManager.currentElection.value
+                    .onBoardingStep3Title(context),
                 color: AppColors.primary),
             CustomSpacer(
               multiplier: 3,

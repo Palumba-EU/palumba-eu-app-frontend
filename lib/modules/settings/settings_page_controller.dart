@@ -8,7 +8,6 @@ import 'package:palumba_eu/modules/settings/helpers/category_sponsor.dart';
 import 'package:palumba_eu/modules/welcome/election/election_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
@@ -133,6 +132,6 @@ class SettingsPageController extends GetxController {
 
   void shareApp() {
     Share.share(
-        '${S.of(Get.context!).settingsPageShareText} ${StringUtils.webUrl}');
+        '${ElectionManager.currentElection.value.settingsPageShareText(Get.context!)} ${StringUtils.webUrl}');
   }
 }

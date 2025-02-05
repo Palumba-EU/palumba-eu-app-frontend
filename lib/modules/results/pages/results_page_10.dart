@@ -85,13 +85,17 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
           children: [
             TextButton(
               onPressed: controller.nextPage,
-              child: AppTexts.regular(S.of(context).resultsPage10NopButton,
-                  bold: true, color: AppColors.primary),
+              child: AppTexts.regular(
+                  ElectionManager.currentElection.value
+                      .resultsPage10NopButton(context),
+                  bold: true,
+                  color: AppColors.primary),
             ),
             CustomHorizontalSpacer(),
             CustomButton(
               onPressed: registerForPush,
-              text: S.of(context).resultsPage10YesButton,
+              text: ElectionManager.currentElection.value
+                  .resultsPage10YesButton(context),
               //Default parameters
               border: ButtonBorderParameters(),
             ),
@@ -129,7 +133,8 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
               onPressed: () {
                 willVote.value = true;
               },
-              text: S.of(context).resultsPage10YesButton,
+              text: ElectionManager.currentElection.value
+                  .resultsPage10YesButton(context),
               //Default parameters
               border: ButtonBorderParameters(),
             ),
