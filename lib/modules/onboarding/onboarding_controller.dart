@@ -153,7 +153,7 @@ class OnboardingController extends GetxController {
    */
 
   void launchDataPrivcay() {
-    Utils.launch("https://www.palumba.eu/de/data-protection");
+    Utils.launch(StringUtils.privacyStatementUrl);
   }
 
   void updateButtonState() {
