@@ -160,7 +160,7 @@ class ResultsController extends GetxController {
                 percentage: '${result.percentage}%',
               ))
           .toList();
-      _maxPercentagePoliticParty = getMajorPercentageParty();
+      _maxPercentagePoliticParty = getMajorPercentagePartyInParialment();
       getScatterPoints();
     }
 
@@ -223,7 +223,7 @@ class ResultsController extends GetxController {
       ..sort((b, a) => a.percent.compareTo(b.percent));
   }
 
-  PartyUserDistance? getMajorPercentageParty() {
+  PartyUserDistance? getMajorPercentagePartyInParialment() {
     if (_resultsData.isEmpty) return null;
     //Get the party with mayor percentage (minor distance)
     PartyUserDistance? maxPercentageParty;
@@ -231,6 +231,7 @@ class ResultsController extends GetxController {
     double maxPercentageValue = double.negativeInfinity;
 
     for (PartyUserDistance data in _resultsData) {
+      if (!data.party.inParliament) continue;
       if (data.percentage > maxPercentageValue) {
         maxPercentageValue = data.percentage.toDouble();
         topPercentageParties = [data];
@@ -238,6 +239,7 @@ class ResultsController extends GetxController {
         topPercentageParties.add(data);
       }
     }
+    if (topPercentageParties.isEmpty) return null;
     //If there is more than one party with the same percentage, get a random one
     Random random = Random();
     maxPercentageParty =
