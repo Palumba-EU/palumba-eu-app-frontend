@@ -5,6 +5,7 @@
   "ok": "Ok",
   "yes": "Yes",
   "no": "No",
+  "maybe": "Maybe",
   "cancel": "Cancel",
   "textContinue": "Continue",
   "alertServerErrorTitle": "Ops!",
@@ -334,5 +335,12 @@
   "resultsPage9Text2_ger25": "made for you!",
   "@resultsPage9Text2_ger25": {
     "description": "-> resultsPage9Text2"
-  }
+  },
+  "resultsPage2NoResults": "No results found",
+  "resultsPage10VotingDay": "Get Ready, Voting Day is {date}",
+  "resultsPage10VotingQuestion": "Are you going to vote?",
+  "pushDeactivatedTitle": "Notifications disabled",
+  "pushDeactivatedText": "To be able to receive Push Notifcation enable them in the settings",
+  "pushDeactivatedCancel": "Close",
+  "pushDeactivatedConfirm": "Open Settings"
 }

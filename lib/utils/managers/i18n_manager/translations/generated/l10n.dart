@@ -80,6 +80,11 @@ class S {
     return Intl.message('No', name: 'no', desc: '', args: []);
   }
 
+  /// `Maybe`
+  String get maybe {
+    return Intl.message('Maybe', name: 'maybe', desc: '', args: []);
+  }
+
   /// `Cancel`
   String get cancel {
     return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
@@ -1516,6 +1521,76 @@ class S {
       'made for you!',
       name: 'resultsPage9Text2_ger25',
       desc: '-> resultsPage9Text2',
+      args: [],
+    );
+  }
+
+  /// `No results found`
+  String get resultsPage2NoResults {
+    return Intl.message(
+      'No results found',
+      name: 'resultsPage2NoResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Ready, Voting Day is {date}`
+  String resultsPage10VotingDay(Object date) {
+    return Intl.message(
+      'Get Ready, Voting Day is $date',
+      name: 'resultsPage10VotingDay',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Are you going to vote?`
+  String get resultsPage10VotingQuestion {
+    return Intl.message(
+      'Are you going to vote?',
+      name: 'resultsPage10VotingQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications disabled`
+  String get pushDeactivatedTitle {
+    return Intl.message(
+      'Notifications disabled',
+      name: 'pushDeactivatedTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To be able to receive Push Notifcation enable them in the settings`
+  String get pushDeactivatedText {
+    return Intl.message(
+      'To be able to receive Push Notifcation enable them in the settings',
+      name: 'pushDeactivatedText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get pushDeactivatedCancel {
+    return Intl.message(
+      'Close',
+      name: 'pushDeactivatedCancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open Settings`
+  String get pushDeactivatedConfirm {
+    return Intl.message(
+      'Open Settings',
+      name: 'pushDeactivatedConfirm',
+      desc: '',
       args: [],
     );
   }

@@ -13,6 +13,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
   @override
@@ -59,7 +60,7 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
                 padding: EdgeInsets.symmetric(
                     horizontal: AppDimens.largeLateralPaddingValue),
                 child: controller.maxPercentagePoliticParty == null
-                    ? AppTexts.title('No results found',
+                    ? AppTexts.title(S.of(context).resultsPage2NoResults,
                         color: AppColors.primary)
                     : RichText(
                         textAlign: TextAlign.center,
