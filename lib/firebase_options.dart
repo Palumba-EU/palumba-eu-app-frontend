@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBYLOPxNWSFakvt-KrIOmav1iRZLbeW_wE',
-    appId: '1:764224091575:android:ddbf63826bb4e59ab16432',
-    messagingSenderId: '764224091575',
-    projectId: 'palumba-eu',
-    storageBucket: 'palumba-eu.firebasestorage.app',
+    apiKey: 'AIzaSyCmu-f7zzo-JlZiPR07fwR8RxTUK-46lPk',
+    appId: '1:646418472598:android:5100387c3e66fce9ab6cb7',
+    messagingSenderId: '646418472598',
+    projectId: 'palumba-app',
+    storageBucket: 'palumba-app.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAWY9W-vIEnOZ6gWhzt_vZHPyd4kaANnPA',
-    appId: '1:764224091575:ios:df8ba698ce11e131b16432',
-    messagingSenderId: '764224091575',
-    projectId: 'palumba-eu',
-    storageBucket: 'palumba-eu.firebasestorage.app',
+    apiKey: 'AIzaSyBZ2whn3c9hsThlfclkX4IUjFXHDjTh-Gw',
+    appId: '1:646418472598:ios:9b4affaf60c81546ab6cb7',
+    messagingSenderId: '646418472598',
+    projectId: 'palumba-app',
+    storageBucket: 'palumba-app.firebasestorage.app',
     iosBundleId: 'com.palumba.app.ios',
   );
+
 }
