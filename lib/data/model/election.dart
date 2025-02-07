@@ -448,7 +448,7 @@ extension ElectionTexts on Election {
   String resultsPage9Text2(BuildContext context) {
     switch (this) {
       case Election.DE:
-        return S.of(context).resultsPage9Text2_egr;
+        return S.of(context).resultsPage9Text2_ger25;
       case Election.EU:
         return S.of(context).resultsPage9Text2;
     }
