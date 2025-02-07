@@ -198,6 +198,7 @@ class DataAPI {
       var electionResponse = electionsResponse.data.firstWhere(
           (er) => er.id == ElectionManager.currentElection.value.backend);
       ElectionManager.eggInfo = electionResponse.eggScreen;
+      ElectionManager.localPartyScreen = electionResponse.localPartyScreen;
       ElectionManager.electionDate = electionResponse.date;
       return electionResponse;
     } catch (e) {

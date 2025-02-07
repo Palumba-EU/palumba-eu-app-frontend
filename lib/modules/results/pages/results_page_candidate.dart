@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
@@ -13,6 +11,7 @@ import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
 class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
@@ -26,16 +25,16 @@ class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
             EdgeInsets.symmetric(horizontal: AppDimens.lateralPaddingValue),
         child: Obx(() {
           if (controller.currentLocalCandidateIndex.value != null)
-            return localParty(controller.locaPartiesOfMaxParty[
+            return _localParty(controller.locaPartiesOfMaxParty[
                 controller.currentLocalCandidateIndex.value!]);
           else
-            return noLocalParty();
+            return _noLocalParty();
         }),
       )
     ]));
   }
 
-  Widget localParty(LocalParties localparty) {
+  Widget _localParty(LocalParties localparty) {
     return Column(children: [
       Expanded(
           child: SingleChildScrollView(
@@ -81,12 +80,39 @@ class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
           onPressed: controller.nextCandidate,
           child: AppTexts.medium("Shuffle my politcal love 🔀",
               color: AppColors.primary, bold: true)),
-      AppTexts.small("In collaboration with"),
+      _inCollabWith(),
       CustomSpacer(multiplier: 1),
     ]);
   }
 
-  Widget noLocalParty() {
+  Widget _noLocalParty() {
     return Text("no local parties");
+  }
+
+  Widget _inCollabWith() {
+    var link = ElectionManager.localPartyScreen?.link;
+    if (link == null) return SizedBox.shrink();
+    var text = ElectionManager.localPartyScreen?.text ?? link;
+    var logo = ElectionManager.localPartyScreen?.logo;
+
+    return GestureDetector(
+        onTapDown: (_) => Utils.launch(link),
+        child: Column(children: [
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            AppTexts.small(text, color: AppColors.primary),
+            if (logo != null)
+              Padding(
+                  padding: EdgeInsets.only(left: 4),
+                  child: CustomNetworkImage(
+                    width: 20,
+                    height: 20,
+                    isSvg: logo.contains(".svg"),
+                    imageUrl: logo,
+                    radius: Get.width,
+                    color: AppColors.blue,
+                  ))
+          ]),
+          CustomSpacer(multiplier: 1),
+        ]));
   }
 }
