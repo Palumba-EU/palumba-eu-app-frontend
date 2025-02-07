@@ -39,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "${topic} – ${percentage} labiau linkstate prie";
 
   static String m7(number, dimension) =>
-      "Your answers are in the top ${number}% regarding  ${dimension}";
+      "Your answers are in the top ${number}% regarding ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -129,7 +129,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Neturiu žalio supratimo už ką balsuoti 2024 Europos Parlamento rinkimuose",
     ),
     "onBoardingCardQuestion_ger25": MessageLookupByLibrary.simpleMessage(
-      "I have no clue who to vote for at the 2024 German Elections",
+      "I have no clue who to vote for at the 2025 German Elections",
+    ),
+    "onBoardingDataProtectionLink_ger25": MessageLookupByLibrary.simpleMessage(
+      "Data Protection Policy",
+    ),
+    "onBoardingDataProtection_ger25": MessageLookupByLibrary.simpleMessage(
+      "I adhere to the Data Protection Policy and the Terms to use the app",
     ),
     "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
       "Braukite pagal savo pažiūras",
@@ -158,22 +164,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "I identify as",
     ),
     "onBoardingStep4Option1_ger25": MessageLookupByLibrary.simpleMessage(
-      "Universitätsabschluss",
+      "University degree",
     ),
     "onBoardingStep4Option2_ger25": MessageLookupByLibrary.simpleMessage(
-      "Abitur",
+      "⁠High school diploma",
     ),
     "onBoardingStep4Option3_ger25": MessageLookupByLibrary.simpleMessage(
-      "Berufsausbildung",
+      "⁠Vocational training",
     ),
     "onBoardingStep4Option4_ger25": MessageLookupByLibrary.simpleMessage(
-      "Realschulabschluss",
+      "⁠Secondary school diploma (Realschulabschluss)",
     ),
     "onBoardingStep4Option5_ger25": MessageLookupByLibrary.simpleMessage(
-      "Mittlerer Schulabschluss",
+      "⁠Intermediate school diploma (MSA)",
     ),
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
-      "Ungebildet",
+      "Other",
     ),
     "poland": MessageLookupByLibrary.simpleMessage("Lenkija"),
     "resultsPage10NopButton": MessageLookupByLibrary.simpleMessage(
@@ -202,7 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kituose ekranuose, atrasite Jums artimiausią grupę Europos Parlamente, taip pat joms priklausančius kandidatų sąrašus, už kuriuos galėtumėte balsuoti savo valstybėse. Taip pat radome kitus papildomus dalykus remiantis Jūsų atsakymais😌",
     ),
     "resultsPage1Text_ger25": MessageLookupByLibrary.simpleMessage(
-      "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers.",
+      "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!",
     ),
     "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
       "Kur kas daugiau negu simpatija 👉👈",
@@ -331,13 +337,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Rinkimai yra apie daugelį klausimų, bet yra vienas dalykas, kuris iš tikrųjų",
     ),
     "resultsPage9Text1_ger25": MessageLookupByLibrary.simpleMessage(
-      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was made for you!",
+      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
     ),
     "resultsPage9Text2": MessageLookupByLibrary.simpleMessage(
       "Belongs With Me 😌",
     ),
-    "resultsPage9Text2_egr": MessageLookupByLibrary.simpleMessage(
-      "Belongs With Me 😌",
+    "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
+      "made for you!",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Dalintis"),
     "romania": MessageLookupByLibrary.simpleMessage("Rumunija"),
@@ -351,7 +357,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Jeigu šis mielas balandis nepadės jums apsispręsti, už ką balsuoti birželio mėnesį, niekas nepadės. Aš naudojausi šia aplikacija – tą turėtum padaryti ir tu:",
     ),
     "settingsPageShareText_ger25": MessageLookupByLibrary.simpleMessage(
-      "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:",
+      "If this cute pigeon can\'t help you vote in February, nothing will. I\'ve used the app and you should too:",
     ),
     "settingsPageSubtitle1": MessageLookupByLibrary.simpleMessage(
       "Pagrindiniai rėmėjai",

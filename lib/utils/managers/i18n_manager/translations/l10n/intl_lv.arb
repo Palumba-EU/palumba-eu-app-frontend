@@ -117,7 +117,7 @@
   "@entranceTitle3_ger25": {
     "description": "-> entranceTitle3"
   },
-  "onBoardingCardQuestion_ger25": "I have no clue who to vote for at the 2024 German Elections",
+  "onBoardingCardQuestion_ger25": "I have no clue who to vote for at the 2025 German Elections",
   "@onBoardingCardQuestion_ger25": {
     "description": "-> onBoardingCardQuestion"
   },
@@ -141,7 +141,7 @@
   "@resultsPage1Title_ger25": {
     "description": "-> resultsPage1Title"
   },
-  "resultsPage1Text_ger25": "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers.",
+  "resultsPage1Text_ger25": "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!",
   "@resultsPage1Text_ger25": {
     "description": "-> resultsPage1Text"
   },
@@ -205,7 +205,7 @@
   "@resultsPage6Text_ger25": {
     "description": "-> resultsPage6Text"
   },
-  "resultsPage8_1Text_ger25": "Your answers are in the top {number}% regarding  {dimension}",
+  "resultsPage8_1Text_ger25": "Your answers are in the top {number}% regarding {dimension}",
   "@resultsPage8_1Text_ger25": {
     "description": "-> resultsPage8_1Text"
   },
@@ -217,13 +217,9 @@
   "@resultsPage9Help_ger25": {
     "description": "-> resultsPage9Help"
   },
-  "resultsPage9Text1_ger25": "Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was made for you!",
+  "resultsPage9Text1_ger25": "Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was",
   "@resultsPage9Text1_ger25": {
     "description": "-> resultsPage9Text1"
-  },
-  "resultsPage9Text2_egr": "Belongs With Me 😌",
-  "@resultsPage9Text2_egr": {
-    "description": "-> resultsPage9Text2"
   },
   "resultsPage10Title_ger25": "A notification when it’s time to go vote?",
   "@resultsPage10Title_ger25": {
@@ -237,27 +233,27 @@
   "@messageScreenNo_ger25": {
     "description": "-> messageScreenNo"
   },
-  "onBoardingStep4Option1_ger25": "Universitätsabschluss",
+  "onBoardingStep4Option1_ger25": "University degree",
   "@onBoardingStep4Option1_ger25": {
     "description": "-> onBoardingStep4Option1"
   },
-  "onBoardingStep4Option2_ger25": "Abitur",
+  "onBoardingStep4Option2_ger25": "⁠High school diploma",
   "@onBoardingStep4Option2_ger25": {
     "description": "-> onBoardingStep4Option2"
   },
-  "onBoardingStep4Option3_ger25": "Berufsausbildung",
+  "onBoardingStep4Option3_ger25": "⁠Vocational training",
   "@onBoardingStep4Option3_ger25": {
     "description": "-> onBoardingStep4Option3"
   },
-  "onBoardingStep4Option4_ger25": "Realschulabschluss",
+  "onBoardingStep4Option4_ger25": "⁠Secondary school diploma (Realschulabschluss)",
   "@onBoardingStep4Option4_ger25": {
     "description": "-> onBoardingStep4Option4"
   },
-  "onBoardingStep4Option5_ger25": "Mittlerer Schulabschluss",
+  "onBoardingStep4Option5_ger25": "⁠Intermediate school diploma (MSA)",
   "@onBoardingStep4Option5_ger25": {
     "description": "-> onBoardingStep4Option5"
   },
-  "onBoardingStep4Option6_ger25": "Ungebildet",
+  "onBoardingStep4Option6_ger25": "Other",
   "@onBoardingStep4Option6_ger25": {
     "description": "-> onBoardingStep4Option6"
   },
@@ -309,7 +305,7 @@
   "@settingsPageSubtitle5_ger25": {
     "description": "-> settingsPageSubtitle5"
   },
-  "settingsPageShareText_ger25": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:",
+  "settingsPageShareText_ger25": "If this cute pigeon can't help you vote in February, nothing will. I've used the app and you should too:",
   "@settingsPageShareText_ger25": {
     "description": "-> settingsPageShareText"
   },
@@ -332,5 +328,11 @@
   "resultsPage7Title_ger25": "Here’s a young candidate from {party}* —shuffle to see more! They may not be on your ballot, but represent the future of their party!",
   "@resultsPage7Title_ger25": {
     "description": "-> resultsPage7Title"
+  },
+  "onBoardingDataProtection_ger25": "I adhere to the Data Protection Policy and the Terms to use the app",
+  "onBoardingDataProtectionLink_ger25": "Data Protection Policy",
+  "resultsPage9Text2_ger25": "made for you!",
+  "@resultsPage9Text2_ger25": {
+    "description": "-> resultsPage9Text2"
   }
 }

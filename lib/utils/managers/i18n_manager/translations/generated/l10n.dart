@@ -960,10 +960,10 @@ class S {
     );
   }
 
-  /// `I have no clue who to vote for at the 2024 German Elections`
+  /// `I have no clue who to vote for at the 2025 German Elections`
   String get onBoardingCardQuestion_ger25 {
     return Intl.message(
-      'I have no clue who to vote for at the 2024 German Elections',
+      'I have no clue who to vote for at the 2025 German Elections',
       name: 'onBoardingCardQuestion_ger25',
       desc: '-> onBoardingCardQuestion',
       args: [],
@@ -1020,10 +1020,10 @@ class S {
     );
   }
 
-  /// `In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers.`
+  /// `In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!`
   String get resultsPage1Text_ger25 {
     return Intl.message(
-      'In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers.',
+      'In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!',
       name: 'resultsPage1Text_ger25',
       desc: '-> resultsPage1Text',
       args: [],
@@ -1180,10 +1180,10 @@ class S {
     );
   }
 
-  /// `Your answers are in the top {number}% regarding  {dimension}`
+  /// `Your answers are in the top {number}% regarding {dimension}`
   String resultsPage8_1Text_ger25(Object number, Object dimension) {
     return Intl.message(
-      'Your answers are in the top $number% regarding  $dimension',
+      'Your answers are in the top $number% regarding $dimension',
       name: 'resultsPage8_1Text_ger25',
       desc: '-> resultsPage8_1Text',
       args: [number, dimension],
@@ -1210,22 +1210,12 @@ class S {
     );
   }
 
-  /// `Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was made for you!`
+  /// `Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was`
   String get resultsPage9Text1_ger25 {
     return Intl.message(
-      'Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was made for you!',
+      'Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was',
       name: 'resultsPage9Text1_ger25',
       desc: '-> resultsPage9Text1',
-      args: [],
-    );
-  }
-
-  /// `Belongs With Me 😌`
-  String get resultsPage9Text2_egr {
-    return Intl.message(
-      'Belongs With Me 😌',
-      name: 'resultsPage9Text2_egr',
-      desc: '-> resultsPage9Text2',
       args: [],
     );
   }
@@ -1260,60 +1250,60 @@ class S {
     );
   }
 
-  /// `Universitätsabschluss`
+  /// `University degree`
   String get onBoardingStep4Option1_ger25 {
     return Intl.message(
-      'Universitätsabschluss',
+      'University degree',
       name: 'onBoardingStep4Option1_ger25',
       desc: '-> onBoardingStep4Option1',
       args: [],
     );
   }
 
-  /// `Abitur`
+  /// `⁠High school diploma`
   String get onBoardingStep4Option2_ger25 {
     return Intl.message(
-      'Abitur',
+      '⁠High school diploma',
       name: 'onBoardingStep4Option2_ger25',
       desc: '-> onBoardingStep4Option2',
       args: [],
     );
   }
 
-  /// `Berufsausbildung`
+  /// `⁠Vocational training`
   String get onBoardingStep4Option3_ger25 {
     return Intl.message(
-      'Berufsausbildung',
+      '⁠Vocational training',
       name: 'onBoardingStep4Option3_ger25',
       desc: '-> onBoardingStep4Option3',
       args: [],
     );
   }
 
-  /// `Realschulabschluss`
+  /// `⁠Secondary school diploma (Realschulabschluss)`
   String get onBoardingStep4Option4_ger25 {
     return Intl.message(
-      'Realschulabschluss',
+      '⁠Secondary school diploma (Realschulabschluss)',
       name: 'onBoardingStep4Option4_ger25',
       desc: '-> onBoardingStep4Option4',
       args: [],
     );
   }
 
-  /// `Mittlerer Schulabschluss`
+  /// `⁠Intermediate school diploma (MSA)`
   String get onBoardingStep4Option5_ger25 {
     return Intl.message(
-      'Mittlerer Schulabschluss',
+      '⁠Intermediate school diploma (MSA)',
       name: 'onBoardingStep4Option5_ger25',
       desc: '-> onBoardingStep4Option5',
       args: [],
     );
   }
 
-  /// `Ungebildet`
+  /// `Other`
   String get onBoardingStep4Option6_ger25 {
     return Intl.message(
-      'Ungebildet',
+      'Other',
       name: 'onBoardingStep4Option6_ger25',
       desc: '-> onBoardingStep4Option6',
       args: [],
@@ -1440,10 +1430,10 @@ class S {
     );
   }
 
-  /// `If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:`
+  /// `If this cute pigeon can't help you vote in February, nothing will. I've used the app and you should too:`
   String get settingsPageShareText_ger25 {
     return Intl.message(
-      'If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:',
+      'If this cute pigeon can\'t help you vote in February, nothing will. I\'ve used the app and you should too:',
       name: 'settingsPageShareText_ger25',
       desc: '-> settingsPageShareText',
       args: [],
@@ -1497,6 +1487,36 @@ class S {
       name: 'resultsPage7Title_ger25',
       desc: '-> resultsPage7Title',
       args: [party],
+    );
+  }
+
+  /// `I adhere to the Data Protection Policy and the Terms to use the app`
+  String get onBoardingDataProtection_ger25 {
+    return Intl.message(
+      'I adhere to the Data Protection Policy and the Terms to use the app',
+      name: 'onBoardingDataProtection_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data Protection Policy`
+  String get onBoardingDataProtectionLink_ger25 {
+    return Intl.message(
+      'Data Protection Policy',
+      name: 'onBoardingDataProtectionLink_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `made for you!`
+  String get resultsPage9Text2_ger25 {
+    return Intl.message(
+      'made for you!',
+      name: 'resultsPage9Text2_ger25',
+      desc: '-> resultsPage9Text2',
+      args: [],
     );
   }
 }
