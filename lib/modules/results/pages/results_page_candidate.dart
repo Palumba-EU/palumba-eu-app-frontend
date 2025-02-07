@@ -87,7 +87,7 @@ class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
           onPressed: controller.nextCandidate,
           child: AppTexts.medium(S.of(context).resultsPageCandidatesShuffle,
               color: AppColors.primary, bold: true)),
-      _inCollabWith(),
+      if (localparty.show_collaboration_link) _inCollabWith(),
       CustomSpacer(multiplier: 1),
     ]);
   }

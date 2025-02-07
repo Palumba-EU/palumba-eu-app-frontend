@@ -158,13 +158,15 @@ class LocalParties {
   late String description;
   late String acronym;
   int? countryId;
+  late bool show_collaboration_link;
 
   LocalParties(
       {required this.id,
       required this.name,
       required this.logo,
       required this.link,
-      required this.acronym});
+      required this.acronym,
+      required this.show_collaboration_link});
 
   LocalParties.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -175,6 +177,7 @@ class LocalParties {
     description = json['description'];
     acronym = json['acronym'];
     countryId = json['country_id'];
+    show_collaboration_link = json['show_collaboration_link'];
   }
 
   Map<String, dynamic> toJson() {
@@ -185,6 +188,7 @@ class LocalParties {
     data['link'] = this.link;
     data['acronym'] = this.acronym;
     data['country_id'] = this.countryId;
+    data['show_collaboration_link'] = this.show_collaboration_link;
     return data;
   }
 }
