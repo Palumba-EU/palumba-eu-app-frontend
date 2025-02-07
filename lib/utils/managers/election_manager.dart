@@ -10,6 +10,7 @@ import 'package:device_region/device_region.dart';
 class ElectionManager {
   static final Rx<Election> currentElection = Election.EU.obs;
   static EggScreen? eggInfo;
+  static LocalPartyScreen? localPartyScreen;
   static DateTime? electionDate;
 
   static const String keyElection = 'election';

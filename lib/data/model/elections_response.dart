@@ -24,6 +24,7 @@ class ElectionResponse {
   final DateTime date;
   final Country? country;
   final EggScreen eggScreen;
+  final LocalPartyScreen localPartyScreen;
 
   ElectionResponse({
     required this.id,
@@ -31,6 +32,7 @@ class ElectionResponse {
     required this.date,
     required this.country,
     required this.eggScreen,
+    required this.localPartyScreen,
   });
 
   // Factory method to create an ElectionsResponse from JSON
@@ -42,6 +44,7 @@ class ElectionResponse {
       country:
           json['country'] == null ? null : Country.fromJson(json['country']),
       eggScreen: EggScreen.fromJson(json['egg_screen']),
+      localPartyScreen: LocalPartyScreen.fromJson(json['local_party_screen']),
     );
   }
 
@@ -53,6 +56,7 @@ class ElectionResponse {
       'date': date.toIso8601String(),
       'country': country?.toJson(),
       'egg_screen': eggScreen.toJson(),
+      'local_party_screen': localPartyScreen.toJson(),
     };
   }
 }
@@ -129,6 +133,36 @@ class EggScreen {
       'yes_btn_text': yesBtnText,
       'yes_btn_link': yesBtnLink,
       'no_btn_text': noBtnText,
+    };
+  }
+}
+
+class LocalPartyScreen {
+  final String? logo;
+  final String? text;
+  final String? link;
+
+  LocalPartyScreen({
+    this.logo,
+    this.text,
+    this.link,
+  });
+
+  // Factory method to create an EggScreen from JSON
+  factory LocalPartyScreen.fromJson(Map<String, dynamic> json) {
+    return LocalPartyScreen(
+      logo: json['logo'],
+      text: json['text'],
+      link: json['link'],
+    );
+  }
+
+  // Method to convert EggScreen to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'logo': logo,
+      'text': text,
+      'link': link,
     };
   }
 }
