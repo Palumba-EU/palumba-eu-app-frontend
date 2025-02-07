@@ -146,13 +146,13 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
   void registerForPush(BuildContext context) async {
     var status = await PushNotificationService().register();
     if (status == AuthorizationStatus.denied)
-      _showPushDeactivatedDialog(context);
+      await _showPushDeactivatedDialog(context);
     else
       controller.nextPage();
   }
 
-  void _showPushDeactivatedDialog(BuildContext context) {
-    Get.defaultDialog(
+  Future<T?> _showPushDeactivatedDialog<T>(BuildContext context) {
+    return Get.defaultDialog(
       title: S.of(context).pushDeactivatedTitle,
       middleText: S.of(context).pushDeactivatedText,
       onConfirm: () {
