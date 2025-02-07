@@ -26,6 +26,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -99,6 +100,10 @@ class ResultsController extends GetxController {
   //ResultPageAllParties
   late final allPartiesWithPercent = preparePoliticalPartiesWithPercent();
 
+  //ResultPageCandidate
+  RxnInt currentLocalCandidateIndex = RxnInt();
+  late List<LocalParties> locaPartiesOfMaxParty;
+
   GlobalKey globalKey = GlobalKey();
 
   @override
@@ -163,9 +168,29 @@ class ResultsController extends GetxController {
       _maxPercentagePoliticParty = getMajorPercentageParty();
       getScatterPoints();
     }
+    _setupCandidateScreen();
 
     _getCardsData();
     _getTopics();
+  }
+
+  _setupCandidateScreen() {
+    locaPartiesOfMaxParty = (maxPercentagePoliticParty?.party.localParties ??
+        [])
+      ..shuffle(Random());
+    if (locaPartiesOfMaxParty.isEmpty)
+      debugPrint("No local parties found");
+    else
+      currentLocalCandidateIndex.value = 0;
+  }
+
+  nextCandidate() {
+    if (locaPartiesOfMaxParty.isEmpty) {
+      debugPrint("No local parties found");
+      return;
+    }
+    currentLocalCandidateIndex.value =
+        (currentLocalCandidateIndex.value! + 1) % locaPartiesOfMaxParty.length;
   }
 
   List<ResultsPage> createAllResultsPages() {
@@ -173,12 +198,14 @@ class ResultsController extends GetxController {
     switch (ElectionManager.currentElection.value) {
       case Election.DE:
         results = [
+          ResultsPageCandidate(),
           ResultsPage1(),
           ResultsPage2(),
           ResultsPage3(),
           ResultsPage4(),
           ResultsPage5(),
           ResultsPage6(),
+          // ResultsPageCandidate(),
           ResultsPageAllParties(),
           ResultsPage8(),
           ResultsPage9(),

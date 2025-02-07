@@ -150,20 +150,29 @@ class PoliticParty {
 }
 
 class LocalParties {
-  int? id;
-  String? name;
-  String? logo;
-  String? link;
-  String? acronym;
+  late int id;
+  late String name;
+  late String logo;
+  late String link;
+  late String? linkText;
+  late String description;
+  late String acronym;
   int? countryId;
 
-  LocalParties({this.id, this.name, this.logo, this.link});
+  LocalParties(
+      {required this.id,
+      required this.name,
+      required this.logo,
+      required this.link,
+      required this.acronym});
 
   LocalParties.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     logo = json['logo'];
     link = json['link'];
+    linkText = json['link_text'];
+    description = json['description'];
     acronym = json['acronym'];
     countryId = json['country_id'];
   }

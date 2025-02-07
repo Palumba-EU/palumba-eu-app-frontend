@@ -7,6 +7,7 @@ import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
+import 'package:palumba_eu/modules/results/pages/results_shared/results_heart_stack.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -20,46 +21,7 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
     return Container(
       color: AppColors.background,
       child: Stack(children: [
-        Stack(
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.only(top: 25),
-                child: SvgPicture.asset(
-                  'assets/images/ic_sticker_heart1.svg',
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Padding(
-                padding: EdgeInsets.only(top: 250),
-                child: SvgPicture.asset(
-                  'assets/images/ic_sticker_heart2.svg',
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.only(top: 275),
-                child: SvgPicture.asset(
-                  'assets/images/ic_sticker_heart1.svg',
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 75),
-                child: SvgPicture.asset(
-                  'assets/images/ic_sticker_heart2.svg',
-                ),
-              ),
-            )
-          ],
-        ),
+        HeartStack(),
         SingleChildScrollView(
           child: Column(
             children: [
