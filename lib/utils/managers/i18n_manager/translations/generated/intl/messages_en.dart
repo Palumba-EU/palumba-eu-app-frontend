@@ -52,6 +52,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "denmark": MessageLookupByLibrary.simpleMessage("Denmark"),
+    "electionDE": MessageLookupByLibrary.simpleMessage(
+      "Bundestagswahl 2025 🇩🇪",
+    ),
+    "electionEU": MessageLookupByLibrary.simpleMessage(
+      "European Elections 2024 🇪🇺",
+    ),
     "entranceMatchesFoundQuote": m0,
     "entranceStartButton": MessageLookupByLibrary.simpleMessage(
       "Start Palumba",
@@ -368,6 +374,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
       "made for you!",
+    ),
+    "resultsPageCandidatesNoParties": MessageLookupByLibrary.simpleMessage(
+      "no local parties",
+    ),
+    "resultsPageCandidatesShuffle": MessageLookupByLibrary.simpleMessage(
+      "Shuffle my politcal love 🔀",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
     "romania": MessageLookupByLibrary.simpleMessage("Romania"),

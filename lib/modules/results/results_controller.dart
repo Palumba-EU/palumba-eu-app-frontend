@@ -198,14 +198,13 @@ class ResultsController extends GetxController {
     switch (ElectionManager.currentElection.value) {
       case Election.DE:
         results = [
-          ResultsPageCandidate(),
           ResultsPage1(),
           ResultsPage2(),
           ResultsPage3(),
           ResultsPage4(),
           ResultsPage5(),
           ResultsPage6(),
-          // ResultsPageCandidate(),
+          ResultsPageCandidate(),
           ResultsPageAllParties(),
           ResultsPage8(),
           ResultsPage9(),

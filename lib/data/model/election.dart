@@ -4,12 +4,12 @@ import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l1
 enum Election { DE, EU }
 
 extension ElectionLocalization on Election {
-  String get localized {
+  String localized(BuildContext context) {
     switch (this) {
       case Election.DE:
-        return 'Bundestagswahl 2025 🇩🇪';
+        return S.of(context).electionDE;
       case Election.EU:
-        return 'European Elections 2024 🇪🇺';
+        return S.of(context).electionEU;
     }
   }
 }

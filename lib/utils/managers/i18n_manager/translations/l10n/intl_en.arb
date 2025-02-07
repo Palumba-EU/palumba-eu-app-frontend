@@ -342,5 +342,9 @@
   "pushDeactivatedTitle": "Notifications disabled",
   "pushDeactivatedText": "To be able to receive Push Notifcation enable them in the settings",
   "pushDeactivatedCancel": "Close",
-  "pushDeactivatedConfirm": "Open Settings"
+  "pushDeactivatedConfirm": "Open Settings",
+  "resultsPageCandidatesShuffle": "Shuffle my politcal love 🔀",
+  "resultsPageCandidatesNoParties": "no local parties",
+  "electionEU": "European Elections 2024 🇪🇺",
+  "electionDE": "Bundestagswahl 2025 🇩🇪"
 }

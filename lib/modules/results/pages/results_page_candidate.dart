@@ -12,6 +12,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
 class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
@@ -25,16 +26,18 @@ class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
             EdgeInsets.symmetric(horizontal: AppDimens.lateralPaddingValue),
         child: Obx(() {
           if (controller.currentLocalCandidateIndex.value != null)
-            return _localParty(controller.locaPartiesOfMaxParty[
-                controller.currentLocalCandidateIndex.value!]);
+            return _localParty(
+                context,
+                controller.locaPartiesOfMaxParty[
+                    controller.currentLocalCandidateIndex.value!]);
           else
-            return _noLocalParty();
+            return _noLocalParty(context);
         }),
       )
     ]));
   }
 
-  Widget _localParty(LocalParties localparty) {
+  Widget _localParty(BuildContext context, LocalParties localparty) {
     return Column(children: [
       Expanded(
           child: SingleChildScrollView(
@@ -78,15 +81,15 @@ class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
       CustomSpacer(multiplier: 1),
       TextButton(
           onPressed: controller.nextCandidate,
-          child: AppTexts.medium("Shuffle my politcal love 🔀",
+          child: AppTexts.medium(S.of(context).resultsPageCandidatesShuffle,
               color: AppColors.primary, bold: true)),
       _inCollabWith(),
       CustomSpacer(multiplier: 1),
     ]);
   }
 
-  Widget _noLocalParty() {
-    return Text("no local parties");
+  Widget _noLocalParty(BuildContext context) {
+    return Text(S.of(context).resultsPageCandidatesNoParties);
   }
 
   Widget _inCollabWith() {
