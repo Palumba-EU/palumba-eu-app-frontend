@@ -96,7 +96,7 @@ class SettingsPage extends StatelessWidget {
                 id: _.rebuildElectionKey,
                 builder: (cnt) => CustomSelector(
                     leading: const SizedBox.shrink(),
-                    title: _.selectedElection.localized,
+                    title: _.selectedElection.localized(context),
                     selected: true,
                     onPressed: _.goToSelectElection),
               ),

@@ -42,7 +42,7 @@ class ElectionPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Obx(() => CustomSelector(
                           leading: const SizedBox.shrink(),
-                          title: _.elections[index].localized,
+                          title: _.elections[index].localized(context),
                           selected: _.indexSelected.value == index,
                           onPressed: () {
                             _.onElectionPressed(index);

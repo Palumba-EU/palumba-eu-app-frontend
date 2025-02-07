@@ -344,5 +344,7 @@
   "pushDeactivatedCancel": "Close",
   "pushDeactivatedConfirm": "Open Settings",
   "resultsPageCandidatesShuffle": "Shuffle my politcal love 🔀",
-  "resultsPageCandidatesNoParties": "no local parties"
+  "resultsPageCandidatesNoParties": "no local parties",
+  "electionEU": "European Elections 2024 🇪🇺",
+  "electionDE": "Bundestagswahl 2025 🇩🇪"
 }

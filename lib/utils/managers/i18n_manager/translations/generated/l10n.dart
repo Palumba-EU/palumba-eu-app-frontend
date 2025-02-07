@@ -1614,6 +1614,26 @@ class S {
       args: [],
     );
   }
+
+  /// `European Elections 2024 🇪🇺`
+  String get electionEU {
+    return Intl.message(
+      'European Elections 2024 🇪🇺',
+      name: 'electionEU',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bundestagswahl 2025 🇩🇪`
+  String get electionDE {
+    return Intl.message(
+      'Bundestagswahl 2025 🇩🇪',
+      name: 'electionDE',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
