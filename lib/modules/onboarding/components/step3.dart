@@ -6,6 +6,7 @@ import 'package:palumba_eu/modules/onboarding/components/custom_gender_selector.
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class Step3 extends StatelessWidget {
   final List<LevelOfEducation> levelsofEducation;
@@ -31,7 +32,8 @@ class Step3 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              AppTexts.title("Level of Education", color: AppColors.primary),
+              AppTexts.title(S.of(context).onBoardingStep4Title,
+                  color: AppColors.primary),
               CustomSpacer(multiplier: 3),
               Wrap(
                 spacing: 7.5,

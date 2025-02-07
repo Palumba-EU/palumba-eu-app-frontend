@@ -196,6 +196,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
       "Other",
     ),
+    "onBoardingStep4Title": MessageLookupByLibrary.simpleMessage(
+      "Level of Education",
+    ),
     "poland": MessageLookupByLibrary.simpleMessage("Poland"),
     "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("Close"),
     "pushDeactivatedConfirm": MessageLookupByLibrary.simpleMessage(

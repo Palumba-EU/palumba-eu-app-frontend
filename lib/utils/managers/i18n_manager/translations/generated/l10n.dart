@@ -1275,6 +1275,16 @@ class S {
     );
   }
 
+  /// `Level of Education`
+  String get onBoardingStep4Title {
+    return Intl.message(
+      'Level of Education',
+      name: 'onBoardingStep4Title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `University degree`
   String get onBoardingStep4Option1_ger25 {
     return Intl.message(
