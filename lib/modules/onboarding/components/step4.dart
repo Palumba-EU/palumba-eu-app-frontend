@@ -34,83 +34,86 @@ class Step4 extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Padding(
         padding: AppDimens.lateralPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AppTexts.title(
-                ElectionManager.currentElection.value
-                    .onBoardingStep3Title(context),
-                color: AppColors.primary),
-            CustomSpacer(
-              multiplier: 3,
-            ),
-            Wrap(
-              spacing: 7.5,
-              runSpacing: 7.5,
-              children: List.generate(
-                  genders.length,
-                  (index) => Obx(() => CustomGenderSelector(
-                      title: genders[index],
-                      selected: indexSelected == index,
-                      onPressed: () {
-                        onGenderPressed(index);
-                      }))),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Obx(() {
-                  return Transform.scale(
-                      scale: 1.2,
-                      child: Checkbox(
-                        value: acceptDataPrivacy.value,
-                        onChanged: (bool? value) {
-                          onDataPrivacyToggle(value ?? false);
-                        },
-                        checkColor: AppColors.primary,
-                        fillColor: WidgetStateProperty.resolveWith<Color>(
-                          (Set<WidgetState> states) {
-                            return Colors.white;
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppTexts.title(
+                  ElectionManager.currentElection.value
+                      .onBoardingStep3Title(context),
+                  color: AppColors.primary),
+              CustomSpacer(
+                multiplier: 3,
+              ),
+              Wrap(
+                spacing: 7.5,
+                runSpacing: 7.5,
+                children: List.generate(
+                    genders.length,
+                    (index) => Obx(() => CustomGenderSelector(
+                        title: genders[index],
+                        selected: indexSelected == index,
+                        onPressed: () {
+                          onGenderPressed(index);
+                        }))),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Obx(() {
+                    return Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(
+                          value: acceptDataPrivacy.value,
+                          onChanged: (bool? value) {
+                            onDataPrivacyToggle(value ?? false);
                           },
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                        ),
-                        side: WidgetStateBorderSide.resolveWith(
-                          (states) =>
-                              BorderSide(width: 2.0, color: AppColors.yellow),
-                        ),
-                      ));
-                }),
-                CustomSpacer(
-                  multiplier: 8,
-                ),
-                Flexible(
-                    child: RichText(
-                  text: TextSpan(
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColors.primary, // Default color
-                    ), // Default text style
-                    children: [
-                      TextSpan(
-                        text:
-                            '${S.of(context).onBoardingDataProtection_ger25} ',
-                      ),
-                      TextSpan(
-                        text:
-                            '(${S.of(context).onBoardingDataProtectionLink_ger25})',
-                        style: TextStyle(decoration: TextDecoration.underline),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = launchDataPrivcay,
-                      ),
-                    ],
+                          checkColor: AppColors.primary,
+                          fillColor: WidgetStateProperty.resolveWith<Color>(
+                            (Set<WidgetState> states) {
+                              return Colors.white;
+                            },
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.zero,
+                          ),
+                          side: WidgetStateBorderSide.resolveWith(
+                            (states) =>
+                                BorderSide(width: 2.0, color: AppColors.yellow),
+                          ),
+                        ));
+                  }),
+                  CustomSpacer(
+                    multiplier: 8,
                   ),
-                ))
-              ],
-            ),
-          ],
+                  Flexible(
+                      child: RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColors.primary, // Default color
+                      ), // Default text style
+                      children: [
+                        TextSpan(
+                          text:
+                              '${S.of(context).onBoardingDataProtection_ger25} ',
+                        ),
+                        TextSpan(
+                          text:
+                              '(${S.of(context).onBoardingDataProtectionLink_ger25})',
+                          style:
+                              TextStyle(decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = launchDataPrivcay,
+                        ),
+                      ],
+                    ),
+                  ))
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
