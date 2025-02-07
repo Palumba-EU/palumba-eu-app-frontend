@@ -93,7 +93,12 @@ class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
   }
 
   Widget _noLocalParty(BuildContext context) {
-    return Text(S.of(context).resultsPageCandidatesNoParties);
+    return Center(
+      child: AppTexts.title(
+        S.of(context).resultsPageCandidatesNoParties,
+        color: AppColors.primary,
+      ),
+    );
   }
 
   Widget _inCollabWith() {
