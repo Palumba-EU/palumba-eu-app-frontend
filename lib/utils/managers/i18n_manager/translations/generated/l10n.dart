@@ -1594,6 +1594,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Shuffle my politcal love 🔀`
+  String get resultsPageCandidatesShuffle {
+    return Intl.message(
+      'Shuffle my politcal love 🔀',
+      name: 'resultsPageCandidatesShuffle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `no local parties`
+  String get resultsPageCandidatesNoParties {
+    return Intl.message(
+      'no local parties',
+      name: 'resultsPageCandidatesNoParties',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

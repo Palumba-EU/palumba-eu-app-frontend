@@ -369,6 +369,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
       "made for you!",
     ),
+    "resultsPageCandidatesNoParties": MessageLookupByLibrary.simpleMessage(
+      "no local parties",
+    ),
+    "resultsPageCandidatesShuffle": MessageLookupByLibrary.simpleMessage(
+      "Shuffle my politcal love 🔀",
+    ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
     "romania": MessageLookupByLibrary.simpleMessage("Romania"),
     "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage(
