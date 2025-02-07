@@ -43,9 +43,8 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
               child: Center(
                   child: Obx(
                 () => AppTexts.regular(
-                    "Get Ready, Voting Day is " +
-                        DateFormat("MMM, d y")
-                            .format(ElectionManager.electionDate!),
+                    S.of(context).resultsPage10VotingDay(DateFormat("MMM, d y")
+                        .format(ElectionManager.electionDate!)),
                     color: willVote.value == true
                         ? AppColors.primary
                         : Colors.transparent,
@@ -93,7 +92,7 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
             ),
             CustomHorizontalSpacer(),
             CustomButton(
-              onPressed: registerForPush,
+              onPressed: () => registerForPush(context),
               text: ElectionManager.currentElection.value
                   .resultsPage10YesButton(context),
               //Default parameters
@@ -110,7 +109,7 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
       children: [
         Padding(
             padding: AppDimens.lateralPadding,
-            child: AppTexts.title('Are you going to vote?',
+            child: AppTexts.title(S.of(context).resultsPage10VotingQuestion,
                 color: AppColors.primary, textAlign: TextAlign.center)),
         CustomSpacer(multiplier: 2),
         Row(
@@ -125,7 +124,7 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
               onPressed: () {
                 willVote.value = true;
               },
-              child: AppTexts.regular("Maybe",
+              child: AppTexts.regular(S.of(context).maybe,
                   bold: true, color: AppColors.primary),
             ),
             CustomHorizontalSpacer(),
@@ -144,19 +143,18 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
     );
   }
 
-  void registerForPush() async {
+  void registerForPush(BuildContext context) async {
     var status = await PushNotificationService().register();
     if (status == AuthorizationStatus.denied)
-      _showPushDeactivatedDialog();
+      _showPushDeactivatedDialog(context);
     else
       controller.nextPage();
   }
 
-  void _showPushDeactivatedDialog() {
+  void _showPushDeactivatedDialog(BuildContext context) {
     Get.defaultDialog(
-      title: 'Notifications disabled',
-      middleText:
-          'To be able to receive Push Notifcation enable them in the settings',
+      title: S.of(context).pushDeactivatedTitle,
+      middleText: S.of(context).pushDeactivatedText,
       onConfirm: () {
         AppSettings.openAppSettings();
         Get.close(1);
@@ -165,8 +163,8 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
       onCancel: () {
         print('Canceled!');
       },
-      textConfirm: 'Open Settings',
-      textCancel: 'Close',
+      textConfirm: S.of(context).pushDeactivatedConfirm,
+      textCancel: S.of(context).pushDeactivatedCancel,
     );
   }
 }
