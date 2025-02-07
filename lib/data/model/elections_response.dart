@@ -93,7 +93,7 @@ class Country {
 
 class EggScreen {
   final String title;
-  final String description;
+  String description;
   String image;
   final String yesBtnText;
   final String yesBtnLink;

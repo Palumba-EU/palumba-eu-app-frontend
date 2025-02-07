@@ -103,8 +103,16 @@ class HomePageController extends GetxController {
     Get.closeCurrentSnackbar();
     try {
       var info = EggScreen.fromJson(json.decode(message.data["eggScreen"]));
-      info.image =
-          "https://palumba-staging.bitperfect-software.com/storage/elections/egg_screen/01JJV1PP92481V3PBE4G17YHR4.png";
+
+      // due to 200 char limitation of the Firebase UI one can patch this
+      // fields by setting extra custom data until the BE has a UI
+
+      final extraDesc = message.data["eggScreenDescription"];
+      if (extraDesc != null) info.description = extraDesc;
+
+      final extraImg = message.data["eggImage"];
+      if (extraImg != null) info.image = extraImg;
+
       MessageWidget.callAsBottomSheet(info);
     } catch (e) {
       debugPrint("could not decode push to eggScreen");
