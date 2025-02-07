@@ -26,6 +26,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -179,6 +180,7 @@ class ResultsController extends GetxController {
           ResultsPage4(),
           ResultsPage5(),
           ResultsPage6(),
+          ResultsPageCandidate(),
           ResultsPageAllParties(),
           ResultsPage8(),
           ResultsPage9(),
