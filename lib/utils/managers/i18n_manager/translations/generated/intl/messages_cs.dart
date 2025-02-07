@@ -41,7 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "V ${topic}, se z ${percentage}% shodujete v";
 
   static String m7(number, dimension) =>
-      "Your answers are in the top ${number}% regarding  ${dimension}";
+      "Your answers are in the top ${number}% regarding ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -129,7 +129,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nemám ponětí, pro koho budu hlasovat v evropských volbách roku 2024",
     ),
     "onBoardingCardQuestion_ger25": MessageLookupByLibrary.simpleMessage(
-      "I have no clue who to vote for at the 2024 German Elections",
+      "I have no clue who to vote for at the 2025 German Elections",
+    ),
+    "onBoardingDataProtectionLink_ger25": MessageLookupByLibrary.simpleMessage(
+      "Data Protection Policy",
+    ),
+    "onBoardingDataProtection_ger25": MessageLookupByLibrary.simpleMessage(
+      "I adhere to the Data Protection Policy and the Terms to use the app",
     ),
     "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
       "Přetáhněte dle svých preferencí",
@@ -156,22 +162,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "I identify as",
     ),
     "onBoardingStep4Option1_ger25": MessageLookupByLibrary.simpleMessage(
-      "Universitätsabschluss",
+      "University degree",
     ),
     "onBoardingStep4Option2_ger25": MessageLookupByLibrary.simpleMessage(
-      "Abitur",
+      "⁠High school diploma",
     ),
     "onBoardingStep4Option3_ger25": MessageLookupByLibrary.simpleMessage(
-      "Berufsausbildung",
+      "⁠Vocational training",
     ),
     "onBoardingStep4Option4_ger25": MessageLookupByLibrary.simpleMessage(
-      "Realschulabschluss",
+      "⁠Secondary school diploma (Realschulabschluss)",
     ),
     "onBoardingStep4Option5_ger25": MessageLookupByLibrary.simpleMessage(
-      "Mittlerer Schulabschluss",
+      "⁠Intermediate school diploma (MSA)",
     ),
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
-      "Ungebildet",
+      "Other",
     ),
     "poland": MessageLookupByLibrary.simpleMessage("Polsko"),
     "resultsPage10NopButton": MessageLookupByLibrary.simpleMessage("Ne, díky!"),
@@ -198,7 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Na následujících obrazovkách se dozvíte, s jakou skupinou v Evropském parlamentu se nejvíce ztotožňujete, naleznete odpovídající kandidáty, pro které můžete v červnu ve vaší zemi hlasovat. Na základě vašich odpovědí jsme dokonce jsme našli několik dalších zajímavostí 😌",
     ),
     "resultsPage1Text_ger25": MessageLookupByLibrary.simpleMessage(
-      "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers.",
+      "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!",
     ),
     "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
       "Shoda a mnohem více",
@@ -329,13 +335,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Volby se týkají mnoha témat, ale jedna věc je",
     ),
     "resultsPage9Text1_ger25": MessageLookupByLibrary.simpleMessage(
-      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was made for you!",
+      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
     ),
     "resultsPage9Text2": MessageLookupByLibrary.simpleMessage(
       "Belongs With Me 😌",
     ),
-    "resultsPage9Text2_egr": MessageLookupByLibrary.simpleMessage(
-      "Belongs With Me 😌",
+    "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
+      "made for you!",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Sdílet"),
     "romania": MessageLookupByLibrary.simpleMessage("Rumunsko"),
@@ -349,7 +355,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Pokud vám tento roztomilý holub nepomůže v červnu volit, nepomůže vám nic. Aplikaci jsem použil a vy byste měli také:",
     ),
     "settingsPageShareText_ger25": MessageLookupByLibrary.simpleMessage(
-      "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:",
+      "If this cute pigeon can\'t help you vote in February, nothing will. I\'ve used the app and you should too:",
     ),
     "settingsPageSubtitle1": MessageLookupByLibrary.simpleMessage(
       "Hlavní sponzoři",

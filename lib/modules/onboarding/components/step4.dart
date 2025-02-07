@@ -8,6 +8,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class Step4 extends StatelessWidget {
   final List<String> genders;
@@ -94,10 +95,12 @@ class Step4 extends StatelessWidget {
                     ), // Default text style
                     children: [
                       TextSpan(
-                        text: 'I allow palumba to process my data ',
+                        text:
+                            '${S.of(context).onBoardingDataProtection_ger25} ',
                       ),
                       TextSpan(
-                        text: '(Data Protection Policy)',
+                        text:
+                            '(${S.of(context).onBoardingDataProtectionLink_ger25})',
                         style: TextStyle(decoration: TextDecoration.underline),
                         recognizer: TapGestureRecognizer()
                           ..onTap = launchDataPrivcay,

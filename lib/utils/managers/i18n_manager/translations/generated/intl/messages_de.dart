@@ -60,7 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "If this cute pigeon can’t help you vote in June, nothing will.",
     ),
     "entranceTitle1_ger25": MessageLookupByLibrary.simpleMessage(
-      "Wenn diese süße Taube dir nicht helfen kann im Juni zu wählen, dann hilft dir gar nichts.",
+      "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann hilft dir gar nichts.",
     ),
     "entranceTitle2": MessageLookupByLibrary.simpleMessage(
       "Äußere deine Meinung zu Themen, die für dich wichtig sind.",
@@ -104,7 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Das sollte schneller gehen, als Taylor Swift Karten zu bekommen 👀 ",
     ),
     "loadingResultsPageTitle2_ger25": MessageLookupByLibrary.simpleMessage(
-      "Das ist schneller als Taylor Swift Tickets zu bekommen 👀 ",
+      "Das geht schneller als die Deutsche Bahn",
     ),
     "loadingResultsPageTitle3": m2,
     "loadingResultsPageTitle3_ger25": MessageLookupByLibrary.simpleMessage(
@@ -116,7 +116,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle4_ger25": MessageLookupByLibrary.simpleMessage(
       "Fast fertig, ein letzter Check...",
     ),
-    "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage("ne..."),
+    "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage(
+      "Nein, danke!",
+    ),
     "messageScreenYes_ger25": MessageLookupByLibrary.simpleMessage("Jaaaaa!"),
     "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
       "Nur noch 5 Swipes übrig :)",
@@ -132,6 +134,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onBoardingCardQuestion_ger25": MessageLookupByLibrary.simpleMessage(
       "Ich habe keine Ahnung, wen ich bei den Bundestagswahlen 2025 wählen soll",
+    ),
+    "onBoardingDataProtectionLink_ger25": MessageLookupByLibrary.simpleMessage(
+      "Datenschutzrichtlinie",
+    ),
+    "onBoardingDataProtection_ger25": MessageLookupByLibrary.simpleMessage(
+      "Ich akzeptiere die Datenschutzrichtlinie und die Nutzungsbedingungen der App",
     ),
     "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
       "Swipe wie sehr du zustimmst",
@@ -174,7 +182,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Realschulabschluss",
     ),
     "onBoardingStep4Option5_ger25": MessageLookupByLibrary.simpleMessage(
-      "Mittlerer Schulabschluss",
+      " Mittlerer Schulabschluss",
     ),
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
       "Sonstiges",
@@ -184,7 +192,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nein danke!",
     ),
     "resultsPage10NopButton_ger25": MessageLookupByLibrary.simpleMessage(
-      "Nein danke!",
+      "Nein, danke!",
     ),
     "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
       "A notification when it’s time to go vote?",
@@ -206,7 +214,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Auf den nächsten Bildschirmen wirst du deine kompatibelste Gruppe im EU-Parlament entdecken und passende lokalen Listen, für die du im Juni wählen kannst. Basierend auf deinen Antworten haben wir zudem ein paar interessante Extras für dich 😌",
     ),
     "resultsPage1Text_ger25": MessageLookupByLibrary.simpleMessage(
-      "Auf den nächsten Seiten kannst Du herausfinden welche Partei Dich im Bundestag am besten vertreten würde. Und wir haben sogar noch extra Infos nur für Dich! 😌",
+      "Auf den nächsten Seiten kannst Du herausfinden, welche Partei dich im Bundestag am besten vertreten würde. Und wir haben sogar noch ein paar extra Infos für dich!",
     ),
     "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
       "Ein Match und viel mehr 👉👈",
@@ -217,7 +225,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage2_1Title": MessageLookupByLibrary.simpleMessage(
       "Ehrlich, zwischen",
     ),
-    "resultsPage2_1Title_ger25": MessageLookupByLibrary.simpleMessage("Du und"),
+    "resultsPage2_1Title_ger25": MessageLookupByLibrary.simpleMessage(
+      "Ehrlich gesagt,",
+    ),
     "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
       "and me, it’s kind of a Love Story (EU’s Version)",
     ),
@@ -238,7 +248,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Links"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
-      "Links",
+      "Wirtschaftliche Intervention",
     ),
     "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Rechts"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
@@ -248,7 +258,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Pro-EU Integration",
     ),
     "resultsPage4TitleTop_ger25": MessageLookupByLibrary.simpleMessage(
-      "Pro-EU Integration",
+      "Sozial progressiv",
     ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
       "It’s me, hi!",
@@ -270,13 +280,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Menschen- und Sozialrechte",
     ),
     "resultsPage5Topic2_ger25": MessageLookupByLibrary.simpleMessage(
-      "EU Integration",
+      "Wirtschaft",
     ),
     "resultsPage5Topic3": MessageLookupByLibrary.simpleMessage(
       "Wirtschaftsintervention",
     ),
     "resultsPage5Topic3_ger25": MessageLookupByLibrary.simpleMessage(
-      "Migration",
+      "Soziale Themen & Werte",
     ),
     "resultsPage5Topic4_ger25": MessageLookupByLibrary.simpleMessage(
       "EU Integration",
@@ -294,7 +304,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ok, es ist cool zu wissen, welche Gruppe mich bekommt...",
     ),
     "resultsPage6_1Title_ger25": MessageLookupByLibrary.simpleMessage(
-      "Ok, es ist cool zu wissen, welche Partei mich versteht...",
+      "Ok, es ist cool zu wissen, welche Partei mich versteht…",
     ),
     "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
       "Aber bei den EU-Wahlen wählen wir lokale Listen",
@@ -340,8 +350,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage9Text2": MessageLookupByLibrary.simpleMessage(
       "Belongs With Me 😌",
     ),
-    "resultsPage9Text2_egr": MessageLookupByLibrary.simpleMessage(
-      "ganz meins 😌",
+    "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
+      "die Faust aufs Auge!",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Teilen"),
     "romania": MessageLookupByLibrary.simpleMessage("Rumänien"),
@@ -355,7 +365,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann ist Dir nicht mehr zu helfen. Ich habe die App bereits benutzt und Du solltest das auch tun:",
     ),
     "settingsPageShareText_ger25": MessageLookupByLibrary.simpleMessage(
-      "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann ist Dir nicht mehr zu helfen. Ich habe die App bereits benutzt und Du solltest das auch tun:",
+      "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann ist dir nicht mehr zu helfen. Ich habe die App bereits benutzt und du solltest das auch tun:",
     ),
     "settingsPageSubtitle1": MessageLookupByLibrary.simpleMessage(
       "Hauptsponsoren",

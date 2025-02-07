@@ -39,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Am ${topic} bass du ${percentage}% méi an";
 
   static String m7(number, dimension) =>
-      "Your answers are in the top ${number}% regarding  ${dimension}";
+      "Your answers are in the top ${number}% regarding ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -131,7 +131,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ech hu keng Ahnung fir wien ech bei den Europawahlen 2024 wiele soll",
     ),
     "onBoardingCardQuestion_ger25": MessageLookupByLibrary.simpleMessage(
-      "I have no clue who to vote for at the 2024 German Elections",
+      "I have no clue who to vote for at the 2025 German Elections",
+    ),
+    "onBoardingDataProtectionLink_ger25": MessageLookupByLibrary.simpleMessage(
+      "Data Protection Policy",
+    ),
+    "onBoardingDataProtection_ger25": MessageLookupByLibrary.simpleMessage(
+      "I adhere to the Data Protection Policy and the Terms to use the app",
     ),
     "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
       "Swipe ofhängeg vun der Zoustëmmung",
@@ -160,22 +166,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "I identify as",
     ),
     "onBoardingStep4Option1_ger25": MessageLookupByLibrary.simpleMessage(
-      "Universitätsabschluss",
+      "University degree",
     ),
     "onBoardingStep4Option2_ger25": MessageLookupByLibrary.simpleMessage(
-      "Abitur",
+      "⁠High school diploma",
     ),
     "onBoardingStep4Option3_ger25": MessageLookupByLibrary.simpleMessage(
-      "Berufsausbildung",
+      "⁠Vocational training",
     ),
     "onBoardingStep4Option4_ger25": MessageLookupByLibrary.simpleMessage(
-      "Realschulabschluss",
+      "⁠Secondary school diploma (Realschulabschluss)",
     ),
     "onBoardingStep4Option5_ger25": MessageLookupByLibrary.simpleMessage(
-      "Mittlerer Schulabschluss",
+      "⁠Intermediate school diploma (MSA)",
     ),
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
-      "Ungebildet",
+      "Other",
     ),
     "poland": MessageLookupByLibrary.simpleMessage("Polen"),
     "resultsPage10NopButton": MessageLookupByLibrary.simpleMessage(
@@ -204,7 +210,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Op den nächste Säite entdecks du deng kompatibelst Grupp am EU-Parlament, déi passend lokal Lëschte fir am Juni an dengem Land ze wielen, a mir hu souguer e puer extra Saachen op Basis vun dengen Äntwerten fonnt 😌",
     ),
     "resultsPage1Text_ger25": MessageLookupByLibrary.simpleMessage(
-      "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers.",
+      "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!",
     ),
     "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
       "Ee Match a villes méi 👉👈",
@@ -335,13 +341,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "D\'Wahle sinn iwwer vill Themen, awer eng Saach ass wierklech",
     ),
     "resultsPage9Text1_ger25": MessageLookupByLibrary.simpleMessage(
-      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was made for you!",
+      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
     ),
     "resultsPage9Text2": MessageLookupByLibrary.simpleMessage(
       "Belongs With Me 😌",
     ),
-    "resultsPage9Text2_egr": MessageLookupByLibrary.simpleMessage(
-      "Belongs With Me 😌",
+    "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
+      "made for you!",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Deelen"),
     "romania": MessageLookupByLibrary.simpleMessage("Rumänien"),
@@ -355,7 +361,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Wann dës léif Dauw dir net hëllefe kann am Juni ze wielen, da wäert dir näischt hellefen. Ech hunn d\'App benotzt an du solls och:",
     ),
     "settingsPageShareText_ger25": MessageLookupByLibrary.simpleMessage(
-      "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:",
+      "If this cute pigeon can\'t help you vote in February, nothing will. I\'ve used the app and you should too:",
     ),
     "settingsPageSubtitle1": MessageLookupByLibrary.simpleMessage(
       "Haaptsponsoren",

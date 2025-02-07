@@ -105,7 +105,7 @@
   "settingsPageShareButtonText": "Teilen",
   "settingsPagePrivacyPolicy": "Datenschutzerklärung",
   "settingsPageShareText": "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann ist Dir nicht mehr zu helfen. Ich habe die App bereits benutzt und Du solltest das auch tun:",
-  "entranceTitle1_ger25": "Wenn diese süße Taube dir nicht helfen kann im Juni zu wählen, dann hilft dir gar nichts.",
+  "entranceTitle1_ger25": "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann hilft dir gar nichts.",
   "@entranceTitle1_ger25": {
     "description": "-> entranceTitle1"
   },
@@ -125,7 +125,7 @@
   "@loadingResultsPageTitle1_ger25": {
     "description": "-> loadingResultsPageTitle1"
   },
-  "loadingResultsPageTitle2_ger25": "Das ist schneller als Taylor Swift Tickets zu bekommen 👀 ",
+  "loadingResultsPageTitle2_ger25": "Das geht schneller als die Deutsche Bahn",
   "@loadingResultsPageTitle2_ger25": {
     "description": "-> loadingResultsPageTitle2"
   },
@@ -141,11 +141,11 @@
   "@resultsPage1Title_ger25": {
     "description": "-> resultsPage1Title"
   },
-  "resultsPage1Text_ger25": "Auf den nächsten Seiten kannst Du herausfinden welche Partei Dich im Bundestag am besten vertreten würde. Und wir haben sogar noch extra Infos nur für Dich! 😌",
+  "resultsPage1Text_ger25": "Auf den nächsten Seiten kannst Du herausfinden, welche Partei dich im Bundestag am besten vertreten würde. Und wir haben sogar noch ein paar extra Infos für dich!",
   "@resultsPage1Text_ger25": {
     "description": "-> resultsPage1Text"
   },
-  "resultsPage2_1Title_ger25": "Du und",
+  "resultsPage2_1Title_ger25": "Ehrlich gesagt,",
   "@resultsPage2_1Title_ger25": {
     "description": "-> resultsPage2_1Title"
   },
@@ -157,7 +157,7 @@
   "@resultsPage3Title_ger25": {
     "description": "-> resultsPage3Title"
   },
-  "resultsPage4TitleTop_ger25": "Pro-EU Integration",
+  "resultsPage4TitleTop_ger25": "Sozial progressiv",
   "@resultsPage4TitleTop_ger25": {
     "description": "-> resultsPage4TitleTop"
   },
@@ -165,7 +165,7 @@
   "@resultsPage4TitleBottom_ger25": {
     "description": "-> resultsPage4TitleBottom"
   },
-  "resultsPage4TitleLeft_ger25": "Links",
+  "resultsPage4TitleLeft_ger25": "Wirtschaftliche Intervention",
   "@resultsPage4TitleLeft_ger25": {
     "description": "-> resultsPage4TitleLeft"
   },
@@ -185,15 +185,15 @@
   "@resultsPage5Topic1_ger25": {
     "description": "-> resultsPage5Topic1"
   },
-  "resultsPage5Topic2_ger25": "EU Integration",
+  "resultsPage5Topic2_ger25": "Wirtschaft",
   "@resultsPage5Topic2_ger25": {
     "description": "-> resultsPage5Topic2"
   },
-  "resultsPage5Topic3_ger25": "Migration",
+  "resultsPage5Topic3_ger25": "Soziale Themen & Werte",
   "@resultsPage5Topic3_ger25": {
     "description": "-> resultsPage5Topic3"
   },
-  "resultsPage6_1Title_ger25": "Ok, es ist cool zu wissen, welche Partei mich versteht...",
+  "resultsPage6_1Title_ger25": "Ok, es ist cool zu wissen, welche Partei mich versteht…",
   "@resultsPage6_1Title_ger25": {
     "description": "-> resultsPage6_1Title"
   },
@@ -221,10 +221,6 @@
   "@resultsPage9Text1_ger25": {
     "description": "-> resultsPage9Text1"
   },
-  "resultsPage9Text2_egr": "ganz meins 😌",
-  "@resultsPage9Text2_egr": {
-    "description": "-> resultsPage9Text2"
-  },
   "resultsPage10Title_ger25": "Möchtest du benachrichtigt werden, wenn es Zeit zum Wählen ist?",
   "@resultsPage10Title_ger25": {
     "description": "-> resultsPage10Title"
@@ -233,7 +229,7 @@
   "@messageScreenYes_ger25": {
     "description": "-> messageScreenYes"
   },
-  "messageScreenNo_ger25": "ne...",
+  "messageScreenNo_ger25": "Nein, danke!",
   "@messageScreenNo_ger25": {
     "description": "-> messageScreenNo"
   },
@@ -253,7 +249,7 @@
   "@onBoardingStep4Option4_ger25": {
     "description": "-> onBoardingStep4Option4"
   },
-  "onBoardingStep4Option5_ger25": "Mittlerer Schulabschluss",
+  "onBoardingStep4Option5_ger25": " Mittlerer Schulabschluss",
   "@onBoardingStep4Option5_ger25": {
     "description": "-> onBoardingStep4Option5"
   },
@@ -269,7 +265,7 @@
   "@resultsPage1Button_ger25": {
     "description": "-> onBoardingLastStepTitle"
   },
-  "resultsPage10NopButton_ger25": "Nein danke!",
+  "resultsPage10NopButton_ger25": "Nein, danke!",
   "@resultsPage10NopButton_ger25": {
     "description": "-> resultsPage10NopButton"
   },
@@ -309,7 +305,7 @@
   "@settingsPageSubtitle5_ger25": {
     "description": "-> settingsPageSubtitle5"
   },
-  "settingsPageShareText_ger25": "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann ist Dir nicht mehr zu helfen. Ich habe die App bereits benutzt und Du solltest das auch tun:",
+  "settingsPageShareText_ger25": "Wenn diese süße Taube dir nicht helfen kann im Februar zu wählen, dann ist dir nicht mehr zu helfen. Ich habe die App bereits benutzt und du solltest das auch tun:",
   "@settingsPageShareText_ger25": {
     "description": "-> settingsPageShareText"
   },
@@ -332,5 +328,11 @@
   "resultsPage7Title_ger25": "Hier ist ein junger Kandidat/eine junge Kandidatin von {party}*, – Shuffle, um mehr zu sehen! Sie stehen vielleicht nicht auf deinem Stimmzettel, aber sind die Zukunft ihrer Partei!",
   "@resultsPage7Title_ger25": {
     "description": "-> resultsPage7Title"
+  },
+  "onBoardingDataProtection_ger25": "Ich akzeptiere die Datenschutzrichtlinie und die Nutzungsbedingungen der App",
+  "onBoardingDataProtectionLink_ger25": "Datenschutzrichtlinie",
+  "resultsPage9Text2_ger25": "die Faust aufs Auge!",
+  "@resultsPage9Text2_ger25": {
+    "description": "-> resultsPage9Text2"
   }
 }

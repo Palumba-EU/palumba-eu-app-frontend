@@ -49,10 +49,10 @@ extension LevelOfEducationBackend on LevelOfEducation {
         return '6';
       case LevelOfEducation.highschool:
         return '3';
+      case LevelOfEducation.vocational:
+        return '4';
       case LevelOfEducation.intermediate:
         return '2';
-      case LevelOfEducation.vocational:
-        return '1';
       case LevelOfEducation.secondary:
         return '2';
       case LevelOfEducation.none:
