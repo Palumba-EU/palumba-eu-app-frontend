@@ -40,44 +40,48 @@ class ResultsPageCandidate extends GetView<ResultsController> with ResultsPage {
   Widget _localParty(BuildContext context, LocalParties localparty) {
     return Column(children: [
       Expanded(
-          child: SingleChildScrollView(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-            CustomSpacer(multiplier: 3),
-            Stack(alignment: Alignment.bottomCenter, children: [
-              Padding(
-                  padding: const EdgeInsets.only(bottom: 28),
-                  child: CustomNetworkImage(
-                    width: 150,
-                    height: 150,
-                    isSvg: localparty.logo.contains(".svg"),
-                    imageUrl: localparty.logo,
-                    radius: Get.width,
-                    color: AppColors.blue,
-                  )),
-              Padding(
-                  padding: const EdgeInsets.only(bottom: 0),
-                  child: SvgPicture.asset(
-                    'assets/images/img_heart_arrow.svg',
-                    height: 50,
-                    fit: BoxFit.fitWidth,
-                  ))
-            ]),
-            CustomSpacer(multiplier: 1),
-            AppTexts.title(localparty.name, color: AppColors.primary),
-            GestureDetector(
-              onTapDown: (_) => Utils.launch(localparty.link),
-              child: AppTexts.small(localparty.linkText ?? localparty.link,
-                  color: AppColors.primary),
-            ),
-            CustomHtmlWidget(
-                textAlign: TextAlign.center,
-                textStyle: AppTexts.customTextStyle(AppTextType.regular,
-                    color: AppColors.primary, fontSize: 12.0),
-                content: localparty.description),
-            CustomSpacer(multiplier: 1),
-          ]))),
+          child: Obx(() => AnimatedOpacity(
+              opacity: controller.locaCandidateOpacityActive.value ? 1 : 0,
+              duration: Duration(milliseconds: 200),
+              child: SingleChildScrollView(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                    CustomSpacer(multiplier: 3),
+                    Stack(alignment: Alignment.bottomCenter, children: [
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 28),
+                          child: CustomNetworkImage(
+                            width: 150,
+                            height: 150,
+                            isSvg: localparty.logo.contains(".svg"),
+                            imageUrl: localparty.logo,
+                            radius: Get.width,
+                            color: AppColors.blue,
+                          )),
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 0),
+                          child: SvgPicture.asset(
+                            'assets/images/img_heart_arrow.svg',
+                            height: 50,
+                            fit: BoxFit.fitWidth,
+                          ))
+                    ]),
+                    CustomSpacer(multiplier: 1),
+                    AppTexts.title(localparty.name, color: AppColors.primary),
+                    GestureDetector(
+                      onTapDown: (_) => Utils.launch(localparty.link),
+                      child: AppTexts.small(
+                          localparty.linkText ?? localparty.link,
+                          color: AppColors.primary),
+                    ),
+                    CustomHtmlWidget(
+                        textAlign: TextAlign.center,
+                        textStyle: AppTexts.customTextStyle(AppTextType.regular,
+                            color: AppColors.primary, fontSize: 12.0),
+                        content: localparty.description),
+                    CustomSpacer(multiplier: 1),
+                  ]))))),
       CustomSpacer(multiplier: 1),
       TextButton(
           onPressed: controller.nextCandidate,

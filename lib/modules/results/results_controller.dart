@@ -103,6 +103,7 @@ class ResultsController extends GetxController {
   //ResultPageCandidate
   RxnInt currentLocalCandidateIndex = RxnInt();
   late List<LocalParties> locaPartiesOfMaxParty;
+  RxBool locaCandidateOpacityActive = true.obs;
 
   GlobalKey globalKey = GlobalKey();
 
@@ -184,13 +185,17 @@ class ResultsController extends GetxController {
       currentLocalCandidateIndex.value = 0;
   }
 
-  nextCandidate() {
+  nextCandidate() async {
     if (locaPartiesOfMaxParty.isEmpty) {
       debugPrint("No local parties found");
       return;
     }
+    locaCandidateOpacityActive.value = false;
+    await Future.delayed(Duration(milliseconds: 200));
     currentLocalCandidateIndex.value =
         (currentLocalCandidateIndex.value! + 1) % locaPartiesOfMaxParty.length;
+    locaCandidateOpacityActive.value = true;
+    await Future.delayed(Duration(milliseconds: 200));
   }
 
   List<ResultsPage> createAllResultsPages() {
