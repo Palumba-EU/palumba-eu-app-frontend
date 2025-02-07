@@ -27,10 +27,10 @@ class ElectionPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomSpacer(multiplier: 6),
-                  AppTexts.title("Choose an Election",
+                  AppTexts.title(S.of(context).electionPageTitle,
                       color: AppColors.primary),
                   CustomSpacer(small: true),
-                  AppTexts.small(S.of(context).languagePageSubtitle,
+                  AppTexts.small(S.of(context).electionPageSubtitle,
                       color: AppColors.primary),
                   CustomSpacer(),
                   Expanded(

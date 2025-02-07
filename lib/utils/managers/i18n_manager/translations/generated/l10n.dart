@@ -805,6 +805,26 @@ class S {
     );
   }
 
+  /// `Election`
+  String get settingsPageTitleElection {
+    return Intl.message(
+      'Election',
+      name: 'settingsPageTitleElection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To change the questionnaire, click on the current one`
+  String get settingsPageTextElection {
+    return Intl.message(
+      'To change the questionnaire, click on the current one',
+      name: 'settingsPageTextElection',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `About`
   String get settingsPageTitleAbout {
     return Intl.message(
@@ -1285,20 +1305,20 @@ class S {
     );
   }
 
-  /// `⁠Secondary school diploma (Realschulabschluss)`
+  /// `Middle school diploma`
   String get onBoardingStep4Option4_ger25 {
     return Intl.message(
-      '⁠Secondary school diploma (Realschulabschluss)',
+      'Middle school diploma',
       name: 'onBoardingStep4Option4_ger25',
       desc: '-> onBoardingStep4Option4',
       args: [],
     );
   }
 
-  /// `⁠Intermediate school diploma (MSA)`
+  /// `some middle school`
   String get onBoardingStep4Option5_ger25 {
     return Intl.message(
-      '⁠Intermediate school diploma (MSA)',
+      'some middle school',
       name: 'onBoardingStep4Option5_ger25',
       desc: '-> onBoardingStep4Option5',
       args: [],
@@ -1613,6 +1633,21 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Choose an Election`
+  String get electionPageTitle {
+    return Intl.message(
+      'Choose an Election',
+      name: 'electionPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get electionPageSubtitle {
+    return Intl.message('', name: 'electionPageSubtitle', desc: '', args: []);
   }
 
   /// `European Elections 2024 🇪🇺`

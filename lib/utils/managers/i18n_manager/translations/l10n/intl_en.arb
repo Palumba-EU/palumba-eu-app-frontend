@@ -93,6 +93,8 @@
   "settingsPageTitleLanguage": "Language",
   "settingsPageSubtitleLanguage": "I prefer to use this app in",
   "settingsPageTextLanguage": "To change the language, click on the current one",
+  "settingsPageTitleElection": "Election",
+  "settingsPageTextElection": "To change the questionnaire, click on the current one",
   "settingsPageTitleAbout": "About",
   "settingsPageTextAbout": "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
   "settingsPageTitleAssociation": "The association",
@@ -246,11 +248,11 @@
   "@onBoardingStep4Option3_ger25": {
     "description": "-> onBoardingStep4Option3"
   },
-  "onBoardingStep4Option4_ger25": "⁠Secondary school diploma (Realschulabschluss)",
+  "onBoardingStep4Option4_ger25": "Middle school diploma",
   "@onBoardingStep4Option4_ger25": {
     "description": "-> onBoardingStep4Option4"
   },
-  "onBoardingStep4Option5_ger25": "⁠Intermediate school diploma (MSA)",
+  "onBoardingStep4Option5_ger25": "some middle school",
   "@onBoardingStep4Option5_ger25": {
     "description": "-> onBoardingStep4Option5"
   },
@@ -345,6 +347,8 @@
   "pushDeactivatedConfirm": "Open Settings",
   "resultsPageCandidatesShuffle": "Shuffle my politcal love 🔀",
   "resultsPageCandidatesNoParties": "no local parties",
+  "electionPageTitle": "Choose an Election",
+  "electionPageSubtitle": "",
   "electionEU": "European Elections 2024 🇪🇺",
   "electionDE": "Bundestagswahl 2025 🇩🇪"
 }

@@ -58,6 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "electionEU": MessageLookupByLibrary.simpleMessage(
       "European Elections 2024 🇪🇺",
     ),
+    "electionPageSubtitle": MessageLookupByLibrary.simpleMessage(""),
+    "electionPageTitle": MessageLookupByLibrary.simpleMessage(
+      "Choose an Election",
+    ),
     "entranceMatchesFoundQuote": m0,
     "entranceStartButton": MessageLookupByLibrary.simpleMessage(
       "Start Palumba",
@@ -184,10 +188,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "⁠Vocational training",
     ),
     "onBoardingStep4Option4_ger25": MessageLookupByLibrary.simpleMessage(
-      "⁠Secondary school diploma (Realschulabschluss)",
+      "Middle school diploma",
     ),
     "onBoardingStep4Option5_ger25": MessageLookupByLibrary.simpleMessage(
-      "⁠Intermediate school diploma (MSA)",
+      "some middle school",
     ),
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
       "Other",
@@ -431,6 +435,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
       "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
     ),
+    "settingsPageTextElection": MessageLookupByLibrary.simpleMessage(
+      "To change the questionnaire, click on the current one",
+    ),
     "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
       "To change the language, click on the current one",
     ),
@@ -446,6 +453,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settingsPageTitleAssociation_ger25": MessageLookupByLibrary.simpleMessage(
       "The association",
+    ),
+    "settingsPageTitleElection": MessageLookupByLibrary.simpleMessage(
+      "Election",
     ),
     "settingsPageTitleLanguage": MessageLookupByLibrary.simpleMessage(
       "Language",
