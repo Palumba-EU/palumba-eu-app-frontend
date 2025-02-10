@@ -582,6 +582,19 @@ extension ElectionResult4Axis on Election {
   }
 }
 
+extension ElectionResult5Topics on Election {
+  List<int> get result5Topics {
+    switch (this) {
+      case Election.DE:
+        // 9: Climate, 13: Migration, 12: EU Integration
+        return [9, 13, 12];
+      case Election.EU:
+        // 4: Human & Social Rights, 5: Economic Intervention, 1: Environmental issues
+        return [4, 5, 1];
+    }
+  }
+}
+
 extension ElectionBackend on Election {
   int get backend {
     switch (this) {

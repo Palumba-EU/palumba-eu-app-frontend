@@ -238,7 +238,9 @@ class ResultsController extends GetxController {
 
   void _getTopics() async {
     var topicsList = DataManager().getTopics();
-    _topics = topicsList.where((e) => e.id != 2 && e.id != 3).toList();
+    var availableTopicIds = ElectionManager.currentElection.value.result5Topics;
+    _topics =
+        topicsList.where((e) => availableTopicIds.contains(e.id)).toList();
     _topics.sort((a, b) => a.id!.compareTo(b.id!));
   }
 
