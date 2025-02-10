@@ -164,7 +164,8 @@ class StatementsPage extends GetView<StatementsController> {
                             ? S.of(context).message_five_cards_left
                             : S.of(context).message_half_test_done,
                         bold: true,
-                        black: false),
+                        black: false,
+                        textAlign: TextAlign.center),
                   ),
                 ),
               ))
