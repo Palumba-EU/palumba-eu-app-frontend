@@ -26,7 +26,7 @@ class ResultsPage3 extends GetView<ResultsController> with ResultsPage {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: Get.width * .5,
+                  width: Get.width * .53,
                   child: Padding(
                     padding: AppDimens.lateralPadding,
                     child: ListView.builder(
@@ -56,7 +56,7 @@ class ResultsPage3 extends GetView<ResultsController> with ResultsPage {
                   () => controller.currentPageIndex != 2
                       ? SizedBox.shrink()
                       : SizedBox(
-                          width: Get.width * .5,
+                          width: Get.width * .47,
                           child: Padding(
                             padding: EdgeInsets.only(
                                 right: 18,
