@@ -5,6 +5,7 @@
   "ok": "Добре",
   "yes": "Да",
   "no": "Не",
+  "maybe": "Maybe",
   "cancel": "Отказ",
   "textContinue": "Продължи",
   "alertServerErrorTitle": "Упс!",
@@ -60,8 +61,8 @@
   "resultsPage3Title": "Колко близко съм до дадени Европейски парламентарни групи",
   "resultsPage4TitleTop": "Про-ЕС интеграция",
   "resultsPage4TitleBottom": "Анти-ЕС интеграция",
-  "resultsPage4TitleLeft": "Ляво",
-  "resultsPage4TitleRight": "Дясно",
+  "resultsPage4TitleLeft": "Conservative",
+  "resultsPage4TitleRight": "Progressive",
   "resultsPage4TitleUserHere": "It’s me, hi!",
   "resultsPage5Title": "По по-специфични теми - към коя група в Европейския парламент съм по-близо?",
   "resultsPage5Topic1": "Екологични проблеми",
@@ -92,6 +93,8 @@
   "settingsPageTitleLanguage": "Език",
   "settingsPageSubtitleLanguage": "Предпочитам да използвам приложението в",
   "settingsPageTextLanguage": "За да промените езика, натиснете върху текущия език",
+  "settingsPageTitleElection": "Election",
+  "settingsPageTextElection": "To change the questionnaire, click on the current one",
   "settingsPageTitleAbout": "Относно",
   "settingsPageTextAbout": "Palumba не е компания, не е политическа партия, не е правителство. Ние сме независимо сдружение с нестопанска цел на над 120 млади хора 🐦 от цяла Европа, които се събраха миналото лято и започнаха да създават това приложение. Имаме една цел: да ви помогнем да разберете по-добре как протичат европейските избори и кои кандидатски листи биха могли да отговарят на вашите идеи, за да можете да гласувате по-уверено за хора, които подкрепят вашите приоритети. Алгоритъмът ни е с отворен код, изявленията, върху които плъзгате пръст, са прегледани от политолози, а данните ви са толкова криптирани, че няма как да ви идентифицираме :)",
   "settingsPageTitleAssociation": "Асоциацията",
@@ -165,11 +168,11 @@
   "@resultsPage4TitleBottom_ger25": {
     "description": "-> resultsPage4TitleBottom"
   },
-  "resultsPage4TitleLeft_ger25": "Economic intervention",
+  "resultsPage4TitleLeft_ger25": "Free market economics",
   "@resultsPage4TitleLeft_ger25": {
     "description": "-> resultsPage4TitleLeft"
   },
-  "resultsPage4TitleRight_ger25": "Free market economics",
+  "resultsPage4TitleRight_ger25": "Economic intervention",
   "@resultsPage4TitleRight_ger25": {
     "description": "-> resultsPage4TitleRight"
   },
@@ -197,7 +200,7 @@
   "@resultsPage6_1Title_ger25": {
     "description": "-> resultsPage6_1Title"
   },
-  "resultsPage6_2Title_ger25": "But at the German election you also have the option to vote for a specific candidate",
+  "resultsPage6_2Title_ger25": "But in the German election you also have the option to vote for a specific candidate",
   "@resultsPage6_2Title_ger25": {
     "description": "resultsPage6_2Title"
   },
@@ -233,6 +236,7 @@
   "@messageScreenNo_ger25": {
     "description": "-> messageScreenNo"
   },
+  "onBoardingStep4Title": "Level of Education",
   "onBoardingStep4Option1_ger25": "University degree",
   "@onBoardingStep4Option1_ger25": {
     "description": "-> onBoardingStep4Option1"
@@ -245,11 +249,11 @@
   "@onBoardingStep4Option3_ger25": {
     "description": "-> onBoardingStep4Option3"
   },
-  "onBoardingStep4Option4_ger25": "⁠Secondary school diploma (Realschulabschluss)",
+  "onBoardingStep4Option4_ger25": "Middle school diploma",
   "@onBoardingStep4Option4_ger25": {
     "description": "-> onBoardingStep4Option4"
   },
-  "onBoardingStep4Option5_ger25": "⁠Intermediate school diploma (MSA)",
+  "onBoardingStep4Option5_ger25": "some middle school",
   "@onBoardingStep4Option5_ger25": {
     "description": "-> onBoardingStep4Option5"
   },
@@ -334,5 +338,20 @@
   "resultsPage9Text2_ger25": "made for you!",
   "@resultsPage9Text2_ger25": {
     "description": "-> resultsPage9Text2"
-  }
+  },
+  "resultsPage2NoResults": "No results found",
+  "resultsPage10VotingDay": "Get Ready, Voting Day is {date}",
+  "resultsPage10VotingQuestion": "Are you going to vote?",
+  "pushDeactivatedTitle": "Notifications disabled",
+  "pushDeactivatedText": "To be able to receive Push Notifcation enable them in the settings",
+  "pushDeactivatedCancel": "Close",
+  "pushDeactivatedConfirm": "Open Settings",
+  "resultsPageCandidatesShuffle": "Shuffle my politcal love 🔀",
+  "resultsPageCandidatesNoParties": "no local parties",
+  "electionPageTitle": "Choose an Election",
+  "electionPageSubtitle": "",
+  "electionEU": "European Elections 2024 🇪🇺",
+  "electionDE": "Bundestagswahl 2025 🇩🇪",
+  "resultsPageAllPartiesTitle_ger25": "Your personal ranking of all parties",
+  "resultsPageAllPartiesDescription_ger25": "Including 12 political parties in all Bundesländer in Germany"
 }

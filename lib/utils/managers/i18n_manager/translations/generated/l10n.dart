@@ -510,20 +510,20 @@ class S {
     );
   }
 
-  /// `Left`
+  /// `Conservative`
   String get resultsPage4TitleLeft {
     return Intl.message(
-      'Left',
+      'Conservative',
       name: 'resultsPage4TitleLeft',
       desc: '',
       args: [],
     );
   }
 
-  /// `Right`
+  /// `Progressive`
   String get resultsPage4TitleRight {
     return Intl.message(
-      'Right',
+      'Progressive',
       name: 'resultsPage4TitleRight',
       desc: '',
       args: [],
@@ -1105,20 +1105,20 @@ class S {
     );
   }
 
-  /// `Economic intervention`
+  /// `Free market economics`
   String get resultsPage4TitleLeft_ger25 {
     return Intl.message(
-      'Economic intervention',
+      'Free market economics',
       name: 'resultsPage4TitleLeft_ger25',
       desc: '-> resultsPage4TitleLeft',
       args: [],
     );
   }
 
-  /// `Free market economics`
+  /// `Economic intervention`
   String get resultsPage4TitleRight_ger25 {
     return Intl.message(
-      'Free market economics',
+      'Economic intervention',
       name: 'resultsPage4TitleRight_ger25',
       desc: '-> resultsPage4TitleRight',
       args: [],
@@ -1185,10 +1185,10 @@ class S {
     );
   }
 
-  /// `But at the German election you also have the option to vote for a specific candidate`
+  /// `But in the German election you also have the option to vote for a specific candidate`
   String get resultsPage6_2Title_ger25 {
     return Intl.message(
-      'But at the German election you also have the option to vote for a specific candidate',
+      'But in the German election you also have the option to vote for a specific candidate',
       name: 'resultsPage6_2Title_ger25',
       desc: 'resultsPage6_2Title',
       args: [],
@@ -1675,6 +1675,26 @@ class S {
     return Intl.message(
       'Bundestagswahl 2025 🇩🇪',
       name: 'electionDE',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your personal ranking of all parties`
+  String get resultsPageAllPartiesTitle_ger25 {
+    return Intl.message(
+      'Your personal ranking of all parties',
+      name: 'resultsPageAllPartiesTitle_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Including 12 political parties in all Bundesländer in Germany`
+  String get resultsPageAllPartiesDescription_ger25 {
+    return Intl.message(
+      'Including 12 political parties in all Bundesländer in Germany',
+      name: 'resultsPageAllPartiesDescription_ger25',
       desc: '',
       args: [],
     );

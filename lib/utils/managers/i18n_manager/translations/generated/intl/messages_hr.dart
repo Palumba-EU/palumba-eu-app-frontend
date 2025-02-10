@@ -27,19 +27,21 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m2(country) =>
       "Spajanje s idealnom listom kandidata u ${country} 🔍";
 
-  static String m3(country) =>
+  static String m3(date) => "Get Ready, Voting Day is ${date}";
+
+  static String m4(country) =>
       "Nije pronađena niti jedna lokalna skupina u ${country}";
 
-  static String m4(country, group) =>
+  static String m5(country, group) =>
       "Kandidati u ${country} najviše se podudaraju s ${group}";
 
-  static String m5(party) =>
+  static String m6(party) =>
       "Here’s a young candidate from ${party}* —shuffle to see more! They may not be on your ballot, but represent the future of their party!";
 
-  static String m6(topic, percentage) =>
+  static String m7(topic, percentage) =>
       "Što se tiče ${topic}, ${percentage}% si više za";
 
-  static String m7(number, dimension) =>
+  static String m8(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -51,6 +53,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
     "cancel": MessageLookupByLibrary.simpleMessage("Odustani"),
     "denmark": MessageLookupByLibrary.simpleMessage("Danska"),
+    "electionDE": MessageLookupByLibrary.simpleMessage(
+      "Bundestagswahl 2025 🇩🇪",
+    ),
+    "electionEU": MessageLookupByLibrary.simpleMessage(
+      "European Elections 2024 🇪🇺",
+    ),
+    "electionPageSubtitle": MessageLookupByLibrary.simpleMessage(""),
+    "electionPageTitle": MessageLookupByLibrary.simpleMessage(
+      "Choose an Election",
+    ),
     "entranceMatchesFoundQuote": m0,
     "entranceStartButton": MessageLookupByLibrary.simpleMessage(
       "Pokreni Palumbu",
@@ -113,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle4_ger25": MessageLookupByLibrary.simpleMessage(
       "Almost ready, one last check...",
     ),
+    "maybe": MessageLookupByLibrary.simpleMessage("Maybe"),
     "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage(
       "No, thanks!",
     ),
@@ -174,15 +187,28 @@ class MessageLookup extends MessageLookupByLibrary {
       "⁠Vocational training",
     ),
     "onBoardingStep4Option4_ger25": MessageLookupByLibrary.simpleMessage(
-      "⁠Secondary school diploma (Realschulabschluss)",
+      "Middle school diploma",
     ),
     "onBoardingStep4Option5_ger25": MessageLookupByLibrary.simpleMessage(
-      "⁠Intermediate school diploma (MSA)",
+      "some middle school",
     ),
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
       "Other",
     ),
+    "onBoardingStep4Title": MessageLookupByLibrary.simpleMessage(
+      "Level of Education",
+    ),
     "poland": MessageLookupByLibrary.simpleMessage("Poljska"),
+    "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("Close"),
+    "pushDeactivatedConfirm": MessageLookupByLibrary.simpleMessage(
+      "Open Settings",
+    ),
+    "pushDeactivatedText": MessageLookupByLibrary.simpleMessage(
+      "To be able to receive Push Notifcation enable them in the settings",
+    ),
+    "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage(
+      "Notifications disabled",
+    ),
     "resultsPage10NopButton": MessageLookupByLibrary.simpleMessage("Ne hvala!"),
     "resultsPage10NopButton_ger25": MessageLookupByLibrary.simpleMessage(
       "No thanks!",
@@ -192,6 +218,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage10Title_ger25": MessageLookupByLibrary.simpleMessage(
       "A notification when it’s time to go vote?",
+    ),
+    "resultsPage10VotingDay": m3,
+    "resultsPage10VotingQuestion": MessageLookupByLibrary.simpleMessage(
+      "Are you going to vote?",
     ),
     "resultsPage10YesButton": MessageLookupByLibrary.simpleMessage("Daaaa"),
     "resultsPage10YesButton_ger25": MessageLookupByLibrary.simpleMessage(
@@ -214,6 +244,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage1Title_ger25": MessageLookupByLibrary.simpleMessage(
       "A match and much more",
+    ),
+    "resultsPage2NoResults": MessageLookupByLibrary.simpleMessage(
+      "No results found",
     ),
     "resultsPage2_1Title": MessageLookupByLibrary.simpleMessage(
       "Iskreno, između",
@@ -239,13 +272,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage4TitleBottom_ger25": MessageLookupByLibrary.simpleMessage(
       "Socially conservative",
     ),
-    "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Lijevo"),
-    "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
-      "Economic intervention",
+    "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage(
+      "Conservative",
     ),
-    "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Desno"),
-    "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
+    "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Free market economics",
+    ),
+    "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage(
+      "Progressive",
+    ),
+    "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
+      "Economic intervention",
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage(
       "Za EU integraciju",
@@ -303,7 +340,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ali na Europskim izborima, glasamo za lokalnu listu",
     ),
     "resultsPage6_2Title_ger25": MessageLookupByLibrary.simpleMessage(
-      "But at the German election you also have the option to vote for a specific candidate",
+      "But in the German election you also have the option to vote for a specific candidate",
     ),
     "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
       "Bez određenog redoslijeda.",
@@ -311,17 +348,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage7Disclaimer_ger25": MessageLookupByLibrary.simpleMessage(
       "* On this screen only candidates from the following parties can be displayed: CDU/CSU, SPD, Grüne, AfD, Linke, FDP, BSW.",
     ),
-    "resultsPage7NoLocalCandidates": m3,
-    "resultsPage7Title": m4,
-    "resultsPage7Title_ger25": m5,
+    "resultsPage7NoLocalCandidates": m4,
+    "resultsPage7Title": m5,
+    "resultsPage7Title_ger25": m6,
     "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
       "Pravi si borac protiv klimatskih promjena! Vjeruješ da klimatska kriza mora biti prioritet svakoga i da njezino suzbijanje zahtjeva udružene napore. Nemaš ništa protiv da EU regulira poduzeća u tu svrhu. Uostalom, kakva je korist od ekonomskog rasta ako planet postane nenastanjiv?",
     ),
     "resultsPage8Help_ger25": MessageLookupByLibrary.simpleMessage(
       "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the Germany regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable? #ClimateActionNow #PlanetFirst",
     ),
-    "resultsPage8_1Text": m6,
-    "resultsPage8_1Text_ger25": m7,
+    "resultsPage8_1Text": m7,
+    "resultsPage8_1Text_ger25": m8,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
       "Aktivno klimatsko djelovanje🌱😌",
     ),
@@ -345,6 +382,19 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
       "made for you!",
+    ),
+    "resultsPageAllPartiesDescription_ger25":
+        MessageLookupByLibrary.simpleMessage(
+          "Including 12 political parties in all Bundesländer in Germany",
+        ),
+    "resultsPageAllPartiesTitle_ger25": MessageLookupByLibrary.simpleMessage(
+      "Your personal ranking of all parties",
+    ),
+    "resultsPageCandidatesNoParties": MessageLookupByLibrary.simpleMessage(
+      "no local parties",
+    ),
+    "resultsPageCandidatesShuffle": MessageLookupByLibrary.simpleMessage(
+      "Shuffle my politcal love 🔀",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Podijeli"),
     "romania": MessageLookupByLibrary.simpleMessage("Rumunjska"),
@@ -396,6 +446,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
       "Palumba nije poduzeće, politička stranka, niti vlada. Mi smo nezavisna i neprofitna organizacija od 120+ mladih ljudi 🐦 iz cijele Europe koja se udružila prošloga ljeta i pokrenula izradu ove aplikacije sa samo jednim ciljem: želimo ti pomoći da bolje razumiješ kako funkcioniraju Europski izbori i koja lista kandidata najbolje odgovara tvojim stavovima i time ti olakšali odabir kada dođe vrijeme glasovanja. Naš je algoritam otvorenog tipa, izjave su provjerene od strane političkih znanstvenika, a tvoji su podaci zaštićeni do te mjere da nema šanse da saznamo tko si :)",
     ),
+    "settingsPageTextElection": MessageLookupByLibrary.simpleMessage(
+      "To change the questionnaire, click on the current one",
+    ),
     "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
       "Za promjenu jezika, pritisni trenutni odabir",
     ),
@@ -411,6 +464,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settingsPageTitleAssociation_ger25": MessageLookupByLibrary.simpleMessage(
       "The association",
+    ),
+    "settingsPageTitleElection": MessageLookupByLibrary.simpleMessage(
+      "Election",
     ),
     "settingsPageTitleLanguage": MessageLookupByLibrary.simpleMessage("Jezik"),
     "settingsPageTitlePartners": MessageLookupByLibrary.simpleMessage(

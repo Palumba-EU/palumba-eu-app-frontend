@@ -5,6 +5,7 @@
   "ok": "Ok",
   "yes": "Ja",
   "no": "Nein",
+  "maybe": "Vielleicht",
   "cancel": "Abbrechen",
   "textContinue": "Fortfahren",
   "alertServerErrorTitle": "Ups!",
@@ -60,8 +61,8 @@
   "resultsPage3Title": "Wie nah bin ich den Fraktionen im Europäischen Parlament",
   "resultsPage4TitleTop": "Pro-EU Integration",
   "resultsPage4TitleBottom": "Anti-EU Integration",
-  "resultsPage4TitleLeft": "Links",
-  "resultsPage4TitleRight": "Rechts",
+  "resultsPage4TitleLeft": "Konservativ",
+  "resultsPage4TitleRight": "Progressiv",
   "resultsPage4TitleUserHere": "It’s me, hi!",
   "resultsPage5Title": "Spezifische Themen - Welchen Fraktionen im EU Parlament bin ich am nächsten?",
   "resultsPage5Topic1": "Umweltthemen",
@@ -92,6 +93,8 @@
   "settingsPageTitleLanguage": "Sprache",
   "settingsPageSubtitleLanguage": "Welche Sprache bevorzugst du?",
   "settingsPageTextLanguage": "Um die Sprache zu ändern, klicke auf die derzeitige Sprache",
+  "settingsPageTitleElection": "Wahl",
+  "settingsPageTextElection": "Um den Fragebogen zu ändern, klicke hier",
   "settingsPageTitleAbout": "Über uns",
   "settingsPageTextAbout": "Palumba ist kein Unternehmen, keine politische Partei und keine Regierung. Wir sind ein unabhängiger gemeinnütziger Verein bestehend aus 120 + jungen Menschen 🐦 aus ganz Europa und haben letzten Sommer mit dem Entwickeln dieser App gestartet. Wir haben ein Ziel: Dich dabei zu unterstützen die EU Wahlen besser zu verstehen und die Kandidatenlisten passend zu deinen Einstellungen zu finden - All das damit du mit mehr Selbstvertrauen die Parteien wählen kannst, die zu deinen Prioritäten passen. Unser Algorithmus ist Open-Source, die Statements wurden von Politikwissenschaftlern überprüft und deine Daten sind sooo verschlüsselt, dass wir keine Möglichkeit haben, dich jemals zu identifizieren :)",
   "settingsPageTitleAssociation": "Der Verein",
@@ -165,11 +168,11 @@
   "@resultsPage4TitleBottom_ger25": {
     "description": "-> resultsPage4TitleBottom"
   },
-  "resultsPage4TitleLeft_ger25": "Wirtschaftliche Intervention",
+  "resultsPage4TitleLeft_ger25": "Freie Marktwirtschaft",
   "@resultsPage4TitleLeft_ger25": {
     "description": "-> resultsPage4TitleLeft"
   },
-  "resultsPage4TitleRight_ger25": "Freie Marktwirtschaft",
+  "resultsPage4TitleRight_ger25": "Wirtschaftliche Intervention",
   "@resultsPage4TitleRight_ger25": {
     "description": "-> resultsPage4TitleRight"
   },
@@ -233,6 +236,7 @@
   "@messageScreenNo_ger25": {
     "description": "-> messageScreenNo"
   },
+  "onBoardingStep4Title": "Bildungsniveau",
   "onBoardingStep4Option1_ger25": "Universitätsabschluss",
   "@onBoardingStep4Option1_ger25": {
     "description": "-> onBoardingStep4Option1"
@@ -334,5 +338,20 @@
   "resultsPage9Text2_ger25": "die Faust aufs Auge!",
   "@resultsPage9Text2_ger25": {
     "description": "-> resultsPage9Text2"
-  }
+  },
+  "resultsPage2NoResults": "Keine Ergebnisse gefunden",
+  "resultsPage10VotingDay": "⁠Die Wahl ist am {date} - sei dabei!",
+  "resultsPage10VotingQuestion": "Gehst du wählen?",
+  "pushDeactivatedTitle": "Benachrichtigungen deaktiviert",
+  "pushDeactivatedText": "Um Push-Benachrichtigungen zu erhalten, aktiviere sie in den Einstellungen",
+  "pushDeactivatedCancel": "Schließen",
+  "pushDeactivatedConfirm": "Einstellungen öffnen",
+  "resultsPageCandidatesShuffle": "Mix meine politische Liebe 🔀",
+  "resultsPageCandidatesNoParties": "keine Lokalparteien gefunden",
+  "electionPageTitle": "Such dir eine Wahl aus",
+  "electionPageSubtitle": "",
+  "electionEU": "Europawahl 2024 🇪🇺",
+  "electionDE": "Bundestagswahl 2025 🇩🇪",
+  "resultsPageAllPartiesTitle_ger25": "Dein persönliches Ranking aller Parteien",
+  "resultsPageAllPartiesDescription_ger25": "Mit 12 Parteien in allen Bundesländern Deutschlands"
 }

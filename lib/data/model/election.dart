@@ -371,14 +371,11 @@ extension ElectionTexts on Election {
   }
 
   String resultsPageAllCandidatesTitle(BuildContext context) {
-    return "Your personal ranking of all parties";
+    return S.of(context).resultsPageAllPartiesTitle_ger25;
   }
 
-  String resultsPageAllCandidatesDescription(
-      BuildContext context, int totalParties) {
-    return "Including " +
-        totalParties.toString() +
-        " political parties in all Bundesländer in Germany.";
+  String resultsPageAllCandidatesDescription(BuildContext context) {
+    return S.of(context).resultsPageAllPartiesDescription_ger25;
   }
 
   String resultsPage7Disclaimer(BuildContext context) {

@@ -48,8 +48,7 @@ class ResultsPageAllParties extends GetView<ResultsController>
         CustomSpacer(),
         AppTexts.small(
             ElectionManager.currentElection.value
-                .resultsPageAllCandidatesDescription(
-                    context, controller.allPartiesWithPercent.length),
+                .resultsPageAllCandidatesDescription(context),
             color: AppColors.primary),
         CustomSpacer(
           multiplier: 2,
