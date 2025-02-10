@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
@@ -38,5 +39,17 @@ class EntranceController extends GetxController {
       return election.swipe;
     }
     return 'assets/images/img_results.svg';
+  }
+
+  String textForIndex(BuildContext context, int index) {
+    switch (index) {
+      case 0:
+        return ElectionManager.currentElection.value.entranceTitle1(context);
+      case 1:
+        return ElectionManager.currentElection.value.entranceTitle2(context);
+      case 2:
+        return ElectionManager.currentElection.value.entranceTitle3(context);
+    }
+    return '';
   }
 }

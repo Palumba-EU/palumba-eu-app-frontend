@@ -103,12 +103,7 @@ class EntrancePage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: AppDimens.lateralPadding,
-                    child: AppTexts.title(
-                        index == 0
-                            ? S.of(context).entranceTitle1
-                            : index == 1
-                                ? S.of(context).entranceTitle2
-                                : S.of(context).entranceTitle3,
+                    child: AppTexts.title(_.textForIndex(context, index),
                         textAlign: TextAlign.center,
                         color: AppColors.primary,
                         fontSize: AppDimens.fontSizeBig),
