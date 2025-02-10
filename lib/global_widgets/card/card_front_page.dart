@@ -29,7 +29,7 @@ class CardFrontPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomSpacer(multiplier: 6),
-        if (!card.isOnboardingCard) emojiView(),
+        emojiView(),
         CustomSpacer(multiplier: 2),
         CustomSpacer(small: true),
         RichText(
