@@ -6,6 +6,7 @@ import 'package:palumba_eu/global_widgets/emoji_label_container.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class CardFrontPage extends StatelessWidget {
   const CardFrontPage(
@@ -44,7 +45,7 @@ class CardFrontPage extends StatelessWidget {
                             color: text[index] == '*'
                                 ? AppColors.lightPrimary
                                 : Colors.white))))),
-        if (card.isOnboardingCard) onBoardingView()
+        if (card.isOnboardingCard) onBoardingView(context)
       ],
     );
   }
@@ -56,14 +57,14 @@ class CardFrontPage extends StatelessWidget {
     );
   }
 
-  Widget onBoardingView() {
+  Widget onBoardingView(BuildContext context) {
     return Center(
       child: Padding(
           padding:
               const EdgeInsets.only(top: AppDimens.largeLateralPaddingValue),
           child: Column(
             children: [
-              AppTexts.regular("Tap to turn & read more info"),
+              AppTexts.regular(S.of(context).statementsTutorialTurnInfo_ger25),
               CustomSpacer(
                 multiplier: 3,
               ),

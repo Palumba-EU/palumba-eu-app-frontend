@@ -156,23 +156,23 @@
   "@resultsPage2_2Title_ger25": {
     "description": "-> resultsPage2_2Title"
   },
-  "resultsPage3Title_ger25": "Wie nah bin ich den Parteien, die bei dieser Bundestagswahl antreten",
+  "resultsPage3Title_ger25": "Wie nah bin ich den Hauptparteien, die bei dieser Bundestagswahl antreten",
   "@resultsPage3Title_ger25": {
     "description": "-> resultsPage3Title"
   },
-  "resultsPage4TitleTop_ger25": "Sozial progressiv",
+  "resultsPage4TitleTop_ger25": "Sozial konservativ",
   "@resultsPage4TitleTop_ger25": {
     "description": "-> resultsPage4TitleTop"
   },
-  "resultsPage4TitleBottom_ger25": "Sozial konservativ",
+  "resultsPage4TitleBottom_ger25": "Sozial progressiv",
   "@resultsPage4TitleBottom_ger25": {
     "description": "-> resultsPage4TitleBottom"
   },
-  "resultsPage4TitleLeft_ger25": "Freie Marktwirtschaft",
+  "resultsPage4TitleLeft_ger25": "Wirtschaftliche Intervention",
   "@resultsPage4TitleLeft_ger25": {
     "description": "-> resultsPage4TitleLeft"
   },
-  "resultsPage4TitleRight_ger25": "Wirtschaftliche Intervention",
+  "resultsPage4TitleRight_ger25": "Freie Marktwirtschaft",
   "@resultsPage4TitleRight_ger25": {
     "description": "-> resultsPage4TitleRight"
   },
@@ -208,7 +208,7 @@
   "@resultsPage6Text_ger25": {
     "description": "-> resultsPage6Text"
   },
-  "resultsPage8_1Text_ger25": "Deine Antworten sind in den Top  {number}% bezüglich {dimension}",
+  "resultsPage8_1Text_ger25": "Deine Antworten sind in den Top {number}% bezüglich {dimension}",
   "@resultsPage8_1Text_ger25": {
     "description": "-> resultsPage8_1Text"
   },
@@ -220,7 +220,7 @@
   "@resultsPage9Help_ger25": {
     "description": "-> resultsPage9Help"
   },
-  "resultsPage9Text1_ger25": "Bei Wahlen geht es um viele Themen, aber es gibt eines, das passt dir wie die Faust aufs Auge!",
+  "resultsPage9Text1_ger25": "Bei Wahlen geht es um viele Themen, aber es gibt eines, das passt dir wie",
   "@resultsPage9Text1_ger25": {
     "description": "-> resultsPage9Text1"
   },
@@ -253,7 +253,7 @@
   "@onBoardingStep4Option4_ger25": {
     "description": "-> onBoardingStep4Option4"
   },
-  "onBoardingStep4Option5_ger25": " Mittlerer Schulabschluss",
+  "onBoardingStep4Option5_ger25": "Unvollständige Schulbildung",
   "@onBoardingStep4Option5_ger25": {
     "description": "-> onBoardingStep4Option5"
   },
@@ -353,5 +353,9 @@
   "electionEU": "Europawahl 2024 🇪🇺",
   "electionDE": "Bundestagswahl 2025 🇩🇪",
   "resultsPageAllPartiesTitle_ger25": "Dein persönliches Ranking aller Parteien",
-  "resultsPageAllPartiesDescription_ger25": "Mit 12 Parteien in allen Bundesländern Deutschlands"
+  "resultsPageAllPartiesDescription_ger25": "Aber wie würde dein Ranking aussehen, wenn wir auch kleinere Parteien einbeziehen? – Diese Liste enthält Parteien, die derzeit keine Vertreter im Bundestag haben.",
+  "resultsPage10AreYouGoingToVote_ger25": "Gehst du wählen?",
+  "statementsTutorialTurnInfo_ger25": "Tippe hier für mehr Infos",
+  "resultsPage10MaybeButton_ger25": "Vielleicht",
+  "resultsPage10VotingDay_ger25": "⁠Die Wahl ist am {date} - sei dabei!"
 }

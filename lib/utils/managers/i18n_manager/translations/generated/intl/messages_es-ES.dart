@@ -31,19 +31,21 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(date) => "Get Ready, Voting Day is ${date}";
 
-  static String m4(country) =>
+  static String m4(date) => "Get ready, voting day is ${date}";
+
+  static String m5(country) =>
       "No se han encontrado partidos nacionales en ${country}";
 
-  static String m5(country, group) =>
+  static String m6(country, group) =>
       "Los candidatos de ${country} más en línea con ${group}";
 
-  static String m6(party) =>
+  static String m7(party) =>
       "Here’s a young candidate from ${party}* —shuffle to see more! They may not be on your ballot, but represent the future of their party!";
 
-  static String m7(topic, percentage) =>
+  static String m8(topic, percentage) =>
       "Si hablamos de ${topic}, te acercas en un ${percentage}% a la búsqueda de";
 
-  static String m8(number, dimension) =>
+  static String m9(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -192,7 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Middle school diploma",
     ),
     "onBoardingStep4Option5_ger25": MessageLookupByLibrary.simpleMessage(
-      "some middle school",
+      "Incomplete school education",
     ),
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
       "Other",
@@ -211,6 +213,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage(
       "Notifications disabled",
     ),
+    "resultsPage10AreYouGoingToVote_ger25":
+        MessageLookupByLibrary.simpleMessage("Are you going to vote?"),
+    "resultsPage10MaybeButton_ger25": MessageLookupByLibrary.simpleMessage(
+      "Maybe",
+    ),
     "resultsPage10NopButton": MessageLookupByLibrary.simpleMessage(
       "No, gracias",
     ),
@@ -224,6 +231,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "A notification when it’s time to go vote?",
     ),
     "resultsPage10VotingDay": m3,
+    "resultsPage10VotingDay_ger25": m4,
     "resultsPage10VotingQuestion": MessageLookupByLibrary.simpleMessage(
       "Are you going to vote?",
     ),
@@ -268,31 +276,31 @@ class MessageLookup extends MessageLookupByLibrary {
       "Cómo de compatible eres con los grupos parlamentarios europeos",
     ),
     "resultsPage3Title_ger25": MessageLookupByLibrary.simpleMessage(
-      "How close I am to the parties running in this German election",
+      "How close I am to the main parties running in this German election",
     ),
     "resultsPage4TitleBottom": MessageLookupByLibrary.simpleMessage(
       "Contra la pertenencia a la UE",
     ),
     "resultsPage4TitleBottom_ger25": MessageLookupByLibrary.simpleMessage(
-      "Socially conservative",
+      "Socially progressive",
     ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage(
       "Conservative",
     ),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
-      "Free market economics",
+      "Economic intervention",
     ),
     "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage(
       "Progressive",
     ),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
-      "Economic intervention",
+      "Free market economics",
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage(
       "A favor de la pertenencia a la UE",
     ),
     "resultsPage4TitleTop_ger25": MessageLookupByLibrary.simpleMessage(
-      "Socially progressive",
+      "Socially conservative",
     ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
       "It’s me, hi!",
@@ -352,17 +360,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage7Disclaimer_ger25": MessageLookupByLibrary.simpleMessage(
       "* On this screen only candidates from the following parties can be displayed: CDU/CSU, SPD, Grüne, AfD, Linke, FDP, BSW.",
     ),
-    "resultsPage7NoLocalCandidates": m4,
-    "resultsPage7Title": m5,
-    "resultsPage7Title_ger25": m6,
+    "resultsPage7NoLocalCandidates": m5,
+    "resultsPage7Title": m6,
+    "resultsPage7Title_ger25": m7,
     "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
       "¡Eres todo/a un/a activista por el clima! Crees que para afrontar la crisis climática se necesita una acción colectiva: todos tenemos que convertirla en una prioridad. No te importaría que la UE regulara las acciones de las empresas con ese fin. A fin de cuentas, ¿para qué vale el desarrollo económico si nuestro planeta acaba siendo inhabitable?",
     ),
     "resultsPage8Help_ger25": MessageLookupByLibrary.simpleMessage(
       "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the Germany regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable? #ClimateActionNow #PlanetFirst",
     ),
-    "resultsPage8_1Text": m7,
-    "resultsPage8_1Text_ger25": m8,
+    "resultsPage8_1Text": m8,
+    "resultsPage8_1Text_ger25": m9,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
       "una acción climática activa 🌱😌",
     ),
@@ -387,10 +395,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
       "made for you!",
     ),
-    "resultsPageAllPartiesDescription_ger25":
-        MessageLookupByLibrary.simpleMessage(
-          "Including 12 political parties in all Bundesländer in Germany",
-        ),
+    "resultsPageAllPartiesDescription_ger25": MessageLookupByLibrary.simpleMessage(
+      "But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.",
+    ),
     "resultsPageAllPartiesTitle_ger25": MessageLookupByLibrary.simpleMessage(
       "Your personal ranking of all parties",
     ),
@@ -484,6 +491,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "spain": MessageLookupByLibrary.simpleMessage("España"),
     "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
       "Parece que no tienes conexión a internet",
+    ),
+    "statementsTutorialTurnInfo_ger25": MessageLookupByLibrary.simpleMessage(
+      "Tap to turn & read more info",
     ),
     "sweden": MessageLookupByLibrary.simpleMessage("Suecia"),
     "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),

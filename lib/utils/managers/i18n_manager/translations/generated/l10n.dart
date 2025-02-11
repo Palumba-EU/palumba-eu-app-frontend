@@ -1075,50 +1075,50 @@ class S {
     );
   }
 
-  /// `How close I am to the parties running in this German election`
+  /// `How close I am to the main parties running in this German election`
   String get resultsPage3Title_ger25 {
     return Intl.message(
-      'How close I am to the parties running in this German election',
+      'How close I am to the main parties running in this German election',
       name: 'resultsPage3Title_ger25',
       desc: '-> resultsPage3Title',
       args: [],
     );
   }
 
-  /// `Socially progressive`
+  /// `Socially conservative`
   String get resultsPage4TitleTop_ger25 {
     return Intl.message(
-      'Socially progressive',
+      'Socially conservative',
       name: 'resultsPage4TitleTop_ger25',
       desc: '-> resultsPage4TitleTop',
       args: [],
     );
   }
 
-  /// `Socially conservative`
+  /// `Socially progressive`
   String get resultsPage4TitleBottom_ger25 {
     return Intl.message(
-      'Socially conservative',
+      'Socially progressive',
       name: 'resultsPage4TitleBottom_ger25',
       desc: '-> resultsPage4TitleBottom',
       args: [],
     );
   }
 
-  /// `Free market economics`
+  /// `Economic intervention`
   String get resultsPage4TitleLeft_ger25 {
     return Intl.message(
-      'Free market economics',
+      'Economic intervention',
       name: 'resultsPage4TitleLeft_ger25',
       desc: '-> resultsPage4TitleLeft',
       args: [],
     );
   }
 
-  /// `Economic intervention`
+  /// `Free market economics`
   String get resultsPage4TitleRight_ger25 {
     return Intl.message(
-      'Economic intervention',
+      'Free market economics',
       name: 'resultsPage4TitleRight_ger25',
       desc: '-> resultsPage4TitleRight',
       args: [],
@@ -1325,10 +1325,10 @@ class S {
     );
   }
 
-  /// `some middle school`
+  /// `Incomplete school education`
   String get onBoardingStep4Option5_ger25 {
     return Intl.message(
-      'some middle school',
+      'Incomplete school education',
       name: 'onBoardingStep4Option5_ger25',
       desc: '-> onBoardingStep4Option5',
       args: [],
@@ -1690,13 +1690,53 @@ class S {
     );
   }
 
-  /// `Including 12 political parties in all Bundesländer in Germany`
+  /// `But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.`
   String get resultsPageAllPartiesDescription_ger25 {
     return Intl.message(
-      'Including 12 political parties in all Bundesländer in Germany',
+      'But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.',
       name: 'resultsPageAllPartiesDescription_ger25',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Are you going to vote?`
+  String get resultsPage10AreYouGoingToVote_ger25 {
+    return Intl.message(
+      'Are you going to vote?',
+      name: 'resultsPage10AreYouGoingToVote_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to turn & read more info`
+  String get statementsTutorialTurnInfo_ger25 {
+    return Intl.message(
+      'Tap to turn & read more info',
+      name: 'statementsTutorialTurnInfo_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maybe`
+  String get resultsPage10MaybeButton_ger25 {
+    return Intl.message(
+      'Maybe',
+      name: 'resultsPage10MaybeButton_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get ready, voting day is {date}`
+  String resultsPage10VotingDay_ger25(Object date) {
+    return Intl.message(
+      'Get ready, voting day is $date',
+      name: 'resultsPage10VotingDay_ger25',
+      desc: '',
+      args: [date],
     );
   }
 }

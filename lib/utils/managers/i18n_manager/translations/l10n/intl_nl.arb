@@ -156,23 +156,23 @@
   "@resultsPage2_2Title_ger25": {
     "description": "-> resultsPage2_2Title"
   },
-  "resultsPage3Title_ger25": "How close I am to the parties running in this German election",
+  "resultsPage3Title_ger25": "How close I am to the main parties running in this German election",
   "@resultsPage3Title_ger25": {
     "description": "-> resultsPage3Title"
   },
-  "resultsPage4TitleTop_ger25": "Socially progressive",
+  "resultsPage4TitleTop_ger25": "Socially conservative",
   "@resultsPage4TitleTop_ger25": {
     "description": "-> resultsPage4TitleTop"
   },
-  "resultsPage4TitleBottom_ger25": "Socially conservative",
+  "resultsPage4TitleBottom_ger25": "Socially progressive",
   "@resultsPage4TitleBottom_ger25": {
     "description": "-> resultsPage4TitleBottom"
   },
-  "resultsPage4TitleLeft_ger25": "Free market economics",
+  "resultsPage4TitleLeft_ger25": "Economic intervention",
   "@resultsPage4TitleLeft_ger25": {
     "description": "-> resultsPage4TitleLeft"
   },
-  "resultsPage4TitleRight_ger25": "Economic intervention",
+  "resultsPage4TitleRight_ger25": "Free market economics",
   "@resultsPage4TitleRight_ger25": {
     "description": "-> resultsPage4TitleRight"
   },
@@ -253,7 +253,7 @@
   "@onBoardingStep4Option4_ger25": {
     "description": "-> onBoardingStep4Option4"
   },
-  "onBoardingStep4Option5_ger25": "some middle school",
+  "onBoardingStep4Option5_ger25": "Incomplete school education",
   "@onBoardingStep4Option5_ger25": {
     "description": "-> onBoardingStep4Option5"
   },
@@ -353,5 +353,9 @@
   "electionEU": "European Elections 2024 🇪🇺",
   "electionDE": "Bundestagswahl 2025 🇩🇪",
   "resultsPageAllPartiesTitle_ger25": "Your personal ranking of all parties",
-  "resultsPageAllPartiesDescription_ger25": "Including 12 political parties in all Bundesländer in Germany"
+  "resultsPageAllPartiesDescription_ger25": "But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.",
+  "resultsPage10AreYouGoingToVote_ger25": "Are you going to vote?",
+  "statementsTutorialTurnInfo_ger25": "Tap to turn & read more info",
+  "resultsPage10MaybeButton_ger25": "Maybe",
+  "resultsPage10VotingDay_ger25": "Get ready, voting day is {date}"
 }
