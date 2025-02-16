@@ -41,7 +41,7 @@ class HomePageController extends GetxController {
   @override
   void onInit() {
     obtainLocalStoredLastResults();
-    conditionallyShowEYCABanner();
+    conditionallyShowEggScreenOnce();
     super.onInit();
     PlausibleManager.trackPage(route);
     PushNotificationService().fromForeground(_showSnackbar);
@@ -84,14 +84,15 @@ class HomePageController extends GetxController {
     update([resultsExistsKey]);
   }
 
-  Future<void> conditionallyShowEYCABanner() async {
+  Future<void> conditionallyShowEggScreenOnce() async {
     final args = Get.arguments;
-    if (args != null) {
+    final eggScreenSeen = (await _localDataRepository.seenEggScreen) ?? false;
+    if (args != null && !eggScreenSeen) {
       final comingFromResults = args[StringUtils.fromResultsKey];
-      final seenEYCA = (await _localDataRepository.seenEYCA) ?? false;
-
-      _showBanner.value = comingFromResults && !seenEYCA;
-      _localDataRepository.seenEYCA = true;
+      if (comingFromResults) {
+        eggPressed();
+        _localDataRepository.seenEggScreen = true;
+      }
     }
   }
 

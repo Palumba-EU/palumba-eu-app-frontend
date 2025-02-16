@@ -311,7 +311,8 @@ class ResultsController extends GetxController {
     debugPrint("results nextPage");
     final isLastPage = pageController.page?.round() == allPages.length - 1;
     if (isLastPage)
-      Get.offAllNamed(HomePageController.route); // TODO
+      Get.offAllNamed(HomePageController.route,
+          arguments: {StringUtils.fromResultsKey: true});
     // Get.back();
     else {
       pageController.nextPage(

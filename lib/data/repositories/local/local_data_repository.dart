@@ -19,6 +19,6 @@ class LocalDataRepository {
   set results(value) => _localApi.setResults(value);
   Future<String?> get results => _localApi.getResults;
 
-  set seenEYCA(value) => _localApi.setSeenEYCA(value);
-  Future<bool?> get seenEYCA => _localApi.getSeenEYCA;
+  set seenEggScreen(value) => _localApi.setSeenEYCA(value);
+  Future<bool?> get seenEggScreen => _localApi.getSeenEYCA;
 }
