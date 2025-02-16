@@ -29,6 +29,7 @@ class StatementsController extends GetxController {
       _currentCards.length > 0 ? _currentCards[0] : null;
   CardModel? get backCard => _currentCards.length > 1 ? _currentCards[1] : null;
   int? firstCardId; // used to check if back button is shown
+  ScrollController frontCardScrollController = ScrollController();
 
   final DataRepository _dataRepository = Get.find<DataRepository>();
 
@@ -344,6 +345,7 @@ class StatementsController extends GetxController {
     _currentCards.removeAt(0);
     update([cardStackKey]);
     resetAnimation();
+    frontCardScrollController.jumpTo(0.0);
 
     if (_currentCards.length <= 0) {
       Get.offAllNamed(LoadingResultsController.route);

@@ -27,6 +27,7 @@ class CustomCard extends StatelessWidget {
     this.currentDraggedResponseStatement,
     this.selectedResponseStatement,
     this.flipCardController,
+    this.scrollController,
   });
 
   final bool isFrontCard;
@@ -42,14 +43,16 @@ class CustomCard extends StatelessWidget {
   final Rxn<StatementResponse>? currentDraggedResponseStatement;
   final StatementResponse? selectedResponseStatement;
   final FlipCardController? flipCardController;
+  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [];
     if (card != null && card?.details != "")
       pages.add(CardFrontPage(card!, selectedResponseStatement));
-    if (card?.details != null && card?.details != "")
-      pages.add(CardBackPage(card!));
+    if (card?.details != null && card?.details != "") {
+      pages.add(CardBackPage(card!, scrollController));
+    }
 
     return IgnorePointer(
         ignoring: !isFrontCard, child: Obx(() => cardAlignment(pages)));

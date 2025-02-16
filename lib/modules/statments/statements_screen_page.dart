@@ -89,7 +89,7 @@ class StatementsPage extends GetView<StatementsController> {
                 ? Stack(
                     children: [
                       if (controller.backCard != null)
-                        // card in background
+                        // background card
                         CustomCard(
                           isFrontCard: false,
                           card: controller.backCard,
@@ -100,7 +100,7 @@ class StatementsPage extends GetView<StatementsController> {
                               controller.cardAnimationDuration,
                         ),
                       Obx(
-                        // main card
+                        // front card
                         () => CustomCard(
                             isFrontCard: true,
                             card: controller.frontCard,
@@ -117,7 +117,9 @@ class StatementsPage extends GetView<StatementsController> {
                             flipCardController: controller.flipCardController,
                             selectedResponseStatement:
                                 controller.selectedResponseStatement.value,
-                            onFlip: controller.onFlip),
+                            onFlip: controller.onFlip,
+                            scrollController:
+                                controller.frontCardScrollController),
                       )
                     ],
                   )

@@ -136,8 +136,7 @@ class CardWidget extends StatelessWidget {
                                         width: 20,
                                         height: 20,
                                         isSvg: true,
-                                        imageUrl:
-                                            data.parties[index].logo ?? '',
+                                        imageUrl: data.parties[index].logo,
                                         radius: Get.width,
                                         color: AppColors.blue,
                                       )),
