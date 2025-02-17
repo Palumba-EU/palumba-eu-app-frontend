@@ -1,4 +1,5 @@
 import 'package:palumba_eu/data/model/elections_response.dart';
+import 'package:palumba_eu/data/model/goingToVote_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/responses_response.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
@@ -31,6 +32,9 @@ class DataRepository {
   Future<int?> fetchStatistics() => _api.fetchStatistics();
 
   Future<ResponsesResponse?> postResponses() => _api.postResponses();
+
+  Future<ResponsesResponse?> patchResponses(GoingToVote goingToVote) =>
+      _api.patchResponses(goingToVote);
 
   Future<bool> postResponsesAnswer(Answer answer) =>
       _api.postResponsesAnswer(answer);

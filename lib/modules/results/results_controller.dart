@@ -8,9 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/data/model/goingToVote_model.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/modules/results/components/custom_mds_graphic/scatter_points.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
@@ -553,5 +555,19 @@ class ResultsController extends GetxController {
         isExtreme1: maxValue < 0,
         percentage: (maxValue.abs() * 100).toStringAsFixed2(0),
         topicData: maxTopic);
+  }
+
+  // Page 10 handle voting question
+  void handleGoVoteQuestion(GoingToVote goingToVote) {
+    DataRepository().patchResponses(goingToVote);
+    switch (goingToVote) {
+      case GoingToVote.no:
+        this.nextPage();
+        break;
+      case GoingToVote.maybe:
+      case GoingToVote.yes:
+        this.willVote.value = true;
+        break;
+    }
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/data/model/goingToVote_model.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -116,22 +117,19 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-              onPressed: controller.nextPage,
+              onPressed: () => controller.handleGoVoteQuestion(GoingToVote.no),
               child: AppTexts.regular(S.of(context).no,
                   bold: true, color: AppColors.primary),
             ),
             TextButton(
-              onPressed: () {
-                willVote.value = true;
-              },
+              onPressed: () =>
+                  controller.handleGoVoteQuestion(GoingToVote.maybe),
               child: AppTexts.regular(S.of(context).maybe,
                   bold: true, color: AppColors.primary),
             ),
             CustomHorizontalSpacer(),
             CustomButton(
-              onPressed: () {
-                willVote.value = true;
-              },
+              onPressed: () => controller.handleGoVoteQuestion(GoingToVote.yes),
               text: ElectionManager.currentElection.value
                   .resultsPage10YesButton(context),
               //Default parameters
