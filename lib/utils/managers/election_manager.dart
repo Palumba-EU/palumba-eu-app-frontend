@@ -26,12 +26,12 @@ class ElectionManager {
   static setupElection() async {
     // returned AT => need to test it for DE
     var election = await getSavedElection();
-    var countryCode = await DeviceRegion.getSIMCountryCode();
+    // var countryCode = await DeviceRegion.getSIMCountryCode();
 
     if (election != null) {
       currentElection.value = election;
     } else {
-      currentElection.value = countryCode == "DE" ? Election.DE : Election.EU;
+      currentElection.value = Election.DE;
     }
   }
 
