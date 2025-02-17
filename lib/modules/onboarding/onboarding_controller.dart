@@ -146,6 +146,9 @@ class OnboardingController extends GetxController {
     updateBackgroundShape();
     updateButtonState();
     updatePreferNotToSay();
+    if (currentStep.value == totalSteps) {
+      sendOnboardingData();
+    }
   }
 
   /**
@@ -198,7 +201,6 @@ class OnboardingController extends GetxController {
       height.value = Get.height;
       radius.value = Radius.circular(250);
       radius.value = Radius.zero;
-      sendOnboardingData();
       wrapUpScreenAndAnimateStatementUI();
     }
   }
