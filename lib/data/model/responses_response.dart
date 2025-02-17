@@ -15,4 +15,12 @@ class ResponsesResponse {
       editableUntil: json['editable_until'] as String,
     );
   }
+
+  // Method to convert an instance to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'editable_until': editableUntil,
+    };
+  }
 }

@@ -1,7 +1,6 @@
 import 'package:palumba_eu/data/model/gender_model.dart';
 import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
-import 'package:palumba_eu/data/model/responses_response.dart';
 import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
 
@@ -16,7 +15,6 @@ class UserManager {
 
   static UserData userData = UserData(answers: []);
   static Country? userCountry;
-  static ResponsesResponse? responsesResponse;
   static bool isTestRunning = false;
 
   static setCountry(Country country) async {

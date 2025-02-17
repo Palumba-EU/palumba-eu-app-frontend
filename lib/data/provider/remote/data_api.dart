@@ -13,6 +13,7 @@ import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
 import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
@@ -151,19 +152,18 @@ class DataAPI {
       }
       var responsesResponse =
           ResponsesResponse.fromJson(json.decode(response.body));
-      UserManager.responsesResponse = responsesResponse;
+      LocalDataRepository().currentResponseData = responsesResponse.toJson();
       return responsesResponse;
     } catch (e) {
       debugPrint(e.toString());
       debugPrint("failed to load responses response");
-      UserManager.responsesResponse = null;
       return null;
     }
   }
 
-  Future<ResponsesResponse?> patchResponses(GoingToVote goingToVote) async {
+  Future<bool> patchResponses(GoingToVote goingToVote) async {
     try {
-      var id = UserManager.responsesResponse?.id;
+      var id = await LocalDataRepository().getCurrentResponseUuid();
       final url = Uri.parse('${baseUrl}/responses/${id}');
       var request = ResponsesPatchRequest(goingToVote: goingToVote);
 
@@ -176,20 +176,17 @@ class DataAPI {
       if (response.statusCode < 200 || response.statusCode > 201) {
         throw Exception(response.reasonPhrase);
       }
-      var responsesResponse =
-          ResponsesResponse.fromJson(json.decode(response.body));
-      UserManager.responsesResponse = responsesResponse;
-      return responsesResponse;
+      return true;
     } catch (e) {
       debugPrint(e.toString());
       debugPrint("failed to patch going to vote question");
-      return null;
+      return false;
     }
   }
 
   Future<bool> postResponsesAnswer(Answer answer) async {
     try {
-      var id = UserManager.responsesResponse?.id;
+      var id = await LocalDataRepository().getCurrentResponseUuid();
       final url = Uri.parse('${baseUrl}/responses/${id}/answers');
       var request = ResponsesRequest(answers: [answer]);
 

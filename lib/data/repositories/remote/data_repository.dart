@@ -33,7 +33,7 @@ class DataRepository {
 
   Future<ResponsesResponse?> postResponses() => _api.postResponses();
 
-  Future<ResponsesResponse?> patchResponses(GoingToVote goingToVote) =>
+  Future<bool?> patchResponses(GoingToVote goingToVote) =>
       _api.patchResponses(goingToVote);
 
   Future<bool> postResponsesAnswer(Answer answer) =>
