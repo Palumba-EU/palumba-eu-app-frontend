@@ -24,8 +24,8 @@ class CardBackPage extends StatelessWidget {
         children: [
           CustomSpacer(multiplier: 2),
           CustomHtmlWidget(
-            // content: card.details,
-            content: _longText(),
+            content: card.details,
+            // content: _longText(),
             textStyle:
                 AppTexts.customTextStyle(AppTextType.regular, fontSize: 14.0),
           ),
