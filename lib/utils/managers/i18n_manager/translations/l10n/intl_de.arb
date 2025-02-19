@@ -61,8 +61,8 @@
   "resultsPage3Title": "Wie nah bin ich den Fraktionen im Europäischen Parlament",
   "resultsPage4TitleTop": "Pro-EU Integration",
   "resultsPage4TitleBottom": "Anti-EU Integration",
-  "resultsPage4TitleLeft": "Konservativ",
-  "resultsPage4TitleRight": "Progressiv",
+  "resultsPage4TitleLeft": "Links",
+  "resultsPage4TitleRight": "Recht",
   "resultsPage4TitleUserHere": "It’s me, hi!",
   "resultsPage5Title": "Spezifische Themen - Welchen Fraktionen im EU Parlament bin ich am nächsten?",
   "resultsPage5Topic1": "Umweltthemen",
@@ -112,7 +112,7 @@
   "@entranceTitle1_ger25": {
     "description": "-> entranceTitle1"
   },
-  "entranceTitle2_ger25": "Swipe zu Meinungen die Dir wichtig sind.",
+  "entranceTitle2_ger25": "Swipe zu Meinungen, die dir wichtig sind.",
   "@entranceTitle2_ger25": {
     "description": "-> entranceTitle2"
   },
@@ -204,7 +204,7 @@
   "@resultsPage6_2Title_ger25": {
     "description": "resultsPage6_2Title"
   },
-  "resultsPage6Text_ger25": "Überfordert? Keine Sorge, wir haben daran gedacht! Auf der nächsten Bildschirm haben wir einige Optionen für dich!",
+  "resultsPage6Text_ger25": "Überfordert? Keine Sorge, wir haben daran gedacht! Auf dem nächsten Bildschirm haben wir einige Optionen für dich!",
   "@resultsPage6Text_ger25": {
     "description": "-> resultsPage6Text"
   },
@@ -335,7 +335,7 @@
   },
   "onBoardingDataProtection_ger25": "Ich akzeptiere die Datenschutzrichtlinie und die Nutzungsbedingungen der App",
   "onBoardingDataProtectionLink_ger25": "Datenschutzrichtlinie",
-  "resultsPage9Text2_ger25": "die Faust aufs Auge!",
+  "resultsPage9Text2_ger25": "die Faust auf's Auge!",
   "@resultsPage9Text2_ger25": {
     "description": "-> resultsPage9Text2"
   },

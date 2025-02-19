@@ -510,20 +510,20 @@ class S {
     );
   }
 
-  /// `Conservative`
+  /// `Left`
   String get resultsPage4TitleLeft {
     return Intl.message(
-      'Conservative',
+      'Left',
       name: 'resultsPage4TitleLeft',
       desc: '',
       args: [],
     );
   }
 
-  /// `Progressive`
+  /// `Right`
   String get resultsPage4TitleRight {
     return Intl.message(
-      'Progressive',
+      'Right',
       name: 'resultsPage4TitleRight',
       desc: '',
       args: [],

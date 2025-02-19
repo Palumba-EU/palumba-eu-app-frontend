@@ -282,15 +282,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage4TitleBottom_ger25": MessageLookupByLibrary.simpleMessage(
       "Socially progressive",
     ),
-    "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage(
-      "Conservative",
-    ),
+    "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Economic intervention",
     ),
-    "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage(
-      "Progressive",
-    ),
+    "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
       "Free market economics",
     ),

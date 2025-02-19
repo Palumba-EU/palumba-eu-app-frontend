@@ -78,7 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Äußere deine Meinung zu Themen, die für dich wichtig sind.",
     ),
     "entranceTitle2_ger25": MessageLookupByLibrary.simpleMessage(
-      "Swipe zu Meinungen die Dir wichtig sind.",
+      "Swipe zu Meinungen, die dir wichtig sind.",
     ),
     "entranceTitle3": MessageLookupByLibrary.simpleMessage(
       "Finde deine Übereinstimmung und eine Orientierung, wen du bei den Wahlen wählen sollst.",
@@ -285,15 +285,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage4TitleBottom_ger25": MessageLookupByLibrary.simpleMessage(
       "Sozial progressiv",
     ),
-    "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage(
-      "Konservativ",
-    ),
+    "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Links"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Wirtschaftliche Intervention",
     ),
-    "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage(
-      "Progressiv",
-    ),
+    "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Recht"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
       "Freie Marktwirtschaft",
     ),
@@ -341,7 +337,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Auf den nächsten Bildschirmen wirst du die Kandidatenlisten von deinem Land sehen, die am ehesten zu dir passen.",
     ),
     "resultsPage6Text_ger25": MessageLookupByLibrary.simpleMessage(
-      "Überfordert? Keine Sorge, wir haben daran gedacht! Auf der nächsten Bildschirm haben wir einige Optionen für dich!",
+      "Überfordert? Keine Sorge, wir haben daran gedacht! Auf dem nächsten Bildschirm haben wir einige Optionen für dich!",
     ),
     "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
       "Ok, es ist cool zu wissen, welche Gruppe mich bekommt...",
@@ -394,7 +390,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Belongs With Me 😌",
     ),
     "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
-      "die Faust aufs Auge!",
+      "die Faust auf\'s Auge!",
     ),
     "resultsPageAllPartiesDescription_ger25": MessageLookupByLibrary.simpleMessage(
       "Aber wie würde dein Ranking aussehen, wenn wir auch kleinere Parteien einbeziehen? – Diese Liste enthält Parteien, die derzeit keine Vertreter im Bundestag haben.",
