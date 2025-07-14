@@ -31,7 +31,7 @@ class ElectionManager {
     if (election != null) {
       currentElection.value = election;
     } else {
-      currentElection.value = Election.DE;
+      currentElection.value = Election.EU;
     }
   }
 
