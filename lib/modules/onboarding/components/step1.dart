@@ -31,19 +31,6 @@ class Step1 extends StatelessWidget {
           CustomSpacer(multiplier: 7),
           AppTexts.title(S.of(context).onBoardingStep1Title,
               color: AppColors.primary),
-          /* GestureDetector(
-            onTap: () {
-              onCountryPressed(-1);
-            },
-            child: Padding(
-              padding: EdgeInsets.only(
-                  top: AppDimens.lateralPaddingValue / 2,
-                  bottom: AppDimens.lateralPaddingValue),
-              child: AppTexts.small(S.of(context).onBoardingStep1Subtitle,
-                  decoration: TextDecoration.underline,
-                  color: AppColors.primary),
-            ),
-          ),*/
           Expanded(
               child: ListView.separated(
             itemCount: countries?.length ?? 0,

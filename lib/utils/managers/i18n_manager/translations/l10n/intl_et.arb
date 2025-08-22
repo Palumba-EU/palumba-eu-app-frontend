@@ -3,106 +3,359 @@
   "appName": "Palumba EU",
   "shortAppName": "Palumba",
   "ok": "Ok",
-  "yes": "Yes",
-  "no": "No",
-  "cancel": "Cancel",
-  "textContinue": "Continue",
-  "alertServerErrorTitle": "Ops!",
-  "alertServerErrorText": "Something has gone wrong on our side. Please try again later.",
-  "skip": "Skip",
-  "neutral": "Neutral",
+  "yes": "Jah",
+  "no": "Ei",
+  "maybe": "Maybe",
+  "cancel": "Tühista",
+  "textContinue": "Jätka",
+  "alertServerErrorTitle": "Oih!",
+  "alertServerErrorText": "Midagi on läinud valesti meie poolel. Palun proovi hiljem uuesti.",
+  "skip": "Jäta vahele",
+  "neutral": "Neutraalne",
   "faq": "KKK",
-  "message_half_test_done": "Keep swiping, you're 50% done!",
-  "message_five_cards_left": "Only 5 cards left to swipe :)",
+  "message_half_test_done": "Jätka vastamist, 50% juba tehtud!",
+  "message_five_cards_left": "Vaid 5 kaarti veel pöörata! :)",
   "@@SplashPage": "SplashPage",
-  "splashPageNoInternet": "It looks like you don't have internet connection",
+  "splashPageNoInternet": "Tundub, et sul pole internetiühendust",
   "@@LanguagePage": "LanguagePage",
-  "languagePageTitle": "Let’s continue in English? :)",
-  "languagePageSubtitle": "This can be changed later in settings.",
+  "languagePageTitle": "Jätkame inglise keeles? :)",
+  "languagePageSubtitle": "Seda saab seadetest hiljem muuta.",
   "@@Entrance": "EntrancePage",
-  "entranceTitle1": "If this cute pigeon can’t help you vote in June, nothing will.",
-  "entranceTitle2": "Swipe your opinion on topics that matter to you.",
-  "entranceTitle3": "Find out your match and an orientation for who to vote for at the Elections.",
-  "entranceMatchesFoundQuote": "{count} matches found in the last 24h",
-  "entranceStartButton": "Start Palumba",
+  "entranceTitle1": "Kui see armas tuvi ei saa sind hääletamisel juunis aidata, siis miski ei saa.",
+  "entranceTitle2": "Väljenda oma arvamust päevakohastel teemadel.",
+  "entranceTitle3": "Leia enda eelistustega sobiv fraktsioon, kelle poolt valimistel hääletada.",
+  "entranceMatchesFoundQuote": "{count} uut sobivust leitud viimase 24h jooksul",
+  "entranceStartButton": "Alusta",
   "@@OnBoardingPage": "OnBoardingPage",
-  "hungary": "Hungary",
-  "denmark": "Denmark",
-  "germany": "Germany",
-  "spain": "Spain",
-  "france": "France",
-  "poland": "Poland",
-  "romania": "Romania",
-  "sweden": "Sweden",
-  "onBoardingStep1Title": "Where will you vote?",
-  "onBoardingStep1Subtitle": "I don't know",
-  "onBoardingStep2Title": "My age",
-  "onBoardingStep3Title": "I identify as",
-  "onBoardingStep3Option1": "Woman",
-  "onBoardingStep3Option2": "Man",
-  "onBoardingStep3Option3": "Gender-fluid",
-  "onBoardingStep3Option4": "Non-binary",
-  "onBoardingStep3Option5": "Else",
-  "onBoardingNotAnswerButton": "Prefer not to say",
-  "onBoardingCardQuestion": "I have no clue who to vote for at the 2024 European Elections",
-  "onBoardingLastStepTitle": "Swipe according to your agreement",
+  "hungary": "Ungari",
+  "denmark": "Taani",
+  "germany": "Saksamaa",
+  "spain": "Hispaania",
+  "france": "Prantsusmaa",
+  "poland": "Poola",
+  "romania": "Rumeenia",
+  "sweden": "Rootsi",
+  "onBoardingStep1Title": "Kus sa hääletad?",
+  "onBoardingStep1Subtitle": "Ma ei tea",
+  "onBoardingStep2Title": "Minu vanus",
+  "onBoardingStep3Title": "Minu sugu on",
+  "onBoardingStep3Option1": "Naine",
+  "onBoardingStep3Option2": "Mees",
+  "onBoardingStep3Option3": "Paindlik sugu",
+  "onBoardingStep3Option4": "Mittebinaarne",
+  "onBoardingStep3Option5": "Muu",
+  "onBoardingNotAnswerButton": "Eelistan mitte öelda",
+  "onBoardingCardQuestion": "Mul pole aimugi, kelle poolt hääletada 2024. a. Euroopa parlamendi valimistel",
+  "onBoardingLastStepTitle": "Vali vastavalt sellele, kuidas nõustud",
   "@@LoadingResultsPage": "LoadingResultsPage",
-  "loadingResultsPageTitle1": "Your personalised results are on their way :)",
-  "loadingResultsPageTitle2": "This shall be quicker than getting Taylor Swift tickets 👀 ",
-  "loadingResultsPageTitle3": "Finding matches with candidates lists in {country}  🔍",
-  "loadingResultsPageTitle4": "Almost ready, one last check...",
+  "loadingResultsPageTitle1": "Sinu personaalsed tulemused on peatselt kohal :)",
+  "loadingResultsPageTitle2": "See on kiirem, kui Taylor Swifti kontserdipiletite hankimine ",
+  "loadingResultsPageTitle3": "Otsimas sobivusi {country} kandidaatide nimekirjadega",
+  "loadingResultsPageTitle4": "Peaaegu valmis, viimane kontroll...",
   "@@ResultsPage": "ResultsPage",
-  "resultsPage1Title": "A match and much more 👉👈",
-  "resultsPage1Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌",
-  "resultsPage1Button": "Press to continue",
-  "resultsPage2_1Title": "Honestly, between the",
-  "resultsPage2_2Title": "and me, it’s kind of a Love Story (EU’s Version)",
-  "resultsPage3Title": "How close I am to European Parliament Groups",
-  "resultsPage4TitleTop": "Pro-EU Integration",
-  "resultsPage4TitleBottom": "Anti-EU Integration",
+  "resultsPage1Title": "Sobivus ja palju enamat 👉👈",
+  "resultsPage1Text": "Järgmisena näed, millised on sinu jaoks sobivaimad fraktsioonid EL Parlamendis ja nendega sobivad valimisnimekirjad sinu riigis. Lisaks veel paar huvitavat sissevaadet sinu vastuste põhjal 😌",
+  "resultsPage1Button": "Vajuta, et jätkata",
+  "resultsPage2_1Title": "Tuleb välja, et minu ja",
+  "resultsPage2_2Title": "vahel on justkui Love Story (EU's Version)",
+  "resultsPage3Title": "Kui lähedal ma olen Euroopa Parlamendi fraktsioonidele",
+  "resultsPage4TitleTop": "EL integratsiooni poolt",
+  "resultsPage4TitleBottom": "EL integratsiooni vastu",
   "resultsPage4TitleLeft": "Left",
   "resultsPage4TitleRight": "Right",
-  "resultsPage4TitleUserHere": "It’s me, hi!",
-  "resultsPage5Title": "On more specific topics, which European Parliament Group am I closer to?",
-  "resultsPage5Topic1": "Environmental issues",
-  "resultsPage5Topic2": "Human & Social Rights",
-  "resultsPage5Topic3": "Economic intervention",
-  "resultsPage6_1Title": "Ok, it's cool knowing which group gets me...",
-  "resultsPage6_2Title": "But at the EU Elections, we vote for a local list",
-  "resultsPage6Text": "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match.",
-  "resultsPage7Title": "The candidates in {country} most aligned with {group}",
-  "resultsPage7Disclaimer": "In no particular order.",
-  "resultsPage7NoLocalCandidates": "No local parties found in {country}",
-  "resultsPage8_1Text": "On {topic}, you’re {percentage}% more into",
-  "resultsPage8_2Text": "Active Climate Action 🌱😌",
-  "resultsPage8Help": "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?",
-  "resultsPage9Help": "Click on the cards to shuffle",
-  "resultsPage9Text1": "Elections are about many topics, but there’s one thing that really",
+  "resultsPage4TitleUserHere": "Siin mina, tere!",
+  "resultsPage5Title": "Millisele Euroopa Parlamendi fraktsioonile on minu vaated kõige lähemal järgmistel teemadel?",
+  "resultsPage5Topic1": "Keskkond",
+  "resultsPage5Topic2": "Inim- ja sotsiaalsed õigused",
+  "resultsPage5Topic3": "Sekkumine majandusse",
+  "resultsPage6_1Title": "Ok, on hea teada, milline fraktsioon mind mõistab...",
+  "resultsPage6_2Title": "Aga EL valimistel me hääletame kohaliku nimekrija alusel",
+  "resultsPage6Text": "Järgmisena saad teada, milliste erakondade kandidaadid sobivad sinu eelistustega kõige paremini.",
+  "resultsPage7Title": "Kandidaadid {country}s, kes sobivad enim {group}iga",
+  "resultsPage7Disclaimer": "Suvalises järjestuses.",
+  "resultsPage7NoLocalCandidates": "Ühtegi kohalikku erakonda ei leitud {country}s",
+  "resultsPage8_1Text": "Teemal {topic} oled {percentage}% rohkem",
+  "resultsPage8_2Text": "Aktiivselt kliimamuutuste eest võitleja 🌱😌",
+  "resultsPage8Help": "Sa oled kliima eest võitleja! Usud, et kliimakriis vajab kollektiivset tegutsemist ja see peab kõigi jaoks olema kõrgeim prioriteet. Sulle ei valmistaks probleemi, kui EL reguleeriks ettevõtteid selle nimel. Mis kasu on majanduskasvust, kui planeet muutub elamiskõlbmatuks?",
+  "resultsPage9Help": "Vajuta, et näha järgmist kaarti",
+  "resultsPage9Text1": "Valimistel otustatakse mitme teema üle, kuid üks asi tõesti",
   "resultsPage9Text2": "Belongs With Me 😌",
-  "resultsPage10Title": "A notification when it’s time to go vote?",
-  "resultsPage10NopButton": "No thanks!",
-  "resultsPage10YesButton": "Yesssss",
-  "resultsShare": "Share",
+  "resultsPage10Title": "Soovid märguannet, kui on aeg valima minna?",
+  "resultsPage10NopButton": "Ei, aitäh!",
+  "resultsPage10YesButton": "Jahhhh",
+  "resultsShare": "Jaga",
   "@HomePage": "HomePage",
-  "homePageMatchesFoundQuote": "{count} matches found in the last 24h",
-  "homePageBackToTest": "Back to the test",
-  "homePageMyResults": "My results",
-  "homePageStartButton": "Start a new test",
+  "homePageMatchesFoundQuote": "{count} uusi sobivusi viimase 24h jooksul",
+  "homePageBackToTest": "Tagasi testi juurde",
+  "homePageMyResults": "Minu tulemused",
+  "homePageStartButton": "Alusta uut testi",
   "@@SettingsPage": "SettingsPage",
-  "settingsPageTitleLanguage": "Language",
-  "settingsPageSubtitleLanguage": "I prefer to use this app in",
-  "settingsPageTextLanguage": "To change the language, click on the current one",
-  "settingsPageTitleAbout": "About",
-  "settingsPageTextAbout": "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
-  "settingsPageTitleAssociation": "The association",
-  "settingsPageTitlePartners": "Partners",
-  "settingsPageTextPartners": "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
-  "settingsPageSubtitle1": "Main Sponsors",
-  "settingsPageSubtitle2": "European Partners",
-  "settingsPageSubtitle3": "Academic Partner",
-  "settingsPageSubtitle4": "National Institutional Partners",
-  "settingsPageSubtitle5": "Service Providers",
-  "settingsPageShareButtonText": "Share",
-  "settingsPagePrivacyPolicy": "Data Protection",
-  "settingsPageShareText": "If this cute pigeon can't help you vote in June, nothing will. I've used the app and you should too:"
+  "settingsPageTitleLanguage": "Keel",
+  "settingsPageSubtitleLanguage": "Eelistan äppi kasutada keeles:",
+  "settingsPageTextLanguage": "Keele vahetamiseks vajuta praeguse keelevaliku peale",
+  "settingsPageTitleElection": "Election",
+  "settingsPageTextElection": "To change the questionnaire, click on the current one",
+  "settingsPageTitleAbout": "Sellest rakendusest",
+  "settingsPageTextAbout": "Palumba ei ole ettevõte, erakond ega valitsus. Oleme iseseisev mittetulundusühing, kuhu kuulub üle 120 noore 🐦 üle Euroopa, kes eelmisel suvel said kokku ja hakkasid seda rakendust meisterdama. Meil on üks eesmärk: aidata teil paremini mõista, kuidas Euroopa Parlamendi valimised toimivad ja millised kandidaatide nimekirjad võiksid teie ideedega ühtida, et saaksite enesekindlamalt hääletada inimeste poolt, kes teie prioriteete toetavad. Meie algoritm on avatud lähtekoodiga ja väited, mille osas oma eelistustest teada andsite, vaatasid üle poliitikateadlased. Teie andmed on krüpteeritud ja meil pole võimalust teid kunagi tuvastada :)",
+  "settingsPageTitleAssociation": "Ühing",
+  "settingsPageTitlePartners": "Partnerid",
+  "settingsPageTextPartners": "Partneritel ei ole rakenduse sisu osas toimetusõigust - see jääb erapooletuks algatuseks, millel on selge eesmärk: aidata teil mõista, kes teie arvamusi Euroopa ja riiklikul tasandil toetab.",
+  "settingsPageSubtitle1": "Peamised sponsorid",
+  "settingsPageSubtitle2": "Euroopa partnerid",
+  "settingsPageSubtitle3": "Akadeemilised partnerid",
+  "settingsPageSubtitle4": "Rahvuslikud institutsionaalsed partnerid",
+  "settingsPageSubtitle5": "Teenusepakkujad",
+  "settingsPageShareButtonText": "Jaga",
+  "settingsPagePrivacyPolicy": "Andmekaitse",
+  "settingsPageShareText": "Kui see armas tuvi ei saa sind juunis hääletamisel aidata, siis miski ei saa. Kasutasin seda äppi ja sina peaks ka:",
+  "entranceTitle1_ger25": "If this cute pigeon can’t help you vote in February, nothing will.",
+  "@entranceTitle1_ger25": {
+    "description": "-> entranceTitle1"
+  },
+  "entranceTitle2_ger25": "Swipe your opinion on topics that matter to you.",
+  "@entranceTitle2_ger25": {
+    "description": "-> entranceTitle2"
+  },
+  "entranceTitle3_ger25": "Find out your match and an orientation for who to vote for at the Elections.",
+  "@entranceTitle3_ger25": {
+    "description": "-> entranceTitle3"
+  },
+  "onBoardingCardQuestion_ger25": "I have no clue who to vote for at the 2025 German Elections",
+  "@onBoardingCardQuestion_ger25": {
+    "description": "-> onBoardingCardQuestion"
+  },
+  "loadingResultsPageTitle1_ger25": "Your personal results are on their way :)",
+  "@loadingResultsPageTitle1_ger25": {
+    "description": "-> loadingResultsPageTitle1"
+  },
+  "loadingResultsPageTitle2_ger25": "This is going faster than the Deutsche Bahn",
+  "@loadingResultsPageTitle2_ger25": {
+    "description": "-> loadingResultsPageTitle2"
+  },
+  "loadingResultsPageTitle3_ger25": "Hold on, it’s almost done - pinky promise, no layovers!",
+  "@loadingResultsPageTitle3_ger25": {
+    "description": "-> loadingResultsPageTitle3"
+  },
+  "loadingResultsPageTitle4_ger25": "Almost ready, one last check...",
+  "@loadingResultsPageTitle4_ger25": {
+    "description": "-> loadingResultsPageTitle4"
+  },
+  "resultsPage1Title_ger25": "A match and much more",
+  "@resultsPage1Title_ger25": {
+    "description": "-> resultsPage1Title"
+  },
+  "resultsPage1Text_ger25": "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!",
+  "@resultsPage1Text_ger25": {
+    "description": "-> resultsPage1Text"
+  },
+  "resultsPage2_1Title_ger25": "Honestly,",
+  "@resultsPage2_1Title_ger25": {
+    "description": "-> resultsPage2_1Title"
+  },
+  "resultsPage2_2Title_ger25": "and I, we are like Currywurst and fries",
+  "@resultsPage2_2Title_ger25": {
+    "description": "-> resultsPage2_2Title"
+  },
+  "resultsPage3Title_ger25": "How close I am to the main parties running in this German election",
+  "@resultsPage3Title_ger25": {
+    "description": "-> resultsPage3Title"
+  },
+  "resultsPage4TitleTop_ger25": "Socially conservative",
+  "@resultsPage4TitleTop_ger25": {
+    "description": "-> resultsPage4TitleTop"
+  },
+  "resultsPage4TitleBottom_ger25": "Socially progressive",
+  "@resultsPage4TitleBottom_ger25": {
+    "description": "-> resultsPage4TitleBottom"
+  },
+  "resultsPage4TitleLeft_ger25": "Economic intervention",
+  "@resultsPage4TitleLeft_ger25": {
+    "description": "-> resultsPage4TitleLeft"
+  },
+  "resultsPage4TitleRight_ger25": "Free market economics",
+  "@resultsPage4TitleRight_ger25": {
+    "description": "-> resultsPage4TitleRight"
+  },
+  "resultsPage4TitleUserHere_ger25": "It’s me, hi!",
+  "@resultsPage4TitleUserHere_ger25": {
+    "description": "-> resultsPage4TitleUserHere"
+  },
+  "resultsPage5Title_ger25": "On more specific topics, which parties am I closest to?",
+  "@resultsPage5Title_ger25": {
+    "description": "resultsPage5Title"
+  },
+  "resultsPage5Topic1_ger25": "Environmental issues",
+  "@resultsPage5Topic1_ger25": {
+    "description": "-> resultsPage5Topic1"
+  },
+  "resultsPage5Topic2_ger25": "Economy",
+  "@resultsPage5Topic2_ger25": {
+    "description": "-> resultsPage5Topic2"
+  },
+  "resultsPage5Topic3_ger25": "Social values",
+  "@resultsPage5Topic3_ger25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage6_1Title_ger25": "Okay, it is cool to know which party gets me…",
+  "@resultsPage6_1Title_ger25": {
+    "description": "-> resultsPage6_1Title"
+  },
+  "resultsPage6_2Title_ger25": "But in the German election you also have the option to vote for a specific candidate",
+  "@resultsPage6_2Title_ger25": {
+    "description": "resultsPage6_2Title"
+  },
+  "resultsPage6Text_ger25": "Overwhelmed? No worries, we’ve thought of that! We have some options for you on the next slide!",
+  "@resultsPage6Text_ger25": {
+    "description": "-> resultsPage6Text"
+  },
+  "resultsPage8_1Text_ger25": "Your answers are in the top {number}% regarding {dimension}",
+  "@resultsPage8_1Text_ger25": {
+    "description": "-> resultsPage8_1Text"
+  },
+  "resultsPage8_2Text_ger25": "Active Climate Action 🌱😌",
+  "@resultsPage8_2Text_ger25": {
+    "description": "-> resultsPage8_2Text"
+  },
+  "resultsPage9Help_ger25": "Click on the cards to shuffle",
+  "@resultsPage9Help_ger25": {
+    "description": "-> resultsPage9Help"
+  },
+  "resultsPage9Text1_ger25": "Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was",
+  "@resultsPage9Text1_ger25": {
+    "description": "-> resultsPage9Text1"
+  },
+  "resultsPage10Title_ger25": "A notification when it’s time to go vote?",
+  "@resultsPage10Title_ger25": {
+    "description": "-> resultsPage10Title"
+  },
+  "messageScreenYes_ger25": "Yesss!",
+  "@messageScreenYes_ger25": {
+    "description": "-> messageScreenYes"
+  },
+  "messageScreenNo_ger25": "No, thanks!",
+  "@messageScreenNo_ger25": {
+    "description": "-> messageScreenNo"
+  },
+  "onBoardingStep4Title": "Level of Education",
+  "onBoardingStep4Option1_ger25": "University degree",
+  "@onBoardingStep4Option1_ger25": {
+    "description": "-> onBoardingStep4Option1"
+  },
+  "onBoardingStep4Option2_ger25": "⁠High school diploma",
+  "@onBoardingStep4Option2_ger25": {
+    "description": "-> onBoardingStep4Option2"
+  },
+  "onBoardingStep4Option3_ger25": "⁠Vocational training",
+  "@onBoardingStep4Option3_ger25": {
+    "description": "-> onBoardingStep4Option3"
+  },
+  "onBoardingStep4Option4_ger25": "Middle school diploma",
+  "@onBoardingStep4Option4_ger25": {
+    "description": "-> onBoardingStep4Option4"
+  },
+  "onBoardingStep4Option5_ger25": "Incomplete school education",
+  "@onBoardingStep4Option5_ger25": {
+    "description": "-> onBoardingStep4Option5"
+  },
+  "onBoardingStep4Option6_ger25": "Other",
+  "@onBoardingStep4Option6_ger25": {
+    "description": "-> onBoardingStep4Option6"
+  },
+  "onBoardingStep3Title_ger25": "I identify as",
+  "@onBoardingStep3Title_ger25": {
+    "description": "-> onBoardingStep3Title"
+  },
+  "resultsPage1Button_ger25": "Press to continue",
+  "@resultsPage1Button_ger25": {
+    "description": "-> onBoardingLastStepTitle"
+  },
+  "resultsPage10NopButton_ger25": "No thanks!",
+  "@resultsPage10NopButton_ger25": {
+    "description": "-> resultsPage10NopButton"
+  },
+  "resultsPage10YesButton_ger25": "Yesssss",
+  "@resultsPage10YesButton_ger25": {
+    "description": "-> resultsPage10YesButton"
+  },
+  "settingsPageTitleAssociation_ger25": "The association",
+  "@settingsPageTitleAssociation_ger25": {
+    "description": "-> settingsPageTitleAssociation"
+  },
+  "settingsPageTitlePartners_ger25": "Partners",
+  "@settingsPageTitlePartners_ger25": {
+    "description": "-> settingsPageTitlePartners"
+  },
+  "settingsPageTextPartners_ger25": "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+  "@settingsPageTextPartners_ger25": {
+    "description": "-> settingsPageTextPartners"
+  },
+  "settingsPageSubtitle1_ger25": "Main Sponsors",
+  "@settingsPageSubtitle1_ger25": {
+    "description": "-> settingsPageSubtitle1"
+  },
+  "settingsPageSubtitle2_ger25": "European Partners",
+  "@settingsPageSubtitle2_ger25": {
+    "description": "-> settingsPageSubtitle2"
+  },
+  "settingsPageSubtitle3_ger25": "Academic Partners",
+  "@settingsPageSubtitle3_ger25": {
+    "description": "-> settingsPageSubtitle3"
+  },
+  "settingsPageSubtitle4_ger25": "National Institutional Partners",
+  "@settingsPageSubtitle4_ger25": {
+    "description": "-> settingsPageSubtitle4"
+  },
+  "settingsPageSubtitle5_ger25": "Service Providers",
+  "@settingsPageSubtitle5_ger25": {
+    "description": "-> settingsPageSubtitle5"
+  },
+  "settingsPageShareText_ger25": "If this cute pigeon can't help you vote in February, nothing will. I've used the app and you should too:",
+  "@settingsPageShareText_ger25": {
+    "description": "-> settingsPageShareText"
+  },
+  "resultsPage8Help_ger25": "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the Germany regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable? #ClimateActionNow #PlanetFirst",
+  "@resultsPage8Help_ger25": {
+    "description": "-> resultsPage8Help"
+  },
+  "resultsPage5Topic4_ger25": "EU integration",
+  "@resultsPage5Topic4_ger25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage5Topic5_ger25": "Migration",
+  "@resultsPage5Topic5_ger25": {
+    "description": "-> resultsPage5Topic5_ger25"
+  },
+  "resultsPage7Disclaimer_ger25": "* On this screen only candidates from the following parties can be displayed: CDU/CSU, SPD, Grüne, AfD, Linke, FDP, BSW.",
+  "@resultsPage7Disclaimer_ger25": {
+    "description": "-> resultsPage7Title"
+  },
+  "resultsPage7Title_ger25": "Here’s a young candidate from {party}* —shuffle to see more! They may not be on your ballot, but represent the future of their party!",
+  "@resultsPage7Title_ger25": {
+    "description": "-> resultsPage7Title"
+  },
+  "onBoardingDataProtection_ger25": "I adhere to the Data Protection Policy and the Terms to use the app",
+  "onBoardingDataProtectionLink_ger25": "Data Protection Policy",
+  "resultsPage9Text2_ger25": "made for you!",
+  "@resultsPage9Text2_ger25": {
+    "description": "-> resultsPage9Text2"
+  },
+  "resultsPage2NoResults": "No results found",
+  "resultsPage10VotingDay": "Get Ready, Voting Day is {date}",
+  "resultsPage10VotingQuestion": "Are you going to vote?",
+  "pushDeactivatedTitle": "Notifications disabled",
+  "pushDeactivatedText": "To be able to receive Push Notifcation enable them in the settings",
+  "pushDeactivatedCancel": "Close",
+  "pushDeactivatedConfirm": "Open Settings",
+  "resultsPageCandidatesShuffle": "Shuffle my politcal love 🔀",
+  "resultsPageCandidatesNoParties": "no local parties",
+  "electionPageTitle": "Choose an Election",
+  "electionPageSubtitle": "",
+  "electionEU": "European Elections 2024 🇪🇺",
+  "electionDE": "Bundestagswahl 2025 🇩🇪",
+  "resultsPageAllPartiesTitle_ger25": "Your personal ranking of all parties",
+  "resultsPageAllPartiesDescription_ger25": "But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.",
+  "resultsPage10AreYouGoingToVote_ger25": "Are you going to vote?",
+  "statementsTutorialTurnInfo_ger25": "Tap to turn & read more info",
+  "resultsPage10MaybeButton_ger25": "Maybe",
+  "resultsPage10VotingDay_ger25": "Get ready, voting day is {date}"
 }

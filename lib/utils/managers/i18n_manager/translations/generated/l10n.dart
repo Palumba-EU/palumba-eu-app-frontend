@@ -18,17 +18,20 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -41,8 +44,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -52,72 +57,42 @@ class S {
 
   /// `Palumba EU`
   String get appName {
-    return Intl.message(
-      'Palumba EU',
-      name: 'appName',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Palumba EU', name: 'appName', desc: '', args: []);
   }
 
   /// `Palumba`
   String get shortAppName {
-    return Intl.message(
-      'Palumba',
-      name: 'shortAppName',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Palumba', name: 'shortAppName', desc: '', args: []);
   }
 
   /// `Ok`
   String get ok {
-    return Intl.message(
-      'Ok',
-      name: 'ok',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Ok', name: 'ok', desc: '', args: []);
   }
 
   /// `Yes`
   String get yes {
-    return Intl.message(
-      'Yes',
-      name: 'yes',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Yes', name: 'yes', desc: '', args: []);
   }
 
   /// `No`
   String get no {
-    return Intl.message(
-      'No',
-      name: 'no',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('No', name: 'no', desc: '', args: []);
+  }
+
+  /// `Maybe`
+  String get maybe {
+    return Intl.message('Maybe', name: 'maybe', desc: '', args: []);
   }
 
   /// `Cancel`
   String get cancel {
-    return Intl.message(
-      'Cancel',
-      name: 'cancel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
 
   /// `Continue`
   String get textContinue {
-    return Intl.message(
-      'Continue',
-      name: 'textContinue',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Continue', name: 'textContinue', desc: '', args: []);
   }
 
   /// `Ops!`
@@ -142,32 +117,17 @@ class S {
 
   /// `Skip`
   String get skip {
-    return Intl.message(
-      'Skip',
-      name: 'skip',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
   }
 
   /// `Neutral`
   String get neutral {
-    return Intl.message(
-      'Neutral',
-      name: 'neutral',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Neutral', name: 'neutral', desc: '', args: []);
   }
 
   /// `FAQ`
   String get faq {
-    return Intl.message(
-      'FAQ',
-      name: 'faq',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('FAQ', name: 'faq', desc: '', args: []);
   }
 
   /// `Keep swiping, you're 50% done!`
@@ -272,82 +232,42 @@ class S {
 
   /// `Hungary`
   String get hungary {
-    return Intl.message(
-      'Hungary',
-      name: 'hungary',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Hungary', name: 'hungary', desc: '', args: []);
   }
 
   /// `Denmark`
   String get denmark {
-    return Intl.message(
-      'Denmark',
-      name: 'denmark',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Denmark', name: 'denmark', desc: '', args: []);
   }
 
   /// `Germany`
   String get germany {
-    return Intl.message(
-      'Germany',
-      name: 'germany',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Germany', name: 'germany', desc: '', args: []);
   }
 
   /// `Spain`
   String get spain {
-    return Intl.message(
-      'Spain',
-      name: 'spain',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Spain', name: 'spain', desc: '', args: []);
   }
 
   /// `France`
   String get france {
-    return Intl.message(
-      'France',
-      name: 'france',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('France', name: 'france', desc: '', args: []);
   }
 
   /// `Poland`
   String get poland {
-    return Intl.message(
-      'Poland',
-      name: 'poland',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Poland', name: 'poland', desc: '', args: []);
   }
 
   /// `Romania`
   String get romania {
-    return Intl.message(
-      'Romania',
-      name: 'romania',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Romania', name: 'romania', desc: '', args: []);
   }
 
   /// `Sweden`
   String get sweden {
-    return Intl.message(
-      'Sweden',
-      name: 'sweden',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Sweden', name: 'sweden', desc: '', args: []);
   }
 
   /// `Where will you vote?`
@@ -812,12 +732,7 @@ class S {
 
   /// `Share`
   String get resultsShare {
-    return Intl.message(
-      'Share',
-      name: 'resultsShare',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Share', name: 'resultsShare', desc: '', args: []);
   }
 
   /// `{count} matches found in the last 24h`
@@ -885,6 +800,26 @@ class S {
     return Intl.message(
       'To change the language, click on the current one',
       name: 'settingsPageTextLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Election`
+  String get settingsPageTitleElection {
+    return Intl.message(
+      'Election',
+      name: 'settingsPageTitleElection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To change the questionnaire, click on the current one`
+  String get settingsPageTextElection {
+    return Intl.message(
+      'To change the questionnaire, click on the current one',
+      name: 'settingsPageTextElection',
       desc: '',
       args: [],
     );
@@ -1019,6 +954,791 @@ class S {
       args: [],
     );
   }
+
+  /// `If this cute pigeon can’t help you vote in February, nothing will.`
+  String get entranceTitle1_ger25 {
+    return Intl.message(
+      'If this cute pigeon can’t help you vote in February, nothing will.',
+      name: 'entranceTitle1_ger25',
+      desc: '-> entranceTitle1',
+      args: [],
+    );
+  }
+
+  /// `Swipe your opinion on topics that matter to you.`
+  String get entranceTitle2_ger25 {
+    return Intl.message(
+      'Swipe your opinion on topics that matter to you.',
+      name: 'entranceTitle2_ger25',
+      desc: '-> entranceTitle2',
+      args: [],
+    );
+  }
+
+  /// `Find out your match and an orientation for who to vote for at the Elections.`
+  String get entranceTitle3_ger25 {
+    return Intl.message(
+      'Find out your match and an orientation for who to vote for at the Elections.',
+      name: 'entranceTitle3_ger25',
+      desc: '-> entranceTitle3',
+      args: [],
+    );
+  }
+
+  /// `I have no clue who to vote for at the 2025 German Elections`
+  String get onBoardingCardQuestion_ger25 {
+    return Intl.message(
+      'I have no clue who to vote for at the 2025 German Elections',
+      name: 'onBoardingCardQuestion_ger25',
+      desc: '-> onBoardingCardQuestion',
+      args: [],
+    );
+  }
+
+  /// `Your personal results are on their way :)`
+  String get loadingResultsPageTitle1_ger25 {
+    return Intl.message(
+      'Your personal results are on their way :)',
+      name: 'loadingResultsPageTitle1_ger25',
+      desc: '-> loadingResultsPageTitle1',
+      args: [],
+    );
+  }
+
+  /// `This is going faster than the Deutsche Bahn`
+  String get loadingResultsPageTitle2_ger25 {
+    return Intl.message(
+      'This is going faster than the Deutsche Bahn',
+      name: 'loadingResultsPageTitle2_ger25',
+      desc: '-> loadingResultsPageTitle2',
+      args: [],
+    );
+  }
+
+  /// `Hold on, it’s almost done - pinky promise, no layovers!`
+  String get loadingResultsPageTitle3_ger25 {
+    return Intl.message(
+      'Hold on, it’s almost done - pinky promise, no layovers!',
+      name: 'loadingResultsPageTitle3_ger25',
+      desc: '-> loadingResultsPageTitle3',
+      args: [],
+    );
+  }
+
+  /// `Almost ready, one last check...`
+  String get loadingResultsPageTitle4_ger25 {
+    return Intl.message(
+      'Almost ready, one last check...',
+      name: 'loadingResultsPageTitle4_ger25',
+      desc: '-> loadingResultsPageTitle4',
+      args: [],
+    );
+  }
+
+  /// `A match and much more`
+  String get resultsPage1Title_ger25 {
+    return Intl.message(
+      'A match and much more',
+      name: 'resultsPage1Title_ger25',
+      desc: '-> resultsPage1Title',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!`
+  String get resultsPage1Text_ger25 {
+    return Intl.message(
+      'In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!',
+      name: 'resultsPage1Text_ger25',
+      desc: '-> resultsPage1Text',
+      args: [],
+    );
+  }
+
+  /// `Honestly,`
+  String get resultsPage2_1Title_ger25 {
+    return Intl.message(
+      'Honestly,',
+      name: 'resultsPage2_1Title_ger25',
+      desc: '-> resultsPage2_1Title',
+      args: [],
+    );
+  }
+
+  /// `and I, we are like Currywurst and fries`
+  String get resultsPage2_2Title_ger25 {
+    return Intl.message(
+      'and I, we are like Currywurst and fries',
+      name: 'resultsPage2_2Title_ger25',
+      desc: '-> resultsPage2_2Title',
+      args: [],
+    );
+  }
+
+  /// `How close I am to the main parties running in this German election`
+  String get resultsPage3Title_ger25 {
+    return Intl.message(
+      'How close I am to the main parties running in this German election',
+      name: 'resultsPage3Title_ger25',
+      desc: '-> resultsPage3Title',
+      args: [],
+    );
+  }
+
+  /// `Socially conservative`
+  String get resultsPage4TitleTop_ger25 {
+    return Intl.message(
+      'Socially conservative',
+      name: 'resultsPage4TitleTop_ger25',
+      desc: '-> resultsPage4TitleTop',
+      args: [],
+    );
+  }
+
+  /// `Socially progressive`
+  String get resultsPage4TitleBottom_ger25 {
+    return Intl.message(
+      'Socially progressive',
+      name: 'resultsPage4TitleBottom_ger25',
+      desc: '-> resultsPage4TitleBottom',
+      args: [],
+    );
+  }
+
+  /// `Economic intervention`
+  String get resultsPage4TitleLeft_ger25 {
+    return Intl.message(
+      'Economic intervention',
+      name: 'resultsPage4TitleLeft_ger25',
+      desc: '-> resultsPage4TitleLeft',
+      args: [],
+    );
+  }
+
+  /// `Free market economics`
+  String get resultsPage4TitleRight_ger25 {
+    return Intl.message(
+      'Free market economics',
+      name: 'resultsPage4TitleRight_ger25',
+      desc: '-> resultsPage4TitleRight',
+      args: [],
+    );
+  }
+
+  /// `It’s me, hi!`
+  String get resultsPage4TitleUserHere_ger25 {
+    return Intl.message(
+      'It’s me, hi!',
+      name: 'resultsPage4TitleUserHere_ger25',
+      desc: '-> resultsPage4TitleUserHere',
+      args: [],
+    );
+  }
+
+  /// `On more specific topics, which parties am I closest to?`
+  String get resultsPage5Title_ger25 {
+    return Intl.message(
+      'On more specific topics, which parties am I closest to?',
+      name: 'resultsPage5Title_ger25',
+      desc: 'resultsPage5Title',
+      args: [],
+    );
+  }
+
+  /// `Environmental issues`
+  String get resultsPage5Topic1_ger25 {
+    return Intl.message(
+      'Environmental issues',
+      name: 'resultsPage5Topic1_ger25',
+      desc: '-> resultsPage5Topic1',
+      args: [],
+    );
+  }
+
+  /// `Economy`
+  String get resultsPage5Topic2_ger25 {
+    return Intl.message(
+      'Economy',
+      name: 'resultsPage5Topic2_ger25',
+      desc: '-> resultsPage5Topic2',
+      args: [],
+    );
+  }
+
+  /// `Social values`
+  String get resultsPage5Topic3_ger25 {
+    return Intl.message(
+      'Social values',
+      name: 'resultsPage5Topic3_ger25',
+      desc: '-> resultsPage5Topic3',
+      args: [],
+    );
+  }
+
+  /// `Okay, it is cool to know which party gets me…`
+  String get resultsPage6_1Title_ger25 {
+    return Intl.message(
+      'Okay, it is cool to know which party gets me…',
+      name: 'resultsPage6_1Title_ger25',
+      desc: '-> resultsPage6_1Title',
+      args: [],
+    );
+  }
+
+  /// `But in the German election you also have the option to vote for a specific candidate`
+  String get resultsPage6_2Title_ger25 {
+    return Intl.message(
+      'But in the German election you also have the option to vote for a specific candidate',
+      name: 'resultsPage6_2Title_ger25',
+      desc: 'resultsPage6_2Title',
+      args: [],
+    );
+  }
+
+  /// `Overwhelmed? No worries, we’ve thought of that! We have some options for you on the next slide!`
+  String get resultsPage6Text_ger25 {
+    return Intl.message(
+      'Overwhelmed? No worries, we’ve thought of that! We have some options for you on the next slide!',
+      name: 'resultsPage6Text_ger25',
+      desc: '-> resultsPage6Text',
+      args: [],
+    );
+  }
+
+  /// `Your answers are in the top {number}% regarding {dimension}`
+  String resultsPage8_1Text_ger25(Object number, Object dimension) {
+    return Intl.message(
+      'Your answers are in the top $number% regarding $dimension',
+      name: 'resultsPage8_1Text_ger25',
+      desc: '-> resultsPage8_1Text',
+      args: [number, dimension],
+    );
+  }
+
+  /// `Active Climate Action 🌱😌`
+  String get resultsPage8_2Text_ger25 {
+    return Intl.message(
+      'Active Climate Action 🌱😌',
+      name: 'resultsPage8_2Text_ger25',
+      desc: '-> resultsPage8_2Text',
+      args: [],
+    );
+  }
+
+  /// `Click on the cards to shuffle`
+  String get resultsPage9Help_ger25 {
+    return Intl.message(
+      'Click on the cards to shuffle',
+      name: 'resultsPage9Help_ger25',
+      desc: '-> resultsPage9Help',
+      args: [],
+    );
+  }
+
+  /// `Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was`
+  String get resultsPage9Text1_ger25 {
+    return Intl.message(
+      'Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was',
+      name: 'resultsPage9Text1_ger25',
+      desc: '-> resultsPage9Text1',
+      args: [],
+    );
+  }
+
+  /// `A notification when it’s time to go vote?`
+  String get resultsPage10Title_ger25 {
+    return Intl.message(
+      'A notification when it’s time to go vote?',
+      name: 'resultsPage10Title_ger25',
+      desc: '-> resultsPage10Title',
+      args: [],
+    );
+  }
+
+  /// `Yesss!`
+  String get messageScreenYes_ger25 {
+    return Intl.message(
+      'Yesss!',
+      name: 'messageScreenYes_ger25',
+      desc: '-> messageScreenYes',
+      args: [],
+    );
+  }
+
+  /// `No, thanks!`
+  String get messageScreenNo_ger25 {
+    return Intl.message(
+      'No, thanks!',
+      name: 'messageScreenNo_ger25',
+      desc: '-> messageScreenNo',
+      args: [],
+    );
+  }
+
+  /// `Level of Education`
+  String get onBoardingStep4Title {
+    return Intl.message(
+      'Level of Education',
+      name: 'onBoardingStep4Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `University degree`
+  String get onBoardingStep4Option1_ger25 {
+    return Intl.message(
+      'University degree',
+      name: 'onBoardingStep4Option1_ger25',
+      desc: '-> onBoardingStep4Option1',
+      args: [],
+    );
+  }
+
+  /// `⁠High school diploma`
+  String get onBoardingStep4Option2_ger25 {
+    return Intl.message(
+      '⁠High school diploma',
+      name: 'onBoardingStep4Option2_ger25',
+      desc: '-> onBoardingStep4Option2',
+      args: [],
+    );
+  }
+
+  /// `⁠Vocational training`
+  String get onBoardingStep4Option3_ger25 {
+    return Intl.message(
+      '⁠Vocational training',
+      name: 'onBoardingStep4Option3_ger25',
+      desc: '-> onBoardingStep4Option3',
+      args: [],
+    );
+  }
+
+  /// `Middle school diploma`
+  String get onBoardingStep4Option4_ger25 {
+    return Intl.message(
+      'Middle school diploma',
+      name: 'onBoardingStep4Option4_ger25',
+      desc: '-> onBoardingStep4Option4',
+      args: [],
+    );
+  }
+
+  /// `Incomplete school education`
+  String get onBoardingStep4Option5_ger25 {
+    return Intl.message(
+      'Incomplete school education',
+      name: 'onBoardingStep4Option5_ger25',
+      desc: '-> onBoardingStep4Option5',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get onBoardingStep4Option6_ger25 {
+    return Intl.message(
+      'Other',
+      name: 'onBoardingStep4Option6_ger25',
+      desc: '-> onBoardingStep4Option6',
+      args: [],
+    );
+  }
+
+  /// `I identify as`
+  String get onBoardingStep3Title_ger25 {
+    return Intl.message(
+      'I identify as',
+      name: 'onBoardingStep3Title_ger25',
+      desc: '-> onBoardingStep3Title',
+      args: [],
+    );
+  }
+
+  /// `Press to continue`
+  String get resultsPage1Button_ger25 {
+    return Intl.message(
+      'Press to continue',
+      name: 'resultsPage1Button_ger25',
+      desc: '-> onBoardingLastStepTitle',
+      args: [],
+    );
+  }
+
+  /// `No thanks!`
+  String get resultsPage10NopButton_ger25 {
+    return Intl.message(
+      'No thanks!',
+      name: 'resultsPage10NopButton_ger25',
+      desc: '-> resultsPage10NopButton',
+      args: [],
+    );
+  }
+
+  /// `Yesssss`
+  String get resultsPage10YesButton_ger25 {
+    return Intl.message(
+      'Yesssss',
+      name: 'resultsPage10YesButton_ger25',
+      desc: '-> resultsPage10YesButton',
+      args: [],
+    );
+  }
+
+  /// `The association`
+  String get settingsPageTitleAssociation_ger25 {
+    return Intl.message(
+      'The association',
+      name: 'settingsPageTitleAssociation_ger25',
+      desc: '-> settingsPageTitleAssociation',
+      args: [],
+    );
+  }
+
+  /// `Partners`
+  String get settingsPageTitlePartners_ger25 {
+    return Intl.message(
+      'Partners',
+      name: 'settingsPageTitlePartners_ger25',
+      desc: '-> settingsPageTitlePartners',
+      args: [],
+    );
+  }
+
+  /// `Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.`
+  String get settingsPageTextPartners_ger25 {
+    return Intl.message(
+      'Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.',
+      name: 'settingsPageTextPartners_ger25',
+      desc: '-> settingsPageTextPartners',
+      args: [],
+    );
+  }
+
+  /// `Main Sponsors`
+  String get settingsPageSubtitle1_ger25 {
+    return Intl.message(
+      'Main Sponsors',
+      name: 'settingsPageSubtitle1_ger25',
+      desc: '-> settingsPageSubtitle1',
+      args: [],
+    );
+  }
+
+  /// `European Partners`
+  String get settingsPageSubtitle2_ger25 {
+    return Intl.message(
+      'European Partners',
+      name: 'settingsPageSubtitle2_ger25',
+      desc: '-> settingsPageSubtitle2',
+      args: [],
+    );
+  }
+
+  /// `Academic Partners`
+  String get settingsPageSubtitle3_ger25 {
+    return Intl.message(
+      'Academic Partners',
+      name: 'settingsPageSubtitle3_ger25',
+      desc: '-> settingsPageSubtitle3',
+      args: [],
+    );
+  }
+
+  /// `National Institutional Partners`
+  String get settingsPageSubtitle4_ger25 {
+    return Intl.message(
+      'National Institutional Partners',
+      name: 'settingsPageSubtitle4_ger25',
+      desc: '-> settingsPageSubtitle4',
+      args: [],
+    );
+  }
+
+  /// `Service Providers`
+  String get settingsPageSubtitle5_ger25 {
+    return Intl.message(
+      'Service Providers',
+      name: 'settingsPageSubtitle5_ger25',
+      desc: '-> settingsPageSubtitle5',
+      args: [],
+    );
+  }
+
+  /// `If this cute pigeon can't help you vote in February, nothing will. I've used the app and you should too:`
+  String get settingsPageShareText_ger25 {
+    return Intl.message(
+      'If this cute pigeon can\'t help you vote in February, nothing will. I\'ve used the app and you should too:',
+      name: 'settingsPageShareText_ger25',
+      desc: '-> settingsPageShareText',
+      args: [],
+    );
+  }
+
+  /// `You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the Germany regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable? #ClimateActionNow #PlanetFirst`
+  String get resultsPage8Help_ger25 {
+    return Intl.message(
+      'You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the Germany regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable? #ClimateActionNow #PlanetFirst',
+      name: 'resultsPage8Help_ger25',
+      desc: '-> resultsPage8Help',
+      args: [],
+    );
+  }
+
+  /// `EU integration`
+  String get resultsPage5Topic4_ger25 {
+    return Intl.message(
+      'EU integration',
+      name: 'resultsPage5Topic4_ger25',
+      desc: '-> resultsPage5Topic3',
+      args: [],
+    );
+  }
+
+  /// `Migration`
+  String get resultsPage5Topic5_ger25 {
+    return Intl.message(
+      'Migration',
+      name: 'resultsPage5Topic5_ger25',
+      desc: '-> resultsPage5Topic5_ger25',
+      args: [],
+    );
+  }
+
+  /// `* On this screen only candidates from the following parties can be displayed: CDU/CSU, SPD, Grüne, AfD, Linke, FDP, BSW.`
+  String get resultsPage7Disclaimer_ger25 {
+    return Intl.message(
+      '* On this screen only candidates from the following parties can be displayed: CDU/CSU, SPD, Grüne, AfD, Linke, FDP, BSW.',
+      name: 'resultsPage7Disclaimer_ger25',
+      desc: '-> resultsPage7Title',
+      args: [],
+    );
+  }
+
+  /// `Here’s a young candidate from {party}* —shuffle to see more! They may not be on your ballot, but represent the future of their party!`
+  String resultsPage7Title_ger25(Object party) {
+    return Intl.message(
+      'Here’s a young candidate from $party* —shuffle to see more! They may not be on your ballot, but represent the future of their party!',
+      name: 'resultsPage7Title_ger25',
+      desc: '-> resultsPage7Title',
+      args: [party],
+    );
+  }
+
+  /// `I adhere to the Data Protection Policy and the Terms to use the app`
+  String get onBoardingDataProtection_ger25 {
+    return Intl.message(
+      'I adhere to the Data Protection Policy and the Terms to use the app',
+      name: 'onBoardingDataProtection_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data Protection Policy`
+  String get onBoardingDataProtectionLink_ger25 {
+    return Intl.message(
+      'Data Protection Policy',
+      name: 'onBoardingDataProtectionLink_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `made for you!`
+  String get resultsPage9Text2_ger25 {
+    return Intl.message(
+      'made for you!',
+      name: 'resultsPage9Text2_ger25',
+      desc: '-> resultsPage9Text2',
+      args: [],
+    );
+  }
+
+  /// `No results found`
+  String get resultsPage2NoResults {
+    return Intl.message(
+      'No results found',
+      name: 'resultsPage2NoResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Ready, Voting Day is {date}`
+  String resultsPage10VotingDay(Object date) {
+    return Intl.message(
+      'Get Ready, Voting Day is $date',
+      name: 'resultsPage10VotingDay',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Are you going to vote?`
+  String get resultsPage10VotingQuestion {
+    return Intl.message(
+      'Are you going to vote?',
+      name: 'resultsPage10VotingQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications disabled`
+  String get pushDeactivatedTitle {
+    return Intl.message(
+      'Notifications disabled',
+      name: 'pushDeactivatedTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To be able to receive Push Notifcation enable them in the settings`
+  String get pushDeactivatedText {
+    return Intl.message(
+      'To be able to receive Push Notifcation enable them in the settings',
+      name: 'pushDeactivatedText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get pushDeactivatedCancel {
+    return Intl.message(
+      'Close',
+      name: 'pushDeactivatedCancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open Settings`
+  String get pushDeactivatedConfirm {
+    return Intl.message(
+      'Open Settings',
+      name: 'pushDeactivatedConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shuffle my politcal love 🔀`
+  String get resultsPageCandidatesShuffle {
+    return Intl.message(
+      'Shuffle my politcal love 🔀',
+      name: 'resultsPageCandidatesShuffle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `no local parties`
+  String get resultsPageCandidatesNoParties {
+    return Intl.message(
+      'no local parties',
+      name: 'resultsPageCandidatesNoParties',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose an Election`
+  String get electionPageTitle {
+    return Intl.message(
+      'Choose an Election',
+      name: 'electionPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get electionPageSubtitle {
+    return Intl.message('', name: 'electionPageSubtitle', desc: '', args: []);
+  }
+
+  /// `European Elections 2024 🇪🇺`
+  String get electionEU {
+    return Intl.message(
+      'European Elections 2024 🇪🇺',
+      name: 'electionEU',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bundestagswahl 2025 🇩🇪`
+  String get electionDE {
+    return Intl.message(
+      'Bundestagswahl 2025 🇩🇪',
+      name: 'electionDE',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your personal ranking of all parties`
+  String get resultsPageAllPartiesTitle_ger25 {
+    return Intl.message(
+      'Your personal ranking of all parties',
+      name: 'resultsPageAllPartiesTitle_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.`
+  String get resultsPageAllPartiesDescription_ger25 {
+    return Intl.message(
+      'But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.',
+      name: 'resultsPageAllPartiesDescription_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you going to vote?`
+  String get resultsPage10AreYouGoingToVote_ger25 {
+    return Intl.message(
+      'Are you going to vote?',
+      name: 'resultsPage10AreYouGoingToVote_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to turn & read more info`
+  String get statementsTutorialTurnInfo_ger25 {
+    return Intl.message(
+      'Tap to turn & read more info',
+      name: 'statementsTutorialTurnInfo_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maybe`
+  String get resultsPage10MaybeButton_ger25 {
+    return Intl.message(
+      'Maybe',
+      name: 'resultsPage10MaybeButton_ger25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get ready, voting day is {date}`
+  String resultsPage10VotingDay_ger25(Object date) {
+    return Intl.message(
+      'Get ready, voting day is $date',
+      name: 'resultsPage10VotingDay_ger25',
+      desc: '',
+      args: [date],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -1035,6 +1755,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'el'),
       Locale.fromSubtags(languageCode: 'es-ES'),
       Locale.fromSubtags(languageCode: 'et'),
+      Locale.fromSubtags(languageCode: 'eu'),
       Locale.fromSubtags(languageCode: 'fi'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'ga-IE'),

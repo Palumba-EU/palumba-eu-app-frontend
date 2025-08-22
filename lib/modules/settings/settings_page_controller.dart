@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/modules/settings/helpers/category_sponsor.dart';
+import 'package:palumba_eu/modules/welcome/election/election_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
 import 'package:share_plus/share_plus.dart';
@@ -15,19 +18,30 @@ class SettingsPageController extends GetxController {
   static const route = '/settings';
 
   final String rebuildLanguageKey = 'rebuildLanguage';
+  final String rebuildElectionKey = 'rebuildElection';
 
   List<Language>? _languages = DataManager().getLanguages();
-
   List<Language>? get languages => _languages;
-
   Language? get selectedLang => getSelectedLanguage();
 
+  Election get selectedElection => getSelectedElection();
+
   Rx<List<CategorySponsor>?> categoriesSponsors = Rx(null);
+
+  RxString appVersionAndBuildNumber = "".obs;
 
   @override
   void onInit() {
     super.onInit();
     _initSponsors();
+    _initAppVersion();
+    PlausibleManager.trackPage(route);
+  }
+
+  void _initAppVersion() async {
+    var appVersion = await Utils.appVersion();
+    var buildNumber = await Utils.buildNumber();
+    appVersionAndBuildNumber.value = appVersion + " (" + buildNumber + ")";
   }
 
   void _initSponsors() async {
@@ -66,6 +80,13 @@ class SettingsPageController extends GetxController {
     categoriesSponsors.value = categories;
   }
 
+  goToSelectLanguage() async {
+    final result = await Get.toNamed(LanguageController.route);
+    if (result == true) {
+      update([rebuildLanguageKey]);
+    }
+  }
+
   Language? getSelectedLanguage() {
     try {
       return _languages?.firstWhere(
@@ -76,11 +97,15 @@ class SettingsPageController extends GetxController {
     }
   }
 
-  goToSelectLanguage() async {
-    final result = await Get.toNamed(LanguageController.route);
+  goToSelectElection() async {
+    var result = await Get.toNamed(ElectionController.route);
     if (result == true) {
-      update([rebuildLanguageKey]);
+      update([rebuildElectionKey]);
     }
+  }
+
+  Election getSelectedElection() {
+    return ElectionManager.currentElection.value;
   }
 
   void launchPrivacyPoliciesUrl() {
@@ -107,6 +132,6 @@ class SettingsPageController extends GetxController {
 
   void shareApp() {
     Share.share(
-        '${S.of(Get.context!).settingsPageShareText} ${StringUtils.webUrl}');
+        '${ElectionManager.currentElection.value.settingsPageShareText(Get.context!)} ${StringUtils.webUrl}');
   }
 }

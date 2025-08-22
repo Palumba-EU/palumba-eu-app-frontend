@@ -4,13 +4,13 @@ import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
-import 'package:palumba_eu/modules/results/loading/loading_results_controller.dart';
 import 'package:palumba_eu/modules/welcome/language/language_controller.dart';
 
 import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/alert.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/managers/language_manager.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 
 class SplashController extends GetxController {
@@ -24,6 +24,7 @@ class SplashController extends GetxController {
   void onReady() {
     super.onReady();
     _init();
+    PlausibleManager.trackPage(route);
   }
 
   _init() async {
@@ -42,29 +43,31 @@ class SplashController extends GetxController {
 
     var response = await _dataRepository.fetchLocalizations();
     if (response == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      showInternetAlert();
       return;
     }
 
     var response2 = await _dataRepository.fetchStatements();
     if (response2 == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      showInternetAlert();
       return;
     }
 
     var response3 = await _dataRepository.fetchResultsInfo();
     if (response3 == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      showInternetAlert();
       return;
     }
 
     var response4 = await _dataRepository.fetchSponsors();
     if (response4 == null) {
-      Alert.showAlert(S.of(Get.context!).appName,
-          S.of(Get.context!).splashPageNoInternet, Get.context!);
+      showInternetAlert();
+      return;
+    }
+
+    var response5 = await _dataRepository.getElections();
+    if (response5 == null) {
+      showInternetAlert();
       return;
     }
 
@@ -79,5 +82,10 @@ class SplashController extends GetxController {
         LanguageController.route,
       );
     }
+  }
+
+  void showInternetAlert() {
+    Alert.showAlert(S.of(Get.context!).appName,
+        S.of(Get.context!).splashPageNoInternet, Get.context!);
   }
 }

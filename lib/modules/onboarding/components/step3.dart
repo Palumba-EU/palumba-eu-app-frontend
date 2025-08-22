@@ -1,26 +1,23 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
+import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/onboarding/components/custom_gender_selector.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class Step3 extends StatelessWidget {
-  final List<String> genders;
+  final List<LevelOfEducation> levelsofEducation;
   final RxInt indexSelected;
-  final Function(int index) onGenderPressed;
+  final Function(int index) onLevelOfEducationPressed;
 
   const Step3({
     super.key,
-    required this.genders,
+    required this.levelsofEducation,
     required this.indexSelected,
-    required this.onGenderPressed,
+    required this.onLevelOfEducationPressed,
   });
 
   @override
@@ -29,31 +26,31 @@ class Step3 extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Padding(
         padding: AppDimens.lateralPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AppTexts.title(S.of(context).onBoardingStep3Title,
-                color: AppColors.primary),
-            CustomSpacer(
-              multiplier: 3,
-            ),
-            Wrap(
-              spacing: 7.5,
-              runSpacing: 7.5,
-              children: List.generate(
-                  genders.length,
+        child: SingleChildScrollView(
+          // Make the whole page scrollable
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppTexts.title(S.of(context).onBoardingStep4Title,
+                  color: AppColors.primary),
+              CustomSpacer(multiplier: 3),
+              Wrap(
+                spacing: 7.5,
+                runSpacing: 7.5,
+                children: List.generate(
+                  levelsofEducation.length,
                   (index) => Obx(() => CustomGenderSelector(
-                      title: genders[index],
-                      selected: indexSelected == index,
-                      onPressed: () {
-                        onGenderPressed(index);
-                      }))),
-            ),
-            /*SizedBox(
-              height: Get.height * 0.05,
-            ),*/
-          ],
+                        title: levelsofEducation[index].localized(context),
+                        selected: indexSelected.value == index,
+                        onPressed: () {
+                          onLevelOfEducationPressed(index);
+                        },
+                      )),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

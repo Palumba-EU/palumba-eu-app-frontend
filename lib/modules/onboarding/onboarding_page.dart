@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:palumba_eu/global_widgets/card/custom_card.dart';
-
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
-
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/modules/onboarding/components/animated_decision_buttons.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
+import 'package:palumba_eu/modules/onboarding/components/step4.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
 import 'package:palumba_eu/modules/onboarding/helpers/onboarding_clipper.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-
-import 'components/onboarding_decision_buttons.dart';
 import 'components/step1.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -50,34 +45,45 @@ class OnboardingPage extends StatelessWidget {
                                 return Step1(
                                     countries: _.countries,
                                     indexSelected: _.indexCountrySelected,
-                                    onCountryPressed: (int index) {
-                                      _.onCountryPressed(index);
-                                    });
+                                    onCountryPressed: _.onCountryPressed);
                               }
                               if (index == 1) {
                                 return Padding(
-                                  padding:
-                                      EdgeInsets.only(top: _.height.value - 40),
+                                  padding: EdgeInsets.only(
+                                      top: _.height.value - _.topInset),
                                   child: Step2(
                                       minAge: _.minAge,
                                       maxAge: _.maxAge,
                                       indexSelected: _.indexAgeSelected,
-                                      onAgePressed: (int index) {
-                                        _.onAgePressed(index);
-                                      }),
+                                      onAgePressed: _.onAgePressed),
                                 );
                               }
 
                               if (index == 2) {
                                 return Padding(
-                                  padding:
-                                      EdgeInsets.only(top: _.height.value - 30),
-                                  child: Step3(
+                                    padding: EdgeInsets.only(
+                                        top: _.height.value - _.topInset),
+                                    child: Step3(
+                                      levelsofEducation: _.levelsofEducation,
+                                      indexSelected:
+                                          _.indexLevelOfEducationSelected,
+                                      onLevelOfEducationPressed:
+                                          _.onLevelOfEducationPressed,
+                                    ));
+                              }
+
+                              if (index == 3) {
+                                return Padding(
+                                  padding: EdgeInsets.only(
+                                      top: _.height.value - _.topInset),
+                                  child: Step4(
                                       genders: _.genders,
                                       indexSelected: _.indexGenderSelected,
-                                      onGenderPressed: (int index) {
-                                        _.onGenderPressed(index);
-                                      }),
+                                      onGenderPressed: _.onGenderPressed,
+                                      acceptDataPrivacy: _.acceptDataPrivacy,
+                                      onDataPrivacyToggle:
+                                          _.onDataPrivacyToggle,
+                                      launchDataPrivcay: _.launchDataPrivcay),
                                 );
                               }
 
@@ -97,16 +103,21 @@ class OnboardingPage extends StatelessWidget {
                                 return const SizedBox.shrink();
                               }
 
-                              return TextButton(
-                                onPressed: () {
-                                  _.notAnsweredContinue();
-                                },
-                                child: AppTexts.regular(
-                                    S.of(context).onBoardingNotAnswerButton,
-                                    bold: true,
-                                    textAlign: TextAlign.right,
-                                    color: AppColors.primary),
-                              );
+                              return Opacity(
+                                  opacity:
+                                      _.isPreferNotToSayEnabled.value ? 1 : 0.5,
+                                  child: TextButton(
+                                    onPressed: _.isPreferNotToSayEnabled.value
+                                        ? () {
+                                            _.onContinueTap();
+                                          }
+                                        : null,
+                                    child: AppTexts.regular(
+                                        S.of(context).onBoardingNotAnswerButton,
+                                        bold: true,
+                                        textAlign: TextAlign.right,
+                                        color: AppColors.primary),
+                                  ));
                             }),
                             CustomHorizontalSpacer(
                               multiplier: Get.width < 400 ? 1 : 2,
@@ -136,7 +147,7 @@ class OnboardingPage extends StatelessWidget {
                 ),
               ),
               Obx(
-                () => _.showFinalView
+                () => _.showFinalView.value
                     ? Container(
                         margin: EdgeInsets.only(top: 100),
                         height: double.infinity,
@@ -158,9 +169,8 @@ class OnboardingPage extends StatelessWidget {
                           bottomRight: _.radius.value)),
                 ),
               ),
-
               Obx(
-                () => _.showFinalView
+                () => _.showFinalView.value
                     ? Stack(
                         children: [
                           IgnorePointer(
@@ -168,12 +178,7 @@ class OnboardingPage extends StatelessWidget {
                               alignment: Alignment.bottomCenter,
                               child: SizedBox(
                                 height: Get.height * .3,
-                                child: DecisionButtonsOnBoarding(
-                                  onTapDisagrementButton: () {},
-                                  onTapHalfDisagrementButton: () {},
-                                  onTapHalfAgrementButton: () {},
-                                  onTapAgrementButton: () {},
-                                ),
+                                child: AnimatedDecisionButtons(),
                               ),
                             ),
                           ),
@@ -197,37 +202,13 @@ class OnboardingPage extends StatelessWidget {
                               child: Stickers(),
                             ),
                           ),
-                          Obx(
-                            () => _.finalAnimationFinished.value
-                                ? CustomCard(
-                                    isFirstCard: true,
-                                    angleCard: _.angle,
-                                    bgPosition: _.bgPosition,
-                                    positionCard: _.position,
-                                    cardAnimationDuration:
-                                        _.cardAnimationDuration,
-                                    isOnboardingCard: _.isOnBoardingCard,
-                                    isPanStarted: false.obs,
-                                    card: _.cardData,
-                                    onBoardingButtonSelected: _.buttonEventSelected.value,
-                                  )
-                                : AnimatedContainer(
-                                    duration: const Duration(milliseconds: 650),
-                                    height: _.heighClippedContainer.value,
-                                    child: CustomCard(
-                                      isFirstCard: true,
-                                      angleCard: _.angle,
-                                      bgPosition: _.bgPosition,
-                                      positionCard: _.position,
-                                      cardAnimationDuration:
-                                          _.cardAnimationDuration,
-                                      isOnboardingCard: _.isOnBoardingCard,
-                                      isPanStarted: false.obs,
-                                      card: _.cardData,
-                                      selectedBackgroundColor:
-                                          _.getBackgroundColor(),
-                                    ),
-                                  ),
+                          CustomCard(
+                            isFrontCard: true,
+                            angleCard: 0.0,
+                            position: _.cardPosition,
+                            cardAnimationDuration: Rx(1600),
+                            isPanStarted: false.obs,
+                            card: _.cardData,
                           ),
                         ],
                       )
@@ -235,8 +216,7 @@ class OnboardingPage extends StatelessWidget {
               ),
               //Stickers
               Obx(() {
-                debugPrint(_.currentStep.value.toString());
-                return _.showFinalView
+                return _.showFinalView.value
                     ? SizedBox.shrink()
                     : Positioned(
                         top: Get.height * .14,

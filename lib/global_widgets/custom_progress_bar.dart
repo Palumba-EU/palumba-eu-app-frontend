@@ -37,7 +37,7 @@ class CustomProgressBar extends StatelessWidget {
                           height: 3,
                           decoration: BoxDecoration(
                               color: backgroundColor ??
-                                  Colors.white.withOpacity(.5),
+                                  Colors.white.withAlpha((0.5 * 255).toInt()),
                               borderRadius: BorderRadius.circular(100)),
                         ),
                         if (i == step)
@@ -57,7 +57,8 @@ class CustomProgressBar extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: backgroundColor ?? Colors.white.withOpacity(0.25),
+                      color: backgroundColor ??
+                          Colors.white.withAlpha((0.25 * 255).toInt()),
                       borderRadius: BorderRadius.circular(10)),
                 ),
                 AnimatedContainer(

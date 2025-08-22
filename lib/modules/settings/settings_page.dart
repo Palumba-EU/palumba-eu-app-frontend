@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_selector.dart';
@@ -13,6 +13,7 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
@@ -37,9 +38,7 @@ class SettingsPage extends StatelessWidget {
                 children: [
                   // HACK but TextButton would have a margin left
                   GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
+                      onTap: Get.back,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.transparent,
@@ -86,6 +85,23 @@ class SettingsPage extends StatelessWidget {
               ),
               CustomSpacer(multiplier: 4),
 
+              // ELECTION
+              AppTexts.title(S.of(context).settingsPageTitleElection,
+                  color: AppColors.primary),
+              CustomSpacer(small: true),
+              AppTexts.small(S.of(context).settingsPageTextElection,
+                  color: AppColors.primary),
+              CustomSpacer(),
+              GetBuilder<SettingsPageController>(
+                id: _.rebuildElectionKey,
+                builder: (cnt) => CustomSelector(
+                    leading: const SizedBox.shrink(),
+                    title: _.selectedElection.localized(context),
+                    selected: true,
+                    onPressed: _.goToSelectElection),
+              ),
+              CustomSpacer(multiplier: 4),
+
               //ABOUT
               AppTexts.title(S.of(context).settingsPageTitleAbout,
                   color: AppColors.primary),
@@ -95,16 +111,15 @@ class SettingsPage extends StatelessWidget {
               Wrap(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      _.launchOrganization();
-                    },
+                    onTap: _.launchOrganization,
                     child: Padding(
                       padding: EdgeInsets.only(
                           right: AppDimens.smallLateralPaddingValue,
                           top: AppDimens.smallLateralPaddingValue,
                           bottom: AppDimens.smallLateralPaddingValue),
                       child: AppTexts.small(
-                          S.of(context).settingsPageTitleAssociation,
+                          ElectionManager.currentElection.value
+                              .settingsPageTitleAssociation(context),
                           color: AppColors.primary,
                           bold: true,
                           decoration: TextDecoration.underline),
@@ -137,14 +152,27 @@ class SettingsPage extends StatelessWidget {
               CustomSpacer(multiplier: 4),
 
               //PARTNERS
-              AppTexts.title(S.of(context).settingsPageTitlePartners,
+              AppTexts.title(
+                  ElectionManager.currentElection.value
+                      .settingsPageTitlePartners(context),
                   color: AppColors.primary),
               CustomSpacer(small: true),
-              AppTexts.small(S.of(context).settingsPageTextPartners,
+              AppTexts.small(
+                  ElectionManager.currentElection.value
+                      .settingsPageTextPartners(context),
                   color: AppColors.primary),
 
               _wrapperIcons(_),
-
+              Padding(
+                  padding:
+                      EdgeInsets.only(top: AppDimens.lateralPaddingValue * 2),
+                  child: Container(
+                    width: double.infinity,
+                    child: Obx(() => AppTexts.small(
+                        _.appVersionAndBuildNumber.value,
+                        textAlign: TextAlign.center,
+                        color: AppColors.primary)),
+                  )),
               CustomSpacer(multiplier: 8),
             ],
           ),
@@ -192,11 +220,16 @@ class SettingsPage extends StatelessWidget {
                     [
                       // HACK we don't know if this works reliable,
                       // but now at least the translations are shown
-                      S.of(context).settingsPageSubtitle1,
-                      S.of(context).settingsPageSubtitle2,
-                      S.of(context).settingsPageSubtitle3,
-                      S.of(context).settingsPageSubtitle4,
-                      S.of(context).settingsPageSubtitle5
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle1(context),
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle2(context),
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle3(context),
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle4(context),
+                      ElectionManager.currentElection.value
+                          .settingsPageSubtitle5(context)
                     ][index],
                     bold: true,
                     color: AppColors.primary),

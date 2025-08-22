@@ -90,35 +90,42 @@ class Topic {
 }
 
 class PoliticParty {
-  int? id;
-  String? name;
-  String? color;
-  String? logo;
+  late int id;
+  late String name;
+  late String color;
+  late String logo;
+  late String link;
+  late String acronym;
+  late bool inParliament;
   List<LocalParties>? localParties;
-  String? acronym;
   List<Answer>? answers;
 
-  PoliticParty(
-      {this.id,
-      this.name,
-      this.color,
-      this.logo,
-      this.localParties,
-      this.acronym,
-      this.answers});
+  PoliticParty({
+    required this.id,
+    required this.name,
+    required this.color,
+    required this.logo,
+    required this.link,
+    required this.acronym,
+    required this.inParliament,
+    this.localParties,
+    this.answers,
+  });
 
   PoliticParty.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     color = json['color'];
     logo = json['logo'];
+    link = json['link'];
+    acronym = json['acronym'];
+    inParliament = json['in_parliament'];
     if (json['local_parties'] != null) {
       localParties = <LocalParties>[];
       json['local_parties'].forEach((v) {
         localParties!.add(new LocalParties.fromJson(v));
       });
     }
-    acronym = json['acronym'];
     if (json["answers"] != null) {
       answers = <Answer>[];
       json["answers"].forEach((x) => answers!.add(Answer.fromJson(x)));
@@ -131,6 +138,7 @@ class PoliticParty {
     data['name'] = this.name;
     data['color'] = this.color;
     data['logo'] = this.logo;
+    data['in_parliament'] = this.inParliament;
     if (this.localParties != null) {
       data['local_parties'] =
           this.localParties!.map((v) => v.toJson()).toList();
@@ -142,22 +150,34 @@ class PoliticParty {
 }
 
 class LocalParties {
-  int? id;
-  String? name;
-  String? logo;
-  String? link;
-  String? acronym;
+  late int id;
+  late String name;
+  late String logo;
+  late String link;
+  late String? linkText;
+  late String description;
+  late String acronym;
   int? countryId;
+  late bool show_collaboration_link;
 
-  LocalParties({this.id, this.name, this.logo, this.link});
+  LocalParties(
+      {required this.id,
+      required this.name,
+      required this.logo,
+      required this.link,
+      required this.acronym,
+      required this.show_collaboration_link});
 
   LocalParties.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     logo = json['logo'];
     link = json['link'];
+    linkText = json['link_text'];
+    description = json['description'];
     acronym = json['acronym'];
     countryId = json['country_id'];
+    show_collaboration_link = json['show_collaboration_link'];
   }
 
   Map<String, dynamic> toJson() {
@@ -168,6 +188,7 @@ class LocalParties {
     data['link'] = this.link;
     data['acronym'] = this.acronym;
     data['country_id'] = this.countryId;
+    data['show_collaboration_link'] = this.show_collaboration_link;
     return data;
   }
 }

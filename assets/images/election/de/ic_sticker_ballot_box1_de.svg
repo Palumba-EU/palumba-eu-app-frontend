@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg16" xmlns="http://www.w3.org/2000/svg" width="60" height="112"
+    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 112">
+    <defs>
+        <clipPath id="clippath">
+            <rect x="-46.24" y="6.23" width="111.85" height="99.42"
+                transform="translate(-46.28 65.51) rotate(-89.88)" fill="none" stroke-width="0" />
+        </clipPath>
+    </defs>
+    <g clip-path="url(#clippath)">
+        <g id="g20" opacity=".25">
+            <path id="path1-1"
+                d="m-38.21,82.01c-2.6-4.97-1.11-27.8-1.56-34.98-.45-7.18-1.12-20.68,7.46-24.74,5.21-2.46,12.94-4.12,14.5-8.59C-16.24,9.22-10.6-3.48,9.89.91c20.49,4.4,19.26,13.4,23.02,21.51,3.76,8.12,25.81,9.35,26.1,19.91.29,10.56,1.97,59.92-5.49,63.02-7.46,3.1-55.28,9.38-65.72,5-10.45-4.38-23.07-22.73-26.01-28.34h0Z"
+                fill="#fcfcf3" stroke-width="0" />
+            <path id="path2-8"
+                d="m-7.74,62.97l-22.03-19.25s-.44,11.03-.21,15.42c.23,4.38.15,14.53.15,14.53,0,.38.13.75.37,1.05l19.76,27.9c1.35,1.75,3.28,2.3,3.98,2.28,39.99-.84,52.05-4.59,52.05-4.59.86-.07,1.52-.8,1.53-1.67l.08-40.46-55.68,4.79Z"
+                fill="#b2d1de" stroke-width="0" />
+            <path id="path3-7"
+                d="m24.44,25.18c-.62-.42-1.37-.61-2.12-.54l-25.99,1.66-27.46,2.94c-.67.06-1.19.62-1.19,1.29l-.02,10.96c0,.54.23,1.06.63,1.43l20.98,18.96c.78.7,1.79,1.15,2.84,1.09,42.31-2.55,52.81-3.59,57-4.55.57-.13.98-.64.98-1.23l.03-13.3c0-.99-.49-1.91-1.31-2.45l-24.38-16.25h0Z"
+                fill="#b2d1de" stroke-width="0" />
+            <path id="path6-5"
+                d="m.58,11.56c.84-.2.24-1.31-.23-2.07-.47-.76-1.39-1.51-1.86-.92-.48.6.79,3.3,2.1,2.99h0Z"
+                fill="#b2d1de" stroke-width="0" />
+            <path id="path7-8"
+                d="m4.01,34.25s-2.74-.24-4.76,0c-2.02.23-2.38,1.03-1.43,2.14.95,1.12,1.11,1.67,3.29,1.6,2.18-.07,17.23-1,18.62-1.24,1.39-.23.64-1.23-.43-1.99s-1.47-1-2.3-1.08c-.83-.08-1.67,0-1.67,0l-1.35,1.97-4,.17-5.97-1.57h0Z"
+                fill="#fcfcf3" stroke-width="0" />
+            <path id="path17-0" d="m47.58,43.88s-13.07-3.28-24.48-7c-9.1-2.97-15.25-4.16-29.3-5.36"
+                fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="1.69" />
+            <path id="path18-4"
+                d="m9.98,35.82c-3.43-.67-12.15-4.57-13.67-5.11,1.38-1.83,3.03-4.45,4.66-7.45,1.69-3.1,5.45-10.66,5.96-14.9.48.44,12.51,5.26,14.56,6.17.23,2.04-1.14,7.86-3.39,12.76-1.64,3.57-3.77,7.4-4.13,8.35l-4,.17Z"
+                fill="#fcfcf3" stroke="#b2d1de" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="1.69" />
+            <g id="g35-8">
+                <path id="path12-49"
+                    d="m16.23,22.41c-.32.16-.63.33-.95.47.01.16.02.32.02.49,0,1.09-.5,2.55-1.46,3.62-1.09,1.22-2.69,1.77-3.97,1.58-2.79-.4-3.7-1.55-4.24-2.31-.45-.64-1.66-3.37.84-6.17.82-.92,3.87-2.15,5.74-1.2.84.43,1.49.81,2.02,1.44.29-.14.54-.27.82-.41-.79-.96-1.73-1.5-2.43-1.8-.08-.03-.16-.07-.24-.09-3.22-1.06-5.51.31-6.5,1.16s-1.54,2.1-1.86,3.99c-.35,2.06.4,3.13.91,3.82,1.12,1.51,2.23,2.31,4.37,2.56,2.04.23,3.43-.03,5.08-1.77,1.49-1.57,1.84-3.18,1.91-4.38.02-.35,0-.67-.05-.99h0Z"
+                    fill="#b2d1de" stroke-width="0" />
+                <path id="path13-7"
+                    d="m6.31,25.83c-.26-.72,3.29-2.45,3.82-2.67s5.67-3.13,6.11-2.63c.92,1.02-2.52,2.18-5.65,3.85-2.48,1.32-3.96,2.34-4.29,1.46Z"
+                    fill="#b2d1de" stroke-width="0" />
+                <path id="path14-3"
+                    d="m8.31,19.37c.64-.36,1.21,2.98,2.07,4.36s3.08,3.3,2.28,3.92c-.8.62-3.25-2.88-3.96-4.21-.72-1.34-1.21-3.61-.39-4.06Z"
+                    fill="#b2d1de" stroke-width="0" />
+            </g>
+            <g id="g34-8">
+                <path id="path15-9"
+                    d="m14.29,73.5c0-1.46.42-7.48,7.13-8.02,6.55-.53,8.02,5.06,8.3,6.67" fill="none"
+                    stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path16-9"
+                    d="m26.89,72.79c2.9-.24,7.86-.61,8.14-.39.5.39.35,2.13.24,2.28-.15.21-.61.17-.61.17l1.07,14.99s.78-.07.98-.08c.21-.01.38,1.6.13,1.64-.32.05-27.16,2.23-27.65,2.22-.29,0-.5-1.65-.13-1.69.36-.03.66-.05.66-.05l-1.2-14.93s-.68.06-.73-.11c-.11-.41-.33-1.86-.02-2.25.2-.25,6.56-.79,9.57-1.03"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path17-9" d="m17.12,73.15s-.49-4.26,2.79-7.07" fill="none"
+                    stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path18-3" d="m23.19,65.82s2.65.1,3.17,6.59" fill="none" stroke="#fcfcf3"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width=".99" />
+                <path id="path19-3" d="m14.74,71.65s1.99-2.16,6.98-2.46c4.99-.3,7.29,1.31,7.29,1.31"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <line id="line19-7" x1="21.39" y1="65.97" x2="21.8" y2="71.08" fill="none"
+                    stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <line id="line20-7" x1="11.51" y1="76.71" x2="8.98" y2="76.92" fill="none"
+                    stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <line id="line21-3" x1="34.18" y1="74.89" x2="31.68" y2="75.09" fill="none"
+                    stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path21-2"
+                    d="m29.76,75.4l-17.26,1.32,8.83-5.02c.56-.28.46-.42,1.62.07s8.05,2.97,8.17,3.57.51,2.16.02,2.2l-18.39,1.48-.12-1.51"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path22-5"
+                    d="m14.03,78.96c-.05.38,0,1.19.12,1.48.11.29,2.57-.07,2.57-.07.62-.13.34-.89.25-1.65"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path23-6"
+                    d="m15.2,91.38c-.12-.35-.19-1.14-.01-1.4.18-.25,2.2-.33,2.44-.3.57.1.54,1.46.54,1.46"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path24-3" d="m14.79,80.66s.04,3.16.66,9.15" fill="none" stroke="#fcfcf3"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width=".99" />
+                <line id="line24-4" x1="10.38" y1="91.89" x2="35.21" y2="89.89" fill="none"
+                    stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path25-0" d="m16.73,80.37s.76,7.87.77,9.11" fill="none" stroke="#fcfcf3"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width=".99" />
+                <path id="path26-6"
+                    d="m20.48,78.44c-.05.38,0,1.19.12,1.48.11.3,2.57-.07,2.57-.07.62-.13.34-.89.25-1.65"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path27-0"
+                    d="m21.64,90.87c-.12-.35-.19-1.14-.01-1.4s2.2-.33,2.44-.3c.57.1.54,1.46.54,1.46"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path28-4" d="m21.23,80.14s.04,3.16.66,9.15" fill="none" stroke="#fcfcf3"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width=".99" />
+                <path id="path29-0" d="m23.17,79.86s.76,7.87.77,9.11" fill="none" stroke="#fcfcf3"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width=".99" />
+                <path id="path30-5"
+                    d="m26.8,77.93c-.05.38,0,1.19.12,1.48.11.3,2.57-.07,2.57-.07.62-.13.34-.89.25-1.65"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path31-6"
+                    d="m27.97,90.36c-.12-.35-.19-1.14-.01-1.4.18-.25,2.2-.33,2.44-.3.57.1.54,1.46.54,1.46"
+                    fill="none" stroke="#fcfcf3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width=".99" />
+                <path id="path32-8" d="m27.56,79.63s.04,3.16.66,9.15" fill="none" stroke="#fcfcf3"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width=".99" />
+                <path id="path33-5" d="m29.5,79.35s.76,7.87.77,9.11" fill="none" stroke="#fcfcf3"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width=".99" />
+            </g>
+        </g>
+    </g>
+</svg>

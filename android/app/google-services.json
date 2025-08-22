@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "646418472598",
+    "project_id": "palumba-app",
+    "storage_bucket": "palumba-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646418472598:android:5100387c3e66fce9ab6cb7",
+        "android_client_info": {
+          "package_name": "com.palumba.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmu-f7zzo-JlZiPR07fwR8RxTUK-46lPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

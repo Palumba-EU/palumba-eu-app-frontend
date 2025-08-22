@@ -20,6 +20,9 @@ import 'package:get/route_manager.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_binding.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_page.dart';
+import 'package:palumba_eu/modules/welcome/election/election_binding.dart';
+import 'package:palumba_eu/modules/welcome/election/election_controller.dart';
+import 'package:palumba_eu/modules/welcome/election/election_page.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_binding.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_page.dart';
@@ -43,6 +46,11 @@ class AppPages {
       name: LanguageController.route,
       page: () => const LanguagePage(),
       binding: LanguageBinding(),
+    ),
+    GetPage(
+      name: ElectionController.route,
+      page: () => const ElectionPage(),
+      binding: ElectionBinding(),
     ),
     GetPage(
       name: EntranceController.route,

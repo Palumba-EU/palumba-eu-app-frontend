@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/components/info_widget.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
-class ResultsPage6 extends StatefulWidget {
-  const ResultsPage6({super.key});
+class ResultsPage6 extends StatefulWidget with ResultsPage {
+  @override
+  final showShare = false;
+
+  @override
+  final bool showSpecialBackground = true;
 
   @override
   State<ResultsPage6> createState() => _ResultsPage6State();
@@ -20,7 +26,8 @@ class _ResultsPage6State extends State<ResultsPage6> {
       children: [
         Spacer(),
         InfoWidget(
-          title: S.of(context).resultsPage6_1Title,
+          title: ElectionManager.currentElection.value
+              .resultsPage6_1Title(context),
           assetFront: 'img_hemicycle',
           assetHeight: 64,
         ),
@@ -28,7 +35,8 @@ class _ResultsPage6State extends State<ResultsPage6> {
           multiplier: 5,
         ),
         InfoWidget(
-          title: S.of(context).resultsPage6_2Title,
+          title: ElectionManager.currentElection.value
+              .resultsPage6_2Title(context),
           assetFront: 'img_reveille',
           assetHeight: 80,
         ),
@@ -37,8 +45,10 @@ class _ResultsPage6State extends State<ResultsPage6> {
         ),
         Padding(
           padding: AppDimens.lateralPadding,
-          child: AppTexts.small(S.of(context).resultsPage6Text,
-              textAlign: TextAlign.center, color: AppColors.primary),
+          child: AppTexts.small(
+              ElectionManager.currentElection.value.resultsPage6Text(context),
+              textAlign: TextAlign.center,
+              color: AppColors.primary),
         ),
         Spacer(
           flex: 3,

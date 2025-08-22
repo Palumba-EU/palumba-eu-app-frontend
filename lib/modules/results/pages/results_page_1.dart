@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
-class ResultsPage1 extends GetView<ResultsController> {
-  const ResultsPage1({super.key});
+class ResultsPage1 extends GetView<ResultsController> with ResultsPage {
+  @override
+  final bool showShare = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +34,12 @@ class ResultsPage1 extends GetView<ResultsController> {
           CustomSpacer(
             multiplier: 2,
           ),
-          AppTexts.title(S.of(context).resultsPage1Title,
+          AppTexts.title(
+              ElectionManager.currentElection.value.resultsPage1Title(context),
               color: AppColors.primary),
           CustomSpacer(),
-          AppTexts.small(S.of(context).resultsPage1Text,
+          AppTexts.small(
+              ElectionManager.currentElection.value.resultsPage1Text(context),
               color: AppColors.primary),
           CustomSpacer(
             multiplier: 4,
@@ -48,8 +53,11 @@ class ResultsPage1 extends GetView<ResultsController> {
                   curve: Curves.easeInOut,
                 );
               },
-              child: AppTexts.regular(S.of(context).resultsPage1Button,
-                  bold: true, color: AppColors.lightPrimary),
+              child: AppTexts.regular(
+                  ElectionManager.currentElection.value
+                      .resultsPage1Button(context),
+                  bold: true,
+                  color: AppColors.lightPrimary),
             ),
           ),
           CustomSpacer(),

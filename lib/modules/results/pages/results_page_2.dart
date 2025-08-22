@@ -1,67 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
+import 'package:palumba_eu/modules/results/pages/results_shared/results_heart_stack.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:screenshot/screenshot.dart';
 
-class ResultsPage2 extends GetView<ResultsController> {
-  const ResultsPage2({super.key});
-
+class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
     bool isTablet = controller.isTablet;
     return Container(
       color: AppColors.background,
       child: Stack(children: [
-        Stack(
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.only(top: 25),
-                child: SvgPicture.asset(
-                  'assets/images/ic_sticker_heart1.svg',
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Padding(
-                padding: EdgeInsets.only(top: 250),
-                child: SvgPicture.asset(
-                  'assets/images/ic_sticker_heart2.svg',
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.only(top: 275),
-                child: SvgPicture.asset(
-                  'assets/images/ic_sticker_heart1.svg',
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 75),
-                child: SvgPicture.asset(
-                  'assets/images/ic_sticker_heart2.svg',
-                ),
-              ),
-            )
-          ],
-        ),
+        HeartStack(),
         SingleChildScrollView(
           child: Column(
             children: [
@@ -99,7 +60,7 @@ class ResultsPage2 extends GetView<ResultsController> {
                 padding: EdgeInsets.symmetric(
                     horizontal: AppDimens.largeLateralPaddingValue),
                 child: controller.maxPercentagePoliticParty == null
-                    ? AppTexts.title('No results found',
+                    ? AppTexts.title(S.of(context).resultsPage2NoResults,
                         color: AppColors.primary)
                     : RichText(
                         textAlign: TextAlign.center,
@@ -108,7 +69,8 @@ class ResultsPage2 extends GetView<ResultsController> {
                               black: true, color: AppColors.primary),
                           children: [
                             TextSpan(
-                              text: S.of(context).resultsPage2_1Title,
+                              text: ElectionManager.currentElection.value
+                                  .resultsPage2_1Title(context),
                             ),
                             TextSpan(
                               text:
@@ -117,7 +79,8 @@ class ResultsPage2 extends GetView<ResultsController> {
                                   TextStyle(color: controller.getPartyColor()),
                             ),
                             TextSpan(
-                              text: S.of(context).resultsPage2_2Title,
+                              text: ElectionManager.currentElection.value
+                                  .resultsPage2_2Title(context),
                             ),
                           ],
                         )),

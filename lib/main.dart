@@ -1,6 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:palumba_eu/firebase_options.dart';
 import 'package:palumba_eu/modules/splash/splash_page.dart';
 import 'package:palumba_eu/routes/app_pages.dart';
 import 'package:palumba_eu/utils/dependency_injection.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
@@ -9,7 +13,6 @@ import 'package:flutter/services.dart';
 import 'modules/splash/splash_binding.dart';
 import 'utils/common_ui/app_theme_data.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-
 import 'utils/managers/language_manager.dart';
 
 class EnvironmentConfig {
@@ -26,21 +29,25 @@ void main() async {
 
   LanguageManager.init();
 
+  ElectionManager.init();
+
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
 
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
   await SentryFlutter.init(
-        (options) {
-      options.dsn = 'https://ff251d1b11055ec64c0058fa8f31f45c@sentry.palumba-app.palumba.eu/4';
+    (options) {
+      options.dsn =
+          'https://ff251d1b11055ec64c0058fa8f31f45c@sentry.palumba-app.palumba.eu/4';
       // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
       // We recommend adjusting this value in production.
       options.tracesSampleRate = 1.0;
     },
-    appRunner: () => {
-          runApp(MyApp())
-    },
+    appRunner: () => {runApp(MyApp())},
   );
 }
 
@@ -75,4 +82,13 @@ class _MyApp extends State<MyApp> {
       supportedLocales: S.delegate.supportedLocales,
     );
   }
+}
+
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  await Firebase.initializeApp();
+
+  print("Handling a background message: ${message.messageId}");
 }

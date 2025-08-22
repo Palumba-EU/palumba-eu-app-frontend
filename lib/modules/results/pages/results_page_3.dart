@@ -2,19 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/modules/results/components/custom_semicircle_chart/custom_hemicycle_chart.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
+import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'package:screenshot/screenshot.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
-import '../components/custom_semicircle_chart/custom_hemicycle_chart.dart';
-import '../results_controller.dart';
-
-class ResultsPage3 extends GetView<ResultsController> {
-  const ResultsPage3({super.key});
-
+class ResultsPage3 extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -28,7 +26,7 @@ class ResultsPage3 extends GetView<ResultsController> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: Get.width * .5,
+                  width: Get.width * .53,
                   child: Padding(
                     padding: AppDimens.lateralPadding,
                     child: ListView.builder(
@@ -55,10 +53,10 @@ class ResultsPage3 extends GetView<ResultsController> {
                   ),
                 ),
                 Obx(
-                  () => controller.currentPage != 2
+                  () => controller.currentPageIndex != 2
                       ? SizedBox.shrink()
                       : SizedBox(
-                          width: Get.width * .5,
+                          width: Get.width * .47,
                           child: Padding(
                             padding: EdgeInsets.only(
                                 right: 18,
@@ -80,7 +78,9 @@ class ResultsPage3 extends GetView<ResultsController> {
             ),
             Padding(
               padding: AppDimens.lateralPadding,
-              child: AppTexts.title(S.of(context).resultsPage3Title,
+              child: AppTexts.title(
+                  ElectionManager.currentElection.value
+                      .resultsPage3Title(context),
                   color: AppColors.primary),
             ),
             CustomSpacer(

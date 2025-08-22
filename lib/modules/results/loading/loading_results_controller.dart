@@ -1,20 +1,16 @@
 import 'dart:async';
-
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/manager/data_manager.dart';
-import 'package:palumba_eu/data/model/results_data.dart';
-import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
-import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
+import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 
 class LoadingResultsController extends GetxController {
   static const route = '/loading_results';
-
-  final DataRepository _dataRepository = Get.find<DataRepository>();
 
   final LocalDataRepository _localDataRepository =
       Get.find<LocalDataRepository>();
@@ -32,8 +28,9 @@ class LoadingResultsController extends GetxController {
   @override
   void onInit() {
     //Set test finished
-    UserManager.setTestRuning(false);
+    UserManager.isTestRunning = false;
     super.onInit();
+    PlausibleManager.trackPage(route);
   }
 
   @override
@@ -72,11 +69,25 @@ class LoadingResultsController extends GetxController {
   }
 
   void _initData() {
-    _dataRepository.setResponse();
     _getResultsData();
   }
 
   Future<void> _getResultsData() async {
-    _partyUserDistanceList = ResultsHelper.getPartyUserDistances(UserManager.userData.answers);
+    _partyUserDistanceList =
+        ResultsHelper.getPartyUserDistances(UserManager.userData.answers);
+  }
+
+  String titleForIndex(BuildContext context, Election election) {
+    switch (currentStep.value) {
+      case 1:
+        return election.loadingResultsPageTitle1(context);
+      case 2:
+        return election.loadingResultsPageTitle2(context);
+      case 3:
+        return election.loadingResultsPageTitle3(context, countryName);
+      case 4:
+        return election.loadingResultsPageTitle4(context);
+    }
+    return '';
   }
 }

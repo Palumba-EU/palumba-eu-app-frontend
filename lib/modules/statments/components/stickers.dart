@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 class Stickers extends StatelessWidget {
   const Stickers({
@@ -15,9 +18,8 @@ class Stickers extends StatelessWidget {
         children: [
           Row(
             children: [
-              SvgPicture.asset(
-                'assets/images/ic_sticker_ballot_box.svg',
-              ),
+              Obx(() => SvgPicture.asset(
+                  ElectionManager.currentElection.value.stickerBallotBox)),
               Spacer(),
               SvgPicture.asset(
                 'assets/images/ic_sticker_heart.svg',

@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
@@ -7,9 +9,9 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:screenshot/screenshot.dart';
-
 import 'components/custom_mds_graphic/dotted_container.dart';
 import 'results_controller.dart';
 
@@ -34,10 +36,10 @@ class ResultsPage extends GetView<ResultsController> {
                   Container(
                     color: AppColors.background,
                   ),
-
                   Obx(
                     () => Opacity(
-                      opacity: controller.isSpecialPage ? 1 : 0,
+                      opacity:
+                          controller.currentPage.showSpecialBackground ? 1 : 0,
                       child: Container(
                         color: AppColors.blue,
                         child: Stack(
@@ -47,7 +49,8 @@ class ResultsPage extends GetView<ResultsController> {
                               child: Padding(
                                 padding: EdgeInsets.only(top: 180),
                                 child: SvgPicture.asset(
-                                  'assets/images/ic_sticker_ballot_box1.svg',
+                                  ElectionManager
+                                      .currentElection.value.stickerBallotBox1,
                                 ),
                               ),
                             ),
@@ -56,7 +59,8 @@ class ResultsPage extends GetView<ResultsController> {
                               child: Padding(
                                 padding: EdgeInsets.only(top: 190),
                                 child: SvgPicture.asset(
-                                  'assets/images/ic_sticker_ballot_box2.svg',
+                                  ElectionManager
+                                      .currentElection.value.stickerBallotBox2,
                                 ),
                               ),
                             ),
@@ -65,7 +69,8 @@ class ResultsPage extends GetView<ResultsController> {
                               child: Padding(
                                 padding: EdgeInsets.only(bottom: 40),
                                 child: SvgPicture.asset(
-                                  'assets/images/ic_sticker_ballot_box3.svg',
+                                  ElectionManager
+                                      .currentElection.value.stickerBallotBox3,
                                 ),
                               ),
                             ),
@@ -74,7 +79,8 @@ class ResultsPage extends GetView<ResultsController> {
                               child: Padding(
                                 padding: EdgeInsets.only(right: 10),
                                 child: SvgPicture.asset(
-                                  'assets/images/ic_sticker_ballot_box4.svg',
+                                  ElectionManager
+                                      .currentElection.value.stickerBallotBox4,
                                 ),
                               ),
                             )
@@ -84,19 +90,21 @@ class ResultsPage extends GetView<ResultsController> {
                     ),
                   ),
 
-                  Obx(() => controller.currentPage == 3
+                  // Has to be on parent because result page is not full height
+                  Obx(() => controller.currentPage.showDottedContainer
                       ? DottedContainer(
                           width: double.infinity,
                           height: Get.height,
-                          pointColor: AppColors.lightPrimary.withOpacity(.35))
+                          pointColor: AppColors.lightPrimary
+                              .withAlpha((0.35 * 255).toInt()))
                       : SizedBox.shrink()),
 
-                  // HACK but content page has restricted size
-                  Obx(() => controller.currentPage == 9
+                  // Has to be on parent because result page is not full height
+                  Obx(() => controller.currentPage.showBallotBoxBackground
                       ? Align(
                           alignment: Alignment.bottomCenter,
                           child: Image.asset(
-                            'assets/images/img_ballot_box_big.png',
+                            ElectionManager.currentElection.value.ballotBoxBig,
                             fit: BoxFit.fitWidth,
                           ))
                       : SizedBox.shrink()),
@@ -116,7 +124,7 @@ class ResultsPage extends GetView<ResultsController> {
                       padding: EdgeInsets.symmetric(
                           horizontal: AppDimens.lateralPaddingValue),
                       child: Obx(() => CustomProgressBar(
-                            step: controller.currentPage,
+                            step: controller.currentPageIndex.value,
                             totalSteps: controller.pages.length,
                             width: double.infinity,
                             isDotted: true,
@@ -143,10 +151,18 @@ class ResultsPage extends GetView<ResultsController> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SvgPicture.asset(
-                                        'assets/images/logo_circle.svg',
-                                        height: 40,
-                                      ),
+                                      Obx(() => SvgPicture.asset(
+                                            ElectionManager.currentElection
+                                                .value.logoCircle,
+                                            height: 40,
+                                          )),
+                                      if (kDebugMode)
+                                        Obx(() => AppTexts.small(
+                                            controller
+                                                .pages[controller
+                                                    .currentPageIndex.value]
+                                                .className,
+                                            color: AppColors.primary)),
                                       Spacer(),
                                       AppTexts.title(
                                           '#${S.of(context).shortAppName}',
@@ -178,8 +194,7 @@ class ResultsPage extends GetView<ResultsController> {
               Obx(
                 () => controller.loadingShare
                     ? SizedBox.shrink()
-                    : controller.showButtonSharePages
-                            .contains(controller.currentPage)
+                    : controller.currentPage.showShare
                         ? Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal:
@@ -195,22 +210,26 @@ class ResultsPage extends GetView<ResultsController> {
                                 prefixIcon: IconButtonParameters(
                                   'ic_share',
                                   size: 18,
-                                  color: controller.isSpecialPage
+                                  color: controller
+                                          .currentPage.showSpecialBackground
                                       ? Colors.white
                                       : AppColors.primary,
                                 ),
                                 radius: AppDimens.borderRadius,
-                                color: controller.isSpecialPage
-                                    ? AppColors.primary
-                                    : AppColors.yellow,
-                                textColor: controller.isSpecialPage
-                                    ? Colors.white
-                                    : AppColors.primary,
+                                color:
+                                    controller.currentPage.showSpecialBackground
+                                        ? AppColors.primary
+                                        : AppColors.yellow,
+                                textColor:
+                                    controller.currentPage.showSpecialBackground
+                                        ? Colors.white
+                                        : AppColors.primary,
                                 bold: true,
                                 border: ButtonBorderParameters(
                                     isOutside: true,
                                     width: 3,
-                                    color: controller.isSpecialPage
+                                    color: controller
+                                            .currentPage.showSpecialBackground
                                         ? AppColors.lightPrimary
                                         : AppColors.lightYellow),
                               ),

@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/model/user_model.dart';
+import 'package:palumba_eu/data/model/statement_response.dart';
+import 'package:palumba_eu/global_widgets/card/custom_card.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
-import 'package:palumba_eu/modules/home/home_page_controller.dart';
+import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-
 import 'components/buttons/decision_buttons.dart';
-import '../../global_widgets/card/custom_card.dart';
-import '../../global_widgets/custom_container_curve.dart';
 import 'components/custom_header.dart';
 import 'statements_screen_controller.dart';
 
@@ -54,10 +52,8 @@ class StatementsPage extends GetView<StatementsController> {
 
           //Custom Plaumba header
           Obx(
-            () => controller.fromOnboarding
-                ?
-                //Onboarding header
-                SafeArea(
+            () => controller.tutorialOngoing.value
+                ? SafeArea(
                     child: Padding(
                       padding:
                           EdgeInsets.only(top: AppDimens.lateralPaddingValue),
@@ -69,15 +65,18 @@ class StatementsPage extends GetView<StatementsController> {
                 : SafeArea(
                     child: IntrinsicHeight(
                       child: AnimatedOpacity(
-                          opacity: controller.isPanStarted.value ? 0.2 : 1,
-                          duration: Durations.medium4,
-                          child: CustomHeader(
-                            homeTap: () =>
-                                Get.offAllNamed(HomePageController.route),
-                            backTap: () => controller.returnToPreviousCard(),
-                            isBackButtonActive:
-                                controller.previousCardButtonActivated,
-                          )),
+                        opacity: controller.isPanStarted.value ? 0.2 : 1,
+                        duration: Durations.medium4,
+                        child: GetBuilder<StatementsController>(
+                            id: controller.cardStackKey,
+                            builder: (controller) => CustomHeader(
+                                  homeTap: controller.homeTap,
+                                  backTap: controller.returnToPreviousCard,
+                                  isBackButtonActive:
+                                      controller.frontCard?.id !=
+                                          controller.firstCardId,
+                                )),
+                      ),
                     ),
                   ),
           ),
@@ -86,157 +85,56 @@ class StatementsPage extends GetView<StatementsController> {
           GetBuilder<StatementsController>(
             id: controller.cardStackKey,
             init: controller,
-            builder: (controller) => (controller.firstCard != null ||
-                    controller.fromOnboarding)
+            builder: (controller) => (controller.frontCard != null)
                 ? Stack(
                     children: [
-                      if (controller.secondCard != null)
+                      if (controller.backCard != null)
+                        // background card
                         CustomCard(
-                          card: controller.secondCard,
+                          isFrontCard: false,
+                          card: controller.backCard,
                           angleCard: controller.angle,
-                          positionCard: controller.position,
-                          bgPosition: controller.bgPosition,
+                          position: controller.backCardPosition,
                           isPanStarted: controller.isPanStarted,
                           cardAnimationDuration:
                               controller.cardAnimationDuration,
-                          isFirstCard: false,
-                          onPanStart: controller.onPanStart,
-                          onPanUpdate: controller.onPanUpdate,
-                          onPanEnd: controller.onPanEnd,
-                          onTapDown: controller.onTapDown,
-                          currentCardIndex: 0.obs,
-                          //controller.currentCardIndex,
-                          isOnboardingCard: false,
-                          //onSkipTap: controller.onSkipTap,
                         ),
                       Obx(
+                        // front card
                         () => CustomCard(
-                          isFirstCard: true,
-                          card: controller.firstCard,
-                          onPanStart: controller.onPanStart,
-                          onPanUpdate: controller.onPanUpdate,
-                          onPanEnd: controller.onPanEnd,
-                          onTapDown: controller.onTapDown,
-                          currentCardIndex: controller.currentCardIndex,
-                          angleCard: controller.angle,
-                          positionCard: controller.position,
-                          bgPosition: controller.bgPosition,
-                          isPanStarted: controller.isPanStarted,
-                          cardAnimationDuration:
-                              controller.cardAnimationDuration,
-                          isOnboardingCard: controller.fromOnboarding,
-                          scale: controller.scale.value,
-                          isZoneButtonEntered: controller.isZoneButtonEntered,
-                          onSkipTap: () =>
-                              controller.activateButton(StatementResponse.skip),
-                          selectedBackgroundColor:
-                              controller.getBackgroundColor(),
-                        ),
+                            isFrontCard: true,
+                            card: controller.frontCard,
+                            onPanStart: controller.onPanStart,
+                            onPanUpdate: controller.onPanUpdate,
+                            onPanEnd: controller.onPanEnd,
+                            angleCard: controller.angle,
+                            position: controller.frontCardposition,
+                            isPanStarted: controller.isPanStarted,
+                            cardAnimationDuration:
+                                controller.cardAnimationDuration,
+                            currentDraggedResponseStatement:
+                                controller.currentDraggedResponseStatement,
+                            flipCardController: controller.flipCardController,
+                            selectedResponseStatement:
+                                controller.selectedResponseStatement.value,
+                            onFlip: controller.onFlip,
+                            scrollController:
+                                controller.frontCardScrollController),
                       )
                     ],
                   )
                 : SizedBox.shrink(),
           ),
+
           //Buttons
-          Obx(
-            () => controller.loadingQuestions
-                ? Center(
-                    child: CircularProgressIndicator(
-                      color: AppColors.primary,
-                    ),
-                  )
-                : Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      height: Get.height * .3,
-                      child: Stack(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: Get.height * .08),
-                            child: Align(
-                              alignment: Alignment.topCenter,
-                              child: Obx(
-                                () => AnimatedOpacity(
-                                  duration: Durations.long4,
-                                  opacity: controller.fromOnboarding ? 0 : 1,
-                                  child: IgnorePointer(
-                                      ignoring: controller.buttonsBlocked,
-                                      child: CustomButton(
-                                        text: S.of(context).neutral,
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                AppDimens.lateralPaddingValue *
-                                                    .5),
-                                        onPressed: controller.fromOnboarding
-                                            ? null
-                                            : () => controller.activateButton(
-                                                StatementResponse.neutral),
-                                        color: controller.neutralButtonSelected
-                                            ? AppColors.lightPrimary
-                                            : AppColors.primary,
-                                        textColor:
-                                            controller.neutralButtonSelected
-                                                ? AppColors.primary
-                                                : AppColors.text,
-                                        radius: AppDimens.largeBorderRadius,
-                                        border: ButtonBorderParameters(
-                                            color: AppColors.lightPrimary,
-                                            width: 2,
-                                            isOutside: true),
-                                      )),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: double.infinity,
-                            height: Get.height * .3,
-                            child: DecisionButtons(
-                              //Strongly disagree taps
-                              onTapStronglyDisagrementButton: () =>
-                                  controller.activateButton(
-                                      StatementResponse.stronglyDisagree),
-                              onLongPressStronglyDisagrementButton: () =>
-                                  controller.onLongPressButton(
-                                      StatementResponse.stronglyDisagree),
-                              onLongPressEndStronglyDisagrementButton: (_) =>
-                                  controller.activateButton(
-                                StatementResponse.stronglyDisagree,
-                              ),
-
-                              //Disagree taps
-                              onTapDisagrementButton: () => controller
-                                  .activateButton(StatementResponse.disagree),
-                              onLongPressDisgrementButton: () =>
-                                  controller.onLongPressButton(
-                                      StatementResponse.disagree),
-                              onLongPressEndDisgrementButton: (_) => controller
-                                  .activateButton(StatementResponse.disagree),
-
-                              //Agree taps
-                              onTapAgrementButton: () => controller
-                                  .activateButton(StatementResponse.agree),
-                              onLongPressAgrementButton: () => controller
-                                  .onLongPressButton(StatementResponse.agree),
-                              onLongPressEndAgrementButton: (_) => controller
-                                  .activateButton(StatementResponse.agree),
-
-                              //Strongly agree taps
-                              onTapStronglyAgrementButton: () =>
-                                  controller.activateButton(
-                                      StatementResponse.stronglyAgree),
-                              onLongPressStronglyAgrementButton: () =>
-                                  controller.onLongPressButton(
-                                      StatementResponse.stronglyAgree),
-                              onLongPressEndStronglyAgrementButton: (_) =>
-                                  controller.activateButton(
-                                      StatementResponse.stronglyAgree),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              height: Get.height * .3,
+              child: Stack(
+                children: [neutralButton(context), agreeButtons()],
+              ),
+            ),
           ),
 
           //TOP BANNER SHOWED IN HALF AND LAST 5 STATEMENTS
@@ -268,11 +166,54 @@ class StatementsPage extends GetView<StatementsController> {
                             ? S.of(context).message_five_cards_left
                             : S.of(context).message_half_test_done,
                         bold: true,
-                        black: false),
+                        black: false,
+                        textAlign: TextAlign.center),
                   ),
                 ),
               ))
         ],
+      ),
+    );
+  }
+
+  Widget neutralButton(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: Get.height * .08),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Obx(
+          () => IgnorePointer(
+              ignoring: controller.buttonsBlocked,
+              child: CustomButton(
+                text: S.of(context).neutral,
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppDimens.lateralPaddingValue * .5),
+                onPressed: () =>
+                    controller.activateButton(StatementResponse.neutral),
+                color: controller.isSelectedOrHovered(StatementResponse.neutral)
+                    ? AppColors.lightPrimary
+                    : AppColors.primary,
+                textColor:
+                    controller.isSelectedOrHovered(StatementResponse.neutral)
+                        ? AppColors.primary
+                        : AppColors.text,
+                radius: AppDimens.largeBorderRadius,
+                border: ButtonBorderParameters(
+                    color: AppColors.lightPrimary, width: 2, isOutside: true),
+              )),
+        ),
+      ),
+    );
+  }
+
+  Widget agreeButtons() {
+    return SizedBox(
+      width: double.infinity,
+      height: Get.height * .3,
+      child: DecisionButtons(
+        onTap: controller.activateButton,
+        onLongPressStart: controller.onLongPressButton,
+        onLongPressEnd: (statement, _) => controller.activateButton(statement),
       ),
     );
   }
