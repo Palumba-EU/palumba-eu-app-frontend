@@ -213,7 +213,7 @@
     "description": "-> resultsPage8_1Text"
   },
   "resultsPage8_2Text_ger25": "Active Climate Action 🌱😌",
-  "@resultsPage8_2Text_ger25": {
+  "@resultsPage8_2Text_gerå25": {
     "description": "-> resultsPage8_2Text"
   },
   "resultsPage9Help_ger25": "Click on the cards to shuffle",
@@ -357,5 +357,159 @@
   "resultsPage10AreYouGoingToVote_ger25": "Are you going to vote?",
   "statementsTutorialTurnInfo_ger25": "Tap to turn & read more info",
   "resultsPage10MaybeButton_ger25": "Maybe",
-  "resultsPage10VotingDay_ger25": "Get ready, voting day is {date}"
+  "resultsPage10VotingDay_ger25": "Get ready, voting day is {date}",
+
+
+
+
+"electionNY": "NYC Mayoral Election 2025 🗽",
+
+"entranceTitle1_nyc25": "If this cute pigeon can’t help you vote in November, nothing will.",
+"@entranceTitle1_nyc25": { "description": "-> entranceTitle1" },
+"entranceTitle2_nyc25": "Swipe your opinion on topics that matter to you.",
+"@entranceTitle2_nyc25": { "description": "-> entranceTitle2" },
+"entranceTitle3_nyc25": "Find out your match and an orientation for who to vote for at the Elections.",
+"@entranceTitle3_nyc25": { "description": "-> entranceTitle3" },
+
+"onBoardingCardQuestion_nyc25": "I have no clue who to vote for at the 2025 NYC Mayoral Election",
+"@onBoardingCardQuestion_nyc25": { "description": "-> onBoardingCardQuestion" },
+
+"loadingResultsPageTitle1_nyc25": "Your personal results are on their way :)",
+"@loadingResultsPageTitle1_nyc25": { "description": "-> loadingResultsPageTitle1" },
+"loadingResultsPageTitle2_nyc25": "This should be quicker than a New York coffee run ☕",
+"@loadingResultsPageTitle2_nyc25": { "description": "-> loadingResultsPageTitle2" },
+"loadingResultsPageTitle3_nyc25": "Hold on, it’s almost done — promise, no detours!",
+"@loadingResultsPageTitle3_nyc25": { "description": "-> loadingResultsPageTitle3" },
+"loadingResultsPageTitle4_nyc25": "Almost ready, one last check...",
+"@loadingResultsPageTitle4_nyc25": { "description": "-> loadingResultsPageTitle4" },
+
+"resultsPage1Title_nyc25": "A match and much more",
+"@resultsPage1Title_nyc25": { "description": "-> resultsPage1Title" },
+"resultsPage1Text_nyc25": "In the next screens, you’ll discover which mayoral candidate aligns with you. We even found a few extra things based on your answers!",
+"@resultsPage1Text_nyc25": { "description": "-> resultsPage1Text" },
+
+"resultsPage2_1Title_nyc25": "Honestly,",
+"@resultsPage2_1Title_nyc25": { "description": "-> resultsPage2_1Title" },
+"resultsPage2_2Title_nyc25": "and I, we’re like pizza and late-night slices",
+"@resultsPage2_2Title_nyc25": { "description": "-> resultsPage2_2Title" },
+
+"resultsPage3Title_nyc25": "How close I am to the mayoral candidates",
+"@resultsPage3Title_nyc25": { "description": "-> resultsPage3Title" },
+
+"resultsPage4TitleTop_nyc25": "Socially conservative",
+"@resultsPage4TitleTop_nyc25": { "description": "-> resultsPage4TitleTop" },
+"resultsPage4TitleBottom_nyc25": "Socially progressive",
+"@resultsPage4TitleBottom_nyc25": { "description": "-> resultsPage4TitleBottom" },
+"resultsPage4TitleLeft_nyc25": "Economic intervention",
+"@resultsPage4TitleLeft_nyc25": { "description": "-> resultsPage4TitleLeft" },
+"resultsPage4TitleRight_nyc25": "Free market economics",
+"@resultsPage4TitleRight_nyc25": { "description": "-> resultsPage4TitleRight" },
+"resultsPage4TitleUserHere_nyc25": "It’s me, hi!",
+"@resultsPage4TitleUserHere_nyc25": { "description": "-> resultsPage4TitleUserHere" },
+
+"resultsPage5Title_nyc25": "On more specific topics, which mayoral candidate am I closer to?",
+"@resultsPage5Title_nyc25": { "description": "resultsPage5Title" },
+"resultsPage5Topic1_nyc25": "Environmental issues",
+"@resultsPage5Topic1_nyc25": { "description": "-> resultsPage5Topic1" },
+"resultsPage5Topic2_nyc25": "Economy",
+"@resultsPage5Topic2_nyc25": { "description": "-> resultsPage5Topic2" },
+"resultsPage5Topic3_nyc25": "Social values",
+"@resultsPage5Topic3_nyc25": { "description": "-> resultsPage5Topic3" },
+"resultsPage5Topic4_nyc25": "Transit & streets",
+"@resultsPage5Topic4_nyc25": { "description": "-> resultsPage5Topic3" },
+"resultsPage5Topic5_nyc25": "Housing & affordability",
+"@resultsPage5Topic5_nyc25": { "description": "-> resultsPage5Topic5_ger25" },
+
+"resultsPage6_1Title_nyc25": "Ok, it's cool knowing which candidate gets me…",
+"@resultsPage6_1Title_nyc25": { "description": "-> resultsPage6_1Title" },
+"resultsPage6_2Title_nyc25": "But in the NYC election you vote for one mayoral candidate",
+"@resultsPage6_2Title_nyc25": { "description": "resultsPage6_2Title" },
+"resultsPage6Text_nyc25": "On the next screens, you’ll see the mayoral candidates most aligned with your answers.",
+"@resultsPage6Text_nyc25": { "description": "-> resultsPage6Text" },
+
+"resultsPage8_1Text_nyc25": "Your answers are in the top {number}% regarding {dimension}",
+"@resultsPage8_1Text_nyc25": { "description": "-> resultsPage8_1Text" },
+"resultsPage8_2Text_nyc25": "Active Climate Action 🌱😌",
+"@resultsPage8_2Text_nyc25": { "description": "-> resultsPage8_2Text" },
+
+"resultsPage9Help_nyc25": "Click on the cards to shuffle",
+"@resultsPage9Help_nyc25": { "description": "-> resultsPage9Help" },
+"resultsPage9Text1_nyc25": "Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was",
+"@resultsPage9Text1_nyc25": { "description": "-> resultsPage9Text1" },
+"resultsPage9Text2_nyc25": "made for you!",
+"@resultsPage9Text2_nyc25": { "description": "-> resultsPage9Text2" },
+
+"resultsPage10Title_nyc25": "A notification when it’s time to go vote?",
+"@resultsPage10Title_nyc25": { "description": "-> resultsPage10Title" },
+"resultsPage10NopButton_nyc25": "No thanks!",
+"@resultsPage10NopButton_nyc25": { "description": "-> resultsPage10NopButton" },
+"resultsPage10YesButton_nyc25": "Yesssss",
+"@resultsPage10YesButton_nyc25": { "description": "-> resultsPage10YesButton" },
+"resultsPage10AreYouGoingToVote_nyc25": "Are you going to vote?",
+"statementsTutorialTurnInfo_nyc25": "Tap to turn & read more info",
+"resultsPage10MaybeButton_nyc25": "Maybe",
+"resultsPage10VotingDay_nyc25": "Get ready, voting day is {date}",
+"@resultsPage10VotingDay_nyc25": { "description": "-> resultsPage10VotingDay" },
+
+"messageScreenYes_nyc25": "Yesss!",
+"@messageScreenYes_nyc25": { "description": "-> messageScreenYes" },
+"messageScreenNo_nyc25": "No, thanks!",
+"@messageScreenNo_nyc25": { "description": "-> messageScreenNo" },
+
+"onBoardingStep3Title_nyc25": "I identify as",
+"@onBoardingStep3Title_nyc25": { "description": "-> onBoardingStep3Title" },
+"onBoardingStep4Option1_nyc25": "University degree",
+"@onBoardingStep4Option1_nyc25": { "description": "-> onBoardingStep4Option1" },
+"onBoardingStep4Option2_nyc25": "High school diploma",
+"@onBoardingStep4Option2_nyc25": { "description": "-> onBoardingStep4Option2" },
+"onBoardingStep4Option3_nyc25": "Vocational training",
+"@onBoardingStep4Option3_nyc25": { "description": "-> onBoardingStep4Option3" },
+"onBoardingStep4Option4_nyc25": "Middle school diploma",
+"@onBoardingStep4Option4_nyc25": { "description": "-> onBoardingStep4Option4" },
+"onBoardingStep4Option5_nyc25": "Incomplete school education",
+"@onBoardingStep4Option5_nyc25": { "description": "-> onBoardingStep4Option5" },
+"onBoardingStep4Option6_nyc25": "Other",
+"@onBoardingStep4Option6_nyc25": { "description": "-> onBoardingStep4Option6" },
+
+"resultsPage1Button_nyc25": "Press to continue",
+"@resultsPage1Button_nyc25": { "description": "-> onBoardingLastStepTitle" },
+
+"settingsPageTitleAssociation_nyc25": "The association",
+"@settingsPageTitleAssociation_nyc25": { "description": "-> settingsPageTitleAssociation" },
+"settingsPageTitlePartners_nyc25": "Partners",
+"@settingsPageTitlePartners_nyc25": { "description": "-> settingsPageTitlePartners" },
+"settingsPageTextPartners_nyc25": "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+"@settingsPageTextPartners_nyc25": { "description": "-> settingsPageTextPartners" },
+"settingsPageSubtitle1_nyc25": "Main Sponsors",
+"@settingsPageSubtitle1_nyc25": { "description": "-> settingsPageSubtitle1" },
+"settingsPageSubtitle2_nyc25": "European Partners",
+"@settingsPageSubtitle2_nyc25": { "description": "-> settingsPageSubtitle2" },
+"settingsPageSubtitle3_nyc25": "Academic Partners",
+"@settingsPageSubtitle3_nyc25": { "description": "-> settingsPageSubtitle3" },
+"settingsPageSubtitle4_nyc25": "National Institutional Partners",
+"@settingsPageSubtitle4_nyc25": { "description": "-> settingsPageSubtitle4" },
+"settingsPageSubtitle5_nyc25": "Service Providers",
+"@settingsPageSubtitle5_nyc25": { "description": "-> settingsPageSubtitle5" },
+
+"settingsPageShareText_nyc25": "If this cute pigeon can't help you vote in November, nothing will. I've used the app and you should too:",
+"@settingsPageShareText_nyc25": { "description": "-> settingsPageShareText" },
+
+"resultsPage8Help_nyc25": "You care deeply about climate action in NYC. You believe tackling the crisis needs collective effort and smart city policy—resilience, clean transit, and greener streets—so New Yorkers can thrive now and in the future.",
+"@resultsPage8Help_nyc25": { "description": "-> resultsPage8Help" },
+
+"resultsPage7Disclaimer_nyc25": "On this screen only candidates with sufficient public information are displayed.",
+"@resultsPage7Disclaimer_nyc25": { "description": "-> resultsPage7Title" },
+"resultsPage7Title_nyc25": "Here’s a mayoral candidate from {party} — shuffle to see more!",
+"@resultsPage7Title_nyc25": { "description": "-> resultsPage7Title" },
+
+"onBoardingDataProtection_nyc25": "I adhere to the Data Protection Policy and the Terms to use the app",
+"onBoardingDataProtectionLink_nyc25": "Data Protection Policy",
+
+"resultsPageAllPartiesTitle_nyc25": "Your personal ranking of all candidates",
+"resultsPageAllPartiesDescription_nyc25": "What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility."
+
+
+
+
+
 }

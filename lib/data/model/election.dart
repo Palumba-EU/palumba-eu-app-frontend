@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
-enum Election { DE, EU }
+enum Election { DE, EU, NY }
 
 extension ElectionLocalization on Election {
   String localized(BuildContext context) {
@@ -10,6 +10,8 @@ extension ElectionLocalization on Election {
         return S.of(context).electionDE;
       case Election.EU:
         return S.of(context).electionEU;
+      case Election.NY:
+        return S.of(context).electionNY;
     }
   }
 }
@@ -21,6 +23,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/img_pigeon_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/img_pigeon_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/ny/img_pigeon_ny.svg';
     }
   }
 
@@ -30,6 +34,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/logo_circle_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/logo_circle_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/ny/logo_circle_ny.svg';
     }
   }
 
@@ -39,6 +45,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/img_ballot_box_big_de.png';
       case Election.EU:
         return 'assets/images/election/eu/img_ballot_box_big_eu.png';
+      case Election.NY:
+        return 'assets/images/election/ny/img_ballot_box_big_ny.png';
     }
   }
 
@@ -48,6 +56,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/ic_vote_logos_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/ic_vote_logos_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/ny/ic_vote_logos_ny.svg';
     }
   }
 
@@ -57,6 +67,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/img_swipe_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/img_swipe_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/ny/img_swipe_ny.svg';
     }
   }
 
@@ -66,6 +78,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/ic_sticker_ballot_box_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/ic_sticker_ballot_box_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/ny/ic_sticker_ballot_box_ny.svg';
     }
   }
 
@@ -75,6 +89,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/ic_sticker_ballot_box1_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/ic_sticker_ballot_box1_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/ny/ic_sticker_ballot_box1_ny.svg';
     }
   }
 
@@ -84,6 +100,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/ic_sticker_ballot_box2_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/ic_sticker_ballot_box2_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/ny/ic_sticker_ballot_box2_ny.svg';
     }
   }
 
@@ -93,6 +111,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/ic_sticker_ballot_box3_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/ic_sticker_ballot_box3_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/ny/ic_sticker_ballot_box3_ny.svg';
     }
   }
 
@@ -102,6 +122,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/de/ic_sticker_ballot_box4_de.svg';
       case Election.EU:
         return 'assets/images/election/eu/ic_sticker_ballot_box4_eu.svg';
+      case Election.NY:
+        return 'assets/images/election/eu/ic_sticker_ballot_box4_ny.svg';
     }
   }
 }
@@ -113,6 +135,8 @@ extension ElectionTexts on Election {
         return S.of(context).entranceTitle1_ger25;
       case Election.EU:
         return S.of(context).entranceTitle1;
+      case Election.NY:
+        return S.of(context).entranceTitle1_nyc25;
     }
   }
 
@@ -122,6 +146,8 @@ extension ElectionTexts on Election {
         return S.of(context).entranceTitle2_ger25;
       case Election.EU:
         return S.of(context).entranceTitle2;
+      case Election.NY:
+        return S.of(context).entranceTitle2_nyc25;
     }
   }
 
@@ -131,6 +157,8 @@ extension ElectionTexts on Election {
         return S.of(context).entranceTitle3_ger25;
       case Election.EU:
         return S.of(context).entranceTitle3;
+      case Election.NY:
+        return S.of(context).entranceTitle3_nyc25;
     }
   }
 
@@ -140,6 +168,8 @@ extension ElectionTexts on Election {
         return S.of(context).onBoardingStep3Title_ger25;
       case Election.EU:
         return S.of(context).onBoardingStep3Title;
+      case Election.NY:
+        return S.of(context).onBoardingStep3Title_nyc25;
     }
   }
 
@@ -149,6 +179,8 @@ extension ElectionTexts on Election {
         return S.of(context).loadingResultsPageTitle1_ger25;
       case Election.EU:
         return S.of(context).loadingResultsPageTitle1;
+      case Election.NY:
+        return S.of(context).loadingResultsPageTitle1_nyc25;
     }
   }
 
@@ -158,6 +190,8 @@ extension ElectionTexts on Election {
         return S.of(context).loadingResultsPageTitle2_ger25;
       case Election.EU:
         return S.of(context).loadingResultsPageTitle2;
+      case Election.NY:
+        return S.of(context).loadingResultsPageTitle2_nyc25;
     }
   }
 
@@ -167,6 +201,8 @@ extension ElectionTexts on Election {
         return S.of(context).loadingResultsPageTitle3_ger25;
       case Election.EU:
         return S.of(context).loadingResultsPageTitle3(country);
+      case Election.NY:
+        return S.of(context).loadingResultsPageTitle3_nyc25;
     }
   }
 
@@ -176,6 +212,8 @@ extension ElectionTexts on Election {
         return S.of(context).loadingResultsPageTitle4_ger25;
       case Election.EU:
         return S.of(context).loadingResultsPageTitle4;
+      case Election.NY:
+        return S.of(context).loadingResultsPageTitle4_nyc25;
     }
   }
 
@@ -185,6 +223,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage1Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage1Title;
+      case Election.NY:
+        return S.of(context).resultsPage1Title_nyc25;
     }
   }
 
@@ -194,6 +234,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage1Text_ger25;
       case Election.EU:
         return S.of(context).resultsPage1Text;
+      case Election.NY:
+        return S.of(context).resultsPage1Text_nyc25;
     }
   }
 
@@ -203,6 +245,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage1Button_ger25;
       case Election.EU:
         return S.of(context).resultsPage1Button;
+      case Election.NY:
+        return S.of(context).resultsPage1Button_nyc25;
     }
   }
 
@@ -212,6 +256,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage2_1Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage2_1Title;
+      case Election.NY:
+        return S.of(context).resultsPage2_1Title_nyc25;
     }
   }
 
@@ -221,6 +267,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage2_2Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage2_2Title;
+      case Election.NY:
+        return S.of(context).resultsPage2_2Title_nyc25;
     }
   }
 
@@ -230,6 +278,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage3Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage3Title;
+      case Election.NY:
+        return S.of(context).resultsPage3Title_nyc25;
     }
   }
 
@@ -239,6 +289,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage4TitleTop_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleTop;
+      case Election.NY:
+        return S.of(context).resultsPage4TitleTop_nyc25;
     }
   }
 
@@ -248,6 +300,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage4TitleBottom_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleBottom;
+      case Election.NY:
+        return S.of(context).resultsPage4TitleBottom_nyc25;
     }
   }
 
@@ -257,6 +311,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage4TitleRight_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleRight;
+      case Election.NY:
+        return S.of(context).resultsPage4TitleRight_nyc25;
     }
   }
 
@@ -266,6 +322,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage4TitleLeft_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleLeft;
+      case Election.NY:
+        return S.of(context).resultsPage4TitleLeft_nyc25;
     }
   }
 
@@ -275,6 +333,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage4TitleUserHere_ger25;
       case Election.EU:
         return S.of(context).resultsPage4TitleUserHere;
+      case Election.NY:
+        return S.of(context).resultsPage4TitleUserHere_nyc25;
     }
   }
 
@@ -284,6 +344,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage5Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage5Title;
+      case Election.NY:
+        return S.of(context).resultsPage5Title_nyc25;
     }
   }
 
@@ -293,6 +355,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage5Topic1_ger25;
       case Election.EU:
         return S.of(context).resultsPage5Topic1;
+      case Election.NY:
+        return S.of(context).resultsPage5Topic1_nyc25;
     }
   }
 
@@ -302,6 +366,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage5Topic2_ger25;
       case Election.EU:
         return S.of(context).resultsPage5Topic2;
+      case Election.NY:
+        return S.of(context).resultsPage5Topic2_nyc25;
     }
   }
 
@@ -311,6 +377,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage5Topic3_ger25;
       case Election.EU:
         return S.of(context).resultsPage5Topic3;
+      case Election.NY:
+        return S.of(context).resultsPage5Topic3_nyc25;
     }
   }
 
@@ -320,6 +388,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage5Topic4_ger25;
       case Election.EU:
         return S.of(context).resultsPage5Topic3; // wrong in translation file
+      case Election.NY:
+        return S.of(context).resultsPage5Topic4_nyc25;
     }
   }
 
@@ -328,9 +398,9 @@ extension ElectionTexts on Election {
       case Election.DE:
         return S.of(context).resultsPage5Topic5_ger25;
       case Election.EU:
-        return S
-            .of(context)
-            .resultsPage5Topic5_ger25; // wrong in translation file
+        return S.of(context).resultsPage5Topic5_ger25; // wrong in translation file
+      case Election.NY:
+        return S.of(context).resultsPage5Topic5_nyc25;
     }
   }
 
@@ -340,6 +410,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage6_1Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage6_1Title;
+      case Election.NY:
+        return S.of(context).resultsPage6_1Title_nyc25;
     }
   }
 
@@ -349,6 +421,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage6_2Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage6_2Title;
+      case Election.NY:
+        return S.of(context).resultsPage6_2Title_nyc25;
     }
   }
 
@@ -358,6 +432,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage6Text_ger25;
       case Election.EU:
         return S.of(context).resultsPage6Text;
+      case Election.NY:
+        return S.of(context).resultsPage6Text_nyc25;
     }
   }
 
@@ -367,15 +443,33 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage7Title_ger25(group);
       case Election.EU:
         return S.of(context).resultsPage7Title(country, group);
+      case Election.NY:
+        return S.of(context).resultsPage7Title_nyc25(group);
     }
   }
 
   String resultsPageAllCandidatesTitle(BuildContext context) {
-    return S.of(context).resultsPageAllPartiesTitle_ger25;
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPageAllPartiesTitle_ger25;
+      case Election.EU:
+        // EU flow doesn’t show “all parties” list; fall back to DE wording if needed
+        return S.of(context).resultsPageAllPartiesTitle_ger25;
+      case Election.NY:
+        return S.of(context).resultsPageAllPartiesTitle_nyc25;
+    }
   }
 
   String resultsPageAllCandidatesDescription(BuildContext context) {
-    return S.of(context).resultsPageAllPartiesDescription_ger25;
+    switch (this) {
+      case Election.DE:
+        return S.of(context).resultsPageAllPartiesDescription_ger25;
+      case Election.EU:
+        // EU flow doesn’t show “all parties” list; fall back to DE wording if needed
+        return S.of(context).resultsPageAllPartiesDescription_ger25;
+      case Election.NY:
+        return S.of(context).resultsPageAllPartiesDescription_nyc25;
+    }
   }
 
   String resultsPage7Disclaimer(BuildContext context) {
@@ -384,6 +478,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage7Disclaimer_ger25;
       case Election.EU:
         return S.of(context).resultsPage7Disclaimer;
+      case Election.NY:
+        return S.of(context).resultsPage7Disclaimer_nyc25;
     }
   }
 
@@ -392,6 +488,9 @@ extension ElectionTexts on Election {
       case Election.DE:
         return S.of(context).resultsPage7NoLocalCandidates(country);
       case Election.EU:
+        return S.of(context).resultsPage7NoLocalCandidates(country);
+      case Election.NY:
+        // NYC likely won’t use this, but fall back to generic string if needed
         return S.of(context).resultsPage7NoLocalCandidates(country);
     }
   }
@@ -403,6 +502,9 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage8_1Text_ger25(percentage, topic);
       case Election.EU:
         return S.of(context).resultsPage8_1Text(topic, percentage);
+      case Election.NY:
+        // NYC text matches DE-style placeholders: {number}% regarding {dimension}
+        return S.of(context).resultsPage8_1Text_nyc25(percentage, topic);
     }
   }
 
@@ -412,6 +514,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage8_2Text_ger25;
       case Election.EU:
         return S.of(context).resultsPage8_2Text;
+      case Election.NY:
+        return S.of(context).resultsPage8_2Text_nyc25;
     }
   }
 
@@ -421,6 +525,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage8Help_ger25;
       case Election.EU:
         return S.of(context).resultsPage8Help;
+      case Election.NY:
+        return S.of(context).resultsPage8Help_nyc25;
     }
   }
 
@@ -430,6 +536,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage9Help_ger25;
       case Election.EU:
         return S.of(context).resultsPage9Help;
+      case Election.NY:
+        return S.of(context).resultsPage9Help_nyc25;
     }
   }
 
@@ -439,6 +547,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage9Text1_ger25;
       case Election.EU:
         return S.of(context).resultsPage9Text1;
+      case Election.NY:
+        return S.of(context).resultsPage9Text1_nyc25;
     }
   }
 
@@ -448,6 +558,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage9Text2_ger25;
       case Election.EU:
         return S.of(context).resultsPage9Text2;
+      case Election.NY:
+        return S.of(context).resultsPage9Text2_nyc25;
     }
   }
 
@@ -457,6 +569,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage10Title_ger25;
       case Election.EU:
         return S.of(context).resultsPage10Title;
+      case Election.NY:
+        return S.of(context).resultsPage10Title_nyc25;
     }
   }
 
@@ -466,6 +580,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage10NopButton_ger25;
       case Election.EU:
         return S.of(context).resultsPage10NopButton;
+      case Election.NY:
+        return S.of(context).resultsPage10NopButton_nyc25;
     }
   }
 
@@ -475,6 +591,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage10YesButton_ger25;
       case Election.EU:
         return S.of(context).resultsPage10YesButton;
+      case Election.NY:
+        return S.of(context).resultsPage10YesButton_nyc25;
     }
   }
 
@@ -484,6 +602,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageTitleAssociation_ger25;
       case Election.EU:
         return S.of(context).settingsPageTitleAssociation;
+      case Election.NY:
+        return S.of(context).settingsPageTitleAssociation_nyc25;
     }
   }
 
@@ -493,6 +613,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageTitlePartners_ger25;
       case Election.EU:
         return S.of(context).settingsPageTitlePartners;
+      case Election.NY:
+        return S.of(context).settingsPageTitlePartners_nyc25;
     }
   }
 
@@ -502,6 +624,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageTextPartners_ger25;
       case Election.EU:
         return S.of(context).settingsPageTextPartners;
+      case Election.NY:
+        return S.of(context).settingsPageTextPartners_nyc25;
     }
   }
 
@@ -511,6 +635,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageSubtitle1_ger25;
       case Election.EU:
         return S.of(context).settingsPageSubtitle1;
+      case Election.NY:
+        return S.of(context).settingsPageSubtitle1_nyc25;
     }
   }
 
@@ -520,6 +646,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageSubtitle2_ger25;
       case Election.EU:
         return S.of(context).settingsPageSubtitle2;
+      case Election.NY:
+        return S.of(context).settingsPageSubtitle2_nyc25;
     }
   }
 
@@ -529,6 +657,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageSubtitle3_ger25;
       case Election.EU:
         return S.of(context).settingsPageSubtitle3;
+      case Election.NY:
+        return S.of(context).settingsPageSubtitle3_nyc25;
     }
   }
 
@@ -538,6 +668,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageSubtitle4_ger25;
       case Election.EU:
         return S.of(context).settingsPageSubtitle4;
+      case Election.NY:
+        return S.of(context).settingsPageSubtitle4_nyc25;
     }
   }
 
@@ -547,6 +679,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageSubtitle5_ger25;
       case Election.EU:
         return S.of(context).settingsPageSubtitle5;
+      case Election.NY:
+        return S.of(context).settingsPageSubtitle5_nyc25;
     }
   }
 
@@ -556,6 +690,8 @@ extension ElectionTexts on Election {
         return S.of(context).settingsPageShareText_ger25;
       case Election.EU:
         return S.of(context).settingsPageShareText;
+      case Election.NY:
+        return S.of(context).settingsPageShareText_nyc25;
     }
   }
 }
@@ -575,6 +711,9 @@ extension ElectionResult4Axis on Election {
       case Election.EU:
         // topicEuIntegration, topicEuIntegration
         return ResultAxisTopic(x: 3, y: 2);
+      case Election.NY:
+        // Mirror DE mapping unless NYC-specific axes are defined
+        return ResultAxisTopic(x: 10, y: 11);
     }
   }
 }
@@ -588,6 +727,9 @@ extension ElectionResult5Topics on Election {
       case Election.EU:
         // 4: Human & Social Rights, 5: Economic Intervention, 1: Environmental issues
         return [4, 5, 1];
+      case Election.NY:
+        // Placeholder: mirror EU until NYC topic IDs are finalized
+        return [4, 5, 1];
     }
   }
 }
@@ -599,6 +741,8 @@ extension ElectionBackend on Election {
         return 1;
       case Election.DE:
         return 2;
+      case Election.NY:
+        return 3;
     }
   }
 }

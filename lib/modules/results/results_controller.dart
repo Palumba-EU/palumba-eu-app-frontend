@@ -228,6 +228,18 @@ class ResultsController extends GetxController {
           ResultsPage8(),
           ResultsPage9(),
         ];
+      case Election.NY:
+        results = [
+          ResultsPage1(),
+          ResultsPage2(),
+          ResultsPage3(),
+          ResultsPage4(),
+          ResultsPage5(),
+          ResultsPage6(),
+          ResultsPage7(),
+          ResultsPage8(),
+          ResultsPage9(),
+        ];
     }
 
     bool isPastElection =

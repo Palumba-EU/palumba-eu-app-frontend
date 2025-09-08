@@ -1220,7 +1220,7 @@ class S {
     return Intl.message(
       'Active Climate Action 🌱😌',
       name: 'resultsPage8_2Text_ger25',
-      desc: '-> resultsPage8_2Text',
+      desc: '',
       args: [],
     );
   }
@@ -1737,6 +1737,666 @@ class S {
       name: 'resultsPage10VotingDay_ger25',
       desc: '',
       args: [date],
+    );
+  }
+
+  /// `NYC Mayoral Election 2025 🗽`
+  String get electionNY {
+    return Intl.message(
+      'NYC Mayoral Election 2025 🗽',
+      name: 'electionNY',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If this cute pigeon can’t help you vote in November, nothing will.`
+  String get entranceTitle1_nyc25 {
+    return Intl.message(
+      'If this cute pigeon can’t help you vote in November, nothing will.',
+      name: 'entranceTitle1_nyc25',
+      desc: '-> entranceTitle1',
+      args: [],
+    );
+  }
+
+  /// `Swipe your opinion on topics that matter to you.`
+  String get entranceTitle2_nyc25 {
+    return Intl.message(
+      'Swipe your opinion on topics that matter to you.',
+      name: 'entranceTitle2_nyc25',
+      desc: '-> entranceTitle2',
+      args: [],
+    );
+  }
+
+  /// `Find out your match and an orientation for who to vote for at the Elections.`
+  String get entranceTitle3_nyc25 {
+    return Intl.message(
+      'Find out your match and an orientation for who to vote for at the Elections.',
+      name: 'entranceTitle3_nyc25',
+      desc: '-> entranceTitle3',
+      args: [],
+    );
+  }
+
+  /// `I have no clue who to vote for at the 2025 NYC Mayoral Election`
+  String get onBoardingCardQuestion_nyc25 {
+    return Intl.message(
+      'I have no clue who to vote for at the 2025 NYC Mayoral Election',
+      name: 'onBoardingCardQuestion_nyc25',
+      desc: '-> onBoardingCardQuestion',
+      args: [],
+    );
+  }
+
+  /// `Your personal results are on their way :)`
+  String get loadingResultsPageTitle1_nyc25 {
+    return Intl.message(
+      'Your personal results are on their way :)',
+      name: 'loadingResultsPageTitle1_nyc25',
+      desc: '-> loadingResultsPageTitle1',
+      args: [],
+    );
+  }
+
+  /// `This should be quicker than a New York coffee run ☕`
+  String get loadingResultsPageTitle2_nyc25 {
+    return Intl.message(
+      'This should be quicker than a New York coffee run ☕',
+      name: 'loadingResultsPageTitle2_nyc25',
+      desc: '-> loadingResultsPageTitle2',
+      args: [],
+    );
+  }
+
+  /// `Hold on, it’s almost done — promise, no detours!`
+  String get loadingResultsPageTitle3_nyc25 {
+    return Intl.message(
+      'Hold on, it’s almost done — promise, no detours!',
+      name: 'loadingResultsPageTitle3_nyc25',
+      desc: '-> loadingResultsPageTitle3',
+      args: [],
+    );
+  }
+
+  /// `Almost ready, one last check...`
+  String get loadingResultsPageTitle4_nyc25 {
+    return Intl.message(
+      'Almost ready, one last check...',
+      name: 'loadingResultsPageTitle4_nyc25',
+      desc: '-> loadingResultsPageTitle4',
+      args: [],
+    );
+  }
+
+  /// `A match and much more`
+  String get resultsPage1Title_nyc25 {
+    return Intl.message(
+      'A match and much more',
+      name: 'resultsPage1Title_nyc25',
+      desc: '-> resultsPage1Title',
+      args: [],
+    );
+  }
+
+  /// `In the next screens, you’ll discover which mayoral candidate aligns with you. We even found a few extra things based on your answers!`
+  String get resultsPage1Text_nyc25 {
+    return Intl.message(
+      'In the next screens, you’ll discover which mayoral candidate aligns with you. We even found a few extra things based on your answers!',
+      name: 'resultsPage1Text_nyc25',
+      desc: '-> resultsPage1Text',
+      args: [],
+    );
+  }
+
+  /// `Honestly,`
+  String get resultsPage2_1Title_nyc25 {
+    return Intl.message(
+      'Honestly,',
+      name: 'resultsPage2_1Title_nyc25',
+      desc: '-> resultsPage2_1Title',
+      args: [],
+    );
+  }
+
+  /// `and I, we’re like pizza and late-night slices`
+  String get resultsPage2_2Title_nyc25 {
+    return Intl.message(
+      'and I, we’re like pizza and late-night slices',
+      name: 'resultsPage2_2Title_nyc25',
+      desc: '-> resultsPage2_2Title',
+      args: [],
+    );
+  }
+
+  /// `How close I am to the mayoral candidates`
+  String get resultsPage3Title_nyc25 {
+    return Intl.message(
+      'How close I am to the mayoral candidates',
+      name: 'resultsPage3Title_nyc25',
+      desc: '-> resultsPage3Title',
+      args: [],
+    );
+  }
+
+  /// `Socially conservative`
+  String get resultsPage4TitleTop_nyc25 {
+    return Intl.message(
+      'Socially conservative',
+      name: 'resultsPage4TitleTop_nyc25',
+      desc: '-> resultsPage4TitleTop',
+      args: [],
+    );
+  }
+
+  /// `Socially progressive`
+  String get resultsPage4TitleBottom_nyc25 {
+    return Intl.message(
+      'Socially progressive',
+      name: 'resultsPage4TitleBottom_nyc25',
+      desc: '-> resultsPage4TitleBottom',
+      args: [],
+    );
+  }
+
+  /// `Economic intervention`
+  String get resultsPage4TitleLeft_nyc25 {
+    return Intl.message(
+      'Economic intervention',
+      name: 'resultsPage4TitleLeft_nyc25',
+      desc: '-> resultsPage4TitleLeft',
+      args: [],
+    );
+  }
+
+  /// `Free market economics`
+  String get resultsPage4TitleRight_nyc25 {
+    return Intl.message(
+      'Free market economics',
+      name: 'resultsPage4TitleRight_nyc25',
+      desc: '-> resultsPage4TitleRight',
+      args: [],
+    );
+  }
+
+  /// `It’s me, hi!`
+  String get resultsPage4TitleUserHere_nyc25 {
+    return Intl.message(
+      'It’s me, hi!',
+      name: 'resultsPage4TitleUserHere_nyc25',
+      desc: '-> resultsPage4TitleUserHere',
+      args: [],
+    );
+  }
+
+  /// `On more specific topics, which mayoral candidate am I closer to?`
+  String get resultsPage5Title_nyc25 {
+    return Intl.message(
+      'On more specific topics, which mayoral candidate am I closer to?',
+      name: 'resultsPage5Title_nyc25',
+      desc: 'resultsPage5Title',
+      args: [],
+    );
+  }
+
+  /// `Environmental issues`
+  String get resultsPage5Topic1_nyc25 {
+    return Intl.message(
+      'Environmental issues',
+      name: 'resultsPage5Topic1_nyc25',
+      desc: '-> resultsPage5Topic1',
+      args: [],
+    );
+  }
+
+  /// `Economy`
+  String get resultsPage5Topic2_nyc25 {
+    return Intl.message(
+      'Economy',
+      name: 'resultsPage5Topic2_nyc25',
+      desc: '-> resultsPage5Topic2',
+      args: [],
+    );
+  }
+
+  /// `Social values`
+  String get resultsPage5Topic3_nyc25 {
+    return Intl.message(
+      'Social values',
+      name: 'resultsPage5Topic3_nyc25',
+      desc: '-> resultsPage5Topic3',
+      args: [],
+    );
+  }
+
+  /// `Transit & streets`
+  String get resultsPage5Topic4_nyc25 {
+    return Intl.message(
+      'Transit & streets',
+      name: 'resultsPage5Topic4_nyc25',
+      desc: '-> resultsPage5Topic3',
+      args: [],
+    );
+  }
+
+  /// `Housing & affordability`
+  String get resultsPage5Topic5_nyc25 {
+    return Intl.message(
+      'Housing & affordability',
+      name: 'resultsPage5Topic5_nyc25',
+      desc: '-> resultsPage5Topic5_ger25',
+      args: [],
+    );
+  }
+
+  /// `Ok, it's cool knowing which candidate gets me…`
+  String get resultsPage6_1Title_nyc25 {
+    return Intl.message(
+      'Ok, it\'s cool knowing which candidate gets me…',
+      name: 'resultsPage6_1Title_nyc25',
+      desc: '-> resultsPage6_1Title',
+      args: [],
+    );
+  }
+
+  /// `But in the NYC election you vote for one mayoral candidate`
+  String get resultsPage6_2Title_nyc25 {
+    return Intl.message(
+      'But in the NYC election you vote for one mayoral candidate',
+      name: 'resultsPage6_2Title_nyc25',
+      desc: 'resultsPage6_2Title',
+      args: [],
+    );
+  }
+
+  /// `On the next screens, you’ll see the mayoral candidates most aligned with your answers.`
+  String get resultsPage6Text_nyc25 {
+    return Intl.message(
+      'On the next screens, you’ll see the mayoral candidates most aligned with your answers.',
+      name: 'resultsPage6Text_nyc25',
+      desc: '-> resultsPage6Text',
+      args: [],
+    );
+  }
+
+  /// `Your answers are in the top {number}% regarding {dimension}`
+  String resultsPage8_1Text_nyc25(Object number, Object dimension) {
+    return Intl.message(
+      'Your answers are in the top $number% regarding $dimension',
+      name: 'resultsPage8_1Text_nyc25',
+      desc: '-> resultsPage8_1Text',
+      args: [number, dimension],
+    );
+  }
+
+  /// `Active Climate Action 🌱😌`
+  String get resultsPage8_2Text_nyc25 {
+    return Intl.message(
+      'Active Climate Action 🌱😌',
+      name: 'resultsPage8_2Text_nyc25',
+      desc: '-> resultsPage8_2Text',
+      args: [],
+    );
+  }
+
+  /// `Click on the cards to shuffle`
+  String get resultsPage9Help_nyc25 {
+    return Intl.message(
+      'Click on the cards to shuffle',
+      name: 'resultsPage9Help_nyc25',
+      desc: '-> resultsPage9Help',
+      args: [],
+    );
+  }
+
+  /// `Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was`
+  String get resultsPage9Text1_nyc25 {
+    return Intl.message(
+      'Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was',
+      name: 'resultsPage9Text1_nyc25',
+      desc: '-> resultsPage9Text1',
+      args: [],
+    );
+  }
+
+  /// `made for you!`
+  String get resultsPage9Text2_nyc25 {
+    return Intl.message(
+      'made for you!',
+      name: 'resultsPage9Text2_nyc25',
+      desc: '-> resultsPage9Text2',
+      args: [],
+    );
+  }
+
+  /// `A notification when it’s time to go vote?`
+  String get resultsPage10Title_nyc25 {
+    return Intl.message(
+      'A notification when it’s time to go vote?',
+      name: 'resultsPage10Title_nyc25',
+      desc: '-> resultsPage10Title',
+      args: [],
+    );
+  }
+
+  /// `No thanks!`
+  String get resultsPage10NopButton_nyc25 {
+    return Intl.message(
+      'No thanks!',
+      name: 'resultsPage10NopButton_nyc25',
+      desc: '-> resultsPage10NopButton',
+      args: [],
+    );
+  }
+
+  /// `Yesssss`
+  String get resultsPage10YesButton_nyc25 {
+    return Intl.message(
+      'Yesssss',
+      name: 'resultsPage10YesButton_nyc25',
+      desc: '-> resultsPage10YesButton',
+      args: [],
+    );
+  }
+
+  /// `Are you going to vote?`
+  String get resultsPage10AreYouGoingToVote_nyc25 {
+    return Intl.message(
+      'Are you going to vote?',
+      name: 'resultsPage10AreYouGoingToVote_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to turn & read more info`
+  String get statementsTutorialTurnInfo_nyc25 {
+    return Intl.message(
+      'Tap to turn & read more info',
+      name: 'statementsTutorialTurnInfo_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maybe`
+  String get resultsPage10MaybeButton_nyc25 {
+    return Intl.message(
+      'Maybe',
+      name: 'resultsPage10MaybeButton_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get ready, voting day is {date}`
+  String resultsPage10VotingDay_nyc25(Object date) {
+    return Intl.message(
+      'Get ready, voting day is $date',
+      name: 'resultsPage10VotingDay_nyc25',
+      desc: '-> resultsPage10VotingDay',
+      args: [date],
+    );
+  }
+
+  /// `Yesss!`
+  String get messageScreenYes_nyc25 {
+    return Intl.message(
+      'Yesss!',
+      name: 'messageScreenYes_nyc25',
+      desc: '-> messageScreenYes',
+      args: [],
+    );
+  }
+
+  /// `No, thanks!`
+  String get messageScreenNo_nyc25 {
+    return Intl.message(
+      'No, thanks!',
+      name: 'messageScreenNo_nyc25',
+      desc: '-> messageScreenNo',
+      args: [],
+    );
+  }
+
+  /// `I identify as`
+  String get onBoardingStep3Title_nyc25 {
+    return Intl.message(
+      'I identify as',
+      name: 'onBoardingStep3Title_nyc25',
+      desc: '-> onBoardingStep3Title',
+      args: [],
+    );
+  }
+
+  /// `University degree`
+  String get onBoardingStep4Option1_nyc25 {
+    return Intl.message(
+      'University degree',
+      name: 'onBoardingStep4Option1_nyc25',
+      desc: '-> onBoardingStep4Option1',
+      args: [],
+    );
+  }
+
+  /// `High school diploma`
+  String get onBoardingStep4Option2_nyc25 {
+    return Intl.message(
+      'High school diploma',
+      name: 'onBoardingStep4Option2_nyc25',
+      desc: '-> onBoardingStep4Option2',
+      args: [],
+    );
+  }
+
+  /// `Vocational training`
+  String get onBoardingStep4Option3_nyc25 {
+    return Intl.message(
+      'Vocational training',
+      name: 'onBoardingStep4Option3_nyc25',
+      desc: '-> onBoardingStep4Option3',
+      args: [],
+    );
+  }
+
+  /// `Middle school diploma`
+  String get onBoardingStep4Option4_nyc25 {
+    return Intl.message(
+      'Middle school diploma',
+      name: 'onBoardingStep4Option4_nyc25',
+      desc: '-> onBoardingStep4Option4',
+      args: [],
+    );
+  }
+
+  /// `Incomplete school education`
+  String get onBoardingStep4Option5_nyc25 {
+    return Intl.message(
+      'Incomplete school education',
+      name: 'onBoardingStep4Option5_nyc25',
+      desc: '-> onBoardingStep4Option5',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get onBoardingStep4Option6_nyc25 {
+    return Intl.message(
+      'Other',
+      name: 'onBoardingStep4Option6_nyc25',
+      desc: '-> onBoardingStep4Option6',
+      args: [],
+    );
+  }
+
+  /// `Press to continue`
+  String get resultsPage1Button_nyc25 {
+    return Intl.message(
+      'Press to continue',
+      name: 'resultsPage1Button_nyc25',
+      desc: '-> onBoardingLastStepTitle',
+      args: [],
+    );
+  }
+
+  /// `The association`
+  String get settingsPageTitleAssociation_nyc25 {
+    return Intl.message(
+      'The association',
+      name: 'settingsPageTitleAssociation_nyc25',
+      desc: '-> settingsPageTitleAssociation',
+      args: [],
+    );
+  }
+
+  /// `Partners`
+  String get settingsPageTitlePartners_nyc25 {
+    return Intl.message(
+      'Partners',
+      name: 'settingsPageTitlePartners_nyc25',
+      desc: '-> settingsPageTitlePartners',
+      args: [],
+    );
+  }
+
+  /// `Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.`
+  String get settingsPageTextPartners_nyc25 {
+    return Intl.message(
+      'Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.',
+      name: 'settingsPageTextPartners_nyc25',
+      desc: '-> settingsPageTextPartners',
+      args: [],
+    );
+  }
+
+  /// `Main Sponsors`
+  String get settingsPageSubtitle1_nyc25 {
+    return Intl.message(
+      'Main Sponsors',
+      name: 'settingsPageSubtitle1_nyc25',
+      desc: '-> settingsPageSubtitle1',
+      args: [],
+    );
+  }
+
+  /// `European Partners`
+  String get settingsPageSubtitle2_nyc25 {
+    return Intl.message(
+      'European Partners',
+      name: 'settingsPageSubtitle2_nyc25',
+      desc: '-> settingsPageSubtitle2',
+      args: [],
+    );
+  }
+
+  /// `Academic Partners`
+  String get settingsPageSubtitle3_nyc25 {
+    return Intl.message(
+      'Academic Partners',
+      name: 'settingsPageSubtitle3_nyc25',
+      desc: '-> settingsPageSubtitle3',
+      args: [],
+    );
+  }
+
+  /// `National Institutional Partners`
+  String get settingsPageSubtitle4_nyc25 {
+    return Intl.message(
+      'National Institutional Partners',
+      name: 'settingsPageSubtitle4_nyc25',
+      desc: '-> settingsPageSubtitle4',
+      args: [],
+    );
+  }
+
+  /// `Service Providers`
+  String get settingsPageSubtitle5_nyc25 {
+    return Intl.message(
+      'Service Providers',
+      name: 'settingsPageSubtitle5_nyc25',
+      desc: '-> settingsPageSubtitle5',
+      args: [],
+    );
+  }
+
+  /// `If this cute pigeon can't help you vote in November, nothing will. I've used the app and you should too:`
+  String get settingsPageShareText_nyc25 {
+    return Intl.message(
+      'If this cute pigeon can\'t help you vote in November, nothing will. I\'ve used the app and you should too:',
+      name: 'settingsPageShareText_nyc25',
+      desc: '-> settingsPageShareText',
+      args: [],
+    );
+  }
+
+  /// `You care deeply about climate action in NYC. You believe tackling the crisis needs collective effort and smart city policy—resilience, clean transit, and greener streets—so New Yorkers can thrive now and in the future.`
+  String get resultsPage8Help_nyc25 {
+    return Intl.message(
+      'You care deeply about climate action in NYC. You believe tackling the crisis needs collective effort and smart city policy—resilience, clean transit, and greener streets—so New Yorkers can thrive now and in the future.',
+      name: 'resultsPage8Help_nyc25',
+      desc: '-> resultsPage8Help',
+      args: [],
+    );
+  }
+
+  /// `On this screen only candidates with sufficient public information are displayed.`
+  String get resultsPage7Disclaimer_nyc25 {
+    return Intl.message(
+      'On this screen only candidates with sufficient public information are displayed.',
+      name: 'resultsPage7Disclaimer_nyc25',
+      desc: '-> resultsPage7Title',
+      args: [],
+    );
+  }
+
+  /// `Here’s a mayoral candidate from {party} — shuffle to see more!`
+  String resultsPage7Title_nyc25(Object party) {
+    return Intl.message(
+      'Here’s a mayoral candidate from $party — shuffle to see more!',
+      name: 'resultsPage7Title_nyc25',
+      desc: '-> resultsPage7Title',
+      args: [party],
+    );
+  }
+
+  /// `I adhere to the Data Protection Policy and the Terms to use the app`
+  String get onBoardingDataProtection_nyc25 {
+    return Intl.message(
+      'I adhere to the Data Protection Policy and the Terms to use the app',
+      name: 'onBoardingDataProtection_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data Protection Policy`
+  String get onBoardingDataProtectionLink_nyc25 {
+    return Intl.message(
+      'Data Protection Policy',
+      name: 'onBoardingDataProtectionLink_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your personal ranking of all candidates`
+  String get resultsPageAllPartiesTitle_nyc25 {
+    return Intl.message(
+      'Your personal ranking of all candidates',
+      name: 'resultsPageAllPartiesTitle_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility.`
+  String get resultsPageAllPartiesDescription_nyc25 {
+    return Intl.message(
+      'What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility.',
+      name: 'resultsPageAllPartiesDescription_nyc25',
+      desc: '',
+      args: [],
     );
   }
 }

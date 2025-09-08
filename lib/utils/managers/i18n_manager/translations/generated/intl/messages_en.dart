@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(date) => "Get ready, voting day is ${date}";
 
+  static String m10(date) => "Get ready, voting day is ${date}";
+
   static String m5(country) => "No local parties found in ${country}";
 
   static String m6(country, group) =>
@@ -39,10 +41,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m7(party) =>
       "Here’s a young candidate from ${party}* —shuffle to see more! They may not be on your ballot, but represent the future of their party!";
 
+  static String m11(party) =>
+      "Here’s a mayoral candidate from ${party} — shuffle to see more!";
+
   static String m8(topic, percentage) =>
       "On ${topic}, you’re ${percentage}% more into";
 
   static String m9(number, dimension) =>
+      "Your answers are in the top ${number}% regarding ${dimension}";
+
+  static String m12(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -60,6 +68,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "electionEU": MessageLookupByLibrary.simpleMessage(
       "European Elections 2024 🇪🇺",
     ),
+    "electionNY": MessageLookupByLibrary.simpleMessage(
+      "NYC Mayoral Election 2025 🗽",
+    ),
     "electionPageSubtitle": MessageLookupByLibrary.simpleMessage(""),
     "electionPageTitle": MessageLookupByLibrary.simpleMessage(
       "Choose an Election",
@@ -74,16 +85,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "entranceTitle1_ger25": MessageLookupByLibrary.simpleMessage(
       "If this cute pigeon can’t help you vote in February, nothing will.",
     ),
+    "entranceTitle1_nyc25": MessageLookupByLibrary.simpleMessage(
+      "If this cute pigeon can’t help you vote in November, nothing will.",
+    ),
     "entranceTitle2": MessageLookupByLibrary.simpleMessage(
       "Swipe your opinion on topics that matter to you.",
     ),
     "entranceTitle2_ger25": MessageLookupByLibrary.simpleMessage(
       "Swipe your opinion on topics that matter to you.",
     ),
+    "entranceTitle2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Swipe your opinion on topics that matter to you.",
+    ),
     "entranceTitle3": MessageLookupByLibrary.simpleMessage(
       "Find out your match and an orientation for who to vote for at the Elections.",
     ),
     "entranceTitle3_ger25": MessageLookupByLibrary.simpleMessage(
+      "Find out your match and an orientation for who to vote for at the Elections.",
+    ),
+    "entranceTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
       "Find out your match and an orientation for who to vote for at the Elections.",
     ),
     "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
@@ -110,15 +130,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle1_ger25": MessageLookupByLibrary.simpleMessage(
       "Your personal results are on their way :)",
     ),
+    "loadingResultsPageTitle1_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Your personal results are on their way :)",
+    ),
     "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
       "This shall be quicker than getting Taylor Swift tickets 👀 ",
     ),
     "loadingResultsPageTitle2_ger25": MessageLookupByLibrary.simpleMessage(
       "This is going faster than the Deutsche Bahn",
     ),
+    "loadingResultsPageTitle2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "This should be quicker than a New York coffee run ☕",
+    ),
     "loadingResultsPageTitle3": m2,
     "loadingResultsPageTitle3_ger25": MessageLookupByLibrary.simpleMessage(
       "Hold on, it’s almost done - pinky promise, no layovers!",
+    ),
+    "loadingResultsPageTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Hold on, it’s almost done — promise, no detours!",
     ),
     "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
       "Almost ready, one last check...",
@@ -126,11 +155,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle4_ger25": MessageLookupByLibrary.simpleMessage(
       "Almost ready, one last check...",
     ),
+    "loadingResultsPageTitle4_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Almost ready, one last check...",
+    ),
     "maybe": MessageLookupByLibrary.simpleMessage("Maybe"),
     "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage(
       "No, thanks!",
     ),
+    "messageScreenNo_nyc25": MessageLookupByLibrary.simpleMessage(
+      "No, thanks!",
+    ),
     "messageScreenYes_ger25": MessageLookupByLibrary.simpleMessage("Yesss!"),
+    "messageScreenYes_nyc25": MessageLookupByLibrary.simpleMessage("Yesss!"),
     "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
       "Only 5 cards left to swipe :)",
     ),
@@ -146,10 +182,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingCardQuestion_ger25": MessageLookupByLibrary.simpleMessage(
       "I have no clue who to vote for at the 2025 German Elections",
     ),
+    "onBoardingCardQuestion_nyc25": MessageLookupByLibrary.simpleMessage(
+      "I have no clue who to vote for at the 2025 NYC Mayoral Election",
+    ),
     "onBoardingDataProtectionLink_ger25": MessageLookupByLibrary.simpleMessage(
       "Data Protection Policy",
     ),
+    "onBoardingDataProtectionLink_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Data Protection Policy",
+    ),
     "onBoardingDataProtection_ger25": MessageLookupByLibrary.simpleMessage(
+      "I adhere to the Data Protection Policy and the Terms to use the app",
+    ),
+    "onBoardingDataProtection_nyc25": MessageLookupByLibrary.simpleMessage(
       "I adhere to the Data Protection Policy and the Terms to use the app",
     ),
     "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
@@ -180,22 +225,43 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingStep3Title_ger25": MessageLookupByLibrary.simpleMessage(
       "I identify as",
     ),
+    "onBoardingStep3Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "I identify as",
+    ),
     "onBoardingStep4Option1_ger25": MessageLookupByLibrary.simpleMessage(
+      "University degree",
+    ),
+    "onBoardingStep4Option1_nyc25": MessageLookupByLibrary.simpleMessage(
       "University degree",
     ),
     "onBoardingStep4Option2_ger25": MessageLookupByLibrary.simpleMessage(
       "⁠High school diploma",
     ),
+    "onBoardingStep4Option2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "High school diploma",
+    ),
     "onBoardingStep4Option3_ger25": MessageLookupByLibrary.simpleMessage(
       "⁠Vocational training",
     ),
+    "onBoardingStep4Option3_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Vocational training",
+    ),
     "onBoardingStep4Option4_ger25": MessageLookupByLibrary.simpleMessage(
+      "Middle school diploma",
+    ),
+    "onBoardingStep4Option4_nyc25": MessageLookupByLibrary.simpleMessage(
       "Middle school diploma",
     ),
     "onBoardingStep4Option5_ger25": MessageLookupByLibrary.simpleMessage(
       "Incomplete school education",
     ),
+    "onBoardingStep4Option5_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Incomplete school education",
+    ),
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage(
+      "Other",
+    ),
+    "onBoardingStep4Option6_nyc25": MessageLookupByLibrary.simpleMessage(
       "Other",
     ),
     "onBoardingStep4Title": MessageLookupByLibrary.simpleMessage(
@@ -214,7 +280,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage10AreYouGoingToVote_ger25":
         MessageLookupByLibrary.simpleMessage("Are you going to vote?"),
+    "resultsPage10AreYouGoingToVote_nyc25":
+        MessageLookupByLibrary.simpleMessage("Are you going to vote?"),
     "resultsPage10MaybeButton_ger25": MessageLookupByLibrary.simpleMessage(
+      "Maybe",
+    ),
+    "resultsPage10MaybeButton_nyc25": MessageLookupByLibrary.simpleMessage(
       "Maybe",
     ),
     "resultsPage10NopButton": MessageLookupByLibrary.simpleMessage(
@@ -223,19 +294,29 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage10NopButton_ger25": MessageLookupByLibrary.simpleMessage(
       "No thanks!",
     ),
+    "resultsPage10NopButton_nyc25": MessageLookupByLibrary.simpleMessage(
+      "No thanks!",
+    ),
     "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
       "A notification when it’s time to go vote?",
     ),
     "resultsPage10Title_ger25": MessageLookupByLibrary.simpleMessage(
       "A notification when it’s time to go vote?",
     ),
+    "resultsPage10Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "A notification when it’s time to go vote?",
+    ),
     "resultsPage10VotingDay": m3,
     "resultsPage10VotingDay_ger25": m4,
+    "resultsPage10VotingDay_nyc25": m10,
     "resultsPage10VotingQuestion": MessageLookupByLibrary.simpleMessage(
       "Are you going to vote?",
     ),
     "resultsPage10YesButton": MessageLookupByLibrary.simpleMessage("Yesssss"),
     "resultsPage10YesButton_ger25": MessageLookupByLibrary.simpleMessage(
+      "Yesssss",
+    ),
+    "resultsPage10YesButton_nyc25": MessageLookupByLibrary.simpleMessage(
       "Yesssss",
     ),
     "resultsPage1Button": MessageLookupByLibrary.simpleMessage(
@@ -244,16 +325,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage1Button_ger25": MessageLookupByLibrary.simpleMessage(
       "Press to continue",
     ),
+    "resultsPage1Button_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Press to continue",
+    ),
     "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
       "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌",
     ),
     "resultsPage1Text_ger25": MessageLookupByLibrary.simpleMessage(
       "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!",
     ),
+    "resultsPage1Text_nyc25": MessageLookupByLibrary.simpleMessage(
+      "In the next screens, you’ll discover which mayoral candidate aligns with you. We even found a few extra things based on your answers!",
+    ),
     "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
       "A match and much more 👉👈",
     ),
     "resultsPage1Title_ger25": MessageLookupByLibrary.simpleMessage(
+      "A match and much more",
+    ),
+    "resultsPage1Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "A match and much more",
     ),
     "resultsPage2NoResults": MessageLookupByLibrary.simpleMessage(
@@ -265,11 +355,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage2_1Title_ger25": MessageLookupByLibrary.simpleMessage(
       "Honestly,",
     ),
+    "resultsPage2_1Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Honestly,",
+    ),
     "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
       "and me, it’s kind of a Love Story (EU’s Version)",
     ),
     "resultsPage2_2Title_ger25": MessageLookupByLibrary.simpleMessage(
       "and I, we are like Currywurst and fries",
+    ),
+    "resultsPage2_2Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "and I, we’re like pizza and late-night slices",
     ),
     "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
       "How close I am to European Parliament Groups",
@@ -277,18 +373,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage3Title_ger25": MessageLookupByLibrary.simpleMessage(
       "How close I am to the main parties running in this German election",
     ),
+    "resultsPage3Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "How close I am to the mayoral candidates",
+    ),
     "resultsPage4TitleBottom": MessageLookupByLibrary.simpleMessage(
       "Anti-EU Integration",
     ),
     "resultsPage4TitleBottom_ger25": MessageLookupByLibrary.simpleMessage(
       "Socially progressive",
     ),
+    "resultsPage4TitleBottom_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Socially progressive",
+    ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Economic intervention",
     ),
+    "resultsPage4TitleLeft_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Economic intervention",
+    ),
     "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
+      "Free market economics",
+    ),
+    "resultsPage4TitleRight_nyc25": MessageLookupByLibrary.simpleMessage(
       "Free market economics",
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage(
@@ -297,10 +405,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage4TitleTop_ger25": MessageLookupByLibrary.simpleMessage(
       "Socially conservative",
     ),
+    "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Socially conservative",
+    ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
       "It’s me, hi!",
     ),
     "resultsPage4TitleUserHere_ger25": MessageLookupByLibrary.simpleMessage(
+      "It’s me, hi!",
+    ),
+    "resultsPage4TitleUserHere_nyc25": MessageLookupByLibrary.simpleMessage(
       "It’s me, hi!",
     ),
     "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
@@ -309,27 +423,43 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage5Title_ger25": MessageLookupByLibrary.simpleMessage(
       "On more specific topics, which parties am I closest to?",
     ),
+    "resultsPage5Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "On more specific topics, which mayoral candidate am I closer to?",
+    ),
     "resultsPage5Topic1": MessageLookupByLibrary.simpleMessage(
       "Environmental issues",
     ),
     "resultsPage5Topic1_ger25": MessageLookupByLibrary.simpleMessage(
       "Environmental issues",
     ),
+    "resultsPage5Topic1_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Environmental issues",
+    ),
     "resultsPage5Topic2": MessageLookupByLibrary.simpleMessage(
       "Human & Social Rights",
     ),
     "resultsPage5Topic2_ger25": MessageLookupByLibrary.simpleMessage("Economy"),
+    "resultsPage5Topic2_nyc25": MessageLookupByLibrary.simpleMessage("Economy"),
     "resultsPage5Topic3": MessageLookupByLibrary.simpleMessage(
       "Economic intervention",
     ),
     "resultsPage5Topic3_ger25": MessageLookupByLibrary.simpleMessage(
       "Social values",
     ),
+    "resultsPage5Topic3_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Social values",
+    ),
     "resultsPage5Topic4_ger25": MessageLookupByLibrary.simpleMessage(
       "EU integration",
     ),
+    "resultsPage5Topic4_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Transit & streets",
+    ),
     "resultsPage5Topic5_ger25": MessageLookupByLibrary.simpleMessage(
       "Migration",
+    ),
+    "resultsPage5Topic5_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Housing & affordability",
     ),
     "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
       "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match.",
@@ -337,11 +467,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage6Text_ger25": MessageLookupByLibrary.simpleMessage(
       "Overwhelmed? No worries, we’ve thought of that! We have some options for you on the next slide!",
     ),
+    "resultsPage6Text_nyc25": MessageLookupByLibrary.simpleMessage(
+      "On the next screens, you’ll see the mayoral candidates most aligned with your answers.",
+    ),
     "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
       "Ok, it\'s cool knowing which group gets me...",
     ),
     "resultsPage6_1Title_ger25": MessageLookupByLibrary.simpleMessage(
       "Okay, it is cool to know which party gets me…",
+    ),
+    "resultsPage6_1Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Ok, it\'s cool knowing which candidate gets me…",
     ),
     "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
       "But at the EU Elections, we vote for a local list",
@@ -349,27 +485,41 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage6_2Title_ger25": MessageLookupByLibrary.simpleMessage(
       "But in the German election you also have the option to vote for a specific candidate",
     ),
+    "resultsPage6_2Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "But in the NYC election you vote for one mayoral candidate",
+    ),
     "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
       "In no particular order.",
     ),
     "resultsPage7Disclaimer_ger25": MessageLookupByLibrary.simpleMessage(
       "* On this screen only candidates from the following parties can be displayed: CDU/CSU, SPD, Grüne, AfD, Linke, FDP, BSW.",
     ),
+    "resultsPage7Disclaimer_nyc25": MessageLookupByLibrary.simpleMessage(
+      "On this screen only candidates with sufficient public information are displayed.",
+    ),
     "resultsPage7NoLocalCandidates": m5,
     "resultsPage7Title": m6,
     "resultsPage7Title_ger25": m7,
+    "resultsPage7Title_nyc25": m11,
     "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
       "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?",
     ),
     "resultsPage8Help_ger25": MessageLookupByLibrary.simpleMessage(
       "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the Germany regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable? #ClimateActionNow #PlanetFirst",
     ),
+    "resultsPage8Help_nyc25": MessageLookupByLibrary.simpleMessage(
+      "You care deeply about climate action in NYC. You believe tackling the crisis needs collective effort and smart city policy—resilience, clean transit, and greener streets—so New Yorkers can thrive now and in the future.",
+    ),
     "resultsPage8_1Text": m8,
     "resultsPage8_1Text_ger25": m9,
+    "resultsPage8_1Text_nyc25": m12,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
       "Active Climate Action 🌱😌",
     ),
     "resultsPage8_2Text_ger25": MessageLookupByLibrary.simpleMessage(
+      "Active Climate Action 🌱😌",
+    ),
+    "resultsPage8_2Text_nyc25": MessageLookupByLibrary.simpleMessage(
       "Active Climate Action 🌱😌",
     ),
     "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
@@ -378,10 +528,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage9Help_ger25": MessageLookupByLibrary.simpleMessage(
       "Click on the cards to shuffle",
     ),
+    "resultsPage9Help_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Click on the cards to shuffle",
+    ),
     "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
       "Elections are about many topics, but there’s one thing that really",
     ),
     "resultsPage9Text1_ger25": MessageLookupByLibrary.simpleMessage(
+      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
+    ),
+    "resultsPage9Text1_nyc25": MessageLookupByLibrary.simpleMessage(
       "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
     ),
     "resultsPage9Text2": MessageLookupByLibrary.simpleMessage(
@@ -390,11 +546,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
       "made for you!",
     ),
+    "resultsPage9Text2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "made for you!",
+    ),
     "resultsPageAllPartiesDescription_ger25": MessageLookupByLibrary.simpleMessage(
       "But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.",
     ),
+    "resultsPageAllPartiesDescription_nyc25": MessageLookupByLibrary.simpleMessage(
+      "What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility.",
+    ),
     "resultsPageAllPartiesTitle_ger25": MessageLookupByLibrary.simpleMessage(
       "Your personal ranking of all parties",
+    ),
+    "resultsPageAllPartiesTitle_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Your personal ranking of all candidates",
     ),
     "resultsPageCandidatesNoParties": MessageLookupByLibrary.simpleMessage(
       "no local parties",
@@ -416,10 +581,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageShareText_ger25": MessageLookupByLibrary.simpleMessage(
       "If this cute pigeon can\'t help you vote in February, nothing will. I\'ve used the app and you should too:",
     ),
+    "settingsPageShareText_nyc25": MessageLookupByLibrary.simpleMessage(
+      "If this cute pigeon can\'t help you vote in November, nothing will. I\'ve used the app and you should too:",
+    ),
     "settingsPageSubtitle1": MessageLookupByLibrary.simpleMessage(
       "Main Sponsors",
     ),
     "settingsPageSubtitle1_ger25": MessageLookupByLibrary.simpleMessage(
+      "Main Sponsors",
+    ),
+    "settingsPageSubtitle1_nyc25": MessageLookupByLibrary.simpleMessage(
       "Main Sponsors",
     ),
     "settingsPageSubtitle2": MessageLookupByLibrary.simpleMessage(
@@ -428,10 +599,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageSubtitle2_ger25": MessageLookupByLibrary.simpleMessage(
       "European Partners",
     ),
+    "settingsPageSubtitle2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "European Partners",
+    ),
     "settingsPageSubtitle3": MessageLookupByLibrary.simpleMessage(
       "Academic Partner",
     ),
     "settingsPageSubtitle3_ger25": MessageLookupByLibrary.simpleMessage(
+      "Academic Partners",
+    ),
+    "settingsPageSubtitle3_nyc25": MessageLookupByLibrary.simpleMessage(
       "Academic Partners",
     ),
     "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
@@ -440,10 +617,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageSubtitle4_ger25": MessageLookupByLibrary.simpleMessage(
       "National Institutional Partners",
     ),
+    "settingsPageSubtitle4_nyc25": MessageLookupByLibrary.simpleMessage(
+      "National Institutional Partners",
+    ),
     "settingsPageSubtitle5": MessageLookupByLibrary.simpleMessage(
       "Service Providers",
     ),
     "settingsPageSubtitle5_ger25": MessageLookupByLibrary.simpleMessage(
+      "Service Providers",
+    ),
+    "settingsPageSubtitle5_nyc25": MessageLookupByLibrary.simpleMessage(
       "Service Providers",
     ),
     "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
@@ -464,11 +647,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTextPartners_ger25": MessageLookupByLibrary.simpleMessage(
       "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
     ),
+    "settingsPageTextPartners_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+    ),
     "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("About"),
     "settingsPageTitleAssociation": MessageLookupByLibrary.simpleMessage(
       "The association",
     ),
     "settingsPageTitleAssociation_ger25": MessageLookupByLibrary.simpleMessage(
+      "The association",
+    ),
+    "settingsPageTitleAssociation_nyc25": MessageLookupByLibrary.simpleMessage(
       "The association",
     ),
     "settingsPageTitleElection": MessageLookupByLibrary.simpleMessage(
@@ -483,6 +672,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTitlePartners_ger25": MessageLookupByLibrary.simpleMessage(
       "Partners",
     ),
+    "settingsPageTitlePartners_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Partners",
+    ),
     "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "spain": MessageLookupByLibrary.simpleMessage("Spain"),
@@ -490,6 +682,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "It looks like you don\'t have internet connection",
     ),
     "statementsTutorialTurnInfo_ger25": MessageLookupByLibrary.simpleMessage(
+      "Tap to turn & read more info",
+    ),
+    "statementsTutorialTurnInfo_nyc25": MessageLookupByLibrary.simpleMessage(
       "Tap to turn & read more info",
     ),
     "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),
