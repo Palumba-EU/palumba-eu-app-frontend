@@ -86,7 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "If this cute pigeon can’t help you vote in February, nothing will.",
     ),
     "entranceTitle1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "If this cute pigeon can’t help you vote in November, nothing will.",
+      "From bagels to ballots, this cute pigeon knows it all",
     ),
     "entranceTitle2": MessageLookupByLibrary.simpleMessage(
       "Swipe your opinion on topics that matter to you.",
@@ -95,7 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Swipe your opinion on topics that matter to you.",
     ),
     "entranceTitle2_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Swipe your opinion on topics that matter to you.",
+      "Swipe & match with your future mayor",
     ),
     "entranceTitle3": MessageLookupByLibrary.simpleMessage(
       "Find out your match and an orientation for who to vote for at the Elections.",
@@ -104,7 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Find out your match and an orientation for who to vote for at the Elections.",
     ),
     "entranceTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Find out your match and an orientation for who to vote for at the Elections.",
+      "Discover where you stand & learn who’s on the ballot",
     ),
     "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
     "france": MessageLookupByLibrary.simpleMessage("France"),
