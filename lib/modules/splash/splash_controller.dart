@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:flutter/foundation.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
@@ -28,6 +28,8 @@ class SplashController extends GetxController {
   }
 
   _init() async {
+    debugPrint("Entering splash_controller.dart _init()");
+      
     //Set language
     final currentLanguage = (await _localDataRepository.language) ?? '';
     LanguageManager.currentLanguage = currentLanguage.isEmpty
@@ -43,30 +45,35 @@ class SplashController extends GetxController {
 
     var response = await _dataRepository.fetchLocalizations();
     if (response == null) {
+      debugPrint("failed to fetch localizations");
       showInternetAlert();
       return;
     }
 
     var response2 = await _dataRepository.fetchStatements();
     if (response2 == null) {
+      debugPrint("failed to fetch statements");
       showInternetAlert();
       return;
     }
 
     var response3 = await _dataRepository.fetchResultsInfo();
     if (response3 == null) {
+      debugPrint("failed to fetch results info");
       showInternetAlert();
       return;
     }
 
     var response4 = await _dataRepository.fetchSponsors();
     if (response4 == null) {
+      debugPrint("failed to fetch sponsors");
       showInternetAlert();
       return;
     }
 
     var response5 = await _dataRepository.getElections();
     if (response5 == null) {
+      debugPrint("failed to fetch elections");
       showInternetAlert();
       return;
     }

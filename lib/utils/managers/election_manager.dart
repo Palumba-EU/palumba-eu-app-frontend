@@ -5,7 +5,6 @@ import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:device_region/device_region.dart';
 
 class ElectionManager {
   static final Rx<Election> currentElection = Election.EU.obs;
@@ -31,7 +30,7 @@ class ElectionManager {
     if (election != null) {
       currentElection.value = election;
     } else {
-      currentElection.value = Election.EU;
+      currentElection.value = Election.NY;
     }
   }
 
