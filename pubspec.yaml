@@ -45,7 +45,7 @@ dependencies:
   flip_card: ^0.7.0
 
   # Localization Modules
-  intl: ^0.19.0
+  intl: ^0.20.0
   intl_utils: ^2.8.7
 
   # API Modules
@@ -68,7 +68,7 @@ flutter_launcher_icons:
   ios: true
   adaptive_icon_background: "#FFFBF0"
   adaptive_icon_foreground: "assets/images/app_icons/img_fg.png"
-  image_path: "assets/images/app_icons/img_ios.png"
+  image_path: "assets/images/app_icons/PulambaNewIcon.png"
   remove_alpha_ios: true
 
 

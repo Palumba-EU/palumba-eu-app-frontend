@@ -124,6 +124,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
       "Let’s continue in English? :)",
     ),
+    "loadingResultsPageRandom1": MessageLookupByLibrary.simpleMessage(
+      "This will be quicker than your Times Square MTA transfer",
+    ),
+    "loadingResultsPageRandom2": MessageLookupByLibrary.simpleMessage(
+      "We’ll move faster than the long queue at the Box club",
+    ),
+    "loadingResultsPageRandom3": MessageLookupByLibrary.simpleMessage(
+      "You got this! Push through your 7-second attention span",
+    ),
+    "loadingResultsPageRandom4": MessageLookupByLibrary.simpleMessage(
+      "Unlike Hinge, we *actually* have a match for you",
+    ),
+    "loadingResultsPageRandom5": MessageLookupByLibrary.simpleMessage(
+      "Curious about the algorithm? It’s open-source!",
+    ),
+    "loadingResultsPageRandom6": MessageLookupByLibrary.simpleMessage(
+      "You should 100% tell your friends about this cool app",
+    ),
+    "loadingResultsPageRandom7": MessageLookupByLibrary.simpleMessage(
+      "Almost ready, one last check...",
+    ),
     "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
       "Your personalised results are on their way :)",
     ),
@@ -207,7 +228,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "I don\'t know",
     ),
     "onBoardingStep1Title": MessageLookupByLibrary.simpleMessage(
-      "Where will you vote?",
+      "What’s your borough?",
     ),
     "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("My age"),
     "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Woman"),

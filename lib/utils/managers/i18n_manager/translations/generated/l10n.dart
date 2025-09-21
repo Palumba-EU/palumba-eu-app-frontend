@@ -28,10 +28,9 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name =
-        (locale.countryCode?.isEmpty ?? false)
-            ? locale.languageCode
-            : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -270,10 +269,10 @@ class S {
     return Intl.message('Sweden', name: 'sweden', desc: '', args: []);
   }
 
-  /// `Where will you vote?`
+  /// `What’s your borough?`
   String get onBoardingStep1Title {
     return Intl.message(
-      'Where will you vote?',
+      'What’s your borough?',
       name: 'onBoardingStep1Title',
       desc: '',
       args: [],
@@ -425,6 +424,76 @@ class S {
     return Intl.message(
       'Almost ready, one last check...',
       name: 'loadingResultsPageTitle4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This will be quicker than your Times Square MTA transfer`
+  String get loadingResultsPageRandom1 {
+    return Intl.message(
+      'This will be quicker than your Times Square MTA transfer',
+      name: 'loadingResultsPageRandom1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We’ll move faster than the long queue at the Box club`
+  String get loadingResultsPageRandom2 {
+    return Intl.message(
+      'We’ll move faster than the long queue at the Box club',
+      name: 'loadingResultsPageRandom2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You got this! Push through your 7-second attention span`
+  String get loadingResultsPageRandom3 {
+    return Intl.message(
+      'You got this! Push through your 7-second attention span',
+      name: 'loadingResultsPageRandom3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unlike Hinge, we *actually* have a match for you`
+  String get loadingResultsPageRandom4 {
+    return Intl.message(
+      'Unlike Hinge, we *actually* have a match for you',
+      name: 'loadingResultsPageRandom4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Curious about the algorithm? It’s open-source!`
+  String get loadingResultsPageRandom5 {
+    return Intl.message(
+      'Curious about the algorithm? It’s open-source!',
+      name: 'loadingResultsPageRandom5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You should 100% tell your friends about this cool app`
+  String get loadingResultsPageRandom6 {
+    return Intl.message(
+      'You should 100% tell your friends about this cool app',
+      name: 'loadingResultsPageRandom6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Almost ready, one last check...`
+  String get loadingResultsPageRandom7 {
+    return Intl.message(
+      'Almost ready, one last check...',
+      name: 'loadingResultsPageRandom7',
       desc: '',
       args: [],
     );

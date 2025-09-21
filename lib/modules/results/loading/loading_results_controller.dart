@@ -8,6 +8,7 @@ import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class LoadingResultsController extends GetxController {
   static const route = '/loading_results';
@@ -18,6 +19,23 @@ class LoadingResultsController extends GetxController {
   final totalSteps = 4;
 
   final int milliSecondsStep = 4500;
+  //NEW: Random loading texts
+    final List<String Function(BuildContext)> _loadingPool = [//NEW
+    (c) => S.of(c).loadingResultsPageRandom1,
+    (c) => S.of(c).loadingResultsPageRandom2,
+    (c) => S.of(c).loadingResultsPageRandom3,
+    (c) => S.of(c).loadingResultsPageRandom4,
+    (c) => S.of(c).loadingResultsPageRandom5,
+    (c) => S.of(c).loadingResultsPageRandom6,
+  ];
+
+  late List<int> _randomOrder;
+
+  void _prepareRandomTitles() {
+    final indices = List<int>.generate(_loadingPool.length, (i) => i)..shuffle();
+    _randomOrder = indices.take(3).toList();
+  }
+
 
   RxInt currentStep = 0.obs;
 
@@ -36,6 +54,7 @@ class LoadingResultsController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    _prepareRandomTitles();
     _init();
     _initData();
   }
@@ -80,11 +99,11 @@ class LoadingResultsController extends GetxController {
   String titleForIndex(BuildContext context, Election election) {
     switch (currentStep.value) {
       case 1:
-        return election.loadingResultsPageTitle1(context);
+        return _loadingPool[_randomOrder[0]](context);
       case 2:
-        return election.loadingResultsPageTitle2(context);
+        return _loadingPool[_randomOrder[1]](context);
       case 3:
-        return election.loadingResultsPageTitle3(context, countryName);
+        return _loadingPool[_randomOrder[2]](context);
       case 4:
         return election.loadingResultsPageTitle4(context);
     }

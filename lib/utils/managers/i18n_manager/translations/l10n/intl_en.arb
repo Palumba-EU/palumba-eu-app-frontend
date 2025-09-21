@@ -35,7 +35,7 @@
   "poland": "Poland",
   "romania": "Romania",
   "sweden": "Sweden",
-  "onBoardingStep1Title": "Where will you vote?",
+  "onBoardingStep1Title": "What’s your borough?",
   "onBoardingStep1Subtitle": "I don't know",
   "onBoardingStep2Title": "My age",
   "onBoardingStep3Title": "I identify as",
@@ -52,6 +52,16 @@
   "loadingResultsPageTitle2": "This shall be quicker than getting Taylor Swift tickets 👀 ",
   "loadingResultsPageTitle3": "Finding matches with candidates lists in {country}  🔍",
   "loadingResultsPageTitle4": "Almost ready, one last check...",
+
+
+  "loadingResultsPageRandom1": "This will be quicker than your Times Square MTA transfer",
+  "loadingResultsPageRandom2": "We’ll move faster than the long queue at the Box club",
+  "loadingResultsPageRandom3": "You got this! Push through your 7-second attention span",
+  "loadingResultsPageRandom4": "Unlike Hinge, we *actually* have a match for you",
+  "loadingResultsPageRandom5": "Curious about the algorithm? It’s open-source!",
+  "loadingResultsPageRandom6": "You should 100% tell your friends about this cool app",
+  "loadingResultsPageRandom7": "Almost ready, one last check...",
+
   "@@ResultsPage": "ResultsPage",
   "resultsPage1Title": "A match and much more 👉👈",
   "resultsPage1Text": "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌",
