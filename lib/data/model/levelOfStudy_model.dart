@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-
+ 
 enum LevelOfEducation {
   academic, // "Universitätsabschluss"
   highschool, // "Abitur"
@@ -8,6 +8,14 @@ enum LevelOfEducation {
   secondary, // "Realschulabschluss"
   intermediate, // Mittlerer Schulabschluss
   none, // Ungebildet
+  //+-------------------------+
+  //| NYC Mayor Election 2025 |
+  //+-------------------------+
+  highschool_nyc,
+  associates_nyc,
+  bachelors_nyc,
+  grad_school_nyc,
+  other_nyc
 }
 
 extension LevelOfEducationLocalization on LevelOfEducation {
@@ -25,6 +33,19 @@ extension LevelOfEducationLocalization on LevelOfEducation {
         return S.of(context).onBoardingStep4Option4_ger25;
       case LevelOfEducation.none:
         return S.of(context).onBoardingStep4Option6_ger25;
+      //+-------------------------+
+      //| NYC Mayor Election 2025 |
+      //+-------------------------+
+      case LevelOfEducation.highschool_nyc:
+        return S.of(context).LevelOfEducationHighSchool_nyc25;
+      case LevelOfEducation.associates_nyc:
+        return S.of(context).LevelOfEducationAssociates_nyc25;
+      case LevelOfEducation.bachelors_nyc:
+        return S.of(context).LevelOfEducationBachelors_nyc25;
+      case LevelOfEducation.grad_school_nyc:
+        return S.of(context).LevelOfEducationGradSchool_nyc25;
+      case LevelOfEducation.other_nyc:
+        return S.of(context).LevelOfEducationOther_nyc25;
     }
   }
 }
@@ -57,6 +78,19 @@ extension LevelOfEducationBackend on LevelOfEducation {
         return '2';
       case LevelOfEducation.none:
         return '0';
+      //+-------------------------+
+      //| NYC Mayor Election 2025 |
+      //+-------------------------+
+      case LevelOfEducation.highschool_nyc:
+        return '3';
+      case LevelOfEducation.associates_nyc:
+        return '5';
+      case LevelOfEducation.bachelors_nyc:
+        return '6';
+      case LevelOfEducation.grad_school_nyc:
+        return '7';
+      case LevelOfEducation.other_nyc:
+        return '-1';
     }
   }
 }

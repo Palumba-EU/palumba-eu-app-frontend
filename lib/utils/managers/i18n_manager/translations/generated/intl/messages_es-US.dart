@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a es_US locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,251 +18,250 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'es_US';
 
-  static String m0(count) => "${count} matches found in the last 24h";
+  static String m0(count) =>
+      "${count} coincidencias encontradas en las últimas 24 h";
 
-  static String m1(count) => "${count} matches found in the last 24h";
+  static String m1(count) =>
+      "${count} coincidencias encontradas en las últimas 24 h";
 
   static String m2(country) =>
-      "Finding matches with candidates lists in ${country}  🔍";
+      "Buscando coincidencias con listas de candidatos en ${country}  🔍";
 
-  static String m3(date) => "Get Ready, Voting Day is ${date}";
+  static String m3(date) => "Prepárate, el día de votación es ${date}";
 
-  static String m4(date) => "Get ready, voting day is ${date}";
+  static String m4(date) => "Prepárate, el día de votación es ${date}";
 
-  static String m10(date) => "Get ready, voting day is ${date}";
+  static String m10(date) => "Prepárate, el día de votación es ${date}";
 
-  static String m5(country) => "No local parties found in ${country}";
+  static String m5(country) =>
+      "No se encontraron partidos locales en ${country}";
 
   static String m6(country, group) =>
-      "The candidates in ${country} most aligned with ${group}";
+      "Las candidaturas en ${country} más alineadas con ${group}";
 
   static String m7(party) =>
       "Here’s a young candidate from ${party}* —shuffle to see more! They may not be on your ballot, but represent the future of their party!";
 
   static String m11(party) =>
-      "Here’s a mayoral candidate from ${party} — shuffle to see more!";
+      "Aquí tienes una candidatura a la Alcaldía de ${party} — ¡baraja para ver más!";
 
   static String m8(topic, percentage) =>
-      "On ${topic}, you’re ${percentage}% more into";
+      "En ${topic}, estás ${percentage}% más a favor de";
 
   static String m9(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
   static String m12(number, dimension) =>
-      "Your answers are in the top ${number}% regarding ${dimension}";
+      "Tus respuestas están en el top ${number}% respecto a ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "LevelOfEducationAssociates_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Associate\'s degree",
+      "Título de asociado",
     ),
     "LevelOfEducationBachelors_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Bachelor\'s",
+      "Licenciatura",
     ),
     "LevelOfEducationGradSchool_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Grad school",
+      "Posgrado",
     ),
     "LevelOfEducationHighSchool_nyc25": MessageLookupByLibrary.simpleMessage(
       "High school",
     ),
-    "LevelOfEducationOther_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Other",
-    ),
+    "LevelOfEducationOther_nyc25": MessageLookupByLibrary.simpleMessage("Otro"),
     "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
-      "Something has gone wrong on our side. Please try again later.",
+      "Algo salió mal de nuestro lado. Inténtalo de nuevo más tarde.",
     ),
-    "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ops!"),
+    "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("¡Ups!"),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
-    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-    "denmark": MessageLookupByLibrary.simpleMessage("Denmark"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
+    "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
     "electionDE": MessageLookupByLibrary.simpleMessage(
       "Bundestagswahl 2025 🇩🇪",
     ),
     "electionEU": MessageLookupByLibrary.simpleMessage(
-      "European Elections 2024 🇪🇺",
+      "Elecciones Europeas 2024 🇪🇺",
     ),
     "electionNY": MessageLookupByLibrary.simpleMessage(
-      "NYC Mayoral Election 2025 🗽",
+      "Elección para la Alcaldía de NYC 2025 🗽",
     ),
     "electionPageSubtitle": MessageLookupByLibrary.simpleMessage(""),
     "electionPageTitle": MessageLookupByLibrary.simpleMessage(
-      "Choose an Election",
+      "Elige una elección",
     ),
     "entranceMatchesFoundQuote": m0,
     "entranceStartButton": MessageLookupByLibrary.simpleMessage(
-      "Start Palumba",
+      "Iniciar Palumba",
     ),
     "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-      "If this cute pigeon can’t help you vote in June, nothing will.",
+      "Si esta palomita no puede ayudarte a votar en junio, nada lo hará.",
     ),
     "entranceTitle1_ger25": MessageLookupByLibrary.simpleMessage(
       "If this cute pigeon can’t help you vote in February, nothing will.",
     ),
     "entranceTitle1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "From bagels to ballots, this cute pigeon knows it all",
+      "De bagels a boletas, esta palomita se lo sabe todo",
     ),
     "entranceTitle2": MessageLookupByLibrary.simpleMessage(
-      "Swipe your opinion on topics that matter to you.",
+      "Desliza tu opinión sobre los temas que te importan.",
     ),
     "entranceTitle2_ger25": MessageLookupByLibrary.simpleMessage(
       "Swipe your opinion on topics that matter to you.",
     ),
     "entranceTitle2_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Swipe & match with your future mayor",
+      "Desliza y haz match con tu futuro alcalde o alcaldesa",
     ),
     "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-      "Find out your match and an orientation for who to vote for at the Elections.",
+      "Descubre tu coincidencia y una orientación sobre por quién votar en las Elecciones.",
     ),
     "entranceTitle3_ger25": MessageLookupByLibrary.simpleMessage(
       "Find out your match and an orientation for who to vote for at the Elections.",
     ),
     "entranceTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Discover where you stand & learn who’s on the ballot",
+      "Descubre tu posición y quién aparece en la boleta",
     ),
-    "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
-    "france": MessageLookupByLibrary.simpleMessage("France"),
-    "germany": MessageLookupByLibrary.simpleMessage("Germany"),
+    "faq": MessageLookupByLibrary.simpleMessage("Preguntas frecuentes"),
+    "france": MessageLookupByLibrary.simpleMessage("Francia"),
+    "germany": MessageLookupByLibrary.simpleMessage("Alemania"),
     "homePageBackToTest": MessageLookupByLibrary.simpleMessage(
-      "Back to the test",
+      "Volver al test",
     ),
     "homePageMatchesFoundQuote": m1,
-    "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
+    "homePageMyResults": MessageLookupByLibrary.simpleMessage("Mis resultados"),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
-      "Start a new test",
+      "Empezar un nuevo test",
     ),
-    "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
+    "hungary": MessageLookupByLibrary.simpleMessage("Hungría"),
     "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
-      "This can be changed later in settings.",
+      "Esto se puede cambiar luego en la configuración.",
     ),
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
-      "Let’s continue in English? :)",
+      "¿Seguimos en inglés? :)",
     ),
     "loadingResultsPageRandom1": MessageLookupByLibrary.simpleMessage(
-      "This will be quicker than your Times Square MTA transfer",
+      "Esto será más rápido que tu transbordo del MTA en Times Square",
     ),
     "loadingResultsPageRandom2": MessageLookupByLibrary.simpleMessage(
-      "We’ll move faster than the long queue at the Box club",
+      "Nos moveremos más rápido que la fila larga en el Box",
     ),
     "loadingResultsPageRandom3": MessageLookupByLibrary.simpleMessage(
-      "You got this! Push through your 7-second attention span",
+      "¡Tú puedes! Supera esos 7 segundos de atención",
     ),
     "loadingResultsPageRandom4": MessageLookupByLibrary.simpleMessage(
-      "Unlike Hinge, we *actually* have a match for you",
+      "A diferencia de Hinge, *sí* tenemos una coincidencia para ti",
     ),
     "loadingResultsPageRandom5": MessageLookupByLibrary.simpleMessage(
-      "Curious about the algorithm? It’s open-source!",
+      "¿Curiosidad por el algoritmo? ¡Es de código abierto!",
     ),
     "loadingResultsPageRandom6": MessageLookupByLibrary.simpleMessage(
-      "You should 100% tell your friends about this cool app",
+      "Deberías contarles a tus amistades sobre esta app tan cool",
     ),
     "loadingResultsPageRandom7": MessageLookupByLibrary.simpleMessage(
-      "Almost ready, one last check...",
+      "Casi listo, un último chequeo...",
     ),
     "loadingResultsPageTitle1": MessageLookupByLibrary.simpleMessage(
-      "Your personalised results are on their way :)",
+      "Tus resultados personalizados ya vienen en camino :)",
     ),
     "loadingResultsPageTitle1_ger25": MessageLookupByLibrary.simpleMessage(
       "Your personal results are on their way :)",
     ),
     "loadingResultsPageTitle1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Your personal results are on their way :)",
+      "Tus resultados personales ya vienen en camino :)",
     ),
     "loadingResultsPageTitle2": MessageLookupByLibrary.simpleMessage(
-      "This shall be quicker than getting Taylor Swift tickets 👀 ",
+      "Esto será más rápido que conseguir boletos para Taylor Swift 👀 ",
     ),
     "loadingResultsPageTitle2_ger25": MessageLookupByLibrary.simpleMessage(
       "This is going faster than the Deutsche Bahn",
     ),
     "loadingResultsPageTitle2_nyc25": MessageLookupByLibrary.simpleMessage(
-      "This should be quicker than a New York coffee run ☕",
+      "Esto debería ser más rápido que un café neoyorquino ☕",
     ),
     "loadingResultsPageTitle3": m2,
     "loadingResultsPageTitle3_ger25": MessageLookupByLibrary.simpleMessage(
       "Hold on, it’s almost done - pinky promise, no layovers!",
     ),
     "loadingResultsPageTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Hold on, it’s almost done — promise, no detours!",
+      "Espera, ya casi — ¡prometido, sin desvíos!",
     ),
     "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
-      "Almost ready, one last check...",
+      "Casi listo, un último chequeo...",
     ),
     "loadingResultsPageTitle4_ger25": MessageLookupByLibrary.simpleMessage(
       "Almost ready, one last check...",
     ),
     "loadingResultsPageTitle4_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Almost ready, one last check...",
+      "Casi listo, un último chequeo...",
     ),
-    "maybe": MessageLookupByLibrary.simpleMessage("Maybe"),
+    "maybe": MessageLookupByLibrary.simpleMessage("Tal vez"),
     "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage(
       "No, thanks!",
     ),
     "messageScreenNo_nyc25": MessageLookupByLibrary.simpleMessage(
-      "No, thanks!",
+      "¡No, gracias!",
     ),
     "messageScreenYes_ger25": MessageLookupByLibrary.simpleMessage("Yesss!"),
-    "messageScreenYes_nyc25": MessageLookupByLibrary.simpleMessage("Yesss!"),
+    "messageScreenYes_nyc25": MessageLookupByLibrary.simpleMessage("¡Siii!"),
     "message_five_cards_left": MessageLookupByLibrary.simpleMessage(
-      "Only 5 cards left to swipe :)",
+      "Solo quedan 5 tarjetas por deslizar :)",
     ),
     "message_half_test_done": MessageLookupByLibrary.simpleMessage(
-      "Keep swiping, you\'re 50% done!",
+      "¡Sigue deslizando, vas 50% completado!",
     ),
     "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
-    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+    "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
-      "I have no clue who to vote for at the 2024 European Elections",
+      "No tengo idea por quién votar en las Elecciones Europeas de 2024",
     ),
     "onBoardingCardQuestion_ger25": MessageLookupByLibrary.simpleMessage(
       "I have no clue who to vote for at the 2025 German Elections",
     ),
     "onBoardingCardQuestion_nyc25": MessageLookupByLibrary.simpleMessage(
-      "I have no clue who to vote for at the 2025 NYC Mayoral Election",
+      "No tengo idea por quién votar en la Elección para la Alcaldía de NYC 2025",
     ),
     "onBoardingDataProtectionLink_ger25": MessageLookupByLibrary.simpleMessage(
       "Data Protection Policy",
     ),
     "onBoardingDataProtectionLink_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Data Protection Policy",
+      "Política de Protección de Datos",
     ),
     "onBoardingDataProtection_ger25": MessageLookupByLibrary.simpleMessage(
       "I adhere to the Data Protection Policy and the Terms to use the app",
     ),
     "onBoardingDataProtection_nyc25": MessageLookupByLibrary.simpleMessage(
-      "I adhere to the Data Protection Policy and the Terms to use the app",
+      "Acepto la Política de Protección de Datos y los Términos de uso de la app",
     ),
     "onBoardingLastStepTitle": MessageLookupByLibrary.simpleMessage(
-      "Swipe according to your agreement",
+      "Desliza según tu grado de acuerdo",
     ),
     "onBoardingNotAnswerButton": MessageLookupByLibrary.simpleMessage(
-      "Prefer not to say",
+      "Prefiero no decirlo",
     ),
-    "onBoardingStep1Subtitle": MessageLookupByLibrary.simpleMessage(
-      "I don\'t know",
-    ),
+    "onBoardingStep1Subtitle": MessageLookupByLibrary.simpleMessage("No lo sé"),
     "onBoardingStep1Title": MessageLookupByLibrary.simpleMessage(
-      "What’s your borough?",
+      "¿Cuál es tu distrito?",
     ),
-    "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("My age"),
-    "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Woman"),
-    "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Man"),
+    "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("Mi edad"),
+    "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Mujer"),
+    "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Hombre"),
     "onBoardingStep3Option3": MessageLookupByLibrary.simpleMessage(
-      "Gender-fluid",
+      "Género fluido",
     ),
     "onBoardingStep3Option4": MessageLookupByLibrary.simpleMessage(
-      "Non-binary",
+      "No binario",
     ),
-    "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Else"),
+    "onBoardingStep3Option5": MessageLookupByLibrary.simpleMessage("Otro"),
     "onBoardingStep3Title": MessageLookupByLibrary.simpleMessage(
-      "I identify as",
+      "Me identifico como",
     ),
     "onBoardingStep3Title_ger25": MessageLookupByLibrary.simpleMessage(
       "I identify as",
     ),
     "onBoardingStep3Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "I identify as",
+      "Me identifico como",
     ),
     "onBoardingStep4Option1_ger25": MessageLookupByLibrary.simpleMessage(
       "University degree",
@@ -283,433 +282,431 @@ class MessageLookup extends MessageLookupByLibrary {
       "Other",
     ),
     "onBoardingStep4Title": MessageLookupByLibrary.simpleMessage(
-      "Level of Education",
+      "Nivel de educación",
     ),
     "onBoardingStep4Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Graduated from...",
+      "Graduado de...",
     ),
-    "poland": MessageLookupByLibrary.simpleMessage("Poland"),
-    "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("Close"),
+    "poland": MessageLookupByLibrary.simpleMessage("Polonia"),
+    "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("Cerrar"),
     "pushDeactivatedConfirm": MessageLookupByLibrary.simpleMessage(
-      "Open Settings",
+      "Abrir configuración",
     ),
     "pushDeactivatedText": MessageLookupByLibrary.simpleMessage(
-      "To be able to receive Push Notifcation enable them in the settings",
+      "Para poder recibir notificaciones push, actívalas en la configuración",
     ),
     "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage(
-      "Notifications disabled",
+      "Notificaciones desactivadas",
     ),
     "resultsPage10AreYouGoingToVote_ger25":
-        MessageLookupByLibrary.simpleMessage("Are you going to vote?"),
+        MessageLookupByLibrary.simpleMessage("¿Vas a votar?"),
     "resultsPage10AreYouGoingToVote_nyc25":
-        MessageLookupByLibrary.simpleMessage("Are you going to vote?"),
+        MessageLookupByLibrary.simpleMessage("¿Vas a votar?"),
     "resultsPage10MaybeButton_ger25": MessageLookupByLibrary.simpleMessage(
-      "Maybe",
+      "Tal vez",
     ),
     "resultsPage10MaybeButton_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Maybe",
+      "Tal vez",
     ),
     "resultsPage10NopButton": MessageLookupByLibrary.simpleMessage(
-      "No thanks!",
+      "¡No, gracias!",
     ),
     "resultsPage10NopButton_ger25": MessageLookupByLibrary.simpleMessage(
       "No thanks!",
     ),
     "resultsPage10NopButton_nyc25": MessageLookupByLibrary.simpleMessage(
-      "No thanks!",
+      "¡No, gracias!",
     ),
     "resultsPage10Title": MessageLookupByLibrary.simpleMessage(
-      "A notification when it’s time to go vote?",
+      "¿Una notificación cuando sea hora de ir a votar?",
     ),
     "resultsPage10Title_ger25": MessageLookupByLibrary.simpleMessage(
       "A notification when it’s time to go vote?",
     ),
     "resultsPage10Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "A notification when it’s time to go vote?",
+      "¿Una notificación cuando sea hora de ir a votar?",
     ),
     "resultsPage10VotingDay": m3,
     "resultsPage10VotingDay_ger25": m4,
     "resultsPage10VotingDay_nyc25": m10,
     "resultsPage10VotingQuestion": MessageLookupByLibrary.simpleMessage(
-      "Are you going to vote?",
+      "¿Vas a votar?",
     ),
-    "resultsPage10YesButton": MessageLookupByLibrary.simpleMessage("Yesssss"),
+    "resultsPage10YesButton": MessageLookupByLibrary.simpleMessage("Siiiií"),
     "resultsPage10YesButton_ger25": MessageLookupByLibrary.simpleMessage(
       "Yesssss",
     ),
     "resultsPage10YesButton_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Yesssss",
+      "Siiiií",
     ),
     "resultsPage1Button": MessageLookupByLibrary.simpleMessage(
-      "Press to continue",
+      "Presiona para continuar",
     ),
     "resultsPage1Button_ger25": MessageLookupByLibrary.simpleMessage(
       "Press to continue",
     ),
     "resultsPage1Button_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Press to continue",
+      "Presiona para continuar",
     ),
     "resultsPage1Text": MessageLookupByLibrary.simpleMessage(
-      "In the next screens, you’ll discover your most compatible  Group at the EU Parliament, the matching Local lists to vote for in June in your country, and we even found a few extra things based on your answers 😌",
+      "En las próximas pantallas, descubrirás tu Grupo más compatible en el Parlamento Europeo, las listas locales que coinciden contigo para votar en junio en tu país, y hasta encontramos algunas cositas extra según tus respuestas 😌",
     ),
     "resultsPage1Text_ger25": MessageLookupByLibrary.simpleMessage(
       "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!",
     ),
     "resultsPage1Text_nyc25": MessageLookupByLibrary.simpleMessage(
-      "In the next screens, you’ll discover which mayoral candidate aligns with you. We even found a few extra things based on your answers!",
+      "En las próximas pantallas descubrirás qué candidatura para la Alcaldía se alinea contigo. ¡Hasta encontramos algunas cosas extra según tus respuestas!",
     ),
     "resultsPage1Title": MessageLookupByLibrary.simpleMessage(
-      "A match and much more 👉👈",
+      "Un match y mucho más 👉👈",
     ),
     "resultsPage1Title_ger25": MessageLookupByLibrary.simpleMessage(
       "A match and much more",
     ),
     "resultsPage1Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "A match and much more",
+      "Un match y mucho más",
     ),
     "resultsPage2NoResults": MessageLookupByLibrary.simpleMessage(
-      "No results found",
+      "No se encontraron resultados",
     ),
     "resultsPage2_1Title": MessageLookupByLibrary.simpleMessage(
-      "Honestly, between the",
+      "Honestamente, entre",
     ),
     "resultsPage2_1Title_ger25": MessageLookupByLibrary.simpleMessage(
       "Honestly,",
     ),
     "resultsPage2_1Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Honestly,",
+      "Honestamente,",
     ),
     "resultsPage2_2Title": MessageLookupByLibrary.simpleMessage(
-      "and me, it’s kind of a Love Story (EU’s Version)",
+      "y yo, esto es como una Love Story (EU’s Version)",
     ),
     "resultsPage2_2Title_ger25": MessageLookupByLibrary.simpleMessage(
       "and I, we are like Currywurst and fries",
     ),
     "resultsPage2_2Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "and I, we’re like pizza and late-night slices",
+      "y yo, somos como pizza y porciones de madrugada",
     ),
     "resultsPage3Title": MessageLookupByLibrary.simpleMessage(
-      "How close I am to European Parliament Groups",
+      "Qué tan cerca estoy de los Grupos del Parlamento Europeo",
     ),
     "resultsPage3Title_ger25": MessageLookupByLibrary.simpleMessage(
       "How close I am to the main parties running in this German election",
     ),
     "resultsPage3Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "How close I am to the mayoral candidates",
+      "Qué tan cerca estoy de las candidaturas a la Alcaldía",
     ),
     "resultsPage4TitleBottom": MessageLookupByLibrary.simpleMessage(
-      "Anti-EU Integration",
+      "Anti-integración de la UE",
     ),
     "resultsPage4TitleBottom_ger25": MessageLookupByLibrary.simpleMessage(
       "Socially progressive",
     ),
     "resultsPage4TitleBottom_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Socially progressive",
+      "Socialmente progresista",
     ),
-    "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
+    "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Izquierda"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Economic intervention",
     ),
     "resultsPage4TitleLeft_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Economic intervention",
+      "Intervención económica",
     ),
-    "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
+    "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Derecha"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
       "Free market economics",
     ),
     "resultsPage4TitleRight_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Free market economics",
+      "Economía de libre mercado",
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage(
-      "Pro-EU Integration",
+      "Pro-integración de la UE",
     ),
     "resultsPage4TitleTop_ger25": MessageLookupByLibrary.simpleMessage(
       "Socially conservative",
     ),
     "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Socially conservative",
+      "Socialmente conservador",
     ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
-      "It’s me, hi!",
+      "¡Soy yo, hola!",
     ),
     "resultsPage4TitleUserHere_ger25": MessageLookupByLibrary.simpleMessage(
       "It’s me, hi!",
     ),
     "resultsPage4TitleUserHere_nyc25": MessageLookupByLibrary.simpleMessage(
-      "It’s me, hi!",
+      "¡Soy yo, hola!",
     ),
     "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
-      "On more specific topics, which European Parliament Group am I closer to?",
+      "En temas más específicos, ¿a qué Grupo del Parlamento Europeo me acerco más?",
     ),
     "resultsPage5Title_ger25": MessageLookupByLibrary.simpleMessage(
       "On more specific topics, which parties am I closest to?",
     ),
     "resultsPage5Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "On more specific topics, which mayoral candidate am I closer to?",
+      "En temas más específicos, ¿a qué candidatura me acerco más?",
     ),
     "resultsPage5Topic1": MessageLookupByLibrary.simpleMessage(
-      "Environmental issues",
+      "Cuestiones ambientales",
     ),
     "resultsPage5Topic1_ger25": MessageLookupByLibrary.simpleMessage(
       "Environmental issues",
     ),
     "resultsPage5Topic1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Environmental issues",
+      "Cuestiones ambientales",
     ),
     "resultsPage5Topic2": MessageLookupByLibrary.simpleMessage(
-      "Human & Social Rights",
+      "Derechos humanos y sociales",
     ),
     "resultsPage5Topic2_ger25": MessageLookupByLibrary.simpleMessage("Economy"),
-    "resultsPage5Topic2_nyc25": MessageLookupByLibrary.simpleMessage("Economy"),
+    "resultsPage5Topic2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Economía",
+    ),
     "resultsPage5Topic3": MessageLookupByLibrary.simpleMessage(
-      "Economic intervention",
+      "Intervención económica",
     ),
     "resultsPage5Topic3_ger25": MessageLookupByLibrary.simpleMessage(
       "Social values",
     ),
     "resultsPage5Topic3_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Social values",
+      "Valores sociales",
     ),
     "resultsPage5Topic4_ger25": MessageLookupByLibrary.simpleMessage(
       "EU integration",
     ),
     "resultsPage5Topic4_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Transit & streets",
+      "Transporte y calles",
     ),
     "resultsPage5Topic5_ger25": MessageLookupByLibrary.simpleMessage(
       "Migration",
     ),
     "resultsPage5Topic5_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Housing & affordability",
+      "Vivienda y asequibilidad",
     ),
     "resultsPage6Text": MessageLookupByLibrary.simpleMessage(
-      "In the next screens, you’ll discover the candidate lists in your country  that are most likely to join your match.",
+      "En las siguientes pantallas, verás las listas de candidatos en tu país que probablemente se unan a tu match.",
     ),
     "resultsPage6Text_ger25": MessageLookupByLibrary.simpleMessage(
       "Overwhelmed? No worries, we’ve thought of that! We have some options for you on the next slide!",
     ),
     "resultsPage6Text_nyc25": MessageLookupByLibrary.simpleMessage(
-      "On the next screens, you’ll see the mayoral candidates most aligned with your answers.",
+      "En las siguientes pantallas, verás las candidaturas más alineadas con tus respuestas.",
     ),
     "resultsPage6_1Title": MessageLookupByLibrary.simpleMessage(
-      "Ok, it\'s cool knowing which group gets me...",
+      "Ok, está cool saber qué grupo me entiende...",
     ),
     "resultsPage6_1Title_ger25": MessageLookupByLibrary.simpleMessage(
       "Okay, it is cool to know which party gets me…",
     ),
     "resultsPage6_1Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Ok, it\'s cool knowing which candidate gets me…",
+      "Ok, está cool saber qué candidatura me entiende…",
     ),
     "resultsPage6_2Title": MessageLookupByLibrary.simpleMessage(
-      "But at the EU Elections, we vote for a local list",
+      "Pero en las Elecciones de la UE votamos por una lista local",
     ),
     "resultsPage6_2Title_ger25": MessageLookupByLibrary.simpleMessage(
       "But in the German election you also have the option to vote for a specific candidate",
     ),
     "resultsPage6_2Title_nyc25": MessageLookupByLibrary.simpleMessage(
-      "But in the NYC election you vote for one mayoral candidate",
+      "Pero en la elección de NYC votas por una sola candidatura a la Alcaldía",
     ),
     "resultsPage7Disclaimer": MessageLookupByLibrary.simpleMessage(
-      "In no particular order.",
+      "Sin orden particular.",
     ),
     "resultsPage7Disclaimer_ger25": MessageLookupByLibrary.simpleMessage(
       "* On this screen only candidates from the following parties can be displayed: CDU/CSU, SPD, Grüne, AfD, Linke, FDP, BSW.",
     ),
     "resultsPage7Disclaimer_nyc25": MessageLookupByLibrary.simpleMessage(
-      "On this screen only candidates with sufficient public information are displayed.",
+      "En esta pantalla solo se muestran candidaturas con información pública suficiente.",
     ),
     "resultsPage7NoLocalCandidates": m5,
     "resultsPage7Title": m6,
     "resultsPage7Title_ger25": m7,
     "resultsPage7Title_nyc25": m11,
     "resultsPage8Help": MessageLookupByLibrary.simpleMessage(
-      "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the EU regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable?",
+      "¡Eres una persona que lucha contra el cambio climático! Crees que enfrentar la crisis climática requiere acción colectiva y que todos lo pongan como prioridad. No te molesta que la UE regule a las empresas con ese fin. Al final, ¿de qué sirve el crecimiento económico si el planeta se vuelve inhabitable?",
     ),
     "resultsPage8Help_ger25": MessageLookupByLibrary.simpleMessage(
       "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the Germany regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable? #ClimateActionNow #PlanetFirst",
     ),
     "resultsPage8Help_nyc25": MessageLookupByLibrary.simpleMessage(
-      "You care deeply about climate action in NYC. You believe tackling the crisis needs collective effort and smart city policy—resilience, clean transit, and greener streets—so New Yorkers can thrive now and in the future.",
+      "Te importa mucho la acción climática en NYC. Crees que enfrentar la crisis requiere esfuerzo colectivo y políticas urbanas inteligentes — resiliencia, transporte limpio y calles más verdes — para que los neoyorquinos prosperen hoy y en el futuro.",
     ),
     "resultsPage8_1Text": m8,
     "resultsPage8_1Text_ger25": m9,
     "resultsPage8_1Text_nyc25": m12,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
-      "Active Climate Action 🌱😌",
+      "Acción climática activa 🌱😌",
     ),
     "resultsPage8_2Text_ger25": MessageLookupByLibrary.simpleMessage(
       "Active Climate Action 🌱😌",
     ),
     "resultsPage8_2Text_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Active Climate Action 🌱😌",
+      "Acción climática activa 🌱😌",
     ),
     "resultsPage9Help": MessageLookupByLibrary.simpleMessage(
-      "Click on the cards to shuffle",
+      "Toca las tarjetas para barajar",
     ),
     "resultsPage9Help_ger25": MessageLookupByLibrary.simpleMessage(
       "Click on the cards to shuffle",
     ),
     "resultsPage9Help_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Click on the cards to shuffle",
+      "Toca las tarjetas para barajar",
     ),
     "resultsPage9Text1": MessageLookupByLibrary.simpleMessage(
-      "Elections are about many topics, but there’s one thing that really",
+      "Las elecciones son sobre muchos temas, pero hay uno que realmente",
     ),
     "resultsPage9Text1_ger25": MessageLookupByLibrary.simpleMessage(
       "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
     ),
     "resultsPage9Text1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
+      "Las elecciones tratan muchos temas, pero hay uno que te queda perfecto. Es casi como si fuera",
     ),
     "resultsPage9Text2": MessageLookupByLibrary.simpleMessage(
-      "Belongs With Me 😌",
+      "Encaja conmigo 😌",
     ),
     "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage(
-      "made for you!",
+      "¡hecho para ti!",
     ),
     "resultsPage9Text2_nyc25": MessageLookupByLibrary.simpleMessage(
-      "made for you!",
+      "¡hecho para ti!",
     ),
     "resultsPageAllPartiesDescription_ger25": MessageLookupByLibrary.simpleMessage(
-      "But what would your ranking look like if we also include smaller parties? - This list includes parties that currently do not have representatives in the Bundestag.",
+      "¿Cómo se vería tu ranking si también incluimos partidos pequeños? — Esta lista incluye partidos que actualmente no tienen representantes en el Bundestag.",
     ),
     "resultsPageAllPartiesDescription_nyc25": MessageLookupByLibrary.simpleMessage(
-      "What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility.",
+      "¿Cómo se vería tu ranking si incluimos a todas las candidaturas a la Alcaldía? — Esta lista puede incluir candidaturas con encuestas o visibilidad limitadas.",
     ),
     "resultsPageAllPartiesTitle_ger25": MessageLookupByLibrary.simpleMessage(
-      "Your personal ranking of all parties",
+      "Tu ranking personal de todos los partidos",
     ),
     "resultsPageAllPartiesTitle_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Your personal ranking of all candidates",
+      "Tu ranking personal de todas las candidaturas",
     ),
     "resultsPageCandidatesNoParties": MessageLookupByLibrary.simpleMessage(
-      "no local parties",
+      "no hay partidos locales",
     ),
     "resultsPageCandidatesShuffle": MessageLookupByLibrary.simpleMessage(
-      "Shuffle my politcal love 🔀",
+      "Barajar mi amor político 🔀",
     ),
-    "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
-    "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+    "resultsShare": MessageLookupByLibrary.simpleMessage("Compartir"),
+    "romania": MessageLookupByLibrary.simpleMessage("Rumania"),
     "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage(
-      "Data Protection",
+      "Protección de datos",
     ),
     "settingsPageShareButtonText": MessageLookupByLibrary.simpleMessage(
-      "Share",
+      "Compartir",
     ),
     "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
-      "If this cute pigeon can\'t help you vote in June, nothing will. I\'ve used the app and you should too:",
+      "Si esta palomita no puede ayudarte a votar en junio, nada lo hará. Yo ya usé la app y tú también deberías:",
     ),
     "settingsPageShareText_ger25": MessageLookupByLibrary.simpleMessage(
       "If this cute pigeon can\'t help you vote in February, nothing will. I\'ve used the app and you should too:",
     ),
     "settingsPageShareText_nyc25": MessageLookupByLibrary.simpleMessage(
-      "If this cute pigeon can\'t help you vote in November, nothing will. I\'ve used the app and you should too:",
+      "Si esta palomita no puede ayudarte a votar en noviembre, nada lo hará. Yo ya usé la app y tú también deberías:",
     ),
     "settingsPageSubtitle1": MessageLookupByLibrary.simpleMessage(
-      "Main Sponsors",
+      "Patrocinadores principales",
     ),
     "settingsPageSubtitle1_ger25": MessageLookupByLibrary.simpleMessage(
       "Main Sponsors",
     ),
     "settingsPageSubtitle1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Main Sponsors",
+      "Patrocinadores principales",
     ),
     "settingsPageSubtitle2": MessageLookupByLibrary.simpleMessage(
-      "European Partners",
+      "Socios europeos",
     ),
     "settingsPageSubtitle2_ger25": MessageLookupByLibrary.simpleMessage(
       "European Partners",
     ),
     "settingsPageSubtitle2_nyc25": MessageLookupByLibrary.simpleMessage(
-      "European Partners",
+      "Socios europeos",
     ),
     "settingsPageSubtitle3": MessageLookupByLibrary.simpleMessage(
-      "Academic Partner",
+      "Socio académico",
     ),
     "settingsPageSubtitle3_ger25": MessageLookupByLibrary.simpleMessage(
       "Academic Partners",
     ),
     "settingsPageSubtitle3_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Academic Partners",
+      "Socios académicos",
     ),
     "settingsPageSubtitle4": MessageLookupByLibrary.simpleMessage(
-      "National Institutional Partners",
+      "Socios institucionales nacionales",
     ),
     "settingsPageSubtitle4_ger25": MessageLookupByLibrary.simpleMessage(
       "National Institutional Partners",
     ),
     "settingsPageSubtitle4_nyc25": MessageLookupByLibrary.simpleMessage(
-      "National Institutional Partners",
+      "Socios institucionales nacionales",
     ),
     "settingsPageSubtitle5": MessageLookupByLibrary.simpleMessage(
-      "Service Providers",
+      "Proveedores de servicio",
     ),
     "settingsPageSubtitle5_ger25": MessageLookupByLibrary.simpleMessage(
       "Service Providers",
     ),
     "settingsPageSubtitle5_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Service Providers",
+      "Proveedores de servicio",
     ),
     "settingsPageSubtitleLanguage": MessageLookupByLibrary.simpleMessage(
-      "I prefer to use this app in",
+      "Prefiero usar la app en",
     ),
     "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
-      "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
+      "Palumba no es una empresa, ni un partido político, ni un gobierno. Somos una asociación independiente sin fines de lucro de más de 120 jóvenes 🐦 de toda Europa que nos juntamos el verano pasado y empezamos a crear esta app. Tenemos un objetivo: ayudarte a entender mejor cómo funcionan las Elecciones Europeas y qué listas podrían coincidir con tus ideas, para que votes con más confianza por quienes apoyan tus prioridades. Nuestro algoritmo es de código abierto, las afirmaciones que deslizas fueron revisadas por politólogos, y tus datos están tan encriptados que no hay forma de identificarte :)",
     ),
     "settingsPageTextElection": MessageLookupByLibrary.simpleMessage(
-      "To change the questionnaire, click on the current one",
+      "Para cambiar el cuestionario, toca el actual",
     ),
     "settingsPageTextLanguage": MessageLookupByLibrary.simpleMessage(
-      "To change the language, click on the current one",
+      "Para cambiar el idioma, toca el actual",
     ),
     "settingsPageTextPartners": MessageLookupByLibrary.simpleMessage(
-      "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+      "Es importante decirte que los socios no tienen poder editorial sobre el contenido de la app, que sigue siendo una iniciativa no partidista con un objetivo claro: ayudarte a entender quién apoya tus opiniones a nivel europeo y nacional.",
     ),
     "settingsPageTextPartners_ger25": MessageLookupByLibrary.simpleMessage(
       "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
     ),
     "settingsPageTextPartners_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+      "Es importante decirte que los socios no tienen poder editorial sobre el contenido de la app, que sigue siendo una iniciativa no partidista con un objetivo claro: ayudarte a entender quién apoya tus opiniones a nivel europeo y nacional.",
     ),
-    "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("About"),
+    "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("Acerca de"),
     "settingsPageTitleAssociation": MessageLookupByLibrary.simpleMessage(
-      "The association",
+      "La asociación",
     ),
     "settingsPageTitleAssociation_ger25": MessageLookupByLibrary.simpleMessage(
       "The association",
     ),
     "settingsPageTitleAssociation_nyc25": MessageLookupByLibrary.simpleMessage(
-      "The association",
+      "La asociación",
     ),
     "settingsPageTitleElection": MessageLookupByLibrary.simpleMessage(
-      "Election",
+      "Elección",
     ),
-    "settingsPageTitleLanguage": MessageLookupByLibrary.simpleMessage(
-      "Language",
-    ),
-    "settingsPageTitlePartners": MessageLookupByLibrary.simpleMessage(
-      "Partners",
-    ),
+    "settingsPageTitleLanguage": MessageLookupByLibrary.simpleMessage("Idioma"),
+    "settingsPageTitlePartners": MessageLookupByLibrary.simpleMessage("Socios"),
     "settingsPageTitlePartners_ger25": MessageLookupByLibrary.simpleMessage(
       "Partners",
     ),
     "settingsPageTitlePartners_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Partners",
+      "Socios",
     ),
     "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
-    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
-    "spain": MessageLookupByLibrary.simpleMessage("Spain"),
+    "skip": MessageLookupByLibrary.simpleMessage("Saltar"),
+    "spain": MessageLookupByLibrary.simpleMessage("España"),
     "splashPageNoInternet": MessageLookupByLibrary.simpleMessage(
-      "It looks like you don\'t have internet connection",
+      "Parece que no tienes conexión a internet",
     ),
     "statementsTutorialTurnInfo_ger25": MessageLookupByLibrary.simpleMessage(
-      "Tap to turn & read more info",
+      "Toca para voltear y leer más info",
     ),
     "statementsTutorialTurnInfo_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Tap to turn & read more info",
+      "Toca para voltear y leer más info",
     ),
-    "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),
-    "textContinue": MessageLookupByLibrary.simpleMessage("Continue"),
-    "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "sweden": MessageLookupByLibrary.simpleMessage("Suecia"),
+    "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
+    "yes": MessageLookupByLibrary.simpleMessage("Sí"),
   };
 }

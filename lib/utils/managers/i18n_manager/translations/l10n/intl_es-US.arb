@@ -1,0 +1,486 @@
+{
+  "@@locale": "es-US",
+  "appName": "Palumba EU",
+  "shortAppName": "Palumba",
+  "ok": "OK",
+  "yes": "Sí",
+  "no": "No",
+  "maybe": "Tal vez",
+  "cancel": "Cancelar",
+  "textContinue": "Continuar",
+  "alertServerErrorTitle": "¡Ups!",
+  "alertServerErrorText": "Algo salió mal de nuestro lado. Inténtalo de nuevo más tarde.",
+  "skip": "Saltar",
+  "neutral": "Neutral",
+  "faq": "Preguntas frecuentes",
+  "message_half_test_done": "¡Sigue deslizando, vas 50% completado!",
+  "message_five_cards_left": "Solo quedan 5 tarjetas por deslizar :)",
+  "@@SplashPage": "SplashPage",
+  "splashPageNoInternet": "Parece que no tienes conexión a internet",
+  "@@LanguagePage": "LanguagePage",
+  "languagePageTitle": "¿Seguimos en inglés? :)",
+  "languagePageSubtitle": "Esto se puede cambiar luego en la configuración.",
+  "@@Entrance": "EntrancePage",
+  "entranceTitle1": "Si esta palomita no puede ayudarte a votar en junio, nada lo hará.",
+  "entranceTitle2": "Desliza tu opinión sobre los temas que te importan.",
+  "entranceTitle3": "Descubre tu coincidencia y una orientación sobre por quién votar en las Elecciones.",
+  "entranceMatchesFoundQuote": "{count} coincidencias encontradas en las últimas 24 h",
+  "entranceStartButton": "Iniciar Palumba",
+  "@@OnBoardingPage": "OnBoardingPage",
+  "hungary": "Hungría",
+  "denmark": "Dinamarca",
+  "germany": "Alemania",
+  "spain": "España",
+  "france": "Francia",
+  "poland": "Polonia",
+  "romania": "Rumania",
+  "sweden": "Suecia",
+  "onBoardingStep1Title": "¿Cuál es tu distrito?",
+  "onBoardingStep1Subtitle": "No lo sé",
+  "onBoardingStep2Title": "Mi edad",
+  "onBoardingStep3Title": "Me identifico como",
+  "onBoardingStep3Option1": "Mujer",
+  "onBoardingStep3Option2": "Hombre",
+  "onBoardingStep3Option3": "Género fluido",
+  "onBoardingStep3Option4": "No binario",
+  "onBoardingStep3Option5": "Otro",
+  "onBoardingNotAnswerButton": "Prefiero no decirlo",
+  "onBoardingCardQuestion": "No tengo idea por quién votar en las Elecciones Europeas de 2024",
+  "onBoardingLastStepTitle": "Desliza según tu grado de acuerdo",
+  "@@LoadingResultsPage": "LoadingResultsPage",
+  "loadingResultsPageTitle1": "Tus resultados personalizados ya vienen en camino :)",
+  "loadingResultsPageTitle2": "Esto será más rápido que conseguir boletos para Taylor Swift 👀 ",
+  "loadingResultsPageTitle3": "Buscando coincidencias con listas de candidatos en {country}  🔍",
+  "loadingResultsPageTitle4": "Casi listo, un último chequeo...",
+  "loadingResultsPageRandom1": "Esto será más rápido que tu transbordo del MTA en Times Square",
+  "loadingResultsPageRandom2": "Nos moveremos más rápido que la fila larga en el Box",
+  "loadingResultsPageRandom3": "¡Tú puedes! Supera esos 7 segundos de atención",
+  "loadingResultsPageRandom4": "A diferencia de Hinge, *sí* tenemos una coincidencia para ti",
+  "loadingResultsPageRandom5": "¿Curiosidad por el algoritmo? ¡Es de código abierto!",
+  "loadingResultsPageRandom6": "Deberías contarles a tus amistades sobre esta app tan cool",
+  "loadingResultsPageRandom7": "Casi listo, un último chequeo...",
+  "@@ResultsPage": "ResultsPage",
+  "resultsPage1Title": "Un match y mucho más 👉👈",
+  "resultsPage1Text": "En las próximas pantallas, descubrirás tu Grupo más compatible en el Parlamento Europeo, las listas locales que coinciden contigo para votar en junio en tu país, y hasta encontramos algunas cositas extra según tus respuestas 😌",
+  "resultsPage1Button": "Presiona para continuar",
+  "resultsPage2_1Title": "Honestamente, entre",
+  "resultsPage2_2Title": "y yo, esto es como una Love Story (EU’s Version)",
+  "resultsPage3Title": "Qué tan cerca estoy de los Grupos del Parlamento Europeo",
+  "resultsPage4TitleTop": "Pro-integración de la UE",
+  "resultsPage4TitleBottom": "Anti-integración de la UE",
+  "resultsPage4TitleLeft": "Izquierda",
+  "resultsPage4TitleRight": "Derecha",
+  "resultsPage4TitleUserHere": "¡Soy yo, hola!",
+  "resultsPage5Title": "En temas más específicos, ¿a qué Grupo del Parlamento Europeo me acerco más?",
+  "resultsPage5Topic1": "Cuestiones ambientales",
+  "resultsPage5Topic2": "Derechos humanos y sociales",
+  "resultsPage5Topic3": "Intervención económica",
+  "resultsPage6_1Title": "Ok, está cool saber qué grupo me entiende...",
+  "resultsPage6_2Title": "Pero en las Elecciones de la UE votamos por una lista local",
+  "resultsPage6Text": "En las siguientes pantallas, verás las listas de candidatos en tu país que probablemente se unan a tu match.",
+  "resultsPage7Title": "Las candidaturas en {country} más alineadas con {group}",
+  "resultsPage7Disclaimer": "Sin orden particular.",
+  "resultsPage7NoLocalCandidates": "No se encontraron partidos locales en {country}",
+  "resultsPage8_1Text": "En {topic}, estás {percentage}% más a favor de",
+  "resultsPage8_2Text": "Acción climática activa 🌱😌",
+  "resultsPage8Help": "¡Eres una persona que lucha contra el cambio climático! Crees que enfrentar la crisis climática requiere acción colectiva y que todos lo pongan como prioridad. No te molesta que la UE regule a las empresas con ese fin. Al final, ¿de qué sirve el crecimiento económico si el planeta se vuelve inhabitable?",
+  "resultsPage9Help": "Toca las tarjetas para barajar",
+  "resultsPage9Text1": "Las elecciones son sobre muchos temas, pero hay uno que realmente",
+  "resultsPage9Text2": "Encaja conmigo 😌",
+  "resultsPage10Title": "¿Una notificación cuando sea hora de ir a votar?",
+  "resultsPage10NopButton": "¡No, gracias!",
+  "resultsPage10YesButton": "Siiiií",
+  "resultsShare": "Compartir",
+  "@HomePage": "HomePage",
+  "homePageMatchesFoundQuote": "{count} coincidencias encontradas en las últimas 24 h",
+  "homePageBackToTest": "Volver al test",
+  "homePageMyResults": "Mis resultados",
+  "homePageStartButton": "Empezar un nuevo test",
+  "@@SettingsPage": "SettingsPage",
+  "settingsPageTitleLanguage": "Idioma",
+  "settingsPageSubtitleLanguage": "Prefiero usar la app en",
+  "settingsPageTextLanguage": "Para cambiar el idioma, toca el actual",
+  "settingsPageTitleElection": "Elección",
+  "settingsPageTextElection": "Para cambiar el cuestionario, toca el actual",
+  "settingsPageTitleAbout": "Acerca de",
+  "settingsPageTextAbout": "Palumba no es una empresa, ni un partido político, ni un gobierno. Somos una asociación independiente sin fines de lucro de más de 120 jóvenes 🐦 de toda Europa que nos juntamos el verano pasado y empezamos a crear esta app. Tenemos un objetivo: ayudarte a entender mejor cómo funcionan las Elecciones Europeas y qué listas podrían coincidir con tus ideas, para que votes con más confianza por quienes apoyan tus prioridades. Nuestro algoritmo es de código abierto, las afirmaciones que deslizas fueron revisadas por politólogos, y tus datos están tan encriptados que no hay forma de identificarte :)",
+  "settingsPageTitleAssociation": "La asociación",
+  "settingsPageTitlePartners": "Socios",
+  "settingsPageTextPartners": "Es importante decirte que los socios no tienen poder editorial sobre el contenido de la app, que sigue siendo una iniciativa no partidista con un objetivo claro: ayudarte a entender quién apoya tus opiniones a nivel europeo y nacional.",
+  "settingsPageSubtitle1": "Patrocinadores principales",
+  "settingsPageSubtitle2": "Socios europeos",
+  "settingsPageSubtitle3": "Socio académico",
+  "settingsPageSubtitle4": "Socios institucionales nacionales",
+  "settingsPageSubtitle5": "Proveedores de servicio",
+  "settingsPageShareButtonText": "Compartir",
+  "settingsPagePrivacyPolicy": "Protección de datos",
+  "settingsPageShareText": "Si esta palomita no puede ayudarte a votar en junio, nada lo hará. Yo ya usé la app y tú también deberías:",
+  "entranceTitle1_ger25": "If this cute pigeon can’t help you vote in February, nothing will.",
+  "@entranceTitle1_ger25": {
+    "description": "-> entranceTitle1"
+  },
+  "entranceTitle2_ger25": "Swipe your opinion on topics that matter to you.",
+  "@entranceTitle2_ger25": {
+    "description": "-> entranceTitle2"
+  },
+  "entranceTitle3_ger25": "Find out your match and an orientation for who to vote for at the Elections.",
+  "@entranceTitle3_ger25": {
+    "description": "-> entranceTitle3"
+  },
+  "onBoardingCardQuestion_ger25": "I have no clue who to vote for at the 2025 German Elections",
+  "@onBoardingCardQuestion_ger25": {
+    "description": "-> onBoardingCardQuestion"
+  },
+  "loadingResultsPageTitle1_ger25": "Your personal results are on their way :)",
+  "@loadingResultsPageTitle1_ger25": {
+    "description": "-> loadingResultsPageTitle1"
+  },
+  "loadingResultsPageTitle2_ger25": "This is going faster than the Deutsche Bahn",
+  "@loadingResultsPageTitle2_ger25": {
+    "description": "-> loadingResultsPageTitle2"
+  },
+  "loadingResultsPageTitle3_ger25": "Hold on, it’s almost done - pinky promise, no layovers!",
+  "@loadingResultsPageTitle3_ger25": {
+    "description": "-> loadingResultsPageTitle3"
+  },
+  "loadingResultsPageTitle4_ger25": "Almost ready, one last check...",
+  "@loadingResultsPageTitle4_ger25": {
+    "description": "-> loadingResultsPageTitle4"
+  },
+  "resultsPage1Title_ger25": "A match and much more",
+  "@resultsPage1Title_ger25": {
+    "description": "-> resultsPage1Title"
+  },
+  "resultsPage1Text_ger25": "In the next screens, you’ll discover which party is compatible with you. And we even found a few extra things based on your answers!",
+  "@resultsPage1Text_ger25": {
+    "description": "-> resultsPage1Text"
+  },
+  "resultsPage2_1Title_ger25": "Honestly,",
+  "@resultsPage2_1Title_ger25": {
+    "description": "-> resultsPage2_1Title"
+  },
+  "resultsPage2_2Title_ger25": "and I, we are like Currywurst and fries",
+  "@resultsPage2_2Title_ger25": {
+    "description": "-> resultsPage2_2Title"
+  },
+  "resultsPage3Title_ger25": "How close I am to the main parties running in this German election",
+  "@resultsPage3Title_ger25": {
+    "description": "-> resultsPage3Title"
+  },
+  "resultsPage4TitleTop_ger25": "Socially conservative",
+  "@resultsPage4TitleTop_ger25": {
+    "description": "-> resultsPage4TitleTop"
+  },
+  "resultsPage4TitleBottom_ger25": "Socially progressive",
+  "@resultsPage4TitleBottom_ger25": {
+    "description": "-> resultsPage4TitleBottom"
+  },
+  "resultsPage4TitleLeft_ger25": "Economic intervention",
+  "@resultsPage4TitleLeft_ger25": {
+    "description": "-> resultsPage4TitleLeft"
+  },
+  "resultsPage4TitleRight_ger25": "Free market economics",
+  "@resultsPage4TitleRight_ger25": {
+    "description": "-> resultsPage4TitleRight"
+  },
+  "resultsPage4TitleUserHere_ger25": "It’s me, hi!",
+  "@resultsPage4TitleUserHere_ger25": {
+    "description": "-> resultsPage4TitleUserHere"
+  },
+  "resultsPage5Title_ger25": "On more specific topics, which parties am I closest to?",
+  "@resultsPage5Title_ger25": {
+    "description": "resultsPage5Title"
+  },
+  "resultsPage5Topic1_ger25": "Environmental issues",
+  "@resultsPage5Topic1_ger25": {
+    "description": "-> resultsPage5Topic1"
+  },
+  "resultsPage5Topic2_ger25": "Economy",
+  "@resultsPage5Topic2_ger25": {
+    "description": "-> resultsPage5Topic2"
+  },
+  "resultsPage5Topic3_ger25": "Social values",
+  "@resultsPage5Topic3_ger25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage6_1Title_ger25": "Okay, it is cool to know which party gets me…",
+  "@resultsPage6_1Title_ger25": {
+    "description": "-> resultsPage6_1Title"
+  },
+  "resultsPage6_2Title_ger25": "But in the German election you also have the option to vote for a specific candidate",
+  "@resultsPage6_2Title_ger25": {
+    "description": "resultsPage6_2Title"
+  },
+  "resultsPage6Text_ger25": "Overwhelmed? No worries, we’ve thought of that! We have some options for you on the next slide!",
+  "@resultsPage6Text_ger25": {
+    "description": "-> resultsPage6Text"
+  },
+  "resultsPage8_1Text_ger25": "Your answers are in the top {number}% regarding {dimension}",
+  "@resultsPage8_1Text_ger25": {
+    "description": "-> resultsPage8_1Text"
+  },
+  "resultsPage8_2Text_ger25": "Active Climate Action 🌱😌",
+  "@resultsPage8_2Text_gerå25": {
+    "description": "-> resultsPage8_2Text"
+  },
+  "resultsPage9Help_ger25": "Click on the cards to shuffle",
+  "@resultsPage9Help_ger25": {
+    "description": "-> resultsPage9Help"
+  },
+  "resultsPage9Text1_ger25": "Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was",
+  "@resultsPage9Text1_ger25": {
+    "description": "-> resultsPage9Text1"
+  },
+  "resultsPage10Title_ger25": "A notification when it’s time to go vote?",
+  "@resultsPage10Title_ger25": {
+    "description": "-> resultsPage10Title"
+  },
+  "messageScreenYes_ger25": "Yesss!",
+  "@messageScreenYes_ger25": {
+    "description": "-> messageScreenYes"
+  },
+  "messageScreenNo_ger25": "No, thanks!",
+  "@messageScreenNo_ger25": {
+    "description": "-> messageScreenNo"
+  },
+  "onBoardingStep4Title": "Nivel de educación",
+  "onBoardingStep4Option1_ger25": "University degree",
+  "@onBoardingStep4Option1_ger25": {
+    "description": "-> onBoardingStep4Option1"
+  },
+  "onBoardingStep4Option2_ger25": "⁠High school diploma",
+  "@onBoardingStep4Option2_ger25": {
+    "description": "-> onBoardingStep4Option2"
+  },
+  "onBoardingStep4Option3_ger25": "⁠Vocational training",
+  "@onBoardingStep4Option3_ger25": {
+    "description": "-> onBoardingStep4Option3"
+  },
+  "onBoardingStep4Option4_ger25": "Middle school diploma",
+  "@onBoardingStep4Option4_ger25": {
+    "description": "-> onBoardingStep4Option4"
+  },
+  "onBoardingStep4Option5_ger25": "Incomplete school education",
+  "@onBoardingStep4Option5_ger25": {
+    "description": "-> onBoardingStep4Option5"
+  },
+  "onBoardingStep4Option6_ger25": "Other",
+  "@onBoardingStep4Option6_ger25": {
+    "description": "-> onBoardingStep4Option6"
+  },
+  "onBoardingStep3Title_ger25": "I identify as",
+  "@onBoardingStep3Title_ger25": {
+    "description": "-> onBoardingStep3Title"
+  },
+  "resultsPage1Button_ger25": "Press to continue",
+  "@resultsPage1Button_ger25": {
+    "description": "-> onBoardingLastStepTitle"
+  },
+  "resultsPage10NopButton_ger25": "No thanks!",
+  "@resultsPage10NopButton_ger25": {
+    "description": "-> resultsPage10NopButton"
+  },
+  "resultsPage10YesButton_ger25": "Yesssss",
+  "@resultsPage10YesButton_ger25": {
+    "description": "-> resultsPage10YesButton"
+  },
+  "settingsPageTitleAssociation_ger25": "The association",
+  "@settingsPageTitleAssociation_ger25": {
+    "description": "-> settingsPageTitleAssociation"
+  },
+  "settingsPageTitlePartners_ger25": "Partners",
+  "@settingsPageTitlePartners_ger25": {
+    "description": "-> settingsPageTitlePartners"
+  },
+  "settingsPageTextPartners_ger25": "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+  "@settingsPageTextPartners_ger25": {
+    "description": "-> settingsPageTextPartners"
+  },
+  "settingsPageSubtitle1_ger25": "Main Sponsors",
+  "@settingsPageSubtitle1_ger25": {
+    "description": "-> settingsPageSubtitle1"
+  },
+  "settingsPageSubtitle2_ger25": "European Partners",
+  "@settingsPageSubtitle2_ger25": {
+    "description": "-> settingsPageSubtitle2"
+  },
+  "settingsPageSubtitle3_ger25": "Academic Partners",
+  "@settingsPageSubtitle3_ger25": {
+    "description": "-> settingsPageSubtitle3"
+  },
+  "settingsPageSubtitle4_ger25": "National Institutional Partners",
+  "@settingsPageSubtitle4_ger25": {
+    "description": "-> settingsPageSubtitle4"
+  },
+  "settingsPageSubtitle5_ger25": "Service Providers",
+  "@settingsPageSubtitle5_ger25": {
+    "description": "-> settingsPageSubtitle5"
+  },
+  "settingsPageShareText_ger25": "If this cute pigeon can't help you vote in February, nothing will. I've used the app and you should too:",
+  "@settingsPageShareText_ger25": {
+    "description": "-> settingsPageShareText"
+  },
+  "resultsPage8Help_ger25": "You are a climate change fighter! You believe that tackling the climate crisis requires collective action, with everyone making it a top priority. You do not mind the Germany regulating companies to that end. After all, what use is economic growth if the planet becomes inhabitable? #ClimateActionNow #PlanetFirst",
+  "@resultsPage8Help_ger25": {
+    "description": "-> resultsPage8Help"
+  },
+  "resultsPage5Topic4_ger25": "EU integration",
+  "@resultsPage5Topic4_ger25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage5Topic5_ger25": "Migration",
+  "@resultsPage5Topic5_ger25": {
+    "description": "-> resultsPage5Topic5_ger25"
+  },
+  "resultsPage7Disclaimer_ger25": "* On this screen only candidates from the following parties can be displayed: CDU/CSU, SPD, Grüne, AfD, Linke, FDP, BSW.",
+  "@resultsPage7Disclaimer_ger25": {
+    "description": "-> resultsPage7Title"
+  },
+  "resultsPage7Title_ger25": "Here’s a young candidate from {party}* —shuffle to see more! They may not be on your ballot, but represent the future of their party!",
+  "@resultsPage7Title_ger25": {
+    "description": "-> resultsPage7Title"
+  },
+  "onBoardingDataProtection_ger25": "I adhere to the Data Protection Policy and the Terms to use the app",
+  "onBoardingDataProtectionLink_ger25": "Data Protection Policy",
+  "resultsPage9Text2_ger25": "¡hecho para ti!",
+  "@resultsPage9Text2_ger25": {
+    "description": "-> resultsPage9Text2"
+  },
+  "resultsPage2NoResults": "No se encontraron resultados",
+  "resultsPage10VotingDay": "Prepárate, el día de votación es {date}",
+  "resultsPage10VotingQuestion": "¿Vas a votar?",
+  "pushDeactivatedTitle": "Notificaciones desactivadas",
+  "pushDeactivatedText": "Para poder recibir notificaciones push, actívalas en la configuración",
+  "pushDeactivatedCancel": "Cerrar",
+  "pushDeactivatedConfirm": "Abrir configuración",
+  "resultsPageCandidatesShuffle": "Barajar mi amor político 🔀",
+  "resultsPageCandidatesNoParties": "no hay partidos locales",
+  "electionPageTitle": "Elige una elección",
+  "electionPageSubtitle": "",
+  "electionEU": "Elecciones Europeas 2024 🇪🇺",
+  "electionDE": "Bundestagswahl 2025 🇩🇪",
+  "resultsPageAllPartiesTitle_ger25": "Tu ranking personal de todos los partidos",
+  "resultsPageAllPartiesDescription_ger25": "¿Cómo se vería tu ranking si también incluimos partidos pequeños? — Esta lista incluye partidos que actualmente no tienen representantes en el Bundestag.",
+  "resultsPage10AreYouGoingToVote_ger25": "¿Vas a votar?",
+  "statementsTutorialTurnInfo_ger25": "Toca para voltear y leer más info",
+  "resultsPage10MaybeButton_ger25": "Tal vez",
+  "resultsPage10VotingDay_ger25": "Prepárate, el día de votación es {date}",
+  "electionNY": "Elección para la Alcaldía de NYC 2025 🗽",
+  "entranceTitle1_nyc25": "De bagels a boletas, esta palomita se lo sabe todo",
+  "@entranceTitle1_nyc25": { "description": "-> entranceTitle1" },
+  "entranceTitle2_nyc25": "Desliza y haz match con tu futuro alcalde o alcaldesa",
+  "@entranceTitle2_nyc25": { "description": "-> entranceTitle2" },
+  "entranceTitle3_nyc25": "Descubre tu posición y quién aparece en la boleta",
+  "@entranceTitle3_nyc25": { "description": "-> entranceTitle3" },
+  "onBoardingCardQuestion_nyc25": "No tengo idea por quién votar en la Elección para la Alcaldía de NYC 2025",
+  "@onBoardingCardQuestion_nyc25": { "description": "-> onBoardingCardQuestion" },
+  "loadingResultsPageTitle1_nyc25": "Tus resultados personales ya vienen en camino :)",
+  "@loadingResultsPageTitle1_nyc25": { "description": "-> loadingResultsPageTitle1" },
+  "loadingResultsPageTitle2_nyc25": "Esto debería ser más rápido que un café neoyorquino ☕",
+  "@loadingResultsPageTitle2_nyc25": { "description": "-> loadingResultsPageTitle2" },
+  "loadingResultsPageTitle3_nyc25": "Espera, ya casi — ¡prometido, sin desvíos!",
+  "@loadingResultsPageTitle3_nyc25": { "description": "-> loadingResultsPageTitle3" },
+  "loadingResultsPageTitle4_nyc25": "Casi listo, un último chequeo...",
+  "@loadingResultsPageTitle4_nyc25": { "description": "-> loadingResultsPageTitle4" },
+  "resultsPage1Title_nyc25": "Un match y mucho más",
+  "@resultsPage1Title_nyc25": { "description": "-> resultsPage1Title" },
+  "resultsPage1Text_nyc25": "En las próximas pantallas descubrirás qué candidatura para la Alcaldía se alinea contigo. ¡Hasta encontramos algunas cosas extra según tus respuestas!",
+  "@resultsPage1Text_nyc25": { "description": "-> resultsPage1Text" },
+  "resultsPage2_1Title_nyc25": "Honestamente,",
+  "@resultsPage2_1Title_nyc25": { "description": "-> resultsPage2_1Title" },
+  "resultsPage2_2Title_nyc25": "y yo, somos como pizza y porciones de madrugada",
+  "@resultsPage2_2Title_nyc25": { "description": "-> resultsPage2_2Title" },
+  "resultsPage3Title_nyc25": "Qué tan cerca estoy de las candidaturas a la Alcaldía",
+  "@resultsPage3Title_nyc25": { "description": "-> resultsPage3Title" },
+  "resultsPage4TitleTop_nyc25": "Socialmente conservador",
+  "@resultsPage4TitleTop_nyc25": { "description": "-> resultsPage4TitleTop" },
+  "resultsPage4TitleBottom_nyc25": "Socialmente progresista",
+  "@resultsPage4TitleBottom_nyc25": { "description": "-> resultsPage4TitleBottom" },
+  "resultsPage4TitleLeft_nyc25": "Intervención económica",
+  "@resultsPage4TitleLeft_nyc25": { "description": "-> resultsPage4TitleLeft" },
+  "resultsPage4TitleRight_nyc25": "Economía de libre mercado",
+  "@resultsPage4TitleRight_nyc25": { "description": "-> resultsPage4TitleRight" },
+  "resultsPage4TitleUserHere_nyc25": "¡Soy yo, hola!",
+  "@resultsPage4TitleUserHere_nyc25": { "description": "-> resultsPage4TitleUserHere" },
+  "resultsPage5Title_nyc25": "En temas más específicos, ¿a qué candidatura me acerco más?",
+  "@resultsPage5Title_nyc25": { "description": "resultsPage5Title" },
+  "resultsPage5Topic1_nyc25": "Cuestiones ambientales",
+  "@resultsPage5Topic1_nyc25": { "description": "-> resultsPage5Topic1" },
+  "resultsPage5Topic2_nyc25": "Economía",
+  "@resultsPage5Topic2_nyc25": { "description": "-> resultsPage5Topic2" },
+  "resultsPage5Topic3_nyc25": "Valores sociales",
+  "@resultsPage5Topic3_nyc25": { "description": "-> resultsPage5Topic3" },
+  "resultsPage5Topic4_nyc25": "Transporte y calles",
+  "@resultsPage5Topic4_nyc25": { "description": "-> resultsPage5Topic3" },
+  "resultsPage5Topic5_nyc25": "Vivienda y asequibilidad",
+  "@resultsPage5Topic5_nyc25": { "description": "-> resultsPage5Topic5_ger25" },
+  "resultsPage6_1Title_nyc25": "Ok, está cool saber qué candidatura me entiende…",
+  "@resultsPage6_1Title_nyc25": { "description": "-> resultsPage6_1Title" },
+  "resultsPage6_2Title_nyc25": "Pero en la elección de NYC votas por una sola candidatura a la Alcaldía",
+  "@resultsPage6_2Title_nyc25": { "description": "resultsPage6_2Title" },
+  "resultsPage6Text_nyc25": "En las siguientes pantallas, verás las candidaturas más alineadas con tus respuestas.",
+  "@resultsPage6Text_nyc25": { "description": "-> resultsPage6Text" },
+  "resultsPage8_1Text_nyc25": "Tus respuestas están en el top {number}% respecto a {dimension}",
+  "@resultsPage8_1Text_nyc25": { "description": "-> resultsPage8_1Text" },
+  "resultsPage8_2Text_nyc25": "Acción climática activa 🌱😌",
+  "@resultsPage8_2Text_nyc25": { "description": "-> resultsPage8_2Text" },
+  "resultsPage9Help_nyc25": "Toca las tarjetas para barajar",
+  "@resultsPage9Help_nyc25": { "description": "-> resultsPage9Help" },
+  "resultsPage9Text1_nyc25": "Las elecciones tratan muchos temas, pero hay uno que te queda perfecto. Es casi como si fuera",
+  "@resultsPage9Text1_nyc25": { "description": "-> resultsPage9Text1" },
+  "resultsPage9Text2_nyc25": "¡hecho para ti!",
+  "@resultsPage9Text2_nyc25": { "description": "-> resultsPage9Text2" },
+  "resultsPage10Title_nyc25": "¿Una notificación cuando sea hora de ir a votar?",
+  "@resultsPage10Title_nyc25": { "description": "-> resultsPage10Title" },
+  "resultsPage10NopButton_nyc25": "¡No, gracias!",
+  "@resultsPage10NopButton_nyc25": { "description": "-> resultsPage10NopButton" },
+  "resultsPage10YesButton_nyc25": "Siiiií",
+  "@resultsPage10YesButton_nyc25": { "description": "-> resultsPage10YesButton" },
+  "resultsPage10AreYouGoingToVote_nyc25": "¿Vas a votar?",
+  "statementsTutorialTurnInfo_nyc25": "Toca para voltear y leer más info",
+  "resultsPage10MaybeButton_nyc25": "Tal vez",
+  "resultsPage10VotingDay_nyc25": "Prepárate, el día de votación es {date}",
+  "@resultsPage10VotingDay_nyc25": { "description": "-> resultsPage10VotingDay" },
+  "messageScreenYes_nyc25": "¡Siii!",
+  "@messageScreenYes_nyc25": { "description": "-> messageScreenYes" },
+  "messageScreenNo_nyc25": "¡No, gracias!",
+  "@messageScreenNo_nyc25": { "description": "-> messageScreenNo" },
+  "onBoardingStep3Title_nyc25": "Me identifico como",
+  "@onBoardingStep3Title_nyc25": { "description": "-> onBoardingStep3Title" },
+  "onBoardingStep4Title_nyc25": "Graduado de...",
+  "LevelOfEducationHighSchool_nyc25": "High school",
+  "LevelOfEducationAssociates_nyc25": "Título de asociado",
+  "LevelOfEducationBachelors_nyc25": "Licenciatura",
+  "LevelOfEducationGradSchool_nyc25": "Posgrado",
+  "LevelOfEducationOther_nyc25": "Otro",
+  "resultsPage1Button_nyc25": "Presiona para continuar",
+  "@resultsPage1Button_nyc25": { "description": "-> onBoardingLastStepTitle" },
+  "settingsPageTitleAssociation_nyc25": "La asociación",
+  "@settingsPageTitleAssociation_nyc25": { "description": "-> settingsPageTitleAssociation" },
+  "settingsPageTitlePartners_nyc25": "Socios",
+  "@settingsPageTitlePartners_nyc25": { "description": "-> settingsPageTitlePartners" },
+  "settingsPageTextPartners_nyc25": "Es importante decirte que los socios no tienen poder editorial sobre el contenido de la app, que sigue siendo una iniciativa no partidista con un objetivo claro: ayudarte a entender quién apoya tus opiniones a nivel europeo y nacional.",
+  "@settingsPageTextPartners_nyc25": { "description": "-> settingsPageTextPartners" },
+  "settingsPageSubtitle1_nyc25": "Patrocinadores principales",
+  "@settingsPageSubtitle1_nyc25": { "description": "-> settingsPageSubtitle1" },
+  "settingsPageSubtitle2_nyc25": "Socios europeos",
+  "@settingsPageSubtitle2_nyc25": { "description": "-> settingsPageSubtitle2" },
+  "settingsPageSubtitle3_nyc25": "Socios académicos",
+  "@settingsPageSubtitle3_nyc25": { "description": "-> settingsPageSubtitle3" },
+  "settingsPageSubtitle4_nyc25": "Socios institucionales nacionales",
+  "@settingsPageSubtitle4_nyc25": { "description": "-> settingsPageSubtitle4" },
+  "settingsPageSubtitle5_nyc25": "Proveedores de servicio",
+  "@settingsPageSubtitle5_nyc25": { "description": "-> settingsPageSubtitle5" },
+  "settingsPageShareText_nyc25": "Si esta palomita no puede ayudarte a votar en noviembre, nada lo hará. Yo ya usé la app y tú también deberías:",
+  "@settingsPageShareText_nyc25": { "description": "-> settingsPageShareText" },
+  "resultsPage8Help_nyc25": "Te importa mucho la acción climática en NYC. Crees que enfrentar la crisis requiere esfuerzo colectivo y políticas urbanas inteligentes — resiliencia, transporte limpio y calles más verdes — para que los neoyorquinos prosperen hoy y en el futuro.",
+  "@resultsPage8Help_nyc25": { "description": "-> resultsPage8Help" },
+  "resultsPage7Disclaimer_nyc25": "En esta pantalla solo se muestran candidaturas con información pública suficiente.",
+  "@resultsPage7Disclaimer_nyc25": { "description": "-> resultsPage7Title" },
+  "resultsPage7Title_nyc25": "Aquí tienes una candidatura a la Alcaldía de {party} — ¡baraja para ver más!",
+  "@resultsPage7Title_nyc25": { "description": "-> resultsPage7Title" },
+  "onBoardingDataProtection_nyc25": "Acepto la Política de Protección de Datos y los Términos de uso de la app",
+  "onBoardingDataProtectionLink_nyc25": "Política de Protección de Datos",
+  "resultsPageAllPartiesTitle_nyc25": "Tu ranking personal de todas las candidaturas",
+  "resultsPageAllPartiesDescription_nyc25": "¿Cómo se vería tu ranking si incluimos a todas las candidaturas a la Alcaldía? — Esta lista puede incluir candidaturas con encuestas o visibilidad limitadas."
+}

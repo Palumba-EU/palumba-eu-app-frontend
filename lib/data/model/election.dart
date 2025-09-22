@@ -173,6 +173,17 @@ extension ElectionTexts on Election {
     }
   }
 
+  String onBoardingStep4Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).onBoardingStep4Title;
+      case Election.EU:
+        return S.of(context).onBoardingStep4Title;
+      case Election.NY:
+        return S.of(context).onBoardingStep4Title_nyc25;
+    }
+  }
+
   String loadingResultsPageTitle1(BuildContext context) {
     switch (this) {
       case Election.DE:

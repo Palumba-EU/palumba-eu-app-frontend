@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/gender_model.dart';
 import 'package:palumba_eu/data/model/levelOfStudy_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
@@ -11,6 +12,7 @@ import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.da
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
@@ -49,9 +51,9 @@ class OnboardingController extends GetxController {
   List<String> get genders => _genders.map((gender) => gender.name).toList();
   RxInt indexGenderSelected = (-1).obs;
   RxBool acceptDataPrivacy = (false).obs;
-
+ 
   ///Step 4
-  List<LevelOfEducation> levelsofEducation = LevelOfEducation.values;
+  late List<LevelOfEducation> levelsofEducation;
   RxInt indexLevelOfEducationSelected = (-1).obs;
 
   ///Step5
@@ -77,6 +79,24 @@ class OnboardingController extends GetxController {
     trackSteps();
     cardData =
         StatementsParser.getCardModelList(DataManager().getStatements())[0];
+    if(ElectionManager.currentElection.value.backend == 3) { // 2025 NYC Mayor Election
+      levelsofEducation = [
+        LevelOfEducation.highschool_nyc,
+        LevelOfEducation.associates_nyc,
+        LevelOfEducation.bachelors_nyc,
+        LevelOfEducation.grad_school_nyc,
+        LevelOfEducation.other_nyc
+      ];
+    } else { // Other elections (These levels of education are specific to the germany election)
+      levelsofEducation = [
+        LevelOfEducation.academic,
+        LevelOfEducation.highschool,
+        LevelOfEducation.vocational,
+        LevelOfEducation.secondary,
+        LevelOfEducation.intermediate,
+        LevelOfEducation.none
+      ];
+    }
     PlausibleManager.trackPage(route);
   }
 

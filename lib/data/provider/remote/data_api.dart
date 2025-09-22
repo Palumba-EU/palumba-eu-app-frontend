@@ -33,9 +33,7 @@ var mock_localizations = '''
   ],
   "languages": [
     { "id": 1, "name": "English", "language_code": "en" },
-    { "id": 2, "name": "Spanish", "language_code": "es" },
-    { "id": 3, "name": "Mandarin Chinese", "language_code": "zh" },
-    { "id": 4, "name": "Hebrew", "language_code": "he" }
+    { "id": 2, "name": "Spanish", "language_code": "es-US" }
   ]
 }
 ''';

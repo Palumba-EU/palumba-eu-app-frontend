@@ -6,8 +6,10 @@ import 'package:palumba_eu/modules/onboarding/components/custom_gender_selector.
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-
+ 
 class Step3 extends StatelessWidget {
   final List<LevelOfEducation> levelsofEducation;
   final RxInt indexSelected;
@@ -32,7 +34,7 @@ class Step3 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              AppTexts.title(S.of(context).onBoardingStep4Title,
+              AppTexts.title(ElectionManager.currentElection.value.onBoardingStep4Title(context),
                   color: AppColors.primary),
               CustomSpacer(multiplier: 3),
               Wrap(

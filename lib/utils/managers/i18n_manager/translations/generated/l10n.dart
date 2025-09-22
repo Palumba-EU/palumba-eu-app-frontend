@@ -2239,62 +2239,62 @@ class S {
     );
   }
 
-  /// `University degree`
-  String get onBoardingStep4Option1_nyc25 {
+  /// `Graduated from...`
+  String get onBoardingStep4Title_nyc25 {
     return Intl.message(
-      'University degree',
-      name: 'onBoardingStep4Option1_nyc25',
-      desc: '-> onBoardingStep4Option1',
+      'Graduated from...',
+      name: 'onBoardingStep4Title_nyc25',
+      desc: '',
       args: [],
     );
   }
 
-  /// `High school diploma`
-  String get onBoardingStep4Option2_nyc25 {
+  /// `High school`
+  String get LevelOfEducationHighSchool_nyc25 {
     return Intl.message(
-      'High school diploma',
-      name: 'onBoardingStep4Option2_nyc25',
-      desc: '-> onBoardingStep4Option2',
+      'High school',
+      name: 'LevelOfEducationHighSchool_nyc25',
+      desc: '',
       args: [],
     );
   }
 
-  /// `Vocational training`
-  String get onBoardingStep4Option3_nyc25 {
+  /// `Associate's degree`
+  String get LevelOfEducationAssociates_nyc25 {
     return Intl.message(
-      'Vocational training',
-      name: 'onBoardingStep4Option3_nyc25',
-      desc: '-> onBoardingStep4Option3',
+      'Associate\'s degree',
+      name: 'LevelOfEducationAssociates_nyc25',
+      desc: '',
       args: [],
     );
   }
 
-  /// `Middle school diploma`
-  String get onBoardingStep4Option4_nyc25 {
+  /// `Bachelor's`
+  String get LevelOfEducationBachelors_nyc25 {
     return Intl.message(
-      'Middle school diploma',
-      name: 'onBoardingStep4Option4_nyc25',
-      desc: '-> onBoardingStep4Option4',
+      'Bachelor\'s',
+      name: 'LevelOfEducationBachelors_nyc25',
+      desc: '',
       args: [],
     );
   }
 
-  /// `Incomplete school education`
-  String get onBoardingStep4Option5_nyc25 {
+  /// `Grad school`
+  String get LevelOfEducationGradSchool_nyc25 {
     return Intl.message(
-      'Incomplete school education',
-      name: 'onBoardingStep4Option5_nyc25',
-      desc: '-> onBoardingStep4Option5',
+      'Grad school',
+      name: 'LevelOfEducationGradSchool_nyc25',
+      desc: '',
       args: [],
     );
   }
 
   /// `Other`
-  String get onBoardingStep4Option6_nyc25 {
+  String get LevelOfEducationOther_nyc25 {
     return Intl.message(
       'Other',
-      name: 'onBoardingStep4Option6_nyc25',
-      desc: '-> onBoardingStep4Option6',
+      name: 'LevelOfEducationOther_nyc25',
+      desc: '',
       args: [],
     );
   }
@@ -2483,6 +2483,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'de'),
       Locale.fromSubtags(languageCode: 'el'),
       Locale.fromSubtags(languageCode: 'es-ES'),
+      Locale.fromSubtags(languageCode: 'es-US'),
       Locale.fromSubtags(languageCode: 'et'),
       Locale.fromSubtags(languageCode: 'eu'),
       Locale.fromSubtags(languageCode: 'fi'),
