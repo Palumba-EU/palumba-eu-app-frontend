@@ -1819,30 +1819,30 @@ class S {
     );
   }
 
-  /// `If this cute pigeon can’t help you vote in November, nothing will.`
+  /// `From bagels to ballots, this cute pigeon knows it all`
   String get entranceTitle1_nyc25 {
     return Intl.message(
-      'If this cute pigeon can’t help you vote in November, nothing will.',
+      'From bagels to ballots, this cute pigeon knows it all',
       name: 'entranceTitle1_nyc25',
       desc: '-> entranceTitle1',
       args: [],
     );
   }
 
-  /// `Swipe your opinion on topics that matter to you.`
+  /// `Swipe & match with your future mayor`
   String get entranceTitle2_nyc25 {
     return Intl.message(
-      'Swipe your opinion on topics that matter to you.',
+      'Swipe & match with your future mayor',
       name: 'entranceTitle2_nyc25',
       desc: '-> entranceTitle2',
       args: [],
     );
   }
 
-  /// `Find out your match and an orientation for who to vote for at the Elections.`
+  /// `Discover where you stand & learn who’s on the ballot`
   String get entranceTitle3_nyc25 {
     return Intl.message(
-      'Find out your match and an orientation for who to vote for at the Elections.',
+      'Discover where you stand & learn who’s on the ballot',
       name: 'entranceTitle3_nyc25',
       desc: '-> entranceTitle3',
       args: [],

@@ -374,11 +374,11 @@
 
 "electionNY": "NYC Mayoral Election 2025 🗽",
 
-"entranceTitle1_nyc25": "If this cute pigeon can’t help you vote in November, nothing will.",
+"entranceTitle1_nyc25": "From bagels to ballots, this cute pigeon knows it all",
 "@entranceTitle1_nyc25": { "description": "-> entranceTitle1" },
-"entranceTitle2_nyc25": "Swipe your opinion on topics that matter to you.",
+"entranceTitle2_nyc25": "Swipe & match with your future mayor",
 "@entranceTitle2_nyc25": { "description": "-> entranceTitle2" },
-"entranceTitle3_nyc25": "Find out your match and an orientation for who to vote for at the Elections.",
+"entranceTitle3_nyc25": "Discover where you stand & learn who’s on the ballot",
 "@entranceTitle3_nyc25": { "description": "-> entranceTitle3" },
 
 "onBoardingCardQuestion_nyc25": "I have no clue who to vote for at the 2025 NYC Mayoral Election",

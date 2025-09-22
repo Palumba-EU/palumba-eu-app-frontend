@@ -22,7 +22,7 @@ class DataAPI {
   var baseUrl = 'https://api.palumba-app.palumba.eu';
   // var baseUrl = 'https://palumba-staging.bitperfect-software.com/api';
 
-  var mock_localizations = '''
+var mock_localizations = '''
 {
   "countries": [
     { "id": 101, "name": "Manhattan", "country_code": "MN", "flag_image": null },
@@ -33,10 +33,11 @@ class DataAPI {
   ],
   "languages": [
     { "id": 1, "name": "English", "language_code": "en" },
-    { "id": 2, "name": "Spanish", "language_code": "es" }
+    { "id": 2, "name": "Spanish", "language_code": "es" },
+    { "id": 3, "name": "Mandarin Chinese", "language_code": "zh" },
+    { "id": 4, "name": "Hebrew", "language_code": "he" }
   ]
 }
-
 ''';
 
   var mock_statements = '''
@@ -57,7 +58,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Upzoning around subway and bus hubs so more apartments can be built.<br><strong>Pros:</strong> Increases supply, can lower pressure on rents, supports car-free living.<br><strong>Cons:</strong> Concerns about neighborhood character, shadows, and infrastructure strain.</p>",
       "footnote": "<p>Key topics: housing supply, zoning, transit-oriented development.</p>",
       "emojis": "🏗️🚇🏙️",
-      "weights": [],
+      "weights": [
+        {"topic_id": 10, "weight": 70},
+        {"topic_id": 9,  "weight": 40},
+        {"topic_id": 12, "weight": 10},
+        {"topic_id": 11, "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -66,7 +73,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Charging most vehicles to enter parts of Manhattan to reduce traffic and fund transit.<br><strong>Pros:</strong> Less gridlock and pollution; dedicated revenue for subways & buses.<br><strong>Cons:</strong> Added costs for drivers and some businesses; questions about exemptions and fairness.</p>",
       "footnote": "<p>Key topics: transit funding, traffic, air quality.</p>",
       "emojis": "🚗💳🚦",
-      "weights": [],
+      "weights": [
+        {"topic_id": 9,  "weight": 80},
+        {"topic_id": 10, "weight": -30},
+        {"topic_id": 12, "weight": 10},
+        {"topic_id": 11, "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -75,7 +88,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Limiting large rent hikes and making it harder to evict tenants without a valid reason.<br><strong>Pros:</strong> Helps tenants stay housed; stability for families.<br><strong>Cons:</strong> Landlords say it can discourage maintenance and new construction.</p>",
       "footnote": "<p>Key topics: tenant rights, affordability, small landlords.</p>",
       "emojis": "🏠🧾🛡️",
-      "weights": [],
+      "weights": [
+        {"topic_id": 10, "weight": -80},
+        {"topic_id": 11, "weight": -40},
+        {"topic_id": 9,  "weight": 0},
+        {"topic_id": 12, "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -84,7 +103,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> More funding for intake, case management, and legal services; city support navigating federal work permits.<br><strong>Pros:</strong> Reduces street homelessness and speeds self-sufficiency.<br><strong>Cons:</strong> Budget trade-offs; concerns about city capacity.</p>",
       "footnote": "<p>Key topics: immigration, city budget, shelters.</p>",
       "emojis": "🛬🛏️📄",
-      "weights": [],
+      "weights": [
+        {"topic_id": 13, "weight": 90},
+        {"topic_id": 11, "weight": -70},
+        {"topic_id": 10, "weight": -30},
+        {"topic_id": 12, "weight": 0},
+        {"topic_id": 9,  "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -93,7 +118,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Phasing out the Rikers jail complex; building smaller jails closer to courts; expanding treatment and alternatives to detention.<br><strong>Pros:</strong> Safety, oversight, and access to services may improve; reduces abuses.<br><strong>Cons:</strong> Construction costs; local siting opposition; public safety concerns.</p>",
       "footnote": "<p>Key topics: criminal justice, mental health, capital projects.</p>",
       "emojis": "🏝️🔒🏥",
-      "weights": [],
+      "weights": [
+        {"topic_id": 11, "weight": -80},
+        {"topic_id": 10, "weight": -20},
+        {"topic_id": 12, "weight": 0},
+        {"topic_id": 13, "weight": -10},
+        {"topic_id": 9,  "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -102,7 +133,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> More dedicated bus lanes & camera enforcement; modern train signals; platform staffing for safety and cleanliness.<br><strong>Pros:</strong> Shorter commutes, higher ridership, economic benefits.<br><strong>Cons:</strong> Construction disruption; trade-offs with street parking and car lanes.</p>",
       "footnote": "<p>Key topics: public transit, street design, commute times.</p>",
       "emojis": "🚌🚦⏱️",
-      "weights": [],
+      "weights": [
+        {"topic_id": 9,  "weight": 40},
+        {"topic_id": 10, "weight": 20},
+        {"topic_id": 12, "weight": 10},
+        {"topic_id": 11, "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -111,7 +148,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> More physically protected bike/scooter lanes, safer intersections, and lower speed limits on high-injury streets.<br><strong>Pros:</strong> Fewer crashes; more options beyond cars; cleaner air.<br><strong>Cons:</strong> Fewer car lanes/parking; construction impacts; delivery logistics.</p>",
       "footnote": "<p>Key topics: street safety, micromobility, freight/delivery.</p>",
       "emojis": "🚴‍♀️🛣️🛑",
-      "weights": [],
+      "weights": [
+        {"topic_id": 9,  "weight": 60},
+        {"topic_id": 10, "weight": -10},
+        {"topic_id": 12, "weight": 0},
+        {"topic_id": 11, "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -120,7 +163,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Hiring teachers and staff so classes shrink; protecting enrichment and mandated services.<br><strong>Pros:</strong> Better student outcomes; more attention per child.<br><strong>Cons:</strong> Higher recurring costs; hiring and space constraints.</p>",
       "footnote": "<p>Key topics: education funding, equity, class-size law.</p>",
       "emojis": "🏫📚👩‍🏫",
-      "weights": [],
+      "weights": [
+        {"topic_id": 11, "weight": -40},
+        {"topic_id": 10, "weight": -50},
+        {"topic_id": 12, "weight": 10},
+        {"topic_id": 9,  "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -129,7 +178,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Pollution caps for large buildings with fines for exceedances, paired with rebates/financing to upgrade heating, insulation, and controls.<br><strong>Pros:</strong> Cleaner air, lower emissions, long-term energy savings.<br><strong>Cons:</strong> Upfront costs for owners; co-op/condo affordability concerns.</p>",
       "footnote": "<p>Key topics: climate, buildings, energy bills.</p>",
       "emojis": "🏢🌿⚡",
-      "weights": [],
+      "weights": [
+        {"topic_id": 9,  "weight": 100},
+        {"topic_id": 10, "weight": -40},
+        {"topic_id": 12, "weight": 0},
+        {"topic_id": 11, "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -138,7 +193,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Using sealed containers and curbside organics pickup across neighborhoods.<br><strong>Pros:</strong> Cleaner streets, fewer pests, climate benefits from composting.<br><strong>Cons:</strong> Space and cost for containers; building logistics.</p>",
       "footnote": "<p>Key topics: sanitation, public health, quality of life.</p>",
       "emojis": "🗑️🧰🪳",
-      "weights": [],
+      "weights": [
+        {"topic_id": 9,  "weight": 40},
+        {"topic_id": 10, "weight": -10},
+        {"topic_id": 11, "weight": 0},
+        {"topic_id": 12, "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -147,7 +208,13 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Fund and zone for supportive housing with onsite services; allow code-compliant basement and accessory units.<br><strong>Pros:</strong> Moves people from shelters to homes; adds lower-cost units quickly.<br><strong>Cons:</strong> Upfront subsidies; safety upgrades and inspections required.</p>",
       "footnote": "<p>Key topics: homelessness, ADUs, services.</p>",
       "emojis": "🏠🧑‍⚕️🧱",
-      "weights": [],
+      "weights": [
+        {"topic_id": 10, "weight": 30},
+        {"topic_id": 11, "weight": -30},
+        {"topic_id": 9,  "weight": 10},
+        {"topic_id": 12, "weight": 0},
+        {"topic_id": 13, "weight": 0}
+      ],
       "is_tutorial": false
     },
     {
@@ -156,13 +223,19 @@ class DataAPI {
       "details": "<p><strong>What this means:</strong> Pilot/responders like clinicians for certain 911 calls; automated or civilian traffic enforcement; NYPD remains focused on serious crime.<br><strong>Pros:</strong> Frees officers for priority work; better outcomes in health-related calls.<br><strong>Cons:</strong> Implementation risk; union and legal concerns; coordination complexity.</p>",
       "footnote": "<p>Key topics: public safety, crisis response, budgets.</p>",
       "emojis": "🚓🧑‍⚕️📞",
-      "weights": [],
+      "weights": [
+        {"topic_id": 11, "weight": -60},
+        {"topic_id": 10, "weight": 0},
+        {"topic_id": 12, "weight": 0},
+        {"topic_id": 9,  "weight": 0},
+        {"topic_id": 13, "weight": -10}
+      ],
       "is_tutorial": false
     }
   ]
 }
-
 ''';
+
 
     var mock_results_info = '''
 {
@@ -178,7 +251,7 @@ class DataAPI {
       "extreme2": "Climate Action 🌱",
       "extreme2_emojis": "🌍 🌊 🌳 ",
       "extreme2_details": "<p>You want aggressive climate policy from City Hall: expanding bike/bus lanes, flood protections, building decarbonization, and zero-emission transit—arguing resilience and clean air outweigh short-term costs.</p><p><strong>#ClimateActionNow #PlanetFirst</strong></p>",
-      "associated_statements": []
+      "associated_statements": [34, 35, 38, 39, 41, 42, 43]
     },
     {
       "id": 12,
@@ -191,7 +264,7 @@ class DataAPI {
       "extreme2": "Intergovernmental Integration",
       "extreme2_emojis": "🏙️🇺🇸 🧩 🏗️",
       "extreme2_details": "<p>You see coordination with New York State and the federal government as essential—accepting shared standards and funding strings to solve big problems like transit, housing, and public safety.</p><p><strong>#TeamNY #PartnershipsWork</strong></p>",
-      "associated_statements": []
+      "associated_statements": [34, 35, 38, 40]
     },
     {
       "id": 11,
@@ -204,7 +277,7 @@ class DataAPI {
       "extreme2": "Traditional Values 💪",
       "extreme2_emojis": "🌈 ✊🏿 ⚖️",
       "extreme2_details": "<p>You feel cultural change is moving too fast and want to emphasize public order, parental control in schools, and preserving traditional norms; you’re wary of expanding certain city protections.</p><p><strong>#PreserveTradition #OrderFirst</strong></p>",
-      "associated_statements": []
+      "associated_statements": [33, 36, 37, 40, 43, 44]
     },
     {
       "id": 13,
@@ -217,7 +290,7 @@ class DataAPI {
       "extreme2": "Welcoming City",
       "extreme2_emojis": "🌎🤝🇺🇸",
       "extreme2_details": "<p>You support a strong right-to-shelter, expanded work authorization assistance, legal services, and integration programs—arguing immigrants strengthen NYC’s economy and culture.</p><p><strong>#OpenArms #WelcomeNewYorkers</strong></p>",
-      "associated_statements": []
+      "associated_statements": [36, 44]
     },
     {
       "id": 10,
@@ -230,7 +303,7 @@ class DataAPI {
       "extreme2": "Deregulation",
       "extreme2_emojis": "🏦 📈 💰",
       "extreme2_details": "<p>You emphasize cutting red tape, speeding permits, easing mandates, and lowering business costs to spur growth, build more housing, and expand jobs.</p><p><strong>#EconomicGrowth #TheInvisibleHand</strong></p>",
-      "associated_statements": []
+      "associated_statements": [33, 34, 35, 38, 40, 41, 42, 43]
     }
   ],
   "parties": [
@@ -244,7 +317,20 @@ class DataAPI {
       "images": [],
       "link": "https://www.zohranfornyc.com/",
       "acronym": "DEM",
-      "answers": [],
+      "answers": [
+        {"statement_id": 34, "answer": 0.5},
+        {"statement_id": 35, "answer": 1},
+        {"statement_id": 33, "answer": 1},
+        {"statement_id": 36, "answer": 1},
+        {"statement_id": 37, "answer": 1},
+        {"statement_id": 38, "answer": 1},
+        {"statement_id": 39, "answer": 1},
+        {"statement_id": 40, "answer": 1},
+        {"statement_id": 41, "answer": 1},
+        {"statement_id": 42, "answer": 1},
+        {"statement_id": 43, "answer": 1},
+        {"statement_id": 44, "answer": 1}
+      ],
       "positions": [],
       "in_parliament": false,
       "unavailable_in": []
@@ -259,7 +345,20 @@ class DataAPI {
       "images": [],
       "link": "https://eric2025.com/",
       "acronym": "IND-ADAMS",
-      "answers": [],
+      "answers": [
+        {"statement_id": 34, "answer": 0.5},
+        {"statement_id": 35, "answer": 0},
+        {"statement_id": 33, "answer": -0.5},
+        {"statement_id": 36, "answer": 0},
+        {"statement_id": 37, "answer": -0.5},
+        {"statement_id": 38, "answer": 1},
+        {"statement_id": 39, "answer": 0.5},
+        {"statement_id": 40, "answer": 0.5},
+        {"statement_id": 41, "answer": 0},
+        {"statement_id": 42, "answer": 1},
+        {"statement_id": 43, "answer": 0.5},
+        {"statement_id": 44, "answer": -0.5}
+      ],
       "positions": [],
       "in_parliament": false,
       "unavailable_in": []
@@ -274,7 +373,20 @@ class DataAPI {
       "images": [],
       "link": "https://www.sliwafornyc.com/",
       "acronym": "REP",
-      "answers": [],
+      "answers": [
+        {"statement_id": 34, "answer": -0.5},
+        {"statement_id": 35, "answer": -1},
+        {"statement_id": 33, "answer": -1},
+        {"statement_id": 36, "answer": -1},
+        {"statement_id": 37, "answer": -1},
+        {"statement_id": 38, "answer": 0.5},
+        {"statement_id": 39, "answer": -1},
+        {"statement_id": 40, "answer": 0.5},
+        {"statement_id": 41, "answer": -1},
+        {"statement_id": 42, "answer": 0},
+        {"statement_id": 43, "answer": 0.5},
+        {"statement_id": 44, "answer": -1}
+      ],
       "positions": [],
       "in_parliament": false,
       "unavailable_in": []
@@ -289,7 +401,20 @@ class DataAPI {
       "images": [],
       "link": "https://www.andrewcuomo.com/",
       "acronym": "IND-CUOMO",
-      "answers": [],
+      "answers": [
+        {"statement_id": 34, "answer": 0.5},
+        {"statement_id": 35, "answer": 0.5},
+        {"statement_id": 33, "answer": 0},
+        {"statement_id": 36, "answer": 0},
+        {"statement_id": 37, "answer": 0},
+        {"statement_id": 38, "answer": 1},
+        {"statement_id": 39, "answer": 0.5},
+        {"statement_id": 40, "answer": 0.5},
+        {"statement_id": 41, "answer": 0.5},
+        {"statement_id": 42, "answer": 1},
+        {"statement_id": 43, "answer": 1},
+        {"statement_id": 44, "answer": -0.5}
+      ],
       "positions": [],
       "in_parliament": false,
       "unavailable_in": []
@@ -304,7 +429,20 @@ class DataAPI {
       "images": [],
       "link": "TBD",
       "acronym": "CON",
-      "answers": [],
+      "answers": [
+        {"statement_id": 34, "answer": -0.5},
+        {"statement_id": 35, "answer": -1},
+        {"statement_id": 33, "answer": -1},
+        {"statement_id": 36, "answer": -1},
+        {"statement_id": 37, "answer": -1},
+        {"statement_id": 38, "answer": 0},
+        {"statement_id": 39, "answer": -1},
+        {"statement_id": 40, "answer": 0},
+        {"statement_id": 41, "answer": -1},
+        {"statement_id": 42, "answer": 0},
+        {"statement_id": 43, "answer": 0},
+        {"statement_id": 44, "answer": -1}
+      ],
       "positions": [],
       "in_parliament": false,
       "unavailable_in": []
@@ -319,16 +457,28 @@ class DataAPI {
       "images": [],
       "link": "TBD",
       "acronym": "QOL",
-      "answers": [],
+      "answers": [
+        {"statement_id": 34, "answer": 0},
+        {"statement_id": 35, "answer": -0.5},
+        {"statement_id": 33, "answer": 0},
+        {"statement_id": 36, "answer": -0.5},
+        {"statement_id": 37, "answer": -0.5},
+        {"statement_id": 38, "answer": 1},
+        {"statement_id": 39, "answer": -0.5},
+        {"statement_id": 40, "answer": 0.5},
+        {"statement_id": 41, "answer": 0},
+        {"statement_id": 42, "answer": 1},
+        {"statement_id": 43, "answer": 0.5},
+        {"statement_id": 44, "answer": -0.5}
+      ],
       "positions": [],
       "in_parliament": false,
       "unavailable_in": []
     }
   ]
 }
-
-
 ''';
+
 
     var mock_sponsors = '''
 {

@@ -86,6 +86,7 @@ flutter:
     - assets/images/
     - assets/images/election/de/
     - assets/images/election/eu/
+    - assets/images/election/ny/
     - assets/images/flags/
     - assets/images/app_icons/
 
