@@ -648,19 +648,24 @@ var mock_localizations = '''
 
   Future<LocalizationData?> fetchLocalizations() async {
     try {
-      // final url = Uri.parse('${urlLangAndEl()}' 'localization');
-      // TODO: Revert when backend is updated
-      // final response = await http.get(
-      //   url,
-      //   headers: headers,
-      // );
+      // TODO Clean this up when backend is updated
+      var response_body = "";
+      if (ElectionManager.currentElection.value.backend == 3) {
+        response_body = mock_localizations;
+      } else {
+        final url = Uri.parse('${urlLangAndEl()}' 'localization');
+        final response = await http.get(
+          url,
+          headers: headers,
+        );
 
-      // if (response.statusCode != 200) {
-      //   throw Exception(response.reasonPhrase);
-      // }
+        if (response.statusCode != 200) {
+          throw Exception(response.reasonPhrase);
+        }
+        response_body = response.body;
+      }
 
-
-      var localization = LocalizationData.fromJson(json.decode(mock_localizations));
+      var localization = LocalizationData.fromJson(json.decode(response_body));
       DataManager().setLanguages(localization.languages ?? []);
       DataManager().setCountries(localization.countries);
       return localization;
@@ -671,19 +676,24 @@ var mock_localizations = '''
 
   Future<StatementsData?> fetchStatements() async {
     try {
-      // TODO: Revert when backend is updated
-      // final url = Uri.parse('${urlLangAndEl()}' 'statements?include_tutorial');
-      // final response = await http.get(
-      //   url,
-      //   headers: headers,
-      // );
+      // TODO Clean this up when backend is updated
+      var response_body = "";
+      if (ElectionManager.currentElection.value.backend == 3) {
+        response_body = mock_statements;
+      } else {
+        final url = Uri.parse('${urlLangAndEl()}' 'statements?include_tutorial');
+        final response = await http.get(
+          url,
+          headers: headers,
+        );
 
-      // if (response.statusCode != 200) {
-      //   throw Exception(response.reasonPhrase);
-      // }
-
+        if (response.statusCode != 200) {
+          throw Exception(response.reasonPhrase);
+        }
+        response_body = response.body;
+      }
       
-      var statements = StatementsData.fromJson(json.decode(mock_statements));
+      var statements = StatementsData.fromJson(json.decode(response_body));
       DataManager().setStatements(statements.data);
       return statements;
     } catch (e) {
@@ -693,18 +703,25 @@ var mock_localizations = '''
 
   Future<ResultsData?> fetchResultsInfo() async {
     try {
-      // TODO Revert when backend is updated
-      // final url = Uri.parse('${urlLangAndEl()}' 'results');
-      // final response = await http.get(
-      //   url,
-      //   headers: headers,
-      // );
+      // TODO Clean this up when backend is updated
+      var response_body = "";
+      if (ElectionManager.currentElection.value.backend == 3) {
+        response_body = mock_results_info;
+      } else {
+        final url = Uri.parse('${urlLangAndEl()}' 'results');
+        final response = await http.get(
+          url,
+          headers: headers,
+        );
 
-      // if (response.statusCode != 200) {
-      //   throw Exception(response.reasonPhrase);
-      // }
-      
-      var results = ResultsData.fromJson(json.decode(mock_results_info));
+        if (response.statusCode != 200) {
+          throw Exception(response.reasonPhrase);
+        }
+        
+        response_body = response.body;
+      } 
+
+      var results = ResultsData.fromJson(json.decode(response_body));
       DataManager().setParties(results.parties);
       DataManager().setTopics(results.topics);
       return results;
@@ -717,18 +734,23 @@ var mock_localizations = '''
 
   Future<SponsorsData?> fetchSponsors() async {
     try {
-      // TODO: Revert when backend is updated
-      // final url = Uri.parse('${urlLangAndEl()}' 'sponsors');
-      // final response = await http.get(
-      //   url,
-      //   headers: headers,
-      // );
+       // TODO Clean this up when backend is updated
+      var response_body = "";
+      if (ElectionManager.currentElection.value.backend == 3) {
+        response_body = mock_sponsors;
+      } else {
+        final url = Uri.parse('${urlLangAndEl()}' 'sponsors');
+        final response = await http.get(
+          url,
+          headers: headers,
+        );
 
-      // if (response.statusCode != 200) {
-      //   throw Exception(response.reasonPhrase);
-      // }
-      
-      var sponsors = SponsorsData.fromJson(json.decode(mock_sponsors));
+        if (response.statusCode != 200) {
+          throw Exception(response.reasonPhrase);
+        }
+        response_body = response.body;
+      }
+      var sponsors = SponsorsData.fromJson(json.decode(response_body));
       DataManager().setSponsors(sponsors.data);
       return sponsors;
     } catch (e) {
@@ -829,21 +851,26 @@ var mock_localizations = '''
 
   Future<ElectionResponse?> getElection() async {
     try {
-      // final url = Uri.parse('${urlLang()}elections');
+      // TODO Clean this up when backend is updated
+      var response_body = "";
+      if (ElectionManager.currentElection.value.backend == 3) {
+        response_body = mock_election;
+      } else {
+        final url = Uri.parse('${urlLang()}elections');
 
-      // TODO: Revert back to URL when the backend is updated
-      // final response = await http.get(url, headers: {
-      //   'Content-Type': 'application/json',
-      // });
+        final response = await http.get(url, headers: {
+          'Content-Type': 'application/json',
+        });
 
-      // if (response.statusCode < 200 || response.statusCode > 201) {
-      //   throw Exception(response.reasonPhrase);
-      // }
-
+        if (response.statusCode < 200 || response.statusCode > 201) {
+          throw Exception(response.reasonPhrase);
+        }
+        response_body = response.body;
+      }
       
 
       var electionsResponse =
-          ElectionsResponse.fromJson(json.decode(mock_election));
+          ElectionsResponse.fromJson(json.decode(response_body));
       var electionResponse = electionsResponse.data.firstWhere(
           (er) => er.id == ElectionManager.currentElection.value.backend);
       ElectionManager.eggInfo = electionResponse.eggScreen;
