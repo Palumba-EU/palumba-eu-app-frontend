@@ -19,6 +19,7 @@ import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'components/step1.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -43,6 +44,7 @@ class OnboardingPage extends StatelessWidget {
                             itemBuilder: (context, index) {
                               if (index == 0) {
                                 return Step1(
+                                    election: ElectionManager.currentElection.value,
                                     countries: _.countries,
                                     indexSelected: _.indexCountrySelected,
                                     onCountryPressed: _.onCountryPressed);

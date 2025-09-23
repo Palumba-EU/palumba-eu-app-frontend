@@ -243,6 +243,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "I don\'t know",
     ),
     "onBoardingStep1Title": MessageLookupByLibrary.simpleMessage(
+      "Where will you vote?",
+    ),
+    "onBoardingStep1Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "What’s your borough?",
     ),
     "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("My age"),

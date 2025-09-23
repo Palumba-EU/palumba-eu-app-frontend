@@ -205,7 +205,7 @@ class ResultsController extends GetxController {
     switch (ElectionManager.currentElection.value) {
       case Election.DE:
         results = [
-          // ResultsPage1(),
+          ResultsPage1(),
           ResultsPage2(),
           ResultsPage3(),
           ResultsPage4(),
@@ -218,7 +218,7 @@ class ResultsController extends GetxController {
         ];
       case Election.EU:
         results = [
-          // ResultsPage1(),
+          ResultsPage1(),
           ResultsPage2(),
           ResultsPage3(),
           ResultsPage4(),

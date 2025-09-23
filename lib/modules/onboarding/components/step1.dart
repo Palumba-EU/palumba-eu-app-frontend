@@ -8,14 +8,18 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 class Step1 extends StatelessWidget {
+  final Election election;
   final List<Country>? countries;
   final RxInt indexSelected;
   final Function(int index) onCountryPressed;
 
   const Step1({
     super.key,
+    required this.election,
     required this.countries,
     required this.indexSelected,
     required this.onCountryPressed,
@@ -29,8 +33,12 @@ class Step1 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           CustomSpacer(multiplier: 7),
-          AppTexts.title(S.of(context).onBoardingStep1Title,
-              color: AppColors.primary),
+          // AppTexts.title(S.of(context).onBoardingStep1Title,
+          //     color: AppColors.primary),
+          AppTexts.title( // fix: wrap in AppTexts.title
+            election.onBoardingStep1Title(context),
+            color: AppColors.primary,
+          ),
           Expanded(
               child: ListView.separated(
             itemCount: countries?.length ?? 0,

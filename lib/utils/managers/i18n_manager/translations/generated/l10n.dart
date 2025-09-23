@@ -269,11 +269,21 @@ class S {
     return Intl.message('Sweden', name: 'sweden', desc: '', args: []);
   }
 
-  /// `What’s your borough?`
+  /// `Where will you vote?`
   String get onBoardingStep1Title {
     return Intl.message(
-      'What’s your borough?',
+      'Where will you vote?',
       name: 'onBoardingStep1Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What’s your borough?`
+  String get onBoardingStep1Title_nyc25 {
+    return Intl.message(
+      'What’s your borough?',
+      name: 'onBoardingStep1Title_nyc25',
       desc: '',
       args: [],
     );
