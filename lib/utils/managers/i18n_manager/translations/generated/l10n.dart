@@ -629,6 +629,16 @@ class S {
     );
   }
 
+  /// `As Hannah Montana once said, ‘nobody is perfect’... so here’s your match topic by topic.`
+  String get resultsPage5Title_nyc {
+    return Intl.message(
+      'As Hannah Montana once said, ‘nobody is perfect’... so here’s your match topic by topic.',
+      name: 'resultsPage5Title_nyc',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Environmental issues`
   String get resultsPage5Topic1 {
     return Intl.message(

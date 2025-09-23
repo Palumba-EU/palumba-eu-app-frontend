@@ -366,7 +366,7 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage5Title;
       case Election.NY:
-        return S.of(context).resultsPage5Title_nyc25;
+        return S.of(context).resultsPage5Title_nyc;//new for nyc
     }
   }
 
