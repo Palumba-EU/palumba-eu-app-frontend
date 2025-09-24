@@ -31,7 +31,7 @@ class LoadingResultsController extends GetxController {
 
   late List<int> _randomOrder;
 
-  void _prepareRandomTitles() {
+  void _prepareRandomTitles() {//take 3 random titles from the loadingPool
     final indices = List<int>.generate(_loadingPool.length, (i) => i)..shuffle();
     _randomOrder = indices.take(3).toList();
   }
@@ -95,15 +95,24 @@ class LoadingResultsController extends GetxController {
     _partyUserDistanceList =
         ResultsHelper.getPartyUserDistances(UserManager.userData.answers);
   }
+  bool _shouldUseRandom(Election election) {//check if the election is NYC
+    return election != Election.EU && election != Election.DE;
+  }
 
   String titleForIndex(BuildContext context, Election election) {
     switch (currentStep.value) {
       case 1:
-        return _loadingPool[_randomOrder[0]](context);
+        return _shouldUseRandom(election)
+            ? _loadingPool[_randomOrder[0]](context)
+            : election.loadingResultsPageTitle1(context);
       case 2:
-        return _loadingPool[_randomOrder[1]](context);
+        return _shouldUseRandom(election)
+            ? _loadingPool[_randomOrder[1]](context)
+            : election.loadingResultsPageTitle2(context);
       case 3:
-        return _loadingPool[_randomOrder[2]](context);
+        return _shouldUseRandom(election)
+            ? _loadingPool[_randomOrder[2]](context)
+            : election.loadingResultsPageTitle3(context, countryName);
       case 4:
         return election.loadingResultsPageTitle4(context);
     }

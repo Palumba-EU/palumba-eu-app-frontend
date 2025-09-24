@@ -243,6 +243,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "I don\'t know",
     ),
     "onBoardingStep1Title": MessageLookupByLibrary.simpleMessage(
+      "Where will you vote?",
+    ),
+    "onBoardingStep1Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "What’s your borough?",
     ),
     "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("My age"),
@@ -443,6 +446,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage5Title_ger25": MessageLookupByLibrary.simpleMessage(
       "On more specific topics, which parties am I closest to?",
+    ),
+    "resultsPage5Title_nyc": MessageLookupByLibrary.simpleMessage(
+      "As Hannah Montana once said, ‘nobody is perfect’... so here’s your match topic by topic.",
     ),
     "resultsPage5Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "On more specific topics, which mayoral candidate am I closer to?",

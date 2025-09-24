@@ -161,6 +161,16 @@ extension ElectionTexts on Election {
         return S.of(context).entranceTitle3_nyc25;
     }
   }
+  String onBoardingStep1Title(BuildContext context) {
+    switch (this) {
+      case Election.DE:
+        return S.of(context).onBoardingStep1Title;    
+      case Election.EU:
+        return S.of(context).onBoardingStep1Title;      
+      case Election.NY:
+        return S.of(context).onBoardingStep1Title_nyc25; 
+    }
+  }
 
   String onBoardingStep3Title(BuildContext context) {
     switch (this) {
@@ -356,7 +366,7 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage5Title;
       case Election.NY:
-        return S.of(context).resultsPage5Title_nyc25;
+        return S.of(context).resultsPage5Title_nyc;//new for nyc
     }
   }
 
