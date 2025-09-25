@@ -244,6 +244,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingStep1Title": MessageLookupByLibrary.simpleMessage(
       "¿Cuál es tu distrito?",
     ),
+    "onBoardingStep1Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "¿Cuál es tu distrito?",
+    ),
     "onBoardingStep2Title": MessageLookupByLibrary.simpleMessage("Mi edad"),
     "onBoardingStep3Option1": MessageLookupByLibrary.simpleMessage("Mujer"),
     "onBoardingStep3Option2": MessageLookupByLibrary.simpleMessage("Hombre"),
