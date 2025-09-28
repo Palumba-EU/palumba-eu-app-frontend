@@ -749,8 +749,7 @@ extension ElectionResult5Topics on Election {
         // 4: Human & Social Rights, 5: Economic Intervention, 1: Environmental issues
         return [4, 5, 1];
       case Election.NY:
-        // Placeholder: mirror EU until NYC topic IDs are finalized
-        return [4, 5, 1];
+        return [11, 10, 12, 9, 13];
     }
   }
 }
