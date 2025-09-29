@@ -274,6 +274,19 @@ class HomePage extends StatelessWidget {
                 isOutside: true, width: 4, color: AppColors.lightPrimary),
           ),
           CustomSpacer(multiplier: 2),
+          ElectionManager.currentElection.value == Election.NY ? CustomButton(
+            text: S.of(context).whoIsOnTheBallot_nyc25,
+            expanded: true,
+            onPressed: _.launchWhoIsOnTheBallotUrl,
+            suffixIcon: IconButtonParameters('ic_arrow_right',
+                size: 18, color: AppColors.text),
+            radius: AppDimens.borderRadius,
+            color: AppColors.primary,
+            textColor: AppColors.text,
+            bold: true,
+            border: ButtonBorderParameters(
+                isOutside: true, width: 4, color: AppColors.lightPrimary),
+          ) : SizedBox.shrink(),
         ],
       ),
     );
