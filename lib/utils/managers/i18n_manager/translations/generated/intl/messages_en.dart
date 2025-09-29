@@ -716,6 +716,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),
     "textContinue": MessageLookupByLibrary.simpleMessage("Continue"),
+    "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Who\'s On The Ballot",
+    ),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }

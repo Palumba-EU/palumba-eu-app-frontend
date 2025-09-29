@@ -100,6 +100,10 @@ class HomePageController extends GetxController {
     Utils.launch(StringUtils.faqUrl);
   }
 
+  void launchWhoIsOnTheBallotUrl() {
+    Utils.launch(StringUtils.whoIsOnTheBallotUrl);
+  }
+
   void _eggFromPush(RemoteMessage message) {
     Get.closeCurrentSnackbar();
     try {

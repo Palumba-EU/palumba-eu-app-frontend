@@ -864,6 +864,16 @@ class S {
     );
   }
 
+  /// `Who's On The Ballot`
+  String get whoIsOnTheBallot_nyc25 {
+    return Intl.message(
+      'Who\'s On The Ballot',
+      name: 'whoIsOnTheBallot_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get settingsPageTitleLanguage {
     return Intl.message(
