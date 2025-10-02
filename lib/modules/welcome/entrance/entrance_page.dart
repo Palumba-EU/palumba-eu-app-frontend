@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
-
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/welcome/entrance/entrance_controller.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
-
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -115,10 +111,11 @@ class EntrancePage extends StatelessWidget {
                     child: Center(
                       child: Padding(
                           padding: AppDimens.lateralPadding,
-                          child: Obx(() => SvgPicture.asset(
-                                _.imageForIndex(index,
-                                    ElectionManager.currentElection.value),
-                              ))),
+                          child: Obx(() {
+                            final asset = _.imageForIndex(
+                                index, ElectionManager.currentElection.value);
+                            return buildImage(asset);
+                          })),
                     ),
                   ),
                 ],
@@ -145,6 +142,18 @@ class EntrancePage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget buildImage(String assetPath) {
+    if (assetPath.toLowerCase().endsWith('.svg')) {
+      return SvgPicture.asset(assetPath);
+    } else if (assetPath.toLowerCase().endsWith('.png') ||
+        assetPath.toLowerCase().endsWith('.jpg') ||
+        assetPath.toLowerCase().endsWith('.jpeg')) {
+      return Image.asset(assetPath);
+    } else {
+      return const SizedBox.shrink();
+    }
   }
 
   Padding _buildFooter(BuildContext context, EntranceController _) {
