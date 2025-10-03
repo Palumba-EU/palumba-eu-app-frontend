@@ -2,6 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
@@ -9,7 +10,6 @@ import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_html_widget.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/home/home_page_controller.dart';
-import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
@@ -182,10 +182,11 @@ class HomePage extends StatelessWidget {
                     child: Center(
                       child: Padding(
                           padding: AppDimens.lateralPadding,
-                          child: Obx(() => SvgPicture.asset(
-                                _.imageForIndex(index,
-                                    ElectionManager.currentElection.value),
-                              ))),
+                          child: Obx(() {
+                            final asset = _.imageForIndex(
+                                index, ElectionManager.currentElection.value);
+                            return buildImage(asset);
+                          })),
                     ),
                   ),
                   CustomSpacer(multiplier: 3),
@@ -221,6 +222,18 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget buildImage(String assetPath) {
+    if (assetPath.toLowerCase().endsWith('.svg')) {
+      return SvgPicture.asset(assetPath);
+    } else if (assetPath.toLowerCase().endsWith('.png') ||
+        assetPath.toLowerCase().endsWith('.jpg') ||
+        assetPath.toLowerCase().endsWith('.jpeg')) {
+      return Image.asset(assetPath);
+    } else {
+      return const SizedBox.shrink();
+    }
   }
 
   Widget _buildFooter(BuildContext context, HomePageController _) {
@@ -274,19 +287,21 @@ class HomePage extends StatelessWidget {
                 isOutside: true, width: 4, color: AppColors.lightPrimary),
           ),
           CustomSpacer(multiplier: 2),
-          ElectionManager.currentElection.value == Election.NY ? CustomButton(
-            text: S.of(context).whoIsOnTheBallot_nyc25,
-            expanded: true,
-            onPressed: _.launchWhoIsOnTheBallotUrl,
-            suffixIcon: IconButtonParameters('ic_arrow_right',
-                size: 18, color: AppColors.text),
-            radius: AppDimens.borderRadius,
-            color: AppColors.primary,
-            textColor: AppColors.text,
-            bold: true,
-            border: ButtonBorderParameters(
-                isOutside: true, width: 4, color: AppColors.lightPrimary),
-          ) : SizedBox.shrink(),
+          ElectionManager.currentElection.value == Election.NY
+              ? CustomButton(
+                  text: S.of(context).whoIsOnTheBallot_nyc25,
+                  expanded: true,
+                  onPressed: _.launchWhoIsOnTheBallotUrl,
+                  suffixIcon: IconButtonParameters('ic_arrow_right',
+                      size: 18, color: AppColors.text),
+                  radius: AppDimens.borderRadius,
+                  color: AppColors.primary,
+                  textColor: AppColors.text,
+                  bold: true,
+                  border: ButtonBorderParameters(
+                      isOutside: true, width: 4, color: AppColors.lightPrimary),
+                )
+              : SizedBox.shrink(),
         ],
       ),
     );
