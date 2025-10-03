@@ -1,11 +1,12 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/elections_response.dart';
 import 'package:palumba_eu/data/model/goingToVote_model.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
-import 'package:http/http.dart' as http;
 import 'package:palumba_eu/data/model/responses_patch_request.dart';
 import 'package:palumba_eu/data/model/responses_request.dart';
 import 'package:palumba_eu/data/model/responses_response.dart';
@@ -27,27 +28,32 @@ class DataAPI {
   };
 
   String baseUrl() {
-    return ElectionManager.currentElection.value.backend == 3 ? 'https://wsi8h89p9g.execute-api.us-east-1.amazonaws.com/prod/api' : 'https://api.palumba-app.palumba.eu';
+    return ElectionManager.currentElection.value.backend == 3
+        ? 'https://wsi8h89p9g.execute-api.us-east-1.amazonaws.com/prod/api' /*'http://palumba-us.bitperfect-software.com/api'*/
+        : 'https://api.palumba-app.palumba.eu';
   }
 
   String urlLang() {
     return baseUrl() + '/${LanguageManager.currentLanguage}/';
   }
 
-  String urlLangAndEl() {
+  /*String urlLangAndEl() {
     return urlLang() +
         'elections/${ElectionManager.currentElection.value.backend}/';
+  }*/
+  String urlLangAndEl() {
+    return urlLang() + 'elections/3/';
   }
 
   Future<LocalizationData?> fetchLocalizations() async {
     try {
       final url = Uri.parse('${urlLangAndEl()}' 'localization');
-      print(url);
+      print("localization $url");
       final response = await http.get(
         url,
         headers: headers,
       );
-
+      print("fetchLocalizations : ${json.decode(response.body)}");
       if (response.statusCode != 200) {
         throw Exception(response.reasonPhrase);
       }
@@ -64,11 +70,12 @@ class DataAPI {
   Future<StatementsData?> fetchStatements() async {
     try {
       final url = Uri.parse('${urlLangAndEl()}' 'statements?include_tutorial');
+      print(url);
       final response = await http.get(
         url,
         headers: headers,
       );
-
+      print("Response : fetchStatements ${json.decode(response.body)}");
       if (response.statusCode != 200) {
         throw Exception(response.reasonPhrase);
       }
@@ -84,11 +91,12 @@ class DataAPI {
   Future<ResultsData?> fetchResultsInfo() async {
     try {
       final url = Uri.parse('${urlLangAndEl()}' 'results');
+      print(url);
       final response = await http.get(
         url,
         headers: headers,
       );
-
+      print("Response : fetchResultsInfo ${json.decode(response.body)}");
       if (response.statusCode != 200) {
         throw Exception(response.reasonPhrase);
       }
@@ -105,11 +113,12 @@ class DataAPI {
   Future<SponsorsData?> fetchSponsors() async {
     try {
       final url = Uri.parse('${urlLangAndEl()}' 'sponsors');
+      print(url);
       final response = await http.get(
         url,
         headers: headers,
       );
-
+      print("Response : fetchSponsors ${json.decode(response.body)}");
       if (response.statusCode != 200) {
         throw Exception(response.reasonPhrase);
       }
@@ -221,11 +230,11 @@ class DataAPI {
   Future<ElectionResponse?> getElection() async {
     try {
       final url = Uri.parse('${urlLang()}elections');
-
+      print("ElectionUrl $url");
       final response = await http.get(url, headers: {
         'Content-Type': 'application/json',
       });
-
+      print("Response : getElection ${json.decode(response.body)}");
       if (response.statusCode < 200 || response.statusCode > 201) {
         throw Exception(response.reasonPhrase);
       }

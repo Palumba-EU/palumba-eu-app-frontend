@@ -18,7 +18,6 @@ class ResultsPage7 extends GetView<ResultsController> with ResultsPage {
   Widget build(BuildContext context) {
     final smallScreen = Get.height < 750;
     return Container(
-      color: AppColors.background,
       child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: AppDimens.bigLateralPaddingValue),

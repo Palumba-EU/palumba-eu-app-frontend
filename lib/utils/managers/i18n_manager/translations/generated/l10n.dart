@@ -844,30 +844,30 @@ class S {
     );
   }
 
-  /// `My results`
+  /// `My results · Back to the test`
   String get homePageMyResults {
     return Intl.message(
-      'My results',
+      'My results · Back to the test',
       name: 'homePageMyResults',
       desc: '',
       args: [],
     );
   }
 
-  /// `Start a new test`
+  /// `New Palumba test`
   String get homePageStartButton {
     return Intl.message(
-      'Start a new test',
+      'New Palumba test',
       name: 'homePageStartButton',
       desc: '',
       args: [],
     );
   }
 
-  /// `Who's On The Ballot`
+  /// `Go to Who’s On The Ballot`
   String get whoIsOnTheBallot_nyc25 {
     return Intl.message(
-      'Who\'s On The Ballot',
+      'Go to Who’s On The Ballot',
       name: 'whoIsOnTheBallot_nyc25',
       desc: '',
       args: [],
@@ -2494,6 +2494,36 @@ class S {
     return Intl.message(
       'What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility.',
       name: 'resultsPageAllPartiesDescription_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sent you a rose`
+  String get resultsSentYouARose {
+    return Intl.message(
+      'Sent you a rose',
+      name: 'resultsSentYouARose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.`
+  String get deepDiveIntro {
+    return Intl.message(
+      'Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.',
+      name: 'deepDiveIntro',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It's a match!`
+  String get resultItsMatch {
+    return Intl.message(
+      'It\'s a match!',
+      name: 'resultItsMatch',
       desc: '',
       args: [],
     );

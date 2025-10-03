@@ -28,10 +28,10 @@ class DataManager {
   }
 
   void setCountries(List<Country>? countries) {
-    this.countries = countries
-      ?..sort((a, b) {
+    this.countries = countries;
+    /* ?..sort((a, b) {
         return a.name!.compareTo(b.name!);
-      });
+      });*/
   }
 
   List<Country> getCountries() {

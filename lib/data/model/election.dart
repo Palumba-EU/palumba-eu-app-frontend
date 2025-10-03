@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
+import '../../utils/common_ui/app_colors.dart';
+
 enum Election { DE, EU, NY }
 
 extension ElectionLocalization on Election {
@@ -12,6 +14,19 @@ extension ElectionLocalization on Election {
         return S.of(context).electionEU;
       case Election.NY:
         return S.of(context).electionNY;
+    }
+  }
+}
+
+extension ElectionBackgroundColor on Election {
+  Color get background {
+    switch (this) {
+      case Election.DE:
+        return AppColors.background;
+      case Election.EU:
+        return AppColors.background;
+      case Election.NY:
+        return AppColors.resultNYBackground;
     }
   }
 }
@@ -35,7 +50,7 @@ extension ElectionImages on Election {
       case Election.EU:
         return 'assets/images/election/eu/logo_circle_eu.svg';
       case Election.NY:
-        return 'assets/images/election/ny/logo_circle_ny.svg';
+        return 'assets/images/election/ny/logo_circle_ny_new.png';
     }
   }
 
@@ -123,7 +138,7 @@ extension ElectionImages on Election {
       case Election.EU:
         return 'assets/images/election/eu/ic_sticker_ballot_box4_eu.svg';
       case Election.NY:
-        return 'assets/images/election/eu/ic_sticker_ballot_box4_ny.svg';
+        return 'assets/images/election/ny/ic_sticker_ballot_box4_ny.svg';
     }
   }
 }
@@ -759,6 +774,7 @@ extension ElectionResult5Topics on Election {
 
 extension ElectionBackend on Election {
   int get backend {
+    // return 1;
     switch (this) {
       case Election.EU:
         return 1;

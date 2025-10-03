@@ -56,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("¡Ups!"),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
+    "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
+      "Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.",
+    ),
     "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
     "electionDE": MessageLookupByLibrary.simpleMessage(
       "Bundestagswahl 2025 🇩🇪",
@@ -402,6 +405,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPageCandidatesShuffle": MessageLookupByLibrary.simpleMessage(
       "Shuffle my politcal love 🔀",
+    ),
+    "resultsSentYouARose": MessageLookupByLibrary.simpleMessage(
+      "Sent you a rose",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Compartir"),
     "romania": MessageLookupByLibrary.simpleMessage("Rumanía"),

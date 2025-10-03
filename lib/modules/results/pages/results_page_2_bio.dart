@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
@@ -15,7 +14,7 @@ import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
-class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
+class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
     bool isTablet = controller.isTablet;
@@ -26,20 +25,17 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
         SingleChildScrollView(
           child: Column(
             children: [
-              CustomSpacer(multiplier: 2),
-              AppTexts.title(S.of(context).resultItsMatch,
-                  forceCaprasimo: true, fontSize: 20, color: AppColors.primary),
-              CustomSpacer(multiplier: 1),
+              CustomSpacer(multiplier: 3),
               SizedBox(
-                height: Get.width * (isTablet ? .62 : .82),
+                height: Get.width * (isTablet ? .25 : .28),
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
                     Align(
                       alignment: Alignment.topCenter,
                       child: CustomNetworkImage(
-                        width: Get.width * (isTablet ? .55 : .65),
-                        height: Get.width * (isTablet ? .55 : .65),
+                        width: Get.width * (isTablet ? .22 : .25),
+                        height: Get.width * (isTablet ? .22 : .25),
                         isSvg: true,
                         imageUrl:
                             controller.maxPercentagePoliticParty?.party.logo ??
@@ -49,23 +45,10 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
                         fit: BoxFit.fill,
                       ),
                     ),
-                    Padding(
-                        padding: const EdgeInsets.only(bottom: 25),
-                        child: SvgPicture.asset(
-                          'assets/images/img_heart_arrow.svg',
-                          height: 100,
-                          fit: BoxFit.fitWidth,
-                        )
-                        /* Image.asset(
-                          'assets/images/img_heart_arrow.png',
-                          height: 100,
-                          fit: BoxFit.fitWidth,
-                        )*/
-                        )
                   ],
                 ),
               ),
-              CustomSpacer(multiplier: 2),
+              CustomSpacer(multiplier: 1),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: AppDimens.largeLateralPaddingValue),
@@ -75,17 +58,14 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
                     : Column(
                         children: [
                           AppTexts.title(
-                              '${controller.maxPercentagePoliticParty?.party.name ?? ''}',
-                              forceCaprasimo: true,
-                              fontSize: 25,
-                              color: AppColors.primary),
-                          AppTexts.title(S.of(context).resultsSentYouARose,
+                              '${controller.maxPercentagePoliticParty?.party.name.split(" ")[0]}\'s Bio',
                               forceCaprasimo: true,
                               fontSize: 20,
                               color: AppColors.primary),
                           Padding(
                             padding: const EdgeInsets.only(top: 15),
-                            child: AppTexts.small(S.of(context).deepDiveIntro,
+                            child: AppTexts.small(
+                                "ℹ️ Zohran Kwame Mamdani · 🎂 October 18, 1991 (34 y.o.) · 🏠 Astoria, Queens · 💫 Libra Affiliation & Profile Democratic Party nominee, member of the Democratic Socialists of America. Served Queens’ 36th district in the NY State Assembly since 2021. Foreclosure prevention housing counselor before. Focus on affordability (rent freezes, city-owned groceries, raising wages), public safety reform, free transit, and taxing high incomes. Red Flags 🚩 “Should Zohran Mamdani get to live in a rent-stabilized unit?” - The Gothamist · 🚩 “Critics say Zohran Mamdani is antisemitic” - Politico @zohrankmamdani · zohranfornyc.com",
                                 color: AppColors.primary,
                                 textAlign: TextAlign.center,
                                 bold: true)

@@ -14,6 +14,7 @@ class AppColors {
   static const Color blue = Color(0xFFB2D1DE);
 
   static const Color background = Color(0xFFFCFCF3);
+  static const Color resultNYBackground = Color(0xFFFAF1E2);
 
   static const Color text = Colors.white;
 

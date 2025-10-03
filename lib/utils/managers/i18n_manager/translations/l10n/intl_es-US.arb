@@ -95,8 +95,8 @@
   "@HomePage": "HomePage",
   "homePageMatchesFoundQuote": "{count} coincidencias encontradas en las últimas 24 h",
   "homePageBackToTest": "Volver al test",
-  "homePageMyResults": "Mis resultados",
-  "homePageStartButton": "Empezar un nuevo test",
+  "homePageMyResults": "Mis resultados · Volver al test",
+  "homePageStartButton": "Nueva prueba de Palumba",
   "@@SettingsPage": "SettingsPage",
   "settingsPageTitleLanguage": "Idioma",
   "settingsPageSubtitleLanguage": "Prefiero usar la app en",
@@ -483,5 +483,12 @@
   "onBoardingDataProtection_nyc25": "Acepto la Política de Protección de Datos y los Términos de uso de la app",
   "onBoardingDataProtectionLink_nyc25": "Política de Protección de Datos",
   "resultsPageAllPartiesTitle_nyc25": "Tu ranking personal de todas las candidaturas",
-  "resultsPageAllPartiesDescription_nyc25": "¿Cómo se vería tu ranking si incluimos a todas las candidaturas a la Alcaldía? — Esta lista puede incluir candidaturas con encuestas o visibilidad limitadas."
+  "resultsPageAllPartiesDescription_nyc25": "¿Cómo se vería tu ranking si incluimos a todas las candidaturas a la Alcaldía? — Esta lista puede incluir candidaturas con encuestas o visibilidad limitadas.",
+  "resultsSentYouARose":"Te mandó una rosa",
+  "deepDiveIntro":"Vamos a explorar tu compatibilidad con todos los candidatos y políticas en las próximas pantallas. Toca la derecha/izquierda de la pantalla para navegar.",
+  "resultItsMatch":"¡Es un partido!",
+  "whoIsOnTheBallot_nyc25":"Ir a Quién está en la boleta"
+
+
+
 }

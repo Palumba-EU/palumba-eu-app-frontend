@@ -77,6 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("¡Ups!"),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
+    "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
+      "Vamos a explorar tu compatibilidad con todos los candidatos y políticas en las próximas pantallas. Toca la derecha/izquierda de la pantalla para navegar.",
+    ),
     "denmark": MessageLookupByLibrary.simpleMessage("Dinamarca"),
     "electionDE": MessageLookupByLibrary.simpleMessage(
       "Bundestagswahl 2025 🇩🇪",
@@ -129,9 +132,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Volver al test",
     ),
     "homePageMatchesFoundQuote": m1,
-    "homePageMyResults": MessageLookupByLibrary.simpleMessage("Mis resultados"),
+    "homePageMyResults": MessageLookupByLibrary.simpleMessage(
+      "Mis resultados · Volver al test",
+    ),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
-      "Empezar un nuevo test",
+      "Nueva prueba de Palumba",
     ),
     "hungary": MessageLookupByLibrary.simpleMessage("Hungría"),
     "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -301,6 +306,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage(
       "Notificaciones desactivadas",
     ),
+    "resultItsMatch": MessageLookupByLibrary.simpleMessage("¡Es un partido!"),
     "resultsPage10AreYouGoingToVote_ger25":
         MessageLookupByLibrary.simpleMessage("¿Vas a votar?"),
     "resultsPage10AreYouGoingToVote_nyc25":
@@ -592,6 +598,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPageCandidatesShuffle": MessageLookupByLibrary.simpleMessage(
       "Barajar mi amor político 🔀",
     ),
+    "resultsSentYouARose": MessageLookupByLibrary.simpleMessage(
+      "Te mandó una rosa",
+    ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Compartir"),
     "romania": MessageLookupByLibrary.simpleMessage("Rumania"),
     "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage(
@@ -710,6 +719,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sweden": MessageLookupByLibrary.simpleMessage("Suecia"),
     "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
+    "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Ir a Quién está en la boleta",
+    ),
     "yes": MessageLookupByLibrary.simpleMessage("Sí"),
   };
 }
