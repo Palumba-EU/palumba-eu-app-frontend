@@ -99,9 +99,9 @@
   "@HomePage": "HomePage",
   "homePageMatchesFoundQuote": "{count} matches found in the last 24h",
   "homePageBackToTest": "Back to the test",
-  "homePageMyResults": "My results",
-  "homePageStartButton": "Start a new test",
-  "whoIsOnTheBallot_nyc25": "Who's On The Ballot",
+  "homePageMyResults": "My results · Back to the test",
+  "homePageStartButton": "New Palumba test",
+  "whoIsOnTheBallot_nyc25": "Go to Who’s On The Ballot",
   "@@SettingsPage": "SettingsPage",
   "settingsPageTitleLanguage": "Language",
   "settingsPageSubtitleLanguage": "I prefer to use this app in",
@@ -514,7 +514,10 @@
 "onBoardingDataProtectionLink_nyc25": "Data Protection Policy",
 
 "resultsPageAllPartiesTitle_nyc25": "Your personal ranking of all candidates",
-"resultsPageAllPartiesDescription_nyc25": "What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility."
+"resultsPageAllPartiesDescription_nyc25": "What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility.",
+"resultsSentYouARose": "Sent you a rose",
+"deepDiveIntro": "Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.",
+"resultItsMatch":"It's a match!"
 
 
 

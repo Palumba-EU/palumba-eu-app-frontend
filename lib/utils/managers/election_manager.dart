@@ -7,7 +7,7 @@ import 'package:palumba_eu/utils/managers/user_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ElectionManager {
-  static final Rx<Election> currentElection = Election.EU.obs;
+  static final Rx<Election> currentElection = Election.NY.obs;
   static EggScreen? eggInfo;
   static LocalPartyScreen? localPartyScreen;
   static DateTime? electionDate;

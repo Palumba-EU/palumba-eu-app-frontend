@@ -1,10 +1,11 @@
 import 'dart:io';
 import 'dart:math';
 import 'dart:ui' as ui;
+
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/manager/data_manager.dart';
 import 'package:palumba_eu/data/model/election.dart';
@@ -19,14 +20,15 @@ import 'package:palumba_eu/modules/results/helpers/results_helper.dart';
 import 'package:palumba_eu/modules/results/helpers/svg_helper.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_2_bio.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
-import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
@@ -40,6 +42,7 @@ import 'package:palumba_eu/utils/utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
+
 import 'models/custom_chart_data.dart';
 import 'pages/results_page_5.dart';
 
@@ -232,6 +235,7 @@ class ResultsController extends GetxController {
         results = [
           // ResultsPage1(),
           ResultsPage2(),
+          ResultsPage2Bio(),
           ResultsPage3(),
           ResultsPage4(),
           ResultsPage5(),

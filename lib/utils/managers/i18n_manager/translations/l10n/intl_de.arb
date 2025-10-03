@@ -357,5 +357,9 @@
   "resultsPage10AreYouGoingToVote_ger25": "Gehst du wählen?",
   "statementsTutorialTurnInfo_ger25": "Tippe hier für mehr Infos",
   "resultsPage10MaybeButton_ger25": "Vielleicht",
-  "resultsPage10VotingDay_ger25": "⁠Die Wahl ist am {date} - sei dabei!"
+  "resultsPage10VotingDay_ger25": "⁠Die Wahl ist am {date} - sei dabei!",
+  "resultsSentYouARose": "Hat dir eine Rose geschickt",
+  "deepDiveIntro": "Lassen Sie uns Ihre Kompatibilität mit allen Kandidaten und Richtlinien auf den nächsten Bildschirmen genauer betrachten. Tippen Sie auf die rechte/linke Seite des Bildschirms, um zu navigieren."
+
+
 }

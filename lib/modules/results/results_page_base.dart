@@ -1,17 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
-import 'package:get/get.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 import 'package:screenshot/screenshot.dart';
+
 import 'components/custom_mds_graphic/dotted_container.dart';
 import 'results_controller.dart';
 
@@ -23,7 +24,7 @@ class ResultsPage extends GetView<ResultsController> {
     return PopScope(
         child: Scaffold(
       key: controller.globalKey,
-      backgroundColor: AppColors.background,
+      backgroundColor: ElectionManager.currentElection.value.background,
       body: GestureDetector(
           onTapDown: controller.changePage,
           behavior: HitTestBehavior.translucent,
@@ -34,14 +35,14 @@ class ResultsPage extends GetView<ResultsController> {
                 controller: controller.backgroundScreenshotController,
                 child: Stack(children: [
                   Container(
-                    color: AppColors.background,
+                    color: ElectionManager.currentElection.value.background,
                   ),
                   Obx(
                     () => Opacity(
                       opacity:
                           controller.currentPage.showSpecialBackground ? 1 : 0,
                       child: Container(
-                        color: AppColors.blue,
+                        color: ElectionManager.currentElection.value.background,
                         child: Stack(
                           children: [
                             Align(
@@ -151,17 +152,22 @@ class ResultsPage extends GetView<ResultsController> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Obx(() => SvgPicture.asset(
+                                      /* Obx(() => SvgPicture.asset(
                                             ElectionManager.currentElection
                                                 .value.logoCircle,
                                             height: 40,
-                                          )),
+                                          )),*/
+
+                                      Obx(() {
+                                        final asset = ElectionManager
+                                            .currentElection.value.logoCircle;
+                                        return buildImage(asset);
+                                      }),
                                       if (kDebugMode)
                                         Obx(() => AppTexts.small(
-                                            controller
-                                                .pages[controller
+                                            controller.pages[controller
                                                     .currentPageIndex.value]
-                                                .className,
+                                                .toString(),
                                             color: AppColors.primary)),
                                       Spacer(),
                                       AppTexts.title(
@@ -240,5 +246,23 @@ class ResultsPage extends GetView<ResultsController> {
             ],
           )),
     ));
+  }
+
+  Widget buildImage(String assetPath) {
+    if (assetPath.toLowerCase().endsWith('.svg')) {
+      return SvgPicture.asset(
+        assetPath,
+        height: 40,
+      );
+    } else if (assetPath.toLowerCase().endsWith('.png') ||
+        assetPath.toLowerCase().endsWith('.jpg') ||
+        assetPath.toLowerCase().endsWith('.jpeg')) {
+      return Image.asset(
+        assetPath,
+        height: 40,
+      );
+    } else {
+      return const SizedBox.shrink();
+    }
   }
 }

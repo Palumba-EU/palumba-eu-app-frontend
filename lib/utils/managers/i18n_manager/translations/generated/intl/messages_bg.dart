@@ -402,6 +402,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsPageCandidatesShuffle": MessageLookupByLibrary.simpleMessage(
       "Shuffle my politcal love 🔀",
     ),
+    "resultsSentYouARose": MessageLookupByLibrary.simpleMessage(
+      "Sent you a rose",
+    ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Споделяне"),
     "romania": MessageLookupByLibrary.simpleMessage("Румъния"),
     "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage(

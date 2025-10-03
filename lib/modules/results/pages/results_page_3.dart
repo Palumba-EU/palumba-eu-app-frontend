@@ -18,7 +18,7 @@ class ResultsPage3 extends GetView<ResultsController> with ResultsPage {
     return SingleChildScrollView(
         child: SafeArea(
       child: Container(
-        color: AppColors.background,
+        color: ElectionManager.currentElection.value.background,
         child: Column(
           children: [
             CustomSpacer(multiplier: 3),

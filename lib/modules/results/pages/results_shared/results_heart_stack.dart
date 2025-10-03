@@ -13,7 +13,7 @@ class HeartStack extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 25),
             child: SvgPicture.asset(
-              'assets/images/ic_sticker_heart1.svg',
+              'assets/images/ic_sticker_heart1_yellow.svg',
             ),
           ),
         ),
@@ -22,7 +22,7 @@ class HeartStack extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 250),
             child: SvgPicture.asset(
-              'assets/images/ic_sticker_heart2.svg',
+              'assets/images/ic_sticker_heart2_yellow.svg',
             ),
           ),
         ),
@@ -31,7 +31,7 @@ class HeartStack extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 275),
             child: SvgPicture.asset(
-              'assets/images/ic_sticker_heart1.svg',
+              'assets/images/ic_sticker_heart1_yellow.svg',
             ),
           ),
         ),
@@ -40,7 +40,7 @@ class HeartStack extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(bottom: 75),
             child: SvgPicture.asset(
-              'assets/images/ic_sticker_heart2.svg',
+              'assets/images/ic_sticker_heart2_yellow.svg',
             ),
           ),
         )

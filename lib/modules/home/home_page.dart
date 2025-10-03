@@ -134,8 +134,8 @@ class HomePage extends StatelessWidget {
           bottom: AppDimens.lateralPaddingValue),
       child: Row(
         children: [
-          AppTexts.title(S.of(context).shortAppName,
-              forceCaprasimo: true, color: AppColors.primary, fontSize: 27.5),
+          AppTexts.title("WOTB x " + S.of(context).shortAppName,
+              forceCaprasimo: true, color: AppColors.primary, fontSize: 25),
           Spacer(),
           GetBuilder<HomePageController>(
             id: _.resultsExistsKey,
@@ -302,6 +302,7 @@ class HomePage extends StatelessWidget {
                       isOutside: true, width: 4, color: AppColors.lightPrimary),
                 )
               : SizedBox.shrink(),
+          CustomSpacer(multiplier: 1),
         ],
       ),
     );
