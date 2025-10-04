@@ -28,8 +28,8 @@ class DataAPI {
   };
 
   String baseUrl() {
-    return ElectionManager.currentElection.value.backend == 3
-        ? 'https://wsi8h89p9g.execute-api.us-east-1.amazonaws.com/prod/api' /*'http://palumba-us.bitperfect-software.com/api'*/
+    return ElectionManager.currentElection.value == Election.NY
+        ? 'http://palumba-us.bitperfect-software.com/api'
         : 'https://api.palumba-app.palumba.eu';
   }
 
@@ -37,12 +37,9 @@ class DataAPI {
     return baseUrl() + '/${LanguageManager.currentLanguage}/';
   }
 
-  /*String urlLangAndEl() {
+  String urlLangAndEl() {
     return urlLang() +
         'elections/${ElectionManager.currentElection.value.backend}/';
-  }*/
-  String urlLangAndEl() {
-    return urlLang() + 'elections/3/';
   }
 
   Future<LocalizationData?> fetchLocalizations() async {

@@ -134,7 +134,7 @@ class HomePage extends StatelessWidget {
           bottom: AppDimens.lateralPaddingValue),
       child: Row(
         children: [
-          AppTexts.title("WOTB x " + S.of(context).shortAppName,
+          AppTexts.title(ElectionManager.currentElection.value == Election.NY ? "WOTB x " + S.of(context).shortAppName : S.of(context).shortAppName,
               forceCaprasimo: true, color: AppColors.primary, fontSize: 25),
           Spacer(),
           GetBuilder<HomePageController>(

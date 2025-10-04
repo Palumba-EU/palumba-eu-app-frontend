@@ -89,7 +89,7 @@ class SettingsPageController extends GetxController {
 
   Language? getSelectedLanguage() {
     try {
-      return _languages?.firstWhere(
+      return DataManager().getLanguages().firstWhere(
           (lang) => lang.languagecode == (LanguageManager.currentLanguage));
     } catch (e) {
       debugPrint(e.toString());
