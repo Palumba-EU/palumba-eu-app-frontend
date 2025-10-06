@@ -67,7 +67,7 @@ class ResultsHelper {
       if (distance != -1) {
         percentage = ((1 - (distance / maxDistance)) * 100).round();
       }
-
+      print(party.name+" has candidate match % "+percentage.toString());
       groupDistances
           .add(PartyUserDistance(party: party, percentage: percentage));
     }

@@ -56,6 +56,14 @@ class DataAPI {
       }
 
       var localization = LocalizationData.fromJson(json.decode(response.body));
+      if (ElectionManager.currentElection.value==Election.NY && localization.languages!=null && !localization.languages!.any((l) => l.name=='Español')) {
+        localization.languages?.add(Language(id:100, name:'Español', languagecode:'es-US'));
+        localization.languages?.add(Language(id:101, name:'简体中文', languagecode:'zh'));
+        localization.languages?.add(Language(id:102, name:'Русский', languagecode:'ru'));
+        localization.languages?.add(Language(id:103, name:'עברית', languagecode:'he'));
+        
+      }
+      
       DataManager().setLanguages(localization.languages ?? []);
       DataManager().setCountries(localization.countries);
       return localization;

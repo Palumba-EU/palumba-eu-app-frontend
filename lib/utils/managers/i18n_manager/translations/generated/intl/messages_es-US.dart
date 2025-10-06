@@ -125,7 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "entranceTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
       "Descubre tu posición y quién aparece en la boleta",
     ),
-    "faq": MessageLookupByLibrary.simpleMessage("Preguntas frecuentes"),
+    "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
     "france": MessageLookupByLibrary.simpleMessage("Francia"),
     "germany": MessageLookupByLibrary.simpleMessage("Alemania"),
     "homePageBackToTest": MessageLookupByLibrary.simpleMessage(
@@ -143,7 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Esto se puede cambiar luego en la configuración.",
     ),
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
-      "¿Seguimos en inglés? :)",
+      "¿Seguimos en español? :)",
     ),
     "loadingResultsPageRandom1": MessageLookupByLibrary.simpleMessage(
       "Esto será más rápido que tu transbordo del MTA en Times Square",

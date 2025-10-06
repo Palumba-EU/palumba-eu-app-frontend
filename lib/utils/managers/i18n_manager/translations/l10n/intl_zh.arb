@@ -1,0 +1,596 @@
+{
+  "@@locale": "zh",
+  "appName": "Palumba 欧盟版",
+  "shortAppName": "Palumba",
+  "ok": "好的",
+  "yes": "是",
+  "no": "否",
+  "maybe": "可能",
+  "cancel": "取消",
+  "textContinue": "继续",
+  "alertServerErrorTitle": "哎呀！",
+  "alertServerErrorText": "我们的服务器出错了。请稍后再试。",
+  "skip": "跳过",
+  "neutral": "中立",
+  "faq": "常见问题",
+  "message_half_test_done": "继续滑动，你已经完成50%了！",
+  "message_five_cards_left": "只剩下5张卡片要滑动啦 :)",
+  "@@SplashPage": "启动页",
+  "splashPageNoInternet": "看起来你没有网络连接",
+  "@@LanguagePage": "语言页面",
+  "languagePageTitle": "我们继续用简体中文好吗？:)",
+  "languagePageSubtitle": "稍后可以在设置中更改。",
+  "@@Entrance": "入口页面",
+  "entranceTitle1": "如果这只可爱的小鸽子不能帮你在六月投票，那就没人能了。",
+  "entranceTitle2": "滑动你对重要议题的看法。",
+  "entranceTitle3": "找出你的匹配结果，以及选举时该投给谁的方向。",
+  "entranceMatchesFoundQuote": "过去24小时内找到 {count} 个匹配",
+  "entranceStartButton": "开始使用 Palumba",
+  "@@OnBoardingPage": "引导页面",
+  "hungary": "匈牙利",
+  "denmark": "丹麦",
+  "germany": "德国",
+  "spain": "西班牙",
+  "france": "法国",
+  "poland": "波兰",
+  "romania": "罗马尼亚",
+  "sweden": "瑞典",
+  "onBoardingStep1Title": "你将在哪个国家投票？",
+  "onBoardingStep1Title_nyc25": "你所在的行政区是？",
+  "onBoardingStep1Subtitle": "我不确定",
+  "onBoardingStep2Title": "我的年龄",
+  "onBoardingStep3Title": "我的性别认同是",
+  "onBoardingStep3Option1": "女性",
+  "onBoardingStep3Option2": "男性",
+  "onBoardingStep3Option3": "性别流动者",
+  "onBoardingStep3Option4": "非二元性别",
+  "onBoardingStep3Option5": "其他",
+  "onBoardingNotAnswerButton": "不愿透露",
+  "onBoardingCardQuestion": "我完全不知道在2024年欧洲选举该投给谁",
+  "onBoardingLastStepTitle": "根据你的认同滑动",
+  "@@LoadingResultsPage": "结果加载页面",
+  "loadingResultsPageTitle1": "你的个性化结果正在生成中 :)",
+  "loadingResultsPageTitle2": "这比抢泰勒·斯威夫特演唱会门票还快 👀",
+  "loadingResultsPageTitle3": "正在与 {country} 的候选名单匹配 🔍",
+  "loadingResultsPageTitle4": "快完成了，最后检查一下……",
+  "loadingResultsPageRandom1": "这会比你在时代广场换乘地铁还快",
+  "loadingResultsPageRandom2": "我们会比 Box 俱乐部的长队还要快",
+  "loadingResultsPageRandom3": "加油！突破你7秒的注意力极限",
+  "loadingResultsPageRandom4": "和 Hinge 不同，我们真的帮你找到匹配",
+  "loadingResultsPageRandom5": "好奇算法吗？它是开源的！",
+  "loadingResultsPageRandom6": "你绝对该告诉朋友这款超酷的应用",
+  "loadingResultsPageRandom7": "快好了，最后检查中……",
+  "@@ResultsPage": "结果页面",
+  "resultsPage1Title": "匹配，还有更多 👉👈",
+  "resultsPage1Text": "在接下来的页面中，你将看到自己最契合的欧洲议会政党、小组，以及你所在国家六月可投票的候选名单。我们还根据你的回答找到了一些额外有趣的内容 😌",
+  "resultsPage1Button": "点击继续",
+  "resultsPage2_1Title": "老实说，在",
+  "resultsPage2_2Title": "和我之间，这真是一段爱情故事（欧盟版）",
+  "resultsPage3Title": "我与欧洲议会各小组的接近程度",
+  "resultsPage4TitleTop": "支持欧盟一体化",
+  "resultsPage4TitleBottom": "反对欧盟一体化",
+  "resultsPage4TitleLeft": "左派",
+  "resultsPage4TitleRight": "右派",
+  "resultsPage4TitleUserHere": "是我！嗨～",
+  "resultsPage5Title": "在具体议题上，我更接近哪个欧洲议会小组？",
+  "resultsPage5Title_nyc": "正如汉娜·蒙塔娜说的：“没人是完美的”……所以这里是你的逐项匹配结果。",
+  "resultsPage5Topic1": "环境议题",
+  "resultsPage5Topic2": "人权与社会权利",
+  "resultsPage5Topic3": "经济干预",
+  "resultsPage6_1Title": "知道哪个小组理解我，这很酷……",
+  "resultsPage6_2Title": "但在欧盟选举中，我们要投给地方名单",
+  "resultsPage6Text": "在接下来的页面中，你将看到所在国家最有可能加入你匹配小组的候选名单。",
+  "resultsPage7Title": "{country} 中与 {group} 最契合的候选名单",
+  "resultsPage7Disclaimer": "无特定顺序。",
+  "resultsPage7NoLocalCandidates": "在 {country} 未找到地方政党",
+  "resultsPage8_1Text": "在 {topic} 上，你比平均更倾向于 {percentage}%",
+  "resultsPage8_2Text": "积极的气候行动 🌱😌",
+  "resultsPage8Help": "你是气候变化的斗士！你相信应对气候危机需要集体行动，每个人都应将其列为首要任务。你不介意欧盟对企业进行监管。毕竟，如果地球无法居住，经济增长又有何意义？",
+  "resultsPage9Help": "点击卡片以重新排列",
+  "resultsPage9Text1": "选举涉及许多议题，但有一件事真的",
+  "resultsPage9Text2": "属于我 😌",
+  "resultsPage10Title": "到投票时间时要提醒我吗？",
+  "resultsPage10NopButton": "不用，谢谢！",
+  "resultsPage10YesButton": "当然要！",
+  "resultsShare": "分享",
+  "@HomePage": "主页",
+  "homePageMatchesFoundQuote": "过去24小时内找到 {count} 个匹配",
+  "homePageBackToTest": "返回测试",
+  "homePageMyResults": "我的结果 · 返回测试",
+  "homePageStartButton": "新的 Palumba 测试",
+  "whoIsOnTheBallot_nyc25": "前往候选名单页面",
+  "@@SettingsPage": "设置页面",
+  "settingsPageTitleLanguage": "语言",
+  "settingsPageSubtitleLanguage": "我希望使用的应用语言是",
+  "settingsPageTextLanguage": "要更改语言，请点击当前语言",
+  "settingsPageTitleElection": "选举",
+  "settingsPageTextElection": "要更改问卷，请点击当前选项",
+  "settingsPageTitleAbout": "关于",
+  "settingsPageTextAbout": "Palumba 不是公司、不是政党、也不是政府机构。我们是一个由来自全欧洲 120 多名年轻人组成的独立非营利协会 🐦，去年夏天我们聚在一起开始制作这个应用。我们的目标只有一个：帮助你更好地了解欧洲选举的运作方式，以及哪些候选名单与你的想法相符，让你能更有信心地投票给支持你优先事项的人。我们的算法是开源的，你滑动选择的问题由政治学专家审阅，你的数据被高度加密，我们根本无法识别你的身份 :)",
+  "settingsPageTitleAssociation": "协会",
+  "settingsPageTitlePartners": "合作伙伴",
+  "settingsPageTextPartners": "我们要强调，合作伙伴对应用内容没有编辑权。Palumba 始终是一项中立的倡议，唯一目标是帮助你了解在欧洲和国家层面上谁支持你的观点。",
+  "settingsPageSubtitle1": "主要赞助商",
+  "settingsPageSubtitle2": "欧洲合作伙伴",
+  "settingsPageSubtitle3": "学术合作伙伴",
+  "settingsPageSubtitle4": "国家级机构合作伙伴",
+  "settingsPageSubtitle5": "服务提供商",
+  "settingsPageShareButtonText": "分享",
+  "settingsPagePrivacyPolicy": "数据保护",
+  "settingsPageShareText": "如果这只可爱的小鸽子不能帮你在六月投票，那就没人能了。我用了这个应用，你也该试试：",
+  "entranceTitle1_ger25": "如果这只可爱的小鸽子不能帮你在二月投票，那就没人能了。",
+  "@entranceTitle1_ger25": {
+    "description": "-> entranceTitle1"
+  },
+  "entranceTitle2_ger25": "滑动你对重要议题的看法。",
+  "@entranceTitle2_ger25": {
+    "description": "-> entranceTitle2"
+  },
+  "entranceTitle3_ger25": "找出你的匹配结果，以及选举时该投给谁的方向。",
+  "@entranceTitle3_ger25": {
+    "description": "-> entranceTitle3"
+  },
+  "onBoardingCardQuestion_ger25": "我完全不知道在 2025 年德国选举中该投给谁",
+  "@onBoardingCardQuestion_ger25": {
+    "description": "-> onBoardingCardQuestion"
+  },
+  "loadingResultsPageTitle1_ger25": "你的个性化结果正在生成中 :)",
+  "@loadingResultsPageTitle1_ger25": {
+    "description": "-> loadingResultsPageTitle1"
+  },
+  "loadingResultsPageTitle2_ger25": "这比德国铁路（Deutsche Bahn）还快",
+  "@loadingResultsPageTitle2_ger25": {
+    "description": "-> loadingResultsPageTitle2"
+  },
+  "loadingResultsPageTitle3_ger25": "等等，快完成了——我发誓不会中途停站！",
+  "@loadingResultsPageTitle3_ger25": {
+    "description": "-> loadingResultsPageTitle3"
+  },
+  "loadingResultsPageTitle4_ger25": "快好了，最后检查中……",
+  "@loadingResultsPageTitle4_ger25": {
+    "description": "-> loadingResultsPageTitle4"
+  },
+  "resultsPage1Title_ger25": "匹配，还有更多",
+  "@resultsPage1Title_ger25": {
+    "description": "-> resultsPage1Title"
+  },
+  "resultsPage1Text_ger25": "在接下来的页面中，你将发现哪些政党与你最契合。我们还根据你的回答找到了一些额外有趣的内容！",
+  "@resultsPage1Text_ger25": {
+    "description": "-> resultsPage1Text"
+  },
+  "resultsPage2_1Title_ger25": "老实说，",
+  "@resultsPage2_1Title_ger25": {
+    "description": "-> resultsPage2_1Title"
+  },
+  "resultsPage2_2Title_ger25": "我和它就像咖喱香肠配薯条一样般配",
+  "@resultsPage2_2Title_ger25": {
+    "description": "-> resultsPage2_2Title"
+  },
+  "resultsPage3Title_ger25": "我与此次德国选举主要政党的接近程度",
+  "@resultsPage3Title_ger25": {
+    "description": "-> resultsPage3Title"
+  },
+  "resultsPage4TitleTop_ger25": "社会保守",
+  "@resultsPage4TitleTop_ger25": {
+    "description": "-> resultsPage4TitleTop"
+  },
+  "resultsPage4TitleBottom_ger25": "社会进步",
+  "@resultsPage4TitleBottom_ger25": {
+    "description": "-> resultsPage4TitleBottom"
+  },
+  "resultsPage4TitleLeft_ger25": "经济干预",
+  "@resultsPage4TitleLeft_ger25": {
+    "description": "-> resultsPage4TitleLeft"
+  },
+  "resultsPage4TitleRight_ger25": "自由市场经济",
+  "@resultsPage4TitleRight_ger25": {
+    "description": "-> resultsPage4TitleRight"
+  },
+  "resultsPage4TitleUserHere_ger25": "是我！嗨～",
+  "@resultsPage4TitleUserHere_ger25": {
+    "description": "-> resultsPage4TitleUserHere"
+  },
+  "resultsPage5Title_ger25": "在更具体的议题上，我最接近哪些政党？",
+  "@resultsPage5Title_ger25": {
+    "description": "resultsPage5Title"
+  },
+  "resultsPage5Topic1_ger25": "环境议题",
+  "@resultsPage5Topic1_ger25": {
+    "description": "-> resultsPage5Topic1"
+  },
+  "resultsPage5Topic2_ger25": "经济",
+  "@resultsPage5Topic2_ger25": {
+    "description": "-> resultsPage5Topic2"
+  },
+  "resultsPage5Topic3_ger25": "社会价值观",
+  "@resultsPage5Topic3_ger25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage6_1Title_ger25": "知道哪个政党理解我，这很酷……",
+  "@resultsPage6_1Title_ger25": {
+    "description": "-> resultsPage6_1Title"
+  },
+  "resultsPage6_2Title_ger25": "但在德国选举中，你也可以选择特定候选人投票",
+  "@resultsPage6_2Title_ger25": {
+    "description": "resultsPage6_2Title"
+  },
+  "resultsPage6Text_ger25": "感觉有点不知所措？别担心，我们已经考虑到了！下一页为你准备了一些选项！",
+  "@resultsPage6Text_ger25": {
+    "description": "-> resultsPage6Text"
+  },
+  "resultsPage8_1Text_ger25": "你的回答在 {dimension} 维度上位于前 {number}%",
+  "@resultsPage8_1Text_ger25": {
+    "description": "-> resultsPage8_1Text"
+  },
+  "resultsPage8_2Text_ger25": "积极的气候行动 🌱😌",
+  "@resultsPage8_2Text_gerå25": {
+    "description": "-> resultsPage8_2Text"
+  },
+  "resultsPage9Help_ger25": "点击卡片以重新排列",
+  "@resultsPage9Help_ger25": {
+    "description": "-> resultsPage9Help"
+  },
+  "resultsPage9Text1_ger25": "选举涉及很多议题，但有一个最适合你！简直就像是为你量身定做的，",
+  "@resultsPage9Text1_ger25": {
+    "description": "-> resultsPage9Text1"
+  },
+  "resultsPage10Title_ger25": "到投票时间时要提醒我吗？",
+  "@resultsPage10Title_ger25": {
+    "description": "-> resultsPage10Title"
+  },
+  "messageScreenYes_ger25": "当然！",
+  "@messageScreenYes_ger25": {
+    "description": "-> messageScreenYes"
+  },
+  "messageScreenNo_ger25": "不用，谢谢！",
+  "@messageScreenNo_ger25": {
+    "description": "-> messageScreenNo"
+  },
+  "onBoardingStep4Title": "教育程度",
+  "onBoardingStep4Option1_ger25": "大学学历",
+  "@onBoardingStep4Option1_ger25": {
+    "description": "-> onBoardingStep4Option1"
+  },
+  "onBoardingStep4Option2_ger25": "高中毕业",
+  "@onBoardingStep4Option2_ger25": {
+    "description": "-> onBoardingStep4Option2"
+  },
+  "onBoardingStep4Option3_ger25": "职业培训",
+  "@onBoardingStep4Option3_ger25": {
+    "description": "-> onBoardingStep4Option3"
+  },
+  "onBoardingStep4Option4_ger25": "初中毕业",
+  "@onBoardingStep4Option4_ger25": {
+    "description": "-> onBoardingStep4Option4"
+  },
+  "onBoardingStep4Option5_ger25": "未完成学业",
+  "@onBoardingStep4Option5_ger25": {
+    "description": "-> onBoardingStep4Option5"
+  },
+  "onBoardingStep4Option6_ger25": "其他",
+  "@onBoardingStep4Option6_ger25": {
+    "description": "-> onBoardingStep4Option6"
+  },
+  "onBoardingStep3Title_ger25": "我的性别认同是",
+  "@onBoardingStep3Title_ger25": {
+    "description": "-> onBoardingStep3Title"
+  },
+  "resultsPage1Button_ger25": "点击继续",
+  "@resultsPage1Button_ger25": {
+    "description": "-> onBoardingLastStepTitle"
+  },
+  "resultsPage10NopButton_ger25": "不用，谢谢！",
+  "@resultsPage10NopButton_ger25": {
+    "description": "-> resultsPage10NopButton"
+  },
+  "resultsPage10YesButton_ger25": "当然要！",
+  "@resultsPage10YesButton_ger25": {
+    "description": "-> resultsPage10YesButton"
+  },
+  "settingsPageTitleAssociation_ger25": "协会",
+  "@settingsPageTitleAssociation_ger25": {
+    "description": "-> settingsPageTitleAssociation"
+  },
+  "settingsPageTitlePartners_ger25": "合作伙伴",
+  "@settingsPageTitlePartners_ger25": {
+    "description": "-> settingsPageTitlePartners"
+  },
+  "settingsPageTextPartners_ger25": "需要说明的是，合作伙伴对应用内容没有编辑权。该应用仍然是一项中立的倡议，目标明确：帮助你了解在欧洲和国家层面上，谁支持你的观点。",
+  "@settingsPageTextPartners_ger25": {
+    "description": "-> settingsPageTextPartners"
+  },
+  "settingsPageSubtitle1_ger25": "主要赞助商",
+  "@settingsPageSubtitle1_ger25": {
+    "description": "-> settingsPageSubtitle1"
+  },
+  "settingsPageSubtitle2_ger25": "欧洲合作伙伴",
+  "@settingsPageSubtitle2_ger25": {
+    "description": "-> settingsPageSubtitle2"
+  },
+  "settingsPageSubtitle3_ger25": "学术合作伙伴",
+  "@settingsPageSubtitle3_ger25": {
+    "description": "-> settingsPageSubtitle3"
+  },
+  "settingsPageSubtitle4_ger25": "国家级机构合作伙伴",
+  "@settingsPageSubtitle4_ger25": {
+    "description": "-> settingsPageSubtitle4"
+  },
+  "settingsPageSubtitle5_ger25": "服务提供商",
+  "@settingsPageSubtitle5_ger25": {
+    "description": "-> settingsPageSubtitle5"
+  },
+  "settingsPageShareText_ger25": "如果这只可爱的小鸽子不能帮你在二月投票，那就没人能了。我用了这个应用，你也该试试：",
+  "@settingsPageShareText_ger25": {
+    "description": "-> settingsPageShareText"
+  },
+  "resultsPage8Help_ger25": "你是气候变化的斗士！你相信应对气候危机需要集体行动，每个人都应将其列为首要任务。你不介意德国为此监管企业。毕竟，如果地球无法居住，经济增长又有何意义？#气候行动现在 #地球优先",
+  "@resultsPage8Help_ger25": {
+    "description": "-> resultsPage8Help"
+  },
+  "resultsPage5Topic4_ger25": "欧盟一体化",
+  "@resultsPage5Topic4_ger25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage5Topic5_ger25": "移民",
+  "@resultsPage5Topic5_ger25": {
+    "description": "-> resultsPage5Topic5_ger25"
+  },
+  "resultsPage7Disclaimer_ger25": "* 此页面仅显示以下政党的候选人：CDU/CSU、SPD、绿党、AfD、左翼党、FDP、BSW。",
+  "@resultsPage7Disclaimer_ger25": {
+    "description": "-> resultsPage7Title"
+  },
+  "resultsPage7Title_ger25": "这是一位来自 {party}* 的年轻候选人 —— 滑动查看更多！他们可能不在你的选票上，但代表了政党的未来！",
+  "@resultsPage7Title_ger25": {
+    "description": "-> resultsPage7Title"
+  },
+  "onBoardingDataProtection_ger25": "我同意数据保护政策和使用条款以使用该应用",
+  "onBoardingDataProtectionLink_ger25": "数据保护政策",
+  "resultsPage9Text2_ger25": "为你量身打造！",
+  "@resultsPage9Text2_ger25": {
+    "description": "-> resultsPage9Text2"
+  },
+  "resultsPage2NoResults": "未找到结果",
+  "resultsPage10VotingDay": "准备好吧，投票日是 {date}",
+  "resultsPage10VotingQuestion": "你会去投票吗？",
+  "pushDeactivatedTitle": "通知已禁用",
+  "pushDeactivatedText": "若要接收推送通知，请在设置中启用它们",
+  "pushDeactivatedCancel": "关闭",
+  "pushDeactivatedConfirm": "打开设置",
+  "resultsPageCandidatesShuffle": "重新匹配我的政治缘分 🔀",
+  "resultsPageCandidatesNoParties": "没有地方政党",
+  "electionPageTitle": "选择选举",
+  "electionPageSubtitle": "",
+  "electionEU": "2024 年欧洲议会选举 🇪🇺",
+  "electionDE": "2025 年德国联邦议会选举 🇩🇪",
+  "resultsPageAllPartiesTitle_ger25": "你所有政党的个性化排名",
+  "resultsPageAllPartiesDescription_ger25": "但如果我们也把小党派包括进来，你的排名会是什么样？—— 此列表包括目前在联邦议会中没有代表的政党。",
+  "resultsPage10AreYouGoingToVote_ger25": "你会去投票吗？",
+  "statementsTutorialTurnInfo_ger25": "点击以翻转并阅读更多信息",
+  "resultsPage10MaybeButton_ger25": "可能吧",
+  "resultsPage10VotingDay_ger25": "准备好吧，投票日是 {date}",
+  "electionNY": "2025 年纽约市市长选举 🗽",
+  "entranceTitle1_nyc25": "从百吉饼到选票，这只小鸽子全都知道",
+  "@entranceTitle1_nyc25": {
+    "description": "-> entranceTitle1"
+  },
+  "entranceTitle2_nyc25": "滑动并与未来的市长匹配",
+  "@entranceTitle2_nyc25": {
+    "description": "-> entranceTitle2"
+  },
+  "entranceTitle3_nyc25": "了解你的立场并看看谁在候选名单上",
+  "@entranceTitle3_nyc25": {
+    "description": "-> entranceTitle3"
+  },
+  "onBoardingCardQuestion_nyc25": "我完全不知道在 2025 年纽约市长选举中该投给谁",
+  "@onBoardingCardQuestion_nyc25": {
+    "description": "-> onBoardingCardQuestion"
+  },
+  "loadingResultsPageTitle1_nyc25": "你的个性化结果正在生成中 :)",
+  "@loadingResultsPageTitle1_nyc25": {
+    "description": "-> loadingResultsPageTitle1"
+  },
+  "loadingResultsPageTitle2_nyc25": "这会比纽约的买咖啡还快 ☕",
+  "@loadingResultsPageTitle2_nyc25": {
+    "description": "-> loadingResultsPageTitle2"
+  },
+  "loadingResultsPageTitle3_nyc25": "稍等，快完成了——保证不绕路！",
+  "@loadingResultsPageTitle3_nyc25": {
+    "description": "-> loadingResultsPageTitle3"
+  },
+  "loadingResultsPageTitle4_nyc25": "快好了，最后检查中……",
+  "@loadingResultsPageTitle4_nyc25": {
+    "description": "-> loadingResultsPageTitle4"
+  },
+  "resultsPage1Title_nyc25": "匹配，还有更多",
+  "@resultsPage1Title_nyc25": {
+    "description": "-> resultsPage1Title"
+  },
+  "resultsPage1Text_nyc25": "在接下来的页面中，你将发现哪位市长候选人与您最契合。我们还根据你的回答找到了几个额外有趣的内容！",
+  "@resultsPage1Text_nyc25": {
+    "description": "-> resultsPage1Text"
+  },
+  "resultsPage2_1Title_nyc25": "老实说，",
+  "@resultsPage2_1Title_nyc25": {
+    "description": "-> resultsPage2_1Title"
+  },
+  "resultsPage2_2Title_nyc25": "我和他/她就像披萨和宵夜切片一样般配",
+  "@resultsPage2_2Title_nyc25": {
+    "description": "-> resultsPage2_2Title"
+  },
+  "resultsPage3Title_nyc25": "我与市长候选人的接近程度",
+  "@resultsPage3Title_nyc25": {
+    "description": "-> resultsPage3Title"
+  },
+  "resultsPage4TitleTop_nyc25": "社会保守",
+  "@resultsPage4TitleTop_nyc25": {
+    "description": "-> resultsPage4TitleTop"
+  },
+  "resultsPage4TitleBottom_nyc25": "社会进步",
+  "@resultsPage4TitleBottom_nyc25": {
+    "description": "-> resultsPage4TitleBottom"
+  },
+  "resultsPage4TitleLeft_nyc25": "经济干预",
+  "@resultsPage4TitleLeft_nyc25": {
+    "description": "-> resultsPage4TitleLeft"
+  },
+  "resultsPage4TitleRight_nyc25": "自由市场经济",
+  "@resultsPage4TitleRight_nyc25": {
+    "description": "-> resultsPage4TitleRight"
+  },
+  "resultsPage4TitleUserHere_nyc25": "是我！嗨～",
+  "@resultsPage4TitleUserHere_nyc25": {
+    "description": "-> resultsPage4TitleUserHere"
+  },
+  "resultsPage5Title_nyc25": "在更具体的议题上，我更接近哪位市长候选人？",
+  "@resultsPage5Title_nyc25": {
+    "description": "resultsPage5Title"
+  },
+  "resultsPage5Topic1_nyc25": "环境议题",
+  "@resultsPage5Topic1_nyc25": {
+    "description": "-> resultsPage5Topic1"
+  },
+  "resultsPage5Topic2_nyc25": "经济",
+  "@resultsPage5Topic2_nyc25": {
+    "description": "-> resultsPage5Topic2"
+  },
+  "resultsPage5Topic3_nyc25": "社会价值观",
+  "@resultsPage5Topic3_nyc25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage5Topic4_nyc25": "交通与街道",
+  "@resultsPage5Topic4_nyc25": {
+    "description": "-> resultsPage5Topic3"
+  },
+  "resultsPage5Topic5_nyc25": "住房与负担能力",
+  "@resultsPage5Topic5_nyc25": {
+    "description": "-> resultsPage5Topic5_ger25"
+  },
+  "resultsPage6_1Title_nyc25": "知道哪位候选人理解我，这很酷……",
+  "@resultsPage6_1Title_nyc25": {
+    "description": "-> resultsPage6_1Title"
+  },
+  "resultsPage6_2Title_nyc25": "但在纽约市选举中，你只能选择一位市长候选人投票",
+  "@resultsPage6_2Title_nyc25": {
+    "description": "resultsPage6_2Title"
+  },
+  "resultsPage6Text_nyc25": "在接下来的页面中，你将看到与你回答最匹配的市长候选人。",
+  "@resultsPage6Text_nyc25": {
+    "description": "-> resultsPage6Text"
+  },
+  "resultsPage8_1Text_nyc25": "你的回答在 {dimension} 维度上位于前 {number}%",
+  "@resultsPage8_1Text_nyc25": {
+    "description": "-> resultsPage8_1Text"
+  },
+  "resultsPage8_2Text_nyc25": "积极的气候行动 🌱😌",
+  "@resultsPage8_2Text_nyc25": {
+    "description": "-> resultsPage8_2Text"
+  },
+  "resultsPage9Help_nyc25": "点击卡片以重新排列",
+  "@resultsPage9Help_nyc25": {
+    "description": "-> resultsPage9Help"
+  },
+  "resultsPage9Text1_nyc25": "选举涉及许多议题，但有一个最适合你！简直就像是为你量身打造的，",
+  "@resultsPage9Text1_nyc25": {
+    "description": "-> resultsPage9Text1"
+  },
+  "resultsPage9Text2_nyc25": "为你而生！",
+  "@resultsPage9Text2_nyc25": {
+    "description": "-> resultsPage9Text2"
+  },
+  "resultsPage10Title_nyc25": "到投票时间时要提醒我吗？",
+  "@resultsPage10Title_nyc25": {
+    "description": "-> resultsPage10Title"
+  },
+  "resultsPage10NopButton_nyc25": "不用，谢谢！",
+  "@resultsPage10NopButton_nyc25": {
+    "description": "-> resultsPage10NopButton"
+  },
+  "resultsPage10YesButton_nyc25": "当然要！",
+  "@resultsPage10YesButton_nyc25": {
+    "description": "-> resultsPage10YesButton"
+  },
+  "resultsPage10AreYouGoingToVote_nyc25": "你会去投票吗？",
+  "statementsTutorialTurnInfo_nyc25": "点击以翻转并阅读更多信息",
+  "resultsPage10MaybeButton_nyc25": "可能吧",
+  "resultsPage10VotingDay_nyc25": "准备好吧，投票日是 {date}",
+  "@resultsPage10VotingDay_nyc25": {
+    "description": "-> resultsPage10VotingDay"
+  },
+  "messageScreenYes_nyc25": "当然！",
+  "@messageScreenYes_nyc25": {
+    "description": "-> messageScreenYes"
+  },
+  "messageScreenNo_nyc25": "不用，谢谢！",
+  "@messageScreenNo_nyc25": {
+    "description": "-> messageScreenNo"
+  },
+  "onBoardingStep3Title_nyc25": "我的性别认同是",
+  "@onBoardingStep3Title_nyc25": {
+    "description": "-> onBoardingStep3Title"
+  },
+  "onBoardingStep4Title_nyc25": "毕业于……",
+  "LevelOfEducationHighSchool_nyc25": "高中",
+  "LevelOfEducationAssociates_nyc25": "副学士学位",
+  "LevelOfEducationBachelors_nyc25": "学士学位",
+  "LevelOfEducationGradSchool_nyc25": "研究生院",
+  "LevelOfEducationOther_nyc25": "其他",
+  "resultsPage1Button_nyc25": "点击继续",
+  "@resultsPage1Button_nyc25": {
+    "description": "-> onBoardingLastStepTitle"
+  },
+  "settingsPageTitleAssociation_nyc25": "协会",
+  "@settingsPageTitleAssociation_nyc25": {
+    "description": "-> settingsPageTitleAssociation"
+  },
+  "settingsPageTitlePartners_nyc25": "合作伙伴",
+  "@settingsPageTitlePartners_nyc25": {
+    "description": "-> settingsPageTitlePartners"
+  },
+  "settingsPageTextPartners_nyc25": "需要说明的是，合作伙伴对应用内容没有编辑权。该应用仍然是一项中立的倡议，目标明确：帮助你了解在欧洲和国家层面上，谁支持你的观点。",
+  "@settingsPageTextPartners_nyc25": {
+    "description": "-> settingsPageTextPartners"
+  },
+  "settingsPageSubtitle1_nyc25": "主要赞助商",
+  "@settingsPageSubtitle1_nyc25": {
+    "description": "-> settingsPageSubtitle1"
+  },
+  "settingsPageSubtitle2_nyc25": "欧洲合作伙伴",
+  "@settingsPageSubtitle2_nyc25": {
+    "description": "-> settingsPageSubtitle2"
+  },
+  "settingsPageSubtitle3_nyc25": "学术合作伙伴",
+  "@settingsPageSubtitle3_nyc25": {
+    "description": "-> settingsPageSubtitle3"
+  },
+  "settingsPageSubtitle4_nyc25": "国家级机构合作伙伴",
+  "@settingsPageSubtitle4_nyc25": {
+    "description": "-> settingsPageSubtitle4"
+  },
+  "settingsPageSubtitle5_nyc25": "服务提供商",
+  "@settingsPageSubtitle5_nyc25": {
+    "description": "-> settingsPageSubtitle5"
+  },
+  "settingsPageShareText_nyc25": "如果这只可爱的小鸽子不能帮你在十一月投票，那就没人能了。我用了这个应用，你也该试试：",
+  "@settingsPageShareText_nyc25": {
+    "description": "-> settingsPageShareText"
+  },
+  "resultsPage8Help_nyc25": "你非常关心纽约市的气候行动。你相信应对危机需要集体努力与智慧的城市政策——增强韧性、清洁交通和更绿色的街道——让纽约人现在和未来都能更好地生活。",
+  "@resultsPage8Help_nyc25": {
+    "description": "-> resultsPage8Help"
+  },
+  "resultsPage7Disclaimer_nyc25": "此页面仅显示具有充分公开信息的候选人。",
+  "@resultsPage7Disclaimer_nyc25": {
+    "description": "-> resultsPage7Title"
+  },
+  "resultsPage7Title_nyc25": "这是一位来自 {party} 的市长候选人 —— 滑动查看更多！",
+  "@resultsPage7Title_nyc25": {
+    "description": "-> resultsPage7Title"
+  },
+  "onBoardingDataProtection_nyc25": "我同意数据保护政策和使用条款以使用该应用",
+  "onBoardingDataProtectionLink_nyc25": "数据保护政策",
+  "resultsPageAllPartiesTitle_nyc25": "你所有候选人的个性化排名",
+  "resultsPageAllPartiesDescription_nyc25": "如果我们把所有市长候选人都包括进来，你的排名会是什么样？—— 此列表可能包括知名度或民调较低的候选人。",
+  "resultsSentYouARose": "送给你一朵玫瑰 🌹",
+  "deepDiveIntro": "让我们在接下来的页面中深入探索你与所有候选人及政策的契合度。点击屏幕左右两侧进行导航。",
+  "resultItsMatch": "匹配成功！"
+}
