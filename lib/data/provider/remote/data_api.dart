@@ -28,7 +28,7 @@ class DataAPI {
   };
 
   String baseUrl() {
-    return ElectionManager.currentElection.value == Election.NY
+    return ElectionManager.currentElection.value.backend == Election.NY.backend
         ? 'http://palumba-us.bitperfect-software.com/api'
         : 'https://api.palumba-app.palumba.eu';
   }

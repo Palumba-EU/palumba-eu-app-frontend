@@ -14,6 +14,8 @@ import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
+import '../../../global_widgets/custom_html_widget.dart';
+
 class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
@@ -63,41 +65,73 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                               fontSize: 20,
                               color: AppColors.primary),
                           Padding(
-                            padding: const EdgeInsets.only(top: 15),
-                            child: AppTexts.small(
-                                "ℹ️ Zohran Kwame Mamdani · 🎂 October 18, 1991 (34 y.o.) · 🏠 Astoria, Queens · 💫 Libra Affiliation & Profile Democratic Party nominee, member of the Democratic Socialists of America. Served Queens’ 36th district in the NY State Assembly since 2021. Foreclosure prevention housing counselor before. Focus on affordability (rent freezes, city-owned groceries, raising wages), public safety reform, free transit, and taxing high incomes. Red Flags 🚩 “Should Zohran Mamdani get to live in a rent-stabilized unit?” - The Gothamist · 🚩 “Critics say Zohran Mamdani is antisemitic” - Politico @zohrankmamdani · zohranfornyc.com",
-                                color: AppColors.primary,
-                                textAlign: TextAlign.center,
-                                bold: true)
-
-                            /*RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                  style: AppTexts.customTextStyle(
-                                      AppTextType.title,
-                                      black: true,
-                                      color: AppColors.primary),
-                                  children: [
-                                    TextSpan(
-                                      text: ElectionManager
-                                          .currentElection.value
-                                          .resultsPage2_1Title(context),
-                                    ),
-                                    TextSpan(
-                                      text:
-                                          ' ${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
-                                      style: TextStyle(
-                                          color: controller.getPartyColor()),
-                                    ),
-                                    TextSpan(
-                                      text: ElectionManager
-                                          .currentElection.value
-                                          .resultsPage2_2Title(context),
-                                    ),
-                                  ],
-                                ))*/
-                            ,
-                          ),
+                              padding: const EdgeInsets.only(top: 5),
+                              child: CustomHtmlWidget(
+                                content: controller.maxPercentagePoliticParty
+                                        ?.party.profile?.bio
+                                        ?.trim() ??
+                                    "",
+                                textStyle: AppTexts.customTextStyle(
+                                    AppTextType.regular,
+                                    color: AppColors.primary,
+                                    fontSize: 14.0),
+                              )),
+                          AppTexts.title('Affiliation & Profile',
+                              forceCaprasimo: true,
+                              fontSize: 20,
+                              color: AppColors.primary),
+                          Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: CustomHtmlWidget(
+                                content: controller.maxPercentagePoliticParty
+                                        ?.party.profile?.affiliation ??
+                                    "",
+                                textStyle: AppTexts.customTextStyle(
+                                    AppTextType.regular,
+                                    color: AppColors.primary,
+                                    fontSize: 14.0),
+                              )),
+                          AppTexts.title('Red Flags',
+                              forceCaprasimo: true,
+                              fontSize: 20,
+                              color: AppColors.primary),
+                          Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: CustomHtmlWidget(
+                                content: controller.maxPercentagePoliticParty
+                                        ?.party.profile?.redFlags
+                                        ?.trim() ??
+                                    "",
+                                textStyle: AppTexts.customTextStyle(
+                                    AppTextType.regular,
+                                    color: AppColors.primary,
+                                    fontSize: 14.0),
+                              )),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CustomHtmlWidget(
+                                  content:
+                                      """<a href="${controller.maxPercentagePoliticParty?.party.profile?.link1?.trim()}"> ${controller.maxPercentagePoliticParty?.party.profile?.link1Text?.trim()}</a>""",
+                                  textStyle: AppTexts.customTextStyle(
+                                      AppTextType.regular,
+                                      color: AppColors.primary,
+                                      fontSize: 14.0),
+                                ),
+                                CustomHtmlWidget(
+                                  content:
+                                      """<a href='${controller.maxPercentagePoliticParty?.party.profile?.link2?.trim()}'> ${controller.maxPercentagePoliticParty?.party.profile?.link2Text?.trim()}</a>""",
+                                  textStyle: AppTexts.customTextStyle(
+                                      AppTextType.regular,
+                                      color: AppColors.primary,
+                                      fontSize: 14.0),
+                                )
+                              ],
+                            ),
+                          )
                         ],
                       ),
               ),

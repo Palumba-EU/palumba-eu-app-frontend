@@ -110,6 +110,8 @@
   "settingsPageTextElection": "To change the questionnaire, click on the current one",
   "settingsPageTitleAbout": "About",
   "settingsPageTextAbout": "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
+  "settingsPageTextAboutNew": "Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
+
   "settingsPageTitleAssociation": "The association",
   "settingsPageTitlePartners": "Partners",
   "settingsPageTextPartners": "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
@@ -486,7 +488,7 @@
 "@settingsPageTitleAssociation_nyc25": { "description": "-> settingsPageTitleAssociation" },
 "settingsPageTitlePartners_nyc25": "Partners",
 "@settingsPageTitlePartners_nyc25": { "description": "-> settingsPageTitlePartners" },
-"settingsPageTextPartners_nyc25": "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+"settingsPageTextPartners_nyc25": "Important to tell you that no external entity  has editorial power on the content of the app, which remains a non-partisan initiative with one goal: helping you navigate elections.",
 "@settingsPageTextPartners_nyc25": { "description": "-> settingsPageTextPartners" },
 "settingsPageSubtitle1_nyc25": "Main Sponsors",
 "@settingsPageSubtitle1_nyc25": { "description": "-> settingsPageSubtitle1" },
@@ -517,7 +519,20 @@
 "resultsPageAllPartiesDescription_nyc25": "What would your ranking look like if we include every mayoral candidate? — This list may include candidates with limited polling or visibility.",
 "resultsSentYouARose": "Sent you a rose",
 "deepDiveIntro": "Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.",
-"resultItsMatch":"It's a match!"
+"resultItsMatch":"It's a match!",
+
+"registerToVote":"Register to vote",
+"tapToRegister":"Tap here to double-check your registration on the official website",
+"turnOnVotingReminder":"Turn on a voting reminder",
+"activePushNotificationScreen":"Activate push notifications in the next screen to receive updates",
+"investigateFurther":"Investigate further",
+"doOwnResearch":"We just gave you an overview, go deeper and do your own research",
+"checkWhoOnTheBallot":"Check Who's On The Ballot",
+"seePollingStation":"See here where's your polling station and everything else that's on the ballot",
+"shareTheApp":"Share the app & WOTB",
+"shareYourFriendFamily":"Your friends and family might enjoy it and learn something too :)",
+"almostMatchedWrongCandidate":"Almost matched with the wrong mayoral candidate",
+"basedOnYourSwipingInTheApp":"Based on your swiping in the app"
 
 
 

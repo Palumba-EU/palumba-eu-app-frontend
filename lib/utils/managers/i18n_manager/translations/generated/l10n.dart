@@ -944,6 +944,16 @@ class S {
     );
   }
 
+  /// `Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)`
+  String get settingsPageTextAboutNew {
+    return Intl.message(
+      'Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
+      name: 'settingsPageTextAboutNew',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `The association`
   String get settingsPageTitleAssociation {
     return Intl.message(
@@ -2359,10 +2369,10 @@ class S {
     );
   }
 
-  /// `Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.`
+  /// `Important to tell you that no external entity  has editorial power on the content of the app, which remains a non-partisan initiative with one goal: helping you navigate elections.`
   String get settingsPageTextPartners_nyc25 {
     return Intl.message(
-      'Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.',
+      'Important to tell you that no external entity  has editorial power on the content of the app, which remains a non-partisan initiative with one goal: helping you navigate elections.',
       name: 'settingsPageTextPartners_nyc25',
       desc: '-> settingsPageTextPartners',
       args: [],
@@ -2524,6 +2534,126 @@ class S {
     return Intl.message(
       'It\'s a match!',
       name: 'resultItsMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register to vote`
+  String get registerToVote {
+    return Intl.message(
+      'Register to vote',
+      name: 'registerToVote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap here to double-check your registration on the official website`
+  String get tapToRegister {
+    return Intl.message(
+      'Tap here to double-check your registration on the official website',
+      name: 'tapToRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Turn on a voting reminder`
+  String get turnOnVotingReminder {
+    return Intl.message(
+      'Turn on a voting reminder',
+      name: 'turnOnVotingReminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activate push notifications in the next screen to receive updates`
+  String get activePushNotificationScreen {
+    return Intl.message(
+      'Activate push notifications in the next screen to receive updates',
+      name: 'activePushNotificationScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Investigate further`
+  String get investigateFurther {
+    return Intl.message(
+      'Investigate further',
+      name: 'investigateFurther',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We just gave you an overview, go deeper and do your own research`
+  String get doOwnResearch {
+    return Intl.message(
+      'We just gave you an overview, go deeper and do your own research',
+      name: 'doOwnResearch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check Who's On The Ballot`
+  String get checkWhoOnTheBallot {
+    return Intl.message(
+      'Check Who\'s On The Ballot',
+      name: 'checkWhoOnTheBallot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See here where's your polling station and everything else that's on the ballot`
+  String get seePollingStation {
+    return Intl.message(
+      'See here where\'s your polling station and everything else that\'s on the ballot',
+      name: 'seePollingStation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share the app & WOTB`
+  String get shareTheApp {
+    return Intl.message(
+      'Share the app & WOTB',
+      name: 'shareTheApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your friends and family might enjoy it and learn something too :)`
+  String get shareYourFriendFamily {
+    return Intl.message(
+      'Your friends and family might enjoy it and learn something too :)',
+      name: 'shareYourFriendFamily',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Almost matched with the wrong mayoral candidate`
+  String get almostMatchedWrongCandidate {
+    return Intl.message(
+      'Almost matched with the wrong mayoral candidate',
+      name: 'almostMatchedWrongCandidate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Based on your swiping in the app`
+  String get basedOnYourSwipingInTheApp {
+    return Intl.message(
+      'Based on your swiping in the app',
+      name: 'basedOnYourSwipingInTheApp',
       desc: '',
       args: [],
     );

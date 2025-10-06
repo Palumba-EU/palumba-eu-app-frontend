@@ -1,7 +1,9 @@
+import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/localization_data.dart';
 import 'package:palumba_eu/data/model/results_data.dart';
 import 'package:palumba_eu/data/model/sponsors_data.dart';
 import 'package:palumba_eu/data/model/statements_data.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 class DataManager {
   static final DataManager _singleton = new DataManager._internal();
@@ -28,10 +30,17 @@ class DataManager {
   }
 
   void setCountries(List<Country>? countries) {
-    this.countries = countries;
-    /* ?..sort((a, b) {
-        return a.name!.compareTo(b.name!);
-      });*/
+    this.countries = countries
+      ?..sort((a, b) {
+        switch (ElectionManager.currentElection.value) {
+          case Election.DE:
+            return a.name!.compareTo(b.name!);
+          case Election.EU:
+            return a.name!.compareTo(b.name!);
+          case Election.NY:
+            return a.id!.compareTo(b.id!);
+        }
+      });
   }
 
   List<Country> getCountries() {
