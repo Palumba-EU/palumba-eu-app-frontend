@@ -42,6 +42,7 @@ class DataAPI {
         'elections/${ElectionManager.currentElection.value.backend}/';
   }
 
+
   Future<LocalizationData?> fetchLocalizations() async {
     try {
       final url = Uri.parse('${urlLangAndEl()}' 'localization');
