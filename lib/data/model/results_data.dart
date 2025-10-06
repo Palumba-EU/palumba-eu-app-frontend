@@ -99,6 +99,7 @@ class PoliticParty {
   late bool inParliament;
   List<LocalParties>? localParties;
   List<Answer>? answers;
+  Profile? profile;
 
   PoliticParty({
     required this.id,
@@ -110,6 +111,7 @@ class PoliticParty {
     required this.inParliament,
     this.localParties,
     this.answers,
+    this.profile,
   });
 
   PoliticParty.fromJson(Map<String, dynamic> json) {
@@ -130,6 +132,9 @@ class PoliticParty {
       answers = <Answer>[];
       json["answers"].forEach((x) => answers!.add(Answer.fromJson(x)));
     }
+    if (json["profile"] != null) {
+      profile = Profile.fromJson(json["profile"]);
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -145,8 +150,68 @@ class PoliticParty {
     }
     data['acronym'] = this.acronym;
     data['answers'] = this.answers?.map((v) => v.toJson()).toList();
+    data['profile'] = this.profile?.toJson();
     return data;
   }
+}
+
+class Profile {
+  String? bio;
+  String? affiliation;
+  String? redFlags;
+  String? link1;
+  String? link1Text;
+  String? link2;
+  String? link2Text;
+
+  Profile({
+    this.bio,
+    this.affiliation,
+    this.redFlags,
+    this.link1,
+    this.link1Text,
+    this.link2,
+    this.link2Text,
+  });
+
+  Profile copyWith({
+    String? bio,
+    String? affiliation,
+    String? redFlags,
+    String? link1,
+    String? link1Text,
+    String? link2,
+    String? link2Text,
+  }) =>
+      Profile(
+        bio: bio ?? this.bio,
+        affiliation: affiliation ?? this.affiliation,
+        redFlags: redFlags ?? this.redFlags,
+        link1: link1 ?? this.link1,
+        link1Text: link1Text ?? this.link1Text,
+        link2: link2 ?? this.link2,
+        link2Text: link2Text ?? this.link2Text,
+      );
+
+  factory Profile.fromJson(Map<String, dynamic> json) => Profile(
+        bio: json["bio"],
+        affiliation: json["affiliation"],
+        redFlags: json["red_flags"],
+        link1: json["link1"],
+        link1Text: json["link1_text"],
+        link2: json["link2"],
+        link2Text: json["link2_text"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "bio": bio,
+        "affiliation": affiliation,
+        "red_flags": redFlags,
+        "link1": link1,
+        "link1_text": link1Text,
+        "link2": link2,
+        "link2_text": link2Text,
+      };
 }
 
 class LocalParties {

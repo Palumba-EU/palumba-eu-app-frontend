@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
+import 'package:palumba_eu/global_widgets/custom_loading.dart';
 import 'package:palumba_eu/global_widgets/custom_selector.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
-import 'package:palumba_eu/global_widgets/custom_loading.dart';
 import 'package:palumba_eu/modules/settings/settings_page_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
-
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -106,8 +104,18 @@ class SettingsPage extends StatelessWidget {
               AppTexts.title(S.of(context).settingsPageTitleAbout,
                   color: AppColors.primary),
               CustomSpacer(small: true),
-              AppTexts.small(S.of(context).settingsPageTextAbout,
+              AppTexts.small(S.of(context).settingsPageTextAboutNew,
                   color: AppColors.primary),
+
+              /* CustomHtmlWidget(
+                content:
+                """<a href="${controller.maxPercentagePoliticParty?.party.profile?.link1?.trim()}"> ${controller.maxPercentagePoliticParty?.party.profile?.link1Text?.trim()}</a>""",
+                textStyle: AppTexts.customTextStyle(
+                    AppTextType.regular,
+                    color: AppColors.primary,
+                    fontSize: 14.0),
+              )*/
+
               Wrap(
                 children: [
                   GestureDetector(

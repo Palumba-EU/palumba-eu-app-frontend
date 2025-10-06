@@ -23,6 +23,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2_bio.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_2_to_do_list.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
@@ -31,6 +32,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_memes.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -235,11 +237,13 @@ class ResultsController extends GetxController {
         results = [
           // ResultsPage1(),
           ResultsPage2(),
+          ResultsPageMemes(),
           ResultsPage2Bio(),
-          ResultsPage3(),
+          //  ResultsPage3(),
           ResultsPage4(),
           ResultsPage5(),
-          ResultsPage6(),
+          // ResultsPage6(),
+          ResultsPage2ToDoList(),
           ResultsPage7(),
           ResultsPage8(),
           ResultsPage9(),
@@ -576,14 +580,17 @@ class ResultsController extends GetxController {
   // Page 10 handle voting question
   void handleGoVoteQuestion(GoingToVote goingToVote) {
     DataRepository().patchResponses(goingToVote);
-    switch (goingToVote) {
-      case GoingToVote.no:
-        this.nextPage();
-        break;
-      case GoingToVote.maybe:
-      case GoingToVote.yes:
-        this.willVote.value = true;
-        break;
-    }
+    if (ElectionManager.currentElection.value == Election.NY) {
+      this.nextPage();
+    } else
+      switch (goingToVote) {
+        case GoingToVote.no:
+          this.nextPage();
+          break;
+        case GoingToVote.maybe:
+        case GoingToVote.yes:
+          this.willVote.value = true;
+          break;
+      }
   }
 }

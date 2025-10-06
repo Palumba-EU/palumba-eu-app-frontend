@@ -5,5 +5,6 @@ mixin ResultsPage implements Widget {
   final bool showBallotBoxBackground = false;
   final bool showDottedContainer = false;
   final bool showSpecialBackground = false;
+  final bool showMemesBackground = false;
   String get className => runtimeType.toString();
 }

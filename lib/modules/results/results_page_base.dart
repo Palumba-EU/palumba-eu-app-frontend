@@ -6,6 +6,7 @@ import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/modules/results/pages/results_shared/results_heart_stack.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
@@ -35,7 +36,11 @@ class ResultsPage extends GetView<ResultsController> {
                 controller: controller.backgroundScreenshotController,
                 child: Stack(children: [
                   Container(
-                    color: ElectionManager.currentElection.value.background,
+                    color:
+                        controller.pages[controller.currentPageIndex.value] ==
+                                "ResultsPageMemes"
+                            ? AppColors.yellow
+                            : ElectionManager.currentElection.value.background,
                   ),
                   Obx(
                     () => Opacity(
@@ -98,6 +103,18 @@ class ResultsPage extends GetView<ResultsController> {
                           height: Get.height,
                           pointColor: AppColors.lightPrimary
                               .withAlpha((0.35 * 255).toInt()))
+                      : SizedBox.shrink()),
+                  Obx(() => controller.currentPage.showMemesBackground
+                      ? Stack(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              height: Get.height,
+                              color: AppColors.yellow,
+                            ),
+                            MemesStack(),
+                          ],
+                        )
                       : SizedBox.shrink()),
 
                   // Has to be on parent because result page is not full height
@@ -216,20 +233,26 @@ class ResultsPage extends GetView<ResultsController> {
                                 prefixIcon: IconButtonParameters(
                                   'ic_share',
                                   size: 18,
-                                  color: controller
-                                          .currentPage.showSpecialBackground
+                                  color: controller.currentPage
+                                              .showSpecialBackground ||
+                                          controller
+                                              .currentPage.showMemesBackground
                                       ? Colors.white
                                       : AppColors.primary,
                                 ),
                                 radius: AppDimens.borderRadius,
-                                color:
-                                    controller.currentPage.showSpecialBackground
-                                        ? AppColors.primary
-                                        : AppColors.yellow,
-                                textColor:
-                                    controller.currentPage.showSpecialBackground
-                                        ? Colors.white
-                                        : AppColors.primary,
+                                color: controller.currentPage
+                                            .showSpecialBackground ||
+                                        controller
+                                            .currentPage.showMemesBackground
+                                    ? AppColors.primary
+                                    : AppColors.yellow,
+                                textColor: controller.currentPage
+                                            .showSpecialBackground ||
+                                        controller
+                                            .currentPage.showMemesBackground
+                                    ? Colors.white
+                                    : AppColors.primary,
                                 bold: true,
                                 border: ButtonBorderParameters(
                                     isOutside: true,
