@@ -127,6 +127,8 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildHeaders(context, HomePageController _) {
+    print(
+        "Showheader : ${Election.NY} :: ${Election.NY.backend} :: ${ElectionManager.currentElection.value}");
     return Padding(
       padding: EdgeInsets.only(
           left: AppDimens.lateralPaddingValue,
@@ -134,8 +136,13 @@ class HomePage extends StatelessWidget {
           bottom: AppDimens.lateralPaddingValue),
       child: Row(
         children: [
-          AppTexts.title(ElectionManager.currentElection.value == Election.NY ? "WOTB x " + S.of(context).shortAppName : S.of(context).shortAppName,
-              forceCaprasimo: true, color: AppColors.primary, fontSize: 25),
+          AppTexts.title(
+              ElectionManager.currentElection.value == Election.NY
+                  ? "WOTB x " + S.of(context).shortAppName
+                  : S.of(context).shortAppName,
+              forceCaprasimo: true,
+              color: AppColors.primary,
+              fontSize: 25),
           Spacer(),
           GetBuilder<HomePageController>(
             id: _.resultsExistsKey,
@@ -258,9 +265,7 @@ class HomePage extends StatelessWidget {
             builder: (controller) => _.resultsData.isEmpty && !_.isTestRunning
                 ? SizedBox.shrink()
                 : CustomButton(
-                    text: _.isTestRunning
-                        ? S.of(context).homePageBackToTest
-                        : S.of(context).homePageMyResults,
+                    text: S.of(context).homePageMyResults,
                     expanded: true,
                     onPressed: _.backToResultsOrTest,
                     suffixIcon:

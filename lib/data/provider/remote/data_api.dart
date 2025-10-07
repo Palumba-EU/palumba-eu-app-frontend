@@ -23,6 +23,8 @@ class DataAPI {
   // var baseUrl = 'https://api.palumba-app.palumba.eu';
   // var baseUrl = 'https://palumba-staging.bitperfect-software.com/api';
 
+  // var baseUrl = 'http://palumba-us.bitperfect-software.com/api';
+
   var headers = {
     'Accept': 'application/json',
   };

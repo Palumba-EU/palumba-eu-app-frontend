@@ -23,7 +23,10 @@ class ResultsPageMemes extends GetView<ResultsController> with ResultsPage {
       other.forEach((action) {
         // action.party ?? "";
         print("OtherParty ${action.party}");
-        partyList.add(action.party.toString().split(" ").last);
+        if (controller.maxPercentagePoliticParty?.party.name !=
+            action.party.toString()) {
+          partyList.add(action.party.toString().split(" ").last);
+        }
       });
     }
 
@@ -62,7 +65,7 @@ class ResultsPageMemes extends GetView<ResultsController> with ResultsPage {
                               color: AppColors.primary),
                           CustomSpacer(multiplier: 2),
                           AppTexts.small(
-                              "${S.of(context).basedOnYourSwipingInTheApp} : \n${controller.maxPercentagePoliticParty?.party.name.split(" ")[1]} >>> Cuomo & Sliwa ${partyList}",
+                              "${S.of(context).basedOnYourSwipingInTheApp} : \n${controller.maxPercentagePoliticParty?.party.name.split(" ")[1]} >>> ${partyList.toString().replaceAll("[", "").replaceAll("]", "")}",
                               textAlign: TextAlign.center,
                               color: AppColors.primary)
                         ],

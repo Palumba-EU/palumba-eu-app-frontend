@@ -10,7 +10,8 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
-import 'package:palumba_eu/utils/utils.dart';
+
+import '../../../utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
   @override
@@ -51,11 +52,9 @@ class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
             textAlign: TextAlign.center,
           ),
         ),
-        AppTexts.title(
-            maxTopic.isExtreme1
-                ? maxTopic.topicData.extreme1 ?? ''
-                : maxTopic.topicData.extreme2 ?? '',
-            color: Utils.getApiColor(maxTopic.topicData.color ?? '')),
+        if (ElectionManager.currentElection.value == Election.NY)
+          AppTexts.title(S.of(context).publicSafety2,
+              color: AppColors.lightPrimary),
         CustomSpacer(),
         Padding(
           padding: EdgeInsets.symmetric(

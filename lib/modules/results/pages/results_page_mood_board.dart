@@ -1,0 +1,234 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
+import 'package:palumba_eu/modules/results/pages/results_page.dart';
+import 'package:palumba_eu/modules/results/results_controller.dart';
+
+import '../../../global_widgets/custom_network_image.dart';
+import '../../../utils/common_ui/app_colors.dart';
+import '../../../utils/common_ui/app_texts.dart';
+import '../../../utils/managers/i18n_manager/translations/generated/l10n.dart';
+
+class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
+  @override
+  final bool showMemesBackground = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+        child: SafeArea(
+      child: Container(
+        child: Column(
+          children: [
+            CustomSpacer(multiplier: 5),
+            _buildMainCard(context),
+            CustomSpacer(multiplier: 2),
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40),
+                child: AppTexts.title("Your NYC political moodboard summary",
+                    color: AppColors.primary,
+                    fontSize: 20,
+                    textAlign: TextAlign.center)),
+            CustomSpacer(
+              multiplier: 12,
+            ),
+          ],
+        ),
+      ),
+    ));
+  }
+
+  Widget _buildMainCard(BuildContext context) {
+    return Stack(
+      clipBehavior: Clip.none, // Allows children to overflow
+      alignment: Alignment.topCenter,
+      children: [
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 25),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFDFDF7), // Light cream color
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.1),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              const SizedBox(height: 15),
+              AppTexts.title(
+                  controller.maxPercentagePoliticParty?.party.name ?? "",
+                  color: AppColors.primary,
+                  fontSize: 20,
+                  textAlign: TextAlign.center),
+              AppTexts.small("🥇${S.of(context).yourNewMayor}",
+                  color: AppColors.primary, textAlign: TextAlign.center),
+              const SizedBox(height: 20),
+              RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: AppTexts.customTextStyle(AppTextType.regular,
+                        black: true, color: AppColors.primary),
+                    children: [
+                      TextSpan(
+                          text: S.of(context).youAre,
+                          style: AppTexts.customTextStyle(AppTextType.small,
+                              bold: false, color: AppColors.primary)),
+                      TextSpan(
+                        text:
+                            ' ${controller.maxPercentagePoliticParty?.percentage ?? ''}% ${S.of(context).compatible} ',
+                        style: AppTexts.customTextStyle(AppTextType.small,
+                            color: AppColors.primary, bold: true),
+                      ),
+                      TextSpan(
+                          text: "${S.of(context).withPalumbaTest}",
+                          style: AppTexts.customTextStyle(AppTextType.small,
+                              bold: false, color: AppColors.primary)),
+                    ],
+                  )),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 10,
+                children: [
+                  Image.asset(
+                    'assets/images/election/ny/img_ranking_1.png',
+                    height: 40,
+                    width: 40,
+                  ),
+                  SvgPicture.asset(
+                    'assets/images/election/ny/ic_ranking_2.svg',
+                    height: 40,
+                    width: 40,
+                  ),
+                  Image.asset(
+                    'assets/images/election/ny/img_ranking_3.png',
+                    height: 40,
+                    width: 40,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
+              _buildRankingSection(context),
+              const SizedBox(height: 10),
+              if (controller.topics.isNotEmpty) _buildTopicsSection(context),
+            ],
+          ),
+        ),
+        Positioned(
+          top: -40,
+          child: Center(
+            child: CustomNetworkImage(
+              width: Get.width * .20,
+              height: Get.width * .20,
+              isSvg: true,
+              imageUrl: controller.maxPercentagePoliticParty?.party.logo ?? "",
+              radius: Get.width,
+              color: AppColors.blue,
+              fit: BoxFit.fill,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRankingSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        AppTexts.medium(S.of(context).rankingOthers,
+            color: AppColors.primary, textAlign: TextAlign.center),
+        if (controller.chartData.length > 1)
+          ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemCount: controller.chartData.length,
+            itemBuilder: (BuildContext context, int index) {
+              var icon = index == 1 ? "🥈" : "🥉";
+              return index != 0
+                  ? _buildRankingItem(
+                      context,
+                      '$icon ${controller.chartData[index].party}',
+                      int.parse(controller.chartData[index].percentage
+                          .replaceAll("%", "")
+                          .toString()))
+                  : SizedBox();
+            },
+          ),
+      ],
+    );
+  }
+
+  Widget _buildRankingItem(
+    BuildContext context,
+    String name,
+    int match,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AppTexts.medium("$name, $match% ${S.of(context).match}",
+              color: AppColors.primary,
+              textAlign: TextAlign.center,
+              bold: true),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTopicsSection(BuildContext context) {
+    //print("topicList => ${controller.topics.length}");
+    const int maxItemsToShow = 3;
+    final int itemsToBuild = (controller.topics.length < maxItemsToShow)
+        ? controller.topics.length
+        : maxItemsToShow;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        AppTexts.medium(S.of(context).yourTopTopics,
+            color: AppColors.primary, textAlign: TextAlign.center),
+        ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          itemCount: itemsToBuild,
+          itemBuilder: (BuildContext context, int index) {
+            return _buildTopicItem('${controller.topics[index].name}');
+          },
+        ),
+        /* _buildTopicItem('Strong police & safe streets 👮‍♂️🚓🗽'),
+        _buildTopicItem('Climate action 🌍🌳♻️'),
+        _buildTopicItem('Housing regulation 🏠🏘️'),*/
+      ],
+    );
+  }
+
+  Widget _buildTopicItem(String topic) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 1.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AppTexts.medium("$topic",
+              color: AppColors.primary, textAlign: TextAlign.center, bold: true)
+        ],
+      ),
+    );
+  }
+}
+
+class ChartData {
+  ChartData(this.x, this.y, this.text, this.color);
+
+  final double x;
+  final double y;
+  final String text;
+  final Color color;
+}

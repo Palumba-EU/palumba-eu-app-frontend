@@ -56,7 +56,7 @@
 
 
   "loadingResultsPageRandom1": "This will be quicker than your Times Square MTA transfer",
-  "loadingResultsPageRandom2": "We’ll move faster than the long queue at the Box club",
+  "loadingResultsPageRandom2": "We’ll move faster than the long queue at the Box",
   "loadingResultsPageRandom3": "You got this! Push through your 7-second attention span",
   "loadingResultsPageRandom4": "Unlike Hinge, we *actually* have a match for you",
   "loadingResultsPageRandom5": "Curious about the algorithm? It’s open-source!",
@@ -532,7 +532,19 @@
 "shareTheApp":"Share the app & WOTB",
 "shareYourFriendFamily":"Your friends and family might enjoy it and learn something too :)",
 "almostMatchedWrongCandidate":"Almost matched with the wrong mayoral candidate",
-"basedOnYourSwipingInTheApp":"Based on your swiping in the app"
+"basedOnYourSwipingInTheApp":"Based on your swiping in the app",
+"likeFootballFantasy":"Like your Football Fantasy line-up, but for politics",
+"publicSafety":"When it comes to public safety, you’re all-in for",
+"publicSafety2":"strong police & safe streets",
+"attentionFutureMayor":"This is the issue you feel the strongest about and you certainly demand full attention to this by the future Mayor",
+"yourNewMayor":"your new Mayor",
+"youAre":"You are",
+"compatible":"compatible",
+"withPalumbaTest":"with their policy after taking the Palumba app test",
+"rankingOthers":"Ranking others",
+"match":"match",
+"yourTopTopics":"Your top 3 topics"
+
 
 
 
