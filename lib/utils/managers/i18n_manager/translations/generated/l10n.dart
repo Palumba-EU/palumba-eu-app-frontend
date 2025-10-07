@@ -449,10 +449,10 @@ class S {
     );
   }
 
-  /// `We’ll move faster than the long queue at the Box club`
+  /// `We’ll move faster than the long queue at the Box`
   String get loadingResultsPageRandom2 {
     return Intl.message(
-      'We’ll move faster than the long queue at the Box club',
+      'We’ll move faster than the long queue at the Box',
       name: 'loadingResultsPageRandom2',
       desc: '',
       args: [],
@@ -2654,6 +2654,101 @@ class S {
     return Intl.message(
       'Based on your swiping in the app',
       name: 'basedOnYourSwipingInTheApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Like your Football Fantasy line-up, but for politics`
+  String get likeFootballFantasy {
+    return Intl.message(
+      'Like your Football Fantasy line-up, but for politics',
+      name: 'likeFootballFantasy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `When it comes to public safety, you’re all-in for`
+  String get publicSafety {
+    return Intl.message(
+      'When it comes to public safety, you’re all-in for',
+      name: 'publicSafety',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `strong police & safe streets`
+  String get publicSafety2 {
+    return Intl.message(
+      'strong police & safe streets',
+      name: 'publicSafety2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This is the issue you feel the strongest about and you certainly demand full attention to this by the future Mayor`
+  String get attentionFutureMayor {
+    return Intl.message(
+      'This is the issue you feel the strongest about and you certainly demand full attention to this by the future Mayor',
+      name: 'attentionFutureMayor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `your new Mayor`
+  String get yourNewMayor {
+    return Intl.message(
+      'your new Mayor',
+      name: 'yourNewMayor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are`
+  String get youAre {
+    return Intl.message('You are', name: 'youAre', desc: '', args: []);
+  }
+
+  /// `compatible`
+  String get compatible {
+    return Intl.message('compatible', name: 'compatible', desc: '', args: []);
+  }
+
+  /// `with their policy after taking the Palumba app test`
+  String get withPalumbaTest {
+    return Intl.message(
+      'with their policy after taking the Palumba app test',
+      name: 'withPalumbaTest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ranking others`
+  String get rankingOthers {
+    return Intl.message(
+      'Ranking others',
+      name: 'rankingOthers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `match`
+  String get match {
+    return Intl.message('match', name: 'match', desc: '', args: []);
+  }
+
+  /// `Your top 3 topics`
+  String get yourTopTopics {
+    return Intl.message(
+      'Your top 3 topics',
+      name: 'yourTopTopics',
       desc: '',
       args: [],
     );

@@ -81,6 +81,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Almost matched with the wrong mayoral candidate",
     ),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
+    "attentionFutureMayor": MessageLookupByLibrary.simpleMessage(
+      "This is the issue you feel the strongest about and you certainly demand full attention to this by the future Mayor",
+    ),
     "basedOnYourSwipingInTheApp": MessageLookupByLibrary.simpleMessage(
       "Based on your swiping in the app",
     ),
@@ -88,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkWhoOnTheBallot": MessageLookupByLibrary.simpleMessage(
       "Check Who\'s On The Ballot",
     ),
+    "compatible": MessageLookupByLibrary.simpleMessage("compatible"),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.",
     ),
@@ -162,11 +166,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
       "Let’s continue in English? :)",
     ),
+    "likeFootballFantasy": MessageLookupByLibrary.simpleMessage(
+      "Like your Football Fantasy line-up, but for politics",
+    ),
     "loadingResultsPageRandom1": MessageLookupByLibrary.simpleMessage(
       "This will be quicker than your Times Square MTA transfer",
     ),
     "loadingResultsPageRandom2": MessageLookupByLibrary.simpleMessage(
-      "We’ll move faster than the long queue at the Box club",
+      "We’ll move faster than the long queue at the Box",
     ),
     "loadingResultsPageRandom3": MessageLookupByLibrary.simpleMessage(
       "You got this! Push through your 7-second attention span",
@@ -217,6 +224,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle4_nyc25": MessageLookupByLibrary.simpleMessage(
       "Almost ready, one last check...",
     ),
+    "match": MessageLookupByLibrary.simpleMessage("match"),
     "maybe": MessageLookupByLibrary.simpleMessage("Maybe"),
     "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage(
       "No, thanks!",
@@ -315,6 +323,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Graduated from...",
     ),
     "poland": MessageLookupByLibrary.simpleMessage("Poland"),
+    "publicSafety": MessageLookupByLibrary.simpleMessage(
+      "When it comes to public safety, you’re all-in for",
+    ),
+    "publicSafety2": MessageLookupByLibrary.simpleMessage(
+      "strong police & safe streets",
+    ),
     "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("Close"),
     "pushDeactivatedConfirm": MessageLookupByLibrary.simpleMessage(
       "Open Settings",
@@ -325,6 +339,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage(
       "Notifications disabled",
     ),
+    "rankingOthers": MessageLookupByLibrary.simpleMessage("Ranking others"),
     "registerToVote": MessageLookupByLibrary.simpleMessage("Register to vote"),
     "resultItsMatch": MessageLookupByLibrary.simpleMessage("It\'s a match!"),
     "resultsPage10AreYouGoingToVote_ger25":
@@ -763,6 +778,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
       "Go to Who’s On The Ballot",
     ),
+    "withPalumbaTest": MessageLookupByLibrary.simpleMessage(
+      "with their policy after taking the Palumba app test",
+    ),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "youAre": MessageLookupByLibrary.simpleMessage("You are"),
+    "yourNewMayor": MessageLookupByLibrary.simpleMessage("your new Mayor"),
+    "yourTopTopics": MessageLookupByLibrary.simpleMessage("Your top 3 topics"),
   };
 }

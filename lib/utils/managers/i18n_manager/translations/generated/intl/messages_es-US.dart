@@ -82,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Casi coincidiste con el candidato a alcalde equivocado",
     ),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
+    "attentionFutureMayor": MessageLookupByLibrary.simpleMessage(
+      "Este es el tema que más le preocupa y, sin duda, exige que el futuro alcalde le preste total atención",
+    ),
     "basedOnYourSwipingInTheApp": MessageLookupByLibrary.simpleMessage(
       "Según tus deslizamientos en la aplicación",
     ),
@@ -89,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkWhoOnTheBallot": MessageLookupByLibrary.simpleMessage(
       "Consulta quién está en la boleta",
     ),
+    "compatible": MessageLookupByLibrary.simpleMessage("compatible"),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Vamos a explorar tu compatibilidad con todos los candidatos y políticas en las próximas pantallas. Toca la derecha/izquierda de la pantalla para navegar.",
     ),
@@ -163,6 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
       "¿Seguimos en inglés? :)",
     ),
+    "likeFootballFantasy": MessageLookupByLibrary.simpleMessage(
+      "Como tu alineación de Football Fantasy, pero para la política.",
+    ),
     "loadingResultsPageRandom1": MessageLookupByLibrary.simpleMessage(
       "Esto será más rápido que tu transbordo del MTA en Times Square",
     ),
@@ -218,6 +225,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle4_nyc25": MessageLookupByLibrary.simpleMessage(
       "Casi listo, un último chequeo...",
     ),
+    "match": MessageLookupByLibrary.simpleMessage("fósforo"),
     "maybe": MessageLookupByLibrary.simpleMessage("Tal vez"),
     "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage(
       "No, thanks!",
@@ -314,6 +322,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Graduado de...",
     ),
     "poland": MessageLookupByLibrary.simpleMessage("Polonia"),
+    "publicSafety": MessageLookupByLibrary.simpleMessage(
+      "Cuando se trata de seguridad pública, estás totalmente comprometido",
+    ),
+    "publicSafety2": MessageLookupByLibrary.simpleMessage(
+      "Policía fuerte y calles seguras",
+    ),
     "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("Cerrar"),
     "pushDeactivatedConfirm": MessageLookupByLibrary.simpleMessage(
       "Abrir configuración",
@@ -324,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage(
       "Notificaciones desactivadas",
     ),
+    "rankingOthers": MessageLookupByLibrary.simpleMessage("Ranking otras"),
     "registerToVote": MessageLookupByLibrary.simpleMessage(
       "Regístrate para votar",
     ),
@@ -761,6 +776,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
       "Ir a Quién está en la boleta",
     ),
+    "withPalumbaTest": MessageLookupByLibrary.simpleMessage(
+      "con su política después de realizar la prueba de la aplicación Palumba",
+    ),
     "yes": MessageLookupByLibrary.simpleMessage("Sí"),
+    "youAre": MessageLookupByLibrary.simpleMessage("Eres"),
+    "yourNewMayor": MessageLookupByLibrary.simpleMessage("tu nuevo alcalde"),
+    "yourTopTopics": MessageLookupByLibrary.simpleMessage(
+      "Tus 3 temas principales",
+    ),
   };
 }

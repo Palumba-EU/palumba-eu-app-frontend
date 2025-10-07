@@ -543,7 +543,8 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage8_1Text(topic, percentage);
       case Election.NY:
         // NYC text matches DE-style placeholders: {number}% regarding {dimension}
-        return S.of(context).resultsPage8_1Text_nyc25(percentage, topic);
+        // return S.of(context).resultsPage8_1Text_nyc25(percentage, topic);
+        return S.of(context).publicSafety;
     }
   }
 
@@ -554,7 +555,8 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage8_2Text;
       case Election.NY:
-        return S.of(context).resultsPage8_2Text_nyc25;
+        // return S.of(context).resultsPage8_2Text_nyc25;
+        return S.of(context).attentionFutureMayor;
     }
   }
 

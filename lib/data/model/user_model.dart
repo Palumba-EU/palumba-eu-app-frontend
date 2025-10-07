@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -29,7 +30,7 @@ class UserData {
         "language_code": languageCode,
         "gender": gender,
         "level_of_education": levelOfEducation,
-        "answers": [] // TODO: remove when api allows this to be null
+        "answers": []
       };
 }
 
