@@ -3,15 +3,12 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
-import 'package:palumba_eu/modules/results/pages/results_shared/results_heart_stack.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 import '../../../utils/managers/push_notification_service.dart';
@@ -52,9 +49,8 @@ class ResultsPage2ToDoList extends GetView<ResultsController> with ResultsPage {
     }
 
     return Container(
-      color: ElectionManager.currentElection.value.background,
+      // color: ElectionManager.currentElection.value.background,
       child: Stack(children: [
-        HeartStack(),
         SingleChildScrollView(
           child: Column(
             children: [
@@ -65,8 +61,7 @@ class ResultsPage2ToDoList extends GetView<ResultsController> with ResultsPage {
                   : Column(
                       children: [
                         Padding(
-                          padding: EdgeInsetsGeometry.symmetric(
-                              horizontal: AppDimens.bigLateralPaddingValue),
+                          padding: EdgeInsetsGeometry.symmetric(horizontal: 40),
                           child: RichText(
                             text: TextSpan(
                               style: TextStyle(
@@ -77,7 +72,9 @@ class ResultsPage2ToDoList extends GetView<ResultsController> with ResultsPage {
                               ),
                               children: <TextSpan>[
                                 TextSpan(
-                                  text: 'Voting can really make a difference. ',
+                                  text: S
+                                      .of(context)
+                                      .votingCanReallyMakeADifference,
                                   style: TextStyle(
                                     color: AppColors
                                         .lightPrimary, // Lighter purple for the first line
@@ -85,7 +82,8 @@ class ResultsPage2ToDoList extends GetView<ResultsController> with ResultsPage {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: "Here's your\nelection to-do list:",
+                                  text:
+                                      " ${S.of(context).hereIsYour} \n${S.of(context).electionToDoList}",
                                   style: TextStyle(
                                     color: AppColors
                                         .primary, // Darker purple for the main title
@@ -132,7 +130,7 @@ class ResultsPage2ToDoList extends GetView<ResultsController> with ResultsPage {
                         ),
                       ],
                     ),
-              CustomSpacer(multiplier: 12),
+              CustomSpacer(multiplier: 2),
             ],
           ),
         )
@@ -183,7 +181,7 @@ class _TodoItem extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsetsGeometry.symmetric(
-              horizontal: AppDimens.bigLateralPaddingValue),
+              horizontal: AppDimens.lateralPaddingValue),
           child: InkWell(
             onTap: () {
               onItemTapped(model);
@@ -196,10 +194,10 @@ class _TodoItem extends StatelessWidget {
                 children: [
                   // Checkmark Icon
                   SvgPicture.asset(
-                    width: 50,
-                    height: 50,
+                    width: 60,
+                    height: 60,
                     'assets/images/ic_close_circle.svg',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
 
                   // Title and Subtitle Text

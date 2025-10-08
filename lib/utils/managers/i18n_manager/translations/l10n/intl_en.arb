@@ -449,7 +449,7 @@
 
 "resultsPage9Help_nyc25": "Click on the cards to shuffle",
 "@resultsPage9Help_nyc25": { "description": "-> resultsPage9Help" },
-"resultsPage9Text1_nyc25": "Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was",
+"resultsPage9Text1_nyc25": "Elections are about many topics, but this really Belongs With Me 🫡",
 "@resultsPage9Text1_nyc25": { "description": "-> resultsPage9Text1" },
 "resultsPage9Text2_nyc25": "made for you!",
 "@resultsPage9Text2_nyc25": { "description": "-> resultsPage9Text2" },
@@ -543,7 +543,18 @@
 "withPalumbaTest":"with their policy after taking the Palumba app test",
 "rankingOthers":"Ranking others",
 "match":"match",
-"yourTopTopics":"Your top 3 topics"
+"yourTopTopics":"Your top 3 topics",
+"yessss": "Yessss!",
+"nope": "Nope...",
+"oneLastThing":"One last thing:",
+"areYouPlanningToVote":"Are you planning to vote?",
+"redFlags":"Red Flags",
+"affiliationAndProfile":"Affiliation & Profile",
+"votingCanReallyMakeADifference":"Voting can really make a difference.",
+"hereIsYour":"Here's your",
+"electionToDoList":"election to-do list:",
+"yourNYCPoliticalMoodboardSummary":"Your NYC political moodboard summary"
+
 
 
 

@@ -49,20 +49,22 @@ class ResultsPageMemes extends GetView<ResultsController> with ResultsPage {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CustomSpacer(multiplier: 10),
+                          CustomSpacer(multiplier: 7),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20),
                             child: Image.asset(
                               'assets/images/election/ny/img_memes_main.png',
-                              width: Get.width * (isTablet ? .45 : .55),
-                              height: Get.width * (isTablet ? .45 : .55),
+                              width: Get.width * (isTablet ? .45 : .58),
+                              height: Get.width * (isTablet ? .45 : .58),
                             ),
                           ),
                           CustomSpacer(multiplier: 1),
-                          AppTexts.title(
-                              S.of(context).almostMatchedWrongCandidate,
-                              textAlign: TextAlign.center,
-                              color: AppColors.primary),
+                          Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 6),
+                              child: AppTexts.title(
+                                  S.of(context).almostMatchedWrongCandidate,
+                                  textAlign: TextAlign.center,
+                                  color: AppColors.primary)),
                           CustomSpacer(multiplier: 2),
                           AppTexts.small(
                               "${S.of(context).basedOnYourSwipingInTheApp} : \n${controller.maxPercentagePoliticParty?.party.name.split(" ")[1]} >>> ${partyList.toString().replaceAll("[", "").replaceAll("]", "")}",

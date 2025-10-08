@@ -427,7 +427,7 @@
   "@resultsPage8_2Text_nyc25": { "description": "-> resultsPage8_2Text" },
   "resultsPage9Help_nyc25": "Toca las tarjetas para barajar",
   "@resultsPage9Help_nyc25": { "description": "-> resultsPage9Help" },
-  "resultsPage9Text1_nyc25": "Las elecciones tratan muchos temas, pero hay uno que te queda perfecto. Es casi como si fuera",
+  "resultsPage9Text1_nyc25": "Las elecciones tratan muchos temas, pero esto realmente me pertenece 🫡",
   "@resultsPage9Text1_nyc25": { "description": "-> resultsPage9Text1" },
   "resultsPage9Text2_nyc25": "¡hecho para ti!",
   "@resultsPage9Text2_nyc25": { "description": "-> resultsPage9Text2" },
@@ -511,7 +511,16 @@
   "withPalumbaTest":"con su política después de realizar la prueba de la aplicación Palumba",
   "rankingOthers":"Ranking otras",
   "match":"fósforo",
-  "yourTopTopics":"Tus 3 temas principales"
-
+  "yourTopTopics":"Tus 3 temas principales",
+  "yessss": "Siiii!",
+  "nope": "Nope...",
+  "oneLastThing":"Una última cosa:",
+  "areYouPlanningToVote":"¿Estas pensando en votar?",
+  "redFlags":"Banderas rojas",
+  "affiliationAndProfile":"Afiliación y perfil",
+  "votingCanReallyMakeADifference":"Votar realmente puede marcar la diferencia.",
+  "hereIsYour":"Aquí está tu",
+  "electionToDoList":"lista de tareas pendientes para las elecciones:",
+  "yourNYCPoliticalMoodboardSummary":"Resumen de tu moodboard político de Nueva York"
 
 }

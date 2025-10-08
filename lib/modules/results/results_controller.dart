@@ -33,9 +33,11 @@ import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_guid_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_memes.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_mood_board.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_ranking_result_graph.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_vote_opinion.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -242,15 +244,17 @@ class ResultsController extends GetxController {
           ResultsPage2(),
           ResultsPageMemes(),
           ResultsPage2Bio(),
+          ResultsPageGuid1(guidPage: 1),
           ResultsPageRankingResultGraph(),
           ResultsPage4(),
           ResultsPage5(),
           // ResultsPage6(),
           // ResultsPage7(),
+          ResultsPageGuid1(guidPage: 2),
           ResultsPage8(),
           ResultsPage9(),
           ResultsPageMoodBoard(),
-          ResultsPage10(willVote: willVote),
+          ResultsPageVoteOpinion(willVote: willVote),
           ResultsPage2ToDoList(),
         ];
     }
@@ -592,7 +596,17 @@ class ResultsController extends GetxController {
   void handleGoVoteQuestion(GoingToVote goingToVote) {
     DataRepository().patchResponses(goingToVote);
     if (ElectionManager.currentElection.value == Election.NY) {
-      this.nextPage();
+      // this.nextPage();
+      switch (goingToVote) {
+        case GoingToVote.no:
+          this.nextPage();
+          break;
+        case GoingToVote.maybe:
+        case GoingToVote.yes:
+          this.willVote.value = true;
+          this.nextPage();
+          break;
+      }
     } else
       switch (goingToVote) {
         case GoingToVote.no:

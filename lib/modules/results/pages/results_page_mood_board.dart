@@ -25,8 +25,9 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
             _buildMainCard(context),
             CustomSpacer(multiplier: 2),
             Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                child: AppTexts.title("Your NYC political moodboard summary",
+                padding: EdgeInsets.symmetric(horizontal: 50),
+                child: AppTexts.title(
+                    S.of(context).yourNYCPoliticalMoodboardSummary,
                     color: AppColors.primary,
                     fontSize: 20,
                     textAlign: TextAlign.center)),
@@ -200,7 +201,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
           scrollDirection: Axis.vertical,
           itemCount: itemsToBuild,
           itemBuilder: (BuildContext context, int index) {
-            return _buildTopicItem('${controller.topics[index].name}');
+            return _buildTopicItem('#${controller.topics[index].name}');
           },
         ),
         /* _buildTopicItem('Strong police & safe streets 👮‍♂️🚓🗽'),

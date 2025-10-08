@@ -31,17 +31,17 @@ class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
             Padding(
               padding:
                   EdgeInsets.only(left: AppDimens.regularLateralPaddingValue),
-              child: AppTexts.title(
+              child: AppTexts.regular(
                   maxTopic.isExtreme1
                       ? maxTopic.topicData.extreme1Emojis!
                       : maxTopic.topicData.extreme2Emojis!,
                   color: AppColors.primary,
-                  fontSize: 32.5),
+                  fontSize: 22),
             )
           ],
         ),
         CustomSpacer(
-          multiplier: 3,
+          multiplier: 7,
         ),
         Padding(
           padding: AppDimens.lateralPadding,
@@ -58,7 +58,7 @@ class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
         CustomSpacer(),
         Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: AppDimens.bigLateralPaddingValue),
+              horizontal: AppDimens.largeLateralPaddingValue),
           child: CustomHtmlWidget(
             content: maxTopic.isExtreme1
                 ? maxTopic.topicData.extreme1Details ?? ''

@@ -20,16 +20,16 @@ class HeartStack extends StatelessWidget {
         Align(
           alignment: Alignment.topRight,
           child: Padding(
-            padding: EdgeInsets.only(top: 250),
+            padding: EdgeInsets.only(top: 180),
             child: SvgPicture.asset(
               'assets/images/ic_sticker_heart2_yellow.svg',
             ),
           ),
         ),
         Align(
-          alignment: Alignment.topLeft,
+          alignment: Alignment.bottomLeft,
           child: Padding(
-            padding: EdgeInsets.only(top: 275),
+            padding: EdgeInsets.only(bottom: 180),
             child: SvgPicture.asset(
               'assets/images/ic_sticker_heart1_yellow.svg',
             ),
@@ -38,7 +38,7 @@ class HeartStack extends StatelessWidget {
         Align(
           alignment: Alignment.bottomRight,
           child: Padding(
-            padding: EdgeInsets.only(bottom: 75),
+            padding: EdgeInsets.only(bottom: 0),
             child: SvgPicture.asset(
               'assets/images/ic_sticker_heart2_yellow.svg',
             ),
@@ -91,6 +91,55 @@ class MemesStack extends StatelessWidget {
           bottom: size.height * 0.03,
           left: 0,
           child: Image.asset('assets/images/election/ny/img_memes_stack_6.png'),
+        ),
+      ],
+    );
+  }
+}
+
+class TargetStack extends StatelessWidget {
+  const TargetStack({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size; // get screen size
+
+    return Stack(
+      children: [
+        Positioned(
+          top: size.height * 0.11,
+          right: 0,
+          child: SvgPicture.asset(
+            'assets/images/election/ny/ic_target_1.svg',
+          ),
+        ),
+        Positioned(
+          top: size.height * 0.38,
+          left: 0,
+          child: SvgPicture.asset(
+            'assets/images/election/ny/ic_target_2.svg',
+          ),
+        ),
+        Positioned(
+          top: size.height * 0.5,
+          right: 0,
+          child: SvgPicture.asset(
+            'assets/images/election/ny/ic_target_1.svg',
+          ),
+        ),
+        Positioned(
+          bottom: size.height * 0.15,
+          left: 0,
+          child: SvgPicture.asset(
+            'assets/images/election/ny/ic_target_2.svg',
+          ),
+        ),
+        Positioned(
+          top: size.height * 0.76,
+          right: 0,
+          child: SvgPicture.asset(
+            'assets/images/election/ny/ic_target_1.svg',
+          ),
         ),
       ],
     );

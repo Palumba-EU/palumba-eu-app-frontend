@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -120,6 +119,61 @@ class ResultsPage extends GetView<ResultsController> {
                             ],
                           )
                         : SizedBox.shrink()),
+                    Obx(() => controller.currentPage.showGuidBackground
+                        ? Stack(
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                height: Get.height,
+                                color: AppColors.primary,
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 10),
+                                  child: Image.asset(
+                                    'assets/images/img_pigeon_guid.png',
+                                    width: Get.width * 0.95,
+                                    height: Get.height / 2.2,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : SizedBox.shrink()),
+                    Obx(() => controller.currentPage.showBackgroundTarget
+                        ? Stack(
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                height: Get.height,
+                                // color: AppColors.yellow,
+                              ),
+                              TargetStack(),
+                            ],
+                          )
+                        : SizedBox.shrink()),
+                    Obx(() => controller.currentPage.showBackgroundOpinion
+                        ? Stack(
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                height: Get.height,
+                                color: AppColors.primary,
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                child: SvgPicture.asset(
+                                  'assets/images/ic_skyline.svg',
+                                  // width: Get.width * 0.95,
+                                  // height: Get.height / 3,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ],
+                          )
+                        : SizedBox.shrink()),
 
                     // Has to be on parent because result page is not full height
                     Obx(() => controller.currentPage.showBallotBoxBackground
@@ -151,72 +205,97 @@ class ResultsPage extends GetView<ResultsController> {
                               totalSteps: controller.pages.length,
                               width: double.infinity,
                               isDotted: true,
-                              progressColor: AppColors.primary,
-                              backgroundColor: AppColors.lightPrimary,
+                              progressColor:
+                                  controller.currentPage.showGuidBackground ==
+                                              true ||
+                                          controller.currentPage
+                                                  .showBackgroundOpinion ==
+                                              true
+                                      ? AppColors.yellow
+                                      : AppColors.primary,
+                              backgroundColor:
+                                  controller.currentPage.showMemesBackground ==
+                                          true
+                                      ? AppColors.background
+                                      : AppColors.lightPrimary,
                             )),
                       ),
 
                       //Pages
                       Expanded(
-                          child: Column(children: [
-                        Screenshot(
-                          controller: controller.foregroundScreenshotController,
-                          child: AspectRatio(
-                              aspectRatio: 9 / 16,
-                              child: Column(
-                                children: [
-                                  CustomSpacer(
-                                    multiplier: 3,
-                                  ),
-                                  //Rounded image and #appname
-                                  Padding(
-                                    padding: AppDimens.lateralPadding,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        /* Obx(() => SvgPicture.asset(
-                                              ElectionManager.currentElection
-                                                  .value.logoCircle,
-                                              height: 40,
-                                            )),*/
-
-                                        Obx(() {
-                                          final asset = ElectionManager
-                                              .currentElection.value.logoCircle;
-                                          return buildImage(asset);
-                                        }),
-                                        if (kDebugMode)
-                                          Obx(() => AppTexts.small(
-                                              (controller.currentPageIndex
-                                                          .value +
-                                                      1)
-                                                  .toString(),
-                                              color: AppColors.primary)),
-                                        Spacer(),
-                                        AppTexts.title(
-                                            '#${S.of(context).shortAppName}',
-                                            forceCaprasimo: true,
-                                            color: AppColors.primary),
-                                      ],
+                          child: SingleChildScrollView(
+                        child: Column(children: [
+                          Screenshot(
+                            controller:
+                                controller.foregroundScreenshotController,
+                            child: AspectRatio(
+                                aspectRatio: 9 / 16,
+                                child: Column(
+                                  children: [
+                                    CustomSpacer(
+                                      multiplier: 3,
                                     ),
-                                  ),
-                                  CustomSpacer(
-                                    multiplier: 1,
-                                  ),
-                                  Expanded(
-                                      child: PageView.builder(
-                                          physics:
-                                              NeverScrollableScrollPhysics(),
-                                          allowImplicitScrolling: true,
-                                          controller: controller.pageController,
-                                          itemCount: controller.pages.length,
-                                          itemBuilder: (context, index) =>
-                                              controller.pages[index]))
-                                ],
-                              )),
-                        )
-                      ]))
+                                    //Rounded image and #appname
+
+                                    Obx(() => controller.currentPage
+                                                    .showGuidBackground ==
+                                                true ||
+                                            controller.currentPage
+                                                    .showBackgroundOpinion ==
+                                                true
+                                        ? SizedBox()
+                                        : Padding(
+                                            padding: AppDimens.lateralPadding,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                /* Obx(() => SvgPicture.asset(
+                                                ElectionManager.currentElection
+                                                    .value.logoCircle,
+                                                height: 40,
+                                              )),*/
+
+                                                Obx(() {
+                                                  final asset = ElectionManager
+                                                      .currentElection
+                                                      .value
+                                                      .logoCircle;
+                                                  return buildImage(asset);
+                                                }),
+                                                /*if (kDebugMode)
+                                                  Obx(() => AppTexts.small(
+                                                      (controller.currentPageIndex.value + 1)
+                                                          .toString(),
+                                                      color:
+                                                          AppColors.primary)),*/
+                                                Spacer(),
+                                                AppTexts.title(
+                                                    '#${S.of(context).shortAppName}',
+                                                    forceCaprasimo: true,
+                                                    color: AppColors.primary),
+                                              ],
+                                            ),
+                                          )),
+
+                                    CustomSpacer(
+                                      multiplier: 1,
+                                    ),
+                                    Expanded(
+                                        child: PageView.builder(
+                                            physics:
+                                                NeverScrollableScrollPhysics(),
+                                            allowImplicitScrolling: true,
+                                            controller:
+                                                controller.pageController,
+                                            itemCount: controller.pages.length,
+                                            itemBuilder: (context, index) =>
+                                                controller.pages[index]))
+                                  ],
+                                )),
+                          )
+                        ]),
+                      ))
                     ],
                   ),
                 ),
