@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
@@ -11,14 +11,16 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
-import 'package:appinio_swiper/appinio_swiper.dart';
 
 class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
   @override
   final bool showShare = true;
 
+  /*@override
+  final bool showSpecialBackground = true;*/
+
   @override
-  final bool showSpecialBackground = true;
+  final bool showBackgroundTarget = true;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,7 @@ class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
                             .resultsPage9Help(context),
                         color: AppColors.primary))),
                 CustomSpacer(),
-                AutoSizeText(
+                /*AutoSizeText(
                   ElectionManager.currentElection.value
                       .resultsPage9Text1(context),
                   maxLines: 2,
@@ -86,10 +88,10 @@ class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
                     color: AppColors.primary,
                   ),
                   textAlign: TextAlign.center,
-                ),
+                ),*/
                 AppTexts.title(
                     ElectionManager.currentElection.value
-                        .resultsPage9Text2(context),
+                        .resultsPage9Text1(context),
                     color: AppColors.primary,
                     textAlign: TextAlign.center),
               ],

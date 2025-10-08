@@ -2159,10 +2159,10 @@ class S {
     );
   }
 
-  /// `Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was`
+  /// `Elections are about many topics, but this really Belongs With Me 🫡`
   String get resultsPage9Text1_nyc25 {
     return Intl.message(
-      'Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was',
+      'Elections are about many topics, but this really Belongs With Me 🫡',
       name: 'resultsPage9Text1_nyc25',
       desc: '-> resultsPage9Text1',
       args: [],
@@ -2749,6 +2749,86 @@ class S {
     return Intl.message(
       'Your top 3 topics',
       name: 'yourTopTopics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yessss!`
+  String get yessss {
+    return Intl.message('Yessss!', name: 'yessss', desc: '', args: []);
+  }
+
+  /// `Nope...`
+  String get nope {
+    return Intl.message('Nope...', name: 'nope', desc: '', args: []);
+  }
+
+  /// `One last thing:`
+  String get oneLastThing {
+    return Intl.message(
+      'One last thing:',
+      name: 'oneLastThing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you planning to vote?`
+  String get areYouPlanningToVote {
+    return Intl.message(
+      'Are you planning to vote?',
+      name: 'areYouPlanningToVote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Red Flags`
+  String get redFlags {
+    return Intl.message('Red Flags', name: 'redFlags', desc: '', args: []);
+  }
+
+  /// `Affiliation & Profile`
+  String get affiliationAndProfile {
+    return Intl.message(
+      'Affiliation & Profile',
+      name: 'affiliationAndProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Voting can really make a difference.`
+  String get votingCanReallyMakeADifference {
+    return Intl.message(
+      'Voting can really make a difference.',
+      name: 'votingCanReallyMakeADifference',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Here's your`
+  String get hereIsYour {
+    return Intl.message('Here\'s your', name: 'hereIsYour', desc: '', args: []);
+  }
+
+  /// `election to-do list:`
+  String get electionToDoList {
+    return Intl.message(
+      'election to-do list:',
+      name: 'electionToDoList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your NYC political moodboard summary`
+  String get yourNYCPoliticalMoodboardSummary {
+    return Intl.message(
+      'Your NYC political moodboard summary',
+      name: 'yourNYCPoliticalMoodboardSummary',
       desc: '',
       args: [],
     );

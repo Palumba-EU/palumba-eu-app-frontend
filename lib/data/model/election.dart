@@ -633,7 +633,7 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage10YesButton;
       case Election.NY:
-        return S.of(context).resultsPage10YesButton_nyc25;
+        return S.of(context).yessss;
     }
   }
 
@@ -769,7 +769,7 @@ extension ElectionResult5Topics on Election {
         // 4: Human & Social Rights, 5: Economic Intervention, 1: Environmental issues
         return [4, 5, 1];
       case Election.NY:
-        return [11, 10, 12, 9, 13];
+        return [2, 3, 11, 10, 12, 9, 13];
     }
   }
 }

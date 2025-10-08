@@ -27,7 +27,7 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
         SingleChildScrollView(
           child: Column(
             children: [
-              CustomSpacer(multiplier: 3),
+              CustomSpacer(multiplier: 1),
               SizedBox(
                 height: Get.width * (isTablet ? .25 : .28),
                 child: Stack(
@@ -67,6 +67,7 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                           Padding(
                               padding: const EdgeInsets.only(top: 5),
                               child: CustomHtmlWidget(
+                                textAlign: TextAlign.center,
                                 content: controller.maxPercentagePoliticParty
                                         ?.party.profile?.bio
                                         ?.trim() ??
@@ -76,13 +77,14 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                                     color: AppColors.primary,
                                     fontSize: 14.0),
                               )),
-                          AppTexts.title('Affiliation & Profile',
+                          AppTexts.title(S.of(context).affiliationAndProfile,
                               forceCaprasimo: true,
                               fontSize: 20,
                               color: AppColors.primary),
                           Padding(
                               padding: const EdgeInsets.only(top: 5),
                               child: CustomHtmlWidget(
+                                textAlign: TextAlign.center,
                                 content: controller.maxPercentagePoliticParty
                                         ?.party.profile?.affiliation ??
                                     "",
@@ -91,13 +93,14 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                                     color: AppColors.primary,
                                     fontSize: 14.0),
                               )),
-                          AppTexts.title('Red Flags',
+                          AppTexts.title(S.of(context).redFlags,
                               forceCaprasimo: true,
                               fontSize: 20,
                               color: AppColors.primary),
                           Padding(
                               padding: const EdgeInsets.only(top: 5),
                               child: CustomHtmlWidget(
+                                textAlign: TextAlign.center,
                                 content: controller.maxPercentagePoliticParty
                                         ?.party.profile?.redFlags
                                         ?.trim() ??
@@ -111,7 +114,7 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                             padding: const EdgeInsets.only(top: 5),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 CustomHtmlWidget(
                                   content:
@@ -119,7 +122,8 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                                   textStyle: AppTexts.customTextStyle(
                                       AppTextType.regular,
                                       color: AppColors.primary,
-                                      fontSize: 14.0),
+                                      fontSize: 14.0,
+                                      decoration: TextDecoration.underline),
                                 ),
                                 CustomHtmlWidget(
                                   content:
@@ -127,7 +131,8 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                                   textStyle: AppTexts.customTextStyle(
                                       AppTextType.regular,
                                       color: AppColors.primary,
-                                      fontSize: 14.0),
+                                      fontSize: 14.0,
+                                      decoration: TextDecoration.underline),
                                 )
                               ],
                             ),
@@ -135,7 +140,7 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                         ],
                       ),
               ),
-              CustomSpacer(multiplier: 12),
+              CustomSpacer(multiplier: 13),
             ],
           ),
         )

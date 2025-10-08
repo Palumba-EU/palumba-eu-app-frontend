@@ -90,7 +90,7 @@ class DataAPI {
   Future<ResultsData?> fetchResultsInfo() async {
     try {
       final url = Uri.parse('${urlLangAndEl()}' 'results');
-      print(url);
+      print("resultsUrl $url");
       final response = await http.get(
         url,
         headers: headers,
