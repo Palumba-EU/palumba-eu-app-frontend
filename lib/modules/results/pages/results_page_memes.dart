@@ -41,7 +41,7 @@ class ResultsPageMemes extends GetView<ResultsController> with ResultsPage {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: AppDimens.largeLateralPaddingValue),
+                  horizontal: AppDimens.bigLateralPaddingValue),
               child: controller.maxPercentagePoliticParty == null
                   ? AppTexts.title(S.of(context).resultsPage2NoResults,
                       color: AppColors.primary)
@@ -58,18 +58,18 @@ class ResultsPageMemes extends GetView<ResultsController> with ResultsPage {
                               height: Get.width * (isTablet ? .45 : .58),
                             ),
                           ),
-                          CustomSpacer(multiplier: 1),
-                          Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 6),
-                              child: AppTexts.title(
-                                  S.of(context).almostMatchedWrongCandidate,
-                                  textAlign: TextAlign.center,
-                                  color: AppColors.primary)),
+                          CustomSpacer(multiplier: 2),
+                          AppTexts.title(
+                              "*" + S.of(context).almostMatchedWrongCandidate,
+                              textAlign: TextAlign.center,
+                              fontSize: 22,
+                              color: AppColors.primary),
                           CustomSpacer(multiplier: 2),
                           AppTexts.small(
-                              "${S.of(context).basedOnYourSwipingInTheApp} : \n${controller.maxPercentagePoliticParty?.party.name.split(" ")[1]} >>> ${partyList.toString().replaceAll("[", "").replaceAll("]", "")}",
+                              "${S.of(context).basedOnYourSwipingInTheApp}: \n${controller.maxPercentagePoliticParty?.party.name.split(" ")[1]} >>> ${partyList.toString().replaceAll("[", "").replaceAll("]", "").replaceAll(",", " &")}",
                               textAlign: TextAlign.center,
-                              color: AppColors.primary)
+                              color: AppColors.primary,
+                              fontSize: 14)
                         ],
                       ),
                     ),

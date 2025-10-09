@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 
@@ -16,28 +15,27 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: SafeArea(
+    return SafeArea(
       child: Container(
+        height: Get.height * 1,
         child: Column(
           children: [
-            CustomSpacer(multiplier: 5),
+            // CustomSpacer(multiplier: 6),
+            SizedBox(height: (Get.width * .28) / 2),
             _buildMainCard(context),
-            CustomSpacer(multiplier: 2),
+            Spacer(),
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 child: AppTexts.title(
                     S.of(context).yourNYCPoliticalMoodboardSummary,
                     color: AppColors.primary,
-                    fontSize: 20,
+                    fontSize: 22,
                     textAlign: TextAlign.center)),
-            CustomSpacer(
-              multiplier: 12,
-            ),
+            Spacer(),
           ],
         ),
       ),
-    ));
+    );
   }
 
   Widget _buildMainCard(BuildContext context) {
@@ -50,7 +48,8 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           decoration: BoxDecoration(
             color: const Color(0xFFFDFDF7), // Light cream color
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(16),
+            border: BoxBorder.all(color: AppColors.yellowBorder, width: 2),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withValues(alpha: 0.1),
@@ -61,11 +60,14 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
           ),
           child: Column(
             children: [
-              const SizedBox(height: 15),
+              /*CustomSpacer(
+                multiplier: 5,
+              ),*/
+              SizedBox(height: (Get.width * .28) / 3),
               AppTexts.title(
                   controller.maxPercentagePoliticParty?.party.name ?? "",
                   color: AppColors.primary,
-                  fontSize: 20,
+                  fontSize: 22,
                   textAlign: TextAlign.center),
               AppTexts.small("🥇${S.of(context).yourNewMayor}",
                   color: AppColors.primary, textAlign: TextAlign.center),
@@ -95,6 +97,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 spacing: 10,
                 children: [
                   Image.asset(
@@ -104,34 +107,43 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                   ),
                   SvgPicture.asset(
                     'assets/images/election/ny/ic_ranking_2.svg',
-                    height: 40,
-                    width: 40,
+                    height: 50,
+                    width: 45,
                   ),
                   Image.asset(
                     'assets/images/election/ny/img_ranking_3.png',
-                    height: 40,
+                    height: 50,
                     width: 40,
                   ),
                 ],
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               _buildRankingSection(context),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               if (controller.topics.isNotEmpty) _buildTopicsSection(context),
+              const SizedBox(height: 10)
             ],
           ),
         ),
         Positioned(
-          top: -40,
+          top: -((Get.width * .28) / 2),
           child: Center(
-            child: CustomNetworkImage(
-              width: Get.width * .20,
-              height: Get.width * .20,
-              isSvg: true,
-              imageUrl: controller.maxPercentagePoliticParty?.party.logo ?? "",
-              radius: Get.width,
-              color: AppColors.blue,
-              fit: BoxFit.fill,
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFFFDFDF7), // Light cream color
+                borderRadius: BorderRadius.circular(Get.width),
+                border: BoxBorder.all(color: AppColors.background, width: 2),
+              ),
+              child: CustomNetworkImage(
+                width: Get.width * .28,
+                height: Get.width * .28,
+                isSvg: true,
+                imageUrl:
+                    controller.maxPercentagePoliticParty?.party.logo ?? "",
+                radius: Get.width,
+                color: AppColors.blue,
+                fit: BoxFit.fill,
+              ),
             ),
           ),
         ),
@@ -143,8 +155,9 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        AppTexts.medium(S.of(context).rankingOthers,
+        AppTexts.small(S.of(context).rankingOthers,
             color: AppColors.primary, textAlign: TextAlign.center),
+        SizedBox(height: 5),
         if (controller.chartData.length > 1)
           ListView.builder(
             shrinkWrap: true,
@@ -172,11 +185,11 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
     int match,
   ) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      padding: const EdgeInsets.symmetric(vertical: 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AppTexts.medium("$name, $match% ${S.of(context).match}",
+          AppTexts.small("$name, $match% ${S.of(context).match}",
               color: AppColors.primary,
               textAlign: TextAlign.center,
               bold: true),
@@ -194,8 +207,9 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        AppTexts.medium(S.of(context).yourTopTopics,
+        AppTexts.small(S.of(context).yourTopTopics,
             color: AppColors.primary, textAlign: TextAlign.center),
+        SizedBox(height: 5),
         ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
@@ -217,7 +231,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AppTexts.medium("$topic",
+          AppTexts.small("$topic",
               color: AppColors.primary, textAlign: TextAlign.center, bold: true)
         ],
       ),

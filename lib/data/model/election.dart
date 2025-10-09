@@ -95,6 +95,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/eu/ic_sticker_ballot_box_eu.svg';
       case Election.NY:
         return 'assets/images/election/ny/ic_sticker_ballot_box_ny.svg';
+        return 'assets/images/election/ny/ic_whos_on_ballot.svg';
+        return 'assets/images/election/ny/ic_sticker_ballot_box_eu.svg';
     }
   }
 
@@ -543,7 +545,7 @@ extension ElectionTexts on Election {
         return S.of(context).resultsPage8_1Text(topic, percentage);
       case Election.NY:
         // NYC text matches DE-style placeholders: {number}% regarding {dimension}
-        // return S.of(context).resultsPage8_1Text_nyc25(percentage, topic);
+        //return S.of(context).resultsPage8_1Text_nyc25(percentage, topic);
         return S.of(context).publicSafety;
     }
   }

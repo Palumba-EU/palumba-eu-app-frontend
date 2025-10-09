@@ -168,7 +168,7 @@ class ResultsPage extends GetView<ResultsController> {
                                   'assets/images/ic_skyline.svg',
                                   // width: Get.width * 0.95,
                                   // height: Get.height / 3,
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.fitWidth,
                                 ),
                               ),
                             ],

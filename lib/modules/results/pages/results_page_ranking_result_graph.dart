@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
@@ -23,23 +24,40 @@ class ResultsPageRankingResultGraph extends GetView<ResultsController>
   @override
   Widget build(BuildContext context) {
     final data = controller.chartData;
-    print("ChartData : ${data.map((dt) => dt.value)}");
     candidates.clear();
+    int maxPercentage = 0;
+    for (var model in data) {
+      final int percentage = int.parse(model.percentage.replaceAll("%", ""));
+      if (percentage > maxPercentage) maxPercentage = percentage;
+    }
+
     for (int i = 0; i < data.length; i++) {
       final model = data[i];
       final int percentage = int.parse(model.percentage.replaceAll("%", ""));
-      Color barColor = (i < colors.length) ? colors[i] : Colors.grey;
-      candidates.add(Candidate(
-          percentage: percentage < 1 ? 1 : percentage,
-          name: model.party,
-          color: barColor,
-          imagePath: model.image));
-    }
-    ;
+      bool isWinner = percentage == maxPercentage;
 
-    return SingleChildScrollView(
-        child: SafeArea(
+      Color barColor = isWinner
+          ? const Color(0xFFFAC25E)
+          : (i < colors.length ? colors[i] : Colors.grey);
+
+      candidates.add(Candidate(
+        percentage: percentage,
+        name: model.party,
+        color: barColor,
+        imagePath: model.image,
+      ));
+    }
+
+    candidates.sort((a, b) => b.percentage.compareTo(a.percentage));
+    if (candidates.length > 2) {
+      final winner = candidates.removeAt(0);
+      final middleIndex = (candidates.length / 2).floor();
+      candidates.insert(middleIndex, winner);
+    }
+
+    return SafeArea(
       child: Container(
+        height: Get.height,
         color: ElectionManager.currentElection.value.background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -47,11 +65,11 @@ class ResultsPageRankingResultGraph extends GetView<ResultsController>
           children: [
             // CustomSpacer(multiplier: 3),
             if (candidates.isNotEmpty)
-              SizedBox(
-                height: context.height * 0.55,
+              Container(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
+                  spacing: 38,
                   children: candidates.map((candidate) {
                     return CandidateBar(
                         percentage: candidate.percentage,
@@ -66,10 +84,13 @@ class ResultsPageRankingResultGraph extends GetView<ResultsController>
               child: AppTexts.title(S.of(context).likeFootballFantasy,
                   color: AppColors.primary, textAlign: TextAlign.center),
             ),
+            CustomSpacer(
+              multiplier: 2,
+            )
           ],
         ),
       ),
-    ));
+    );
   }
 }
 
@@ -110,10 +131,10 @@ class CandidateBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double barHeight = context.height * 0.42;
+    double barHeight = Get.height * 0.42;
     double progressHeight = barHeight * (percentage / 100);
     return SizedBox(
-      width: 80,
+      width: 50,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -143,9 +164,10 @@ class CandidateBar extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             children: [
               Container(
-                height: progressHeight,
+                height: /*progressHeight*/ Get.height * 0.16,
                 width: 48,
                 decoration: BoxDecoration(
+                  color: color,
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
