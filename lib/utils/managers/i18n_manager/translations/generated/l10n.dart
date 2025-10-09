@@ -2509,10 +2509,10 @@ class S {
     );
   }
 
-  /// `Sent you a rose`
+  /// `sent you a rose`
   String get resultsSentYouARose {
     return Intl.message(
-      'Sent you a rose',
+      'sent you a rose',
       name: 'resultsSentYouARose',
       desc: '',
       args: [],
@@ -2832,6 +2832,41 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Let’s see how candidates compare to each other - and where do you stand in more detail`
+  String get howCandidateCompareEachOther {
+    return Intl.message(
+      'Let’s see how candidates compare to each other - and where do you stand in more detail',
+      name: 'howCandidateCompareEachOther',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cool! And what topics seem close to your heart?`
+  String get whatTopicSeemToCloseYourHeart {
+    return Intl.message(
+      'Cool! And what topics seem close to your heart?',
+      name: 'whatTopicSeemToCloseYourHeart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Keep learning >`
+  String get keepLearning {
+    return Intl.message(
+      'Keep learning >',
+      name: 'keepLearning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See more >`
+  String get seeMore {
+    return Intl.message('See more >', name: 'seeMore', desc: '', args: []);
   }
 }
 

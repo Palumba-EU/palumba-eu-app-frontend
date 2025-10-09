@@ -28,42 +28,45 @@ class ResultsPageVoteOpinion extends GetView<ResultsController>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        CustomSpacer(multiplier: 8),
-        SvgPicture.asset(
-          "assets/images/ic_i_voted.svg",
-          width: Get.width * 0.4,
-          height: Get.width * 0.4,
-        ),
-        CustomSpacer(multiplier: 4),
-        Align(
-            alignment: Alignment.center, // Center horizontally
-            child: Container(
-              width: Get.width * 0.9,
-              child: Center(
-                child: AppTexts.title(S.of(context).oneLastThing,
-                    color: AppColors.background,
-                    fontSize: 32,
-                    textAlign: TextAlign.center),
-              ),
-            )),
-        Align(
-            alignment: Alignment.center, // Center horizontally
-            child: Container(
-              width: Get.width * 0.8,
-              child: Center(
-                child: AppTexts.title(S.of(context).areYouPlanningToVote,
-                    color: AppColors.background,
-                    fontSize: 32,
-                    textAlign: TextAlign.center),
-              ),
-            )),
-        CustomSpacer(multiplier: 4),
-        content(context)
-      ],
+    return Container(
+      height: Get.height,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          CustomSpacer(multiplier: 4),
+          SvgPicture.asset(
+            "assets/images/ic_i_voted.svg",
+            width: Get.width * 0.45,
+            height: Get.width * 0.45,
+          ),
+          CustomSpacer(multiplier: 4),
+          Align(
+              alignment: Alignment.center, // Center horizontally
+              child: Container(
+                width: Get.width * 0.9,
+                child: Center(
+                  child: AppTexts.title(S.of(context).oneLastThing,
+                      color: AppColors.background,
+                      fontSize: 32,
+                      textAlign: TextAlign.center),
+                ),
+              )),
+          Align(
+              alignment: Alignment.center, // Center horizontally
+              child: Container(
+                width: Get.width * 0.8,
+                child: Center(
+                  child: AppTexts.title(S.of(context).areYouPlanningToVote,
+                      color: AppColors.background,
+                      fontSize: 32,
+                      textAlign: TextAlign.center),
+                ),
+              )),
+          CustomSpacer(multiplier: 4),
+          content(context)
+        ],
+      ),
     );
   }
 

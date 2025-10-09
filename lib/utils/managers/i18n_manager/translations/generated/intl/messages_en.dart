@@ -166,10 +166,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "New Palumba test",
     ),
+    "howCandidateCompareEachOther": MessageLookupByLibrary.simpleMessage(
+      "Let’s see how candidates compare to each other - and where do you stand in more detail",
+    ),
     "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
     "investigateFurther": MessageLookupByLibrary.simpleMessage(
       "Investigate further",
     ),
+    "keepLearning": MessageLookupByLibrary.simpleMessage("Keep learning >"),
     "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
       "This can be changed later in settings.",
     ),
@@ -648,10 +652,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Shuffle my politcal love 🔀",
     ),
     "resultsSentYouARose": MessageLookupByLibrary.simpleMessage(
-      "Sent you a rose",
+      "sent you a rose",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
     "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("See more >"),
     "seePollingStation": MessageLookupByLibrary.simpleMessage(
       "See here where\'s your polling station and everything else that\'s on the ballot",
     ),
@@ -790,6 +795,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "votingCanReallyMakeADifference": MessageLookupByLibrary.simpleMessage(
       "Voting can really make a difference.",
+    ),
+    "whatTopicSeemToCloseYourHeart": MessageLookupByLibrary.simpleMessage(
+      "Cool! And what topics seem close to your heart?",
     ),
     "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
       "Go to Who’s On The Ballot",

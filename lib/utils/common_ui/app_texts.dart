@@ -12,6 +12,7 @@ class AppTexts {
     Color? color,
     TextDecoration? decoration,
     int? maxLines,
+    double? fontSize,
   }) {
     return Text(text,
         textAlign: textAlign,
@@ -19,7 +20,7 @@ class AppTexts {
         overflow: maxLines != null ? TextOverflow.ellipsis : null,
         style: TextStyle(
           fontFamily: black ? getBlackFontFamily() : 'merriweather-sans',
-          fontSize: AppDimens.fontSizeSmall,
+          fontSize: fontSize ?? AppDimens.fontSizeSmall,
           color: color ?? AppColors.text,
           decorationColor: color ?? AppColors.text,
           fontWeight: black

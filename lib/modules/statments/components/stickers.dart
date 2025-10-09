@@ -26,6 +26,13 @@ class Stickers extends StatelessWidget {
               ),
             ],
           ),
+          Row(
+            children: [
+              Spacer(),
+              SvgPicture.asset("assets/images/ic_target_full.svg"),
+              Spacer(),
+            ],
+          ),
           Spacer(),
           Row(
             children: [

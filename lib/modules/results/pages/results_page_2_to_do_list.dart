@@ -194,8 +194,8 @@ class _TodoItem extends StatelessWidget {
                 children: [
                   // Checkmark Icon
                   SvgPicture.asset(
-                    width: 60,
-                    height: 60,
+                    width: 68,
+                    height: 68,
                     'assets/images/ic_close_circle.svg',
                     fit: BoxFit.fill,
                   ),
@@ -207,18 +207,13 @@ class _TodoItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          AppTexts.title(model.title,
-                              color: AppColors.primary, fontSize: 14),
+                          AppTexts.small(model.title,
+                              color: AppColors.primary,
+                              fontSize: 14,
+                              bold: true),
                           const SizedBox(height: 1.0),
                           AppTexts.small(model.subtitle,
-                              color: AppColors.primary)
-                          /*Text(
-                            subtitle,
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              color: Colors.black.withOpacity(0.7),
-                            ),
-                          ),*/
+                              color: AppColors.primary, fontSize: 14)
                         ],
                       ),
                     ),

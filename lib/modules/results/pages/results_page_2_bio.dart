@@ -15,6 +15,7 @@ import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 import '../../../global_widgets/custom_html_widget.dart';
+import '../../../utils/utils.dart';
 
 class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
   @override
@@ -62,10 +63,10 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                           AppTexts.title(
                               '${controller.maxPercentagePoliticParty?.party.name.split(" ")[0]}\'s Bio',
                               forceCaprasimo: true,
-                              fontSize: 20,
+                              fontSize: 22,
                               color: AppColors.primary),
                           Padding(
-                              padding: const EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 0),
                               child: CustomHtmlWidget(
                                 textAlign: TextAlign.center,
                                 content: controller.maxPercentagePoliticParty
@@ -79,10 +80,10 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                               )),
                           AppTexts.title(S.of(context).affiliationAndProfile,
                               forceCaprasimo: true,
-                              fontSize: 20,
+                              fontSize: 22,
                               color: AppColors.primary),
                           Padding(
-                              padding: const EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 0),
                               child: CustomHtmlWidget(
                                 textAlign: TextAlign.center,
                                 content: controller.maxPercentagePoliticParty
@@ -95,10 +96,10 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                               )),
                           AppTexts.title(S.of(context).redFlags,
                               forceCaprasimo: true,
-                              fontSize: 20,
+                              fontSize: 22,
                               color: AppColors.primary),
                           Padding(
-                              padding: const EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 0),
                               child: CustomHtmlWidget(
                                 textAlign: TextAlign.center,
                                 content: controller.maxPercentagePoliticParty
@@ -114,26 +115,48 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                             padding: const EdgeInsets.only(top: 5),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                CustomHtmlWidget(
-                                  content:
-                                      """<a href="${controller.maxPercentagePoliticParty?.party.profile?.link1?.trim()}"> ${controller.maxPercentagePoliticParty?.party.profile?.link1Text?.trim()}</a>""",
-                                  textStyle: AppTexts.customTextStyle(
-                                      AppTextType.regular,
-                                      color: AppColors.primary,
-                                      fontSize: 14.0,
+                                GestureDetector(
+                                  onTap: () {
+                                    Utils.launch(controller
+                                            .maxPercentagePoliticParty
+                                            ?.party
+                                            .profile
+                                            ?.link1 ??
+                                        "");
+                                  },
+                                  child: AppTexts.small(
+                                      controller.maxPercentagePoliticParty
+                                              ?.party.profile?.link1Text ??
+                                          "",
+                                      color: AppColors.lightPrimary,
+                                      bold: false,
                                       decoration: TextDecoration.underline),
                                 ),
-                                CustomHtmlWidget(
-                                  content:
-                                      """<a href='${controller.maxPercentagePoliticParty?.party.profile?.link2?.trim()}'> ${controller.maxPercentagePoliticParty?.party.profile?.link2Text?.trim()}</a>""",
-                                  textStyle: AppTexts.customTextStyle(
-                                      AppTextType.regular,
-                                      color: AppColors.primary,
-                                      fontSize: 14.0,
+                                Padding(
+                                    padding: EdgeInsetsGeometry.symmetric(
+                                        horizontal: 8),
+                                    child: AppTexts.small("·",
+                                        color: AppColors.lightPrimary,
+                                        bold: false)),
+                                GestureDetector(
+                                  onTap: () {
+                                    Utils.launch(controller
+                                            .maxPercentagePoliticParty
+                                            ?.party
+                                            .profile
+                                            ?.link2 ??
+                                        "");
+                                  },
+                                  child: AppTexts.small(
+                                      controller.maxPercentagePoliticParty
+                                              ?.party.profile?.link2Text ??
+                                          "",
+                                      color: AppColors.lightPrimary,
+                                      bold: false,
                                       decoration: TextDecoration.underline),
-                                )
+                                ),
                               ],
                             ),
                           )

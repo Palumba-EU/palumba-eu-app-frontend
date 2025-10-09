@@ -167,10 +167,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "Nueva prueba de Palumba",
     ),
+    "howCandidateCompareEachOther": MessageLookupByLibrary.simpleMessage(
+      "Veamos cómo se comparan los candidatos entre sí y cuál es su posición con más detalle",
+    ),
     "hungary": MessageLookupByLibrary.simpleMessage("Hungría"),
     "investigateFurther": MessageLookupByLibrary.simpleMessage(
       "Investiga más a fondo",
     ),
+    "keepLearning": MessageLookupByLibrary.simpleMessage("Sigue aprendiendo >"),
     "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
       "Esto se puede cambiar luego en la configuración.",
     ),
@@ -652,6 +656,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Compartir"),
     "romania": MessageLookupByLibrary.simpleMessage("Rumania"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("Ver más >"),
     "seePollingStation": MessageLookupByLibrary.simpleMessage(
       "Mira aquí dónde está tu centro de votación y todo lo demás que está en la boleta",
     ),
@@ -788,6 +793,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "votingCanReallyMakeADifference": MessageLookupByLibrary.simpleMessage(
       "Votar realmente puede marcar la diferencia.",
+    ),
+    "whatTopicSeemToCloseYourHeart": MessageLookupByLibrary.simpleMessage(
+      "¡Genial! ¿Y qué temas te interesan?",
     ),
     "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
       "Ir a Quién está en la boleta",

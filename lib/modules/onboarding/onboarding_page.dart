@@ -4,22 +4,23 @@ import 'package:palumba_eu/global_widgets/card/custom_card.dart';
 import 'package:palumba_eu/global_widgets/custom_button.dart';
 import 'package:palumba_eu/global_widgets/custom_container_curve.dart';
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
-import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/global_widgets/custom_progress_bar.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/onboarding/components/animated_decision_buttons.dart';
 import 'package:palumba_eu/modules/onboarding/components/last_step_title.dart';
 import 'package:palumba_eu/modules/onboarding/components/step2.dart';
-import 'package:palumba_eu/modules/onboarding/components/step4.dart';
 import 'package:palumba_eu/modules/onboarding/components/step3.dart';
+import 'package:palumba_eu/modules/onboarding/components/step4.dart';
 import 'package:palumba_eu/modules/onboarding/helpers/onboarding_clipper.dart';
 import 'package:palumba_eu/modules/onboarding/onboarding_controller.dart';
 import 'package:palumba_eu/modules/statments/components/stickers.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
-import 'components/step1.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
+import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+
+import 'components/step1.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -44,7 +45,8 @@ class OnboardingPage extends StatelessWidget {
                             itemBuilder: (context, index) {
                               if (index == 0) {
                                 return Step1(
-                                    election: ElectionManager.currentElection.value,
+                                    election:
+                                        ElectionManager.currentElection.value,
                                     countries: _.countries,
                                     indexSelected: _.indexCountrySelected,
                                     onCountryPressed: _.onCountryPressed);
@@ -218,6 +220,7 @@ class OnboardingPage extends StatelessWidget {
               ),
               //Stickers
               Obx(() {
+                //Age screen
                 return _.showFinalView.value
                     ? SizedBox.shrink()
                     : Positioned(
