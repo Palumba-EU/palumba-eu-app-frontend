@@ -11,8 +11,6 @@ import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 
-import '../../../utils/managers/i18n_manager/translations/generated/l10n.dart';
-
 class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
@@ -56,7 +54,7 @@ class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
             multiplier: 6,
           ),
           Padding(
-            padding: AppDimens.lateralPadding,
+            padding: EdgeInsets.symmetric(horizontal: 28),
             child: AppTexts.title(
               ElectionManager.currentElection.value.resultsPage8_1Text(
                   context, maxTopic.topicData.name ?? '', maxTopic.percentage),
@@ -65,7 +63,8 @@ class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
             ),
           ),
           if (ElectionManager.currentElection.value == Election.NY)
-            AppTexts.title(S.of(context).publicSafety2,
+            AppTexts.title(
+                "${maxTopic.topicData.extreme1} & ${maxTopic.topicData.extreme2}",
                 color: AppColors.lightPrimary),
           CustomSpacer(
             multiplier: 0,

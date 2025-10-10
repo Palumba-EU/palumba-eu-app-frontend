@@ -18,7 +18,7 @@
   "@@SplashPage": "SplashPage",
   "splashPageNoInternet": "Parece que no tienes conexión a internet",
   "@@LanguagePage": "LanguagePage",
-  "languagePageTitle": "¿Seguimos en inglés? :)",
+  "languagePageTitle": "¿Seguimos en espanol? :)",
   "languagePageSubtitle": "Esto se puede cambiar luego en la configuración.",
   "@@Entrance": "EntrancePage",
   "entranceTitle1": "Si esta palomita no puede ayudarte a votar en junio, nada lo hará.",
@@ -525,7 +525,8 @@
   "howCandidateCompareEachOther":"Veamos cómo se comparan los candidatos entre sí y cuál es su posición con más detalle",
   "whatTopicSeemToCloseYourHeart":"¡Genial! ¿Y qué temas te interesan?",
   "keepLearning":"Sigue aprendiendo >",
-  "seeMore":"Ver más >"
+  "seeMore":"Ver más >",
+  "resultsPage8_1Text_ny_25":"Cuando se trata de {topic}, estás totalmente comprometido"
 
 
 }
