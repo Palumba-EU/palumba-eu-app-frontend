@@ -53,7 +53,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m9(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
-  static String m12(number, dimension) =>
+  static String m12(topic) =>
+      "Cuando se trata de ${topic}, estás totalmente comprometido";
+
+  static String m13(number, dimension) =>
       "Tus respuestas están en el top ${number}% respecto a ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -179,7 +182,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Esto se puede cambiar luego en la configuración.",
     ),
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
-      "¿Seguimos en inglés? :)",
+      "¿Seguimos en espanol? :)",
     ),
     "likeFootballFantasy": MessageLookupByLibrary.simpleMessage(
       "Como tu alineación de Football Fantasy, pero para la política.",
@@ -596,7 +599,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage8_1Text": m8,
     "resultsPage8_1Text_ger25": m9,
-    "resultsPage8_1Text_nyc25": m12,
+    "resultsPage8_1Text_ny_25": m12,
+    "resultsPage8_1Text_nyc25": m13,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
       "Acción climática activa 🌱😌",
     ),

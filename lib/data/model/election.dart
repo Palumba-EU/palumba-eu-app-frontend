@@ -544,9 +544,8 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage8_1Text(topic, percentage);
       case Election.NY:
-        // NYC text matches DE-style placeholders: {number}% regarding {dimension}
-        //return S.of(context).resultsPage8_1Text_nyc25(percentage, topic);
-        return S.of(context).publicSafety;
+        return S.of(context).resultsPage8_1Text_ny_25(
+            topic); /*"When it's come to ${topic}, you are all-in for";*/
     }
   }
 
