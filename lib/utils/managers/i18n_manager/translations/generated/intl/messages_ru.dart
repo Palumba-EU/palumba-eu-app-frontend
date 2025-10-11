@@ -50,7 +50,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m9(number, dimension) =>
       "Твои ответы входят в топ ${number}% по измерению «${dimension}»";
 
-  static String m12(number, dimension) =>
+  static String m12(topic) =>
+      "Когда речь идёт о ${topic}, вы полностью поддерживаете";
+
+  static String m13(number, dimension) =>
       "Твои ответы входят в топ ${number}% по измерению «${dimension}»";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -70,16 +73,41 @@ class MessageLookup extends MessageLookupByLibrary {
     "LevelOfEducationOther_nyc25": MessageLookupByLibrary.simpleMessage(
       "Другое",
     ),
+    "activePushNotificationScreen": MessageLookupByLibrary.simpleMessage(
+      "Активируйте push-уведомления на следующем экране, чтобы получать обновления",
+    ),
+    "affiliationAndProfile": MessageLookupByLibrary.simpleMessage(
+      "Принадлежность и профиль",
+    ),
     "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
       "Что-то пошло не так с нашей стороны. Пожалуйста, попробуйте позже.",
     ),
     "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Упс!"),
+    "almostMatchedWrongCandidate": MessageLookupByLibrary.simpleMessage(
+      "Почти совпали с неправильным кандидатом в мэры",
+    ),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
+    "areYouPlanningToVote": MessageLookupByLibrary.simpleMessage(
+      "Вы планируете голосовать?",
+    ),
+    "attentionFutureMayor": MessageLookupByLibrary.simpleMessage(
+      "Это вопрос, который вам особенно важен, и вы требуете, чтобы будущий мэр уделил ему полное внимание",
+    ),
+    "basedOnYourSwipingInTheApp": MessageLookupByLibrary.simpleMessage(
+      "На основе ваших свайпов в приложении",
+    ),
     "cancel": MessageLookupByLibrary.simpleMessage("Отмена"),
+    "checkWhoOnTheBallot": MessageLookupByLibrary.simpleMessage(
+      "Проверьте, кто в бюллетене",
+    ),
+    "compatible": MessageLookupByLibrary.simpleMessage("совместимы"),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Давай глубже погрузимся в твою совместимость со всеми кандидатами и политиками на следующих экранах. Нажимай справа/слева, чтобы навигировать.",
     ),
     "denmark": MessageLookupByLibrary.simpleMessage("Дания"),
+    "doOwnResearch": MessageLookupByLibrary.simpleMessage(
+      "Мы дали вам только общий обзор — углубитесь и проведите собственное исследование",
+    ),
     "electionDE": MessageLookupByLibrary.simpleMessage(
       "Бундестагские выборы 2025 🇩🇪",
     ),
@@ -92,6 +120,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "electionPageSubtitle": MessageLookupByLibrary.simpleMessage(""),
     "electionPageTitle": MessageLookupByLibrary.simpleMessage(
       "Выберите выборы",
+    ),
+    "electionToDoList": MessageLookupByLibrary.simpleMessage(
+      "список дел к выборам:",
     ),
     "entranceMatchesFoundQuote": m0,
     "entranceStartButton": MessageLookupByLibrary.simpleMessage(
@@ -127,6 +158,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
     "france": MessageLookupByLibrary.simpleMessage("Франция"),
     "germany": MessageLookupByLibrary.simpleMessage("Германия"),
+    "hereIsYour": MessageLookupByLibrary.simpleMessage("Вот ваш"),
     "homePageBackToTest": MessageLookupByLibrary.simpleMessage(
       "Вернуться к тесту",
     ),
@@ -137,12 +169,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "Новый тест Palumba",
     ),
+    "howCandidateCompareEachOther": MessageLookupByLibrary.simpleMessage(
+      "Посмотрим, как кандидаты сравниваются друг с другом — и где именно находитесь вы",
+    ),
     "hungary": MessageLookupByLibrary.simpleMessage("Венгрия"),
+    "investigateFurther": MessageLookupByLibrary.simpleMessage(
+      "Изучить подробнее",
+    ),
+    "keepLearning": MessageLookupByLibrary.simpleMessage(
+      "Продолжить изучение >",
+    ),
     "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
       "Это можно будет изменить позже в настройках.",
     ),
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
       "Продолжим на русском? :)",
+    ),
+    "likeFootballFantasy": MessageLookupByLibrary.simpleMessage(
+      "Как ваш футбольный фэнтези-состав, только для политики",
     ),
     "loadingResultsPageRandom1": MessageLookupByLibrary.simpleMessage(
       "Это будет быстрее, чем пересадка на Таймс-сквер",
@@ -199,6 +243,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle4_nyc25": MessageLookupByLibrary.simpleMessage(
       "Почти готово, последний штрих...",
     ),
+    "match": MessageLookupByLibrary.simpleMessage("совпадение"),
     "maybe": MessageLookupByLibrary.simpleMessage("Возможно"),
     "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage(
       "Нет, спасибо!",
@@ -216,6 +261,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "neutral": MessageLookupByLibrary.simpleMessage("Нейтрально"),
     "no": MessageLookupByLibrary.simpleMessage("Нет"),
+    "nope": MessageLookupByLibrary.simpleMessage("Нет..."),
     "ok": MessageLookupByLibrary.simpleMessage("Ок"),
     "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
       "Понятия не имею, за кого голосовать на выборах в Европарламент 2024",
@@ -296,7 +342,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingStep4Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "Окончил(а)…",
     ),
+    "oneLastThing": MessageLookupByLibrary.simpleMessage("Последнее:"),
     "poland": MessageLookupByLibrary.simpleMessage("Польша"),
+    "publicSafety": MessageLookupByLibrary.simpleMessage(
+      "Когда речь идёт о безопасности, вы полностью поддерживаете",
+    ),
+    "publicSafety2": MessageLookupByLibrary.simpleMessage(
+      "сильную полицию и безопасные улицы",
+    ),
     "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("Закрыть"),
     "pushDeactivatedConfirm": MessageLookupByLibrary.simpleMessage(
       "Открыть настройки",
@@ -306,6 +359,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage(
       "Уведомления отключены",
+    ),
+    "rankingOthers": MessageLookupByLibrary.simpleMessage("Рейтинг других"),
+    "redFlags": MessageLookupByLibrary.simpleMessage("Тревожные сигналы"),
+    "registerToVote": MessageLookupByLibrary.simpleMessage(
+      "Зарегистрируйтесь для голосования",
     ),
     "resultItsMatch": MessageLookupByLibrary.simpleMessage("Есть совпадение!"),
     "resultsPage10AreYouGoingToVote_ger25":
@@ -549,7 +607,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage8_1Text": m8,
     "resultsPage8_1Text_ger25": m9,
-    "resultsPage8_1Text_nyc25": m12,
+    "resultsPage8_1Text_ny_25": m12,
+    "resultsPage8_1Text_nyc25": m13,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
       "Активным действиям по климату 🌱😌",
     ),
@@ -607,6 +666,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Поделиться"),
     "romania": MessageLookupByLibrary.simpleMessage("Румыния"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("Посмотреть больше >"),
+    "seePollingStation": MessageLookupByLibrary.simpleMessage(
+      "Посмотрите здесь, где находится ваш избирательный участок и что ещё есть в бюллетене",
+    ),
     "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "Защита данных",
     ),
@@ -673,6 +736,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
       "Palumba — это не компания, не политическая партия и не правительство. Мы — независимое некоммерческое объединение из более чем 120 молодых людей 🐦 со всей Европы, которые прошлым летом собрались и начали создавать это приложение. Наша цель — помочь тебе лучше понять, как работают выборы в Европарламент и какие списки кандидатов совпадают с твоими взглядами, чтобы ты мог голосовать увереннее. Наш алгоритм с открытым исходным кодом, заявления для свайпа проверены политологами, а твои данные так надёжно зашифрованы, что мы не можем тебя идентифицировать :)",
     ),
+    "settingsPageTextAboutNew": MessageLookupByLibrary.simpleMessage(
+      "Palumba.org🐦 — это не компания, не политическая партия и не правительство. Мы — независимая некоммерческая организация из более чем 250 молодых волонтёров, которые объединились, чтобы создать это приложение. Наша цель одна: помочь вам понять, какие кандидаты на выборах соответствуют вашим взглядам, чтобы вы могли увереннее голосовать за тех, кто поддерживает ваши приоритеты. Наш алгоритм имеет открытый исходный код, утверждения, которые вы свайпаете, проверены политологами, а ваши данные настолько зашифрованы, что мы не можем вас идентифицировать :)",
+    ),
     "settingsPageTextElection": MessageLookupByLibrary.simpleMessage(
       "Чтобы изменить анкету, нажми на текущую",
     ),
@@ -709,6 +775,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTitlePartners_nyc25": MessageLookupByLibrary.simpleMessage(
       "Партнёры",
     ),
+    "shareTheApp": MessageLookupByLibrary.simpleMessage(
+      "Поделитесь приложением и WOTB",
+    ),
+    "shareYourFriendFamily": MessageLookupByLibrary.simpleMessage(
+      "Вашим друзьям и семье это может понравиться — и они тоже узнают что-то новое :)",
+    ),
     "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
     "skip": MessageLookupByLibrary.simpleMessage("Пропустить"),
     "spain": MessageLookupByLibrary.simpleMessage("Испания"),
@@ -722,10 +794,34 @@ class MessageLookup extends MessageLookupByLibrary {
       "Нажми, чтобы перевернуть и прочитать больше информации",
     ),
     "sweden": MessageLookupByLibrary.simpleMessage("Швеция"),
+    "tapToRegister": MessageLookupByLibrary.simpleMessage(
+      "Нажмите здесь, чтобы перепроверить свою регистрацию на официальном сайте",
+    ),
     "textContinue": MessageLookupByLibrary.simpleMessage("Продолжить"),
+    "turnOnVotingReminder": MessageLookupByLibrary.simpleMessage(
+      "Включить напоминание о голосовании",
+    ),
+    "votingCanReallyMakeADifference": MessageLookupByLibrary.simpleMessage(
+      "Голосование действительно может изменить ситуацию.",
+    ),
+    "whatTopicSeemToCloseYourHeart": MessageLookupByLibrary.simpleMessage(
+      "Отлично! Какие темы вам ближе всего?",
+    ),
     "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Перейти к «Кто в бюллетене»",
+      "Перейти к списку кандидатов в бюллетене",
+    ),
+    "withPalumbaTest": MessageLookupByLibrary.simpleMessage(
+      "с его политикой после прохождения теста в приложении Palumba",
     ),
     "yes": MessageLookupByLibrary.simpleMessage("Да"),
+    "yessss": MessageLookupByLibrary.simpleMessage("Даааа!"),
+    "youAre": MessageLookupByLibrary.simpleMessage("Вы"),
+    "yourNYCPoliticalMoodboardSummary": MessageLookupByLibrary.simpleMessage(
+      "Ваш политический обзор по Нью-Йорку",
+    ),
+    "yourNewMayor": MessageLookupByLibrary.simpleMessage("ваш новый мэр"),
+    "yourTopTopics": MessageLookupByLibrary.simpleMessage(
+      "Ваши три главные темы",
+    ),
   };
 }

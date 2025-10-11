@@ -45,7 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m9(number, dimension) => "你的回答在 ${dimension} 维度上位于前 ${number}%";
 
-  static String m12(number, dimension) =>
+  static String m12(topic) => "当谈到 ${topic} 时，你全力支持";
+
+  static String m13(number, dimension) =>
       "你的回答在 ${dimension} 维度上位于前 ${number}%";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -63,21 +65,41 @@ class MessageLookup extends MessageLookupByLibrary {
       "高中",
     ),
     "LevelOfEducationOther_nyc25": MessageLookupByLibrary.simpleMessage("其他"),
+    "activePushNotificationScreen": MessageLookupByLibrary.simpleMessage(
+      "在下一页启用推送通知以接收更新",
+    ),
+    "affiliationAndProfile": MessageLookupByLibrary.simpleMessage("政党归属与个人资料"),
     "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
       "我们的服务器出错了。请稍后再试。",
     ),
     "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("哎呀！"),
+    "almostMatchedWrongCandidate": MessageLookupByLibrary.simpleMessage(
+      "差点与错误的市长候选人匹配",
+    ),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba 欧盟版"),
+    "areYouPlanningToVote": MessageLookupByLibrary.simpleMessage("你计划投票吗？"),
+    "attentionFutureMayor": MessageLookupByLibrary.simpleMessage(
+      "这是你最关心的问题，你希望未来的市长对此给予充分关注",
+    ),
+    "basedOnYourSwipingInTheApp": MessageLookupByLibrary.simpleMessage(
+      "根据你在应用中的滑动选择",
+    ),
     "cancel": MessageLookupByLibrary.simpleMessage("取消"),
+    "checkWhoOnTheBallot": MessageLookupByLibrary.simpleMessage("查看选票上的候选人"),
+    "compatible": MessageLookupByLibrary.simpleMessage("相契合的"),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "让我们在接下来的页面中深入探索你与所有候选人及政策的契合度。点击屏幕左右两侧进行导航。",
     ),
     "denmark": MessageLookupByLibrary.simpleMessage("丹麦"),
+    "doOwnResearch": MessageLookupByLibrary.simpleMessage(
+      "我们只是给了你一个概览，深入了解并自行研究吧",
+    ),
     "electionDE": MessageLookupByLibrary.simpleMessage("2025 年德国联邦议会选举 🇩🇪"),
     "electionEU": MessageLookupByLibrary.simpleMessage("2024 年欧洲议会选举 🇪🇺"),
     "electionNY": MessageLookupByLibrary.simpleMessage("2025 年纽约市市长选举 🗽"),
     "electionPageSubtitle": MessageLookupByLibrary.simpleMessage(""),
     "electionPageTitle": MessageLookupByLibrary.simpleMessage("选择选举"),
+    "electionToDoList": MessageLookupByLibrary.simpleMessage("选举待办清单："),
     "entranceMatchesFoundQuote": m0,
     "entranceStartButton": MessageLookupByLibrary.simpleMessage("开始使用 Palumba"),
     "entranceTitle1": MessageLookupByLibrary.simpleMessage(
@@ -106,15 +128,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq": MessageLookupByLibrary.simpleMessage("常见问题"),
     "france": MessageLookupByLibrary.simpleMessage("法国"),
     "germany": MessageLookupByLibrary.simpleMessage("德国"),
+    "hereIsYour": MessageLookupByLibrary.simpleMessage("这是你的"),
     "homePageBackToTest": MessageLookupByLibrary.simpleMessage("返回测试"),
     "homePageMatchesFoundQuote": m1,
     "homePageMyResults": MessageLookupByLibrary.simpleMessage("我的结果 · 返回测试"),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "新的 Palumba 测试",
     ),
+    "howCandidateCompareEachOther": MessageLookupByLibrary.simpleMessage(
+      "让我们看看候选人之间的比较——以及你的立场更详细地体现在哪里",
+    ),
     "hungary": MessageLookupByLibrary.simpleMessage("匈牙利"),
+    "investigateFurther": MessageLookupByLibrary.simpleMessage("进一步调查"),
+    "keepLearning": MessageLookupByLibrary.simpleMessage("继续学习 >"),
     "languagePageSubtitle": MessageLookupByLibrary.simpleMessage("稍后可以在设置中更改。"),
     "languagePageTitle": MessageLookupByLibrary.simpleMessage("我们继续用简体中文好吗？:)"),
+    "likeFootballFantasy": MessageLookupByLibrary.simpleMessage(
+      "就像你的幻想足球阵容，但这是政治版的",
+    ),
     "loadingResultsPageRandom1": MessageLookupByLibrary.simpleMessage(
       "这会比你在时代广场换乘地铁还快",
     ),
@@ -170,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle4_nyc25": MessageLookupByLibrary.simpleMessage(
       "快好了，最后检查中……",
     ),
+    "match": MessageLookupByLibrary.simpleMessage("匹配"),
     "maybe": MessageLookupByLibrary.simpleMessage("可能"),
     "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage("不用，谢谢！"),
     "messageScreenNo_nyc25": MessageLookupByLibrary.simpleMessage("不用，谢谢！"),
@@ -183,6 +215,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "neutral": MessageLookupByLibrary.simpleMessage("中立"),
     "no": MessageLookupByLibrary.simpleMessage("否"),
+    "nope": MessageLookupByLibrary.simpleMessage("不行..."),
     "ok": MessageLookupByLibrary.simpleMessage("好的"),
     "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
       "我完全不知道在2024年欧洲选举该投给谁",
@@ -243,13 +276,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingStep4Option6_ger25": MessageLookupByLibrary.simpleMessage("其他"),
     "onBoardingStep4Title": MessageLookupByLibrary.simpleMessage("教育程度"),
     "onBoardingStep4Title_nyc25": MessageLookupByLibrary.simpleMessage("毕业于……"),
+    "oneLastThing": MessageLookupByLibrary.simpleMessage("最后一件事："),
     "poland": MessageLookupByLibrary.simpleMessage("波兰"),
+    "publicSafety": MessageLookupByLibrary.simpleMessage("在公共安全方面，你全力支持"),
+    "publicSafety2": MessageLookupByLibrary.simpleMessage("强有力的警察力量与安全的街道"),
     "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("关闭"),
     "pushDeactivatedConfirm": MessageLookupByLibrary.simpleMessage("打开设置"),
     "pushDeactivatedText": MessageLookupByLibrary.simpleMessage(
       "若要接收推送通知，请在设置中启用它们",
     ),
     "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage("通知已禁用"),
+    "rankingOthers": MessageLookupByLibrary.simpleMessage("对其他人的排名"),
+    "redFlags": MessageLookupByLibrary.simpleMessage("危险信号"),
+    "registerToVote": MessageLookupByLibrary.simpleMessage("注册投票"),
     "resultItsMatch": MessageLookupByLibrary.simpleMessage("匹配成功！"),
     "resultsPage10AreYouGoingToVote_ger25":
         MessageLookupByLibrary.simpleMessage("你会去投票吗？"),
@@ -424,7 +463,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage8_1Text": m8,
     "resultsPage8_1Text_ger25": m9,
-    "resultsPage8_1Text_nyc25": m12,
+    "resultsPage8_1Text_ny_25": m12,
+    "resultsPage8_1Text_nyc25": m13,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage("积极的气候行动 🌱😌"),
     "resultsPage8_2Text_ger25": MessageLookupByLibrary.simpleMessage(
       "积极的气候行动 🌱😌",
@@ -470,6 +510,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "resultsSentYouARose": MessageLookupByLibrary.simpleMessage("送给你一朵玫瑰 🌹"),
     "resultsShare": MessageLookupByLibrary.simpleMessage("分享"),
     "romania": MessageLookupByLibrary.simpleMessage("罗马尼亚"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("查看更多 >"),
+    "seePollingStation": MessageLookupByLibrary.simpleMessage(
+      "在这里查看你的投票站以及选票上的所有信息",
+    ),
     "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage("数据保护"),
     "settingsPageShareButtonText": MessageLookupByLibrary.simpleMessage("分享"),
     "settingsPageShareText": MessageLookupByLibrary.simpleMessage(
@@ -522,6 +566,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
       "Palumba 不是公司、不是政党、也不是政府机构。我们是一个由来自全欧洲 120 多名年轻人组成的独立非营利协会 🐦，去年夏天我们聚在一起开始制作这个应用。我们的目标只有一个：帮助你更好地了解欧洲选举的运作方式，以及哪些候选名单与你的想法相符，让你能更有信心地投票给支持你优先事项的人。我们的算法是开源的，你滑动选择的问题由政治学专家审阅，你的数据被高度加密，我们根本无法识别你的身份 :)",
     ),
+    "settingsPageTextAboutNew": MessageLookupByLibrary.simpleMessage(
+      "Palumba.org🐦 不是一家公司、不是政党、也不是政府。我们是一个由 250 多名年轻志愿者组成的独立非营利组织，共同打造了这个应用。我们的唯一目标是帮助你了解哪些候选人与您的理念相符，从而让你能更有信心地为支持你优先事项的人投票。我们的算法是开源的，你滑动浏览的声明经过政治学家的审查，而你的数据被高度加密，我们永远无法识别你的身份 :)",
+    ),
     "settingsPageTextElection": MessageLookupByLibrary.simpleMessage(
       "要更改问卷，请点击当前选项",
     ),
@@ -554,6 +601,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTitlePartners_nyc25": MessageLookupByLibrary.simpleMessage(
       "合作伙伴",
     ),
+    "shareTheApp": MessageLookupByLibrary.simpleMessage("分享此应用和 WOTB"),
+    "shareYourFriendFamily": MessageLookupByLibrary.simpleMessage(
+      "你的朋友和家人也可能会喜欢它并学到一些东西 :)",
+    ),
     "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
     "skip": MessageLookupByLibrary.simpleMessage("跳过"),
     "spain": MessageLookupByLibrary.simpleMessage("西班牙"),
@@ -565,8 +616,30 @@ class MessageLookup extends MessageLookupByLibrary {
       "点击以翻转并阅读更多信息",
     ),
     "sweden": MessageLookupByLibrary.simpleMessage("瑞典"),
+    "tapToRegister": MessageLookupByLibrary.simpleMessage(
+      "点击这里在官方网站上再次确认你的注册信息",
+    ),
     "textContinue": MessageLookupByLibrary.simpleMessage("继续"),
-    "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage("前往候选名单页面"),
+    "turnOnVotingReminder": MessageLookupByLibrary.simpleMessage("开启投票提醒"),
+    "votingCanReallyMakeADifference": MessageLookupByLibrary.simpleMessage(
+      "投票真的可以带来改变。",
+    ),
+    "whatTopicSeemToCloseYourHeart": MessageLookupByLibrary.simpleMessage(
+      "太棒了！哪些议题最让你关注？",
+    ),
+    "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
+      "前往查看选票上的候选人",
+    ),
+    "withPalumbaTest": MessageLookupByLibrary.simpleMessage(
+      "在完成 Palumba 应用测试后与你的政策相符",
+    ),
     "yes": MessageLookupByLibrary.simpleMessage("是"),
+    "yessss": MessageLookupByLibrary.simpleMessage("没错！"),
+    "youAre": MessageLookupByLibrary.simpleMessage("你是"),
+    "yourNYCPoliticalMoodboardSummary": MessageLookupByLibrary.simpleMessage(
+      "你的纽约市政治心情板总结",
+    ),
+    "yourNewMayor": MessageLookupByLibrary.simpleMessage("你的新市长"),
+    "yourTopTopics": MessageLookupByLibrary.simpleMessage("你最关注的三个议题"),
   };
 }

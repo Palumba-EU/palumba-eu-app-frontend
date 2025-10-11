@@ -864,16 +864,6 @@ class S {
     );
   }
 
-  /// `Go to Who’s On The Ballot`
-  String get whoIsOnTheBallot_nyc25 {
-    return Intl.message(
-      'Go to Who’s On The Ballot',
-      name: 'whoIsOnTheBallot_nyc25',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Language`
   String get settingsPageTitleLanguage {
     return Intl.message(
@@ -939,16 +929,6 @@ class S {
     return Intl.message(
       'Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
       name: 'settingsPageTextAbout',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)`
-  String get settingsPageTextAboutNew {
-    return Intl.message(
-      'Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
-      name: 'settingsPageTextAboutNew',
       desc: '',
       args: [],
     );
@@ -2876,6 +2856,26 @@ class S {
       name: 'resultsPage8_1Text_ny_25',
       desc: '',
       args: [topic],
+    );
+  }
+
+  /// `Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)`
+  String get settingsPageTextAboutNew {
+    return Intl.message(
+      'Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
+      name: 'settingsPageTextAboutNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go to Who’s On The Ballot`
+  String get whoIsOnTheBallot_nyc25 {
+    return Intl.message(
+      'Go to Who’s On The Ballot',
+      name: 'whoIsOnTheBallot_nyc25',
+      desc: '',
+      args: [],
     );
   }
 }

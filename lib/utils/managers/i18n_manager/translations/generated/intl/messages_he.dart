@@ -45,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m9(number, dimension) =>
       "התשובות שלך נמצאות ב־${number}% העליונים בתחום ${dimension}";
 
-  static String m12(number, dimension) =>
+  static String m13(number, dimension) =>
       "התשובות שלך נמצאות ב־${number}% העליונים בתחום ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -463,7 +463,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage8_1Text": m8,
     "resultsPage8_1Text_ger25": m9,
-    "resultsPage8_1Text_nyc25": m12,
+    "resultsPage8_1Text_nyc25": m13,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
       "פעולה אקלימית פעילה 🌱😌",
     ),
