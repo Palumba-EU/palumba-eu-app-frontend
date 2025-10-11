@@ -23,12 +23,14 @@ class DataAPI {
   // var baseUrl = 'https://api.palumba-app.palumba.eu';
   // var baseUrl = 'https://palumba-staging.bitperfect-software.com/api';
 
+  // var baseUrl = 'http://palumba-us.bitperfect-software.com/api';
+
   var headers = {
     'Accept': 'application/json',
   };
 
   String baseUrl() {
-    return ElectionManager.currentElection.value == Election.NY
+    return ElectionManager.currentElection.value.backend == Election.NY.backend
         ? 'http://palumba-us.bitperfect-software.com/api'
         : 'https://api.palumba-app.palumba.eu';
   }
@@ -96,7 +98,7 @@ class DataAPI {
   Future<ResultsData?> fetchResultsInfo() async {
     try {
       final url = Uri.parse('${urlLangAndEl()}' 'results');
-      print(url);
+      print("resultsUrl $url");
       final response = await http.get(
         url,
         headers: headers,

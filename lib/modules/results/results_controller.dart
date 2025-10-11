@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'dart:ui' as ui;
@@ -23,6 +24,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2_bio.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_2_to_do_list.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
@@ -31,6 +33,11 @@ import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_guid_1.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_memes.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_mood_board.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_ranking_result_graph.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_vote_opinion.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/extensions.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
@@ -235,20 +242,27 @@ class ResultsController extends GetxController {
         results = [
           // ResultsPage1(),
           ResultsPage2(),
+          ResultsPageMemes(),
           ResultsPage2Bio(),
-          ResultsPage3(),
+          ResultsPageGuid1(guidPage: 1),
+          ResultsPageRankingResultGraph(),
           ResultsPage4(),
           ResultsPage5(),
-          ResultsPage6(),
-          ResultsPage7(),
+          // ResultsPage6(),
+          // ResultsPage7(),
+          ResultsPageGuid1(guidPage: 2),
           ResultsPage8(),
           ResultsPage9(),
+          ResultsPageMoodBoard(),
+          ResultsPageVoteOpinion(willVote: willVote),
+          ResultsPage2ToDoList(),
         ];
     }
 
     bool isPastElection =
         ElectionManager.electionDate!.isBefore(DateTime.now());
-    if (!isPastElection) {
+    if (!isPastElection &&
+        ElectionManager.currentElection.value != Election.NY) {
       results.add(ResultsPage10(willVote: willVote));
     }
     return results;
@@ -474,6 +488,11 @@ class ResultsController extends GetxController {
   //Page 4 calculate compass position
 
   CompassData calculateCompassPosition(List<Answer> answers) {
+    print("answersLength:  ${answers.length}");
+    answers.forEach((answers) {
+      print("answers :  ${jsonEncode(answers)}");
+    });
+
     var axisTopic = ElectionManager.currentElection.value.result4AxisTopic;
 
     double dimEuIntegration =
@@ -576,14 +595,27 @@ class ResultsController extends GetxController {
   // Page 10 handle voting question
   void handleGoVoteQuestion(GoingToVote goingToVote) {
     DataRepository().patchResponses(goingToVote);
-    switch (goingToVote) {
-      case GoingToVote.no:
-        this.nextPage();
-        break;
-      case GoingToVote.maybe:
-      case GoingToVote.yes:
-        this.willVote.value = true;
-        break;
-    }
+    if (ElectionManager.currentElection.value == Election.NY) {
+      // this.nextPage();
+      switch (goingToVote) {
+        case GoingToVote.no:
+          this.nextPage();
+          break;
+        case GoingToVote.maybe:
+        case GoingToVote.yes:
+          this.willVote.value = true;
+          this.nextPage();
+          break;
+      }
+    } else
+      switch (goingToVote) {
+        case GoingToVote.no:
+          this.nextPage();
+          break;
+        case GoingToVote.maybe:
+        case GoingToVote.yes:
+          this.willVote.value = true;
+          break;
+      }
   }
 }

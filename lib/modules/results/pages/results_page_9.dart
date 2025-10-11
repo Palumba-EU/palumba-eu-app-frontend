@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
@@ -11,18 +11,21 @@ import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
-import 'package:appinio_swiper/appinio_swiper.dart';
 
 class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
   @override
   final bool showShare = true;
 
+  /*@override
+  final bool showSpecialBackground = true;*/
+
   @override
-  final bool showSpecialBackground = true;
+  final bool showBackgroundTarget = true;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: Get.height,
       child: Column(
         children: [
           CustomSpacer(
@@ -65,8 +68,10 @@ class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
           )),
           CustomSpacer(),
           Padding(
-            padding: AppDimens.lateralPadding,
+            padding: EdgeInsets.symmetric(
+                horizontal: AppDimens.largeLateralPaddingValue),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               children: [
                 Obx(() => Opacity(
                     opacity: controller.loadingShare ? 0 : 1,
@@ -75,28 +80,16 @@ class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
                             .resultsPage9Help(context),
                         color: AppColors.primary))),
                 CustomSpacer(),
-                AutoSizeText(
-                  ElectionManager.currentElection.value
-                      .resultsPage9Text1(context),
-                  maxLines: 2,
-                  style: AppTexts.customTextStyle(
-                    AppTextType.regular,
-                    fontSize: 20,
-                    bold: true,
-                    color: AppColors.primary,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
                 AppTexts.title(
                     ElectionManager.currentElection.value
-                        .resultsPage9Text2(context),
+                        .resultsPage9Text1(context),
                     color: AppColors.primary,
-                    textAlign: TextAlign.center),
+                    textAlign: TextAlign.center)
               ],
             ),
           ),
           CustomSpacer(
-            multiplier: 11,
+            multiplier: 2,
           )
         ],
       ),

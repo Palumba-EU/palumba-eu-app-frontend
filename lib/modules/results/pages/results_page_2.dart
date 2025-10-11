@@ -26,9 +26,9 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
         SingleChildScrollView(
           child: Column(
             children: [
-              CustomSpacer(multiplier: 2),
+              CustomSpacer(multiplier: 4),
               AppTexts.title(S.of(context).resultItsMatch,
-                  forceCaprasimo: true, fontSize: 20, color: AppColors.primary),
+                  forceCaprasimo: true, fontSize: 25, color: AppColors.primary),
               CustomSpacer(multiplier: 1),
               SizedBox(
                 height: Get.width * (isTablet ? .62 : .82),
@@ -68,7 +68,7 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
               CustomSpacer(multiplier: 2),
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: AppDimens.largeLateralPaddingValue),
+                    horizontal: AppDimens.smallLateralPaddingValue),
                 child: controller.maxPercentagePoliticParty == null
                     ? AppTexts.title(S.of(context).resultsPage2NoResults,
                         color: AppColors.primary)
@@ -77,18 +77,20 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
                           AppTexts.title(
                               '${controller.maxPercentagePoliticParty?.party.name ?? ''}',
                               forceCaprasimo: true,
-                              fontSize: 25,
-                              color: AppColors.primary),
+                              fontSize: 32,
+                              color: AppColors.primary,
+                              textAlign: TextAlign.center),
                           AppTexts.title(S.of(context).resultsSentYouARose,
                               forceCaprasimo: true,
-                              fontSize: 20,
+                              fontSize: 22,
                               color: AppColors.primary),
                           Padding(
                             padding: const EdgeInsets.only(top: 15),
                             child: AppTexts.small(S.of(context).deepDiveIntro,
                                 color: AppColors.primary,
                                 textAlign: TextAlign.center,
-                                bold: true)
+                                fontSize: 14,
+                                bold: false)
 
                             /*RichText(
                                 textAlign: TextAlign.center,

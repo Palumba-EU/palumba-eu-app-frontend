@@ -95,6 +95,8 @@ extension ElectionImages on Election {
         return 'assets/images/election/eu/ic_sticker_ballot_box_eu.svg';
       case Election.NY:
         return 'assets/images/election/ny/ic_sticker_ballot_box_ny.svg';
+        return 'assets/images/election/ny/ic_whos_on_ballot.svg';
+        return 'assets/images/election/ny/ic_sticker_ballot_box_eu.svg';
     }
   }
 
@@ -542,8 +544,8 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage8_1Text(topic, percentage);
       case Election.NY:
-        // NYC text matches DE-style placeholders: {number}% regarding {dimension}
-        return S.of(context).resultsPage8_1Text_nyc25(percentage, topic);
+        return S.of(context).resultsPage8_1Text_ny_25(
+            topic); /*"When it's come to ${topic}, you are all-in for";*/
     }
   }
 
@@ -554,7 +556,8 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage8_2Text;
       case Election.NY:
-        return S.of(context).resultsPage8_2Text_nyc25;
+        // return S.of(context).resultsPage8_2Text_nyc25;
+        return S.of(context).attentionFutureMayor;
     }
   }
 
@@ -631,7 +634,7 @@ extension ElectionTexts on Election {
       case Election.EU:
         return S.of(context).resultsPage10YesButton;
       case Election.NY:
-        return S.of(context).resultsPage10YesButton_nyc25;
+        return S.of(context).yessss;
     }
   }
 
@@ -767,7 +770,7 @@ extension ElectionResult5Topics on Election {
         // 4: Human & Social Rights, 5: Economic Intervention, 1: Environmental issues
         return [4, 5, 1];
       case Election.NY:
-        return [11, 10, 12, 9, 13];
+        return [2, 3, 11, 10, 12, 9, 13];
     }
   }
 }

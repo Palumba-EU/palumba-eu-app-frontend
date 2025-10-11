@@ -403,7 +403,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Shuffle my politcal love 🔀",
     ),
     "resultsSentYouARose": MessageLookupByLibrary.simpleMessage(
-      "Sent you a rose",
+      "sent you a rose",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Споделяне"),
     "romania": MessageLookupByLibrary.simpleMessage("Румъния"),

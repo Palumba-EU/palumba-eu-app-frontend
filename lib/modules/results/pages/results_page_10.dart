@@ -66,6 +66,7 @@ class ResultsPage10 extends GetView<ResultsController> with ResultsPage {
       } else {
         return _goingToVote(context);
       }
+      // return _goingToVote(context);
     });
   }
 

@@ -449,10 +449,10 @@ class S {
     );
   }
 
-  /// `We’ll move faster than the long queue at the Box club`
+  /// `We’ll move faster than the long queue at the Box`
   String get loadingResultsPageRandom2 {
     return Intl.message(
-      'We’ll move faster than the long queue at the Box club',
+      'We’ll move faster than the long queue at the Box',
       name: 'loadingResultsPageRandom2',
       desc: '',
       args: [],
@@ -939,6 +939,16 @@ class S {
     return Intl.message(
       'Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
       name: 'settingsPageTextAbout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)`
+  String get settingsPageTextAboutNew {
+    return Intl.message(
+      'Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
+      name: 'settingsPageTextAboutNew',
       desc: '',
       args: [],
     );
@@ -2149,10 +2159,10 @@ class S {
     );
   }
 
-  /// `Elections are about many topics, but there's one that suits you perfectly! It's almost as if it was`
+  /// `Elections are about many topics, but this really Belongs With Me 🫡`
   String get resultsPage9Text1_nyc25 {
     return Intl.message(
-      'Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was',
+      'Elections are about many topics, but this really Belongs With Me 🫡',
       name: 'resultsPage9Text1_nyc25',
       desc: '-> resultsPage9Text1',
       args: [],
@@ -2359,10 +2369,10 @@ class S {
     );
   }
 
-  /// `Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.`
+  /// `Important to tell you that no external entity  has editorial power on the content of the app, which remains a non-partisan initiative with one goal: helping you navigate elections.`
   String get settingsPageTextPartners_nyc25 {
     return Intl.message(
-      'Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.',
+      'Important to tell you that no external entity  has editorial power on the content of the app, which remains a non-partisan initiative with one goal: helping you navigate elections.',
       name: 'settingsPageTextPartners_nyc25',
       desc: '-> settingsPageTextPartners',
       args: [],
@@ -2499,10 +2509,10 @@ class S {
     );
   }
 
-  /// `Sent you a rose`
+  /// `sent you a rose`
   String get resultsSentYouARose {
     return Intl.message(
-      'Sent you a rose',
+      'sent you a rose',
       name: 'resultsSentYouARose',
       desc: '',
       args: [],
@@ -2526,6 +2536,346 @@ class S {
       name: 'resultItsMatch',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Register to vote`
+  String get registerToVote {
+    return Intl.message(
+      'Register to vote',
+      name: 'registerToVote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap here to double-check your registration on the official website`
+  String get tapToRegister {
+    return Intl.message(
+      'Tap here to double-check your registration on the official website',
+      name: 'tapToRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Turn on a voting reminder`
+  String get turnOnVotingReminder {
+    return Intl.message(
+      'Turn on a voting reminder',
+      name: 'turnOnVotingReminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activate push notifications in the next screen to receive updates`
+  String get activePushNotificationScreen {
+    return Intl.message(
+      'Activate push notifications in the next screen to receive updates',
+      name: 'activePushNotificationScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Investigate further`
+  String get investigateFurther {
+    return Intl.message(
+      'Investigate further',
+      name: 'investigateFurther',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We just gave you an overview, go deeper and do your own research`
+  String get doOwnResearch {
+    return Intl.message(
+      'We just gave you an overview, go deeper and do your own research',
+      name: 'doOwnResearch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check Who's On The Ballot`
+  String get checkWhoOnTheBallot {
+    return Intl.message(
+      'Check Who\'s On The Ballot',
+      name: 'checkWhoOnTheBallot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See here where's your polling station and everything else that's on the ballot`
+  String get seePollingStation {
+    return Intl.message(
+      'See here where\'s your polling station and everything else that\'s on the ballot',
+      name: 'seePollingStation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share the app & WOTB`
+  String get shareTheApp {
+    return Intl.message(
+      'Share the app & WOTB',
+      name: 'shareTheApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your friends and family might enjoy it and learn something too :)`
+  String get shareYourFriendFamily {
+    return Intl.message(
+      'Your friends and family might enjoy it and learn something too :)',
+      name: 'shareYourFriendFamily',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Almost matched with the wrong mayoral candidate`
+  String get almostMatchedWrongCandidate {
+    return Intl.message(
+      'Almost matched with the wrong mayoral candidate',
+      name: 'almostMatchedWrongCandidate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Based on your swiping in the app`
+  String get basedOnYourSwipingInTheApp {
+    return Intl.message(
+      'Based on your swiping in the app',
+      name: 'basedOnYourSwipingInTheApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Like your Football Fantasy line-up, but for politics`
+  String get likeFootballFantasy {
+    return Intl.message(
+      'Like your Football Fantasy line-up, but for politics',
+      name: 'likeFootballFantasy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `When it comes to public safety, you’re all-in for`
+  String get publicSafety {
+    return Intl.message(
+      'When it comes to public safety, you’re all-in for',
+      name: 'publicSafety',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `strong police & safe streets`
+  String get publicSafety2 {
+    return Intl.message(
+      'strong police & safe streets',
+      name: 'publicSafety2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This is the issue you feel the strongest about and you certainly demand full attention to this by the future Mayor`
+  String get attentionFutureMayor {
+    return Intl.message(
+      'This is the issue you feel the strongest about and you certainly demand full attention to this by the future Mayor',
+      name: 'attentionFutureMayor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `your new Mayor`
+  String get yourNewMayor {
+    return Intl.message(
+      'your new Mayor',
+      name: 'yourNewMayor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are`
+  String get youAre {
+    return Intl.message('You are', name: 'youAre', desc: '', args: []);
+  }
+
+  /// `compatible`
+  String get compatible {
+    return Intl.message('compatible', name: 'compatible', desc: '', args: []);
+  }
+
+  /// `with their policy after taking the Palumba app test`
+  String get withPalumbaTest {
+    return Intl.message(
+      'with their policy after taking the Palumba app test',
+      name: 'withPalumbaTest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ranking others`
+  String get rankingOthers {
+    return Intl.message(
+      'Ranking others',
+      name: 'rankingOthers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `match`
+  String get match {
+    return Intl.message('match', name: 'match', desc: '', args: []);
+  }
+
+  /// `Your top 3 topics`
+  String get yourTopTopics {
+    return Intl.message(
+      'Your top 3 topics',
+      name: 'yourTopTopics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yessss!`
+  String get yessss {
+    return Intl.message('Yessss!', name: 'yessss', desc: '', args: []);
+  }
+
+  /// `Nope...`
+  String get nope {
+    return Intl.message('Nope...', name: 'nope', desc: '', args: []);
+  }
+
+  /// `One last thing:`
+  String get oneLastThing {
+    return Intl.message(
+      'One last thing:',
+      name: 'oneLastThing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you planning to vote?`
+  String get areYouPlanningToVote {
+    return Intl.message(
+      'Are you planning to vote?',
+      name: 'areYouPlanningToVote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Red Flags`
+  String get redFlags {
+    return Intl.message('Red Flags', name: 'redFlags', desc: '', args: []);
+  }
+
+  /// `Affiliation & Profile`
+  String get affiliationAndProfile {
+    return Intl.message(
+      'Affiliation & Profile',
+      name: 'affiliationAndProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Voting can really make a difference.`
+  String get votingCanReallyMakeADifference {
+    return Intl.message(
+      'Voting can really make a difference.',
+      name: 'votingCanReallyMakeADifference',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Here's your`
+  String get hereIsYour {
+    return Intl.message('Here\'s your', name: 'hereIsYour', desc: '', args: []);
+  }
+
+  /// `election to-do list:`
+  String get electionToDoList {
+    return Intl.message(
+      'election to-do list:',
+      name: 'electionToDoList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your NYC political moodboard summary`
+  String get yourNYCPoliticalMoodboardSummary {
+    return Intl.message(
+      'Your NYC political moodboard summary',
+      name: 'yourNYCPoliticalMoodboardSummary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let’s see how candidates compare to each other - and where do you stand in more detail`
+  String get howCandidateCompareEachOther {
+    return Intl.message(
+      'Let’s see how candidates compare to each other - and where do you stand in more detail',
+      name: 'howCandidateCompareEachOther',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cool! And what topics seem close to your heart?`
+  String get whatTopicSeemToCloseYourHeart {
+    return Intl.message(
+      'Cool! And what topics seem close to your heart?',
+      name: 'whatTopicSeemToCloseYourHeart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Keep learning >`
+  String get keepLearning {
+    return Intl.message(
+      'Keep learning >',
+      name: 'keepLearning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See more >`
+  String get seeMore {
+    return Intl.message('See more >', name: 'seeMore', desc: '', args: []);
+  }
+
+  /// `When it's come to {topic}, you are all-in for`
+  String resultsPage8_1Text_ny_25(Object topic) {
+    return Intl.message(
+      'When it\'s come to $topic, you are all-in for',
+      name: 'resultsPage8_1Text_ny_25',
+      desc: '',
+      args: [topic],
     );
   }
 }

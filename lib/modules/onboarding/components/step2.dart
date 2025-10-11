@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+
+import '../../../global_widgets/custom_spacer.dart';
 import 'custom_age_selector.dart';
 
 class Step2 extends StatelessWidget {
@@ -25,7 +26,7 @@ class Step2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -33,10 +34,10 @@ class Step2 extends StatelessWidget {
           Padding(
             padding: AppDimens.lateralPadding,
             child: AppTexts.title(S.of(context).onBoardingStep2Title,
-                color: AppColors.primary),
+                color: AppColors.primary, fontSize: 22),
           ),
           CustomSpacer(
-            multiplier: 3,
+            multiplier: 1,
           ),
           SizedBox(
               height: 48,
@@ -54,6 +55,10 @@ class Step2 extends StatelessWidget {
                       ));
                 },
               )),
+          CustomSpacer(
+            multiplier: 10,
+          )
+
           /*SizedBox(
             height: Get.height * 0.325,
           ),*/

@@ -50,7 +50,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m9(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
-  static String m12(number, dimension) =>
+  static String m12(topic) => "When it\'s come to ${topic}, you are all-in for";
+
+  static String m13(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -70,16 +72,41 @@ class MessageLookup extends MessageLookupByLibrary {
     "LevelOfEducationOther_nyc25": MessageLookupByLibrary.simpleMessage(
       "Other",
     ),
+    "activePushNotificationScreen": MessageLookupByLibrary.simpleMessage(
+      "Activate push notifications in the next screen to receive updates",
+    ),
+    "affiliationAndProfile": MessageLookupByLibrary.simpleMessage(
+      "Affiliation & Profile",
+    ),
     "alertServerErrorText": MessageLookupByLibrary.simpleMessage(
       "Something has gone wrong on our side. Please try again later.",
     ),
     "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ops!"),
+    "almostMatchedWrongCandidate": MessageLookupByLibrary.simpleMessage(
+      "Almost matched with the wrong mayoral candidate",
+    ),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
+    "areYouPlanningToVote": MessageLookupByLibrary.simpleMessage(
+      "Are you planning to vote?",
+    ),
+    "attentionFutureMayor": MessageLookupByLibrary.simpleMessage(
+      "This is the issue you feel the strongest about and you certainly demand full attention to this by the future Mayor",
+    ),
+    "basedOnYourSwipingInTheApp": MessageLookupByLibrary.simpleMessage(
+      "Based on your swiping in the app",
+    ),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "checkWhoOnTheBallot": MessageLookupByLibrary.simpleMessage(
+      "Check Who\'s On The Ballot",
+    ),
+    "compatible": MessageLookupByLibrary.simpleMessage("compatible"),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.",
     ),
     "denmark": MessageLookupByLibrary.simpleMessage("Denmark"),
+    "doOwnResearch": MessageLookupByLibrary.simpleMessage(
+      "We just gave you an overview, go deeper and do your own research",
+    ),
     "electionDE": MessageLookupByLibrary.simpleMessage(
       "Bundestagswahl 2025 🇩🇪",
     ),
@@ -92,6 +119,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "electionPageSubtitle": MessageLookupByLibrary.simpleMessage(""),
     "electionPageTitle": MessageLookupByLibrary.simpleMessage(
       "Choose an Election",
+    ),
+    "electionToDoList": MessageLookupByLibrary.simpleMessage(
+      "election to-do list:",
     ),
     "entranceMatchesFoundQuote": m0,
     "entranceStartButton": MessageLookupByLibrary.simpleMessage(
@@ -127,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
     "france": MessageLookupByLibrary.simpleMessage("France"),
     "germany": MessageLookupByLibrary.simpleMessage("Germany"),
+    "hereIsYour": MessageLookupByLibrary.simpleMessage("Here\'s your"),
     "homePageBackToTest": MessageLookupByLibrary.simpleMessage(
       "Back to the test",
     ),
@@ -137,18 +168,28 @@ class MessageLookup extends MessageLookupByLibrary {
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "New Palumba test",
     ),
+    "howCandidateCompareEachOther": MessageLookupByLibrary.simpleMessage(
+      "Let’s see how candidates compare to each other - and where do you stand in more detail",
+    ),
     "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
+    "investigateFurther": MessageLookupByLibrary.simpleMessage(
+      "Investigate further",
+    ),
+    "keepLearning": MessageLookupByLibrary.simpleMessage("Keep learning >"),
     "languagePageSubtitle": MessageLookupByLibrary.simpleMessage(
       "This can be changed later in settings.",
     ),
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
       "Let’s continue in English? :)",
     ),
+    "likeFootballFantasy": MessageLookupByLibrary.simpleMessage(
+      "Like your Football Fantasy line-up, but for politics",
+    ),
     "loadingResultsPageRandom1": MessageLookupByLibrary.simpleMessage(
       "This will be quicker than your Times Square MTA transfer",
     ),
     "loadingResultsPageRandom2": MessageLookupByLibrary.simpleMessage(
-      "We’ll move faster than the long queue at the Box club",
+      "We’ll move faster than the long queue at the Box",
     ),
     "loadingResultsPageRandom3": MessageLookupByLibrary.simpleMessage(
       "You got this! Push through your 7-second attention span",
@@ -199,6 +240,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingResultsPageTitle4_nyc25": MessageLookupByLibrary.simpleMessage(
       "Almost ready, one last check...",
     ),
+    "match": MessageLookupByLibrary.simpleMessage("match"),
     "maybe": MessageLookupByLibrary.simpleMessage("Maybe"),
     "messageScreenNo_ger25": MessageLookupByLibrary.simpleMessage(
       "No, thanks!",
@@ -216,6 +258,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "neutral": MessageLookupByLibrary.simpleMessage("Neutral"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
+    "nope": MessageLookupByLibrary.simpleMessage("Nope..."),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "onBoardingCardQuestion": MessageLookupByLibrary.simpleMessage(
       "I have no clue who to vote for at the 2024 European Elections",
@@ -296,7 +339,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingStep4Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "Graduated from...",
     ),
+    "oneLastThing": MessageLookupByLibrary.simpleMessage("One last thing:"),
     "poland": MessageLookupByLibrary.simpleMessage("Poland"),
+    "publicSafety": MessageLookupByLibrary.simpleMessage(
+      "When it comes to public safety, you’re all-in for",
+    ),
+    "publicSafety2": MessageLookupByLibrary.simpleMessage(
+      "strong police & safe streets",
+    ),
     "pushDeactivatedCancel": MessageLookupByLibrary.simpleMessage("Close"),
     "pushDeactivatedConfirm": MessageLookupByLibrary.simpleMessage(
       "Open Settings",
@@ -307,6 +357,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pushDeactivatedTitle": MessageLookupByLibrary.simpleMessage(
       "Notifications disabled",
     ),
+    "rankingOthers": MessageLookupByLibrary.simpleMessage("Ranking others"),
+    "redFlags": MessageLookupByLibrary.simpleMessage("Red Flags"),
+    "registerToVote": MessageLookupByLibrary.simpleMessage("Register to vote"),
     "resultItsMatch": MessageLookupByLibrary.simpleMessage("It\'s a match!"),
     "resultsPage10AreYouGoingToVote_ger25":
         MessageLookupByLibrary.simpleMessage("Are you going to vote?"),
@@ -545,7 +598,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage8_1Text": m8,
     "resultsPage8_1Text_ger25": m9,
-    "resultsPage8_1Text_nyc25": m12,
+    "resultsPage8_1Text_ny_25": m12,
+    "resultsPage8_1Text_nyc25": m13,
     "resultsPage8_2Text": MessageLookupByLibrary.simpleMessage(
       "Active Climate Action 🌱😌",
     ),
@@ -571,7 +625,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
     ),
     "resultsPage9Text1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Elections are about many topics, but there\'s one that suits you perfectly! It\'s almost as if it was",
+      "Elections are about many topics, but this really Belongs With Me 🫡",
     ),
     "resultsPage9Text2": MessageLookupByLibrary.simpleMessage(
       "Belongs With Me 😌",
@@ -601,10 +655,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "Shuffle my politcal love 🔀",
     ),
     "resultsSentYouARose": MessageLookupByLibrary.simpleMessage(
-      "Sent you a rose",
+      "sent you a rose",
     ),
     "resultsShare": MessageLookupByLibrary.simpleMessage("Share"),
     "romania": MessageLookupByLibrary.simpleMessage("Romania"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("See more >"),
+    "seePollingStation": MessageLookupByLibrary.simpleMessage(
+      "See here where\'s your polling station and everything else that\'s on the ballot",
+    ),
     "settingsPagePrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "Data Protection",
     ),
@@ -671,6 +729,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTextAbout": MessageLookupByLibrary.simpleMessage(
       "Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
     ),
+    "settingsPageTextAboutNew": MessageLookupByLibrary.simpleMessage(
+      "Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
+    ),
     "settingsPageTextElection": MessageLookupByLibrary.simpleMessage(
       "To change the questionnaire, click on the current one",
     ),
@@ -684,7 +745,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
     ),
     "settingsPageTextPartners_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Important to tell you that partners have no editorial power on the content of the app, which remains a non-partisan initiative with a clear goal: helping you understand who supports your opinions at the european and national levels.",
+      "Important to tell you that no external entity  has editorial power on the content of the app, which remains a non-partisan initiative with one goal: helping you navigate elections.",
     ),
     "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("About"),
     "settingsPageTitleAssociation": MessageLookupByLibrary.simpleMessage(
@@ -711,6 +772,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPageTitlePartners_nyc25": MessageLookupByLibrary.simpleMessage(
       "Partners",
     ),
+    "shareTheApp": MessageLookupByLibrary.simpleMessage("Share the app & WOTB"),
+    "shareYourFriendFamily": MessageLookupByLibrary.simpleMessage(
+      "Your friends and family might enjoy it and learn something too :)",
+    ),
     "shortAppName": MessageLookupByLibrary.simpleMessage("Palumba"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "spain": MessageLookupByLibrary.simpleMessage("Spain"),
@@ -724,10 +789,32 @@ class MessageLookup extends MessageLookupByLibrary {
       "Tap to turn & read more info",
     ),
     "sweden": MessageLookupByLibrary.simpleMessage("Sweden"),
+    "tapToRegister": MessageLookupByLibrary.simpleMessage(
+      "Tap here to double-check your registration on the official website",
+    ),
     "textContinue": MessageLookupByLibrary.simpleMessage("Continue"),
+    "turnOnVotingReminder": MessageLookupByLibrary.simpleMessage(
+      "Turn on a voting reminder",
+    ),
+    "votingCanReallyMakeADifference": MessageLookupByLibrary.simpleMessage(
+      "Voting can really make a difference.",
+    ),
+    "whatTopicSeemToCloseYourHeart": MessageLookupByLibrary.simpleMessage(
+      "Cool! And what topics seem close to your heart?",
+    ),
     "whoIsOnTheBallot_nyc25": MessageLookupByLibrary.simpleMessage(
       "Go to Who’s On The Ballot",
     ),
+    "withPalumbaTest": MessageLookupByLibrary.simpleMessage(
+      "with their policy after taking the Palumba app test",
+    ),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "yessss": MessageLookupByLibrary.simpleMessage("Yessss!"),
+    "youAre": MessageLookupByLibrary.simpleMessage("You are"),
+    "yourNYCPoliticalMoodboardSummary": MessageLookupByLibrary.simpleMessage(
+      "Your NYC political moodboard summary",
+    ),
+    "yourNewMayor": MessageLookupByLibrary.simpleMessage("your new Mayor"),
+    "yourTopTopics": MessageLookupByLibrary.simpleMessage("Your top 3 topics"),
   };
 }

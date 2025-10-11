@@ -24,11 +24,11 @@ class ResultsPage5 extends GetView<ResultsController> with ResultsPage {
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: AppDimens.bigLateralPaddingValue),
+              horizontal: AppDimens.largeLateralPaddingValue),
           child: AppTexts.small(
               ElectionManager.currentElection.value.resultsPage5Title(context),
               color: AppColors.primary,
-              bold: true,
+              bold: false,
               textAlign: TextAlign.center),
         ),
         CustomSpacer(

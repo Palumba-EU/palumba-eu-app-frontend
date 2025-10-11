@@ -10,9 +10,9 @@ import 'package:palumba_eu/data/repositories/local/local_data_repository.dart';
 import 'package:palumba_eu/data/repositories/remote/data_repository.dart';
 import 'package:palumba_eu/modules/statments/helpers/statements_parser_helper.dart';
 import 'package:palumba_eu/modules/statments/statements_screen_controller.dart';
+import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/plausible_manager.dart';
 import 'package:palumba_eu/utils/managers/user_manager.dart';
-import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
 
@@ -51,7 +51,7 @@ class OnboardingController extends GetxController {
   List<String> get genders => _genders.map((gender) => gender.name).toList();
   RxInt indexGenderSelected = (-1).obs;
   RxBool acceptDataPrivacy = (false).obs;
- 
+
   ///Step 4
   late List<LevelOfEducation> levelsofEducation;
   RxInt indexLevelOfEducationSelected = (-1).obs;
@@ -79,7 +79,8 @@ class OnboardingController extends GetxController {
     trackSteps();
     cardData =
         StatementsParser.getCardModelList(DataManager().getStatements())[0];
-    if(ElectionManager.currentElection.value.backend == 3) { // 2025 NYC Mayor Election
+    if (ElectionManager.currentElection.value.backend == 3) {
+      // 2025 NYC Mayor Election
       levelsofEducation = [
         LevelOfEducation.highschool_nyc,
         LevelOfEducation.associates_nyc,
@@ -87,7 +88,8 @@ class OnboardingController extends GetxController {
         LevelOfEducation.grad_school_nyc,
         LevelOfEducation.other_nyc
       ];
-    } else { // Other elections (These levels of education are specific to the germany election)
+    } else {
+      // Other elections (These levels of education are specific to the germany election)
       levelsofEducation = [
         LevelOfEducation.academic,
         LevelOfEducation.highschool,
@@ -206,16 +208,17 @@ class OnboardingController extends GetxController {
       radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
-      height.value = isSmallScreen ? heightSize * 0.2 : heightSize * 0.3;
+      height.value = isSmallScreen ? heightSize * 0.25 : heightSize * 0.32;
+
       radius.value = Radius.circular(250);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 3) {
-      height.value = isSmallScreen ? heightSize * 0.23 : heightSize * 0.33;
-      radius.value = Radius.circular(250);
+      height.value = isSmallScreen ? heightSize * 0.23 : heightSize * 0.38;
+      radius.value = Radius.circular(300);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 4) {
-      height.value = isSmallScreen ? heightSize * 0.25 : heightSize * 0.35;
-      radius.value = Radius.circular(250);
+      height.value = isSmallScreen ? heightSize * 0.25 : heightSize * 0.42;
+      radius.value = Radius.circular(350);
       margin.value = EdgeInsets.zero;
     } else {
       height.value = Get.height;
