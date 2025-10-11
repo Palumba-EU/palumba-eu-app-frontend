@@ -21,9 +21,9 @@
   "languagePageTitle": "我们继续用简体中文好吗？:)",
   "languagePageSubtitle": "稍后可以在设置中更改。",
   "@@Entrance": "入口页面",
-  "entranceTitle1": "如果这只可爱的小鸽子不能帮你在六月投票，那就没人能了。",
-  "entranceTitle2": "滑动你对重要议题的看法。",
-  "entranceTitle3": "找出你的匹配结果，以及选举时该投给谁的方向。",
+  "entranceTitle1": "要是这只可爱的鸽子都帮助不了你6月的投票，那可真没办法啦。",
+  "entranceTitle2": "轻轻滑动，表达你对重要议题的看法。",
+  "entranceTitle3": "找出与你最契合的候选人，了解你在选举中的方向。",
   "entranceMatchesFoundQuote": "过去24小时内找到 {count} 个匹配",
   "entranceStartButton": "开始使用 Palumba",
   "@@OnBoardingPage": "引导页面",
@@ -73,7 +73,7 @@
   "resultsPage4TitleRight": "右派",
   "resultsPage4TitleUserHere": "是我！嗨～",
   "resultsPage5Title": "在具体议题上，我更接近哪个欧洲议会小组？",
-  "resultsPage5Title_nyc": "正如汉娜·蒙塔娜说的：“没人是完美的”……所以这里是你的逐项匹配结果。",
+  "resultsPage5Title_nyc": "正如 Hannah Montana 说的那样：‘没人是完美的’……所以，这就是你在每个议题上的匹配结果啦！",
   "resultsPage5Topic1": "环境议题",
   "resultsPage5Topic2": "人权与社会权利",
   "resultsPage5Topic3": "经济干预",
@@ -369,15 +369,15 @@
   "resultsPage10MaybeButton_ger25": "可能吧",
   "resultsPage10VotingDay_ger25": "准备好吧，投票日是 {date}",
   "electionNY": "2025 年纽约市市长选举 🗽",
-  "entranceTitle1_nyc25": "从百吉饼到选票，这只小鸽子全都知道",
+  "entranceTitle1_nyc25": "从百吉饼到选票，这只小鸽子无所不知",
   "@entranceTitle1_nyc25": {
     "description": "-> entranceTitle1"
   },
-  "entranceTitle2_nyc25": "滑动并与未来的市长匹配",
+  "entranceTitle2_nyc25": "滑动指尖，邂逅未来的市长",
   "@entranceTitle2_nyc25": {
     "description": "-> entranceTitle2"
   },
-  "entranceTitle3_nyc25": "了解你的立场并看看谁在候选名单上",
+  "entranceTitle3_nyc25": "找出你的立场，看看谁在选票上闪光",
   "@entranceTitle3_nyc25": {
     "description": "-> entranceTitle3"
   },
@@ -389,11 +389,11 @@
   "@loadingResultsPageTitle1_nyc25": {
     "description": "-> loadingResultsPageTitle1"
   },
-  "loadingResultsPageTitle2_nyc25": "这会比纽约的买咖啡还快 ☕",
+  "loadingResultsPageTitle2_nyc25": "这会比在纽约买一杯咖啡还快",
   "@loadingResultsPageTitle2_nyc25": {
     "description": "-> loadingResultsPageTitle2"
   },
-  "loadingResultsPageTitle3_nyc25": "稍等，快完成了——保证不绕路！",
+  "loadingResultsPageTitle3_nyc25": "别急哦，马上就好——保证不绕路",
   "@loadingResultsPageTitle3_nyc25": {
     "description": "-> loadingResultsPageTitle3"
   },
@@ -401,11 +401,11 @@
   "@loadingResultsPageTitle4_nyc25": {
     "description": "-> loadingResultsPageTitle4"
   },
-  "resultsPage1Title_nyc25": "匹配，还有更多",
+  "resultsPage1Title_nyc25": "相遇于此，不止于此",
   "@resultsPage1Title_nyc25": {
     "description": "-> resultsPage1Title"
   },
-  "resultsPage1Text_nyc25": "在接下来的页面中，你将发现哪位市长候选人与您最契合。我们还根据你的回答找到了几个额外有趣的内容！",
+  "resultsPage1Text_nyc25": "接下来，你将发现哪位市长候选人与自己的理念最契合。我们还根据你的回答，找到了几个额外的小惊喜！",
   "@resultsPage1Text_nyc25": {
     "description": "-> resultsPage1Text"
   },
@@ -421,15 +421,15 @@
   "@resultsPage3Title_nyc25": {
     "description": "-> resultsPage3Title"
   },
-  "resultsPage4TitleTop_nyc25": "社会保守",
+  "resultsPage4TitleTop_nyc25": "社会保守派",
   "@resultsPage4TitleTop_nyc25": {
     "description": "-> resultsPage4TitleTop"
   },
-  "resultsPage4TitleBottom_nyc25": "社会进步",
+  "resultsPage4TitleBottom_nyc25": "社会进步派",
   "@resultsPage4TitleBottom_nyc25": {
     "description": "-> resultsPage4TitleBottom"
   },
-  "resultsPage4TitleLeft_nyc25": "经济干预",
+  "resultsPage4TitleLeft_nyc25": "经济干预取向",
   "@resultsPage4TitleLeft_nyc25": {
     "description": "-> resultsPage4TitleLeft"
   },
@@ -437,7 +437,7 @@
   "@resultsPage4TitleRight_nyc25": {
     "description": "-> resultsPage4TitleRight"
   },
-  "resultsPage4TitleUserHere_nyc25": "是我！嗨～",
+  "resultsPage4TitleUserHere_nyc25": "是我呀！嗨～",
   "@resultsPage4TitleUserHere_nyc25": {
     "description": "-> resultsPage4TitleUserHere"
   },
@@ -489,7 +489,7 @@
   "@resultsPage9Help_nyc25": {
     "description": "-> resultsPage9Help"
   },
-  "resultsPage9Text1_nyc25": "选举涉及许多议题，但有一个最适合你！简直就像是为你量身打造的，",
+  "resultsPage9Text1_nyc25": "选举关乎很多议题，但这个议题——真的代表我心中的立场。",
   "@resultsPage9Text1_nyc25": {
     "description": "-> resultsPage9Text1"
   },
@@ -546,7 +546,7 @@
   "@settingsPageTitlePartners_nyc25": {
     "description": "-> settingsPageTitlePartners"
   },
-  "settingsPageTextPartners_nyc25": "需要说明的是，合作伙伴对应用内容没有编辑权。该应用仍然是一项中立的倡议，目标明确：帮助你了解在欧洲和国家层面上，谁支持你的观点。",
+  "settingsPageTextPartners_nyc25": "需要说明的是，应用内容完全独立，不受任何外部机构干预，目标只是帮助你理解并参与选举。",
   "@settingsPageTextPartners_nyc25": {
     "description": "-> settingsPageTextPartners"
   },
@@ -570,7 +570,7 @@
   "@settingsPageSubtitle5_nyc25": {
     "description": "-> settingsPageSubtitle5"
   },
-  "settingsPageShareText_nyc25": "如果这只可爱的小鸽子不能帮你在十一月投票，那就没人能了。我用了这个应用，你也该试试：",
+  "settingsPageShareText_nyc25": "要是这只可爱的鸽子都帮助不了你11月的投票，那可真没办法啦。",
   "@settingsPageShareText_nyc25": {
     "description": "-> settingsPageShareText"
   },
