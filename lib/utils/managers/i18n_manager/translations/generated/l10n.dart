@@ -449,10 +449,10 @@ class S {
     );
   }
 
-  /// `We’ll move faster than the long queue at the Box`
+  /// `We’ll move faster than the long line at the Box`
   String get loadingResultsPageRandom2 {
     return Intl.message(
-      'We’ll move faster than the long queue at the Box',
+      'We’ll move faster than the long line at the Box',
       name: 'loadingResultsPageRandom2',
       desc: '',
       args: [],
@@ -844,10 +844,10 @@ class S {
     );
   }
 
-  /// `My results · Back to the test`
+  /// `My results`
   String get homePageMyResults {
     return Intl.message(
-      'My results · Back to the test',
+      'My results',
       name: 'homePageMyResults',
       desc: '',
       args: [],
@@ -1969,40 +1969,40 @@ class S {
     );
   }
 
-  /// `Socially conservative`
+  /// `Fair Pay`
   String get resultsPage4TitleTop_nyc25 {
     return Intl.message(
-      'Socially conservative',
+      'Fair Pay',
       name: 'resultsPage4TitleTop_nyc25',
       desc: '-> resultsPage4TitleTop',
       args: [],
     );
   }
 
-  /// `Socially progressive`
+  /// `Strong Free Market`
   String get resultsPage4TitleBottom_nyc25 {
     return Intl.message(
-      'Socially progressive',
+      'Strong Free Market',
       name: 'resultsPage4TitleBottom_nyc25',
       desc: '-> resultsPage4TitleBottom',
       args: [],
     );
   }
 
-  /// `Economic intervention`
+  /// `Pragmatic Planning`
   String get resultsPage4TitleLeft_nyc25 {
     return Intl.message(
-      'Economic intervention',
+      'Pragmatic Planning',
       name: 'resultsPage4TitleLeft_nyc25',
       desc: '-> resultsPage4TitleLeft',
       args: [],
     );
   }
 
-  /// `Free market economics`
+  /// `Strong Public Services`
   String get resultsPage4TitleRight_nyc25 {
     return Intl.message(
-      'Free market economics',
+      'Strong Public Services',
       name: 'resultsPage4TitleRight_nyc25',
       desc: '-> resultsPage4TitleRight',
       args: [],
@@ -2849,10 +2849,10 @@ class S {
     return Intl.message('See more >', name: 'seeMore', desc: '', args: []);
   }
 
-  /// `When it's come to {topic}, you are all-in for`
+  /// `When it comes to {topic}, you are all-in for`
   String resultsPage8_1Text_ny_25(Object topic) {
     return Intl.message(
-      'When it\'s come to $topic, you are all-in for',
+      'When it comes to $topic, you are all-in for',
       name: 'resultsPage8_1Text_ny_25',
       desc: '',
       args: [topic],

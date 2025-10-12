@@ -80,17 +80,17 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                     children: [
                       TextSpan(
                           text: S.of(context).youAre,
-                          style: AppTexts.customTextStyle(AppTextType.small,
+                          style: AppTexts.customTextStyle(AppTextType.regular,
                               bold: false, color: AppColors.primary)),
                       TextSpan(
                         text:
                             ' ${controller.maxPercentagePoliticParty?.percentage ?? ''}% ${S.of(context).compatible} ',
-                        style: AppTexts.customTextStyle(AppTextType.small,
+                        style: AppTexts.customTextStyle(AppTextType.regular,
                             color: AppColors.primary, bold: true),
                       ),
                       TextSpan(
                           text: "${S.of(context).withPalumbaTest}",
-                          style: AppTexts.customTextStyle(AppTextType.small,
+                          style: AppTexts.customTextStyle(AppTextType.regular,
                               bold: false, color: AppColors.primary)),
                     ],
                   )),
@@ -155,7 +155,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        AppTexts.small(S.of(context).rankingOthers,
+        AppTexts.regular(S.of(context).rankingOthers,
             color: AppColors.primary, textAlign: TextAlign.center),
         SizedBox(height: 5),
         if (controller.chartData.length > 1)
@@ -189,7 +189,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AppTexts.small("$name, $match% ${S.of(context).match}",
+          AppTexts.regular("$name, $match% ${S.of(context).match}",
               color: AppColors.primary,
               textAlign: TextAlign.center,
               bold: true),
@@ -207,7 +207,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        AppTexts.small(S.of(context).yourTopTopics,
+        AppTexts.regular(S.of(context).yourTopTopics,
             color: AppColors.primary, textAlign: TextAlign.center),
         SizedBox(height: 5),
         ListView.builder(
@@ -215,7 +215,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
           scrollDirection: Axis.vertical,
           itemCount: itemsToBuild,
           itemBuilder: (BuildContext context, int index) {
-            return _buildTopicItem('#${controller.topics[index].name}');
+            return _buildTopicItem('${index+1}: #${controller.topics[index].name}');
           },
         ),
         /* _buildTopicItem('Strong police & safe streets 👮‍♂️🚓🗽'),
@@ -231,7 +231,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AppTexts.small("$topic",
+          AppTexts.regular("$topic",
               color: AppColors.primary, textAlign: TextAlign.center, bold: true)
         ],
       ),

@@ -755,7 +755,7 @@ extension ElectionResult4Axis on Election {
         return ResultAxisTopic(x: 3, y: 2);
       case Election.NY:
         // Mirror DE mapping unless NYC-specific axes are defined
-        return ResultAxisTopic(x: 10, y: 11);
+        return ResultAxisTopic(x: 5, y: 6);
     }
   }
 }
@@ -770,7 +770,7 @@ extension ElectionResult5Topics on Election {
         // 4: Human & Social Rights, 5: Economic Intervention, 1: Environmental issues
         return [4, 5, 1];
       case Election.NY:
-        return [2, 3, 11, 10, 12, 9, 13];
+        return [4, 7, 8];
     }
   }
 }

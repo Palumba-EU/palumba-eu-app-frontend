@@ -56,7 +56,7 @@
 
 
   "loadingResultsPageRandom1": "This will be quicker than your Times Square MTA transfer",
-  "loadingResultsPageRandom2": "We’ll move faster than the long queue at the Box",
+  "loadingResultsPageRandom2": "We’ll move faster than the long line at the Box",
   "loadingResultsPageRandom3": "You got this! Push through your 7-second attention span",
   "loadingResultsPageRandom4": "Unlike Hinge, we *actually* have a match for you",
   "loadingResultsPageRandom5": "Curious about the algorithm? It’s open-source!",
@@ -99,7 +99,7 @@
   "@HomePage": "HomePage",
   "homePageMatchesFoundQuote": "{count} matches found in the last 24h",
   "homePageBackToTest": "Back to the test",
-  "homePageMyResults": "My results · Back to the test",
+  "homePageMyResults": "My results",
   "homePageStartButton": "New Palumba test",
   "@@SettingsPage": "SettingsPage",
   "settingsPageTitleLanguage": "Language",
@@ -409,13 +409,13 @@
 "resultsPage3Title_nyc25": "How close I am to the mayoral candidates",
 "@resultsPage3Title_nyc25": { "description": "-> resultsPage3Title" },
 
-"resultsPage4TitleTop_nyc25": "Socially conservative",
+"resultsPage4TitleTop_nyc25": "Fair Pay",
 "@resultsPage4TitleTop_nyc25": { "description": "-> resultsPage4TitleTop" },
-"resultsPage4TitleBottom_nyc25": "Socially progressive",
+"resultsPage4TitleBottom_nyc25": "Strong Free Market",
 "@resultsPage4TitleBottom_nyc25": { "description": "-> resultsPage4TitleBottom" },
-"resultsPage4TitleLeft_nyc25": "Economic intervention",
+"resultsPage4TitleLeft_nyc25": "Pragmatic Planning",
 "@resultsPage4TitleLeft_nyc25": { "description": "-> resultsPage4TitleLeft" },
-"resultsPage4TitleRight_nyc25": "Free market economics",
+"resultsPage4TitleRight_nyc25": "Strong Public Services",
 "@resultsPage4TitleRight_nyc25": { "description": "-> resultsPage4TitleRight" },
 "resultsPage4TitleUserHere_nyc25": "It’s me, hi!",
 "@resultsPage4TitleUserHere_nyc25": { "description": "-> resultsPage4TitleUserHere" },
@@ -556,7 +556,7 @@
 "whatTopicSeemToCloseYourHeart":"Cool! And what topics seem close to your heart?",
 "keepLearning":"Keep learning >",
 "seeMore":"See more >",
-"resultsPage8_1Text_ny_25": "When it's come to {topic}, you are all-in for",
+"resultsPage8_1Text_ny_25": "When it comes to {topic}, you are all-in for",
   "settingsPageTextAboutNew": "Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
   "whoIsOnTheBallot_nyc25": "Go to Who’s On The Ballot"
 

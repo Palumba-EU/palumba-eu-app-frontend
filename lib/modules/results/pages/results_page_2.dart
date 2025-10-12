@@ -24,6 +24,7 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
       child: Stack(children: [
         HeartStack(),
         SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
           child: Column(
             children: [
               CustomSpacer(multiplier: 4),

@@ -103,27 +103,29 @@ class MessageLookup extends MessageLookupByLibrary {
     "entranceMatchesFoundQuote": m0,
     "entranceStartButton": MessageLookupByLibrary.simpleMessage("开始使用 Palumba"),
     "entranceTitle1": MessageLookupByLibrary.simpleMessage(
-      "如果这只可爱的小鸽子不能帮你在六月投票，那就没人能了。",
+      "要是这只可爱的鸽子都帮助不了你6月的投票，那可真没办法啦。",
     ),
     "entranceTitle1_ger25": MessageLookupByLibrary.simpleMessage(
       "如果这只可爱的小鸽子不能帮你在二月投票，那就没人能了。",
     ),
     "entranceTitle1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "从百吉饼到选票，这只小鸽子全都知道",
+      "从百吉饼到选票，这只小鸽子无所不知",
     ),
-    "entranceTitle2": MessageLookupByLibrary.simpleMessage("滑动你对重要议题的看法。"),
+    "entranceTitle2": MessageLookupByLibrary.simpleMessage("轻轻滑动，表达你对重要议题的看法。"),
     "entranceTitle2_ger25": MessageLookupByLibrary.simpleMessage(
       "滑动你对重要议题的看法。",
     ),
-    "entranceTitle2_nyc25": MessageLookupByLibrary.simpleMessage("滑动并与未来的市长匹配"),
+    "entranceTitle2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "滑动指尖，邂逅未来的市长",
+    ),
     "entranceTitle3": MessageLookupByLibrary.simpleMessage(
-      "找出你的匹配结果，以及选举时该投给谁的方向。",
+      "找出与你最契合的候选人，了解你在选举中的方向。",
     ),
     "entranceTitle3_ger25": MessageLookupByLibrary.simpleMessage(
       "找出你的匹配结果，以及选举时该投给谁的方向。",
     ),
     "entranceTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
-      "了解你的立场并看看谁在候选名单上",
+      "找出你的立场，看看谁在选票上闪光",
     ),
     "faq": MessageLookupByLibrary.simpleMessage("常见问题"),
     "france": MessageLookupByLibrary.simpleMessage("法国"),
@@ -183,14 +185,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "这比德国铁路（Deutsche Bahn）还快",
     ),
     "loadingResultsPageTitle2_nyc25": MessageLookupByLibrary.simpleMessage(
-      "这会比纽约的买咖啡还快 ☕",
+      "这会比在纽约买一杯咖啡还快",
     ),
     "loadingResultsPageTitle3": m2,
     "loadingResultsPageTitle3_ger25": MessageLookupByLibrary.simpleMessage(
       "等等，快完成了——我发誓不会中途停站！",
     ),
     "loadingResultsPageTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
-      "稍等，快完成了——保证不绕路！",
+      "别急哦，马上就好——保证不绕路",
     ),
     "loadingResultsPageTitle4": MessageLookupByLibrary.simpleMessage(
       "快完成了，最后检查一下……",
@@ -337,11 +339,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "在接下来的页面中，你将发现哪些政党与你最契合。我们还根据你的回答找到了一些额外有趣的内容！",
     ),
     "resultsPage1Text_nyc25": MessageLookupByLibrary.simpleMessage(
-      "在接下来的页面中，你将发现哪位市长候选人与您最契合。我们还根据你的回答找到了几个额外有趣的内容！",
+      "接下来，你将发现哪位市长候选人与自己的理念最契合。我们还根据你的回答，找到了几个额外的小惊喜！",
     ),
     "resultsPage1Title": MessageLookupByLibrary.simpleMessage("匹配，还有更多 👉👈"),
     "resultsPage1Title_ger25": MessageLookupByLibrary.simpleMessage("匹配，还有更多"),
-    "resultsPage1Title_nyc25": MessageLookupByLibrary.simpleMessage("匹配，还有更多"),
+    "resultsPage1Title_nyc25": MessageLookupByLibrary.simpleMessage(
+      "相遇于此，不止于此",
+    ),
     "resultsPage2NoResults": MessageLookupByLibrary.simpleMessage("未找到结果"),
     "resultsPage2_1Title": MessageLookupByLibrary.simpleMessage("老实说，在"),
     "resultsPage2_1Title_ger25": MessageLookupByLibrary.simpleMessage("老实说，"),
@@ -367,11 +371,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "社会进步",
     ),
     "resultsPage4TitleBottom_nyc25": MessageLookupByLibrary.simpleMessage(
-      "社会进步",
+      "社会进步派",
     ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("左派"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage("经济干预"),
-    "resultsPage4TitleLeft_nyc25": MessageLookupByLibrary.simpleMessage("经济干预"),
+    "resultsPage4TitleLeft_nyc25": MessageLookupByLibrary.simpleMessage(
+      "经济干预取向",
+    ),
     "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("右派"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
       "自由市场经济",
@@ -381,13 +387,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage("支持欧盟一体化"),
     "resultsPage4TitleTop_ger25": MessageLookupByLibrary.simpleMessage("社会保守"),
-    "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage("社会保守"),
+    "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage("社会保守派"),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage("是我！嗨～"),
     "resultsPage4TitleUserHere_ger25": MessageLookupByLibrary.simpleMessage(
       "是我！嗨～",
     ),
     "resultsPage4TitleUserHere_nyc25": MessageLookupByLibrary.simpleMessage(
-      "是我！嗨～",
+      "是我呀！嗨～",
     ),
     "resultsPage5Title": MessageLookupByLibrary.simpleMessage(
       "在具体议题上，我更接近哪个欧洲议会小组？",
@@ -396,7 +402,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "在更具体的议题上，我最接近哪些政党？",
     ),
     "resultsPage5Title_nyc": MessageLookupByLibrary.simpleMessage(
-      "正如汉娜·蒙塔娜说的：“没人是完美的”……所以这里是你的逐项匹配结果。",
+      "正如 Hannah Montana 说的那样：‘没人是完美的’……所以，这就是你在每个议题上的匹配结果啦！",
     ),
     "resultsPage5Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "在更具体的议题上，我更接近哪位市长候选人？",
@@ -482,7 +488,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "选举涉及很多议题，但有一个最适合你！简直就像是为你量身定做的，",
     ),
     "resultsPage9Text1_nyc25": MessageLookupByLibrary.simpleMessage(
-      "选举涉及许多议题，但有一个最适合你！简直就像是为你量身打造的，",
+      "选举关乎很多议题，但这个议题——真的代表我心中的立场。",
     ),
     "resultsPage9Text2": MessageLookupByLibrary.simpleMessage("属于我 😌"),
     "resultsPage9Text2_ger25": MessageLookupByLibrary.simpleMessage("为你量身打造！"),
@@ -523,7 +529,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "如果这只可爱的小鸽子不能帮你在二月投票，那就没人能了。我用了这个应用，你也该试试：",
     ),
     "settingsPageShareText_nyc25": MessageLookupByLibrary.simpleMessage(
-      "如果这只可爱的小鸽子不能帮你在十一月投票，那就没人能了。我用了这个应用，你也该试试：",
+      "要是这只可爱的鸽子都帮助不了你11月的投票，那可真没办法啦。",
     ),
     "settingsPageSubtitle1": MessageLookupByLibrary.simpleMessage("主要赞助商"),
     "settingsPageSubtitle1_ger25": MessageLookupByLibrary.simpleMessage(
@@ -582,7 +588,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "需要说明的是，合作伙伴对应用内容没有编辑权。该应用仍然是一项中立的倡议，目标明确：帮助你了解在欧洲和国家层面上，谁支持你的观点。",
     ),
     "settingsPageTextPartners_nyc25": MessageLookupByLibrary.simpleMessage(
-      "需要说明的是，合作伙伴对应用内容没有编辑权。该应用仍然是一项中立的倡议，目标明确：帮助你了解在欧洲和国家层面上，谁支持你的观点。",
+      "需要说明的是，应用内容完全独立，不受任何外部机构干预，目标只是帮助你理解并参与选举。",
     ),
     "settingsPageTitleAbout": MessageLookupByLibrary.simpleMessage("关于"),
     "settingsPageTitleAssociation": MessageLookupByLibrary.simpleMessage("协会"),
