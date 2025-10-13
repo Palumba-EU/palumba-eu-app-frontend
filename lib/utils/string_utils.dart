@@ -12,7 +12,7 @@ class StringUtils {
       'https://www.palumba.eu/de/data-protection';
   static String webUrl = 'https://palumba.eu';
   static String faqUrl = 'https://www.palumba.eu/faq';
-  static String whoIsOnTheBallotUrl = 'http://www.whosontheballot.org';
+  static String whoIsOnTheBallotUrl = 'http://www.whoisontheballot.org';
   static String rickrollUrl =
       'https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8';
   //Contact

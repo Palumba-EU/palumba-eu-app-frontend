@@ -449,10 +449,10 @@ class S {
     );
   }
 
-  /// `We’ll move faster than the long line at the Box`
+  /// `We’ll move faster than the long queue at the Box`
   String get loadingResultsPageRandom2 {
     return Intl.message(
-      'We’ll move faster than the long line at the Box',
+      'We’ll move faster than the long queue at the Box',
       name: 'loadingResultsPageRandom2',
       desc: '',
       args: [],
@@ -844,10 +844,10 @@ class S {
     );
   }
 
-  /// `My results`
+  /// `My results · Back to the test`
   String get homePageMyResults {
     return Intl.message(
-      'My results',
+      'My results · Back to the test',
       name: 'homePageMyResults',
       desc: '',
       args: [],
@@ -859,6 +859,16 @@ class S {
     return Intl.message(
       'New Palumba test',
       name: 'homePageStartButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go to Who’s On The Ballot`
+  String get whoIsOnTheBallot_nyc25 {
+    return Intl.message(
+      'Go to Who’s On The Ballot',
+      name: 'whoIsOnTheBallot_nyc25',
       desc: '',
       args: [],
     );
@@ -929,6 +939,16 @@ class S {
     return Intl.message(
       'Palumba is not a company, not a political party, not a government. We’re an independent non-profit association of 120+ young people 🐦 from all over Europe who got together last summer and started crafting this app. We have one goal: helping you understand better how the European Elections work and which candidate lists could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
       name: 'settingsPageTextAbout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)`
+  String get settingsPageTextAboutNew {
+    return Intl.message(
+      'Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
+      name: 'settingsPageTextAboutNew',
       desc: '',
       args: [],
     );
@@ -1969,40 +1989,40 @@ class S {
     );
   }
 
-  /// `Fair Pay`
+  /// `Socially conservative`
   String get resultsPage4TitleTop_nyc25 {
     return Intl.message(
-      'Fair Pay',
+      'Socially conservative',
       name: 'resultsPage4TitleTop_nyc25',
       desc: '-> resultsPage4TitleTop',
       args: [],
     );
   }
 
-  /// `Strong Free Market`
+  /// `Socially progressive`
   String get resultsPage4TitleBottom_nyc25 {
     return Intl.message(
-      'Strong Free Market',
+      'Socially progressive',
       name: 'resultsPage4TitleBottom_nyc25',
       desc: '-> resultsPage4TitleBottom',
       args: [],
     );
   }
 
-  /// `Pragmatic Planning`
+  /// `Economic intervention`
   String get resultsPage4TitleLeft_nyc25 {
     return Intl.message(
-      'Pragmatic Planning',
+      'Economic intervention',
       name: 'resultsPage4TitleLeft_nyc25',
       desc: '-> resultsPage4TitleLeft',
       args: [],
     );
   }
 
-  /// `Strong Public Services`
+  /// `Free market economics`
   String get resultsPage4TitleRight_nyc25 {
     return Intl.message(
-      'Strong Public Services',
+      'Free market economics',
       name: 'resultsPage4TitleRight_nyc25',
       desc: '-> resultsPage4TitleRight',
       args: [],
@@ -2849,33 +2869,13 @@ class S {
     return Intl.message('See more >', name: 'seeMore', desc: '', args: []);
   }
 
-  /// `When it comes to {topic}, you are all-in for`
+  /// `When it's come to {topic}, you are all-in for`
   String resultsPage8_1Text_ny_25(Object topic) {
     return Intl.message(
-      'When it comes to $topic, you are all-in for',
+      'When it\'s come to $topic, you are all-in for',
       name: 'resultsPage8_1Text_ny_25',
       desc: '',
       args: [topic],
-    );
-  }
-
-  /// `Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)`
-  String get settingsPageTextAboutNew {
-    return Intl.message(
-      'Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)',
-      name: 'settingsPageTextAboutNew',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Go to Who’s On The Ballot`
-  String get whoIsOnTheBallot_nyc25 {
-    return Intl.message(
-      'Go to Who’s On The Ballot',
-      name: 'whoIsOnTheBallot_nyc25',
-      desc: '',
-      args: [],
     );
   }
 }
@@ -2899,7 +2899,6 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'fi'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'ga-IE'),
-      Locale.fromSubtags(languageCode: 'he'),
       Locale.fromSubtags(languageCode: 'hr'),
       Locale.fromSubtags(languageCode: 'hu'),
       Locale.fromSubtags(languageCode: 'it'),
@@ -2911,12 +2910,10 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'pl'),
       Locale.fromSubtags(languageCode: 'pt-PT'),
       Locale.fromSubtags(languageCode: 'ro'),
-      Locale.fromSubtags(languageCode: 'ru'),
       Locale.fromSubtags(languageCode: 'sk'),
       Locale.fromSubtags(languageCode: 'sl'),
       Locale.fromSubtags(languageCode: 'sv-SE'),
       Locale.fromSubtags(languageCode: 'tr'),
-      Locale.fromSubtags(languageCode: 'zh'),
     ];
   }
 

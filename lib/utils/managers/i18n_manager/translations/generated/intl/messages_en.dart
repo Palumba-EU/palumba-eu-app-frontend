@@ -50,7 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m9(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
-  static String m12(topic) => "When it comes to ${topic}, you are all-in for";
+  static String m12(topic) => "When it\'s come to ${topic}, you are all-in for";
 
   static String m13(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
@@ -162,7 +162,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Back to the test",
     ),
     "homePageMatchesFoundQuote": m1,
-    "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
+    "homePageMyResults": MessageLookupByLibrary.simpleMessage(
+      "My results · Back to the test",
+    ),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "New Palumba test",
     ),
@@ -187,7 +189,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "This will be quicker than your Times Square MTA transfer",
     ),
     "loadingResultsPageRandom2": MessageLookupByLibrary.simpleMessage(
-      "We’ll move faster than the long line at the Box",
+      "We’ll move faster than the long queue at the Box",
     ),
     "loadingResultsPageRandom3": MessageLookupByLibrary.simpleMessage(
       "You got this! Push through your 7-second attention span",
@@ -464,21 +466,21 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially progressive",
     ),
     "resultsPage4TitleBottom_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Strong Free Market",
+      "Socially progressive",
     ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Economic intervention",
     ),
     "resultsPage4TitleLeft_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Pragmatic Planning",
+      "Economic intervention",
     ),
     "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
       "Free market economics",
     ),
     "resultsPage4TitleRight_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Strong Public Services",
+      "Free market economics",
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage(
       "Pro-EU Integration",
@@ -487,7 +489,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially conservative",
     ),
     "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Fair Pay",
+      "Socially conservative",
     ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
       "It’s me, hi!",

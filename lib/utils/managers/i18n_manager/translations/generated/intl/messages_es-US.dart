@@ -156,7 +156,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "entranceTitle3_nyc25": MessageLookupByLibrary.simpleMessage(
       "Descubre tu posición y quién aparece en la boleta",
     ),
-    "faq": MessageLookupByLibrary.simpleMessage("FAQ"),
+    "faq": MessageLookupByLibrary.simpleMessage("Preguntas frecuentes"),
     "france": MessageLookupByLibrary.simpleMessage("Francia"),
     "germany": MessageLookupByLibrary.simpleMessage("Alemania"),
     "hereIsYour": MessageLookupByLibrary.simpleMessage("Aquí está tu"),
@@ -182,7 +182,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Esto se puede cambiar luego en la configuración.",
     ),
     "languagePageTitle": MessageLookupByLibrary.simpleMessage(
-      "¿Seguimos en español? :)",
+      "¿Seguimos en espanol? :)",
     ),
     "likeFootballFantasy": MessageLookupByLibrary.simpleMessage(
       "Como tu alineación de Football Fantasy, pero para la política.",
@@ -507,9 +507,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage5Title_ger25": MessageLookupByLibrary.simpleMessage(
       "On more specific topics, which parties am I closest to?",
-    ),
-    "resultsPage5Title_nyc": MessageLookupByLibrary.simpleMessage(
-      "Como dijo Hannah Montana una vez, ‘nadie es perfecto’... así que aquí tienes tu compatibilidad tema por tema.",
     ),
     "resultsPage5Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "En temas más específicos, ¿a qué candidatura me acerco más?",

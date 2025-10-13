@@ -23,7 +23,6 @@ class UserManager {
   }
 
   static setLanguageCode(String langCode) async {
-    print('userData languageCode changed to ${langCode}');
     userData.languageCode = langCode;
   }
 
