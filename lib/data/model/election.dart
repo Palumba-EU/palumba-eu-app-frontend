@@ -1,5 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/string_utils.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 import '../../utils/common_ui/app_colors.dart';
 
@@ -785,6 +788,49 @@ extension ElectionBackend on Election {
         return 2;
       case Election.NY:
         return 3;
+    }
+  }
+}
+
+extension ElectionWidgets on Election {
+  List<InlineSpan> getDataProtectionText(BuildContext context) {
+    
+    switch (this) {
+      case Election.DE:
+      case Election.EU:
+        return [
+          TextSpan(
+            text:
+                '${S.of(context).onBoardingDataProtection_ger25} ',
+          ),
+          TextSpan(
+            text:
+                '(${S.of(context).onBoardingDataProtectionLink_ger25})',
+            style:
+                TextStyle(decoration: TextDecoration.underline),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () => Utils.launch(StringUtils.privacyStatementUrl),
+          ),
+        ];
+      case Election.NY:
+        return [
+          TextSpan(
+            text:
+                '${S.of(context).onBoardingDataProtection_1_nyc25}',
+          ),
+          TextSpan(
+            text:
+                '${S.of(context).onBoardingDataProtection_2_nyc25}',
+            style:
+                TextStyle(decoration: TextDecoration.underline),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () => Utils.launch(StringUtils.privacyStatementUrl),
+          ),
+          TextSpan(
+            text:
+                '${S.of(context).onBoardingDataProtection_3_nyc25}',
+          ),
+        ];
     }
   }
 }

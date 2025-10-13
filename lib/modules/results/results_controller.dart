@@ -23,6 +23,7 @@ import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_2_ny.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2_bio.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2_to_do_list.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
@@ -30,7 +31,9 @@ import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_8_ny.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_9_ny.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_guid_1.dart';
@@ -96,6 +99,10 @@ class ResultsController extends GetxController {
   //ResultsPage5
   List<Topic> _topics = [];
   List<Topic> get topics => _topics;
+
+  //Moodboard
+  List<String> _top3Topics = [];
+  List<String> get top3Topics => _top3Topics;
 
   //ResultsPage7
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
@@ -180,6 +187,8 @@ class ResultsController extends GetxController {
           .toList();
       _maxPercentagePoliticParty = getMajorPercentagePartyInParialment();
       getScatterPoints();
+
+      _top3Topics = getTop3Topics(_answersData);
     }
     _setupCandidateScreen();
 
@@ -240,19 +249,16 @@ class ResultsController extends GetxController {
         ];
       case Election.NY:
         results = [
-          // ResultsPage1(),
-          ResultsPage2(),
+          ResultsPage2_NYC(),
           ResultsPageMemes(),
           ResultsPage2Bio(),
           ResultsPageGuid1(guidPage: 1),
           ResultsPageRankingResultGraph(),
           ResultsPage4(),
           ResultsPage5(),
-          // ResultsPage6(),
-          // ResultsPage7(),
           ResultsPageGuid1(guidPage: 2),
-          ResultsPage8(),
-          ResultsPage9(),
+          ResultsPage8_NYC(),
+          ResultsPage9_NYC(),
           ResultsPageMoodBoard(),
           ResultsPageVoteOpinion(willVote: willVote),
           ResultsPage2ToDoList(),
@@ -266,6 +272,21 @@ class ResultsController extends GetxController {
       results.add(ResultsPage10(willVote: willVote));
     }
     return results;
+  }
+
+  List<String> getTop3Topics(List<Answer> userAnswers){
+    var topicsList = DataManager().getTopics();
+    List<(Topic, double)> topicNameAndMatchScore = [];
+    for ( Topic t in topicsList){
+      double dim = ResultsHelper.topicMatchPercentage(t.id!, userAnswers);
+      print('${t.name!} match = ${dim}');
+      topicNameAndMatchScore.add((t, dim));
+    }
+    topicNameAndMatchScore.sort((a,b)=>b.$2.abs().compareTo(a.$2.abs()));
+    print(topicNameAndMatchScore.map((e) => (e.$1.name!,e.$2)));
+    List<String> top3 = topicNameAndMatchScore.take(3).map((e) => e.$2<0?e.$1.extreme1!:e.$1.extreme2!).toList();
+    print(top3);
+    return top3;
   }
 
   void _getTopics() async {

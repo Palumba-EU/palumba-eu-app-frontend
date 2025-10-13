@@ -23,7 +23,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
             // CustomSpacer(multiplier: 6),
             SizedBox(height: (Get.width * .28) / 2),
             _buildMainCard(context),
-            Spacer(),
+            const SizedBox(height: 10),
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 child: AppTexts.title(
@@ -69,9 +69,9 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                   color: AppColors.primary,
                   fontSize: 22,
                   textAlign: TextAlign.center),
-              AppTexts.small("🥇${S.of(context).yourNewMayor}",
+              AppTexts.regular("🥇${S.of(context).yourNewMayor}",
                   color: AppColors.primary, textAlign: TextAlign.center),
-              const SizedBox(height: 20),
+              const SizedBox(height: 5),
               RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
@@ -94,7 +94,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                               bold: false, color: AppColors.primary)),
                     ],
                   )),
-              const SizedBox(height: 20),
+              const SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -117,11 +117,11 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 5),
               _buildRankingSection(context),
-              const SizedBox(height: 20),
+              const SizedBox(height: 5),
               if (controller.topics.isNotEmpty) _buildTopicsSection(context),
-              const SizedBox(height: 10)
+              //const SizedBox(height: 10)
             ],
           ),
         ),
@@ -155,11 +155,12 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        AppTexts.regular(S.of(context).rankingOthers,
+        AppTexts.medium(S.of(context).rankingOthers,
             color: AppColors.primary, textAlign: TextAlign.center),
         SizedBox(height: 5),
         if (controller.chartData.length > 1)
           ListView.builder(
+            physics: const ClampingScrollPhysics(),
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemCount: controller.chartData.length,
@@ -201,8 +202,8 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
   Widget _buildTopicsSection(BuildContext context) {
     //print("topicList => ${controller.topics.length}");
     const int maxItemsToShow = 3;
-    final int itemsToBuild = (controller.topics.length < maxItemsToShow)
-        ? controller.topics.length
+    final int itemsToBuild = (controller.top3Topics.length < maxItemsToShow)
+        ? controller.top3Topics.length
         : maxItemsToShow;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -211,11 +212,12 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
             color: AppColors.primary, textAlign: TextAlign.center),
         SizedBox(height: 5),
         ListView.builder(
+          physics: const ClampingScrollPhysics(),
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           itemCount: itemsToBuild,
           itemBuilder: (BuildContext context, int index) {
-            return _buildTopicItem('${index+1}: #${controller.topics[index].name}');
+            return _buildTopicItem('#${index+1} ${controller.top3Topics[index]}');
           },
         ),
         /* _buildTopicItem('Strong police & safe streets 👮‍♂️🚓🗽'),

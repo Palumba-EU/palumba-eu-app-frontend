@@ -94,20 +94,7 @@ class Step4 extends StatelessWidget {
                         fontSize: 16,
                         color: AppColors.primary, // Default color
                       ), // Default text style
-                      children: [
-                        TextSpan(
-                          text:
-                              '${S.of(context).onBoardingDataProtection_ger25} ',
-                        ),
-                        TextSpan(
-                          text:
-                              '(${S.of(context).onBoardingDataProtectionLink_ger25})',
-                          style:
-                              TextStyle(decoration: TextDecoration.underline),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = launchDataPrivcay,
-                        ),
-                      ],
+                      children: ElectionManager.currentElection.value.getDataProtectionText(context),
                     ),
                   ))
                 ],

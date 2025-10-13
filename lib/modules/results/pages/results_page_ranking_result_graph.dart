@@ -85,7 +85,7 @@ class ResultsPageRankingResultGraph extends GetView<ResultsController>
                   color: AppColors.primary, textAlign: TextAlign.center),
             ),
             CustomSpacer(
-              multiplier: 2,
+              multiplier: 4,
             )
           ],
         ),

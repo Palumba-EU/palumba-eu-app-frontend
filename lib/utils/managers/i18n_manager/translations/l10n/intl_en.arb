@@ -558,8 +558,11 @@
 "seeMore":"See more >",
 "resultsPage8_1Text_ny_25": "When it comes to {topic}, you are all-in for",
   "settingsPageTextAboutNew": "Palumba.org🐦 is not a company, not a political party, not a government. We’re an independent non-profit with 250+ young volunteers who came together to craft this app. We have one goal: helping you understand which election candidates could match your ideas, so you can vote more confidently for people who support your priorities. Our algorithm is open-source, the statements you swipe on were reviewed by political scientists, and your data is sooo encrypted that we have no way to ever identify you :)",
-  "whoIsOnTheBallot_nyc25": "Go to Who’s On The Ballot"
+  "whoIsOnTheBallot_nyc25": "Go to Who’s On The Ballot",
 
+"onBoardingDataProtection_1_nyc25": "I adhere to the ",
+"onBoardingDataProtection_2_nyc25": "Data Protection Policy",
+"onBoardingDataProtection_3_nyc25": " and the Terms to use the app"
 
 
 

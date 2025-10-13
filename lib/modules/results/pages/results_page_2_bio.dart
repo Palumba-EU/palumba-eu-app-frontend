@@ -26,6 +26,7 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
       child: Stack(children: [
         HeartStack(),
         SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
           child: Column(
             children: [
               CustomSpacer(multiplier: 1),
@@ -163,7 +164,7 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                         ],
                       ),
               ),
-              CustomSpacer(multiplier: 13),
+              // CustomSpacer(multiplier: 13),
             ],
           ),
         )

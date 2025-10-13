@@ -527,7 +527,10 @@
   "whatTopicSeemToCloseYourHeart":"¡Genial! ¿Y qué temas te interesan?",
   "keepLearning":"Sigue aprendiendo >",
   "seeMore":"Ver más >",
-  "resultsPage8_1Text_ny_25":"Cuando se trata de {topic}, estás totalmente comprometido"
+  "resultsPage8_1Text_ny_25":"Cuando se trata de {topic}, estás totalmente comprometido",
+  "onBoardingDataProtection_1_nyc25": "Cumplo con la ",
+  "onBoardingDataProtection_2_nyc25": "Política de Protección de Datos",
+  "onBoardingDataProtection_3_nyc25": " y los Términos para usar la aplicación"
 
 
 }

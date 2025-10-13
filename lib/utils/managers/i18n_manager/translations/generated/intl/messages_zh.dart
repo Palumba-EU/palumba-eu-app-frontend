@@ -234,6 +234,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingDataProtectionLink_nyc25": MessageLookupByLibrary.simpleMessage(
       "数据保护政策",
     ),
+    "onBoardingDataProtection_1_nyc25": MessageLookupByLibrary.simpleMessage(
+      "我同意遵守",
+    ),
+    "onBoardingDataProtection_2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "数据保护政策",
+    ),
+    "onBoardingDataProtection_3_nyc25": MessageLookupByLibrary.simpleMessage(
+      "和使用该应用程序的条款",
+    ),
     "onBoardingDataProtection_ger25": MessageLookupByLibrary.simpleMessage(
       "我同意数据保护政策和使用条款以使用该应用",
     ),

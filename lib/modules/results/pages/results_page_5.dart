@@ -19,9 +19,9 @@ class ResultsPage5 extends GetView<ResultsController> with ResultsPage {
     return SingleChildScrollView(
         child: Column(
       children: [
-        CustomSpacer(
-          multiplier: 2,
-        ),
+        // CustomSpacer(
+        //   multiplier: 2,
+        // ),
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: AppDimens.largeLateralPaddingValue),

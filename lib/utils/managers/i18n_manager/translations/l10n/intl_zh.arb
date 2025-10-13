@@ -632,6 +632,9 @@
 "seeMore": "查看更多 >",
 "resultsPage8_1Text_ny_25": "当谈到 {topic} 时，你全力支持",
 "settingsPageTextAboutNew": "Palumba.org🐦 不是一家公司、不是政党、也不是政府。我们是一个由 250 多名年轻志愿者组成的独立非营利组织，共同打造了这个应用。我们的唯一目标是帮助你了解哪些候选人与您的理念相符，从而让你能更有信心地为支持你优先事项的人投票。我们的算法是开源的，你滑动浏览的声明经过政治学家的审查，而你的数据被高度加密，我们永远无法识别你的身份 :)",
-"whoIsOnTheBallot_nyc25": "前往查看选票上的候选人"
+"whoIsOnTheBallot_nyc25": "前往查看选票上的候选人",
+"onBoardingDataProtection_1_nyc25": "我同意遵守",
+"onBoardingDataProtection_2_nyc25": "数据保护政策",
+"onBoardingDataProtection_3_nyc25": "和使用该应用程序的条款"
 
 }
