@@ -2893,6 +2893,36 @@ class S {
   String get palumba_org {
     return Intl.message('Palumba.org', name: 'palumba_org', desc: '', args: []);
   }
+
+  /// `I adhere to the `
+  String get onBoardingDataProtection_1_nyc25 {
+    return Intl.message(
+      'I adhere to the ',
+      name: 'onBoardingDataProtection_1_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data Protection Policy`
+  String get onBoardingDataProtection_2_nyc25 {
+    return Intl.message(
+      'Data Protection Policy',
+      name: 'onBoardingDataProtection_2_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` and the Terms to use the app`
+  String get onBoardingDataProtection_3_nyc25 {
+    return Intl.message(
+      ' and the Terms to use the app',
+      name: 'onBoardingDataProtection_3_nyc25',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -97,6 +97,10 @@ class ResultsController extends GetxController {
   List<Topic> _topics = [];
   List<Topic> get topics => _topics;
 
+  //Moodboard
+  List<String> _top3Topics = [];
+  List<String> get top3Topics => _top3Topics;
+
   //ResultsPage7
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
 
@@ -180,6 +184,8 @@ class ResultsController extends GetxController {
           .toList();
       _maxPercentagePoliticParty = getMajorPercentagePartyInParialment();
       getScatterPoints();
+
+      _top3Topics = getTop3Topics(_answersData);
     }
     _setupCandidateScreen();
 
@@ -266,6 +272,21 @@ class ResultsController extends GetxController {
       results.add(ResultsPage10(willVote: willVote));
     }
     return results;
+  }
+
+  List<String> getTop3Topics(List<Answer> userAnswers){
+    var topicsList = DataManager().getTopics();
+    List<(Topic, double)> topicNameAndMatchScore = [];
+    for ( Topic t in topicsList){
+      double dim = ResultsHelper.topicMatchPercentage(t.id!, userAnswers);
+      print('${t.name!} match = ${dim}');
+      topicNameAndMatchScore.add((t, dim));
+    }
+    topicNameAndMatchScore.sort((a,b)=>b.$2.abs().compareTo(a.$2.abs()));
+    print(topicNameAndMatchScore.map((e) => (e.$1.name!,e.$2)));
+    List<String> top3 = topicNameAndMatchScore.take(3).map((e) => e.$2<0?'${e.$1.extreme1!} ${e.$1.extreme1Emojis!}':'${e.$1.extreme2!} ${e.$1.extreme2Emojis!}').toList();
+    print(top3);
+    return top3;
   }
 
   void _getTopics() async {

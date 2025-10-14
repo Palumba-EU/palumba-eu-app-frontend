@@ -9,6 +9,8 @@ import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
+import 'package:palumba_eu/utils/string_utils.dart';
+import 'package:palumba_eu/utils/utils.dart';
 
 class Step4 extends StatelessWidget {
   final List<String> genders;
@@ -94,7 +96,27 @@ class Step4 extends StatelessWidget {
                         fontSize: 16,
                         color: AppColors.primary, // Default color
                       ), // Default text style
-                      children: [
+                      children: 
+                      ElectionManager.currentElection.value == Election.NY ? 
+                      [
+                        TextSpan(
+                          text:
+                              '${S.of(context).onBoardingDataProtection_1_nyc25}',
+                        ),
+                        TextSpan(
+                          text:
+                              '${S.of(context).onBoardingDataProtection_2_nyc25}',
+                          style:
+                              TextStyle(decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Utils.launch(StringUtils.privacyStatementUrl),
+                        ),
+                        TextSpan(
+                          text:
+                              '${S.of(context).onBoardingDataProtection_3_nyc25}',
+                        ),
+                      ] :
+                      [
                         TextSpan(
                           text:
                               '${S.of(context).onBoardingDataProtection_ger25} ',

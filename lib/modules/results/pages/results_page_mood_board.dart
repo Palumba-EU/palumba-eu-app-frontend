@@ -162,6 +162,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
         SizedBox(height: 5),
         if (controller.chartData.length > 1)
           ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemCount: controller.chartData.length,
@@ -204,29 +205,29 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
     print(
         "topicList => ${controller.maxPercentagePoliticParty?.party.positions?.length}");
 
-    if (controller.maxPercentagePoliticParty?.party.positions?.isNotEmpty ==
-        true) {
-      final positionMap = {
-        for (var pos
-            in controller.maxPercentagePoliticParty?.party.positions ?? [])
-          pos.topicId: pos.position
-      };
+    // if (controller.maxPercentagePoliticParty?.party.positions?.isNotEmpty ==
+    //     true) {
+    //   final positionMap = {
+    //     for (var pos
+    //         in controller.maxPercentagePoliticParty?.party.positions ?? [])
+    //       pos.topicId: pos.position
+    //   };
 
-      controller.topics.sort((a, b) {
-        final posA = positionMap[a.id] ?? double.infinity;
-        final posB = positionMap[b.id] ?? double.infinity;
-        return posA.compareTo(posB);
-      });
+    //   controller.topics.sort((a, b) {
+    //     final posA = positionMap[a.id] ?? double.infinity;
+    //     final posB = positionMap[b.id] ?? double.infinity;
+    //     return posA.compareTo(posB);
+    //   });
 
-      for (var t in controller.topics) {
-        print("${t.id} - ${t.name}");
-      }
-    }
+    //   for (var t in controller.topics) {
+    //     print("${t.id} - ${t.name}");
+    //   }
+    // }
     // Sort topics list
     // Print result
     const int maxItemsToShow = 3;
-    final int itemsToBuild = (controller.topics.length < maxItemsToShow)
-        ? controller.topics.length
+    final int itemsToBuild = (controller.top3Topics.length < maxItemsToShow)
+        ? controller.top3Topics.length
         : maxItemsToShow;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -235,12 +236,13 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
             color: AppColors.primary, textAlign: TextAlign.center),
         SizedBox(height: 5),
         ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           itemCount: itemsToBuild,
           itemBuilder: (BuildContext context, int index) {
             return _buildTopicItem(
-                '#${index + 1} ${controller.topics[index].name} ${controller.topics[index].extreme1Emojis}');
+                '#${index + 1} ${controller.top3Topics[index]}');
           },
         ),
         /* _buildTopicItem('Strong police & safe streets 👮‍♂️🚓🗽'),

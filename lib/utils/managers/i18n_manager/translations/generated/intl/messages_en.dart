@@ -273,6 +273,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "onBoardingDataProtectionLink_nyc25": MessageLookupByLibrary.simpleMessage(
       "Data Protection Policy",
     ),
+    "onBoardingDataProtection_1_nyc25": MessageLookupByLibrary.simpleMessage(
+      "I adhere to the ",
+    ),
+    "onBoardingDataProtection_2_nyc25": MessageLookupByLibrary.simpleMessage(
+      "Data Protection Policy",
+    ),
+    "onBoardingDataProtection_3_nyc25": MessageLookupByLibrary.simpleMessage(
+      " and the Terms to use the app",
+    ),
     "onBoardingDataProtection_ger25": MessageLookupByLibrary.simpleMessage(
       "I adhere to the Data Protection Policy and the Terms to use the app",
     ),
