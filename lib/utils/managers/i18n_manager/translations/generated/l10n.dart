@@ -844,10 +844,10 @@ class S {
     );
   }
 
-  /// `My results · Back to the test`
+  /// `My results`
   String get homePageMyResults {
     return Intl.message(
-      'My results · Back to the test',
+      'My results',
       name: 'homePageMyResults',
       desc: '',
       args: [],
@@ -1989,40 +1989,40 @@ class S {
     );
   }
 
-  /// `Socially conservative`
+  /// `Fair Pay`
   String get resultsPage4TitleTop_nyc25 {
     return Intl.message(
-      'Socially conservative',
+      'Fair Pay',
       name: 'resultsPage4TitleTop_nyc25',
       desc: '-> resultsPage4TitleTop',
       args: [],
     );
   }
 
-  /// `Socially progressive`
+  /// `Strong Free Market`
   String get resultsPage4TitleBottom_nyc25 {
     return Intl.message(
-      'Socially progressive',
+      'Strong Free Market',
       name: 'resultsPage4TitleBottom_nyc25',
       desc: '-> resultsPage4TitleBottom',
       args: [],
     );
   }
 
-  /// `Economic intervention`
+  /// `Pragmatic Planning`
   String get resultsPage4TitleLeft_nyc25 {
     return Intl.message(
-      'Economic intervention',
+      'Pragmatic Planning',
       name: 'resultsPage4TitleLeft_nyc25',
       desc: '-> resultsPage4TitleLeft',
       args: [],
     );
   }
 
-  /// `Free market economics`
+  /// `Strong Public Services`
   String get resultsPage4TitleRight_nyc25 {
     return Intl.message(
-      'Free market economics',
+      'Strong Public Services',
       name: 'resultsPage4TitleRight_nyc25',
       desc: '-> resultsPage4TitleRight',
       args: [],
@@ -2887,6 +2887,11 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Palumba.org`
+  String get palumba_org {
+    return Intl.message('Palumba.org', name: 'palumba_org', desc: '', args: []);
   }
 }
 

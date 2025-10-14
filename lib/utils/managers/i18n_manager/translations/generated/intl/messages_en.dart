@@ -162,9 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Back to the test",
     ),
     "homePageMatchesFoundQuote": m1,
-    "homePageMyResults": MessageLookupByLibrary.simpleMessage(
-      "My results · Back to the test",
-    ),
+    "homePageMyResults": MessageLookupByLibrary.simpleMessage("My results"),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "New Palumba test",
     ),
@@ -340,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Graduated from...",
     ),
     "oneLastThing": MessageLookupByLibrary.simpleMessage("One last thing:"),
+    "palumba_org": MessageLookupByLibrary.simpleMessage("Palumba.org"),
     "poland": MessageLookupByLibrary.simpleMessage("Poland"),
     "publicSafety": MessageLookupByLibrary.simpleMessage(
       "When it comes to public safety, you’re all-in for",
@@ -466,21 +465,21 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially progressive",
     ),
     "resultsPage4TitleBottom_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Socially progressive",
+      "Strong Free Market",
     ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Economic intervention",
     ),
     "resultsPage4TitleLeft_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Economic intervention",
+      "Pragmatic Planning",
     ),
     "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
       "Free market economics",
     ),
     "resultsPage4TitleRight_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Free market economics",
+      "Strong Public Services",
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage(
       "Pro-EU Integration",
@@ -489,7 +488,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially conservative",
     ),
     "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Socially conservative",
+      "Fair Pay",
     ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
       "It’s me, hi!",

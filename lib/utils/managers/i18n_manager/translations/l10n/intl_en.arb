@@ -99,7 +99,7 @@
   "@HomePage": "HomePage",
   "homePageMatchesFoundQuote": "{count} matches found in the last 24h",
   "homePageBackToTest": "Back to the test",
-  "homePageMyResults": "My results · Back to the test",
+  "homePageMyResults": "My results",
   "homePageStartButton": "New Palumba test",
   "whoIsOnTheBallot_nyc25": "Go to Who’s On The Ballot",
   "@@SettingsPage": "SettingsPage",
@@ -411,13 +411,13 @@
 "resultsPage3Title_nyc25": "How close I am to the mayoral candidates",
 "@resultsPage3Title_nyc25": { "description": "-> resultsPage3Title" },
 
-"resultsPage4TitleTop_nyc25": "Socially conservative",
+"resultsPage4TitleTop_nyc25": "Fair Pay",
 "@resultsPage4TitleTop_nyc25": { "description": "-> resultsPage4TitleTop" },
-"resultsPage4TitleBottom_nyc25": "Socially progressive",
+"resultsPage4TitleBottom_nyc25": "Strong Free Market",
 "@resultsPage4TitleBottom_nyc25": { "description": "-> resultsPage4TitleBottom" },
-"resultsPage4TitleLeft_nyc25": "Economic intervention",
+"resultsPage4TitleLeft_nyc25": "Pragmatic Planning",
 "@resultsPage4TitleLeft_nyc25": { "description": "-> resultsPage4TitleLeft" },
-"resultsPage4TitleRight_nyc25": "Free market economics",
+"resultsPage4TitleRight_nyc25": "Strong Public Services",
 "@resultsPage4TitleRight_nyc25": { "description": "-> resultsPage4TitleRight" },
 "resultsPage4TitleUserHere_nyc25": "It’s me, hi!",
 "@resultsPage4TitleUserHere_nyc25": { "description": "-> resultsPage4TitleUserHere" },
@@ -559,7 +559,8 @@
 "keepLearning":"Keep learning >",
 "seeMore":"See more >",
 "resultsPage8_1Text_ny_25": "When it's come to {topic}, you are all-in for",
-"tapToTurnAndLearnMoreNY": "Tap to turn & learn more"
+"tapToTurnAndLearnMoreNY": "Tap to turn & learn more",
+"palumba_org": "Palumba.org"
 
 
 
