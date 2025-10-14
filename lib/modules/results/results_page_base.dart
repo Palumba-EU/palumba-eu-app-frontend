@@ -49,8 +49,11 @@ class ResultsPage extends GetView<ResultsController> {
                             ? 1
                             : 0,
                         child: Container(
-                          color:
-                              ElectionManager.currentElection.value.background,
+                          color: ElectionManager.currentElection.value ==
+                                  Election.EU
+                              ? AppColors.blue
+                              : ElectionManager
+                                  .currentElection.value.background,
                           child: Stack(
                             children: [
                               Align(
@@ -164,11 +167,12 @@ class ResultsPage extends GetView<ResultsController> {
                               ),
                               Positioned(
                                 bottom: 0,
-                                child: SvgPicture.asset(
-                                  'assets/images/ic_skyline.svg',
+                                child: Image.asset(
+                                  'assets/images/img_skyline_2.png',
                                   // width: Get.width * 0.95,
                                   // height: Get.height / 3,
                                   fit: BoxFit.fitWidth,
+                                  width: Get.width,
                                 ),
                               ),
                             ],

@@ -14,12 +14,15 @@ class Stickers extends StatelessWidget {
     return IgnorePointer(
       ignoring: true,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Row(
             children: [
               Obx(() => SvgPicture.asset(
-                  ElectionManager.currentElection.value.stickerBallotBox)),
+                    ElectionManager.currentElection.value.stickerBallotBox,
+                    height: 100,
+                  )),
               Spacer(),
               SvgPicture.asset(
                 'assets/images/ic_sticker_heart.svg',

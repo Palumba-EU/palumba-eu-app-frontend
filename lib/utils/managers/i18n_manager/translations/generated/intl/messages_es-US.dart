@@ -791,6 +791,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "tapToRegister": MessageLookupByLibrary.simpleMessage(
       "Toca aquí para verificar tu registro en el sitio web oficial",
     ),
+    "tapToTurnAndLearnMoreNY": MessageLookupByLibrary.simpleMessage(
+      "Toca para girar y obtener más información",
+    ),
     "textContinue": MessageLookupByLibrary.simpleMessage("Continuar"),
     "turnOnVotingReminder": MessageLookupByLibrary.simpleMessage(
       "Activa un recordatorio para votar",
