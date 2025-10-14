@@ -64,8 +64,9 @@ class ResultsPage8 extends GetView<ResultsController> with ResultsPage {
           ),
           if (ElectionManager.currentElection.value == Election.NY)
             AppTexts.title(
-                "${maxTopic.topicData.extreme1} & ${maxTopic.topicData.extreme2}",
-                color: AppColors.lightPrimary),
+                "${maxTopic.topicData.extreme1}" /*+" & ${maxTopic.topicData.extreme2}"*/,
+                color: AppColors.lightPrimary,
+                textAlign: TextAlign.center),
           CustomSpacer(
             multiplier: 0,
           ),

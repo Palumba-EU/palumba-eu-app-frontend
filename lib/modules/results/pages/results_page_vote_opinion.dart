@@ -34,11 +34,11 @@ class ResultsPageVoteOpinion extends GetView<ResultsController>
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CustomSpacer(multiplier: 4),
+          CustomSpacer(multiplier: 5),
           SvgPicture.asset(
             "assets/images/ic_i_voted.svg",
-            width: Get.width * 0.45,
-            height: Get.width * 0.45,
+            width: Get.width * 0.38,
+            height: Get.width * 0.38,
           ),
           CustomSpacer(multiplier: 4),
           Align(

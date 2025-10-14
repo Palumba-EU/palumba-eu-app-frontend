@@ -2878,6 +2878,16 @@ class S {
       args: [topic],
     );
   }
+
+  /// `Tap to turn & learn more`
+  String get tapToTurnAndLearnMoreNY {
+    return Intl.message(
+      'Tap to turn & learn more',
+      name: 'tapToTurnAndLearnMoreNY',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

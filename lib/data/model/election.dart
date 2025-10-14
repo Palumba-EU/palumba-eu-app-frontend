@@ -94,9 +94,9 @@ extension ElectionImages on Election {
       case Election.EU:
         return 'assets/images/election/eu/ic_sticker_ballot_box_eu.svg';
       case Election.NY:
-        return 'assets/images/election/ny/ic_sticker_ballot_box_ny.svg';
-        return 'assets/images/election/ny/ic_whos_on_ballot.svg';
-        return 'assets/images/election/ny/ic_sticker_ballot_box_eu.svg';
+        // return 'assets/images/election/ny/ic_sticker_ballot_box_ny.svg';
+        return 'assets/images/election/ny/ic_whos_on_ballot_rotated.svg';
+      // return 'assets/images/election/ny/ic_sticker_ballot_box_eu.svg';
     }
   }
 
@@ -770,7 +770,7 @@ extension ElectionResult5Topics on Election {
         // 4: Human & Social Rights, 5: Economic Intervention, 1: Environmental issues
         return [4, 5, 1];
       case Election.NY:
-        return [2, 3, 11, 10, 12, 9, 13];
+        return [2, 3, 11, 10, 12, 9, 13, 7, 8, 4, 5, 6];
     }
   }
 }

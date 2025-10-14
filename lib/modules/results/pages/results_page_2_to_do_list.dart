@@ -56,7 +56,7 @@ class ResultsPage2ToDoList extends GetView<ResultsController> with ResultsPage {
             children: [
               CustomSpacer(multiplier: 3),
               controller.maxPercentagePoliticParty == null
-                  ? AppTexts.title(S.of(context).resultsPage2NoResults,
+                  ? AppTexts.regular(S.of(context).resultsPage2NoResults,
                       color: AppColors.primary)
                   : Column(
                       children: [
@@ -65,9 +65,10 @@ class ResultsPage2ToDoList extends GetView<ResultsController> with ResultsPage {
                           child: RichText(
                             text: TextSpan(
                               style: TextStyle(
-                                fontFamily: AppTexts.getBlackFontFamily(),
+                                fontFamily: 'caprasimo',
                                 fontSize: AppDimens.fontSizeTitle,
                                 color: AppColors.text,
+                                fontWeight: FontWeight.normal,
                                 height: AppDimens.blackFontHeight,
                               ),
                               children: <TextSpan>[
@@ -87,7 +88,7 @@ class ResultsPage2ToDoList extends GetView<ResultsController> with ResultsPage {
                                   style: TextStyle(
                                     color: AppColors
                                         .primary, // Darker purple for the main title
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.normal,
                                   ),
                                 ),
                               ],

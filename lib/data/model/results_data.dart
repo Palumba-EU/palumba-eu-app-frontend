@@ -100,6 +100,7 @@ class PoliticParty {
   List<LocalParties>? localParties;
   List<Answer>? answers;
   Profile? profile;
+  List<Position>? positions;
 
   PoliticParty({
     required this.id,
@@ -112,6 +113,7 @@ class PoliticParty {
     this.localParties,
     this.answers,
     this.profile,
+    this.positions,
   });
 
   PoliticParty.fromJson(Map<String, dynamic> json) {
@@ -122,6 +124,11 @@ class PoliticParty {
     link = json['link'];
     acronym = json['acronym'];
     inParliament = json['in_parliament'];
+    positions = json["positions"] == null
+        ? []
+        : List<Position>.from(
+            json["positions"]!.map((x) => Position.fromJson(x)));
+
     if (json['local_parties'] != null) {
       localParties = <LocalParties>[];
       json['local_parties'].forEach((v) {
@@ -151,8 +158,39 @@ class PoliticParty {
     data['acronym'] = this.acronym;
     data['answers'] = this.answers?.map((v) => v.toJson()).toList();
     data['profile'] = this.profile?.toJson();
+    data["positions"] = positions!.map((x) => x.toJson()).toList();
+
     return data;
   }
+}
+
+class Position {
+  int? topicId;
+  int? position;
+
+  Position({
+    this.topicId,
+    this.position,
+  });
+
+  Position copyWith({
+    int? topicId,
+    int? position,
+  }) =>
+      Position(
+        topicId: topicId ?? this.topicId,
+        position: position ?? this.position,
+      );
+
+  factory Position.fromJson(Map<String, dynamic> json) => Position(
+        topicId: json["topic_id"],
+        position: json["position"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "topic_id": topicId,
+        "position": position,
+      };
 }
 
 class Profile {

@@ -67,15 +67,17 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
               AppTexts.title(
                   controller.maxPercentagePoliticParty?.party.name ?? "",
                   color: AppColors.primary,
-                  fontSize: 22,
+                  fontSize: 24,
                   textAlign: TextAlign.center),
               AppTexts.small("🥇${S.of(context).yourNewMayor}",
-                  color: AppColors.primary, textAlign: TextAlign.center),
+                  color: AppColors.primary,
+                  textAlign: TextAlign.center,
+                  fontSize: 14),
               const SizedBox(height: 20),
               RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    style: AppTexts.customTextStyle(AppTextType.regular,
+                    style: AppTexts.customTextStyle(AppTextType.small,
                         black: true, color: AppColors.primary),
                     children: [
                       TextSpan(
@@ -199,7 +201,29 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
   }
 
   Widget _buildTopicsSection(BuildContext context) {
-    //print("topicList => ${controller.topics.length}");
+    print(
+        "topicList => ${controller.maxPercentagePoliticParty?.party.positions?.length}");
+
+    if (controller.maxPercentagePoliticParty?.party.positions?.isNotEmpty ==
+        true) {
+      final positionMap = {
+        for (var pos
+            in controller.maxPercentagePoliticParty?.party.positions ?? [])
+          pos.topicId: pos.position
+      };
+
+      controller.topics.sort((a, b) {
+        final posA = positionMap[a.id] ?? double.infinity;
+        final posB = positionMap[b.id] ?? double.infinity;
+        return posA.compareTo(posB);
+      });
+
+      for (var t in controller.topics) {
+        print("${t.id} - ${t.name}");
+      }
+    }
+    // Sort topics list
+    // Print result
     const int maxItemsToShow = 3;
     final int itemsToBuild = (controller.topics.length < maxItemsToShow)
         ? controller.topics.length
@@ -215,7 +239,8 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
           scrollDirection: Axis.vertical,
           itemCount: itemsToBuild,
           itemBuilder: (BuildContext context, int index) {
-            return _buildTopicItem('#${controller.topics[index].name}');
+            return _buildTopicItem(
+                '#${index + 1} ${controller.topics[index].name} ${controller.topics[index].extreme1Emojis}');
           },
         ),
         /* _buildTopicItem('Strong police & safe streets 👮‍♂️🚓🗽'),
