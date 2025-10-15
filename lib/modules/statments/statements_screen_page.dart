@@ -183,7 +183,7 @@ class StatementsPage extends GetView<StatementsController> {
 
   Widget neutralButton(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: Get.height * .08),
+      padding: EdgeInsets.only(top: Get.height * .11),
       child: Align(
         alignment: Alignment.topCenter,
         child: Obx(

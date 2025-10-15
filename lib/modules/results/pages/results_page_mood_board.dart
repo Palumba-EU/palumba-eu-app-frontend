@@ -226,8 +226,8 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
     // Sort topics list
     // Print result
     const int maxItemsToShow = 3;
-    final int itemsToBuild = (controller.topics.length < maxItemsToShow)
-        ? controller.topics.length
+    final int itemsToBuild = (controller.top3Topics.length < maxItemsToShow)
+        ? controller.top3Topics.length
         : maxItemsToShow;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -242,7 +242,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
           itemCount: itemsToBuild,
           itemBuilder: (BuildContext context, int index) {
             return _buildTopicItem(
-                '#${index + 1} ${controller.topics[index].extreme1} ${controller.topics[index].extreme1Emojis}');
+                '#${index + 1} ${controller.top3Topics[index]}');
           },
         ),
         /* _buildTopicItem('Strong police & safe streets 👮‍♂️🚓🗽'),

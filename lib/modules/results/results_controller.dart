@@ -31,6 +31,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_6.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_8_nyc.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
@@ -97,6 +98,10 @@ class ResultsController extends GetxController {
   //ResultsPage5
   List<Topic> _topics = [];
   List<Topic> get topics => _topics;
+
+  //Moodboard
+  List<String> _top3Topics = [];
+  List<String> get top3Topics => _top3Topics;
 
   //ResultsPage7
   String get countryName => UserManager.userCountry?.name ?? 'Your country';
@@ -181,6 +186,9 @@ class ResultsController extends GetxController {
           .toList();
       _maxPercentagePoliticParty = getMajorPercentagePartyInParialment();
       getScatterPoints();
+
+      _top3Topics = getTop3Topics(_answersData);
+
     }
     _setupCandidateScreen();
 
@@ -252,7 +260,7 @@ class ResultsController extends GetxController {
           // ResultsPage6(),
           // ResultsPage7(),
           ResultsPageGuid1(guidPage: 2),
-          ResultsPage8(),
+          ResultsPage8NYC(),
           ResultsPage9(),
           ResultsPageMoodBoard(),
           ResultsPageVoteOpinion(willVote: willVote),
@@ -267,6 +275,21 @@ class ResultsController extends GetxController {
       results.add(ResultsPage10(willVote: willVote));
     }
     return results;
+  }
+
+  List<String> getTop3Topics(List<Answer> userAnswers){
+    var topicsList = DataManager().getTopics();
+    List<(Topic, double)> topicNameAndMatchScore = [];
+    for ( Topic t in topicsList){
+      double dim = ResultsHelper.topicMatchPercentage(t.id!, userAnswers);
+      print('${t.name!} match = ${dim}');
+      topicNameAndMatchScore.add((t, dim));
+    }
+    topicNameAndMatchScore.sort((a,b)=>b.$2.abs().compareTo(a.$2.abs()));
+    print(topicNameAndMatchScore.map((e) => (e.$1.name!,e.$2)));
+    List<String> top3 = topicNameAndMatchScore.take(3).map((e) => e.$2<0?'${e.$1.extreme1!} ${e.$1.extreme1Emojis!}':'${e.$1.extreme2!} ${e.$1.extreme2Emojis!}').toList();
+    print(top3);
+    return top3;
   }
 
   void _getTopics() async {
