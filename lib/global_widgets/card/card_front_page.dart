@@ -111,6 +111,9 @@ class CardFrontPage extends StatelessWidget {
                           ? S.of(context).statementsTutorialTurnInfo_ger25
                           : "",
                   fontSize: 12),
+              CustomSpacer(
+                multiplier: 1,
+              )
             ],
           )),
     );
