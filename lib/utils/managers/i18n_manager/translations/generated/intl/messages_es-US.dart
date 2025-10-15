@@ -102,6 +102,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Consulta quién está en la boleta",
     ),
     "compatible": MessageLookupByLibrary.simpleMessage("compatible"),
+    "dataProtectionText1": MessageLookupByLibrary.simpleMessage(
+      "me adhiero a la",
+    ),
+    "dataProtectionText2": MessageLookupByLibrary.simpleMessage(
+      "y los Términos de uso de la aplicación",
+    ),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Vamos a explorar tu compatibilidad con todos los candidatos y políticas en las próximas pantallas. Toca la derecha/izquierda de la pantalla para navegar.",
     ),
@@ -166,6 +172,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "homePageMatchesFoundQuote": m1,
     "homePageMyResults": MessageLookupByLibrary.simpleMessage(
       "Mis resultados · Volver al test",
+    ),
+    "homePageMyResultsSingle": MessageLookupByLibrary.simpleMessage(
+      "Mis resultados",
     ),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "Nueva prueba de Palumba",
@@ -468,21 +477,21 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially progressive",
     ),
     "resultsPage4TitleBottom_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Socialmente progresista",
+      "Mercado libre fuerte",
     ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Izquierda"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Economic intervention",
     ),
     "resultsPage4TitleLeft_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Intervención económica",
+      "Planificación pragmática",
     ),
     "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Derecha"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
       "Free market economics",
     ),
     "resultsPage4TitleRight_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Economía de libre mercado",
+      "Servicios públicos sólidos",
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage(
       "Pro-integración de la UE",
@@ -491,7 +500,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially conservative",
     ),
     "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Socialmente conservador",
+      "Pago justo",
     ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
       "¡Soy yo, hola!",

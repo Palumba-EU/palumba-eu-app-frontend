@@ -23,8 +23,7 @@ class ResultsPageGuid1 extends GetView<ResultsController> with ResultsPage {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: SafeArea(
+    return SafeArea(
       child: Container(
         height: Get.height,
         child: Column(
@@ -64,6 +63,6 @@ class ResultsPageGuid1 extends GetView<ResultsController> with ResultsPage {
           ],
         ),
       ),
-    ));
+    );
   }
 }

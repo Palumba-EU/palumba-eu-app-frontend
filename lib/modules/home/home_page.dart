@@ -265,7 +265,11 @@ class HomePage extends StatelessWidget {
             builder: (controller) => _.resultsData.isEmpty && !_.isTestRunning
                 ? SizedBox.shrink()
                 : CustomButton(
-                    text: S.of(context).homePageMyResults,
+                    text: _.isTestRunning
+                        ? S.of(context).homePageBackToTest
+                        : S.of(context).homePageMyResultsSingle,
+
+                    // text: S.of(context).homePageMyResults,
                     expanded: true,
                     onPressed: _.backToResultsOrTest,
                     suffixIcon:
