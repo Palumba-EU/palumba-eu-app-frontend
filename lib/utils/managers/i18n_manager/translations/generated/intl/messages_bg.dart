@@ -53,6 +53,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Упс!"),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
     "cancel": MessageLookupByLibrary.simpleMessage("Отказ"),
+    "dataProtectionText1": MessageLookupByLibrary.simpleMessage(
+      "I adhere to the",
+    ),
+    "dataProtectionText2": MessageLookupByLibrary.simpleMessage(
+      "and the Terms to use the app",
+    ),
     "denmark": MessageLookupByLibrary.simpleMessage("Дания"),
     "electionDE": MessageLookupByLibrary.simpleMessage(
       "Bundestagswahl 2025 🇩🇪",
@@ -94,6 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homePageMatchesFoundQuote": m1,
     "homePageMyResults": MessageLookupByLibrary.simpleMessage(
+      "Моите резултати",
+    ),
+    "homePageMyResultsSingle": MessageLookupByLibrary.simpleMessage(
       "Моите резултати",
     ),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(

@@ -24,7 +24,7 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
     return Container(
       color: ElectionManager.currentElection.value.background,
       child: Stack(children: [
-        HeartStack(),
+        HeartStackNY(),
         SingleChildScrollView(
           child: Column(
             children: [

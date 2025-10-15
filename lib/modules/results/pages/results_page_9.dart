@@ -25,8 +25,10 @@ class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height,
+      height: Get.height * 0.8,
+      // color: AppColors.yellow,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           CustomSpacer(
             multiplier: 2,
@@ -88,8 +90,8 @@ class ResultsPage9 extends GetView<ResultsController> with ResultsPage {
               ],
             ),
           ),
-          CustomSpacer(
-            multiplier: 2,
+          SizedBox(
+            height: Get.height * 0.05,
           )
         ],
       ),

@@ -16,6 +16,6 @@ class StringUtils {
   static String rickrollUrl =
       'https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8';
   //Contact
-  static String contactEmail = 'app@palumba.edu';
+  static String contactEmail = 'app@palumba.org';
   static String contactEmailUrl = 'mailto:$contactEmail';
 }

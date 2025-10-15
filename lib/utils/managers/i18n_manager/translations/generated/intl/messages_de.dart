@@ -55,6 +55,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "alertServerErrorTitle": MessageLookupByLibrary.simpleMessage("Ups!"),
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
     "cancel": MessageLookupByLibrary.simpleMessage("Abbrechen"),
+    "dataProtectionText1": MessageLookupByLibrary.simpleMessage(
+      "Ich halte mich daran",
+    ),
+    "dataProtectionText2": MessageLookupByLibrary.simpleMessage(
+      "und die Bedingungen zur Nutzung der App",
+    ),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Lassen Sie uns Ihre Kompatibilität mit allen Kandidaten und Richtlinien auf den nächsten Bildschirmen genauer betrachten. Tippen Sie auf die rechte/linke Seite des Bildschirms, um zu navigieren.",
     ),
@@ -97,6 +103,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homePageMatchesFoundQuote": m1,
     "homePageMyResults": MessageLookupByLibrary.simpleMessage(
+      "Meine Ergebnisse",
+    ),
+    "homePageMyResultsSingle": MessageLookupByLibrary.simpleMessage(
       "Meine Ergebnisse",
     ),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(

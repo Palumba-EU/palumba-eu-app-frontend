@@ -100,6 +100,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Check Who\'s On The Ballot",
     ),
     "compatible": MessageLookupByLibrary.simpleMessage("compatible"),
+    "dataProtectionText1": MessageLookupByLibrary.simpleMessage(
+      "I adhere to the",
+    ),
+    "dataProtectionText2": MessageLookupByLibrary.simpleMessage(
+      "and the Terms to use the app",
+    ),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.",
     ),
@@ -164,6 +170,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "homePageMatchesFoundQuote": m1,
     "homePageMyResults": MessageLookupByLibrary.simpleMessage(
       "My results · Back to the test",
+    ),
+    "homePageMyResultsSingle": MessageLookupByLibrary.simpleMessage(
+      "My results",
     ),
     "homePageStartButton": MessageLookupByLibrary.simpleMessage(
       "New Palumba test",
@@ -466,21 +475,21 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially progressive",
     ),
     "resultsPage4TitleBottom_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Socially progressive",
+      "Strong Free Market",
     ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Left"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
       "Economic intervention",
     ),
     "resultsPage4TitleLeft_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Economic intervention",
+      "Pragmatic Planning",
     ),
     "resultsPage4TitleRight": MessageLookupByLibrary.simpleMessage("Right"),
     "resultsPage4TitleRight_ger25": MessageLookupByLibrary.simpleMessage(
       "Free market economics",
     ),
     "resultsPage4TitleRight_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Free market economics",
+      "Strong Public Services",
     ),
     "resultsPage4TitleTop": MessageLookupByLibrary.simpleMessage(
       "Pro-EU Integration",
@@ -489,7 +498,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially conservative",
     ),
     "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Socially conservative",
+      "Fair Pay",
     ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
       "It’s me, hi!",

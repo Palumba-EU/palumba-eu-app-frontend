@@ -50,10 +50,9 @@ class ResultsPage extends GetView<ResultsController> {
                             : 0,
                         child: Container(
                           color: ElectionManager.currentElection.value ==
-                                  Election.EU
-                              ? AppColors.blue
-                              : ElectionManager
-                                  .currentElection.value.background,
+                                  Election.NY
+                              ? ElectionManager.currentElection.value.background
+                              : AppColors.blue,
                           child: Stack(
                             children: [
                               Align(
@@ -152,8 +151,16 @@ class ResultsPage extends GetView<ResultsController> {
                                 width: double.infinity,
                                 height: Get.height,
                                 // color: AppColors.yellow,
+                                color: ElectionManager.currentElection.value ==
+                                        Election.NY
+                                    ? ElectionManager
+                                        .currentElection.value.background
+                                    : AppColors.blue,
                               ),
-                              TargetStack(),
+                              ElectionManager.currentElection.value ==
+                                      Election.NY
+                                  ? TargetStackNY()
+                                  : TargetStack()
                             ],
                           )
                         : SizedBox.shrink()),
@@ -226,80 +233,79 @@ class ResultsPage extends GetView<ResultsController> {
                       ),
 
                       //Pages
-                      Expanded(
-                          child: SingleChildScrollView(
-                        child: Column(children: [
-                          Screenshot(
-                            controller:
-                                controller.foregroundScreenshotController,
-                            child: AspectRatio(
-                                aspectRatio: 9 / 16,
-                                child: Column(
-                                  children: [
-                                    CustomSpacer(
-                                      multiplier: 3,
-                                    ),
-                                    //Rounded image and #appname
+                      Column(children: [
+                        Screenshot(
+                          controller: controller.foregroundScreenshotController,
+                          child: AspectRatio(
+                              aspectRatio: 9 / 16,
+                              child: Column(
+                                children: [
+                                  CustomSpacer(
+                                    multiplier: 3,
+                                  ),
+                                  //Rounded image and #appname
 
-                                    Obx(() => controller.currentPage
-                                                    .showGuidBackground ==
-                                                true ||
-                                            controller.currentPage
-                                                    .showBackgroundOpinion ==
-                                                true
-                                        ? SizedBox()
-                                        : Padding(
-                                            padding: AppDimens.lateralPadding,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                /* Obx(() => SvgPicture.asset(
-                                                ElectionManager.currentElection
-                                                    .value.logoCircle,
-                                                height: 40,
-                                              )),*/
+                                  Obx(() => controller.currentPage
+                                                  .showGuidBackground ==
+                                              true ||
+                                          controller.currentPage
+                                                  .showBackgroundOpinion ==
+                                              true
+                                      ? SizedBox()
+                                      : Padding(
+                                          padding: AppDimens.lateralPadding,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              /* Obx(() => SvgPicture.asset(
+                                              ElectionManager.currentElection
+                                                  .value.logoCircle,
+                                              height: 40,
+                                            )),*/
 
-                                                Obx(() {
-                                                  final asset = ElectionManager
-                                                      .currentElection
-                                                      .value
-                                                      .logoCircle;
-                                                  return buildImage(asset);
-                                                }),
-                                                /*if (kDebugMode)
-                                                  Obx(() => AppTexts.small(
-                                                      (controller.currentPageIndex.value + 1)
-                                                          .toString(),
-                                                      color:
-                                                          AppColors.primary)),*/
-                                                Spacer(),
-                                                AppTexts.title(
-                                                    '#${S.of(context).shortAppName}',
-                                                    forceCaprasimo: true,
-                                                    color: AppColors.primary),
-                                              ],
-                                            ),
-                                          )),
+                                              Obx(() {
+                                                final asset = ElectionManager
+                                                    .currentElection
+                                                    .value
+                                                    .logoCircle;
+                                                return buildImage(asset);
+                                              }),
+                                              /*if (kDebugMode)
+                                                Obx(() => AppTexts.small(
+                                                    (controller.currentPageIndex.value + 1)
+                                                        .toString(),
+                                                    color:
+                                                        AppColors.primary)),*/
+                                              Spacer(),
+                                              AppTexts.title(
+                                                  '#${S.of(context).shortAppName}',
+                                                  forceCaprasimo: true,
+                                                  color: AppColors.primary),
+                                            ],
+                                          ),
+                                        )),
 
-                                    CustomSpacer(
-                                      multiplier: 1,
-                                    ),
-                                    Expanded(
-                                        child: PageView.builder(
-                                            physics:
-                                                NeverScrollableScrollPhysics(),
-                                            allowImplicitScrolling: true,
-                                            controller:
-                                                controller.pageController,
-                                            itemCount: controller.pages.length,
-                                            itemBuilder: (context, index) =>
-                                                controller.pages[index]))
-                                  ],
-                                )),
-                          )
-                        ]),
-                      ))
+                                  CustomSpacer(
+                                    multiplier: 1,
+                                  ),
+                                  Expanded(
+                                      child: PageView.builder(
+                                          physics:
+                                              NeverScrollableScrollPhysics(),
+                                          allowImplicitScrolling: true,
+                                          controller: controller.pageController,
+                                          itemCount: controller.pages.length,
+                                          itemBuilder: (context, index) =>
+                                              controller.pages[index])),
+
+                                  /* CustomSpacer(
+                                    multiplier: 13,
+                                  )*/
+                                ],
+                              )),
+                        )
+                      ])
                     ],
                   ),
                 ),

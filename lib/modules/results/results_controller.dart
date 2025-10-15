@@ -24,6 +24,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_1.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_10.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2_bio.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_2_ny.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_2_to_do_list.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_3.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_4.dart';
@@ -241,7 +242,7 @@ class ResultsController extends GetxController {
       case Election.NY:
         results = [
           // ResultsPage1(),
-          ResultsPage2(),
+          ResultsPage2Ny(),
           ResultsPageMemes(),
           ResultsPage2Bio(),
           ResultsPageGuid1(guidPage: 1),

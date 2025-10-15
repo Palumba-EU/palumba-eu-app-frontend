@@ -51,8 +51,15 @@ class CardFrontPage extends StatelessWidget {
             ElectionManager.currentElection.value != Election.NY)
           onBoardingView(context),
         if (ElectionManager.currentElection.value == Election.NY)
-          if (_getOnboardingEmojis() == "") Spacer(),
-        onBoardingView(context),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              // if (_getOnboardingEmojis() == "") Spacer(),
+              onBoardingView(context)
+            ],
+          ),
+        //onBoardingView(context),
         CustomSpacer(small: true)
       ],
     );
@@ -72,37 +79,38 @@ class CardFrontPage extends StatelessWidget {
               const EdgeInsets.only(top: AppDimens.largeLateralPaddingValue),
           child: Column(
             children: [
+              CustomSpacer(
+                multiplier: 3,
+              ),
+              // if (_getOnboardingEmojis() != "")
+              Container(
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: _getBackgroundEmojiColor(),
+                        spreadRadius: 0,
+                        blurRadius: 48,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
+                    color: _getBackgroundEmojiColor(),
+                    borderRadius: BorderRadius.circular(50)),
+                padding: EdgeInsets.symmetric(vertical: 12.5, horizontal: 22.5),
+                child: Text(
+                  _getOnboardingEmojis(),
+                  style: TextStyle(fontSize: 32),
+                ),
+              ),
+              CustomSpacer(
+                multiplier: 2,
+              ),
               AppTexts.regular(
                   ElectionManager.currentElection.value == Election.NY
                       ? S.of(context).tapToTurnAndLearnMoreNY
-                      : S.of(context).statementsTutorialTurnInfo_ger25,
+                      : card.isOnboardingCard
+                          ? S.of(context).statementsTutorialTurnInfo_ger25
+                          : "",
                   fontSize: 12),
-              CustomSpacer(
-                multiplier: 4,
-              ),
-              if (_getOnboardingEmojis() != "")
-                Container(
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: _getBackgroundEmojiColor(),
-                          spreadRadius: 0,
-                          blurRadius: 48,
-                          offset: Offset(0, 0),
-                        ),
-                      ],
-                      color: _getBackgroundEmojiColor(),
-                      borderRadius: BorderRadius.circular(50)),
-                  padding:
-                      EdgeInsets.symmetric(vertical: 12.5, horizontal: 22.5),
-                  child: Text(
-                    _getOnboardingEmojis(),
-                    style: TextStyle(fontSize: 32),
-                  ),
-                ),
-              CustomSpacer(
-                multiplier: 1,
-              )
             ],
           )),
     );

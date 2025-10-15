@@ -854,6 +854,16 @@ class S {
     );
   }
 
+  /// `My results`
+  String get homePageMyResultsSingle {
+    return Intl.message(
+      'My results',
+      name: 'homePageMyResultsSingle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `New Palumba test`
   String get homePageStartButton {
     return Intl.message(
@@ -1989,40 +1999,40 @@ class S {
     );
   }
 
-  /// `Socially conservative`
+  /// `Fair Pay`
   String get resultsPage4TitleTop_nyc25 {
     return Intl.message(
-      'Socially conservative',
+      'Fair Pay',
       name: 'resultsPage4TitleTop_nyc25',
       desc: '-> resultsPage4TitleTop',
       args: [],
     );
   }
 
-  /// `Socially progressive`
+  /// `Strong Free Market`
   String get resultsPage4TitleBottom_nyc25 {
     return Intl.message(
-      'Socially progressive',
+      'Strong Free Market',
       name: 'resultsPage4TitleBottom_nyc25',
       desc: '-> resultsPage4TitleBottom',
       args: [],
     );
   }
 
-  /// `Economic intervention`
+  /// `Pragmatic Planning`
   String get resultsPage4TitleLeft_nyc25 {
     return Intl.message(
-      'Economic intervention',
+      'Pragmatic Planning',
       name: 'resultsPage4TitleLeft_nyc25',
       desc: '-> resultsPage4TitleLeft',
       args: [],
     );
   }
 
-  /// `Free market economics`
+  /// `Strong Public Services`
   String get resultsPage4TitleRight_nyc25 {
     return Intl.message(
-      'Free market economics',
+      'Strong Public Services',
       name: 'resultsPage4TitleRight_nyc25',
       desc: '-> resultsPage4TitleRight',
       args: [],
@@ -2884,6 +2894,26 @@ class S {
     return Intl.message(
       'Tap to turn & learn more',
       name: 'tapToTurnAndLearnMoreNY',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I adhere to the`
+  String get dataProtectionText1 {
+    return Intl.message(
+      'I adhere to the',
+      name: 'dataProtectionText1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `and the Terms to use the app`
+  String get dataProtectionText2 {
+    return Intl.message(
+      'and the Terms to use the app',
+      name: 'dataProtectionText2',
       desc: '',
       args: [],
     );

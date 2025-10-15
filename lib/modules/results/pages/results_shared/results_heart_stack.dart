@@ -13,6 +13,52 @@ class HeartStack extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 25),
             child: SvgPicture.asset(
+              'assets/images/ic_sticker_heart1.svg',
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: Padding(
+            padding: EdgeInsets.only(top: 180),
+            child: SvgPicture.asset(
+              'assets/images/ic_sticker_heart2.svg',
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 180),
+            child: SvgPicture.asset(
+              'assets/images/ic_sticker_heart1.svg',
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 0),
+            child: SvgPicture.asset(
+              'assets/images/ic_sticker_heart2.svg',
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class HeartStackNY extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Align(
+          alignment: Alignment.topLeft,
+          child: Padding(
+            padding: EdgeInsets.only(top: 25),
+            child: SvgPicture.asset(
               'assets/images/ic_sticker_heart1_yellow.svg',
             ),
           ),
@@ -107,6 +153,55 @@ class TargetStack extends StatelessWidget {
     return Stack(
       children: [
         Positioned(
+          top: size.height * 0.14,
+          right: 0,
+          child: SvgPicture.asset(
+            'assets/images/ic_sticker_heart.svg',
+          ),
+        ),
+        Positioned(
+          top: size.height * 0.14,
+          left: 0,
+          child: SvgPicture.asset(
+            'assets/images/election/eu/ic_sticker_ballot_box3_eu.svg',
+          ),
+        ),
+        Positioned(
+          top: size.height * 0.38,
+          left: 0,
+          child: SvgPicture.asset(
+            'assets/images/ic_sticker_target.svg',
+          ),
+        ),
+        Positioned(
+          top: size.height * 0.5,
+          right: 0,
+          child: SvgPicture.asset(
+            'assets/images/ic_sticker_sign.svg',
+          ),
+        ),
+        Positioned(
+          bottom: size.height * 0.20,
+          left: 0,
+          child: SvgPicture.asset(
+            'assets/images/img_hemicycle_half.svg',
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class TargetStackNY extends StatelessWidget {
+  const TargetStackNY({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size; // get screen size
+
+    return Stack(
+      children: [
+        Positioned(
           top: size.height * 0.11,
           right: 0,
           child: SvgPicture.asset(
@@ -145,67 +240,3 @@ class TargetStack extends StatelessWidget {
     );
   }
 }
-
-/*class MemesStack extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: EdgeInsets.only(top: 125),
-            child: Image.asset(
-              'assets/images/election/ny/img_memes_stack_1.png',
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Padding(
-            padding: EdgeInsets.only(top: 180),
-            child: Image.asset(
-              'assets/images/election/ny/img_memes_stack_2.png',
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: EdgeInsets.only(top: 300),
-            child: Image.asset(
-              'assets/images/election/ny/img_memes_stack_3.png',
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 300),
-            child: Image.asset(
-              'assets/images/election/ny/img_memes_stack_4.png',
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: EdgeInsets.only(top: 550),
-            child: Image.asset(
-              'assets/images/election/ny/img_memes_stack_5.png',
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 25),
-            child: Image.asset(
-              'assets/images/election/ny/img_memes_stack_6.png',
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}*/

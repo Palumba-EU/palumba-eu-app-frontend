@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:palumba_eu/global_widgets/custom_horizontal_spacer.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
@@ -23,7 +22,7 @@ class CustomGenderSelector extends StatelessWidget {
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.symmetric(
-              horizontal: AppDimens.regularLateralPaddingValue, vertical: 15),
+              horizontal: AppDimens.regularLateralPaddingValue, vertical: 5),
           backgroundColor: selected ? AppColors.yellow : null,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimens.borderRadius),

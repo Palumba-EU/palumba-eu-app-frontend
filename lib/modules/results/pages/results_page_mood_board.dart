@@ -163,6 +163,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
         if (controller.chartData.length > 1)
           ListView.builder(
             shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             scrollDirection: Axis.vertical,
             itemCount: controller.chartData.length,
             itemBuilder: (BuildContext context, int index) {
@@ -237,10 +238,11 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
         ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
+          physics: NeverScrollableScrollPhysics(),
           itemCount: itemsToBuild,
           itemBuilder: (BuildContext context, int index) {
             return _buildTopicItem(
-                '#${index + 1} ${controller.topics[index].name} ${controller.topics[index].extreme1Emojis}');
+                '#${index + 1} ${controller.topics[index].extreme1} ${controller.topics[index].extreme1Emojis}');
           },
         ),
         /* _buildTopicItem('Strong police & safe streets 👮‍♂️🚓🗽'),

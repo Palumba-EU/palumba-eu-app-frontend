@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/global_widgets/custom_network_image.dart';
@@ -14,18 +15,20 @@ import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 import 'package:palumba_eu/utils/managers/election_manager.dart';
 import 'package:palumba_eu/utils/managers/i18n_manager/translations/generated/l10n.dart';
 
-class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
+class ResultsPage2Ny extends GetView<ResultsController> with ResultsPage {
   @override
   Widget build(BuildContext context) {
     bool isTablet = controller.isTablet;
     return Container(
       color: ElectionManager.currentElection.value.background,
       child: Stack(children: [
-        HeartStack(),
+        HeartStackNY(),
         SingleChildScrollView(
           child: Column(
             children: [
-              CustomSpacer(multiplier: 4),
+              CustomSpacer(multiplier: 3),
+              AppTexts.title(S.of(context).resultItsMatch,
+                  forceCaprasimo: true, fontSize: 25, color: AppColors.primary),
               CustomSpacer(multiplier: 1),
               SizedBox(
                 height: Get.width * (isTablet ? .62 : .82),
@@ -48,16 +51,17 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
                     ),
                     Padding(
                         padding: const EdgeInsets.only(bottom: 25),
-                        child: /*SvgPicture.asset(
+                        child: SvgPicture.asset(
                           'assets/images/img_heart_arrow.svg',
                           height: 100,
                           fit: BoxFit.fitWidth,
-                        )*/
-                            Image.asset(
+                        )
+                        /* Image.asset(
                           'assets/images/img_heart_arrow.png',
                           height: 100,
                           fit: BoxFit.fitWidth,
-                        ))
+                        )*/
+                        )
                   ],
                 ),
               ),
@@ -70,39 +74,57 @@ class ResultsPage2 extends GetView<ResultsController> with ResultsPage {
                         color: AppColors.primary)
                     : Column(
                         children: [
+                          AppTexts.title(
+                              '${controller.maxPercentagePoliticParty?.party.name ?? ''}',
+                              forceCaprasimo: true,
+                              fontSize: 32,
+                              color: AppColors.primary,
+                              textAlign: TextAlign.center),
+                          AppTexts.title(S.of(context).resultsSentYouARose,
+                              forceCaprasimo: true,
+                              fontSize: 22,
+                              color: AppColors.primary),
                           Padding(
                             padding: const EdgeInsets.only(top: 15),
-                            child: RichText(
+                            child: AppTexts.small(S.of(context).deepDiveIntro,
+                                color: AppColors.primary,
                                 textAlign: TextAlign.center,
-                                text: TextSpan(
-                                  style: AppTexts.customTextStyle(
-                                      AppTextType.title,
-                                      black: true,
-                                      color: AppColors.primary),
-                                  children: [
-                                    TextSpan(
-                                      text: ElectionManager
-                                          .currentElection.value
-                                          .resultsPage2_1Title(context),
-                                    ),
-                                    TextSpan(
-                                      text:
-                                          ' ${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
-                                      style: TextStyle(
-                                          color: controller.getPartyColor()),
-                                    ),
-                                    TextSpan(
-                                      text: ElectionManager
-                                          .currentElection.value
-                                          .resultsPage2_2Title(context),
-                                    ),
-                                  ],
-                                )),
+                                fontSize: 14,
+                                bold: false)
+
+                            /* RichText(
+                                    textAlign: TextAlign.center,
+                                    text: TextSpan(
+                                      style: AppTexts.customTextStyle(
+                                          AppTextType.title,
+                                          black: true,
+                                          color: AppColors.primary),
+                                      children: [
+                                        TextSpan(
+                                          text: ElectionManager
+                                              .currentElection.value
+                                              .resultsPage2_1Title(context),
+                                        ),
+                                        TextSpan(
+                                          text:
+                                              ' ${controller.maxPercentagePoliticParty?.party.name ?? ''} ',
+                                          style: TextStyle(
+                                              color:
+                                                  controller.getPartyColor()),
+                                        ),
+                                        TextSpan(
+                                          text: ElectionManager
+                                              .currentElection.value
+                                              .resultsPage2_2Title(context),
+                                        ),
+                                      ],
+                                    ))*/
+                            ,
                           ),
                         ],
                       ),
               ),
-              CustomSpacer(multiplier: 12),
+              //CustomSpacer(multiplier: 12),
             ],
           ),
         )
