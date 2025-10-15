@@ -152,7 +152,7 @@ class SettingsPage extends StatelessWidget {
                     padding: EdgeInsets.only(
                         top: AppDimens.smallLateralPaddingValue,
                         bottom: AppDimens.smallLateralPaddingValue),
-                    child: AppTexts.small("#${S.of(context).shortAppName}",
+                    child: AppTexts.small("#${S.of(context).shortAppName}.org",
                         color: AppColors.primary, bold: true),
                   ),
                 ],
