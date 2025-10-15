@@ -178,7 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "New Palumba test",
     ),
     "howCandidateCompareEachOther": MessageLookupByLibrary.simpleMessage(
-      "Let’s see how candidates compare to each other - and where do you stand in more detail",
+      "Let’s see how candidates compare to each other - and where you stand in more detail",
     ),
     "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
     "investigateFurther": MessageLookupByLibrary.simpleMessage(

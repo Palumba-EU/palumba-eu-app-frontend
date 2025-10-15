@@ -2844,10 +2844,10 @@ class S {
     );
   }
 
-  /// `Let’s see how candidates compare to each other - and where do you stand in more detail`
+  /// `Let’s see how candidates compare to each other - and where you stand in more detail`
   String get howCandidateCompareEachOther {
     return Intl.message(
-      'Let’s see how candidates compare to each other - and where do you stand in more detail',
+      'Let’s see how candidates compare to each other - and where you stand in more detail',
       name: 'howCandidateCompareEachOther',
       desc: '',
       args: [],
