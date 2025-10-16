@@ -2933,7 +2933,6 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'de'),
       Locale.fromSubtags(languageCode: 'el'),
       Locale.fromSubtags(languageCode: 'es-ES'),
-      Locale.fromSubtags(languageCode: 'es-US'),
       Locale.fromSubtags(languageCode: 'et'),
       Locale.fromSubtags(languageCode: 'eu'),
       Locale.fromSubtags(languageCode: 'fi'),
@@ -2950,12 +2949,10 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'pl'),
       Locale.fromSubtags(languageCode: 'pt-PT'),
       Locale.fromSubtags(languageCode: 'ro'),
-      Locale.fromSubtags(languageCode: 'ru'),
       Locale.fromSubtags(languageCode: 'sk'),
       Locale.fromSubtags(languageCode: 'sl'),
       Locale.fromSubtags(languageCode: 'sv-SE'),
       Locale.fromSubtags(languageCode: 'tr'),
-      Locale.fromSubtags(languageCode: 'zh'),
     ];
   }
 
