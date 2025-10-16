@@ -33,6 +33,7 @@ import 'package:palumba_eu/modules/results/pages/results_page_7.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_8_nyc.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_9.dart';
+import 'package:palumba_eu/modules/results/pages/results_page_9_nyc.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_all_parties.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_candidate.dart';
 import 'package:palumba_eu/modules/results/pages/results_page_guid_1.dart';
@@ -261,7 +262,7 @@ class ResultsController extends GetxController {
           // ResultsPage7(),
           ResultsPageGuid1(guidPage: 2),
           ResultsPage8NYC(),
-          ResultsPage9(),
+          ResultsPage9NYC(),
           ResultsPageMoodBoard(),
           ResultsPageVoteOpinion(willVote: willVote),
           ResultsPage2ToDoList(),
