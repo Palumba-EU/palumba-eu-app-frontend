@@ -146,7 +146,7 @@ class OnboardingPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    CustomSpacer(multiplier: 7),
+                    CustomSpacer(multiplier: 2),
                   ],
                 ),
               ),

@@ -60,30 +60,27 @@ class CardFrontPage extends StatelessWidget {
           onBoardingView(context),
         if (ElectionManager.currentElection.value == Election.NY) Spacer(),
         if (ElectionManager.currentElection.value == Election.NY)
-          Positioned(
-            top: 0,
-            child: Container(
-              height: Get.height * 0.2,
-              width: Get.width * 0.8,
-              //color: AppColors.yellow,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  if (_getOnboardingEmojis() != "") onBoardingViewNY(context),
-                  AppTexts.regular(
-                      ElectionManager.currentElection.value == Election.NY
-                          ? S.of(context).tapToTurnAndLearnMoreNY
-                          : card.isOnboardingCard
-                              ? S.of(context).statementsTutorialTurnInfo_ger25
-                              : "",
-                      fontSize: 12),
-                  CustomSpacer(
-                    multiplier: 1,
-                  )
-                ],
-              ),
+          Container(
+            height: Get.height * 0.2,
+            width: Get.width * 0.8,
+            //color: AppColors.yellow,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (_getOnboardingEmojis() != "") onBoardingViewNY(context),
+                AppTexts.regular(
+                    ElectionManager.currentElection.value == Election.NY
+                        ? S.of(context).tapToTurnAndLearnMoreNY
+                        : card.isOnboardingCard
+                            ? S.of(context).statementsTutorialTurnInfo_ger25
+                            : "",
+                    fontSize: 12),
+                CustomSpacer(
+                  multiplier: 1,
+                )
+              ],
             ),
           ),
         //onBoardingView(context),
