@@ -20,175 +20,166 @@ class StatementsPage extends GetView<StatementsController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: true,
-      top: false,
-      child: Scaffold(
-        backgroundColor: AppColors.background,
-        body: Stack(
-          children: [
-            SizedBox(
-              height: Get.height,
-              child: Stack(
-                children: [
-                  //Card container
-                  Stack(
-                    children: [
-                      CustomContainerCurve(
-                        height: Get.height * .82,
-                        curveRadius: 200,
-                        color: AppColors.blue,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      body: Stack(
+        children: [
+          SizedBox(
+            height: Get.height,
+            child: Stack(
+              children: [
+                //Card container
+                Stack(
+                  children: [
+                    CustomContainerCurve(
+                      height: Get.height * .82,
+                      curveRadius: 200,
+                      color: AppColors.blue,
+                    ),
+                  ],
+                ),
+              ],
             ),
+          ),
 
-            Positioned(
-              top: Get.height * .14,
-              child: SizedBox(
-                height: Get.height * .5,
-                width: Get.width,
-                child: Stickers(),
-              ),
+          Positioned(
+            top: Get.height * .14,
+            child: SizedBox(
+              height: Get.height * .5,
+              width: Get.width,
+              child: Stickers(),
             ),
+          ),
 
-            //Custom Plaumba header
-            Obx(
-              () => controller.tutorialOngoing.value
-                  ? SafeArea(
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(top: AppDimens.lateralPaddingValue),
-                        child: Align(
-                            alignment: Alignment.topCenter,
-                            child: LastStepTitle()),
-                      ),
-                    )
-                  : SafeArea(
-                      child: IntrinsicHeight(
-                        child: AnimatedOpacity(
-                          opacity: controller.isPanStarted.value ? 0.2 : 1,
-                          duration: Durations.medium4,
-                          child: GetBuilder<StatementsController>(
-                              id: controller.cardStackKey,
-                              builder: (controller) => CustomHeader(
-                                    homeTap: controller.homeTap,
-                                    backTap: controller.returnToPreviousCard,
-                                    isBackButtonActive:
-                                        controller.frontCard?.id !=
-                                            controller.firstCardId,
-                                  )),
-                        ),
+          //Custom Plaumba header
+          Obx(
+            () => controller.tutorialOngoing.value
+                ? SafeArea(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(top: AppDimens.lateralPaddingValue),
+                      child: Align(
+                          alignment: Alignment.topCenter,
+                          child: LastStepTitle()),
+                    ),
+                  )
+                : SafeArea(
+                    child: IntrinsicHeight(
+                      child: AnimatedOpacity(
+                        opacity: controller.isPanStarted.value ? 0.2 : 1,
+                        duration: Durations.medium4,
+                        child: GetBuilder<StatementsController>(
+                            id: controller.cardStackKey,
+                            builder: (controller) => CustomHeader(
+                                  homeTap: controller.homeTap,
+                                  backTap: controller.returnToPreviousCard,
+                                  isBackButtonActive:
+                                      controller.frontCard?.id !=
+                                          controller.firstCardId,
+                                )),
                       ),
                     ),
-            ),
+                  ),
+          ),
 
-            //Card
-            GetBuilder<StatementsController>(
-              id: controller.cardStackKey,
-              init: controller,
-              builder: (controller) => (controller.frontCard != null)
-                  ? Stack(
-                      children: [
-                        if (controller.backCard != null)
-                          // background card
-                          CustomCard(
-                            isFrontCard: false,
-                            card: controller.backCard,
+          //Card
+          GetBuilder<StatementsController>(
+            id: controller.cardStackKey,
+            init: controller,
+            builder: (controller) => (controller.frontCard != null)
+                ? Stack(
+                    children: [
+                      if (controller.backCard != null)
+                        // background card
+                        CustomCard(
+                          isFrontCard: false,
+                          card: controller.backCard,
+                          angleCard: controller.angle,
+                          position: controller.backCardPosition,
+                          isPanStarted: controller.isPanStarted,
+                          cardAnimationDuration:
+                              controller.cardAnimationDuration,
+                        ),
+                      Obx(
+                        // front card
+                        () => CustomCard(
+                            isFrontCard: true,
+                            card: controller.frontCard,
+                            onPanStart: controller.onPanStart,
+                            onPanUpdate: controller.onPanUpdate,
+                            onPanEnd: controller.onPanEnd,
                             angleCard: controller.angle,
-                            position: controller.backCardPosition,
+                            position: controller.frontCardposition,
                             isPanStarted: controller.isPanStarted,
                             cardAnimationDuration:
                                 controller.cardAnimationDuration,
-                          ),
-                        Obx(
-                          // front card
-                          () => CustomCard(
-                              isFrontCard: true,
-                              card: controller.frontCard,
-                              onPanStart: controller.onPanStart,
-                              onPanUpdate: controller.onPanUpdate,
-                              onPanEnd: controller.onPanEnd,
-                              angleCard: controller.angle,
-                              position: controller.frontCardposition,
-                              isPanStarted: controller.isPanStarted,
-                              cardAnimationDuration:
-                                  controller.cardAnimationDuration,
-                              currentDraggedResponseStatement:
-                                  controller.currentDraggedResponseStatement,
-                              flipCardController: controller.flipCardController,
-                              selectedResponseStatement:
-                                  controller.selectedResponseStatement.value,
-                              onFlip: controller.onFlip,
-                              scrollController:
-                                  controller.frontCardScrollController),
-                        )
-                      ],
-                    )
-                  : SizedBox.shrink(),
-            ),
+                            currentDraggedResponseStatement:
+                                controller.currentDraggedResponseStatement,
+                            flipCardController: controller.flipCardController,
+                            selectedResponseStatement:
+                                controller.selectedResponseStatement.value,
+                            onFlip: controller.onFlip,
+                            scrollController:
+                                controller.frontCardScrollController),
+                      )
+                    ],
+                  )
+                : SizedBox.shrink(),
+          ),
 
-            //Buttons
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: SizedBox(
-                height: Get.height * .3,
-                child: Stack(
-                  children: [neutralButton(context), agreeButtons()],
-                ),
+          //Buttons
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              height: Get.height * .3,
+              child: Stack(
+                children: [neutralButton(context), agreeButtons()],
               ),
             ),
+          ),
 
-            //TOP BANNER SHOWED IN HALF AND LAST 5 STATEMENTS
-            Obx(() => IntrinsicHeight(
-                  child: Opacity(
-                    opacity: controller.bannerOpacity,
-                    child: AnimatedContainer(
-                      duration: controller.bannerDuration,
-                      curve: Curves.easeInOutBack,
-                      transform: Matrix4.identity()
-                        ..translate(controller.bannerPosition.dx,
-                            controller.bannerPosition.dy, 0),
-                      margin: AppDimens.lateralPadding,
-                      padding: EdgeInsets.symmetric(
-                          horizontal: AppDimens.smallLateralPaddingValue,
-                          vertical: AppDimens.lateralPaddingValue),
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.all(
-                              Radius.circular(AppDimens.largeBorderRadius)),
-                          border: Border.all(
-                            color: AppColors.lightPrimary,
-                            width: AppDimens.borderWidth * 2,
-                          )),
-                      child: AppTexts.regular(
-                          controller.halfBannerShowed
-                              ? S.of(context).message_five_cards_left
-                              : S.of(context).message_half_test_done,
-                          bold: true,
-                          black: false,
-                          textAlign: TextAlign.center),
-                    ),
+          //TOP BANNER SHOWED IN HALF AND LAST 5 STATEMENTS
+          Obx(() => IntrinsicHeight(
+                child: Opacity(
+                  opacity: controller.bannerOpacity,
+                  child: AnimatedContainer(
+                    duration: controller.bannerDuration,
+                    curve: Curves.easeInOutBack,
+                    transform: Matrix4.identity()
+                      ..translate(controller.bannerPosition.dx,
+                          controller.bannerPosition.dy, 0),
+                    margin: AppDimens.lateralPadding,
+                    padding: EdgeInsets.symmetric(
+                        horizontal: AppDimens.smallLateralPaddingValue,
+                        vertical: AppDimens.lateralPaddingValue),
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(AppDimens.largeBorderRadius)),
+                        border: Border.all(
+                          color: AppColors.lightPrimary,
+                          width: AppDimens.borderWidth * 2,
+                        )),
+                    child: AppTexts.regular(
+                        controller.halfBannerShowed
+                            ? S.of(context).message_five_cards_left
+                            : S.of(context).message_half_test_done,
+                        bold: true,
+                        black: false,
+                        textAlign: TextAlign.center),
                   ),
-                ))
-          ],
-        ),
+                ),
+              ))
+        ],
       ),
     );
   }
 
   Widget neutralButton(BuildContext context) {
-    final curveHeight = Get.height * .2;
-    final buttonTopPosition = curveHeight / 2;
-
     return Padding(
-      padding: /*EdgeInsets.only(
-          top: Get.height * .08)*/
-          EdgeInsets.only(top: buttonTopPosition + 15),
+      padding: EdgeInsets.only(top: Get.height * .08),
       child: Align(
         alignment: Alignment.topCenter,
         child: Obx(

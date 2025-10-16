@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,15 @@ enum _HeightScreenPart { top, middle, bottom }
 class StatementsController extends GetxController {
   static const route = '/statements';
   final String cardStackKey = "cardStackKey";
+
+  RxDouble middleButtonHeight = 0.0.obs;
+
+  void updateMiddleButtonHeight(double height) {
+    if (middleButtonHeight.value != height) {
+      middleButtonHeight.value = height;
+      update(); // notify GetBuilder if used
+    }
+  }
 
   List<CardModel> _allCards = [];
   List<CardModel> _currentCards = [];

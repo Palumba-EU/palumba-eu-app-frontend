@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/statement_response.dart';
 import 'package:palumba_eu/global_widgets/bubble_buttons/custom_big_button.dart';
 import 'package:palumba_eu/global_widgets/bubble_buttons/custom_small_button.dart';
+
 import '../../statements_screen_controller.dart';
 
 class DecisionButtons extends GetView<StatementsController> {
-  const DecisionButtons({
+  DecisionButtons({
     super.key,
     required this.onTap,
     required this.onLongPressStart,
@@ -17,8 +18,18 @@ class DecisionButtons extends GetView<StatementsController> {
   final Function(StatementResponse) onLongPressStart;
   final Function(StatementResponse, LongPressEndDetails) onLongPressEnd;
 
+  final _middleButtonKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
+    /* WidgetsBinding.instance.addPostFrameCallback((_) {
+      final renderBox =
+          _middleButtonKey.currentContext?.findRenderObject() as RenderBox?;
+      if (renderBox != null) {
+        final height = renderBox.size.height;
+        controller.updateMiddleButtonHeight(height);
+      }
+    });
+*/
     return Stack(
       children: [
         Padding(
@@ -128,6 +139,7 @@ class DecisionButtons extends GetView<StatementsController> {
               child: IgnorePointer(
                 ignoring: controller.buttonsBlocked,
                 child: CustomSmallButtonCurve(
+                  key: _middleButtonKey,
                   curveRadius: 50,
                   isSelected: false,
                   icon: 'ic_cross',
@@ -157,6 +169,7 @@ class DecisionButtons extends GetView<StatementsController> {
               child: IgnorePointer(
                 ignoring: controller.buttonsBlocked,
                 child: CustomSmallButtonCurve(
+                  //key: _middleButtonKey,
                   curveRadius: 50,
                   isSelected: false,
                   icon: 'ic_check',
