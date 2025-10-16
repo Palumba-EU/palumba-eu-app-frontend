@@ -103,10 +103,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "compatible": MessageLookupByLibrary.simpleMessage("compatible"),
     "dataProtectionText1": MessageLookupByLibrary.simpleMessage(
-      "me adhiero a la",
+      "Cumplo con la ",
     ),
     "dataProtectionText2": MessageLookupByLibrary.simpleMessage(
-      "y los Términos de uso de la aplicación",
+      " y los Términos para usar la aplicación",
     ),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Vamos a explorar tu compatibilidad con todos los candidatos y políticas en las próximas pantallas. Toca la derecha/izquierda de la pantalla para navegar.",
@@ -477,7 +477,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially progressive",
     ),
     "resultsPage4TitleBottom_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Mercado libre fuerte",
+      "Libre mercado sólido",
     ),
     "resultsPage4TitleLeft": MessageLookupByLibrary.simpleMessage("Izquierda"),
     "resultsPage4TitleLeft_ger25": MessageLookupByLibrary.simpleMessage(
@@ -500,7 +500,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Socially conservative",
     ),
     "resultsPage4TitleTop_nyc25": MessageLookupByLibrary.simpleMessage(
-      "Pago justo",
+      "Remuneración justa",
     ),
     "resultsPage4TitleUserHere": MessageLookupByLibrary.simpleMessage(
       "¡Soy yo, hola!",
@@ -516,6 +516,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resultsPage5Title_ger25": MessageLookupByLibrary.simpleMessage(
       "On more specific topics, which parties am I closest to?",
+    ),
+    "resultsPage5Title_nyc": MessageLookupByLibrary.simpleMessage(
+      "Como dijo Hannah Montana: \'nadie es perfecto\'... así que aquí tienes tu coincidencia tema por tema.",
     ),
     "resultsPage5Title_nyc25": MessageLookupByLibrary.simpleMessage(
       "En temas más específicos, ¿a qué candidatura me acerco más?",

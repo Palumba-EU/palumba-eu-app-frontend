@@ -60,6 +60,7 @@ class LanguagePage extends StatelessWidget {
                     alignment: Alignment.bottomRight,
                     child: CustomButton(
                       onPressed: () {
+                        _.onLanguagePressed(_.indexSelected.value);
                         _.onContinueTap();
                       },
                       color: AppColors.yellow,

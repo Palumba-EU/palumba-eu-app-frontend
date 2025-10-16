@@ -2899,20 +2899,20 @@ class S {
     );
   }
 
-  /// `I adhere to the`
+  /// `I adhere to the `
   String get dataProtectionText1 {
     return Intl.message(
-      'I adhere to the',
+      'I adhere to the ',
       name: 'dataProtectionText1',
       desc: '',
       args: [],
     );
   }
 
-  /// `and the Terms to use the app`
+  /// ` and the Terms to use the app`
   String get dataProtectionText2 {
     return Intl.message(
-      'and the Terms to use the app',
+      ' and the Terms to use the app',
       name: 'dataProtectionText2',
       desc: '',
       args: [],
@@ -2950,10 +2950,12 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'pl'),
       Locale.fromSubtags(languageCode: 'pt-PT'),
       Locale.fromSubtags(languageCode: 'ro'),
+      Locale.fromSubtags(languageCode: 'ru'),
       Locale.fromSubtags(languageCode: 'sk'),
       Locale.fromSubtags(languageCode: 'sl'),
       Locale.fromSubtags(languageCode: 'sv-SE'),
       Locale.fromSubtags(languageCode: 'tr'),
+      Locale.fromSubtags(languageCode: 'zh'),
     ];
   }
 

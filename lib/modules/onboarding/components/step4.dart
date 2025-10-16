@@ -95,7 +95,7 @@ class Step4 extends StatelessWidget {
                     ), // Default text style
                     children: [
                       TextSpan(
-                        text: '${S.of(context).dataProtectionText1} ',
+                        text: '${S.of(context).dataProtectionText1}',
                       ),
                       TextSpan(
                         text:
@@ -105,7 +105,7 @@ class Step4 extends StatelessWidget {
                           ..onTap = launchDataPrivcay,
                       ),
                       TextSpan(
-                        text: ' ${S.of(context).dataProtectionText2} ',
+                        text: '${S.of(context).dataProtectionText2}',
                       ),
                     ],
                   ),

@@ -96,7 +96,6 @@
   "homePageMatchesFoundQuote": "{count} coincidencias encontradas en las últimas 24 h",
   "homePageBackToTest": "Volver al test",
   "homePageMyResults": "Mis resultados · Volver al test",
-  "homePageMyResultsSingle": "Mis resultados",
   "homePageStartButton": "Nueva prueba de Palumba",
   "@@SettingsPage": "SettingsPage",
   "settingsPageTitleLanguage": "Idioma",
@@ -394,9 +393,9 @@
   "@resultsPage2_2Title_nyc25": { "description": "-> resultsPage2_2Title" },
   "resultsPage3Title_nyc25": "Qué tan cerca estoy de las candidaturas a la Alcaldía",
   "@resultsPage3Title_nyc25": { "description": "-> resultsPage3Title" },
-  "resultsPage4TitleTop_nyc25": "Pago justo",
+  "resultsPage4TitleTop_nyc25": "Remuneración justa",
   "@resultsPage4TitleTop_nyc25": { "description": "-> resultsPage4TitleTop" },
-  "resultsPage4TitleBottom_nyc25": "Mercado libre fuerte",
+  "resultsPage4TitleBottom_nyc25": "Libre mercado sólido",
   "@resultsPage4TitleBottom_nyc25": { "description": "-> resultsPage4TitleBottom" },
   "resultsPage4TitleLeft_nyc25": "Planificación pragmática",
   "@resultsPage4TitleLeft_nyc25": { "description": "-> resultsPage4TitleLeft" },
@@ -529,7 +528,8 @@
   "seeMore":"Ver más >",
   "resultsPage8_1Text_ny_25":"Cuando se trata de {topic}, estás totalmente comprometido",
   "tapToTurnAndLearnMoreNY": "Toca para girar y obtener más información",
-"dataProtectionText1": "me adhiero a la",
-"dataProtectionText2": "y los Términos de uso de la aplicación"
-
+  "dataProtectionText1": "Cumplo con la ",
+  "dataProtectionText2": " y los Términos para usar la aplicación",
+  "homePageMyResultsSingle": "Mis resultados",
+  "resultsPage5Title_nyc": "Como dijo Hannah Montana: 'nadie es perfecto'... así que aquí tienes tu coincidencia tema por tema."
 }

@@ -54,10 +54,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
     "cancel": MessageLookupByLibrary.simpleMessage("Отказ"),
     "dataProtectionText1": MessageLookupByLibrary.simpleMessage(
-      "I adhere to the",
+      "I adhere to the ",
     ),
     "dataProtectionText2": MessageLookupByLibrary.simpleMessage(
-      "and the Terms to use the app",
+      " and the Terms to use the app",
     ),
     "denmark": MessageLookupByLibrary.simpleMessage("Дания"),
     "electionDE": MessageLookupByLibrary.simpleMessage(

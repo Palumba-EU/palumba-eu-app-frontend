@@ -55,10 +55,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EB"),
     "cancel": MessageLookupByLibrary.simpleMessage("Ezeztatu"),
     "dataProtectionText1": MessageLookupByLibrary.simpleMessage(
-      "I adhere to the",
+      "I adhere to the ",
     ),
     "dataProtectionText2": MessageLookupByLibrary.simpleMessage(
-      "and the Terms to use the app",
+      " and the Terms to use the app",
     ),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Let’s deep dive into your compatibility with all candidates & policies in the next screens. Tap the right/left of the screen to navigate.",

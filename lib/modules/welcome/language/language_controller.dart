@@ -87,8 +87,7 @@ class LanguageController extends GetxController {
    */
   void onLanguagePressed(int index) {
     indexSelected.value = index;
-
-    UserManager.setLanguageCode(languages[indexSelected.value].id!.toString());
+    UserManager.setLanguageCode(languages[indexSelected.value].languagecode!);
     LanguageManager.setLanguage(languages[indexSelected.value].languagecode!);
     _localDataRepository.language =
         languages[indexSelected.value].languagecode!;

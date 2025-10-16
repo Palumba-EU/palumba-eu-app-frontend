@@ -56,10 +56,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName": MessageLookupByLibrary.simpleMessage("Palumba EU"),
     "cancel": MessageLookupByLibrary.simpleMessage("Abbrechen"),
     "dataProtectionText1": MessageLookupByLibrary.simpleMessage(
-      "Ich halte mich daran",
+      "Ich halte mich daran ",
     ),
     "dataProtectionText2": MessageLookupByLibrary.simpleMessage(
-      "und die Bedingungen zur Nutzung der App",
+      " und die Bedingungen zur Nutzung der App",
     ),
     "deepDiveIntro": MessageLookupByLibrary.simpleMessage(
       "Lassen Sie uns Ihre Kompatibilität mit allen Kandidaten und Richtlinien auf den nächsten Bildschirmen genauer betrachten. Tippen Sie auf die rechte/linke Seite des Bildschirms, um zu navigieren.",
