@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 
@@ -15,15 +16,27 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
 
   @override
   Widget build(BuildContext context) {
+    print("shareButtonHeight :: ${controller.shareButtonHeight.value}");
+
     return SafeArea(
       child: Container(
-        height: Get.height * 1,
+        //color: AppColors.blue,
         child: Column(
           children: [
             // CustomSpacer(multiplier: 6),
-            SizedBox(height: (Get.width * .28) / 2),
-            _buildMainCard(context),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: (Get.width * .28) / 2),
+                  _buildMainCard(context),
+                ],
+              ),
+            ),
+
             Spacer(),
+            CustomSpacer(
+              multiplier: 1,
+            ),
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 child: AppTexts.title(
@@ -31,7 +44,10 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                     color: AppColors.primary,
                     fontSize: 22,
                     textAlign: TextAlign.center)),
-            Spacer(),
+            SizedBox(
+              height: controller.shareButtonHeight.value,
+            )
+            //Spacer(),
           ],
         ),
       ),
@@ -45,7 +61,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
       children: [
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 25),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
           decoration: BoxDecoration(
             color: const Color(0xFFFDFDF7), // Light cream color
             borderRadius: BorderRadius.circular(16),
@@ -73,7 +89,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                   color: AppColors.primary,
                   textAlign: TextAlign.center,
                   fontSize: 14),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
@@ -96,7 +112,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                               bold: false, color: AppColors.primary)),
                     ],
                   )),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -119,11 +135,10 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               _buildRankingSection(context),
               const SizedBox(height: 20),
               if (controller.topics.isNotEmpty) _buildTopicsSection(context),
-              const SizedBox(height: 10)
             ],
           ),
         ),

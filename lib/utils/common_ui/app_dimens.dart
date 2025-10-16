@@ -41,6 +41,4 @@ class AppDimens {
 
   /// Widget Sizes
   static const avatarImageSize = 48.0;
-
-
 }

@@ -202,10 +202,14 @@ class ResultsPage extends GetView<ResultsController> {
                 SafeArea(
                   bottom: false,
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      CustomSpacer(
+                      /*CustomSpacer(
                         multiplier: 1,
+                      ),*/
+                      SizedBox(
+                        height: Get.height * 0.01,
                       ),
                       //Progressbar
                       Padding(
@@ -233,7 +237,7 @@ class ResultsPage extends GetView<ResultsController> {
                       ),
 
                       //Pages
-                      Column(children: [
+                      Column(mainAxisSize: MainAxisSize.min, children: [
                         Screenshot(
                           controller: controller.foregroundScreenshotController,
                           child: AspectRatio(
@@ -289,6 +293,7 @@ class ResultsPage extends GetView<ResultsController> {
                                   CustomSpacer(
                                     multiplier: 1,
                                   ),
+
                                   Expanded(
                                       child: PageView.builder(
                                           physics:
@@ -299,8 +304,8 @@ class ResultsPage extends GetView<ResultsController> {
                                           itemBuilder: (context, index) =>
                                               controller.pages[index])),
 
-                                  /* CustomSpacer(
-                                    multiplier: 13,
+                                  /* SizedBox(
+                                    height: Get.height * .05,
                                   )*/
                                 ],
                               )),
@@ -311,7 +316,7 @@ class ResultsPage extends GetView<ResultsController> {
                 ),
 
                 //Share button only showed in showButtonSharePages
-                Obx(
+                /*Obx(
                   () => controller.loadingShare
                       ? SizedBox.shrink()
                       : controller.currentPage.showShare
@@ -362,6 +367,80 @@ class ResultsPage extends GetView<ResultsController> {
                               ),
                             )
                           : SizedBox.shrink(),
+                ),*/
+                Obx(
+                  () => controller.loadingShare
+                      ? const SizedBox.shrink()
+                      : controller.currentPage.showShare
+                          ? Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal:
+                                    AppDimens.bigLateralPaddingValue * 2,
+                                vertical: AppDimens.bigLateralPaddingValue,
+                              ),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: LayoutBuilder(
+                                  builder: (context, constraints) {
+                                    WidgetsBinding.instance
+                                        .addPostFrameCallback((_) {
+                                      final renderBox = controller
+                                          .shareButtonKey.currentContext
+                                          ?.findRenderObject() as RenderBox?;
+                                      if (renderBox != null) {
+                                        final height = renderBox.size.height;
+                                        if (controller
+                                                .shareButtonHeight.value !=
+                                            height) {
+                                          controller.shareButtonHeight.value =
+                                              height;
+                                        }
+                                      }
+                                    });
+                                    return CustomButton(
+                                      key: controller.shareButtonKey,
+                                      loading: controller.loadingShare,
+                                      text: S.of(context).resultsShare,
+                                      expanded: true,
+                                      onPressed: controller.shareContent,
+                                      prefixIcon: IconButtonParameters(
+                                        'ic_share',
+                                        size: 18,
+                                        color: controller.currentPage
+                                                    .showSpecialBackground ||
+                                                controller.currentPage
+                                                    .showMemesBackground
+                                            ? Colors.white
+                                            : AppColors.primary,
+                                      ),
+                                      radius: AppDimens.borderRadius,
+                                      color: controller.currentPage
+                                                  .showSpecialBackground ||
+                                              controller.currentPage
+                                                  .showMemesBackground
+                                          ? AppColors.primary
+                                          : AppColors.yellow,
+                                      textColor: controller.currentPage
+                                                  .showSpecialBackground ||
+                                              controller.currentPage
+                                                  .showMemesBackground
+                                          ? Colors.white
+                                          : AppColors.primary,
+                                      bold: true,
+                                      border: ButtonBorderParameters(
+                                        isOutside: true,
+                                        width: 3,
+                                        color: controller.currentPage
+                                                .showSpecialBackground
+                                            ? AppColors.lightPrimary
+                                            : AppColors.lightYellow,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            )
+                          : const SizedBox.shrink(),
                 ),
               ],
             )),

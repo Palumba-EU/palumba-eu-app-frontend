@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/card_model.dart';
 import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/data/model/statement_response.dart';
@@ -30,11 +31,15 @@ class CardFrontPage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
       children: [
-        CustomSpacer(multiplier: 6),
+        SizedBox(
+          height: Get.height * 0.05,
+        ),
         emojiView(),
-        CustomSpacer(multiplier: 2),
-        CustomSpacer(small: true),
+        SizedBox(
+          height: Get.height * 0.02,
+        ),
         RichText(
             text: TextSpan(
                 style: AppTexts.customTextStyle(AppTextType.regular,
@@ -47,17 +52,39 @@ class CardFrontPage extends StatelessWidget {
                             color: text[index] == '*'
                                 ? AppColors.lightPrimary
                                 : Colors.white))))),
+        SizedBox(
+          height: Get.height * 0.02,
+        ),
         if (card.isOnboardingCard &&
             ElectionManager.currentElection.value != Election.NY)
           onBoardingView(context),
+        if (ElectionManager.currentElection.value == Election.NY) Spacer(),
         if (ElectionManager.currentElection.value == Election.NY)
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              // if (_getOnboardingEmojis() == "") Spacer(),
-              onBoardingView(context)
-            ],
+          Positioned(
+            top: 0,
+            child: Container(
+              height: Get.height * 0.2,
+              width: Get.width * 0.8,
+              //color: AppColors.yellow,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  if (_getOnboardingEmojis() != "") onBoardingViewNY(context),
+                  AppTexts.regular(
+                      ElectionManager.currentElection.value == Election.NY
+                          ? S.of(context).tapToTurnAndLearnMoreNY
+                          : card.isOnboardingCard
+                              ? S.of(context).statementsTutorialTurnInfo_ger25
+                              : "",
+                      fontSize: 12),
+                  CustomSpacer(
+                    multiplier: 1,
+                  )
+                ],
+              ),
+            ),
           ),
         //onBoardingView(context),
         CustomSpacer(small: true)
@@ -79,10 +106,6 @@ class CardFrontPage extends StatelessWidget {
               const EdgeInsets.only(top: AppDimens.largeLateralPaddingValue),
           child: Column(
             children: [
-              CustomSpacer(
-                multiplier: 3,
-              ),
-              // if (_getOnboardingEmojis() != "")
               Container(
                 decoration: BoxDecoration(
                     boxShadow: [
@@ -105,15 +128,46 @@ class CardFrontPage extends StatelessWidget {
                 multiplier: 2,
               ),
               AppTexts.regular(
-                  ElectionManager.currentElection.value == Election.NY
-                      ? S.of(context).tapToTurnAndLearnMoreNY
-                      : card.isOnboardingCard
-                          ? S.of(context).statementsTutorialTurnInfo_ger25
-                          : "",
+                  card.isOnboardingCard
+                      ? S.of(context).statementsTutorialTurnInfo_ger25
+                      : "",
                   fontSize: 12),
               CustomSpacer(
                 multiplier: 1,
               )
+            ],
+          )),
+    );
+  }
+
+  Widget onBoardingViewNY(BuildContext context) {
+    return Center(
+      child: Padding(
+          padding:
+              const EdgeInsets.only(top: AppDimens.mediumLateralPaddingValue),
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: _getBackgroundEmojiColor(),
+                        spreadRadius: 0,
+                        blurRadius: 48,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
+                    color: _getBackgroundEmojiColor(),
+                    borderRadius: BorderRadius.circular(50)),
+                padding: EdgeInsets.symmetric(vertical: 12.5, horizontal: 22.5),
+                child: Text(
+                  _getOnboardingEmojis(),
+                  style: TextStyle(fontSize: 32),
+                ),
+              ),
+              CustomSpacer(
+                multiplier: 2,
+              ),
             ],
           )),
     );

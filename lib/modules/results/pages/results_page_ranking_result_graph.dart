@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palumba_eu/data/model/election.dart';
-import 'package:palumba_eu/global_widgets/custom_spacer.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
-import 'package:palumba_eu/utils/managers/election_manager.dart';
 
 import '../../../global_widgets/custom_network_image.dart';
+import '../../../utils/managers/election_manager.dart';
 import '../../../utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class ResultsPageRankingResultGraph extends GetView<ResultsController>
@@ -57,35 +56,44 @@ class ResultsPageRankingResultGraph extends GetView<ResultsController>
 
     return SafeArea(
       child: Container(
-        height: Get.height,
         color: ElectionManager.currentElection.value.background,
+        // color: AppColors.blue,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
-          spacing: 20,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisSize: MainAxisSize.max,
+          // spacing: 20,
           children: [
             // CustomSpacer(multiplier: 3),
             if (candidates.isNotEmpty)
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  spacing: 38,
-                  children: candidates.map((candidate) {
-                    return CandidateBar(
-                        percentage: candidate.percentage,
-                        name: candidate.name.split(" ")[1],
-                        color: candidate.color,
-                        image: candidate.imagePath);
-                  }).toList(),
+              Expanded(
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    spacing: 38,
+                    children: candidates.map((candidate) {
+                      return CandidateBar(
+                          percentage: candidate.percentage,
+                          name: candidate.name.split(" ")[1],
+                          color: candidate.color,
+                          image: candidate.imagePath);
+                    }).toList(),
+                  ),
                 ),
               ),
+
             Padding(
-              padding: AppDimens.lateralPadding,
+              padding: EdgeInsetsGeometry.symmetric(
+                  horizontal: AppDimens.bigLateralPaddingValue, vertical: 10),
               child: AppTexts.title(S.of(context).likeFootballFantasy,
                   color: AppColors.primary, textAlign: TextAlign.center),
             ),
-            CustomSpacer(
+            /*CustomSpacer(
               multiplier: 2,
+            )*/
+            SizedBox(
+              height: controller.shareButtonHeight.value,
             )
           ],
         ),

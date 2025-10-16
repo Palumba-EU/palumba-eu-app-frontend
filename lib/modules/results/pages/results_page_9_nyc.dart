@@ -90,8 +90,11 @@ class ResultsPage9NYC extends GetView<ResultsController> with ResultsPage {
               ],
             ),
           ),
-          SizedBox(
+          /* SizedBox(
             height: Get.height * 0.05,
+          )*/
+          SizedBox(
+            height: controller.shareButtonHeight.value,
           )
         ],
       ),

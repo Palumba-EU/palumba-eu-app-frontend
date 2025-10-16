@@ -44,7 +44,48 @@ class SettingsPageController extends GetxController {
     appVersionAndBuildNumber.value = appVersion + " (" + buildNumber + ")";
   }
 
-  void _initSponsors() async {
+  Future<void> _initSponsors() async {
+    categoriesSponsors.value = null; // 🔥 show loader while fetching
+    await Future.delayed(
+        Duration(milliseconds: 100)); // optional visual smoothness
+
+    var response = DataManager().getSponsors();
+
+    var categories = <CategorySponsor>[];
+    var category = '';
+    var sponsors = <Sponsor>[];
+    for (var i = 0; i < response.length; i++) {
+      var sponsor = response[i];
+      if (category.isNotEmpty && category != sponsor.category) {
+        var current = categories
+            .firstWhereOrNull((element) => element.category == category);
+        if (current != null) {
+          current.sponsors.addAll(sponsors);
+        } else {
+          categories
+              .add(CategorySponsor(category: category, sponsors: sponsors));
+        }
+        sponsors = [];
+      }
+
+      category = sponsor.category ?? '';
+      sponsors.add(sponsor);
+    }
+
+    var current =
+        categories.firstWhereOrNull((element) => element.category == category);
+    if (current != null) {
+      current.sponsors.addAll(sponsors);
+    } else {
+      categories.add(CategorySponsor(category: category, sponsors: sponsors));
+    }
+
+    categoriesSponsors.value = [
+      ...categories
+    ]; // 🔥 clone to trigger Obx update
+  }
+
+  /* void _initSponsors() async {
     var response = DataManager().getSponsors();
 
     var categories = <CategorySponsor>[];
@@ -78,7 +119,7 @@ class SettingsPageController extends GetxController {
     }
 
     categoriesSponsors.value = categories;
-  }
+  }*/
 
   goToSelectLanguage() async {
     final result = await Get.toNamed(LanguageController.route);
@@ -99,9 +140,12 @@ class SettingsPageController extends GetxController {
 
   goToSelectElection() async {
     var result = await Get.toNamed(ElectionController.route);
+    print("goToSelectElection : result $result");
     if (result == true) {
       update([rebuildElectionKey]);
     }
+    // await _initSponsors();
+    onInit();
   }
 
   Election getSelectedElection() {

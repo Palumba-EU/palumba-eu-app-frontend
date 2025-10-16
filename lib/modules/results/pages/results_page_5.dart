@@ -57,9 +57,12 @@ class ResultsPage5 extends GetView<ResultsController> with ResultsPage {
               );
             },
             itemCount: controller.topics.length),
-        CustomSpacer(
+        /*CustomSpacer(
           multiplier: 2,
-        ),
+        ),*/
+        SizedBox(
+          height: controller.shareButtonHeight.value,
+        )
       ],
     ));
   }
