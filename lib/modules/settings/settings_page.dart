@@ -208,6 +208,7 @@ class SettingsPage extends StatelessWidget {
 
   Widget _wrapperIcons(SettingsPageController _) {
     return Obx(() {
+      print("_wrapperIcons ${_.categoriesSponsors.value?.length}");
       if (_.categoriesSponsors.value == null) {
         return Padding(
           padding: const EdgeInsets.only(top: 15),
@@ -220,6 +221,8 @@ class SettingsPage extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           itemCount: _.categoriesSponsors.value!.length,
           itemBuilder: (context, index) {
+            print(
+                "_wrapperIcons inner ${_.categoriesSponsors.value![index].sponsors.length}");
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

@@ -36,16 +36,13 @@ class ElectionManager {
 
   static setElection(Election election) async {
     // reset pre election data
+    print("setElection ${currentElection.value} != ${election}");
     if (currentElection.value != election) {
       final LocalDataRepository _localDataRepository =
           Get.find<LocalDataRepository>();
       _localDataRepository.answers = null;
       _localDataRepository.results = null;
 
-      // TODO:
-      // clean up this answers code completely.
-      // No view should directly use the _localDataRepository,
-      // but have a ViewModel wrapper which holds Rx instances writing back and forth with _localDataRepository
       if (Get.isRegistered<HomePageController>()) {
         // If it is for some reason not registerd, the init runs the function anyway
         Get.find<HomePageController>().obtainLocalStoredLastResults();

@@ -201,117 +201,121 @@ class ResultsPage extends GetView<ResultsController> {
 
                 SafeArea(
                   bottom: false,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      /*CustomSpacer(
-                        multiplier: 1,
-                      ),*/
-                      SizedBox(
-                        height: Get.height * 0.01,
-                      ),
-                      //Progressbar
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: AppDimens.lateralPaddingValue),
-                        child: Obx(() => CustomProgressBar(
-                              step: controller.currentPageIndex.value,
-                              totalSteps: controller.pages.length,
-                              width: double.infinity,
-                              isDotted: true,
-                              progressColor:
-                                  controller.currentPage.showGuidBackground ==
-                                              true ||
-                                          controller.currentPage
-                                                  .showBackgroundOpinion ==
-                                              true
-                                      ? AppColors.yellow
-                                      : AppColors.primary,
-                              backgroundColor:
-                                  controller.currentPage.showMemesBackground ==
-                                          true
-                                      ? AppColors.background
-                                      : AppColors.lightPrimary,
-                            )),
-                      ),
-
-                      //Pages
-                      Column(mainAxisSize: MainAxisSize.min, children: [
-                        Screenshot(
-                          controller: controller.foregroundScreenshotController,
-                          child: AspectRatio(
-                              aspectRatio: 9 / 16,
-                              child: Column(
-                                children: [
-                                  CustomSpacer(
-                                    multiplier: 3,
-                                  ),
-                                  //Rounded image and #appname
-
-                                  Obx(() => controller.currentPage
-                                                  .showGuidBackground ==
-                                              true ||
-                                          controller.currentPage
-                                                  .showBackgroundOpinion ==
-                                              true
-                                      ? SizedBox()
-                                      : Padding(
-                                          padding: AppDimens.lateralPadding,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              /* Obx(() => SvgPicture.asset(
-                                              ElectionManager.currentElection
-                                                  .value.logoCircle,
-                                              height: 40,
-                                            )),*/
-
-                                              Obx(() {
-                                                final asset = ElectionManager
-                                                    .currentElection
-                                                    .value
-                                                    .logoCircle;
-                                                return buildImage(asset);
-                                              }),
-                                              /*if (kDebugMode)
-                                                Obx(() => AppTexts.small(
-                                                    (controller.currentPageIndex.value + 1)
-                                                        .toString(),
-                                                    color:
-                                                        AppColors.primary)),*/
-                                              Spacer(),
-                                              AppTexts.title(
-                                                  '#${S.of(context).shortAppName}',
-                                                  forceCaprasimo: true,
-                                                  color: AppColors.primary),
-                                            ],
-                                          ),
-                                        )),
-
-                                  CustomSpacer(
-                                    multiplier: 1,
-                                  ),
-
-                                  Expanded(
-                                      child: PageView.builder(
-                                          physics:
-                                              NeverScrollableScrollPhysics(),
-                                          allowImplicitScrolling: true,
-                                          controller: controller.pageController,
-                                          itemCount: controller.pages.length,
-                                          itemBuilder: (context, index) =>
-                                              controller.pages[index])),
-
-                                  /* SizedBox(
-                                    height: Get.height * .05,
-                                  )*/
-                                ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        /*CustomSpacer(
+                          multiplier: 1,
+                        ),*/
+                        SizedBox(
+                          height: Get.height * 0.01,
+                        ),
+                        //Progressbar
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.lateralPaddingValue),
+                          child: Obx(() => CustomProgressBar(
+                                step: controller.currentPageIndex.value,
+                                totalSteps: controller.pages.length,
+                                width: double.infinity,
+                                isDotted: true,
+                                progressColor:
+                                    controller.currentPage.showGuidBackground ==
+                                                true ||
+                                            controller.currentPage
+                                                    .showBackgroundOpinion ==
+                                                true
+                                        ? AppColors.yellow
+                                        : AppColors.primary,
+                                backgroundColor: controller
+                                            .currentPage.showMemesBackground ==
+                                        true
+                                    ? AppColors.background
+                                    : AppColors.lightPrimary,
                               )),
-                        )
-                      ])
-                    ],
+                        ),
+
+                        //Pages
+                        Column(mainAxisSize: MainAxisSize.min, children: [
+                          Screenshot(
+                            controller:
+                                controller.foregroundScreenshotController,
+                            child: AspectRatio(
+                                aspectRatio: 9 / 16,
+                                child: Column(
+                                  children: [
+                                    CustomSpacer(
+                                      multiplier: 3,
+                                    ),
+                                    //Rounded image and #appname
+
+                                    Obx(() => controller.currentPage
+                                                    .showGuidBackground ==
+                                                true ||
+                                            controller.currentPage
+                                                    .showBackgroundOpinion ==
+                                                true
+                                        ? SizedBox()
+                                        : Padding(
+                                            padding: AppDimens.lateralPadding,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                /* Obx(() => SvgPicture.asset(
+                                                ElectionManager.currentElection
+                                                    .value.logoCircle,
+                                                height: 40,
+                                              )),*/
+
+                                                Obx(() {
+                                                  final asset = ElectionManager
+                                                      .currentElection
+                                                      .value
+                                                      .logoCircle;
+                                                  return buildImage(asset);
+                                                }),
+                                                /*if (kDebugMode)
+                                                  Obx(() => AppTexts.small(
+                                                      (controller.currentPageIndex.value + 1)
+                                                          .toString(),
+                                                      color:
+                                                          AppColors.primary)),*/
+                                                Spacer(),
+                                                AppTexts.title(
+                                                    '#${S.of(context).shortAppName}',
+                                                    forceCaprasimo: true,
+                                                    color: AppColors.primary),
+                                              ],
+                                            ),
+                                          )),
+
+                                    CustomSpacer(
+                                      multiplier: 1,
+                                    ),
+
+                                    Expanded(
+                                        child: PageView.builder(
+                                            physics:
+                                                NeverScrollableScrollPhysics(),
+                                            allowImplicitScrolling: true,
+                                            controller:
+                                                controller.pageController,
+                                            itemCount: controller.pages.length,
+                                            itemBuilder: (context, index) =>
+                                                controller.pages[index])),
+
+                                    /* SizedBox(
+                                      height: Get.height * .05,
+                                    )*/
+                                  ],
+                                )),
+                          )
+                        ])
+                      ],
+                    ),
                   ),
                 ),
 

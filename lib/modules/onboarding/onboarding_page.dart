@@ -200,7 +200,7 @@ class OnboardingPage extends StatelessWidget {
                           ),
                           Positioned(
                             top: Get.height * .14,
-                            child: SizedBox(
+                            child: Container(
                               height: Get.height * .5,
                               width: Get.width,
                               child: Stickers(),
@@ -221,21 +221,40 @@ class OnboardingPage extends StatelessWidget {
               //Stickers
               Obx(() {
                 //Age screen
+
+                print(
+                    "onboarding_1. : ${_.currentStep} ${_.radius.value} :: ${_.height.value}");
+                double calcHeight = _.height.value;
+                if (_.currentStep == 1) {
+                  calcHeight = _.height.value - Get.height * .14;
+                } else if (_.currentStep == 2) {
+                  calcHeight = _.height.value - Get.height * .05;
+                }
+
                 return _.showFinalView.value
                     ? SizedBox.shrink()
-                    : Positioned(
-                        top: Get.height * .14,
-                        child: ClipPath(
-                          clipper: OnboardingClipper(
-                            radius: _.radius.value,
-                            height: _.height.value - Get.height * .14,
+                    : Column(
+                        children: [
+                          SizedBox(
+                            height: Get.height * .06,
                           ),
-                          child: SizedBox(
-                            height: Get.height * .5,
-                            width: Get.width,
-                            child: Stickers(),
+                          Positioned(
+                            // top: Get.height * .10,
+                            child: ClipPath(
+                              clipper: OnboardingClipper(
+                                radius: _.radius.value,
+                                height:
+                                    calcHeight /*_.height.value*/ /*- Get.height * .14*/,
+                              ),
+                              child: Container(
+                                //color: AppColors.green,
+                                height: Get.height * .5,
+                                width: Get.width,
+                                child: Stickers(),
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       );
               }),
               //Progress
