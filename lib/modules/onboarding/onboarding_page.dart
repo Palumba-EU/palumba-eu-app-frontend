@@ -238,20 +238,17 @@ class OnboardingPage extends StatelessWidget {
                           SizedBox(
                             height: Get.height * .06,
                           ),
-                          Positioned(
-                            // top: Get.height * .10,
-                            child: ClipPath(
-                              clipper: OnboardingClipper(
-                                radius: _.radius.value,
-                                height:
-                                    calcHeight /*_.height.value*/ /*- Get.height * .14*/,
-                              ),
-                              child: Container(
-                                //color: AppColors.green,
-                                height: Get.height * .5,
-                                width: Get.width,
-                                child: Stickers(),
-                              ),
+                          ClipPath(
+                            clipper: OnboardingClipper(
+                              radius: _.radius.value,
+                              height:
+                                  calcHeight /*_.height.value*/ /*- Get.height * .14*/,
+                            ),
+                            child: Container(
+                              //color: AppColors.green,
+                              height: Get.height * .5,
+                              width: Get.width,
+                              child: Stickers(),
                             ),
                           ),
                         ],
