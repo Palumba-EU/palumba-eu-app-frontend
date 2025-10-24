@@ -164,7 +164,7 @@ class CandidateBar extends StatelessWidget {
                 CustomNetworkImage(
                   width: Get.width * .10,
                   height: Get.width * .10,
-                  isSvg: true,
+                  isSvg: image.endsWith('svg'),
                   imageUrl: image,
                   radius: Get.width,
                   color: AppColors.blue,

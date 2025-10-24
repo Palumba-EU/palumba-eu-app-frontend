@@ -464,7 +464,7 @@ class ResultsController extends GetxController {
       if (data.party.inParliament == false) continue;
       final partyPosition = calculateCompassPosition(data.party.answers ?? []);
 
-      final ui.Image image = await SvgHelper.loadSvgFromUrl(data.party.logo);
+      final ui.Image image = await SvgHelper.loadFromUrl(data.party.logo);
       scatterSpots
           .add(ScatterSpot(partyPosition.positionX, partyPosition.positionY,
               dotPainter: FlDotCirclePainterCustom(

@@ -39,7 +39,7 @@ class ResultsPage2Bio extends GetView<ResultsController> with ResultsPage {
                       child: CustomNetworkImage(
                         width: Get.width * (isTablet ? .22 : .25),
                         height: Get.width * (isTablet ? .22 : .25),
-                        isSvg: true,
+                        isSvg: controller.maxPercentagePoliticParty?.party.logo.endsWith('svg') ?? true,
                         imageUrl:
                             controller.maxPercentagePoliticParty?.party.logo ??
                                 '',

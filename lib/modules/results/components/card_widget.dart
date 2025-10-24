@@ -135,7 +135,7 @@ class CardWidget extends StatelessWidget {
                                   (index) => CustomNetworkImage(
                                         width: 20,
                                         height: 20,
-                                        isSvg: true,
+                                        isSvg: data.parties[index].logo.endsWith('svg'),
                                         imageUrl: data.parties[index].logo,
                                         radius: Get.width,
                                         color: AppColors.blue,

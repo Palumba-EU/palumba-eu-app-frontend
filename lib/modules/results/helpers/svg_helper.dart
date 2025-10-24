@@ -1,10 +1,20 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 import 'package:http/http.dart' as http;
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SvgHelper {
-  static Future<ui.Image> loadSvgFromUrl(String url) async {
+  static Future<ui.Image> loadFromUrl(String url) async {
     final response = await http.get(Uri.parse(url));
+    if (!url.endsWith('svg')) {
+      final bytes = response.bodyBytes;
+      final completer = Completer<ui.Image>();
+      ui.decodeImageFromList(
+        bytes,
+        (img) => completer.complete(img)
+      );
+      return completer.future;
+    }
     final String rawSvg = response.body.toString();
 
     return imageFromLoader(SvgStringLoader(rawSvg));

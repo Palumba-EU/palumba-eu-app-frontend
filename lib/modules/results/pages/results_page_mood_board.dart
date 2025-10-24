@@ -154,7 +154,7 @@ class ResultsPageMoodBoard extends GetView<ResultsController> with ResultsPage {
               child: CustomNetworkImage(
                 width: Get.width * .28,
                 height: Get.width * .28,
-                isSvg: true,
+                isSvg: controller.maxPercentagePoliticParty?.party.logo.endsWith('svg') ?? true,
                 imageUrl:
                     controller.maxPercentagePoliticParty?.party.logo ?? "",
                 radius: Get.width,

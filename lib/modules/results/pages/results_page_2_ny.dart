@@ -40,7 +40,7 @@ class ResultsPage2Ny extends GetView<ResultsController> with ResultsPage {
                       child: CustomNetworkImage(
                         width: Get.width * (isTablet ? .55 : .65),
                         height: Get.width * (isTablet ? .55 : .65),
-                        isSvg: true,
+                        isSvg: controller.maxPercentagePoliticParty?.party.logo.endsWith('svg') ?? true,
                         imageUrl:
                             controller.maxPercentagePoliticParty?.party.logo ??
                                 '',
