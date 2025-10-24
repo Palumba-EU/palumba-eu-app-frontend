@@ -14,6 +14,8 @@ import 'package:palumba_eu/utils/string_utils.dart';
 import 'package:palumba_eu/utils/utils.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../data/repositories/remote/data_repository.dart';
+
 class SettingsPageController extends GetxController {
   static const route = '/settings';
 
@@ -30,9 +32,18 @@ class SettingsPageController extends GetxController {
 
   RxString appVersionAndBuildNumber = "".obs;
 
+  final DataRepository _dataRepository = Get.find<DataRepository>();
+
   @override
   void onInit() {
     super.onInit();
+    /*_initSponsors();
+    _initAppVersion();
+    PlausibleManager.trackPage(route);*/
+    _pageInit();
+  }
+
+  _pageInit() async {
     _initSponsors();
     _initAppVersion();
     PlausibleManager.trackPage(route);
@@ -49,13 +60,21 @@ class SettingsPageController extends GetxController {
     await Future.delayed(
         Duration(milliseconds: 100)); // optional visual smoothness
 
-    var response = DataManager().getSponsors();
+    var response1 = await _dataRepository.fetchSponsors();
+    if (response1 == null) {
+      debugPrint("failed to fetch sponsors");
+      //showInternetAlert();
 
+      return;
+    }
+
+    var response = DataManager().getSponsors();
     var categories = <CategorySponsor>[];
     var category = '';
     var sponsors = <Sponsor>[];
     for (var i = 0; i < response.length; i++) {
       var sponsor = response[i];
+      print("getSponsors setting : ${sponsor.name}");
       if (category.isNotEmpty && category != sponsor.category) {
         var current = categories
             .firstWhereOrNull((element) => element.category == category);
@@ -80,9 +99,12 @@ class SettingsPageController extends GetxController {
       categories.add(CategorySponsor(category: category, sponsors: sponsors));
     }
 
-    categoriesSponsors.value = [
+    /* categoriesSponsors.value = [
       ...categories
-    ]; // 🔥 clone to trigger Obx update
+    ];*/
+
+    categoriesSponsors.value = List<CategorySponsor>.from(categories);
+    categoriesSponsors.refresh();
   }
 
   /* void _initSponsors() async {
@@ -126,6 +148,7 @@ class SettingsPageController extends GetxController {
     if (result == true) {
       update([rebuildLanguageKey]);
     }
+    // await _pageInit();
   }
 
   Language? getSelectedLanguage() {
@@ -145,7 +168,8 @@ class SettingsPageController extends GetxController {
       update([rebuildElectionKey]);
     }
     // await _initSponsors();
-    onInit();
+    // onInit();
+    await _pageInit();
   }
 
   Election getSelectedElection() {

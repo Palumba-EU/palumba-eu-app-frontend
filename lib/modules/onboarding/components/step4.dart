@@ -91,6 +91,8 @@ class Step4 extends StatelessWidget {
                   text: TextSpan(
                     style: TextStyle(
                       fontSize: 16,
+                      fontFamily: 'merriweather-sans',
+                      fontWeight: FontWeight.w300,
                       color: AppColors.primary, // Default color
                     ), // Default text style
                     children: [

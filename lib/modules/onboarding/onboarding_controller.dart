@@ -208,9 +208,8 @@ class OnboardingController extends GetxController {
       radius.value = Radius.elliptical(900, 380);
       margin.value = EdgeInsets.symmetric(horizontal: Get.width * 0.18);
     } else if (currentStep.value == 2) {
-      height.value = isSmallScreen ? heightSize * 0.25 : heightSize * 0.32;
-
-      radius.value = Radius.circular(250);
+      height.value = isSmallScreen ? heightSize * 0.26 : heightSize * 0.34;
+      radius.value = Radius.circular(190);
       margin.value = EdgeInsets.zero;
     } else if (currentStep.value == 3) {
       height.value = isSmallScreen ? heightSize * 0.23 : heightSize * 0.38;

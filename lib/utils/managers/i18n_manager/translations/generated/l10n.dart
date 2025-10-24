@@ -2879,10 +2879,10 @@ class S {
     return Intl.message('See more >', name: 'seeMore', desc: '', args: []);
   }
 
-  /// `When it's come to {topic}, you are all-in for`
+  /// `When it comes to {topic}, you are all-in for`
   String resultsPage8_1Text_ny_25(Object topic) {
     return Intl.message(
-      'When it\'s come to $topic, you are all-in for',
+      'When it comes to $topic, you are all-in for',
       name: 'resultsPage8_1Text_ny_25',
       desc: '',
       args: [topic],

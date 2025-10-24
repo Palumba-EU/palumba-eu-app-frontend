@@ -50,7 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m9(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";
 
-  static String m12(topic) => "When it\'s come to ${topic}, you are all-in for";
+  static String m12(topic) => "When it comes to ${topic}, you are all-in for";
 
   static String m13(number, dimension) =>
       "Your answers are in the top ${number}% regarding ${dimension}";

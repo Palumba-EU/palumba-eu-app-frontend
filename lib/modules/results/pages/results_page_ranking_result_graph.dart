@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:palumba_eu/data/model/election.dart';
 import 'package:palumba_eu/modules/results/pages/results_page.dart';
+import 'package:palumba_eu/modules/results/pages/results_shared/results_heart_stack.dart';
 import 'package:palumba_eu/modules/results/results_controller.dart';
 import 'package:palumba_eu/utils/common_ui/app_colors.dart';
 import 'package:palumba_eu/utils/common_ui/app_dimens.dart';
 import 'package:palumba_eu/utils/common_ui/app_texts.dart';
 
 import '../../../global_widgets/custom_network_image.dart';
-import '../../../utils/managers/election_manager.dart';
 import '../../../utils/managers/i18n_manager/translations/generated/l10n.dart';
 
 class ResultsPageRankingResultGraph extends GetView<ResultsController>
@@ -55,48 +54,54 @@ class ResultsPageRankingResultGraph extends GetView<ResultsController>
     }
 
     return SafeArea(
-      child: Container(
-        color: ElectionManager.currentElection.value.background,
-        // color: AppColors.blue,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisSize: MainAxisSize.max,
-          // spacing: 20,
-          children: [
-            // CustomSpacer(multiplier: 3),
-            if (candidates.isNotEmpty)
-              Expanded(
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    spacing: 38,
-                    children: candidates.map((candidate) {
-                      return CandidateBar(
-                          percentage: candidate.percentage,
-                          name: candidate.name.split(" ")[1],
-                          color: candidate.color,
-                          image: candidate.imagePath);
-                    }).toList(),
+      child: Stack(
+        children: [
+          HeartStackNY(),
+          Container(
+            // color: ElectionManager.currentElection.value.background,
+            // color: AppColors.blue,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisSize: MainAxisSize.max,
+              // spacing: 20,
+              children: [
+                // CustomSpacer(multiplier: 3),
+                if (candidates.isNotEmpty)
+                  Expanded(
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        spacing: 38,
+                        children: candidates.map((candidate) {
+                          return CandidateBar(
+                              percentage: candidate.percentage,
+                              name: candidate.name.split(" ")[1],
+                              color: candidate.color,
+                              image: candidate.imagePath);
+                        }).toList(),
+                      ),
+                    ),
                   ),
-                ),
-              ),
 
-            Padding(
-              padding: EdgeInsetsGeometry.symmetric(
-                  horizontal: AppDimens.bigLateralPaddingValue, vertical: 10),
-              child: AppTexts.title(S.of(context).likeFootballFantasy,
-                  color: AppColors.primary, textAlign: TextAlign.center),
+                Padding(
+                  padding: EdgeInsetsGeometry.symmetric(
+                      horizontal: AppDimens.bigLateralPaddingValue,
+                      vertical: 10),
+                  child: AppTexts.title(S.of(context).likeFootballFantasy,
+                      color: AppColors.primary, textAlign: TextAlign.center),
+                ),
+                /*CustomSpacer(
+                  multiplier: 2,
+                )*/
+                SizedBox(
+                  height: controller.shareButtonHeight.value,
+                )
+              ],
             ),
-            /*CustomSpacer(
-              multiplier: 2,
-            )*/
-            SizedBox(
-              height: controller.shareButtonHeight.value,
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -385,6 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1543;
 				DEVELOPMENT_TEAM = GGBZ4HVA2F;
 				ENABLE_BITCODE = NO;
+				FLUTTER_BUILD_NAME = 3.0.0;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Palumba;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
@@ -520,6 +521,7 @@
 				CURRENT_PROJECT_VERSION = 1543;
 				DEVELOPMENT_TEAM = GGBZ4HVA2F;
 				ENABLE_BITCODE = NO;
+				FLUTTER_BUILD_NAME = 3.0.0;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Palumba;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
@@ -549,6 +551,7 @@
 				CURRENT_PROJECT_VERSION = 1543;
 				DEVELOPMENT_TEAM = GGBZ4HVA2F;
 				ENABLE_BITCODE = NO;
+				FLUTTER_BUILD_NAME = 3.0.0;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Palumba;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
